@@ -1,20 +1,15 @@
 package fr.inria.diversify.dspot.dynamic;
 
-import fr.inria.diversify.dspot.TestClassMinimisation;
 import fr.inria.diversify.dspot.value.MethodCall;
 import fr.inria.diversify.dspot.value.MethodCallReader;
 import fr.inria.diversify.dspot.value.ValueFactory;
 import fr.inria.diversify.log.LogReader;
 import fr.inria.diversify.runner.InputProgram;
-import fr.inria.diversify.testRunner.JunitResult;
 import fr.inria.diversify.testRunner.TestRunner;
+import fr.inria.diversify.testRunner.JunitResult;
 import fr.inria.diversify.util.Log;
-import spoon.reflect.code.CtInvocation;
-import spoon.reflect.code.CtThisAccess;
-import spoon.reflect.declaration.CtMethod;
-import spoon.reflect.declaration.CtModifiable;
-import spoon.reflect.declaration.CtType;
-import spoon.reflect.declaration.ModifierKind;
+import spoon.reflect.code.*;
+import spoon.reflect.declaration.*;
 import spoon.reflect.visitor.Query;
 import spoon.reflect.visitor.filter.TypeFilter;
 
@@ -87,7 +82,7 @@ public class TestGenerator {
                 })
                 .peek(testClass -> {
                     try {
-                        JunitResult result = testRunner.runTests(testClass, testClass.getMethods());
+                        JunitResult result = null;/*testRunner.runTests(testClass, testClass.getMethods());*/
                         Set<CtMethod> tests = new HashSet<CtMethod>(testClass.getMethods());
                                 tests.stream()
                                 .filter(test -> result.compileOrTimeOutTestName().contains(test.getSimpleName()))

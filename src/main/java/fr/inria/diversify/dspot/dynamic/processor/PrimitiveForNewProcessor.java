@@ -25,16 +25,17 @@ public class PrimitiveForNewProcessor extends AbstractLoggingInstrumenter<CtCons
     }
 
     public boolean isToBeProcessed(CtConstructorCall constructor) {
-        List<CtTypeReference<?>> params = constructor.getExecutable().getParameters();
-        return  getMethod(constructor) != null
-                && params.stream()
-                .anyMatch(param -> CtTypeUtils.isPrimitive(param) || CtTypeUtils.isString(param));
+//        List<CtTypeReference<?>> params = constructor.getExecutable().getParameters();
+//        return  getMethod(constructor) != null
+//                && params.stream()
+//                .anyMatch(param -> CtTypeUtils.isPrimitive(param) || CtTypeUtils.isString(param));
+        return true;
     }
 
     @Override
     public void process(CtConstructorCall constructorCall) {
         CtExecutableReference constructor = constructorCall.getExecutable();
-        int mthId = ProcessorUtil.methodId(getMethod(constructorCall));
+//        int mthId = ProcessorUtil.methodId(getMethod(constructorCall));
         int constructorCallId = ProcessorUtil.idFor(constructor.toString());
 
         List<CtTypeReference<?>> params = constructor.getParameters();
@@ -47,10 +48,10 @@ public class PrimitiveForNewProcessor extends AbstractLoggingInstrumenter<CtCons
                 CtLocalVariable localVar = getFactory().Code().createLocalVariable(param, "var_" + argId, arg);
                 arg.replace(getFactory().Code().createLocalVariableReference(localVar));
 
-                String snippet = getLogger() + ".logPrimitive(Thread.currentThread(), " + mthId
-                        + ", " + constructorCallId + ", " + i + ","
-                        + arg.toString() + ")";
-
+//                String snippet = getLogger() + ".logPrimitive(Thread.currentThread(), " + mthId
+//                        + ", " + constructorCallId + ", " + i + ","
+//                        + arg.toString() + ")";
+                String snippet = "";
                 CtStatement snippetStatement = getFactory().Code().createCodeSnippetStatement(snippet);
 
                 try {

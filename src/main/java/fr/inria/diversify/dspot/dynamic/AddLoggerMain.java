@@ -2,13 +2,13 @@ package fr.inria.diversify.dspot.dynamic;
 
 import fr.inria.diversify.buildSystem.android.InvalidSdkException;
 import fr.inria.diversify.dspot.DSpotUtils;
-import fr.inria.diversify.dspot.dynamic.processor.FieldUsedInstrumenter;
 import fr.inria.diversify.dspot.dynamic.processor.PrimitiveForNewProcessor;
-import fr.inria.diversify.dspot.dynamic.processor.TestFinderProcessor;
 import fr.inria.diversify.dspot.value.ValueFactory;
 import fr.inria.diversify.processor.ProcessorUtil;
 import fr.inria.diversify.processor.main.AddBlockEverywhereProcessor;
 import fr.inria.diversify.profiling.processor.main.AbstractLoggingInstrumenter;
+import fr.inria.diversify.dspot.dynamic.processor.FieldUsedInstrumenter;
+import fr.inria.diversify.dspot.dynamic.processor.TestFinderProcessor;
 import fr.inria.diversify.runner.InputConfiguration;
 import fr.inria.diversify.runner.InputProgram;
 import fr.inria.diversify.util.FileUtils;

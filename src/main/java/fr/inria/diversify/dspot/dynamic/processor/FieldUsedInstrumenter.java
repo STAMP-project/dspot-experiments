@@ -4,13 +4,17 @@ import fr.inria.diversify.processor.ProcessorUtil;
 import fr.inria.diversify.profiling.processor.main.AbstractLoggingInstrumenter;
 import fr.inria.diversify.profiling.processor.main.FieldReferenceVisitor;
 import fr.inria.diversify.runner.InputProgram;
+import fr.inria.diversify.util.Log;
 import spoon.reflect.code.*;
 import spoon.reflect.declaration.*;
 import spoon.reflect.reference.CtLocalVariableReference;
 import spoon.reflect.visitor.Query;
 import spoon.reflect.visitor.filter.TypeFilter;
 
+import java.lang.reflect.Array;
 import java.lang.reflect.Modifier;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.Map;
 
 /**

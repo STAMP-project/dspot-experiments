@@ -3,6 +3,7 @@ package fr.inria.diversify.dspot.dynamic;
 import fr.inria.diversify.dspot.value.MethodCall;
 import fr.inria.diversify.dspot.value.Value;
 import fr.inria.diversify.dspot.value.ValueFactory;
+import fr.inria.diversify.util.Log;
 import spoon.reflect.code.*;
 import spoon.reflect.declaration.*;
 import spoon.reflect.factory.Factory;

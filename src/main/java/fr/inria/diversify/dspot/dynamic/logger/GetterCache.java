@@ -1,12 +1,11 @@
 package fr.inria.diversify.dspot.dynamic.logger;
 
+import fr.inria.diversify.dspot.TypeUtils;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * User: Simon

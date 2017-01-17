@@ -60,7 +60,8 @@ public class TestFinderProcessor extends AbstractLoggingInstrumenter<CtMethod> {
     @Override
     public void process(CtMethod method) {
         String id = method.getDeclaringType().getQualifiedName() + "." + method.getSimpleName();
-        CtTry ctTry = tryFinallyBody(method);
+//        CtTry ctTry = tryFinallyBody(method);
+        CtTry ctTry = null;
         Factory factory = getFactory();
 
         String snippet = getLogger()

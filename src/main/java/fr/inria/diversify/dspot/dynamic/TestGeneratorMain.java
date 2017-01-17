@@ -2,15 +2,12 @@ package fr.inria.diversify.dspot.dynamic;
 
 import fr.inria.diversify.buildSystem.DiversifyClassLoader;
 import fr.inria.diversify.buildSystem.android.InvalidSdkException;
-import fr.inria.diversify.dspot.Amplification;
 import fr.inria.diversify.dspot.DSpotUtils;
-import fr.inria.diversify.dspot.TestClassMinimisation;
-import fr.inria.diversify.dspot.amp.*;
+import fr.inria.diversify.dspot.amplifier.*;
 import fr.inria.diversify.dspot.assertGenerator.AssertGenerator;
 import fr.inria.diversify.dspot.assertGenerator.RemoveBadTest;
-//import fr.inria.diversify.dspot.support.DSpotCompiler;
+import fr.inria.diversify.dspot.support.DSpotCompiler;
 import fr.inria.diversify.dspot.value.ValueFactory;
-import fr.inria.diversify.factories.DiversityCompiler;
 import fr.inria.diversify.runner.InputConfiguration;
 import fr.inria.diversify.runner.InputProgram;
 import fr.inria.diversify.testRunner.TestRunner;
@@ -18,7 +15,6 @@ import fr.inria.diversify.util.FileUtils;
 import fr.inria.diversify.util.InitUtils;
 import fr.inria.diversify.util.Log;
 import fr.inria.diversify.util.PrintClassUtils;
-import spoon.reflect.declaration.CtMethod;
 import spoon.reflect.declaration.CtType;
 
 import java.io.File;
@@ -27,7 +23,6 @@ import java.lang.management.ManagementFactory;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * User: Simon
@@ -37,8 +32,7 @@ import java.util.stream.Collectors;
 public class TestGeneratorMain {
     protected InputConfiguration inputConfiguration;
     protected final InputProgram inputProgram;
-    protected DiversityCompiler compiler;
-    //protected DSpotCompiler compiler;
+    protected DSpotCompiler compiler;
     protected DiversifyClassLoader applicationClassLoader;
     protected DiversifyClassLoader applicationWithBranchLoggerClassLoader;
     protected ValueFactory valueFactory;
@@ -65,7 +59,7 @@ public class TestGeneratorMain {
         applicationWithBranchLoggerClassLoader = DSpotUtils.initClassLoader(inputProgram, inputConfiguration);
 
         inputProgram.setProgramDir(outputDirectory);
-        compiler = DSpotUtils.initDiversityCompiler(inputProgram, false);
+        compiler = DSpotCompiler.buildCompiler(inputProgram, false);
 
         String mavenHome = inputConfiguration.getProperty("maven.home",null);
         String mavenLocalRepository = inputConfiguration.getProperty("maven.localRepository",null);
@@ -92,8 +86,8 @@ public class TestGeneratorMain {
     }
 
     public void testGenerator(String logDir) throws IOException, InterruptedException {
-        TestRunner testRunnerWithBranchLogger = new TestRunner(inputProgram, applicationWithBranchLoggerClassLoader, compiler);
-        TestRunner testRunner = new TestRunner(inputProgram, applicationClassLoader, compiler);
+        TestRunner testRunnerWithBranchLogger = new TestRunner(applicationWithBranchLoggerClassLoader, compiler);
+        TestRunner testRunner = new TestRunner(applicationClassLoader, compiler);
 
         valueFactory = new ValueFactory(inputProgram, logDir);
         TestClassMinimisation testClassMinimisation = new TestClassMinimisation(inputProgram,testRunnerWithBranchLogger, branchDir + "/log");
@@ -106,8 +100,7 @@ public class TestGeneratorMain {
                 .sum();
         Log.debug("test count before amplification: {}", count);
 
-        testClasses.stream()
-                .forEach(test -> amplificationTestClass(test));
+        testClasses.forEach(test -> amplificationTestClass(test));
 
         count = testClasses.stream()
                 .mapToInt(test -> test.getMethods().size())
@@ -136,14 +129,14 @@ public class TestGeneratorMain {
 
 
     public void amplificationTestClass(CtType testClass) {
-        Amplification testAmplification = new Amplification(inputProgram, compiler, applicationWithBranchLoggerClassLoader, initAmplifiers(), new File(branchDir + "/log"));
-
-        try {
-            List<CtMethod> amplification = testAmplification.amplification(testClass, 8);
-            amplification.stream()
-                    .forEach(test -> testClass.addMethod(test));
-        } catch (Exception e) {
-        }
+//        Amplification testAmplification = new Amplification(inputProgram, inputConfiguration, compiler, applicationWithBranchLoggerClassLoader, initAmplifiers(), new File(branchDir + "/log"));
+//
+//        try {
+//            List<CtMethod> amplification = testAmplification.amplification(testClass, 8);
+//            amplification.stream()
+//                    .forEach(test -> testClass.addMethod(test));
+//        } catch (Exception e) {
+//        }
     }
 
     protected List<Amplifier> initAmplifiers() {
@@ -160,19 +153,19 @@ public class TestGeneratorMain {
 
     protected Collection<CtType> addAssert(Collection<CtType> testClasses) {
         AssertGenerator assertGenerator = new AssertGenerator(inputProgram, compiler, applicationClassLoader);
-
-        return testClasses.stream()
-                .map(test -> {
-                    try {
-                        return assertGenerator.generateAsserts(test);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        return null;
-                    }
-                })
-                .filter(test -> test != null)
-                .filter(test -> !test.getMethods().isEmpty())
-                .collect(Collectors.toList());
+        return null;
+//        return testClasses.stream()
+//                .map(test -> {
+//                    try {
+//                        return assertGenerator.generateAsserts(test);
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                        return null;
+//                    }
+//                })
+//                .filter(test -> test != null)
+//                .filter(test -> !test.getMethods().isEmpty())
+//                .collect(Collectors.toList());
     }
 
     public void clean() throws IOException {
