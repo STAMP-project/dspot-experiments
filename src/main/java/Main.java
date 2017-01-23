@@ -13,6 +13,7 @@ import spoon.reflect.declaration.CtType;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -52,6 +53,12 @@ public class Main {
     private static void amplifyAll(DSpot dspot, InputConfiguration configuration) {
         long time = System.currentTimeMillis();
         final File outputDirectory = new File(configuration.getOutputDirectory() + "/");
+        if (!outputDirectory.exists()) {
+            Arrays.stream((configuration.getOutputDirectory() + "/").split("/"))
+                    .map(File::new)
+                    .filter(directory -> !directory.exists())
+                    .map(File::mkdir);
+        }
         try {
             dspot.amplifyAllTests().forEach(amplifiedTestClass ->
                     DSpotUtils.printJavaFileWithComment(amplifiedTestClass, outputDirectory)
