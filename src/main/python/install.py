@@ -15,3 +15,8 @@ cmd += " dataset/"
 cmd += project
 
 subprocess.call(cmd, shell=True)
+
+cmd = "git reset --hard"
+cmd += data[project]["commitid"]
+
+subprocess.call(cmd, shell=True)

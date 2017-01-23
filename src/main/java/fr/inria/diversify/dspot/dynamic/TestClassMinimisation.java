@@ -36,7 +36,7 @@ public class TestClassMinimisation {
 //        this.testRunnerWithBranchLogger = testRunnerWithBranchLogger;
         this.inputProgram = inputProgram;
         this.logDir = new File(logDir);
-        this.classWithLoggerBuilder = new ClassWithLoggerBuilder(inputProgram.getFactory());
+        this.classWithLoggerBuilder = new ClassWithLoggerBuilder(inputProgram);
     }
 
     public CtType minimiseTests(CtType classTest) {

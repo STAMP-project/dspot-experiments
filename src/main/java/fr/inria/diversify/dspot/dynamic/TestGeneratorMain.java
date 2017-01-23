@@ -56,16 +56,16 @@ public class TestGeneratorMain {
         branchDir = addBranchLogger(inputConfiguration);
         inputProgram.setProgramDir(branchDir);
         InitUtils.addApplicationClassesToClassPath(inputProgram);
-        applicationWithBranchLoggerClassLoader = DSpotUtils.initClassLoader(inputProgram, inputConfiguration);
+//        applicationWithBranchLoggerClassLoader = DSpotUtils.initClassLoader(inputProgram, inputConfiguration);
 
         inputProgram.setProgramDir(outputDirectory);
-        compiler = DSpotCompiler.buildCompiler(inputProgram, false);
+//        compiler = DSpotCompiler.buildCompiler(inputProgram, false);
 
         String mavenHome = inputConfiguration.getProperty("maven.home",null);
         String mavenLocalRepository = inputConfiguration.getProperty("maven.localRepository",null);
-        DSpotUtils.compile(inputProgram, mavenHome, mavenLocalRepository);
+//        DSpotUtils.compile(inputProgram, mavenHome, mavenLocalRepository);
         InitUtils.addApplicationClassesToClassPath(inputProgram);
-        applicationClassLoader = DSpotUtils.initClassLoader(inputProgram, inputConfiguration);
+//        applicationClassLoader = DSpotUtils.initClassLoader(inputProgram, inputConfiguration);
     }
 
     protected String addBranchLogger(InputConfiguration inputConfiguration) throws IOException, InterruptedException {
@@ -73,13 +73,13 @@ public class TestGeneratorMain {
         String outputDirectory = inputConfiguration.getProperty("tmpDir") + "/tmp_branchLogger" + System.currentTimeMillis();
         FileUtils.copyDirectory(new File(inputProgram.getProgramDir()), new File(outputDirectory));
         inputProgram.setProgramDir(outputDirectory);
-        DSpotUtils.addBranchLogger(inputProgram);
+        DSpotUtils.addBranchLogger(inputProgram, inputProgram.getFactory());
 
         String mavenHome = inputConfiguration.getProperty("maven.home",null);
         String mavenLocalRepository = inputConfiguration.getProperty("maven.localRepository",null);
-        DSpotUtils.compileTests(inputProgram, mavenHome, mavenLocalRepository);
+//        DSpotUtils.compileTests(inputProgram, mavenHome, mavenLocalRepository);
 
-        applicationWithBranchLoggerClassLoader = DSpotUtils.initClassLoader(inputProgram, inputConfiguration);
+//        applicationWithBranchLoggerClassLoader = DSpotUtils.initClassLoader(inputProgram, inputConfiguration);
         inputProgram.setProgramDir(programDir);
 
         return outputDirectory;
@@ -152,7 +152,7 @@ public class TestGeneratorMain {
 
 
     protected Collection<CtType> addAssert(Collection<CtType> testClasses) {
-        AssertGenerator assertGenerator = new AssertGenerator(inputProgram, compiler, applicationClassLoader);
+//        AssertGenerator assertGenerator = new AssertGenerator(inputProgram, compiler, applicationClassLoader);
         return null;
 //        return testClasses.stream()
 //                .map(test -> {

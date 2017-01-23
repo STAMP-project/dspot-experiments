@@ -41,7 +41,7 @@ public class AddLoggerMain {
         InitUtils.initDependency(inputConfiguration, false);
         String mavenHome = inputConfiguration.getProperty("maven.home",null);
         String mavenLocalRepository = inputConfiguration.getProperty("maven.localRepository",null);
-        DSpotUtils.compileTests(inputProgram, mavenHome, mavenLocalRepository);
+//        DSpotUtils.compileTests(inputProgram, mavenHome, mavenLocalRepository);
         addLogger();
     }
 
