@@ -1,6 +1,7 @@
 import fr.inria.diversify.buildSystem.android.InvalidSdkException;
 import fr.inria.diversify.dspot.AmplificationHelper;
 import fr.inria.diversify.dspot.DSpot;
+import fr.inria.diversify.dspot.DSpotUtils;
 import fr.inria.diversify.dspot.amplifier.Amplifier;
 import fr.inria.diversify.dspot.amplifier.StatementAdderOnAssert;
 import fr.inria.diversify.dspot.amplifier.TestDataMutator;
@@ -8,11 +9,9 @@ import fr.inria.diversify.dspot.amplifier.TestMethodCallRemover;
 import fr.inria.diversify.dspot.selector.PitMutantScoreSelector;
 import fr.inria.diversify.runner.InputConfiguration;
 import fr.inria.diversify.runner.InputProgram;
-import fr.inria.diversify.util.PrintClassUtils;
 import spoon.reflect.declaration.CtType;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,32 +22,19 @@ import java.util.List;
  */
 public class Main {
 
+
     public static void main(String[] args) throws InvalidSdkException, Exception {
-        run(args);
+        run(JSAPOptions.parse(args));
         System.exit(0);
     }
 
-    public static void run(String[] args) throws InvalidSdkException, Exception {
-        if (args.length < 1) {
-            System.err.println("You must specify a path to a properties file");
-            System.exit(1);
-        }
-        InputConfiguration configuration = new InputConfiguration(args[0]);
+    public static void run(JSAPOptions.Configuration configuration) throws InvalidSdkException, Exception {
+        InputConfiguration inputConfiguration= new InputConfiguration(configuration.pathToConfigurationFile);
         AmplificationHelper.setSeedRandom(23L);
         InputProgram program = new InputProgram();
-
-        configuration.setInputProgram(program);
-        List<Amplifier> amplifiers = new ArrayList<>();
-        amplifiers.add(new TestDataMutator());
-        amplifiers.add(new TestMethodCallRemover());
-        amplifiers.add(new StatementAdderOnAssert());
-        DSpot dspot = new DSpot(configuration, 3, amplifiers, new PitMutantScoreSelector());
-
-        if (args.length > 1) {
-            amplifyOne(dspot, args[1], configuration);
-        } else {
-            amplifyAll(dspot, configuration);
-        }
+        inputConfiguration.setInputProgram(program);
+        DSpot dspot = new DSpot(inputConfiguration, configuration.nbIteration, configuration.amplifiers, new PitMutantScoreSelector());
+        amplifyAll(dspot, inputConfiguration);
     }
 
     private static void amplifyOne(DSpot dspot, String fullQualifiedNameTestClass, InputConfiguration configuration) {
@@ -56,24 +42,19 @@ public class Main {
         final File outputDirectory = new File(configuration.getOutputDirectory() + "/");
         try {
             CtType amplifiedTestClass = dspot.amplifyTest(fullQualifiedNameTestClass);
-            PrintClassUtils.printJavaFile(outputDirectory, amplifiedTestClass);
-        } catch (Exception ignored) {
-
+            DSpotUtils.printJavaFileWithComment(amplifiedTestClass, outputDirectory);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
         System.out.println(System.currentTimeMillis() - time + " ms");
     }
 
     private static void amplifyAll(DSpot dspot, InputConfiguration configuration) {
         long time = System.currentTimeMillis();
-        final File outputDirectory = new File(configuration.getProjectPath() + "/" + configuration.getRelativeTestSourceCodeDir());
+        final File outputDirectory = new File(configuration.getOutputDirectory() + "/");
         try {
-            dspot.amplifyAllTests().forEach(amplifiedTestClass -> {
-                        try {
-                            PrintClassUtils.printJavaFile(outputDirectory, amplifiedTestClass);
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
-                    }
+            dspot.amplifyAllTests().forEach(amplifiedTestClass ->
+                    DSpotUtils.printJavaFileWithComment(amplifiedTestClass, outputDirectory)
             );
         } catch (Exception e) {
             throw new RuntimeException(e);
