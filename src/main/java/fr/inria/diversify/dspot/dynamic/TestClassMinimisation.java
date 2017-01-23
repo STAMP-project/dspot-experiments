@@ -7,7 +7,6 @@ import fr.inria.diversify.log.TestGraphReader;
 import fr.inria.diversify.log.branch.Coverage;
 import fr.inria.diversify.log.graph.Graph;
 import fr.inria.diversify.runner.InputProgram;
-import fr.inria.diversify.testRunner.TestRunner;
 import fr.inria.diversify.util.FileUtils;
 import spoon.reflect.declaration.CtMethod;
 import spoon.reflect.declaration.CtType;
@@ -25,7 +24,7 @@ import java.util.stream.Collectors;
  * Time: 10:21
  */
 public class TestClassMinimisation {
-    protected TestRunner testRunnerWithBranchLogger;
+//    protected TestRunner testRunnerWithBranchLogger;
     protected ClassWithLoggerBuilder classWithLoggerBuilder;
     protected File logDir;
     protected InputProgram inputProgram;
@@ -33,8 +32,8 @@ public class TestClassMinimisation {
     protected List<Coverage> currentBranchCoverage;
     protected List<Graph> currentGraphsCoverage;
 
-    public TestClassMinimisation(InputProgram inputProgram, TestRunner testRunnerWithBranchLogger, String logDir) {
-        this.testRunnerWithBranchLogger = testRunnerWithBranchLogger;
+    public TestClassMinimisation(InputProgram inputProgram, /*TestRunner testRunnerWithBranchLogger, */String logDir) {
+//        this.testRunnerWithBranchLogger = testRunnerWithBranchLogger;
         this.inputProgram = inputProgram;
         this.logDir = new File(logDir);
         this.classWithLoggerBuilder = new ClassWithLoggerBuilder(inputProgram.getFactory());

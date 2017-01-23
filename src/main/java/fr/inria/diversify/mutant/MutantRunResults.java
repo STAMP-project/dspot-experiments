@@ -1,4 +1,4 @@
-package fr.inria.diversify.mutant.transformation;
+package fr.inria.diversify.mutant;
 
 import spoon.reflect.declaration.CtClass;
 

@@ -5,11 +5,14 @@ import fr.inria.diversify.dspot.value.MethodCallReader;
 import fr.inria.diversify.dspot.value.ValueFactory;
 import fr.inria.diversify.log.LogReader;
 import fr.inria.diversify.runner.InputProgram;
-import fr.inria.diversify.testRunner.TestRunner;
 import fr.inria.diversify.testRunner.JunitResult;
 import fr.inria.diversify.util.Log;
-import spoon.reflect.code.*;
-import spoon.reflect.declaration.*;
+import spoon.reflect.code.CtInvocation;
+import spoon.reflect.code.CtThisAccess;
+import spoon.reflect.declaration.CtMethod;
+import spoon.reflect.declaration.CtModifiable;
+import spoon.reflect.declaration.CtType;
+import spoon.reflect.declaration.ModifierKind;
 import spoon.reflect.visitor.Query;
 import spoon.reflect.visitor.filter.TypeFilter;
 
@@ -24,15 +27,15 @@ import java.util.stream.IntStream;
  * Time: 15:36
  */
 public class TestGenerator {
-    protected TestRunner testRunner;
+    /*protected TestRunner testRunner;*/
     protected TestClassMinimisation testClassMinimisation;
     protected ValueFactory valueFactory;
 
     protected InputProgram inputProgram;
     protected Map<CtType, CtType> testClasses;
 
-    public TestGenerator(InputProgram inputProgram, TestRunner testRunner, ValueFactory valueFactory, TestClassMinimisation testClassMinimisation) {
-        this.testRunner = testRunner;
+    public TestGenerator(InputProgram inputProgram, /*TestRunner testRunner,*/ ValueFactory valueFactory, TestClassMinimisation testClassMinimisation) {
+       /* this.testRunner = testRunner;*/
         this.valueFactory = valueFactory;
         this.inputProgram = inputProgram;
         this.testClassMinimisation = testClassMinimisation;

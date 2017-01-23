@@ -1,9 +1,11 @@
-package fr.inria.diversify.mutant.transformation;
+package fr.inria.diversify.mutant;
 
 import fr.inria.diversify.buildSystem.DiversifyClassLoader;
 import fr.inria.diversify.buildSystem.android.InvalidSdkException;
 import fr.inria.diversify.buildSystem.maven.MavenBuilder;
 import fr.inria.diversify.dspot.AmplificationChecker;
+import fr.inria.diversify.mutant.transformation.MutationQuery;
+import fr.inria.diversify.mutant.transformation.MutationTransformation;
 import fr.inria.diversify.runner.InputConfiguration;
 import fr.inria.diversify.runner.InputProgram;
 import fr.inria.diversify.testRunner.JunitResult;

@@ -142,6 +142,9 @@ public  class Observation {
         if(value instanceof Character) {
             return "\'" + value.toString() + "\'";
         }
+        if (value == null) {
+            return "null";
+        }
         return value.toString();
     }
 

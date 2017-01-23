@@ -86,13 +86,13 @@ public class TestGeneratorMain {
     }
 
     public void testGenerator(String logDir) throws IOException, InterruptedException {
-        TestRunner testRunnerWithBranchLogger = new TestRunner(applicationWithBranchLoggerClassLoader, compiler);
-        TestRunner testRunner = new TestRunner(applicationClassLoader, compiler);
+//        TestRunner testRunnerWithBranchLogger = new TestRunner(applicationWithBranchLoggerClassLoader, compiler);
+//        TestRunner testRunner = new TestRunner(applicationClassLoader, compiler);
 
         valueFactory = new ValueFactory(inputProgram, logDir);
-        TestClassMinimisation testClassMinimisation = new TestClassMinimisation(inputProgram,testRunnerWithBranchLogger, branchDir + "/log");
+        TestClassMinimisation testClassMinimisation = new TestClassMinimisation(inputProgram, /*testRunnerWithBranchLogger,*/ branchDir + "/log");
 
-        TestGenerator testGenerator = new TestGenerator(inputProgram, testRunner, valueFactory, testClassMinimisation);
+        TestGenerator testGenerator = new TestGenerator(inputProgram, /*testRunner, */valueFactory, testClassMinimisation);
         Collection<CtType> testClasses = testGenerator.generateTestClasses(logDir);
 
         int count = testClasses.stream()
