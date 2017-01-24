@@ -127,6 +127,9 @@ public  class Observation {
 
 
     protected String printPrimitiveString(Object value) {
+        if (value == null) {
+            return "null";
+        }
         if(value instanceof Double) {
             return value.toString() + "D";
         }
@@ -141,9 +144,6 @@ public  class Observation {
         }
         if(value instanceof Character) {
             return "\'" + value.toString() + "\'";
-        }
-        if (value == null) {
-            return "null";
         }
         return value.toString();
     }
