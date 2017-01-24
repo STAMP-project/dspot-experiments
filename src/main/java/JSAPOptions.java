@@ -22,10 +22,14 @@ public class JSAPOptions {
         public final String pathToConfigurationFile;
         public final List<Amplifier> amplifiers;
         public final int nbIteration;
-        public Configuration(String pathToConfigurationFile, List<Amplifier> amplifiers, int nbIteration) {
+        public final String testCase;
+        public final String  pathToOutput;
+        public Configuration(String pathToConfigurationFile, List<Amplifier> amplifiers, int nbIteration, String testCase, String pathToOutput) {
             this.pathToConfigurationFile = pathToConfigurationFile;
             this.amplifiers = amplifiers;
             this.nbIteration = nbIteration;
+            this.testCase = testCase;
+            this.pathToOutput = pathToOutput;
         }
     }
 
@@ -51,7 +55,8 @@ public class JSAPOptions {
         }
         return new Configuration(jsapConfig.getString("path"),
                 buildAmplifiersFromString(jsapConfig.getStringArray("amplifiers")),
-                jsapConfig.getInt("iteration"));
+                jsapConfig.getInt("iteration"), jsapConfig.getString("test"),
+                jsapConfig.getString("output"));
     }
 
     private static Amplifier stringToAmplifier(String amplifier) {
@@ -83,12 +88,6 @@ public class JSAPOptions {
         pathToConfigFile.setStringParser(JSAP.STRING_PARSER);
         pathToConfigFile.setHelp("specify the patht to the configuration file of the target project.");
 
-        try {
-            jsap.registerParameter(pathToConfigFile);
-        } catch (JSAPException e) {
-            throw new RuntimeException(e);
-        }
-
         FlaggedOption amplifiers = new FlaggedOption("amplifiers");
         amplifiers.setRequired(true);
         amplifiers.setList(true);
@@ -96,12 +95,6 @@ public class JSAPOptions {
         amplifiers.setShortFlag('a');
         amplifiers.setStringParser(JSAP.STRING_PARSER);
         amplifiers.setHelp("specify the list of the amplifiers to use");
-
-        try {
-            jsap.registerParameter(amplifiers);
-        } catch (JSAPException e) {
-            throw new RuntimeException(e);
-        }
 
         FlaggedOption iteration = new FlaggedOption("iteration");
         iteration.setRequired(true);
@@ -111,8 +104,25 @@ public class JSAPOptions {
         iteration.setAllowMultipleDeclarations(false);
         iteration.setHelp("specify the number of time each amplifiers is applied");
 
+        FlaggedOption specificTestCase = new FlaggedOption("test");
+        specificTestCase.setStringParser(JSAP.STRING_PARSER);
+        specificTestCase.setShortFlag('t');
+        specificTestCase.setLongFlag("test");
+        specificTestCase.setDefault("all");
+        specificTestCase.setHelp("full qualify name of test class");
+
+        FlaggedOption output = new FlaggedOption("output");
+        output.setStringParser(JSAP.STRING_PARSER);
+        output.setShortFlag('o');
+        output.setLongFlag("output");
+        output.setHelp("specify the output folder");
+
         try {
+            jsap.registerParameter(pathToConfigFile);
+            jsap.registerParameter(amplifiers);
             jsap.registerParameter(iteration);
+            jsap.registerParameter(specificTestCase);
+            jsap.registerParameter(output);
         } catch (JSAPException e) {
             throw new RuntimeException(e);
         }
