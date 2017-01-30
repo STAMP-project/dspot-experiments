@@ -27,7 +27,13 @@ public class Main {
         AmplificationHelper.setSeedRandom(23L);
         InputProgram program = new InputProgram();
         inputConfiguration.setInputProgram(program);
-        DSpot dspot = new DSpot(inputConfiguration, configuration.nbIteration, configuration.amplifiers, new PitMutantScoreSelector());
+        PitMutantScoreSelector selector;
+        if (!"".equals(configuration.pathToOriginalMutantScore)) {
+            selector = new PitMutantScoreSelector(configuration.pathToOriginalMutantScore);
+        } else {
+            selector = new PitMutantScoreSelector();
+        }
+        DSpot dspot = new DSpot(inputConfiguration, configuration.nbIteration, configuration.amplifiers, selector);
         if (!"".equals(configuration.pathToOutput)) {
             inputConfiguration.getProperties().setProperty("outputDirectory", configuration.pathToOutput);
         }

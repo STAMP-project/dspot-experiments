@@ -19,10 +19,14 @@ def top_killer(filename):
             if currentScore > topScore:
                 topScore = currentScore
                 bestAmplifiedMethodName = amplifiedMethod
-        print(bestAmplifiedMethodName + " kills " + str(topScore) + " mutants")
+        if bestAmplifiedMethodName != "none":
+            print clazz
+            print(bestAmplifiedMethodName + " kills " + str(topScore) + " mutants")
 
 if len(sys.argv) < 2:
     usage()
     exit(1)
-top_killer(sys.argv[1])
+
+for i in range(1, len(sys.argv)):
+    top_killer(sys.argv[i])
 
