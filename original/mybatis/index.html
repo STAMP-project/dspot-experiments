@@ -1,0 +1,414 @@
+<html>
+<head>
+  
+    <style type='text/css'>
+   
+   .tests{ 
+     width : 50%;
+     float : left;
+   }
+   
+   .mutees{
+     float : right;
+     width : 50%;
+   }
+   
+   .unit {
+     padding-top : 20px;
+     clear : both;
+   }
+   
+   .coverage_bar {
+    display : inline-block;
+    height : 1.1em;
+    width: 130px;
+    background: #FAA;
+    margin: 0 5px;
+    vertical-align: middle;
+    border: 1px solid #AAA;
+    position : relative;
+   }
+   
+   .coverage_complete {
+    display : inline-block;
+    height : 100%;
+    background: #DFD;
+    float: left;
+   }
+   
+   .coverage_ledgend {
+        position : absolute;
+        height : 100%;
+        width : 100%;
+        left : 0;
+        top : 0;
+        text-align : center;
+   }
+   
+   .line, .mut {
+        vertical-align : middle;
+   }
+   
+   .coveragePercentage {
+    display: inline-block;
+    width: 3em;
+    text-align: right;
+   }
+  </style>
+  
+</head>
+<body>
+
+<h1>Pit Test Coverage Report</h1>
+
+<h3>Project Summary</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Number of Classes</th>
+            <th>Line Coverage</th>
+            <th>Mutation Coverage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>208</td>
+            <td>85% <div class="coverage_bar"><div class="coverage_complete" style="width:85%"></div><div class="coverage_ledgend">8461/9996</div></div></td>
+            <td>78% <div class="coverage_bar"><div class="coverage_complete" style="width:78%"></div><div class="coverage_ledgend">15286/19685</div></div></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>Breakdown by Package</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Number of Classes</th>
+            <th>Line Coverage</th>
+            <th>Mutation Coverage</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.binding/index.html">org.apache.ibatis.binding</a></td>
+            <td>4</td>
+            <td><div class="coveragePercentage">94% </div><div class="coverage_bar"><div class="coverage_complete" style="width:94%"></div><div class="coverage_ledgend">213/226</div></div></td>
+            <td><div class="coveragePercentage">84% </div><div class="coverage_bar"><div class="coverage_complete" style="width:84%"></div><div class="coverage_ledgend">486/577</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.builder/index.html">org.apache.ibatis.builder</a></td>
+            <td>7</td>
+            <td><div class="coveragePercentage">96% </div><div class="coverage_bar"><div class="coverage_complete" style="width:96%"></div><div class="coverage_ledgend">392/410</div></div></td>
+            <td><div class="coveragePercentage">92% </div><div class="coverage_bar"><div class="coverage_complete" style="width:92%"></div><div class="coverage_ledgend">831/900</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.builder.annotation/index.html">org.apache.ibatis.builder.annotation</a></td>
+            <td>3</td>
+            <td><div class="coveragePercentage">98% </div><div class="coverage_bar"><div class="coverage_complete" style="width:98%"></div><div class="coverage_ledgend">381/388</div></div></td>
+            <td><div class="coveragePercentage">92% </div><div class="coverage_bar"><div class="coverage_complete" style="width:92%"></div><div class="coverage_ledgend">896/975</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.builder.xml/index.html">org.apache.ibatis.builder.xml</a></td>
+            <td>5</td>
+            <td><div class="coveragePercentage">96% </div><div class="coverage_bar"><div class="coverage_complete" style="width:96%"></div><div class="coverage_ledgend">629/652</div></div></td>
+            <td><div class="coveragePercentage">95% </div><div class="coverage_bar"><div class="coverage_complete" style="width:95%"></div><div class="coverage_ledgend">1302/1364</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.cache/index.html">org.apache.ibatis.cache</a></td>
+            <td>3</td>
+            <td><div class="coveragePercentage">90% </div><div class="coverage_bar"><div class="coverage_complete" style="width:90%"></div><div class="coverage_ledgend">74/82</div></div></td>
+            <td><div class="coveragePercentage">79% </div><div class="coverage_bar"><div class="coverage_complete" style="width:79%"></div><div class="coverage_ledgend">128/163</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.cache.decorators/index.html">org.apache.ibatis.cache.decorators</a></td>
+            <td>10</td>
+            <td><div class="coveragePercentage">87% </div><div class="coverage_bar"><div class="coverage_complete" style="width:87%"></div><div class="coverage_ledgend">278/321</div></div></td>
+            <td><div class="coveragePercentage">61% </div><div class="coverage_bar"><div class="coverage_complete" style="width:61%"></div><div class="coverage_ledgend">299/487</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.cache.impl/index.html">org.apache.ibatis.cache.impl</a></td>
+            <td>1</td>
+            <td><div class="coveragePercentage">83% </div><div class="coverage_bar"><div class="coverage_complete" style="width:83%"></div><div class="coverage_ledgend">20/24</div></div></td>
+            <td><div class="coveragePercentage">72% </div><div class="coverage_bar"><div class="coverage_complete" style="width:72%"></div><div class="coverage_ledgend">31/43</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.cursor.defaults/index.html">org.apache.ibatis.cursor.defaults</a></td>
+            <td>1</td>
+            <td><div class="coveragePercentage">94% </div><div class="coverage_bar"><div class="coverage_complete" style="width:94%"></div><div class="coverage_ledgend">64/68</div></div></td>
+            <td><div class="coveragePercentage">86% </div><div class="coverage_bar"><div class="coverage_complete" style="width:86%"></div><div class="coverage_ledgend">114/132</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.datasource.jndi/index.html">org.apache.ibatis.datasource.jndi</a></td>
+            <td>1</td>
+            <td><div class="coveragePercentage">85% </div><div class="coverage_bar"><div class="coverage_complete" style="width:85%"></div><div class="coverage_ledgend">23/27</div></div></td>
+            <td><div class="coveragePercentage">57% </div><div class="coverage_bar"><div class="coverage_complete" style="width:57%"></div><div class="coverage_ledgend">33/58</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.datasource.pooled/index.html">org.apache.ibatis.datasource.pooled</a></td>
+            <td>4</td>
+            <td><div class="coveragePercentage">64% </div><div class="coverage_bar"><div class="coverage_complete" style="width:64%"></div><div class="coverage_ledgend">230/360</div></div></td>
+            <td><div class="coveragePercentage">44% </div><div class="coverage_bar"><div class="coverage_complete" style="width:44%"></div><div class="coverage_ledgend">358/819</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.datasource.unpooled/index.html">org.apache.ibatis.datasource.unpooled</a></td>
+            <td>2</td>
+            <td><div class="coveragePercentage">64% </div><div class="coverage_bar"><div class="coverage_complete" style="width:64%"></div><div class="coverage_ledgend">88/137</div></div></td>
+            <td><div class="coveragePercentage">54% </div><div class="coverage_bar"><div class="coverage_complete" style="width:54%"></div><div class="coverage_ledgend">97/180</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.exceptions/index.html">org.apache.ibatis.exceptions</a></td>
+            <td>1</td>
+            <td><div class="coveragePercentage">33% </div><div class="coverage_bar"><div class="coverage_complete" style="width:33%"></div><div class="coverage_ledgend">1/3</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">6/6</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.executor/index.html">org.apache.ibatis.executor</a></td>
+            <td>9</td>
+            <td><div class="coveragePercentage">88% </div><div class="coverage_bar"><div class="coverage_complete" style="width:88%"></div><div class="coverage_ledgend">409/465</div></div></td>
+            <td><div class="coveragePercentage">81% </div><div class="coverage_bar"><div class="coverage_complete" style="width:81%"></div><div class="coverage_ledgend">648/801</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.executor.keygen/index.html">org.apache.ibatis.executor.keygen</a></td>
+            <td>2</td>
+            <td><div class="coveragePercentage">90% </div><div class="coverage_bar"><div class="coverage_complete" style="width:90%"></div><div class="coverage_ledgend">95/105</div></div></td>
+            <td><div class="coveragePercentage">78% </div><div class="coverage_bar"><div class="coverage_complete" style="width:78%"></div><div class="coverage_ledgend">181/231</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.executor.loader/index.html">org.apache.ibatis.executor.loader</a></td>
+            <td>4</td>
+            <td><div class="coveragePercentage">82% </div><div class="coverage_bar"><div class="coverage_complete" style="width:82%"></div><div class="coverage_ledgend">174/211</div></div></td>
+            <td><div class="coveragePercentage">60% </div><div class="coverage_bar"><div class="coverage_complete" style="width:60%"></div><div class="coverage_ledgend">267/442</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.executor.loader.cglib/index.html">org.apache.ibatis.executor.loader.cglib</a></td>
+            <td>2</td>
+            <td><div class="coveragePercentage">89% </div><div class="coverage_bar"><div class="coverage_complete" style="width:89%"></div><div class="coverage_ledgend">68/76</div></div></td>
+            <td><div class="coveragePercentage">76% </div><div class="coverage_bar"><div class="coverage_complete" style="width:76%"></div><div class="coverage_ledgend">96/126</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.executor.loader.javassist/index.html">org.apache.ibatis.executor.loader.javassist</a></td>
+            <td>2</td>
+            <td><div class="coveragePercentage">88% </div><div class="coverage_bar"><div class="coverage_complete" style="width:88%"></div><div class="coverage_ledgend">68/77</div></div></td>
+            <td><div class="coveragePercentage">87% </div><div class="coverage_bar"><div class="coverage_complete" style="width:87%"></div><div class="coverage_ledgend">109/126</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.executor.result/index.html">org.apache.ibatis.executor.result</a></td>
+            <td>3</td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">35/35</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">33/33</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.executor.resultset/index.html">org.apache.ibatis.executor.resultset</a></td>
+            <td>2</td>
+            <td><div class="coveragePercentage">93% </div><div class="coverage_bar"><div class="coverage_complete" style="width:93%"></div><div class="coverage_ledgend">640/686</div></div></td>
+            <td><div class="coveragePercentage">90% </div><div class="coverage_bar"><div class="coverage_complete" style="width:90%"></div><div class="coverage_ledgend">1546/1712</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.executor.statement/index.html">org.apache.ibatis.executor.statement</a></td>
+            <td>6</td>
+            <td><div class="coveragePercentage">80% </div><div class="coverage_bar"><div class="coverage_complete" style="width:80%"></div><div class="coverage_ledgend">150/187</div></div></td>
+            <td><div class="coveragePercentage">74% </div><div class="coverage_bar"><div class="coverage_complete" style="width:74%"></div><div class="coverage_ledgend">217/294</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.io/index.html">org.apache.ibatis.io</a></td>
+            <td>7</td>
+            <td><div class="coveragePercentage">58% </div><div class="coverage_bar"><div class="coverage_complete" style="width:58%"></div><div class="coverage_ledgend">245/420</div></div></td>
+            <td><div class="coveragePercentage">38% </div><div class="coverage_bar"><div class="coverage_complete" style="width:38%"></div><div class="coverage_ledgend">365/971</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.jdbc/index.html">org.apache.ibatis.jdbc</a></td>
+            <td>7</td>
+            <td><div class="coveragePercentage">78% </div><div class="coverage_bar"><div class="coverage_complete" style="width:78%"></div><div class="coverage_ledgend">424/545</div></div></td>
+            <td><div class="coveragePercentage">77% </div><div class="coverage_bar"><div class="coverage_complete" style="width:77%"></div><div class="coverage_ledgend">656/849</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.logging/index.html">org.apache.ibatis.logging</a></td>
+            <td>1</td>
+            <td><div class="coveragePercentage">72% </div><div class="coverage_bar"><div class="coverage_complete" style="width:72%"></div><div class="coverage_ledgend">44/61</div></div></td>
+            <td><div class="coveragePercentage">48% </div><div class="coverage_bar"><div class="coverage_complete" style="width:48%"></div><div class="coverage_ledgend">26/54</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.logging.jdbc/index.html">org.apache.ibatis.logging.jdbc</a></td>
+            <td>5</td>
+            <td><div class="coveragePercentage">86% </div><div class="coverage_bar"><div class="coverage_complete" style="width:86%"></div><div class="coverage_ledgend">214/248</div></div></td>
+            <td><div class="coveragePercentage">78% </div><div class="coverage_bar"><div class="coverage_complete" style="width:78%"></div><div class="coverage_ledgend">403/520</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.logging.log4j2/index.html">org.apache.ibatis.logging.log4j2</a></td>
+            <td>3</td>
+            <td><div class="coveragePercentage">55% </div><div class="coverage_bar"><div class="coverage_complete" style="width:55%"></div><div class="coverage_ledgend">28/51</div></div></td>
+            <td><div class="coveragePercentage">11% </div><div class="coverage_bar"><div class="coverage_complete" style="width:11%"></div><div class="coverage_ledgend">5/45</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.logging.nologging/index.html">org.apache.ibatis.logging.nologging</a></td>
+            <td>1</td>
+            <td><div class="coveragePercentage">78% </div><div class="coverage_bar"><div class="coverage_complete" style="width:78%"></div><div class="coverage_ledgend">7/9</div></div></td>
+            <td><div class="coveragePercentage">0% </div><div class="coverage_bar"><div class="coverage_complete" style="width:0%"></div><div class="coverage_ledgend">0/4</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.logging.slf4j/index.html">org.apache.ibatis.logging.slf4j</a></td>
+            <td>3</td>
+            <td><div class="coveragePercentage">53% </div><div class="coverage_bar"><div class="coverage_complete" style="width:53%"></div><div class="coverage_ledgend">29/55</div></div></td>
+            <td><div class="coveragePercentage">22% </div><div class="coverage_bar"><div class="coverage_complete" style="width:22%"></div><div class="coverage_ledgend">6/27</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.logging.stdout/index.html">org.apache.ibatis.logging.stdout</a></td>
+            <td>1</td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">15/15</div></div></td>
+            <td><div class="coveragePercentage">60% </div><div class="coverage_bar"><div class="coverage_complete" style="width:60%"></div><div class="coverage_ledgend">6/10</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.mapping/index.html">org.apache.ibatis.mapping</a></td>
+            <td>11</td>
+            <td><div class="coveragePercentage">87% </div><div class="coverage_bar"><div class="coverage_complete" style="width:87%"></div><div class="coverage_ledgend">530/608</div></div></td>
+            <td><div class="coveragePercentage">79% </div><div class="coverage_bar"><div class="coverage_complete" style="width:79%"></div><div class="coverage_ledgend">1001/1270</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.parsing/index.html">org.apache.ibatis.parsing</a></td>
+            <td>4</td>
+            <td><div class="coveragePercentage">68% </div><div class="coverage_bar"><div class="coverage_complete" style="width:68%"></div><div class="coverage_ledgend">241/356</div></div></td>
+            <td><div class="coveragePercentage">72% </div><div class="coverage_bar"><div class="coverage_complete" style="width:72%"></div><div class="coverage_ledgend">499/696</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.plugin/index.html">org.apache.ibatis.plugin</a></td>
+            <td>3</td>
+            <td><div class="coveragePercentage">85% </div><div class="coverage_bar"><div class="coverage_complete" style="width:85%"></div><div class="coverage_ledgend">50/59</div></div></td>
+            <td><div class="coveragePercentage">68% </div><div class="coverage_bar"><div class="coverage_complete" style="width:68%"></div><div class="coverage_ledgend">86/127</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.reflection/index.html">org.apache.ibatis.reflection</a></td>
+            <td>9</td>
+            <td><div class="coveragePercentage">91% </div><div class="coverage_bar"><div class="coverage_complete" style="width:91%"></div><div class="coverage_ledgend">523/577</div></div></td>
+            <td><div class="coveragePercentage">89% </div><div class="coverage_bar"><div class="coverage_complete" style="width:89%"></div><div class="coverage_ledgend">1139/1277</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.reflection.factory/index.html">org.apache.ibatis.reflection.factory</a></td>
+            <td>1</td>
+            <td><div class="coveragePercentage">98% </div><div class="coverage_bar"><div class="coverage_complete" style="width:98%"></div><div class="coverage_ledgend">40/41</div></div></td>
+            <td><div class="coveragePercentage">93% </div><div class="coverage_bar"><div class="coverage_complete" style="width:93%"></div><div class="coverage_ledgend">104/112</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.reflection.invoker/index.html">org.apache.ibatis.reflection.invoker</a></td>
+            <td>3</td>
+            <td><div class="coveragePercentage">84% </div><div class="coverage_bar"><div class="coverage_complete" style="width:84%"></div><div class="coverage_ledgend">16/19</div></div></td>
+            <td><div class="coveragePercentage">81% </div><div class="coverage_bar"><div class="coverage_complete" style="width:81%"></div><div class="coverage_ledgend">22/27</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.reflection.property/index.html">org.apache.ibatis.reflection.property</a></td>
+            <td>3</td>
+            <td><div class="coveragePercentage">83% </div><div class="coverage_bar"><div class="coverage_complete" style="width:83%"></div><div class="coverage_ledgend">38/46</div></div></td>
+            <td><div class="coveragePercentage">91% </div><div class="coverage_bar"><div class="coverage_complete" style="width:91%"></div><div class="coverage_ledgend">131/144</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.reflection.wrapper/index.html">org.apache.ibatis.reflection.wrapper</a></td>
+            <td>5</td>
+            <td><div class="coveragePercentage">60% </div><div class="coverage_bar"><div class="coverage_complete" style="width:60%"></div><div class="coverage_ledgend">123/205</div></div></td>
+            <td><div class="coveragePercentage">53% </div><div class="coverage_bar"><div class="coverage_complete" style="width:53%"></div><div class="coverage_ledgend">240/456</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.scripting/index.html">org.apache.ibatis.scripting</a></td>
+            <td>1</td>
+            <td><div class="coveragePercentage">63% </div><div class="coverage_bar"><div class="coverage_complete" style="width:63%"></div><div class="coverage_ledgend">15/24</div></div></td>
+            <td><div class="coveragePercentage">50% </div><div class="coverage_bar"><div class="coverage_complete" style="width:50%"></div><div class="coverage_ledgend">21/42</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.scripting.defaults/index.html">org.apache.ibatis.scripting.defaults</a></td>
+            <td>3</td>
+            <td><div class="coveragePercentage">98% </div><div class="coverage_bar"><div class="coverage_complete" style="width:98%"></div><div class="coverage_ledgend">54/55</div></div></td>
+            <td><div class="coveragePercentage">92% </div><div class="coverage_bar"><div class="coverage_complete" style="width:92%"></div><div class="coverage_ledgend">91/99</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.scripting.xmltags/index.html">org.apache.ibatis.scripting.xmltags</a></td>
+            <td>15</td>
+            <td><div class="coveragePercentage">94% </div><div class="coverage_bar"><div class="coverage_complete" style="width:94%"></div><div class="coverage_ledgend">453/482</div></div></td>
+            <td><div class="coveragePercentage">87% </div><div class="coverage_bar"><div class="coverage_complete" style="width:87%"></div><div class="coverage_ledgend">766/876</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.session/index.html">org.apache.ibatis.session</a></td>
+            <td>6</td>
+            <td><div class="coveragePercentage">77% </div><div class="coverage_bar"><div class="coverage_complete" style="width:77%"></div><div class="coverage_ledgend">397/518</div></div></td>
+            <td><div class="coveragePercentage">72% </div><div class="coverage_bar"><div class="coverage_complete" style="width:72%"></div><div class="coverage_ledgend">535/742</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.session.defaults/index.html">org.apache.ibatis.session.defaults</a></td>
+            <td>2</td>
+            <td><div class="coveragePercentage">75% </div><div class="coverage_bar"><div class="coverage_complete" style="width:75%"></div><div class="coverage_ledgend">128/170</div></div></td>
+            <td><div class="coveragePercentage">68% </div><div class="coverage_bar"><div class="coverage_complete" style="width:68%"></div><div class="coverage_ledgend">237/348</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.transaction.jdbc/index.html">org.apache.ibatis.transaction.jdbc</a></td>
+            <td>2</td>
+            <td><div class="coveragePercentage">74% </div><div class="coverage_bar"><div class="coverage_complete" style="width:74%"></div><div class="coverage_ledgend">42/57</div></div></td>
+            <td><div class="coveragePercentage">56% </div><div class="coverage_bar"><div class="coverage_complete" style="width:56%"></div><div class="coverage_ledgend">71/127</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.transaction.managed/index.html">org.apache.ibatis.transaction.managed</a></td>
+            <td>2</td>
+            <td><div class="coveragePercentage">61% </div><div class="coverage_bar"><div class="coverage_complete" style="width:61%"></div><div class="coverage_ledgend">22/36</div></div></td>
+            <td><div class="coveragePercentage">42% </div><div class="coverage_bar"><div class="coverage_complete" style="width:42%"></div><div class="coverage_ledgend">24/57</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.apache.ibatis.type/index.html">org.apache.ibatis.type</a></td>
+            <td>38</td>
+            <td><div class="coveragePercentage">94% </div><div class="coverage_bar"><div class="coverage_complete" style="width:94%"></div><div class="coverage_ledgend">751/799</div></div></td>
+            <td><div class="coveragePercentage">88% </div><div class="coverage_bar"><div class="coverage_complete" style="width:88%"></div><div class="coverage_ledgend">1174/1336</div></div></td>
+        </tr>
+
+     </tbody>
+</table>
+<br/>
+
+
+
+<hr/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.1.11
+
+</body>
+</html>

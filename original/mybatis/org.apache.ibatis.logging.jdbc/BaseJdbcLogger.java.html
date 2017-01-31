@@ -1,0 +1,3902 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+	border: 1px solid #dddddd;
+	padding-top: 10px;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-family: Consolas, Courier, monospace;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+
+.pop {outline:none; }
+.pop strong {line-height:30px;}
+.pop {text-decoration:none;}
+.pop span { z-index:10;display:none; padding:14px 20px; margin-top:-30px; margin-left:28px; width:800px; line-height:16px; word-wrap:break-word; }
+.pop:hover span{ display:inline; position:absolute; color:#111; border:1px solid #DCA; background:#fffAF0;}
+
+.pop span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -moz-box-shadow: 5px 5px 8px #CCC; -webkit-box-shadow: 5px 5px 8px #CCC; box-shadow: 5px 5px 8px #CCC; }
+</style>
+
+</head>
+<body>
+
+
+<h1>BaseJdbcLogger.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    Copyright 2009-2016 the original author or authors.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    you may not use this file except in compliance with the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    You may obtain a copy of the License at</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *       http://www.apache.org/licenses/LICENSE-2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    Unless required by applicable law or agreed to in writing, software</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    See the License for the specific language governing permissions and</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    limitations under the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_16'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.apache.ibatis.logging.jdbc;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_17'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.sql.Array;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.sql.SQLException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_20'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_21'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Arrays;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_22'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.HashMap;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_23'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.HashSet;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_24'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_25'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Map;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_26'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Set;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_27'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.StringTokenizer;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_28'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_29'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.logging.Log;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_30'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_31'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_32'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Base class for proxies to do logging</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_33'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_34'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @author Clinton Begin</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_35'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @author Eduardo Macarron</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_36'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_37'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public abstract class BaseJdbcLogger {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_38'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_39'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  protected static final Set&#60;String&#62; SET_METHODS = new HashSet&#60;String&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_40'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  protected static final Set&#60;String&#62; EXECUTE_METHODS = new HashSet&#60;String&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_41'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_42'/>
+42
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_42'>2</a>
+<span>
+1. <init> : removed call to java/util/HashMap::&#60;init&#62; &rarr; KILLED<br/>
+2. <init> : Removed assignment to member variable columnMap &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>  private Map&#60;Object, Object&#62; columnMap = new HashMap&#60;Object, Object&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_43'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_44'/>
+44
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_44'>2</a>
+<span>
+1. <init> : removed call to java/util/ArrayList::&#60;init&#62; &rarr; KILLED<br/>
+2. <init> : Removed assignment to member variable columnNames &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>  private List&#60;Object&#62; columnNames = new ArrayList&#60;Object&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_45'/>
+45
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_45'>2</a>
+<span>
+1. <init> : removed call to java/util/ArrayList::&#60;init&#62; &rarr; KILLED<br/>
+2. <init> : Removed assignment to member variable columnValues &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>  private List&#60;Object&#62; columnValues = new ArrayList&#60;Object&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_46'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_47'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  protected Log statementLog;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_48'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  protected int queryStack;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_49'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_50'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  /*</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_51'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   * Default constructor</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_52'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>   */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_53'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  public BaseJdbcLogger(Log log, int queryStack) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_54'/>
+54
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_54'>1</a>
+<span>
+1. <init> : Removed assignment to member variable statementLog &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    this.statementLog = log;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_55'/>
+55
+</td>
+<td class='uncertain'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_55'>3</a>
+<span>
+1. <init> : removed conditional - replaced equality check with true &rarr; TIMED_OUT<br/>
+2. <init> : negated conditional &rarr; KILLED<br/>
+3. <init> : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='uncertain'>    if (queryStack == 0) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_56'/>
+56
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_56'>2</a>
+<span>
+1. <init> : Removed assignment to member variable queryStack &rarr; SURVIVED<br/>
+2. <init> : Substituted 1 with 0 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      this.queryStack = 1;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_57'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_58'/>
+58
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_58'>1</a>
+<span>
+1. <init> : Removed assignment to member variable queryStack &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      this.queryStack = queryStack;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_59'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_60'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_61'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_62'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  static {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_63'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SET_METHODS.add(&#34;setString&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_64'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SET_METHODS.add(&#34;setNString&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_65'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SET_METHODS.add(&#34;setInt&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_66'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SET_METHODS.add(&#34;setByte&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_67'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SET_METHODS.add(&#34;setShort&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_68'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SET_METHODS.add(&#34;setLong&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_69'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SET_METHODS.add(&#34;setDouble&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_70'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SET_METHODS.add(&#34;setFloat&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_71'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SET_METHODS.add(&#34;setTimestamp&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_72'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SET_METHODS.add(&#34;setDate&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_73'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SET_METHODS.add(&#34;setTime&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_74'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SET_METHODS.add(&#34;setArray&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_75'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SET_METHODS.add(&#34;setBigDecimal&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_76'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SET_METHODS.add(&#34;setAsciiStream&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_77'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SET_METHODS.add(&#34;setBinaryStream&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_78'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SET_METHODS.add(&#34;setBlob&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_79'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SET_METHODS.add(&#34;setBoolean&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_80'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SET_METHODS.add(&#34;setBytes&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_81'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SET_METHODS.add(&#34;setCharacterStream&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_82'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SET_METHODS.add(&#34;setNCharacterStream&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_83'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SET_METHODS.add(&#34;setClob&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_84'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SET_METHODS.add(&#34;setNClob&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_85'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SET_METHODS.add(&#34;setObject&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_86'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    SET_METHODS.add(&#34;setNull&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_87'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_88'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    EXECUTE_METHODS.add(&#34;execute&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_89'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    EXECUTE_METHODS.add(&#34;executeUpdate&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_90'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    EXECUTE_METHODS.add(&#34;executeQuery&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_91'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    EXECUTE_METHODS.add(&#34;addBatch&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_92'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_93'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_94'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  protected void setColumn(Object key, Object value) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_95'/>
+95
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_95'>2</a>
+<span>
+1. setColumn : replaced call to java/util/Map::put with argument &rarr; KILLED<br/>
+2. setColumn : removed call to java/util/Map::put &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    columnMap.put(key, value);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_96'/>
+96
+</td>
+<td class='uncertain'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_96'>1</a>
+<span>
+1. setColumn : removed call to java/util/List::add &rarr; TIMED_OUT<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='uncertain'>    columnNames.add(key);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_97'/>
+97
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_97'>1</a>
+<span>
+1. setColumn : removed call to java/util/List::add &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    columnValues.add(value);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_98'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_99'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_100'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  protected Object getColumn(Object key) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_101'/>
+101
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_101'>3</a>
+<span>
+1. getColumn : replaced call to java/util/Map::get with argument &rarr; NO_COVERAGE<br/>
+2. getColumn : removed call to java/util/Map::get &rarr; NO_COVERAGE<br/>
+3. getColumn : mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::getColumn to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>    return columnMap.get(key);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_102'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_103'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_104'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  protected String getParameterValueString() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_105'/>
+105
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_105'>2</a>
+<span>
+1. getParameterValueString : removed call to java/util/ArrayList::&#60;init&#62; &rarr; KILLED<br/>
+2. getParameterValueString : removed call to java/util/List::size &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    List&#60;Object&#62; typeList = new ArrayList&#60;Object&#62;(columnValues.size());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_106'/>
+106
+</td>
+<td class='uncertain'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_106'>6</a>
+<span>
+1. getParameterValueString : removed call to java/util/Iterator::next &rarr; TIMED_OUT<br/>
+2. getParameterValueString : negated conditional &rarr; KILLED<br/>
+3. getParameterValueString : removed call to java/util/List::iterator &rarr; KILLED<br/>
+4. getParameterValueString : removed call to java/util/Iterator::hasNext &rarr; KILLED<br/>
+5. getParameterValueString : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+6. getParameterValueString : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='uncertain'>    for (Object value : columnValues) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_107'/>
+107
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_107'>3</a>
+<span>
+1. getParameterValueString : negated conditional &rarr; KILLED<br/>
+2. getParameterValueString : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+3. getParameterValueString : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      if (value == null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_108'/>
+108
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_108'>1</a>
+<span>
+1. getParameterValueString : removed call to java/util/List::add &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        typeList.add(&#34;null&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_109'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_110'/>
+110
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_110'>10</a>
+<span>
+1. getParameterValueString : removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; KILLED<br/>
+2. getParameterValueString : removed call to org/apache/ibatis/logging/jdbc/BaseJdbcLogger::objectValueString &rarr; KILLED<br/>
+3. getParameterValueString : removed call to java/lang/StringBuilder::append &rarr; KILLED<br/>
+4. getParameterValueString : removed call to java/lang/StringBuilder::append &rarr; KILLED<br/>
+5. getParameterValueString : removed call to java/lang/Object::getClass &rarr; KILLED<br/>
+6. getParameterValueString : removed call to java/lang/Class::getSimpleName &rarr; KILLED<br/>
+7. getParameterValueString : removed call to java/lang/StringBuilder::append &rarr; KILLED<br/>
+8. getParameterValueString : removed call to java/lang/StringBuilder::append &rarr; KILLED<br/>
+9. getParameterValueString : removed call to java/lang/StringBuilder::toString &rarr; KILLED<br/>
+10. getParameterValueString : removed call to java/util/List::add &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        typeList.add(objectValueString(value) + &#34;(&#34; + value.getClass().getSimpleName() + &#34;)&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_111'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_112'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_113'/>
+113
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_113'>1</a>
+<span>
+1. getParameterValueString : removed call to java/lang/Object::toString &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    final String parameters = typeList.toString();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_114'/>
+114
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_114'>6</a>
+<span>
+1. getParameterValueString : Substituted 1 with 0 &rarr; SURVIVED<br/>
+2. getParameterValueString : Substituted 1 with 0 &rarr; KILLED<br/>
+3. getParameterValueString : Replaced integer subtraction with addition &rarr; KILLED<br/>
+4. getParameterValueString : removed call to java/lang/String::length &rarr; KILLED<br/>
+5. getParameterValueString : removed call to java/lang/String::substring &rarr; KILLED<br/>
+6. getParameterValueString : mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::getParameterValueString to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    return parameters.substring(1, parameters.length() - 1);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_115'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_116'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_117'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  protected String objectValueString(Object value) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_118'/>
+118
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_118'>3</a>
+<span>
+1. objectValueString : negated conditional &rarr; KILLED<br/>
+2. objectValueString : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+3. objectValueString : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    if (value instanceof Array) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_119'/>
+119
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_119'>2</a>
+<span>
+1. objectValueString : removed call to org/apache/ibatis/logging/jdbc/BaseJdbcLogger::arrayValueString &rarr; KILLED<br/>
+2. objectValueString : mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::objectValueString to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return arrayValueString((Array) value);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_120'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_121'/>
+121
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_121'>2</a>
+<span>
+1. objectValueString : removed call to java/lang/Object::toString &rarr; KILLED<br/>
+2. objectValueString : mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::objectValueString to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return value.toString();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_122'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_123'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_124'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  protected String arrayValueString(Array array) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_125'/>
+125
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_125'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    try {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_126'/>
+126
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_126'>1</a>
+<span>
+1. arrayValueString : removed call to java/sql/Array::getArray &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      Object value = array.getArray();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_127'/>
+127
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_127'>3</a>
+<span>
+1. arrayValueString : negated conditional &rarr; KILLED<br/>
+2. arrayValueString : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+3. arrayValueString : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      if (value instanceof Object[]) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_128'/>
+128
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_128'>2</a>
+<span>
+1. arrayValueString : removed call to java/util/Arrays::toString &rarr; KILLED<br/>
+2. arrayValueString : mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::arrayValueString to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return Arrays.toString((Object[]) value);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_129'/>
+129
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_129'>3</a>
+<span>
+1. arrayValueString : removed conditional - replaced equality check with false &rarr; SURVIVED<br/>
+2. arrayValueString : negated conditional &rarr; KILLED<br/>
+3. arrayValueString : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      } else if (value instanceof long[]) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_130'/>
+130
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_130'>2</a>
+<span>
+1. arrayValueString : removed call to java/util/Arrays::toString &rarr; NO_COVERAGE<br/>
+2. arrayValueString : mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::arrayValueString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return Arrays.toString((long[]) value);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_131'/>
+131
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_131'>3</a>
+<span>
+1. arrayValueString : removed conditional - replaced equality check with true &rarr; SURVIVED<br/>
+2. arrayValueString : negated conditional &rarr; KILLED<br/>
+3. arrayValueString : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      } else if (value instanceof int[]) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_132'/>
+132
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_132'>2</a>
+<span>
+1. arrayValueString : removed call to java/util/Arrays::toString &rarr; KILLED<br/>
+2. arrayValueString : mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::arrayValueString to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return Arrays.toString((int[]) value);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_133'/>
+133
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_133'>3</a>
+<span>
+1. arrayValueString : negated conditional &rarr; NO_COVERAGE<br/>
+2. arrayValueString : removed conditional - replaced equality check with false &rarr; NO_COVERAGE<br/>
+3. arrayValueString : removed conditional - replaced equality check with true &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>      } else if (value instanceof short[]) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_134'/>
+134
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_134'>2</a>
+<span>
+1. arrayValueString : removed call to java/util/Arrays::toString &rarr; NO_COVERAGE<br/>
+2. arrayValueString : mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::arrayValueString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return Arrays.toString((short[]) value);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_135'/>
+135
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_135'>3</a>
+<span>
+1. arrayValueString : negated conditional &rarr; NO_COVERAGE<br/>
+2. arrayValueString : removed conditional - replaced equality check with false &rarr; NO_COVERAGE<br/>
+3. arrayValueString : removed conditional - replaced equality check with true &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>      } else if (value instanceof char[]) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_136'/>
+136
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_136'>2</a>
+<span>
+1. arrayValueString : removed call to java/util/Arrays::toString &rarr; NO_COVERAGE<br/>
+2. arrayValueString : mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::arrayValueString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return Arrays.toString((char[]) value);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_137'/>
+137
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_137'>3</a>
+<span>
+1. arrayValueString : negated conditional &rarr; NO_COVERAGE<br/>
+2. arrayValueString : removed conditional - replaced equality check with false &rarr; NO_COVERAGE<br/>
+3. arrayValueString : removed conditional - replaced equality check with true &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>      } else if (value instanceof byte[]) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_138'/>
+138
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_138'>2</a>
+<span>
+1. arrayValueString : removed call to java/util/Arrays::toString &rarr; NO_COVERAGE<br/>
+2. arrayValueString : mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::arrayValueString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return Arrays.toString((byte[]) value);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_139'/>
+139
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_139'>3</a>
+<span>
+1. arrayValueString : negated conditional &rarr; NO_COVERAGE<br/>
+2. arrayValueString : removed conditional - replaced equality check with false &rarr; NO_COVERAGE<br/>
+3. arrayValueString : removed conditional - replaced equality check with true &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>      } else if (value instanceof boolean[]) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_140'/>
+140
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_140'>2</a>
+<span>
+1. arrayValueString : removed call to java/util/Arrays::toString &rarr; NO_COVERAGE<br/>
+2. arrayValueString : mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::arrayValueString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return Arrays.toString((boolean[]) value);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_141'/>
+141
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_141'>3</a>
+<span>
+1. arrayValueString : negated conditional &rarr; NO_COVERAGE<br/>
+2. arrayValueString : removed conditional - replaced equality check with false &rarr; NO_COVERAGE<br/>
+3. arrayValueString : removed conditional - replaced equality check with true &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>      } else if (value instanceof float[]) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_142'/>
+142
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_142'>2</a>
+<span>
+1. arrayValueString : removed call to java/util/Arrays::toString &rarr; NO_COVERAGE<br/>
+2. arrayValueString : mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::arrayValueString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return Arrays.toString((float[]) value);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_143'/>
+143
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_143'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_144'/>
+144
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_144'>2</a>
+<span>
+1. arrayValueString : removed call to java/util/Arrays::toString &rarr; NO_COVERAGE<br/>
+2. arrayValueString : mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::arrayValueString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return Arrays.toString((double[]) value);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_145'/>
+145
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_145'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_146'/>
+146
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_146'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    } catch (SQLException e) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_147'/>
+147
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_147'>2</a>
+<span>
+1. arrayValueString : removed call to java/lang/Object::toString &rarr; NO_COVERAGE<br/>
+2. arrayValueString : mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::arrayValueString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>      return array.toString();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_148'/>
+148
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_148'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_149'/>
+149
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_149'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_150'/>
+150
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_150'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_151'/>
+151
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_151'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  protected String getColumnString() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_152'/>
+152
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_152'>2</a>
+<span>
+1. getColumnString : removed call to java/lang/Object::toString &rarr; NO_COVERAGE<br/>
+2. getColumnString : mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::getColumnString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>    return columnNames.toString();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_153'/>
+153
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_153'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_154'/>
+154
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_154'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_155'/>
+155
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_155'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  protected void clearColumnInfo() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_156'/>
+156
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_156'>1</a>
+<span>
+1. clearColumnInfo : removed call to java/util/Map::clear &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    columnMap.clear();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_157'/>
+157
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_157'>1</a>
+<span>
+1. clearColumnInfo : removed call to java/util/List::clear &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    columnNames.clear();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_158'/>
+158
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_158'>1</a>
+<span>
+1. clearColumnInfo : removed call to java/util/List::clear &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    columnValues.clear();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_159'/>
+159
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_159'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_160'/>
+160
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_160'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_161'/>
+161
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_161'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  protected String removeBreakingWhitespace(String original) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_162'/>
+162
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_162'>1</a>
+<span>
+1. removeBreakingWhitespace : removed call to java/util/StringTokenizer::&#60;init&#62; &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    StringTokenizer whitespaceStripper = new StringTokenizer(original);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_163'/>
+163
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_163'>1</a>
+<span>
+1. removeBreakingWhitespace : removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    StringBuilder builder = new StringBuilder();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_164'/>
+164
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_164'>4</a>
+<span>
+1. removeBreakingWhitespace : negated conditional &rarr; KILLED<br/>
+2. removeBreakingWhitespace : removed call to java/util/StringTokenizer::hasMoreTokens &rarr; KILLED<br/>
+3. removeBreakingWhitespace : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+4. removeBreakingWhitespace : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    while (whitespaceStripper.hasMoreTokens()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_165'/>
+165
+</td>
+<td class='uncertain'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_165'>2</a>
+<span>
+1. removeBreakingWhitespace : removed call to java/util/StringTokenizer::nextToken &rarr; TIMED_OUT<br/>
+2. removeBreakingWhitespace : removed call to java/lang/StringBuilder::append &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='uncertain'>      builder.append(whitespaceStripper.nextToken());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_166'/>
+166
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_166'>1</a>
+<span>
+1. removeBreakingWhitespace : removed call to java/lang/StringBuilder::append &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      builder.append(&#34; &#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_167'/>
+167
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_167'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_168'/>
+168
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_168'>2</a>
+<span>
+1. removeBreakingWhitespace : removed call to java/lang/StringBuilder::toString &rarr; KILLED<br/>
+2. removeBreakingWhitespace : mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::removeBreakingWhitespace to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return builder.toString();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_169'/>
+169
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_169'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_170'/>
+170
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_170'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_171'/>
+171
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_171'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  protected boolean isDebugEnabled() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_172'/>
+172
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_172'>2</a>
+<span>
+1. isDebugEnabled : removed call to org/apache/ibatis/logging/Log::isDebugEnabled &rarr; KILLED<br/>
+2. isDebugEnabled : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return statementLog.isDebugEnabled();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_173'/>
+173
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_173'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_174'/>
+174
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_174'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_175'/>
+175
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_175'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  protected boolean isTraceEnabled() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_176'/>
+176
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_176'>2</a>
+<span>
+1. isTraceEnabled : removed call to org/apache/ibatis/logging/Log::isTraceEnabled &rarr; KILLED<br/>
+2. isTraceEnabled : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return statementLog.isTraceEnabled();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_177'/>
+177
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_177'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_178'/>
+178
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_178'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_179'/>
+179
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_179'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  protected void debug(String text, boolean input) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_180'/>
+180
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_180'>4</a>
+<span>
+1. debug : negated conditional &rarr; KILLED<br/>
+2. debug : removed call to org/apache/ibatis/logging/Log::isDebugEnabled &rarr; KILLED<br/>
+3. debug : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+4. debug : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    if (statementLog.isDebugEnabled()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_181'/>
+181
+</td>
+<td class='uncertain'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_181'>6</a>
+<span>
+1. debug : removed call to org/apache/ibatis/logging/jdbc/BaseJdbcLogger::prefix &rarr; TIMED_OUT<br/>
+2. debug : removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; KILLED<br/>
+3. debug : removed call to java/lang/StringBuilder::append &rarr; KILLED<br/>
+4. debug : removed call to java/lang/StringBuilder::append &rarr; KILLED<br/>
+5. debug : removed call to java/lang/StringBuilder::toString &rarr; KILLED<br/>
+6. debug : removed call to org/apache/ibatis/logging/Log::debug &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='uncertain'>      statementLog.debug(prefix(input) + text);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_182'/>
+182
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_182'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_183'/>
+183
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_183'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_184'/>
+184
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_184'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_185'/>
+185
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_185'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  protected void trace(String text, boolean input) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_186'/>
+186
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_186'>4</a>
+<span>
+1. trace : negated conditional &rarr; KILLED<br/>
+2. trace : removed call to org/apache/ibatis/logging/Log::isTraceEnabled &rarr; KILLED<br/>
+3. trace : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+4. trace : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    if (statementLog.isTraceEnabled()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_187'/>
+187
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_187'>6</a>
+<span>
+1. trace : removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; KILLED<br/>
+2. trace : removed call to org/apache/ibatis/logging/jdbc/BaseJdbcLogger::prefix &rarr; KILLED<br/>
+3. trace : removed call to java/lang/StringBuilder::append &rarr; KILLED<br/>
+4. trace : removed call to java/lang/StringBuilder::append &rarr; KILLED<br/>
+5. trace : removed call to java/lang/StringBuilder::toString &rarr; KILLED<br/>
+6. trace : removed call to org/apache/ibatis/logging/Log::trace &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      statementLog.trace(prefix(input) + text);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_188'/>
+188
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_188'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_189'/>
+189
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_189'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_190'/>
+190
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_190'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_191'/>
+191
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_191'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  private String prefix(boolean isInput) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_192'/>
+192
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_192'>4</a>
+<span>
+1. prefix : Substituted 2 with 3 &rarr; KILLED<br/>
+2. prefix : Substituted 2 with 3 &rarr; KILLED<br/>
+3. prefix : Replaced integer multiplication with division &rarr; KILLED<br/>
+4. prefix : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    char[] buffer = new char[queryStack * 2 + 2];</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_193'/>
+193
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_193'>2</a>
+<span>
+1. prefix : Substituted 61 with 62 &rarr; KILLED<br/>
+2. prefix : removed call to java/util/Arrays::fill &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    Arrays.fill(buffer, &#39;=&#39;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_194'/>
+194
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_194'>5</a>
+<span>
+1. prefix : Substituted 2 with 3 &rarr; KILLED<br/>
+2. prefix : Substituted 1 with 0 &rarr; KILLED<br/>
+3. prefix : Substituted 32 with 33 &rarr; KILLED<br/>
+4. prefix : Replaced integer multiplication with division &rarr; KILLED<br/>
+5. prefix : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    buffer[queryStack * 2 + 1] = &#39; &#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_195'/>
+195
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_195'>3</a>
+<span>
+1. prefix : negated conditional &rarr; KILLED<br/>
+2. prefix : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+3. prefix : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    if (isInput) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_196'/>
+196
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_196'>3</a>
+<span>
+1. prefix : Substituted 62 with 63 &rarr; SURVIVED<br/>
+2. prefix : Substituted 2 with 3 &rarr; KILLED<br/>
+3. prefix : Replaced integer multiplication with division &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      buffer[queryStack * 2] = &#39;&#62;&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_197'/>
+197
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_197'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_198'/>
+198
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_198'>2</a>
+<span>
+1. prefix : Substituted 0 with 1 &rarr; KILLED<br/>
+2. prefix : Substituted 60 with 61 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      buffer[0] = &#39;&#60;&#39;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_199'/>
+199
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_199'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_200'/>
+200
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_200'>2</a>
+<span>
+1. prefix : removed call to java/lang/String::&#60;init&#62; &rarr; KILLED<br/>
+2. prefix : mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::prefix to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return new String(buffer);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_201'/>
+201
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_201'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_202'/>
+202
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_202'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@546a2fdd_203'/>
+203
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_203'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_42'>42</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_42'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed call to java/util/HashMap::&#60;init&#62; &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> Removed assignment to member variable columnMap &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_44'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed call to java/util/ArrayList::&#60;init&#62; &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> Removed assignment to member variable columnNames &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_45'>45</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_45'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed call to java/util/ArrayList::&#60;init&#62; &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> Removed assignment to member variable columnValues &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_54'>54</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_54'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest.shouldPrintUpdateCount(org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest)</span></span> Removed assignment to member variable statementLog &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_55'>55</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_55'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.substitution_in_annots.SubstitutionInAnnotsTest.org.apache.ibatis.submitted.substitution_in_annots.SubstitutionInAnnotsTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.substitution_in_annots.SubstitutionInAnnotsTest.org.apache.ibatis.submitted.substitution_in_annots.SubstitutionInAnnotsTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b><init><br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; TIMED_OUT</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_56'>56</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_56'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.multidb.MultiDbTest.org.apache.ibatis.submitted.multidb.MultiDbTest</span></span> Substituted 1 with 0 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b><init><br/><b>Killed by : </b>none</span></span> Removed assignment to member variable queryStack &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_58'>58</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_58'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldNotPrintBlobs(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest)</span></span> Removed assignment to member variable queryStack &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_95'>95</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_95'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setColumn<br/><b>Killed by : </b>org.apache.ibatis.submitted.multidb.MultiDbTest.org.apache.ibatis.submitted.multidb.MultiDbTest</span></span> replaced call to java/util/Map::put with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>setColumn<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to java/util/Map::put &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_96'>96</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_96'/> 
+
+<p class='TIMED_OUT'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setColumn<br/><b>Killed by : </b>none</span></span> removed call to java/util/List::add &rarr; TIMED_OUT</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_97'>97</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_97'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setColumn<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed call to java/util/List::add &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_101'>101</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_101'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getColumn<br/><b>Killed by : </b>none</span></span> replaced call to java/util/Map::get with argument &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getColumn<br/><b>Killed by : </b>none</span></span> removed call to java/util/Map::get &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getColumn<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::getColumn to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_105'>105</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_105'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed call to java/util/ArrayList::&#60;init&#62; &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>org.apache.ibatis.submitted.substitution_in_annots.SubstitutionInAnnotsTest.org.apache.ibatis.submitted.substitution_in_annots.SubstitutionInAnnotsTest</span></span> removed call to java/util/List::size &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_106'>106</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_106'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed call to java/util/List::iterator &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed call to java/util/Iterator::hasNext &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>none</span></span> removed call to java/util/Iterator::next &rarr; TIMED_OUT</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_107'>107</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_107'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest.shouldPrintNullParameters(org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_108'>108</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_108'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest.shouldPrintNullParameters(org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest)</span></span> removed call to java/util/List::add &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_110'>110</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_110'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed call to org/apache/ibatis/logging/jdbc/BaseJdbcLogger::objectValueString &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed call to java/lang/StringBuilder::append &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed call to java/lang/StringBuilder::append &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed call to java/lang/Object::getClass &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest.shouldPrintParameters(org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest)</span></span> removed call to java/lang/Class::getSimpleName &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed call to java/lang/StringBuilder::append &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed call to java/lang/StringBuilder::append &rarr; KILLED</p> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed call to java/lang/StringBuilder::toString &rarr; KILLED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed call to java/util/List::add &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_113'>113</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_113'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed call to java/lang/Object::toString &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_114'>114</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_114'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> Substituted 1 with 0 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>none</span></span> Substituted 1 with 0 &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed call to java/lang/String::length &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed call to java/lang/String::substring &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>getParameterValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::getParameterValueString to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_118'>118</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_118'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>objectValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>objectValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>objectValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest.shouldPrintParameters(org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest)</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_119'>119</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_119'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>objectValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed call to org/apache/ibatis/logging/jdbc/BaseJdbcLogger::arrayValueString &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>objectValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::objectValueString to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_121'>121</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_121'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>objectValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest.shouldPrintParameters(org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest)</span></span> removed call to java/lang/Object::toString &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>objectValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest.shouldPrintParameters(org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest)</span></span> mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::objectValueString to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_126'>126</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_126'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed call to java/sql/Array::getArray &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_127'>127</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_127'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribeObjectArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_128'>128</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_128'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribeObjectArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed call to java/util/Arrays::toString &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribeObjectArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::arrayValueString to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_129'>129</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_129'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_130'>130</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_130'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> removed call to java/util/Arrays::toString &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::arrayValueString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_131'>131</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_131'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_132'>132</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_132'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> removed call to java/util/Arrays::toString &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest)</span></span> mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::arrayValueString to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_133'>133</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_133'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_134'>134</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_134'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> removed call to java/util/Arrays::toString &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::arrayValueString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_135'>135</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_135'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_136'>136</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_136'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> removed call to java/util/Arrays::toString &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::arrayValueString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_137'>137</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_137'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_138'>138</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_138'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> removed call to java/util/Arrays::toString &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::arrayValueString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_139'>139</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_139'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_140'>140</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_140'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> removed call to java/util/Arrays::toString &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::arrayValueString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_141'>141</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_141'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_142'>142</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_142'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> removed call to java/util/Arrays::toString &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::arrayValueString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_144'>144</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_144'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> removed call to java/util/Arrays::toString &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::arrayValueString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_147'>147</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_147'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> removed call to java/lang/Object::toString &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>arrayValueString<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::arrayValueString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_152'>152</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_152'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getColumnString<br/><b>Killed by : </b>none</span></span> removed call to java/lang/Object::toString &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getColumnString<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::getColumnString to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_156'>156</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_156'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>clearColumnInfo<br/><b>Killed by : </b>org.apache.ibatis.submitted.substitution_in_annots.SubstitutionInAnnotsTest.org.apache.ibatis.submitted.substitution_in_annots.SubstitutionInAnnotsTest</span></span> removed call to java/util/Map::clear &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_157'>157</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_157'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>clearColumnInfo<br/><b>Killed by : </b>org.apache.ibatis.submitted.substitution_in_annots.SubstitutionInAnnotsTest.org.apache.ibatis.submitted.substitution_in_annots.SubstitutionInAnnotsTest</span></span> removed call to java/util/List::clear &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_158'>158</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_158'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>clearColumnInfo<br/><b>Killed by : </b>org.apache.ibatis.submitted.substitution_in_annots.SubstitutionInAnnotsTest.org.apache.ibatis.submitted.substitution_in_annots.SubstitutionInAnnotsTest</span></span> removed call to java/util/List::clear &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_162'>162</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_162'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>removeBreakingWhitespace<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.StatementLoggerTest.shouldPrintLog(org.apache.ibatis.logging.jdbc.StatementLoggerTest)</span></span> removed call to java/util/StringTokenizer::&#60;init&#62; &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_163'>163</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_163'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>removeBreakingWhitespace<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.StatementLoggerTest.shouldPrintLog(org.apache.ibatis.logging.jdbc.StatementLoggerTest)</span></span> removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_164'>164</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_164'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>removeBreakingWhitespace<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.StatementLoggerTest.shouldPrintLog(org.apache.ibatis.logging.jdbc.StatementLoggerTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>removeBreakingWhitespace<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.StatementLoggerTest.shouldPrintLog(org.apache.ibatis.logging.jdbc.StatementLoggerTest)</span></span> removed call to java/util/StringTokenizer::hasMoreTokens &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>removeBreakingWhitespace<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.StatementLoggerTest.shouldPrintLog(org.apache.ibatis.logging.jdbc.StatementLoggerTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>removeBreakingWhitespace<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.StatementLoggerTest.shouldPrintLog(org.apache.ibatis.logging.jdbc.StatementLoggerTest)</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_165'>165</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_165'/> 
+
+<p class='TIMED_OUT'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>removeBreakingWhitespace<br/><b>Killed by : </b>none</span></span> removed call to java/util/StringTokenizer::nextToken &rarr; TIMED_OUT</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>removeBreakingWhitespace<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.StatementLoggerTest.shouldPrintLog(org.apache.ibatis.logging.jdbc.StatementLoggerTest)</span></span> removed call to java/lang/StringBuilder::append &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_166'>166</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_166'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>removeBreakingWhitespace<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.StatementLoggerTest.shouldPrintLog(org.apache.ibatis.logging.jdbc.StatementLoggerTest)</span></span> removed call to java/lang/StringBuilder::append &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_168'>168</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_168'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>removeBreakingWhitespace<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.StatementLoggerTest.shouldPrintLog(org.apache.ibatis.logging.jdbc.StatementLoggerTest)</span></span> removed call to java/lang/StringBuilder::toString &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>removeBreakingWhitespace<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.StatementLoggerTest.shouldPrintLog(org.apache.ibatis.logging.jdbc.StatementLoggerTest)</span></span> mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::removeBreakingWhitespace to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_172'>172</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_172'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isDebugEnabled<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.StatementLoggerTest.shouldPrintLog(org.apache.ibatis.logging.jdbc.StatementLoggerTest)</span></span> removed call to org/apache/ibatis/logging/Log::isDebugEnabled &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isDebugEnabled<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.StatementLoggerTest.shouldPrintLog(org.apache.ibatis.logging.jdbc.StatementLoggerTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_176'>176</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_176'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>isTraceEnabled<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldNotPrintBlobs(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest)</span></span> removed call to org/apache/ibatis/logging/Log::isTraceEnabled &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>isTraceEnabled<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldNotPrintBlobs(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_180'>180</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_180'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>debug<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest.shouldPrintUpdateCount(org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>debug<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest.shouldPrintUpdateCount(org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest)</span></span> removed call to org/apache/ibatis/logging/Log::isDebugEnabled &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>debug<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest.shouldPrintUpdateCount(org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>debug<br/><b>Killed by : </b>org.apache.ibatis.submitted.substitution_in_annots.SubstitutionInAnnotsTest.org.apache.ibatis.submitted.substitution_in_annots.SubstitutionInAnnotsTest</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_181'>181</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_181'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>debug<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest.shouldPrintUpdateCount(org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest)</span></span> removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>debug<br/><b>Killed by : </b>none</span></span> removed call to org/apache/ibatis/logging/jdbc/BaseJdbcLogger::prefix &rarr; TIMED_OUT</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>debug<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest.shouldPrintUpdateCount(org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest)</span></span> removed call to java/lang/StringBuilder::append &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>debug<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest.shouldPrintUpdateCount(org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest)</span></span> removed call to java/lang/StringBuilder::append &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>debug<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest.shouldPrintUpdateCount(org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest)</span></span> removed call to java/lang/StringBuilder::toString &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>debug<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest.shouldPrintUpdateCount(org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest)</span></span> removed call to org/apache/ibatis/logging/Log::debug &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_186'>186</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_186'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>trace<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldNotPrintBlobs(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>trace<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldNotPrintBlobs(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest)</span></span> removed call to org/apache/ibatis/logging/Log::isTraceEnabled &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>trace<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldNotPrintBlobs(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>trace<br/><b>Killed by : </b>org.apache.ibatis.submitted.substitution_in_annots.SubstitutionInAnnotsTest.org.apache.ibatis.submitted.substitution_in_annots.SubstitutionInAnnotsTest</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_187'>187</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_187'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>trace<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldNotPrintBlobs(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest)</span></span> removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>trace<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldNotPrintBlobs(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest)</span></span> removed call to org/apache/ibatis/logging/jdbc/BaseJdbcLogger::prefix &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>trace<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldNotPrintBlobs(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest)</span></span> removed call to java/lang/StringBuilder::append &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>trace<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldNotPrintBlobs(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest)</span></span> removed call to java/lang/StringBuilder::append &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>trace<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldNotPrintBlobs(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest)</span></span> removed call to java/lang/StringBuilder::toString &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>trace<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldNotPrintBlobs(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest)</span></span> removed call to org/apache/ibatis/logging/Log::trace &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_192'>192</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_192'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>prefix<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldNotPrintBlobs(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest)</span></span> Substituted 2 with 3 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>prefix<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldNotPrintBlobs(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest)</span></span> Substituted 2 with 3 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>prefix<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest.shouldPrintUpdateCount(org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest)</span></span> Replaced integer multiplication with division &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>prefix<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest.shouldPrintUpdateCount(org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest)</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_193'>193</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_193'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>prefix<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldNotPrintBlobs(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest)</span></span> Substituted 61 with 62 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>prefix<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldNotPrintBlobs(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest)</span></span> removed call to java/util/Arrays::fill &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_194'>194</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_194'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>prefix<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest.shouldPrintUpdateCount(org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest)</span></span> Substituted 2 with 3 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>prefix<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldNotPrintBlobs(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest)</span></span> Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>prefix<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldNotPrintBlobs(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest)</span></span> Substituted 32 with 33 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>prefix<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldNotPrintBlobs(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest)</span></span> Replaced integer multiplication with division &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>prefix<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldNotPrintBlobs(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest)</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_195'>195</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_195'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>prefix<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldNotPrintBlobs(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>prefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>prefix<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldNotPrintBlobs(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest)</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_196'>196</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_196'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>prefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.substitution_in_annots.SubstitutionInAnnotsTest.org.apache.ibatis.submitted.substitution_in_annots.SubstitutionInAnnotsTest</span></span> Substituted 2 with 3 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>prefix<br/><b>Killed by : </b>none</span></span> Substituted 62 with 63 &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>prefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.substitution_in_annots.SubstitutionInAnnotsTest.org.apache.ibatis.submitted.substitution_in_annots.SubstitutionInAnnotsTest</span></span> Replaced integer multiplication with division &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_198'>198</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_198'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>prefix<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldNotPrintBlobs(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest)</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>prefix<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldNotPrintBlobs(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest)</span></span> Substituted 60 with 61 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@546a2fdd_200'>200</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@546a2fdd_200'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>prefix<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldNotPrintBlobs(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest)</span></span> removed call to java/lang/String::&#60;init&#62; &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>prefix<br/><b>Killed by : </b>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldNotPrintBlobs(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest)</span></span> mutated return of Object value for org/apache/ibatis/logging/jdbc/BaseJdbcLogger::prefix to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_61</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_60</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_56</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_55</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_58</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_57</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_52</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_51</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_54</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_53</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_59</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_50</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_45</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_44</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_47</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_46</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_41</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_40</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_43</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_42</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_49</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_48</li>
+<li class='mutator'>INLINE_CONSTANT_MUTATOR</li>
+<li class='mutator'>CONSTRUCTOR_CALL_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_34</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_33</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_36</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_35</li>
+<li class='mutator'>EXPERIMENTAL_MEMBER_VARIABLE_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_30</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_32</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_31</li>
+<li class='mutator'>REMOVE_CONDITIONALS_ORDER_ELSE_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_38</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_37</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_39</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_3</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_2</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_1</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_0</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_23</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_22</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_25</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_9</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_24</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_8</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_7</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_6</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_21</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_5</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_20</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_4</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_27</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_26</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_29</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_28</li>
+<li class='mutator'>REMOVE_INCREMENTS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_12</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_11</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_99</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_14</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_13</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_96</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_95</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_10</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_98</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_97</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_19</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_16</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_15</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_18</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_17</li>
+<li class='mutator'>EXPERIMENTAL_SWITCH_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_92</li>
+<li class='mutator'>ARGUMENT_PROPAGATION_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_91</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_94</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_93</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_90</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_89</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_88</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_85</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_84</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_87</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_86</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NON_VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>REMOVE_CONDITIONALS_EQUAL_IF_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_81</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_80</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_83</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_82</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_78</li>
+<li class='mutator'>REMOVE_CONDITIONALS_EQUAL_ELSE_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_77</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_79</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_74</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_73</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_76</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_75</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_70</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_72</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_71</li>
+<li class='mutator'>REMOVE_CONDITIONALS_ORDER_IF_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_67</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_66</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_69</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_68</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_63</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_62</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_65</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_64</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>org.apache.ibatis.submitted.batch_keys.BatchKeysTest.testInsertJdbc3(org.apache.ibatis.submitted.batch_keys.BatchKeysTest) (10 ms)</li><li>org.apache.ibatis.submitted.selectkey.SelectKeyTest.testAnnotatedInsertTable2WithGeneratedKey(org.apache.ibatis.submitted.selectkey.SelectKeyTest) (15 ms)</li><li>org.apache.ibatis.submitted.typehandler.TypeHandlerTest.shouldApplyTypeHandlerUsingConstructor(org.apache.ibatis.submitted.typehandler.TypeHandlerTest) (8 ms)</li><li>org.apache.ibatis.logging.jdbc.StatementLoggerTest.shouldPrintLogForUpdate(org.apache.ibatis.logging.jdbc.StatementLoggerTest) (1 ms)</li><li>org.apache.ibatis.submitted.substitution_in_annots.SubstitutionInAnnotsTest.org.apache.ibatis.submitted.substitution_in_annots.SubstitutionInAnnotsTest (16 ms)</li><li>org.apache.ibatis.submitted.cglib_lazy_error.CglibNPETest.org.apache.ibatis.submitted.cglib_lazy_error.CglibNPETest (34 ms)</li><li>org.apache.ibatis.submitted.global_variables_defaults.CustomizationTest.applyPropertyValueWhenCustomizeDefaultValueSeparator(org.apache.ibatis.submitted.global_variables_defaults.CustomizationTest) (6 ms)</li><li>org.apache.ibatis.submitted.named_constructor_args.NamedConstructorArgsTest.org.apache.ibatis.submitted.named_constructor_args.NamedConstructorArgsTest (11 ms)</li><li>org.apache.ibatis.submitted.cache.CacheTest.testplan3(org.apache.ibatis.submitted.cache.CacheTest) (11 ms)</li><li>org.apache.ibatis.submitted.xml_external_ref.MultipleReverseIncludeTest.testMultipleReverseIncludeXmlConfig(org.apache.ibatis.submitted.xml_external_ref.MultipleReverseIncludeTest) (7 ms)</li><li>org.apache.ibatis.submitted.manyanno.ManyAnnoTest.testGetMessageForEmptyDatabase(org.apache.ibatis.submitted.manyanno.ManyAnnoTest) (1996 ms)</li><li>org.apache.ibatis.submitted.global_variables_defaults.XmlMapperTest.applyDefaultValueOnXmlMapper(org.apache.ibatis.submitted.global_variables_defaults.XmlMapperTest) (11 ms)</li><li>org.apache.ibatis.submitted.duplicate_statements.DuplicateStatementsTest.shouldGetFirstFourUsers(org.apache.ibatis.submitted.duplicate_statements.DuplicateStatementsTest) (8 ms)</li><li>org.apache.ibatis.submitted.encoding.EncodingTest.org.apache.ibatis.submitted.encoding.EncodingTest (19 ms)</li><li>org.apache.ibatis.submitted.enumtypehandler_on_annotation.EnumTypeHandlerUsingAnnotationTest.org.apache.ibatis.submitted.enumtypehandler_on_annotation.EnumTypeHandlerUsingAnnotationTest (32 ms)</li><li>org.apache.ibatis.submitted.selectkey.SelectKeyTest.testSeleckKeyWithWrongKeyProperty(org.apache.ibatis.submitted.selectkey.SelectKeyTest) (103 ms)</li><li>org.apache.ibatis.submitted.nestedresulthandler_multiple_association.NestedResultHandlerMultipleAssociationTest.org.apache.ibatis.submitted.nestedresulthandler_multiple_association.NestedResultHandlerMultipleAssociationTest (16 ms)</li><li>org.apache.ibatis.submitted.extend.ExtendTest.org.apache.ibatis.submitted.extend.ExtendTest (19 ms)</li><li>org.apache.ibatis.submitted.force_flush_on_select.ForceFlushOnSelectTest.testUpdateShouldFlushLocalCache(org.apache.ibatis.submitted.force_flush_on_select.ForceFlushOnSelectTest) (10 ms)</li><li>org.apache.ibatis.submitted.inline_association_with_dot.InlineCollectionWithDotTest.selectElementValueInContainerUsingSubMap(org.apache.ibatis.submitted.inline_association_with_dot.InlineCollectionWithDotTest) (17 ms)</li><li>org.apache.ibatis.submitted.typehandlerinjection.TypeHandlerInjectionTest.org.apache.ibatis.submitted.typehandlerinjection.TypeHandlerInjectionTest (16 ms)</li><li>org.apache.ibatis.submitted.generictyperesolution.GenericTypeResolutionTest.org.apache.ibatis.submitted.generictyperesolution.GenericTypeResolutionTest (24 ms)</li><li>org.apache.ibatis.submitted.xml_external_ref.MultipleCrossIncludeTest.testMultipleCrossIncludeJavaConfig(org.apache.ibatis.submitted.xml_external_ref.MultipleCrossIncludeTest) (21 ms)</li><li>org.apache.ibatis.submitted.serializecircular.SerializeCircularTest.serializeAndDeserializeObjectsWithAggressiveLazyLoadingWithoutPreloadingAttribute(org.apache.ibatis.submitted.serializecircular.SerializeCircularTest) (14 ms)</li><li>org.apache.ibatis.submitted.cache.CacheTest.shouldInsertWithOptionsFlushesCache(org.apache.ibatis.submitted.cache.CacheTest) (12 ms)</li><li>org.apache.ibatis.submitted.selectkey.SelectKeyTest.testAnnotatedUpdateTable2WithSelectKeyWithKeyObjectXml(org.apache.ibatis.submitted.selectkey.SelectKeyTest) (18 ms)</li><li>org.apache.ibatis.submitted.typehandler.TypeHandlerTest.shouldPickHandlerForNull(org.apache.ibatis.submitted.typehandler.TypeHandlerTest) (10 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithNothingWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest) (90 ms)</li><li>org.apache.ibatis.submitted.multiple_discriminator.MultipleDiscriminatorTest.org.apache.ibatis.submitted.multiple_discriminator.MultipleDiscriminatorTest (66 ms)</li><li>org.apache.ibatis.submitted.not_null_column.NotNullColumnTest.org.apache.ibatis.submitted.not_null_column.NotNullColumnTest (26 ms)</li><li>org.apache.ibatis.submitted.xml_external_ref.MultipleIncludeTest.testMultipleIncludeXmlConfig(org.apache.ibatis.submitted.xml_external_ref.MultipleIncludeTest) (8 ms)</li><li>org.apache.ibatis.submitted.dml_return_types.DmlMapperReturnTypesTest.org.apache.ibatis.submitted.dml_return_types.DmlMapperReturnTypesTest (25 ms)</li><li>org.apache.ibatis.submitted.batch_keys.BatchKeysTest.testInsert(org.apache.ibatis.submitted.batch_keys.BatchKeysTest) (33 ms)</li><li>org.apache.ibatis.logging.jdbc.StatementLoggerTest.shouldPrintLog(org.apache.ibatis.logging.jdbc.StatementLoggerTest) (0 ms)</li><li>org.apache.ibatis.submitted.include_property.IncludePropertyTest.org.apache.ibatis.submitted.include_property.IncludePropertyTest (26 ms)</li><li>org.apache.ibatis.type.ClobReaderTypeHandlerTest.org.apache.ibatis.type.ClobReaderTypeHandlerTest (182 ms)</li><li>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest (19 ms)</li><li>org.apache.ibatis.submitted.stringlist.StringListTest.org.apache.ibatis.submitted.stringlist.StringListTest (18 ms)</li><li>org.apache.ibatis.submitted.force_flush_on_select.ForceFlushOnSelectTest.testSelectShouldFlushLocalCacheIfFlushLocalCacheAtferEachStatementIsTrue(org.apache.ibatis.submitted.force_flush_on_select.ForceFlushOnSelectTest) (22 ms)</li><li>org.apache.ibatis.submitted.automapping.AutomappingTest.org.apache.ibatis.submitted.automapping.AutomappingTest (58 ms)</li><li>org.apache.ibatis.submitted.selectkey.SelectKeyTest.testAnnotatedInsertTable3(org.apache.ibatis.submitted.selectkey.SelectKeyTest) (15 ms)</li><li>org.apache.ibatis.session.SqlSessionTest.org.apache.ibatis.session.SqlSessionTest (2482 ms)</li><li>org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest.testSelectListWithNestedSelect(org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest) (11 ms)</li><li>org.apache.ibatis.submitted.typehandler.TypeHandlerTest.shouldApplyTypeHandlerWithJdbcTypeSpecified(org.apache.ibatis.submitted.typehandler.TypeHandlerTest) (8 ms)</li><li>org.apache.ibatis.submitted.deferload_common_property.CommonPropertyDeferLoadError.org.apache.ibatis.submitted.deferload_common_property.CommonPropertyDeferLoadError (43 ms)</li><li>org.apache.ibatis.submitted.immutable_constructor.ImmutablePOJOTest.org.apache.ibatis.submitted.immutable_constructor.ImmutablePOJOTest (25 ms)</li><li>org.apache.ibatis.submitted.lazy_deserialize.LazyDeserializeTest.org.apache.ibatis.submitted.lazy_deserialize.LazyDeserializeTest (28 ms)</li><li>org.apache.ibatis.submitted.dynsql2.DynSqlTest.org.apache.ibatis.submitted.dynsql2.DynSqlTest (27 ms)</li><li>org.apache.ibatis.submitted.lazy_immutable.ImmutablePOJOTest.org.apache.ibatis.submitted.lazy_immutable.ImmutablePOJOTest (19 ms)</li><li>org.apache.ibatis.submitted.missing_id_property.MissingIdPropertyTest.org.apache.ibatis.submitted.missing_id_property.MissingIdPropertyTest (21 ms)</li><li>org.apache.ibatis.submitted.enumtypehandler_on_map.EnumTypeHandlerTest.org.apache.ibatis.submitted.enumtypehandler_on_map.EnumTypeHandlerTest (23 ms)</li><li>org.apache.ibatis.submitted.selectkey.SelectKeyTest.testSeleckKeyReturnsNoData(org.apache.ibatis.submitted.selectkey.SelectKeyTest) (16 ms)</li><li>org.apache.ibatis.submitted.typehandler.TypeHandlerTest.shouldPickSameTypeHandlerMappedToDifferentJdbcTypes(org.apache.ibatis.submitted.typehandler.TypeHandlerTest) (10 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetXxxWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest) (27 ms)</li><li>org.apache.ibatis.type.BlobInputStreamTypeHandlerTest.org.apache.ibatis.type.BlobInputStreamTypeHandlerTest (182 ms)</li><li>org.apache.ibatis.submitted.typehandler.TypeHandlerTest.shouldApplyTypeHandlerOnGeneratedKey(org.apache.ibatis.submitted.typehandler.TypeHandlerTest) (13 ms)</li><li>org.apache.ibatis.submitted.blobtest.BlobTest.org.apache.ibatis.submitted.blobtest.BlobTest (48 ms)</li><li>org.apache.ibatis.submitted.usesjava8.default_method.DefaultMethodTest.org.apache.ibatis.submitted.usesjava8.default_method.DefaultMethodTest (50 ms)</li><li>org.apache.ibatis.submitted.javassist.JavassistTest.org.apache.ibatis.submitted.javassist.JavassistTest (24 ms)</li><li>org.apache.ibatis.submitted.typehandler.TypeHandlerTest.shouldGetAUser(org.apache.ibatis.submitted.typehandler.TypeHandlerTest) (9 ms)</li><li>org.apache.ibatis.submitted.language.LanguageTest.org.apache.ibatis.submitted.language.LanguageTest (144 ms)</li><li>org.apache.ibatis.submitted.call_setters_on_nulls.CallSettersOnNullsTest.org.apache.ibatis.submitted.call_setters_on_nulls.CallSettersOnNullsTest (26 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.DefaultLazyTest.lazyLoadUserWithGetObjectWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.DefaultLazyTest) (16 ms)</li><li>org.apache.ibatis.submitted.complex_type.ComplexTypeTest.org.apache.ibatis.submitted.complex_type.ComplexTypeTest (20 ms)</li><li>org.apache.ibatis.submitted.parametrizedlist.ParametrizedListTest.testShouldDetectUsersAsParameterInsideAMap(org.apache.ibatis.submitted.parametrizedlist.ParametrizedListTest) (6 ms)</li><li>org.apache.ibatis.submitted.xml_external_ref.ReverseIncludeTest.testReverseIncludeJavaConfig(org.apache.ibatis.submitted.xml_external_ref.ReverseIncludeTest) (100 ms)</li><li>org.apache.ibatis.submitted.force_flush_on_select.ForceFlushOnSelectTest.testShouldNotFlushLocalSessionCacheOnQueryForList(org.apache.ibatis.submitted.force_flush_on_select.ForceFlushOnSelectTest) (15 ms)</li><li>org.apache.ibatis.submitted.global_variables_defaults.CustomizationTest.applyDefaultValueWhenCustomizeDefaultValueSeparator(org.apache.ibatis.submitted.global_variables_defaults.CustomizationTest) (9 ms)</li><li>org.apache.ibatis.submitted.extendresultmap.ExtendResultMapTest.org.apache.ibatis.submitted.extendresultmap.ExtendResultMapTest (23 ms)</li><li>org.apache.ibatis.submitted.force_flush_on_select.ForceFlushOnSelectTest.testShouldFlushLocalSessionCacheOnQuery(org.apache.ibatis.submitted.force_flush_on_select.ForceFlushOnSelectTest) (11 ms)</li><li>org.apache.ibatis.submitted.initialized_collection_property.AuthorDAOTest.org.apache.ibatis.submitted.initialized_collection_property.AuthorDAOTest (22 ms)</li><li>org.apache.ibatis.submitted.null_associations.FooMapperTest.org.apache.ibatis.submitted.null_associations.FooMapperTest (84 ms)</li><li>org.apache.ibatis.submitted.associationtype.AssociationTypeTest.org.apache.ibatis.submitted.associationtype.AssociationTypeTest (39 ms)</li><li>org.apache.ibatis.submitted.emptycollection.DaoTest.testWithEmptyList(org.apache.ibatis.submitted.emptycollection.DaoTest) (57 ms)</li><li>org.apache.ibatis.submitted.column_prefix.ColumnPrefixNestedQueryTest.testComplexPerson(org.apache.ibatis.submitted.column_prefix.ColumnPrefixNestedQueryTest) (25 ms)</li><li>org.apache.ibatis.submitted.selectkey.SelectKeyTest.testSeleckKeyReturnsTooManyData(org.apache.ibatis.submitted.selectkey.SelectKeyTest) (16 ms)</li><li>org.apache.ibatis.submitted.selectkey.SelectKeyTest.testAnnotatedUpdateTable2WithSelectKeyWithKeyObject(org.apache.ibatis.submitted.selectkey.SelectKeyTest) (18 ms)</li><li>org.apache.ibatis.submitted.xml_external_ref.SameIdTest.testCrossReferenceJavaConfig(org.apache.ibatis.submitted.xml_external_ref.SameIdTest) (13 ms)</li><li>org.apache.ibatis.submitted.selectkey.SelectKeyTest.testAnnotatedInsertTable2WithSelectKeyWithKeyObjectXml(org.apache.ibatis.submitted.selectkey.SelectKeyTest) (15 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetXxxWithInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest) (29 ms)</li><li>org.apache.ibatis.submitted.blocking_cache.BlockingCacheTest.testBlockingCache(org.apache.ibatis.submitted.blocking_cache.BlockingCacheTest) (1043 ms)</li><li>org.apache.ibatis.submitted.complex_property.ComponentTest.org.apache.ibatis.submitted.complex_property.ComponentTest (24 ms)</li><li>org.apache.ibatis.submitted.no_param_type.NoParamTypeTest.org.apache.ibatis.submitted.no_param_type.NoParamTypeTest (17 ms)</li><li>org.apache.ibatis.submitted.call_setters_on_nulls_again.MyBatisTest.org.apache.ibatis.submitted.call_setters_on_nulls_again.MyBatisTest (20 ms)</li><li>org.apache.ibatis.logging.jdbc.ConnectionLoggerTest.shouldNotPrintCreateStatement(org.apache.ibatis.logging.jdbc.ConnectionLoggerTest) (169 ms)</li><li>org.apache.ibatis.submitted.multipleiterates.MultipleIteratesTest.org.apache.ibatis.submitted.multipleiterates.MultipleIteratesTest (18 ms)</li><li>org.apache.ibatis.submitted.column_prefix.ColumnPrefixNestedQueryTest.testSelectPetAndRoom(org.apache.ibatis.submitted.column_prefix.ColumnPrefixNestedQueryTest) (17 ms)</li><li>org.apache.ibatis.submitted.parametrizedlist.ParametrizedListTest.testShouldGetAListOfMaps(org.apache.ibatis.submitted.parametrizedlist.ParametrizedListTest) (6 ms)</li><li>org.apache.ibatis.logging.jdbc.ConnectionLoggerTest.shouldPrintPrepareStatement(org.apache.ibatis.logging.jdbc.ConnectionLoggerTest) (1 ms)</li><li>org.apache.ibatis.submitted.foreach.ForEachTest.org.apache.ibatis.submitted.foreach.ForEachTest (63 ms)</li><li>org.apache.ibatis.submitted.column_prefix.ColumnPrefixTest.testSelectPetAndRoom(org.apache.ibatis.submitted.column_prefix.ColumnPrefixTest) (14 ms)</li><li>org.apache.ibatis.submitted.cache.CacheTest.testplan1(org.apache.ibatis.submitted.cache.CacheTest) (12 ms)</li><li>org.apache.ibatis.submitted.emptycollection.DaoTest.testWithNonEmptyList(org.apache.ibatis.submitted.emptycollection.DaoTest) (10 ms)</li><li>org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest.shouldPrintParameters(org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest) (10 ms)</li><li>org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest.shouldNotPrintLog(org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest) (1 ms)</li><li>org.apache.ibatis.submitted.xml_external_ref.SameIdTest.testCrossReferenceXmlConfig(org.apache.ibatis.submitted.xml_external_ref.SameIdTest) (11 ms)</li><li>org.apache.ibatis.submitted.keygen.Jdbc3KeyGeneratorTest.org.apache.ibatis.submitted.keygen.Jdbc3KeyGeneratorTest (57 ms)</li><li>org.apache.ibatis.submitted.selectkey.SelectKeyTest.testAnnotatedInsertTable2WithSelectKeyWithKeyMap(org.apache.ibatis.submitted.selectkey.SelectKeyTest) (16 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.DefaultLazyTest.lazyLoadUserWithGetXxxWithInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.DefaultLazyTest) (15 ms)</li><li>org.apache.ibatis.submitted.associationtest.AssociationTest.org.apache.ibatis.submitted.associationtest.AssociationTest (37 ms)</li><li>org.apache.ibatis.submitted.column_prefix.ColumnPrefixAutoMappingTest.testComplexPerson(org.apache.ibatis.submitted.column_prefix.ColumnPrefixAutoMappingTest) (21 ms)</li><li>org.apache.ibatis.submitted.xml_external_ref.MultipleIncludeTest.testMultipleIncludeJavaConfig(org.apache.ibatis.submitted.xml_external_ref.MultipleIncludeTest) (7 ms)</li><li>org.apache.ibatis.submitted.batch_keys.BatchKeysTest.testInsertWithMapper(org.apache.ibatis.submitted.batch_keys.BatchKeysTest) (12 ms)</li><li>org.apache.ibatis.submitted.simplelistparameter.SimpleListParameterTest.org.apache.ibatis.submitted.simplelistparameter.SimpleListParameterTest (19 ms)</li><li>org.apache.ibatis.submitted.generictypes.GenericTypesTest.testShouldGetAListOfMaps(org.apache.ibatis.submitted.generictypes.GenericTypesTest) (20 ms)</li><li>org.apache.ibatis.submitted.parametrizedlist.ParametrizedListTest.testShouldGetAUserAsAMap(org.apache.ibatis.submitted.parametrizedlist.ParametrizedListTest) (6 ms)</li><li>org.apache.ibatis.submitted.duplicate_resource_loaded.DuplicateResourceTest.shouldDemonstrateDuplicateResourceIssue(org.apache.ibatis.submitted.duplicate_resource_loaded.DuplicateResourceTest) (2165 ms)</li><li>org.apache.ibatis.session.SqlSessionManagerTest.org.apache.ibatis.session.SqlSessionManagerTest (2868 ms)</li><li>org.apache.ibatis.submitted.sptests.SPTest.org.apache.ibatis.submitted.sptests.SPTest (59 ms)</li><li>org.apache.ibatis.submitted.automatic_lazy_loading.AutomaticLazyLoadingTest.org.apache.ibatis.submitted.automatic_lazy_loading.AutomaticLazyLoadingTest (201 ms)</li><li>org.apache.ibatis.submitted.global_variables_defaults.AnnotationMapperTest.applyDefaultValueOnAnnotationMapper(org.apache.ibatis.submitted.global_variables_defaults.AnnotationMapperTest) (19 ms)</li><li>org.apache.ibatis.submitted.selectkey.SelectKeyTest.testAnnotatedInsertTable2WithSelectKeyWithKeyObject(org.apache.ibatis.submitted.selectkey.SelectKeyTest) (16 ms)</li><li>org.apache.ibatis.submitted.result_handler_type.DefaultResultHandlerTypeTest.testSelectMap(org.apache.ibatis.submitted.result_handler_type.DefaultResultHandlerTypeTest) (8 ms)</li><li>org.apache.ibatis.submitted.cglib_lazy_error.CglibNPELazyTest.org.apache.ibatis.submitted.cglib_lazy_error.CglibNPELazyTest (66 ms)</li><li>org.apache.ibatis.submitted.nestedresulthandler_association.NestedResultHandlerAssociationTest.org.apache.ibatis.submitted.nestedresulthandler_association.NestedResultHandlerAssociationTest (22 ms)</li><li>org.apache.ibatis.submitted.primitives.PrimitivesTest.org.apache.ibatis.submitted.primitives.PrimitivesTest (17 ms)</li><li>org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest.shouldPrintUpdateCount(org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest) (1 ms)</li><li>org.apache.ibatis.submitted.selectkey.SelectKeyTest.testAnnotatedInsertTable3_2(org.apache.ibatis.submitted.selectkey.SelectKeyTest) (95 ms)</li><li>org.apache.ibatis.submitted.includes.IncludeTest.org.apache.ibatis.submitted.includes.IncludeTest (36 ms)</li><li>org.apache.ibatis.submitted.xml_external_ref.ResultMapExtendsTest.testExternalExtendsJavaConfig(org.apache.ibatis.submitted.xml_external_ref.ResultMapExtendsTest) (9 ms)</li><li>org.apache.ibatis.submitted.cache.CacheTest.shouldApplyFlushCacheOptions(org.apache.ibatis.submitted.cache.CacheTest) (12 ms)</li><li>org.apache.ibatis.submitted.xml_external_ref.MultipleCrossIncludeTest.testMultipleCrossIncludeXmlConfig(org.apache.ibatis.submitted.xml_external_ref.MultipleCrossIncludeTest) (17 ms)</li><li>org.apache.ibatis.submitted.complex_column.ComplexColumnTest.org.apache.ibatis.submitted.complex_column.ComplexColumnTest (34 ms)</li><li>org.apache.ibatis.submitted.array_result_type.ArrayResultTypeTest.org.apache.ibatis.submitted.array_result_type.ArrayResultTypeTest (31 ms)</li><li>org.apache.ibatis.submitted.parent_reference_3level.BlogTest.testSelectBlogWithoutPostsColumnPrefix(org.apache.ibatis.submitted.parent_reference_3level.BlogTest) (9 ms)</li><li>org.apache.ibatis.submitted.uuid_test.UUIDTest.org.apache.ibatis.submitted.uuid_test.UUIDTest (111 ms)</li><li>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribePrimitiveArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest) (1 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.DefaultLazyTest.lazyLoadUserWithGetXxxWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.DefaultLazyTest) (15 ms)</li><li>org.apache.ibatis.submitted.lazyload_common_property.CommonPropertyLazyLoadError.org.apache.ibatis.submitted.lazyload_common_property.CommonPropertyLazyLoadError (38 ms)</li><li>org.apache.ibatis.submitted.serializecircular.SerializeCircularTest.serializeAndDeserializeObjectsWithAggressiveLazyLoadingWithPreloadingAttribute(org.apache.ibatis.submitted.serializecircular.SerializeCircularTest) (34 ms)</li><li>org.apache.ibatis.submitted.selectkey.SelectKeyTest.testAnnotatedInsertTable2WithSelectKeyWithKeyMapXml(org.apache.ibatis.submitted.selectkey.SelectKeyTest) (16 ms)</li><li>org.apache.ibatis.submitted.foreach_map.ForEachMapTest.org.apache.ibatis.submitted.foreach_map.ForEachMapTest (20 ms)</li><li>org.apache.ibatis.submitted.xml_external_ref.XmlExternalRefTest.testCrossReferenceXmlConfig(org.apache.ibatis.submitted.xml_external_ref.XmlExternalRefTest) (14 ms)</li><li>org.apache.ibatis.submitted.dynsql.DynSqlTest.org.apache.ibatis.submitted.dynsql.DynSqlTest (30 ms)</li><li>org.apache.ibatis.submitted.selectkey.SelectKeyTest.testAnnotatedUpdateTable2WithSelectKeyWithKeyMapXml(org.apache.ibatis.submitted.selectkey.SelectKeyTest) (16 ms)</li><li>org.apache.ibatis.submitted.maptypehandler.MapTypeHandlerTest.org.apache.ibatis.submitted.maptypehandler.MapTypeHandlerTest (19 ms)</li><li>org.apache.ibatis.submitted.mapper_extend.MapperExtendTest.org.apache.ibatis.submitted.mapper_extend.MapperExtendTest (23 ms)</li><li>org.apache.ibatis.submitted.xml_external_ref.ParameterMapReferenceTest.testCrossReferenceJavaConfig(org.apache.ibatis.submitted.xml_external_ref.ParameterMapReferenceTest) (10 ms)</li><li>org.apache.ibatis.submitted.mapper_type_parameter.MapperTypeParameterTest.org.apache.ibatis.submitted.mapper_type_parameter.MapperTypeParameterTest (29 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetObjectWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest) (27 ms)</li><li>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldPrintVarchars(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest) (1 ms)</li><li>org.apache.ibatis.submitted.typehandler.TypeHandlerTest.shouldApplyTypeHandlerOnReturnTypeWithJdbcTypeSpecified(org.apache.ibatis.submitted.typehandler.TypeHandlerTest) (9 ms)</li><li>org.apache.ibatis.submitted.call_setters_on_nulls.DoNotCallSettersOnNullsTest.org.apache.ibatis.submitted.call_setters_on_nulls.DoNotCallSettersOnNullsTest (11 ms)</li><li>org.apache.ibatis.submitted.propertiesinmapperfiles.PropertiesInMappersTest.org.apache.ibatis.submitted.propertiesinmapperfiles.PropertiesInMappersTest (16 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithNothingWithInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest) (28 ms)</li><li>org.apache.ibatis.submitted.cache.CacheTest.shouldApplyCacheNamespaceRef(org.apache.ibatis.submitted.cache.CacheTest) (29 ms)</li><li>org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest.org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest (26 ms)</li><li>org.apache.ibatis.submitted.parent_reference_3level.BlogTest.testSelectBlogWithoutPosts(org.apache.ibatis.submitted.parent_reference_3level.BlogTest) (9 ms)</li><li>org.apache.ibatis.logging.jdbc.ConnectionLoggerTest.shouldPrintPrepareCall(org.apache.ibatis.logging.jdbc.ConnectionLoggerTest) (14 ms)</li><li>org.apache.ibatis.submitted.selectkey.SelectKeyTest.testAnnotatedInsertTable2WithGeneratedKeyXml(org.apache.ibatis.submitted.selectkey.SelectKeyTest) (15 ms)</li><li>org.apache.ibatis.submitted.batch_keys.BatchKeysTest.testInsertMapperJdbc3(org.apache.ibatis.submitted.batch_keys.BatchKeysTest) (14 ms)</li><li>org.apache.ibatis.submitted.order_prefix_removed.OrderPrefixRemoved.org.apache.ibatis.submitted.order_prefix_removed.OrderPrefixRemoved (16 ms)</li><li>org.apache.ibatis.submitted.xml_external_ref.NonFullyQualifiedNamespaceTest.testCrossReferenceXmlConfig(org.apache.ibatis.submitted.xml_external_ref.NonFullyQualifiedNamespaceTest) (14 ms)</li><li>org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest.shouldPrintNullParameters(org.apache.ibatis.logging.jdbc.PreparedStatementLoggerTest) (1 ms)</li><li>org.apache.ibatis.submitted.usesjava8.use_actual_param_name.UseActualParamNameTest.org.apache.ibatis.submitted.usesjava8.use_actual_param_name.UseActualParamNameTest (20 ms)</li><li>org.apache.ibatis.submitted.flush_statement_npe.FlushStatementNpeTest.org.apache.ibatis.submitted.flush_statement_npe.FlushStatementNpeTest (24 ms)</li><li>org.apache.ibatis.submitted.result_handler_type.DefaultResultHandlerTypeTest.testSelectMapAnnotation(org.apache.ibatis.submitted.result_handler_type.DefaultResultHandlerTypeTest) (9 ms)</li><li>org.apache.ibatis.submitted.batch_keys.BatchKeysTest.testInsertMapperNoBatchJdbc3(org.apache.ibatis.submitted.batch_keys.BatchKeysTest) (9 ms)</li><li>org.apache.ibatis.submitted.xml_external_ref.MultipleReverseIncludeTest.testMultipleReverseIncludeJavaConfig(org.apache.ibatis.submitted.xml_external_ref.MultipleReverseIncludeTest) (6 ms)</li><li>org.apache.ibatis.submitted.nestedresulthandler.NestedResultHandlerTest.org.apache.ibatis.submitted.nestedresulthandler.NestedResultHandlerTest (28 ms)</li><li>org.apache.ibatis.submitted.xml_external_ref.ResultMapReferenceTest.testCrossReferenceXmlConfig(org.apache.ibatis.submitted.xml_external_ref.ResultMapReferenceTest) (11 ms)</li><li>org.apache.ibatis.submitted.awful_table.AwfulTableTest.testAwfulTableInsert(org.apache.ibatis.submitted.awful_table.AwfulTableTest) (36 ms)</li><li>org.apache.ibatis.submitted.typehandler.TypeHandlerTest.shouldPickSoleTypeHandlerOnXmlResultMap(org.apache.ibatis.submitted.typehandler.TypeHandlerTest) (13 ms)</li><li>org.apache.ibatis.submitted.named_constructor_args.usesjava8.NamedConstructorArgsUseActualNameTest.org.apache.ibatis.submitted.named_constructor_args.usesjava8.NamedConstructorArgsUseActualNameTest (10 ms)</li><li>org.apache.ibatis.submitted.extends_with_constructor.NpeExtendsTest.org.apache.ibatis.submitted.extends_with_constructor.NpeExtendsTest (46 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.DefaultLazyTest.lazyLoadUserWithGetObjectWithInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.DefaultLazyTest) (23 ms)</li><li>org.apache.ibatis.submitted.xml_external_ref.ResultMapExtendsTest.testExternalExtendsXmlConfig(org.apache.ibatis.submitted.xml_external_ref.ResultMapExtendsTest) (12 ms)</li><li>org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest.shouldDescribeObjectArrayParameter(org.apache.ibatis.logging.jdbc.BaseJdbcLoggerTest) (39 ms)</li><li>org.apache.ibatis.submitted.count.CountTest.org.apache.ibatis.submitted.count.CountTest (10 ms)</li><li>org.apache.ibatis.submitted.multidb.MultiDbTest.org.apache.ibatis.submitted.multidb.MultiDbTest (23 ms)</li><li>org.apache.ibatis.submitted.primitive_array.PrimitiveArrayTest.org.apache.ibatis.submitted.primitive_array.PrimitiveArrayTest (74 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.DefaultLazyTest.lazyLoadUserWithNothingWithInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.DefaultLazyTest) (14 ms)</li><li>org.apache.ibatis.submitted.selectkey.SelectKeyTest.testInsertTable2(org.apache.ibatis.submitted.selectkey.SelectKeyTest) (16 ms)</li><li>org.apache.ibatis.submitted.cursor_nested.CursorNestedTest.org.apache.ibatis.submitted.cursor_nested.CursorNestedTest (54 ms)</li><li>org.apache.ibatis.submitted.raw_sql_source.RawSqlSourceTest.org.apache.ibatis.submitted.raw_sql_source.RawSqlSourceTest (27 ms)</li><li>org.apache.ibatis.submitted.empty_row.ReturnInstanceForEmptyRowTest.org.apache.ibatis.submitted.empty_row.ReturnInstanceForEmptyRowTest (32 ms)</li><li>org.apache.ibatis.session.AutoMappingUnknownColumnBehaviorTest.org.apache.ibatis.session.AutoMappingUnknownColumnBehaviorTest (2253 ms)</li><li>org.apache.ibatis.logging.jdbc.ResultSetLoggerTest.shouldNotPrintBlobs(org.apache.ibatis.logging.jdbc.ResultSetLoggerTest) (1 ms)</li><li>org.apache.ibatis.submitted.primitive_result_type.PrimitiveResultTypeTest.org.apache.ibatis.submitted.primitive_result_type.PrimitiveResultTypeTest (21 ms)</li><li>org.apache.ibatis.submitted.cursor_simple.CursorSimpleTest.org.apache.ibatis.submitted.cursor_simple.CursorSimpleTest (31 ms)</li><li>org.apache.ibatis.submitted.global_variables.BaseTest.org.apache.ibatis.submitted.global_variables.BaseTest (25 ms)</li><li>org.apache.ibatis.submitted.global_variables_defaults.XmlMapperTest.applyPropertyValueOnXmlMapper(org.apache.ibatis.submitted.global_variables_defaults.XmlMapperTest) (9 ms)</li><li>org.apache.ibatis.submitted.ancestor_ref.AncestorRefTest.org.apache.ibatis.submitted.ancestor_ref.AncestorRefTest (43 ms)</li><li>org.apache.ibatis.submitted.inline_association_with_dot.InlineCollectionWithDotTest.selectElementValueInContainerUsingInline(org.apache.ibatis.submitted.inline_association_with_dot.InlineCollectionWithDotTest) (19 ms)</li><li>org.apache.ibatis.submitted.inheritance.InheritanceTest.org.apache.ibatis.submitted.inheritance.InheritanceTest (20 ms)</li><li>org.apache.ibatis.submitted.parent_childs.ParentChildTest.org.apache.ibatis.submitted.parent_childs.ParentChildTest (17 ms)</li><li>org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest.testSelectListWithNestedResultMap(org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest) (25 ms)</li><li>org.apache.ibatis.submitted.sqlprovider.SqlProviderTest.org.apache.ibatis.submitted.sqlprovider.SqlProviderTest (117 ms)</li><li>org.apache.ibatis.submitted.parametrizedlist.ParametrizedListTest.testShouldDetectUsersAsParameterInsideAList(org.apache.ibatis.submitted.parametrizedlist.ParametrizedListTest) (14 ms)</li><li>org.apache.ibatis.submitted.overwritingproperties.FooMapperTest.org.apache.ibatis.submitted.overwritingproperties.FooMapperTest (19 ms)</li><li>org.apache.ibatis.submitted.nested_query_cache.NestedQueryCacheTest.org.apache.ibatis.submitted.nested_query_cache.NestedQueryCacheTest (2114 ms)</li><li>org.apache.ibatis.submitted.collectionparameters.CollectionParametersTest.org.apache.ibatis.submitted.collectionparameters.CollectionParametersTest (25 ms)</li><li>org.apache.ibatis.submitted.resultmapwithassociationstest.ResultMapWithAssociationsTest.org.apache.ibatis.submitted.resultmapwithassociationstest.ResultMapWithAssociationsTest (17 ms)</li><li>org.apache.ibatis.submitted.parent_reference_3level.BlogTest.testSelectBlogWithPosts(org.apache.ibatis.submitted.parent_reference_3level.BlogTest) (25 ms)</li><li>org.apache.ibatis.submitted.bringrags.SimpleObjectTest.testGetById(org.apache.ibatis.submitted.bringrags.SimpleObjectTest) (22 ms)</li><li>org.apache.ibatis.submitted.selectkey.SelectKeyTest.testInsertTable1(org.apache.ibatis.submitted.selectkey.SelectKeyTest) (16 ms)</li><li>org.apache.ibatis.submitted.valueinmap.ValueInMapTest.org.apache.ibatis.submitted.valueinmap.ValueInMapTest (17 ms)</li><li>org.apache.ibatis.submitted.emptycollection.DaoTest.testWithNonEmptyList_noCollectionId(org.apache.ibatis.submitted.emptycollection.DaoTest) (8 ms)</li><li>org.apache.ibatis.submitted.association_nested.FolderMapperTest.testFindWithChildren(org.apache.ibatis.submitted.association_nested.FolderMapperTest) (30 ms)</li><li>org.apache.ibatis.submitted.result_handler_type.DefaultResultHandlerTypeTest.testSelectList(org.apache.ibatis.submitted.result_handler_type.DefaultResultHandlerTypeTest) (11 ms)</li><li>org.apache.ibatis.submitted.force_flush_on_select.ForceFlushOnSelectTest.testShouldFlushLocalSessionCacheOnQueryForList(org.apache.ibatis.submitted.force_flush_on_select.ForceFlushOnSelectTest) (12 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetObjectWithInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest) (42 ms)</li><li>org.apache.ibatis.submitted.parent_reference_3level.BlogTest.testSelectBlogWithPostsColumnPrefix(org.apache.ibatis.submitted.parent_reference_3level.BlogTest) (9 ms)</li><li>org.apache.ibatis.submitted.results_id.ResultsIdTest.org.apache.ibatis.submitted.results_id.ResultsIdTest (20 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.DefaultLazyTest.lazyLoadUserWithNothingWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.DefaultLazyTest) (15 ms)</li><li>org.apache.ibatis.submitted.xml_external_ref.XmlExternalRefTest.testCrossReferenceJavaConfig(org.apache.ibatis.submitted.xml_external_ref.XmlExternalRefTest) (10 ms)</li><li>org.apache.ibatis.submitted.duplicate_statements.DuplicateStatementsTest.shouldGetAllUsers(org.apache.ibatis.submitted.duplicate_statements.DuplicateStatementsTest) (9 ms)</li><li>org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest.org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest (19 ms)</li><li>org.apache.ibatis.submitted.heavy_initial_load.HeavyInitialLoadTest.org.apache.ibatis.submitted.heavy_initial_load.HeavyInitialLoadTest (334 ms)</li><li>org.apache.ibatis.submitted.global_variables_defaults.AnnotationMapperTest.applyPropertyValueOnAnnotationMapper(org.apache.ibatis.submitted.global_variables_defaults.AnnotationMapperTest) (7 ms)</li><li>org.apache.ibatis.submitted.rounding.RoundingHandlersTest.org.apache.ibatis.submitted.rounding.RoundingHandlersTest (18 ms)</li><li>org.apache.ibatis.submitted.multipleresultsetswithassociation.MultipleResultSetTest.org.apache.ibatis.submitted.multipleresultsetswithassociation.MultipleResultSetTest (27 ms)</li><li>org.apache.ibatis.submitted.batch_test.BatchTest.org.apache.ibatis.submitted.batch_test.BatchTest (17 ms)</li><li>org.apache.ibatis.submitted.camelcase.CamelCaseMappingTest.org.apache.ibatis.submitted.camelcase.CamelCaseMappingTest (22 ms)</li><li>org.apache.ibatis.submitted.basetest.BaseTest.org.apache.ibatis.submitted.basetest.BaseTest (18 ms)</li><li>org.apache.ibatis.logging.jdbc.StatementLoggerTest.shouldNotPrintLog(org.apache.ibatis.logging.jdbc.StatementLoggerTest) (0 ms)</li><li>org.apache.ibatis.submitted.column_prefix.ColumnPrefixTest.testComplexPerson(org.apache.ibatis.submitted.column_prefix.ColumnPrefixTest) (22 ms)</li><li>org.apache.ibatis.submitted.column_prefix.ColumnPrefixAutoMappingTest.testCaseInsensitivity(org.apache.ibatis.submitted.column_prefix.ColumnPrefixAutoMappingTest) (28 ms)</li><li>org.apache.ibatis.submitted.xml_external_ref.ReverseIncludeTest.testReverseIncludeXmlConfig(org.apache.ibatis.submitted.xml_external_ref.ReverseIncludeTest) (8 ms)</li><li>org.apache.ibatis.submitted.selectkey.SelectKeyTest.testAnnotatedInsertTable2(org.apache.ibatis.submitted.selectkey.SelectKeyTest) (102 ms)</li><li>org.apache.ibatis.submitted.xml_external_ref.ResultMapReferenceTest.testCrossReferenceJavaConfig(org.apache.ibatis.submitted.xml_external_ref.ResultMapReferenceTest) (8 ms)</li><li>org.apache.ibatis.submitted.ognl_enum.EnumWithOgnlTest.org.apache.ibatis.submitted.ognl_enum.EnumWithOgnlTest (27 ms)</li><li>org.apache.ibatis.submitted.force_flush_on_select.ForceFlushOnSelectTest.testShouldNotFlushLocalSessionCacheOnQuery(org.apache.ibatis.submitted.force_flush_on_select.ForceFlushOnSelectTest) (10 ms)</li><li>org.apache.ibatis.submitted.nested.NestedForEachTest.org.apache.ibatis.submitted.nested.NestedForEachTest (22 ms)</li><li>org.apache.ibatis.submitted.serializecircular.SerializeCircularTest.serializeAndDeserializeObjectsWithoutAggressiveLazyLoadingWithoutPreloadingAttribute(org.apache.ibatis.submitted.serializecircular.SerializeCircularTest) (16 ms)</li><li>org.apache.ibatis.submitted.lazy_properties.LazyPropertiesTest.org.apache.ibatis.submitted.lazy_properties.LazyPropertiesTest (50 ms)</li><li>org.apache.ibatis.submitted.result_handler.ResulthandlerTest.org.apache.ibatis.submitted.result_handler.ResulthandlerTest (8 ms)</li><li>org.apache.ibatis.submitted.quotedcolumnnames.QuotedColumnNamesTest.org.apache.ibatis.submitted.quotedcolumnnames.QuotedColumnNamesTest (10 ms)</li><li>org.apache.ibatis.submitted.xml_external_ref.ParameterMapReferenceTest.testCrossReferenceXmlConfig(org.apache.ibatis.submitted.xml_external_ref.ParameterMapReferenceTest) (10 ms)</li><li>org.apache.ibatis.submitted.selectkey.SelectKeyTest.testAnnotatedUpdateTable2WithSelectKeyWithKeyMap(org.apache.ibatis.submitted.selectkey.SelectKeyTest) (17 ms)</li><li>org.apache.ibatis.submitted.serializecircular.SerializeCircularTest.serializeAndDeserializeObjectsWithoutAggressiveLazyLoadingWithPreloadingAttribute(org.apache.ibatis.submitted.serializecircular.SerializeCircularTest) (21 ms)</li><li>org.apache.ibatis.submitted.column_prefix.ColumnPrefixAutoMappingTest.testSelectPetAndRoom(org.apache.ibatis.submitted.column_prefix.ColumnPrefixAutoMappingTest) (16 ms)</li><li>org.apache.ibatis.submitted.cache.CacheTest.testplan2(org.apache.ibatis.submitted.cache.CacheTest) (11 ms)</li><li>org.apache.ibatis.submitted.permissions.PermissionsTest.org.apache.ibatis.submitted.permissions.PermissionsTest (24 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.1.11
+
+</body>
+</html>

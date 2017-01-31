@@ -1,0 +1,2067 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+	border: 1px solid #dddddd;
+	padding-top: 10px;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-family: Consolas, Courier, monospace;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+
+.pop {outline:none; }
+.pop strong {line-height:30px;}
+.pop {text-decoration:none;}
+.pop span { z-index:10;display:none; padding:14px 20px; margin-top:-30px; margin-left:28px; width:800px; line-height:16px; word-wrap:break-word; }
+.pop:hover span{ display:inline; position:absolute; color:#111; border:1px solid #DCA; background:#fffAF0;}
+
+.pop span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -moz-box-shadow: 5px 5px 8px #CCC; -webkit-box-shadow: 5px 5px 8px #CCC; box-shadow: 5px 5px 8px #CCC; }
+</style>
+
+</head>
+<body>
+
+
+<h1>ResultLoader.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    Copyright 2009-2015 the original author or authors.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    you may not use this file except in compliance with the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    You may obtain a copy of the License at</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *       http://www.apache.org/licenses/LICENSE-2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    Unless required by applicable law or agreed to in writing, software</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    See the License for the specific language governing permissions and</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    limitations under the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_16'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.apache.ibatis.executor.loader;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_17'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.sql.SQLException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_20'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_21'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import javax.sql.DataSource;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_22'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_23'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.cache.CacheKey;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_24'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.executor.Executor;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_25'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.executor.ExecutorException;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_26'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.executor.ResultExtractor;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_27'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.mapping.BoundSql;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_28'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.mapping.Environment;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_29'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.mapping.MappedStatement;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_30'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.reflection.factory.ObjectFactory;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_31'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.session.Configuration;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_32'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.session.ExecutorType;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_33'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.session.RowBounds;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_34'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.transaction.Transaction;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_35'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.transaction.TransactionFactory;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_36'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_37'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_38'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @author Clinton Begin</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_39'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_40'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class ResultLoader {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_41'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_42'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  protected final Configuration configuration;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_43'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  protected final Executor executor;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_44'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  protected final MappedStatement mappedStatement;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_45'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  protected final Object parameterObject;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_46'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  protected final Class&#60;?&#62; targetType;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_47'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  protected final ObjectFactory objectFactory;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_48'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  protected final CacheKey cacheKey;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_49'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  protected final BoundSql boundSql;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_50'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  protected final ResultExtractor resultExtractor;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_51'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  protected final long creatorThreadId;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_52'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  </span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_53'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  protected boolean loaded;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_54'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  protected Object resultObject;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_55'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  </span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_56'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  public ResultLoader(Configuration config, Executor executor, MappedStatement mappedStatement, Object parameterObject, Class&#60;?&#62; targetType, CacheKey cacheKey, BoundSql boundSql) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_57'/>
+57
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_57'>1</a>
+<span>
+1. <init> : Removed assignment to member variable configuration &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    this.configuration = config;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_58'/>
+58
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_58'>1</a>
+<span>
+1. <init> : Removed assignment to member variable executor &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    this.executor = executor;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_59'/>
+59
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_59'>1</a>
+<span>
+1. <init> : Removed assignment to member variable mappedStatement &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    this.mappedStatement = mappedStatement;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_60'/>
+60
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_60'>1</a>
+<span>
+1. <init> : Removed assignment to member variable parameterObject &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    this.parameterObject = parameterObject;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_61'/>
+61
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_61'>1</a>
+<span>
+1. <init> : Removed assignment to member variable targetType &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    this.targetType = targetType;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_62'/>
+62
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_62'>2</a>
+<span>
+1. <init> : removed call to org/apache/ibatis/session/Configuration::getObjectFactory &rarr; KILLED<br/>
+2. <init> : Removed assignment to member variable objectFactory &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    this.objectFactory = configuration.getObjectFactory();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_63'/>
+63
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_63'>1</a>
+<span>
+1. <init> : Removed assignment to member variable cacheKey &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    this.cacheKey = cacheKey;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_64'/>
+64
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_64'>1</a>
+<span>
+1. <init> : Removed assignment to member variable boundSql &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    this.boundSql = boundSql;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_65'/>
+65
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_65'>2</a>
+<span>
+1. <init> : removed call to org/apache/ibatis/executor/ResultExtractor::&#60;init&#62; &rarr; KILLED<br/>
+2. <init> : Removed assignment to member variable resultExtractor &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    this.resultExtractor = new ResultExtractor(configuration, objectFactory);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_66'/>
+66
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_66'>3</a>
+<span>
+1. <init> : removed call to java/lang/Thread::currentThread &rarr; KILLED<br/>
+2. <init> : removed call to java/lang/Thread::getId &rarr; KILLED<br/>
+3. <init> : Removed assignment to member variable creatorThreadId &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    this.creatorThreadId = Thread.currentThread().getId();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_67'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_68'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_69'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public Object loadResult() throws SQLException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_70'/>
+70
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_70'>1</a>
+<span>
+1. loadResult : removed call to org/apache/ibatis/executor/loader/ResultLoader::selectList &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    List&#60;Object&#62; list = selectList();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_71'/>
+71
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_71'>2</a>
+<span>
+1. loadResult : removed call to org/apache/ibatis/executor/ResultExtractor::extractObjectFromList &rarr; KILLED<br/>
+2. loadResult : Removed assignment to member variable resultObject &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    resultObject = resultExtractor.extractObjectFromList(list, targetType);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_72'/>
+72
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_72'>1</a>
+<span>
+1. loadResult : mutated return of Object value for org/apache/ibatis/executor/loader/ResultLoader::loadResult to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return resultObject;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_73'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_74'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_75'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  private &#60;E&#62; List&#60;E&#62; selectList() throws SQLException {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_76'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    Executor localExecutor = executor;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_77'/>
+77
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_77'>9</a>
+<span>
+1. selectList : removed conditional - replaced equality check with true &rarr; SURVIVED<br/>
+2. selectList : negated conditional &rarr; KILLED<br/>
+3. selectList : negated conditional &rarr; KILLED<br/>
+4. selectList : removed call to java/lang/Thread::currentThread &rarr; KILLED<br/>
+5. selectList : removed call to java/lang/Thread::getId &rarr; KILLED<br/>
+6. selectList : removed call to org/apache/ibatis/executor/Executor::isClosed &rarr; KILLED<br/>
+7. selectList : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+8. selectList : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+9. selectList : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    if (Thread.currentThread().getId() != this.creatorThreadId || localExecutor.isClosed()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_78'/>
+78
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_78'>1</a>
+<span>
+1. selectList : removed call to org/apache/ibatis/executor/loader/ResultLoader::newExecutor &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      localExecutor = newExecutor();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_79'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_80'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    try {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_81'/>
+81
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_81'>1</a>
+<span>
+1. selectList : removed call to org/apache/ibatis/executor/Executor::query &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return localExecutor.&#60;E&#62; query(mappedStatement, parameterObject, RowBounds.DEFAULT, Executor.NO_RESULT_HANDLER, cacheKey, boundSql);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_82'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    } finally {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_83'/>
+83
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_83'>3</a>
+<span>
+1. selectList : negated conditional &rarr; KILLED<br/>
+2. selectList : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+3. selectList : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      if (localExecutor != executor) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_84'/>
+84
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_84'>3</a>
+<span>
+1. selectList : Substituted 0 with 1 &rarr; KILLED<br/>
+2. selectList : mutated return of Object value for org/apache/ibatis/executor/loader/ResultLoader::selectList to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+3. selectList : removed call to org/apache/ibatis/executor/Executor::close &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        localExecutor.close(false);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_85'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_86'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_87'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_88'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_89'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  private Executor newExecutor() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_90'/>
+90
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_90'>1</a>
+<span>
+1. newExecutor : removed call to org/apache/ibatis/session/Configuration::getEnvironment &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    final Environment environment = configuration.getEnvironment();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_91'/>
+91
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_91'>3</a>
+<span>
+1. newExecutor : removed conditional - replaced equality check with false &rarr; SURVIVED<br/>
+2. newExecutor : negated conditional &rarr; KILLED<br/>
+3. newExecutor : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    if (environment == null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_92'/>
+92
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_92'>1</a>
+<span>
+1. newExecutor : removed call to org/apache/ibatis/executor/ExecutorException::&#60;init&#62; &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>      throw new ExecutorException(&#34;ResultLoader could not load lazily.  Environment was not configured.&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_93'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_94'/>
+94
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_94'>1</a>
+<span>
+1. newExecutor : removed call to org/apache/ibatis/mapping/Environment::getDataSource &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    final DataSource ds = environment.getDataSource();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_95'/>
+95
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_95'>3</a>
+<span>
+1. newExecutor : removed conditional - replaced equality check with false &rarr; SURVIVED<br/>
+2. newExecutor : negated conditional &rarr; KILLED<br/>
+3. newExecutor : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    if (ds == null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_96'/>
+96
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_96'>1</a>
+<span>
+1. newExecutor : removed call to org/apache/ibatis/executor/ExecutorException::&#60;init&#62; &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>      throw new ExecutorException(&#34;ResultLoader could not load lazily.  DataSource was not configured.&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_97'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_98'/>
+98
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_98'>1</a>
+<span>
+1. newExecutor : removed call to org/apache/ibatis/mapping/Environment::getTransactionFactory &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    final TransactionFactory transactionFactory = environment.getTransactionFactory();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_99'/>
+99
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_99'>2</a>
+<span>
+1. newExecutor : Substituted 0 with 1 &rarr; SURVIVED<br/>
+2. newExecutor : removed call to org/apache/ibatis/transaction/TransactionFactory::newTransaction &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    final Transaction tx = transactionFactory.newTransaction(ds, null, false);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_100'/>
+100
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_100'>2</a>
+<span>
+1. newExecutor : removed call to org/apache/ibatis/session/Configuration::newExecutor &rarr; KILLED<br/>
+2. newExecutor : mutated return of Object value for org/apache/ibatis/executor/loader/ResultLoader::newExecutor to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return configuration.newExecutor(tx, ExecutorType.SIMPLE);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_101'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_102'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_103'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public boolean wasNull() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_104'/>
+104
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_104'>6</a>
+<span>
+1. wasNull : Substituted 1 with 0 &rarr; NO_COVERAGE<br/>
+2. wasNull : Substituted 0 with 1 &rarr; NO_COVERAGE<br/>
+3. wasNull : negated conditional &rarr; NO_COVERAGE<br/>
+4. wasNull : removed conditional - replaced equality check with false &rarr; NO_COVERAGE<br/>
+5. wasNull : removed conditional - replaced equality check with true &rarr; NO_COVERAGE<br/>
+6. wasNull : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>    return resultObject == null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_105'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_106'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4b79194c_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_107'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_57'>57</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_57'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest.testSelectListWithNestedSelect(org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest)</span></span> Removed assignment to member variable configuration &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_58'>58</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_58'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest.testSelectListWithNestedSelect(org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest)</span></span> Removed assignment to member variable executor &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_59'>59</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_59'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest.testSelectListWithNestedSelect(org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest)</span></span> Removed assignment to member variable mappedStatement &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_60'>60</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_60'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest.testSelectListWithNestedSelect(org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest)</span></span> Removed assignment to member variable parameterObject &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_61'>61</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_61'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest.testSelectListWithNestedSelect(org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest)</span></span> Removed assignment to member variable targetType &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_62'>62</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_62'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest.testSelectListWithNestedSelect(org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest)</span></span> removed call to org/apache/ibatis/session/Configuration::getObjectFactory &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest.testSelectListWithNestedSelect(org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest)</span></span> Removed assignment to member variable objectFactory &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_63'>63</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_63'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest.testSelectListWithNestedSelect(org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest)</span></span> Removed assignment to member variable cacheKey &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_64'>64</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_64'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest.org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest</span></span> Removed assignment to member variable boundSql &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_65'>65</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_65'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest.testSelectListWithNestedSelect(org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest)</span></span> removed call to org/apache/ibatis/executor/ResultExtractor::&#60;init&#62; &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest.testSelectListWithNestedSelect(org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest)</span></span> Removed assignment to member variable resultExtractor &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_66'>66</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_66'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest.testSelectListWithNestedSelect(org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest)</span></span> removed call to java/lang/Thread::currentThread &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest.org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest</span></span> removed call to java/lang/Thread::getId &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest.org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest</span></span> Removed assignment to member variable creatorThreadId &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_70'>70</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_70'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadResult<br/><b>Killed by : </b>org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest.testSelectListWithNestedSelect(org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest)</span></span> removed call to org/apache/ibatis/executor/loader/ResultLoader::selectList &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_71'>71</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_71'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadResult<br/><b>Killed by : </b>org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest.testSelectListWithNestedSelect(org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest)</span></span> removed call to org/apache/ibatis/executor/ResultExtractor::extractObjectFromList &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>loadResult<br/><b>Killed by : </b>org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest.testSelectListWithNestedSelect(org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest)</span></span> Removed assignment to member variable resultObject &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_72'>72</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_72'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>loadResult<br/><b>Killed by : </b>org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest.testSelectListWithNestedSelect(org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest)</span></span> mutated return of Object value for org/apache/ibatis/executor/loader/ResultLoader::loadResult to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_77'>77</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_77'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>selectList<br/><b>Killed by : </b>org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest.org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>selectList<br/><b>Killed by : </b>org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest.org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>selectList<br/><b>Killed by : </b>org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest.testSelectListWithNestedSelect(org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest)</span></span> removed call to java/lang/Thread::currentThread &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>selectList<br/><b>Killed by : </b>org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest.org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest</span></span> removed call to java/lang/Thread::getId &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>selectList<br/><b>Killed by : </b>org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest.org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest</span></span> removed call to org/apache/ibatis/executor/Executor::isClosed &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>selectList<br/><b>Killed by : </b>org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest.org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>selectList<br/><b>Killed by : </b>org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest.org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>selectList<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>selectList<br/><b>Killed by : </b>org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest.org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_78'>78</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_78'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>selectList<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazy_deserialize.LazyDeserializeTest.org.apache.ibatis.submitted.lazy_deserialize.LazyDeserializeTest</span></span> removed call to org/apache/ibatis/executor/loader/ResultLoader::newExecutor &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_81'>81</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_81'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>selectList<br/><b>Killed by : </b>org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest.testSelectListWithNestedSelect(org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest)</span></span> removed call to org/apache/ibatis/executor/Executor::query &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_83'>83</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_83'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>selectList<br/><b>Killed by : </b>org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest.testSelectListWithNestedSelect(org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>selectList<br/><b>Killed by : </b>org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest.org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>selectList<br/><b>Killed by : </b>org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest.testSelectListWithNestedSelect(org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest)</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_84'>84</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_84'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>selectList<br/><b>Killed by : </b>org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest.org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>selectList<br/><b>Killed by : </b>org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest.testSelectListWithNestedSelect(org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest)</span></span> mutated return of Object value for org/apache/ibatis/executor/loader/ResultLoader::selectList to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>selectList<br/><b>Killed by : </b>org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest.org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest</span></span> removed call to org/apache/ibatis/executor/Executor::close &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_90'>90</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_90'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>newExecutor<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazy_deserialize.LazyDeserializeTest.org.apache.ibatis.submitted.lazy_deserialize.LazyDeserializeTest</span></span> removed call to org/apache/ibatis/session/Configuration::getEnvironment &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_91'>91</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_91'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>newExecutor<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazy_deserialize.LazyDeserializeTest.org.apache.ibatis.submitted.lazy_deserialize.LazyDeserializeTest</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>newExecutor<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>newExecutor<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazy_deserialize.LazyDeserializeTest.org.apache.ibatis.submitted.lazy_deserialize.LazyDeserializeTest</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_92'>92</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_92'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>newExecutor<br/><b>Killed by : </b>none</span></span> removed call to org/apache/ibatis/executor/ExecutorException::&#60;init&#62; &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_94'>94</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_94'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>newExecutor<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazy_deserialize.LazyDeserializeTest.org.apache.ibatis.submitted.lazy_deserialize.LazyDeserializeTest</span></span> removed call to org/apache/ibatis/mapping/Environment::getDataSource &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_95'>95</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_95'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>newExecutor<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazy_deserialize.LazyDeserializeTest.org.apache.ibatis.submitted.lazy_deserialize.LazyDeserializeTest</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>newExecutor<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>newExecutor<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazy_deserialize.LazyDeserializeTest.org.apache.ibatis.submitted.lazy_deserialize.LazyDeserializeTest</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_96'>96</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_96'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>newExecutor<br/><b>Killed by : </b>none</span></span> removed call to org/apache/ibatis/executor/ExecutorException::&#60;init&#62; &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_98'>98</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_98'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>newExecutor<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazy_deserialize.LazyDeserializeTest.org.apache.ibatis.submitted.lazy_deserialize.LazyDeserializeTest</span></span> removed call to org/apache/ibatis/mapping/Environment::getTransactionFactory &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_99'>99</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_99'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>newExecutor<br/><b>Killed by : </b>none</span></span> Substituted 0 with 1 &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>newExecutor<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazy_deserialize.LazyDeserializeTest.org.apache.ibatis.submitted.lazy_deserialize.LazyDeserializeTest</span></span> removed call to org/apache/ibatis/transaction/TransactionFactory::newTransaction &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_100'>100</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_100'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>newExecutor<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazy_deserialize.LazyDeserializeTest.org.apache.ibatis.submitted.lazy_deserialize.LazyDeserializeTest</span></span> removed call to org/apache/ibatis/session/Configuration::newExecutor &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>newExecutor<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazy_deserialize.LazyDeserializeTest.org.apache.ibatis.submitted.lazy_deserialize.LazyDeserializeTest</span></span> mutated return of Object value for org/apache/ibatis/executor/loader/ResultLoader::newExecutor to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4b79194c_104'>104</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4b79194c_104'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>wasNull<br/><b>Killed by : </b>none</span></span> Substituted 1 with 0 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>wasNull<br/><b>Killed by : </b>none</span></span> Substituted 0 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>wasNull<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>wasNull<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>wasNull<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>wasNull<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_61</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_60</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_56</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_55</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_58</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_57</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_52</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_51</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_54</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_53</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_59</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_50</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_45</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_44</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_47</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_46</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_41</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_40</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_43</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_42</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_49</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_48</li>
+<li class='mutator'>INLINE_CONSTANT_MUTATOR</li>
+<li class='mutator'>CONSTRUCTOR_CALL_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_34</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_33</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_36</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_35</li>
+<li class='mutator'>EXPERIMENTAL_MEMBER_VARIABLE_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_30</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_32</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_31</li>
+<li class='mutator'>REMOVE_CONDITIONALS_ORDER_ELSE_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_38</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_37</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_39</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_3</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_2</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_1</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_0</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_23</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_22</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_25</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_9</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_24</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_8</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_7</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_6</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_21</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_5</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_20</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_4</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_27</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_26</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_29</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_28</li>
+<li class='mutator'>REMOVE_INCREMENTS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_12</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_11</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_99</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_14</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_13</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_96</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_95</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_10</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_98</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_97</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_19</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_16</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_15</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_18</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_17</li>
+<li class='mutator'>EXPERIMENTAL_SWITCH_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_92</li>
+<li class='mutator'>ARGUMENT_PROPAGATION_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_91</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_94</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_93</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_90</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_89</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_88</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_85</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_84</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_87</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_86</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NON_VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>REMOVE_CONDITIONALS_EQUAL_IF_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_81</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_80</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_83</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_82</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_78</li>
+<li class='mutator'>REMOVE_CONDITIONALS_EQUAL_ELSE_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_77</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_79</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_74</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_73</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_76</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_75</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_70</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_72</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_71</li>
+<li class='mutator'>REMOVE_CONDITIONALS_ORDER_IF_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_67</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_66</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_69</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_68</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_63</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_62</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_65</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_64</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetObjectWithInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest) (42 ms)</li><li>org.apache.ibatis.binding.BindingTest.org.apache.ibatis.binding.BindingTest (13264 ms)</li><li>org.apache.ibatis.submitted.automatic_lazy_loading.AutomaticLazyLoadingTest.org.apache.ibatis.submitted.automatic_lazy_loading.AutomaticLazyLoadingTest (201 ms)</li><li>org.apache.ibatis.submitted.javassist.JavassistTest.org.apache.ibatis.submitted.javassist.JavassistTest (24 ms)</li><li>org.apache.ibatis.submitted.column_prefix.ColumnPrefixNestedQueryTest.testSelectPetAndRoom(org.apache.ibatis.submitted.column_prefix.ColumnPrefixNestedQueryTest) (17 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.DefaultLazyTest.lazyLoadUserWithNothingWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.DefaultLazyTest) (15 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetObjectWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest) (27 ms)</li><li>org.apache.ibatis.submitted.cglib_lazy_error.CglibNPETest.org.apache.ibatis.submitted.cglib_lazy_error.CglibNPETest (34 ms)</li><li>org.apache.ibatis.submitted.cglib_lazy_error.CglibNPELazyTest.org.apache.ibatis.submitted.cglib_lazy_error.CglibNPELazyTest (66 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.DefaultLazyTest.lazyLoadUserWithGetObjectWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.DefaultLazyTest) (16 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithNothingWithInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest) (28 ms)</li><li>org.apache.ibatis.submitted.manyanno.ManyAnnoTest.testGetMessageForEmptyDatabase(org.apache.ibatis.submitted.manyanno.ManyAnnoTest) (1996 ms)</li><li>org.apache.ibatis.executor.CachingSimpleExecutorTest.org.apache.ibatis.executor.CachingSimpleExecutorTest (2425 ms)</li><li>org.apache.ibatis.executor.CachingReuseExecutorTest.org.apache.ibatis.executor.CachingReuseExecutorTest (2358 ms)</li><li>org.apache.ibatis.submitted.batch_test.BatchTest.org.apache.ibatis.submitted.batch_test.BatchTest (17 ms)</li><li>org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest.org.apache.ibatis.submitted.column_forwarding.ColumnForwardingTest (26 ms)</li><li>org.apache.ibatis.submitted.nestedresulthandler_multiple_association.NestedResultHandlerMultipleAssociationTest.org.apache.ibatis.submitted.nestedresulthandler_multiple_association.NestedResultHandlerMultipleAssociationTest (16 ms)</li><li>org.apache.ibatis.executor.ReuseExecutorTest.org.apache.ibatis.executor.ReuseExecutorTest (2273 ms)</li><li>org.apache.ibatis.executor.BaseExecutorTest.org.apache.ibatis.executor.BaseExecutorTest (2458 ms)</li><li>org.apache.ibatis.submitted.complex_column.ComplexColumnTest.org.apache.ibatis.submitted.complex_column.ComplexColumnTest (34 ms)</li><li>org.apache.ibatis.session.SqlSessionTest.org.apache.ibatis.session.SqlSessionTest (2482 ms)</li><li>org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest.testSelectListWithNestedSelect(org.apache.ibatis.submitted.custom_collection_handling.CustomCollectionHandlingTest) (11 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.DefaultLazyTest.lazyLoadUserWithGetXxxWithInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.DefaultLazyTest) (15 ms)</li><li>org.apache.ibatis.submitted.deferload_common_property.CommonPropertyDeferLoadError.org.apache.ibatis.submitted.deferload_common_property.CommonPropertyDeferLoadError (43 ms)</li><li>org.apache.ibatis.submitted.associationtype.AssociationTypeTest.org.apache.ibatis.submitted.associationtype.AssociationTypeTest (39 ms)</li><li>org.apache.ibatis.submitted.lazy_deserialize.LazyDeserializeTest.org.apache.ibatis.submitted.lazy_deserialize.LazyDeserializeTest (28 ms)</li><li>org.apache.ibatis.submitted.column_prefix.ColumnPrefixNestedQueryTest.testComplexPerson(org.apache.ibatis.submitted.column_prefix.ColumnPrefixNestedQueryTest) (25 ms)</li><li>org.apache.ibatis.submitted.serializecircular.SerializeCircularTest.serializeAndDeserializeObjectsWithoutAggressiveLazyLoadingWithoutPreloadingAttribute(org.apache.ibatis.submitted.serializecircular.SerializeCircularTest) (16 ms)</li><li>org.apache.ibatis.submitted.lazy_properties.LazyPropertiesTest.org.apache.ibatis.submitted.lazy_properties.LazyPropertiesTest (50 ms)</li><li>org.apache.ibatis.submitted.serializecircular.SerializeCircularTest.serializeAndDeserializeObjectsWithAggressiveLazyLoadingWithoutPreloadingAttribute(org.apache.ibatis.submitted.serializecircular.SerializeCircularTest) (14 ms)</li><li>org.apache.ibatis.submitted.missing_id_property.MissingIdPropertyTest.org.apache.ibatis.submitted.missing_id_property.MissingIdPropertyTest (21 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.DefaultLazyTest.lazyLoadUserWithGetXxxWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.DefaultLazyTest) (15 ms)</li><li>org.apache.ibatis.submitted.extends_with_constructor.NpeExtendsTest.org.apache.ibatis.submitted.extends_with_constructor.NpeExtendsTest (46 ms)</li><li>org.apache.ibatis.submitted.nested_query_cache.NestedQueryCacheTest.org.apache.ibatis.submitted.nested_query_cache.NestedQueryCacheTest (2114 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.DefaultLazyTest.lazyLoadUserWithGetObjectWithInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.DefaultLazyTest) (23 ms)</li><li>org.apache.ibatis.submitted.lazyload_common_property.CommonPropertyLazyLoadError.org.apache.ibatis.submitted.lazyload_common_property.CommonPropertyLazyLoadError (38 ms)</li><li>org.apache.ibatis.submitted.serializecircular.SerializeCircularTest.serializeAndDeserializeObjectsWithAggressiveLazyLoadingWithPreloadingAttribute(org.apache.ibatis.submitted.serializecircular.SerializeCircularTest) (34 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithNothingWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest) (90 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetXxxWithInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest) (29 ms)</li><li>org.apache.ibatis.submitted.primitive_array.PrimitiveArrayTest.org.apache.ibatis.submitted.primitive_array.PrimitiveArrayTest (74 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.DefaultLazyTest.lazyLoadUserWithNothingWithInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.DefaultLazyTest) (14 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetXxxWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest) (27 ms)</li><li>org.apache.ibatis.executor.CachingBatchExecutorTest.org.apache.ibatis.executor.CachingBatchExecutorTest (2551 ms)</li><li>org.apache.ibatis.executor.BatchExecutorTest.org.apache.ibatis.executor.BatchExecutorTest (2458 ms)</li><li>org.apache.ibatis.submitted.serializecircular.SerializeCircularTest.serializeAndDeserializeObjectsWithoutAggressiveLazyLoadingWithPreloadingAttribute(org.apache.ibatis.submitted.serializecircular.SerializeCircularTest) (21 ms)</li><li>org.apache.ibatis.submitted.permissions.PermissionsTest.org.apache.ibatis.submitted.permissions.PermissionsTest (24 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.1.11
+
+</body>
+</html>
