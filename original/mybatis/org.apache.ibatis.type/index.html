@@ -1,0 +1,333 @@
+<html>
+<head>
+  
+    <style type='text/css'>
+   
+   .tests{ 
+     width : 50%;
+     float : left;
+   }
+   
+   .mutees{
+     float : right;
+     width : 50%;
+   }
+   
+   .unit {
+     padding-top : 20px;
+     clear : both;
+   }
+   
+   .coverage_bar {
+    display : inline-block;
+    height : 1.1em;
+    width: 130px;
+    background: #FAA;
+    margin: 0 5px;
+    vertical-align: middle;
+    border: 1px solid #AAA;
+    position : relative;
+   }
+   
+   .coverage_complete {
+    display : inline-block;
+    height : 100%;
+    background: #DFD;
+    float: left;
+   }
+   
+   .coverage_ledgend {
+        position : absolute;
+        height : 100%;
+        width: 100%;
+        left : 0;
+        top : 0;
+        text-align : center;
+   }
+   
+   .line, .mut {
+        vertical-align : middle;
+   }
+   
+   .coveragePercentage {
+        display: inline-block;
+        width: 3em;
+        text-align: right;
+   }
+  </style>
+  
+</head>
+<body>
+
+<h1>Pit Test Coverage Report</h1>
+<h2>Package Summary</h2>
+<h3>org.apache.ibatis.type</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Number of Classes</th>
+            <th>Line Coverage</th>
+            <th>Mutation Coverage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>38</td>
+            <td>94% <div class="coverage_bar"><div class="coverage_complete" style="width:94%"></div><div class="coverage_ledgend">751/799</div></div></td>
+            <td>88% <div class="coverage_bar"><div class="coverage_complete" style="width:88%"></div><div class="coverage_ledgend">1174/1336</div></div></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>Breakdown by Class</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Line Coverage</th>
+            <th>Mutation Coverage</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td><a href="./ArrayTypeHandler.java.html">ArrayTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">10/10</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">19/19</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./BaseTypeHandler.java.html">BaseTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">92% </div><div class="coverage_bar"><div class="coverage_complete" style="width:92%"></div><div class="coverage_ledgend">33/36</div></div></td>
+            <td><div class="coveragePercentage">97% </div><div class="coverage_bar"><div class="coverage_complete" style="width:97%"></div><div class="coverage_ledgend">72/74</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./BigDecimalTypeHandler.java.html">BigDecimalTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">6/6</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">7/7</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./BigIntegerTypeHandler.java.html">BigIntegerTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">9/9</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">20/20</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./BlobByteObjectArrayTypeHandler.java.html">BlobByteObjectArrayTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">14/14</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">20/20</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./BlobInputStreamTypeHandler.java.html">BlobInputStreamTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">9/9</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">16/16</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./BlobTypeHandler.java.html">BlobTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">19/19</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">26/26</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./BooleanTypeHandler.java.html">BooleanTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">6/6</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">11/11</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./ByteArrayTypeHandler.java.html">ByteArrayTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">6/6</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">7/7</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./ByteArrayUtils.java.html">ByteArrayUtils.java</a></td>
+            <td><div class="coveragePercentage">80% </div><div class="coverage_bar"><div class="coverage_complete" style="width:80%"></div><div class="coverage_ledgend">8/10</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">18/18</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./ByteObjectArrayTypeHandler.java.html">ByteObjectArrayTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">13/13</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">16/16</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./ByteTypeHandler.java.html">ByteTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">6/6</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">11/11</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./CharacterTypeHandler.java.html">CharacterTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">15/15</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">30/30</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./ClobReaderTypeHandler.java.html">ClobReaderTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">9/9</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">16/16</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./ClobTypeHandler.java.html">ClobTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">22/22</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">27/27</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./DateOnlyTypeHandler.java.html">DateOnlyTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">15/15</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">27/27</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./DateTypeHandler.java.html">DateTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">15/15</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">27/27</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./DoubleTypeHandler.java.html">DoubleTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">6/6</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">11/11</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./EnumOrdinalTypeHandler.java.html">EnumOrdinalTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">71% </div><div class="coverage_bar"><div class="coverage_complete" style="width:71%"></div><div class="coverage_ledgend">20/28</div></div></td>
+            <td><div class="coveragePercentage">40% </div><div class="coverage_bar"><div class="coverage_complete" style="width:40%"></div><div class="coverage_ledgend">27/68</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./EnumTypeHandler.java.html">EnumTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">93% </div><div class="coverage_bar"><div class="coverage_complete" style="width:93%"></div><div class="coverage_ledgend">14/15</div></div></td>
+            <td><div class="coveragePercentage">94% </div><div class="coverage_bar"><div class="coverage_complete" style="width:94%"></div><div class="coverage_ledgend">29/31</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./FloatTypeHandler.java.html">FloatTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">6/6</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">11/11</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./IntegerTypeHandler.java.html">IntegerTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">6/6</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">13/13</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./JdbcType.java.html">JdbcType.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">48/48</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">5/5</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./LongTypeHandler.java.html">LongTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">6/6</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">11/11</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./NClobTypeHandler.java.html">NClobTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">22/22</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">27/27</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./NStringTypeHandler.java.html">NStringTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">6/6</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">8/8</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./ObjectTypeHandler.java.html">ObjectTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">6/6</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">7/7</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./ShortTypeHandler.java.html">ShortTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">6/6</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">11/11</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./SimpleTypeRegistry.java.html">SimpleTypeRegistry.java</a></td>
+            <td><div class="coveragePercentage">89% </div><div class="coverage_bar"><div class="coverage_complete" style="width:89%"></div><div class="coverage_ledgend">16/18</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">2/2</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./SqlDateTypeHandler.java.html">SqlDateTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">6/6</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">7/7</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./SqlTimeTypeHandler.java.html">SqlTimeTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">6/6</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">7/7</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./SqlTimestampTypeHandler.java.html">SqlTimestampTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">6/6</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">7/7</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./StringTypeHandler.java.html">StringTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">6/6</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">8/8</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./TimeOnlyTypeHandler.java.html">TimeOnlyTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">15/15</div></div></td>
+            <td><div class="coveragePercentage">100% </div><div class="coverage_bar"><div class="coverage_complete" style="width:100%"></div><div class="coverage_ledgend">27/27</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./TypeAliasRegistry.java.html">TypeAliasRegistry.java</a></td>
+            <td><div class="coveragePercentage">96% </div><div class="coverage_bar"><div class="coverage_complete" style="width:96%"></div><div class="coverage_ledgend">87/91</div></div></td>
+            <td><div class="coveragePercentage">86% </div><div class="coverage_bar"><div class="coverage_complete" style="width:86%"></div><div class="coverage_ledgend">129/150</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./TypeHandlerRegistry.java.html">TypeHandlerRegistry.java</a></td>
+            <td><div class="coveragePercentage">94% </div><div class="coverage_bar"><div class="coverage_complete" style="width:94%"></div><div class="coverage_ledgend">198/211</div></div></td>
+            <td><div class="coveragePercentage">89% </div><div class="coverage_bar"><div class="coverage_complete" style="width:89%"></div><div class="coverage_ledgend">382/428</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./TypeReference.java.html">TypeReference.java</a></td>
+            <td><div class="coveragePercentage">86% </div><div class="coverage_bar"><div class="coverage_complete" style="width:86%"></div><div class="coverage_ledgend">12/14</div></div></td>
+            <td><div class="coveragePercentage">65% </div><div class="coverage_bar"><div class="coverage_complete" style="width:65%"></div><div class="coverage_ledgend">20/31</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./UnknownTypeHandler.java.html">UnknownTypeHandler.java</a></td>
+            <td><div class="coveragePercentage">75% </div><div class="coverage_bar"><div class="coverage_complete" style="width:75%"></div><div class="coverage_ledgend">38/51</div></div></td>
+            <td><div class="coveragePercentage">59% </div><div class="coverage_bar"><div class="coverage_complete" style="width:59%"></div><div class="coverage_ledgend">55/94</div></div></td>
+        </tr>
+
+     </tbody>
+</table>
+<br/>
+
+
+
+<hr/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.1.11
+
+</body>
+</html>

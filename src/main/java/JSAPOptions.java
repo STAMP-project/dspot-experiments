@@ -24,12 +24,16 @@ public class JSAPOptions {
         public final int nbIteration;
         public final String testCase;
         public final String  pathToOutput;
-        public Configuration(String pathToConfigurationFile, List<Amplifier> amplifiers, int nbIteration, String testCase, String pathToOutput) {
+        public final String pathToOriginalMutantScore;
+        public final List<String> namesOfTestCases;
+        public Configuration(String pathToConfigurationFile, List<Amplifier> amplifiers, int nbIteration, String testCase, String pathToOutput, String pathToOriginalMutantScore, List<String> namesOfTestCases) {
             this.pathToConfigurationFile = pathToConfigurationFile;
             this.amplifiers = amplifiers;
             this.nbIteration = nbIteration;
             this.testCase = testCase;
             this.pathToOutput = pathToOutput;
+            this.pathToOriginalMutantScore = pathToOriginalMutantScore;
+            this.namesOfTestCases = namesOfTestCases;
         }
     }
 
@@ -55,8 +59,15 @@ public class JSAPOptions {
         }
         return new Configuration(jsapConfig.getString("path"),
                 buildAmplifiersFromString(jsapConfig.getStringArray("amplifiers")),
-                jsapConfig.getInt("iteration"), jsapConfig.getString("test"),
-                jsapConfig.getString("output"));
+                jsapConfig.getInt("iteration"),
+                jsapConfig.getString("test"),
+                jsapConfig.getString("output"),
+                jsapConfig.getString("mutant"),
+                buildListOfTestCases(jsapConfig.getStringArray("testCases")));
+    }
+
+    private static List<String> buildListOfTestCases(String [] testCases) {
+        return Arrays.asList(testCases);
     }
 
     private static Amplifier stringToAmplifier(String amplifier) {
@@ -115,7 +126,22 @@ public class JSAPOptions {
         output.setStringParser(JSAP.STRING_PARSER);
         output.setShortFlag('o');
         output.setLongFlag("output");
+        output.setDefault("");
         output.setHelp("specify the output folder");
+
+        FlaggedOption mutantScore = new FlaggedOption("mutant");
+        mutantScore.setStringParser(JSAP.STRING_PARSER);
+        mutantScore.setShortFlag('m');
+        mutantScore.setLongFlag("mutant");
+        mutantScore.setDefault("");
+        mutantScore.setHelp("specify the path to the .csv of the original result of Pit Test (should be run with ALL mutant generator)");
+
+        FlaggedOption testCases = new FlaggedOption("testCases");
+        testCases.setList(true);
+        testCases.setLongFlag("testCases");
+        testCases.setShortFlag('c');
+        testCases.setStringParser(JSAP.STRING_PARSER);
+        testCases.setHelp("specify the test cases to amplify");
 
         try {
             jsap.registerParameter(pathToConfigFile);
@@ -123,6 +149,8 @@ public class JSAPOptions {
             jsap.registerParameter(iteration);
             jsap.registerParameter(specificTestCase);
             jsap.registerParameter(output);
+            jsap.registerParameter(mutantScore);
+            jsap.registerParameter(testCases);
         } catch (JSAPException e) {
             throw new RuntimeException(e);
         }

@@ -26,12 +26,16 @@ def best_fitness(filename):
                 maxFitness = currentFitness
                 bestAmplifiedMethodName = amplifiedMethod
 
-        print(bestAmplifiedMethodName + " kill " + str(data[clazz][bestAmplifiedMethodName][keyMutant]) + " by adding " +
+        if bestAmplifiedMethodName != "none":
+            print clazz
+            print (bestAmplifiedMethodName + " kill " + str(data[clazz][bestAmplifiedMethodName][keyMutant]) + " by adding " +
               (str(data[clazz][bestAmplifiedMethodName][keyInputs] + data[clazz][bestAmplifiedMethodName][keyAssertion])) +
               "("+ str(maxFitness) +")")
 
 if len(sys.argv) < 2:
     usage()
     exit(1)
-best_fitness(sys.argv[1])
+
+for i in range(1, len(sys.argv)):
+    best_fitness(sys.argv[i])
 

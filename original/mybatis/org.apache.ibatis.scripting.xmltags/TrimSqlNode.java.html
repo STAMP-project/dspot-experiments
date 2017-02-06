@@ -1,0 +1,3196 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+	border: 1px solid #dddddd;
+	padding-top: 10px;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-family: Consolas, Courier, monospace;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+
+.pop {outline:none; }
+.pop strong {line-height:30px;}
+.pop {text-decoration:none;}
+.pop span { z-index:10;display:none; padding:14px 20px; margin-top:-30px; margin-left:28px; width:800px; line-height:16px; word-wrap:break-word; }
+.pop:hover span{ display:inline; position:absolute; color:#111; border:1px solid #DCA; background:#fffAF0;}
+
+.pop span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -moz-box-shadow: 5px 5px 8px #CCC; -webkit-box-shadow: 5px 5px 8px #CCC; box-shadow: 5px 5px 8px #CCC; }
+</style>
+
+</head>
+<body>
+
+
+<h1>TrimSqlNode.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    Copyright 2009-2015 the original author or authors.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    you may not use this file except in compliance with the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    You may obtain a copy of the License at</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *       http://www.apache.org/licenses/LICENSE-2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    Unless required by applicable law or agreed to in writing, software</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    See the License for the specific language governing permissions and</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    limitations under the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_16'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.apache.ibatis.scripting.xmltags;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_17'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.ArrayList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Collections;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_20'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_21'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Locale;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_22'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Map;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_23'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.StringTokenizer;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_24'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_25'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.session.Configuration;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_26'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_27'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_28'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @author Clinton Begin</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_29'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_30'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>public class TrimSqlNode implements SqlNode {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_31'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_32'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  private SqlNode contents;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_33'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  private String prefix;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_34'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  private String suffix;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_35'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  private List&#60;String&#62; prefixesToOverride;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_36'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  private List&#60;String&#62; suffixesToOverride;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_37'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  private Configuration configuration;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_38'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_39'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public TrimSqlNode(Configuration configuration, SqlNode contents, String prefix, String prefixesToOverride, String suffix, String suffixesToOverride) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_40'/>
+40
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_40'>2</a>
+<span>
+1. <init> : removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode::parseOverrides &rarr; SURVIVED<br/>
+2. <init> : removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode::parseOverrides &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    this(configuration, contents, prefix, parseOverrides(prefixesToOverride), suffix, parseOverrides(suffixesToOverride));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_41'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_42'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_43'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  protected TrimSqlNode(Configuration configuration, SqlNode contents, String prefix, List&#60;String&#62; prefixesToOverride, String suffix, List&#60;String&#62; suffixesToOverride) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_44'/>
+44
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_44'>1</a>
+<span>
+1. <init> : Removed assignment to member variable contents &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    this.contents = contents;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_45'/>
+45
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_45'>1</a>
+<span>
+1. <init> : Removed assignment to member variable prefix &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    this.prefix = prefix;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_46'/>
+46
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_46'>1</a>
+<span>
+1. <init> : Removed assignment to member variable prefixesToOverride &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    this.prefixesToOverride = prefixesToOverride;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_47'/>
+47
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_47'>1</a>
+<span>
+1. <init> : Removed assignment to member variable suffix &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    this.suffix = suffix;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_48'/>
+48
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_48'>1</a>
+<span>
+1. <init> : Removed assignment to member variable suffixesToOverride &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    this.suffixesToOverride = suffixesToOverride;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_49'/>
+49
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_49'>1</a>
+<span>
+1. <init> : Removed assignment to member variable configuration &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    this.configuration = configuration;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_50'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_51'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_52'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_53'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public boolean apply(DynamicContext context) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_54'/>
+54
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_54'>1</a>
+<span>
+1. apply : removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode$FilteredDynamicContext::&#60;init&#62; &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    FilteredDynamicContext filteredDynamicContext = new FilteredDynamicContext(context);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_55'/>
+55
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_55'>1</a>
+<span>
+1. apply : removed call to org/apache/ibatis/scripting/xmltags/SqlNode::apply &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    boolean result = contents.apply(filteredDynamicContext);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_56'/>
+56
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_56'>1</a>
+<span>
+1. apply : removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode$FilteredDynamicContext::applyAll &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    filteredDynamicContext.applyAll();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_57'/>
+57
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_57'>1</a>
+<span>
+1. apply : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return result;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_58'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_59'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_60'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  private static List&#60;String&#62; parseOverrides(String overrides) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_61'/>
+61
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_61'>3</a>
+<span>
+1. parseOverrides : negated conditional &rarr; KILLED<br/>
+2. parseOverrides : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+3. parseOverrides : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    if (overrides != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_62'/>
+62
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_62'>2</a>
+<span>
+1. parseOverrides : Substituted 0 with 1 &rarr; SURVIVED<br/>
+2. parseOverrides : removed call to java/util/StringTokenizer::&#60;init&#62; &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      final StringTokenizer parser = new StringTokenizer(overrides, &#34;|&#34;, false);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_63'/>
+63
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_63'>2</a>
+<span>
+1. parseOverrides : removed call to java/util/StringTokenizer::countTokens &rarr; SURVIVED<br/>
+2. parseOverrides : removed call to java/util/ArrayList::&#60;init&#62; &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      final List&#60;String&#62; list = new ArrayList&#60;String&#62;(parser.countTokens());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_64'/>
+64
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_64'>4</a>
+<span>
+1. parseOverrides : negated conditional &rarr; KILLED<br/>
+2. parseOverrides : removed call to java/util/StringTokenizer::hasMoreTokens &rarr; KILLED<br/>
+3. parseOverrides : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+4. parseOverrides : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      while (parser.hasMoreTokens()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_65'/>
+65
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_65'>3</a>
+<span>
+1. parseOverrides : removed call to java/util/StringTokenizer::nextToken &rarr; KILLED<br/>
+2. parseOverrides : removed call to java/lang/String::toUpperCase &rarr; KILLED<br/>
+3. parseOverrides : removed call to java/util/List::add &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        list.add(parser.nextToken().toUpperCase(Locale.ENGLISH));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_66'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_67'/>
+67
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_67'>1</a>
+<span>
+1. parseOverrides : mutated return of Object value for org/apache/ibatis/scripting/xmltags/TrimSqlNode::parseOverrides to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return list;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_68'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_69'/>
+69
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_69'>2</a>
+<span>
+1. parseOverrides : removed call to java/util/Collections::emptyList &rarr; SURVIVED<br/>
+2. parseOverrides : mutated return of Object value for org/apache/ibatis/scripting/xmltags/TrimSqlNode::parseOverrides to ( if (x != null) null else throw new RuntimeException ) &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    return Collections.emptyList();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_70'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_71'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_72'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  private class FilteredDynamicContext extends DynamicContext {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_73'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private DynamicContext delegate;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_74'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private boolean prefixApplied;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_75'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private boolean suffixApplied;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_76'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private StringBuilder sqlBuffer;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_77'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_78'/>
+78
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_78'>1</a>
+<span>
+1. <init> : Removed assignment to member variable this$0 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    public FilteredDynamicContext(DynamicContext delegate) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_79'/>
+79
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_79'>1</a>
+<span>
+1. <init> : removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode::access$000 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      super(configuration, null);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_80'/>
+80
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_80'>1</a>
+<span>
+1. <init> : Removed assignment to member variable delegate &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      this.delegate = delegate;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_81'/>
+81
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_81'>2</a>
+<span>
+1. <init> : Substituted 0 with 1 &rarr; KILLED<br/>
+2. <init> : Removed assignment to member variable prefixApplied &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      this.prefixApplied = false;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_82'/>
+82
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_82'>2</a>
+<span>
+1. <init> : Substituted 0 with 1 &rarr; KILLED<br/>
+2. <init> : Removed assignment to member variable suffixApplied &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      this.suffixApplied = false;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_83'/>
+83
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_83'>2</a>
+<span>
+1. <init> : removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; KILLED<br/>
+2. <init> : Removed assignment to member variable sqlBuffer &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      this.sqlBuffer = new StringBuilder();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_84'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_85'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_86'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void applyAll() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_87'/>
+87
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_87'>4</a>
+<span>
+1. applyAll : removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; KILLED<br/>
+2. applyAll : removed call to java/lang/StringBuilder::toString &rarr; KILLED<br/>
+3. applyAll : removed call to java/lang/String::trim &rarr; KILLED<br/>
+4. applyAll : Removed assignment to member variable sqlBuffer &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      sqlBuffer = new StringBuilder(sqlBuffer.toString().trim());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_88'/>
+88
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_88'>2</a>
+<span>
+1. applyAll : removed call to java/lang/StringBuilder::toString &rarr; KILLED<br/>
+2. applyAll : removed call to java/lang/String::toUpperCase &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      String trimmedUppercaseSql = sqlBuffer.toString().toUpperCase(Locale.ENGLISH);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_89'/>
+89
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_89'>5</a>
+<span>
+1. applyAll : changed conditional boundary &rarr; KILLED<br/>
+2. applyAll : negated conditional &rarr; KILLED<br/>
+3. applyAll : removed call to java/lang/String::length &rarr; KILLED<br/>
+4. applyAll : removed conditional - replaced comparison check with false &rarr; KILLED<br/>
+5. applyAll : removed conditional - replaced comparison check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      if (trimmedUppercaseSql.length() &#62; 0) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_90'/>
+90
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_90'>1</a>
+<span>
+1. applyAll : removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode$FilteredDynamicContext::applyPrefix &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        applyPrefix(sqlBuffer, trimmedUppercaseSql);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_91'/>
+91
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_91'>1</a>
+<span>
+1. applyAll : removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode$FilteredDynamicContext::applySuffix &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        applySuffix(sqlBuffer, trimmedUppercaseSql);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_92'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_93'/>
+93
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_93'>2</a>
+<span>
+1. applyAll : removed call to java/lang/StringBuilder::toString &rarr; KILLED<br/>
+2. applyAll : removed call to org/apache/ibatis/scripting/xmltags/DynamicContext::appendSql &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      delegate.appendSql(sqlBuffer.toString());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_94'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_95'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_96'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_97'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Map&#60;String, Object&#62; getBindings() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_98'/>
+98
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_98'>2</a>
+<span>
+1. getBindings : removed call to org/apache/ibatis/scripting/xmltags/DynamicContext::getBindings &rarr; KILLED<br/>
+2. getBindings : mutated return of Object value for org/apache/ibatis/scripting/xmltags/TrimSqlNode$FilteredDynamicContext::getBindings to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return delegate.getBindings();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_99'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_100'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_101'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_102'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void bind(String name, Object value) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_103'/>
+103
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_103'>1</a>
+<span>
+1. bind : removed call to org/apache/ibatis/scripting/xmltags/DynamicContext::bind &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      delegate.bind(name, value);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_104'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_105'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_106'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_107'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int getUniqueNumber() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_108'/>
+108
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_108'>2</a>
+<span>
+1. getUniqueNumber : removed call to org/apache/ibatis/scripting/xmltags/DynamicContext::getUniqueNumber &rarr; KILLED<br/>
+2. getUniqueNumber : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return delegate.getUniqueNumber();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_109'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_110'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_111'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_112'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void appendSql(String sql) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_113'/>
+113
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_113'>1</a>
+<span>
+1. appendSql : removed call to java/lang/StringBuilder::append &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      sqlBuffer.append(sql);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_114'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_115'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_116'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_117'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String getSql() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_118'/>
+118
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_118'>2</a>
+<span>
+1. getSql : removed call to org/apache/ibatis/scripting/xmltags/DynamicContext::getSql &rarr; NO_COVERAGE<br/>
+2. getSql : mutated return of Object value for org/apache/ibatis/scripting/xmltags/TrimSqlNode$FilteredDynamicContext::getSql to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>      return delegate.getSql();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_119'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_120'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_121'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private void applyPrefix(StringBuilder sql, String trimmedUppercaseSql) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_122'/>
+122
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_122'>3</a>
+<span>
+1. applyPrefix : negated conditional &rarr; KILLED<br/>
+2. applyPrefix : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+3. applyPrefix : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      if (!prefixApplied) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_123'/>
+123
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_123'>2</a>
+<span>
+1. applyPrefix : Substituted 1 with 0 &rarr; KILLED<br/>
+2. applyPrefix : Removed assignment to member variable prefixApplied &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        prefixApplied = true;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_124'/>
+124
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_124'>4</a>
+<span>
+1. applyPrefix : negated conditional &rarr; KILLED<br/>
+2. applyPrefix : removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode::access$100 &rarr; KILLED<br/>
+3. applyPrefix : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+4. applyPrefix : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (prefixesToOverride != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_125'/>
+125
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_125'>7</a>
+<span>
+1. applyPrefix : negated conditional &rarr; KILLED<br/>
+2. applyPrefix : removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode::access$100 &rarr; KILLED<br/>
+3. applyPrefix : removed call to java/util/List::iterator &rarr; KILLED<br/>
+4. applyPrefix : removed call to java/util/Iterator::hasNext &rarr; KILLED<br/>
+5. applyPrefix : removed call to java/util/Iterator::next &rarr; KILLED<br/>
+6. applyPrefix : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+7. applyPrefix : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>          for (String toRemove : prefixesToOverride) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_126'/>
+126
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_126'>4</a>
+<span>
+1. applyPrefix : negated conditional &rarr; KILLED<br/>
+2. applyPrefix : removed call to java/lang/String::startsWith &rarr; KILLED<br/>
+3. applyPrefix : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+4. applyPrefix : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (trimmedUppercaseSql.startsWith(toRemove)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_127'/>
+127
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_127'>4</a>
+<span>
+1. applyPrefix : Substituted 0 with 1 &rarr; KILLED<br/>
+2. applyPrefix : removed call to java/lang/String::trim &rarr; KILLED<br/>
+3. applyPrefix : removed call to java/lang/String::length &rarr; KILLED<br/>
+4. applyPrefix : removed call to java/lang/StringBuilder::delete &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>              sql.delete(0, toRemove.trim().length());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_128'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>              break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_129'/>
+129
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_129'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_130'/>
+130
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_130'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>          }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_131'/>
+131
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_131'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_132'/>
+132
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_132'>4</a>
+<span>
+1. applyPrefix : negated conditional &rarr; KILLED<br/>
+2. applyPrefix : removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode::access$200 &rarr; KILLED<br/>
+3. applyPrefix : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+4. applyPrefix : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (prefix != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_133'/>
+133
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_133'>2</a>
+<span>
+1. applyPrefix : Substituted 0 with 1 &rarr; KILLED<br/>
+2. applyPrefix : removed call to java/lang/StringBuilder::insert &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>          sql.insert(0, &#34; &#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_134'/>
+134
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_134'>3</a>
+<span>
+1. applyPrefix : Substituted 0 with 1 &rarr; KILLED<br/>
+2. applyPrefix : removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode::access$200 &rarr; KILLED<br/>
+3. applyPrefix : removed call to java/lang/StringBuilder::insert &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>          sql.insert(0, prefix);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_135'/>
+135
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_135'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_136'/>
+136
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_136'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_137'/>
+137
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_137'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_138'/>
+138
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_138'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_139'/>
+139
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_139'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private void applySuffix(StringBuilder sql, String trimmedUppercaseSql) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_140'/>
+140
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_140'>3</a>
+<span>
+1. applySuffix : negated conditional &rarr; KILLED<br/>
+2. applySuffix : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+3. applySuffix : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      if (!suffixApplied) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_141'/>
+141
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_141'>2</a>
+<span>
+1. applySuffix : Substituted 1 with 0 &rarr; KILLED<br/>
+2. applySuffix : Removed assignment to member variable suffixApplied &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        suffixApplied = true;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_142'/>
+142
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_142'>4</a>
+<span>
+1. applySuffix : negated conditional &rarr; KILLED<br/>
+2. applySuffix : removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode::access$300 &rarr; KILLED<br/>
+3. applySuffix : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+4. applySuffix : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (suffixesToOverride != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_143'/>
+143
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_143'>7</a>
+<span>
+1. applySuffix : negated conditional &rarr; KILLED<br/>
+2. applySuffix : removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode::access$300 &rarr; KILLED<br/>
+3. applySuffix : removed call to java/util/List::iterator &rarr; KILLED<br/>
+4. applySuffix : removed call to java/util/Iterator::hasNext &rarr; KILLED<br/>
+5. applySuffix : removed call to java/util/Iterator::next &rarr; KILLED<br/>
+6. applySuffix : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+7. applySuffix : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>          for (String toRemove : suffixesToOverride) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_144'/>
+144
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_144'>9</a>
+<span>
+1. applySuffix : negated conditional &rarr; SURVIVED<br/>
+2. applySuffix : negated conditional &rarr; SURVIVED<br/>
+3. applySuffix : removed call to java/lang/String::endsWith &rarr; SURVIVED<br/>
+4. applySuffix : removed call to java/lang/String::trim &rarr; SURVIVED<br/>
+5. applySuffix : removed conditional - replaced equality check with false &rarr; SURVIVED<br/>
+6. applySuffix : removed conditional - replaced equality check with false &rarr; SURVIVED<br/>
+7. applySuffix : removed conditional - replaced equality check with true &rarr; SURVIVED<br/>
+8. applySuffix : removed conditional - replaced equality check with true &rarr; SURVIVED<br/>
+9. applySuffix : removed call to java/lang/String::endsWith &rarr; TIMED_OUT<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            if (trimmedUppercaseSql.endsWith(toRemove) || trimmedUppercaseSql.endsWith(toRemove.trim())) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_145'/>
+145
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_145'>4</a>
+<span>
+1. applySuffix : Replaced integer subtraction with addition &rarr; KILLED<br/>
+2. applySuffix : removed call to java/lang/StringBuilder::length &rarr; KILLED<br/>
+3. applySuffix : removed call to java/lang/String::trim &rarr; KILLED<br/>
+4. applySuffix : removed call to java/lang/String::length &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>              int start = sql.length() - toRemove.trim().length();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_146'/>
+146
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_146'>1</a>
+<span>
+1. applySuffix : removed call to java/lang/StringBuilder::length &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>              int end = sql.length();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_147'/>
+147
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_147'>1</a>
+<span>
+1. applySuffix : removed call to java/lang/StringBuilder::delete &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>              sql.delete(start, end);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_148'/>
+148
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_148'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>              break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_149'/>
+149
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_149'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_150'/>
+150
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_150'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>          }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_151'/>
+151
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_151'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_152'/>
+152
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_152'>4</a>
+<span>
+1. applySuffix : negated conditional &rarr; KILLED<br/>
+2. applySuffix : removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode::access$400 &rarr; KILLED<br/>
+3. applySuffix : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+4. applySuffix : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (suffix != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_153'/>
+153
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_153'>1</a>
+<span>
+1. applySuffix : removed call to java/lang/StringBuilder::append &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>          sql.append(&#34; &#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_154'/>
+154
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_154'>2</a>
+<span>
+1. applySuffix : removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode::access$400 &rarr; NO_COVERAGE<br/>
+2. applySuffix : removed call to java/lang/StringBuilder::append &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>          sql.append(suffix);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_155'/>
+155
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_155'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_156'/>
+156
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_156'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_157'/>
+157
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_157'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_158'/>
+158
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_158'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_159'/>
+159
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_159'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_160'/>
+160
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_160'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@4612995a_161'/>
+161
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_161'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_40'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest.org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest</span></span> removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode::parseOverrides &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b><init><br/><b>Killed by : </b>none</span></span> removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode::parseOverrides &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_44'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> Removed assignment to member variable contents &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_45'>45</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_45'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> Removed assignment to member variable prefix &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_46'>46</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_46'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> Removed assignment to member variable prefixesToOverride &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_47'>47</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_47'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>none</span></span> Removed assignment to member variable suffix &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_48'>48</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_48'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> Removed assignment to member variable suffixesToOverride &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_49'>49</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_49'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> Removed assignment to member variable configuration &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_54'>54</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_54'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>apply<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode$FilteredDynamicContext::&#60;init&#62; &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_55'>55</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_55'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>apply<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to org/apache/ibatis/scripting/xmltags/SqlNode::apply &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_56'>56</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_56'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>apply<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode$FilteredDynamicContext::applyAll &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_57'>57</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_57'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>apply<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_61'>61</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_61'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseOverrides<br/><b>Killed by : </b>org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest.org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>parseOverrides<br/><b>Killed by : </b>org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest.org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>parseOverrides<br/><b>Killed by : </b>org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest.org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_62'>62</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_62'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseOverrides<br/><b>Killed by : </b>org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest.org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest</span></span> removed call to java/util/StringTokenizer::&#60;init&#62; &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>parseOverrides<br/><b>Killed by : </b>none</span></span> Substituted 0 with 1 &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_63'>63</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_63'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseOverrides<br/><b>Killed by : </b>org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest.org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest</span></span> removed call to java/util/ArrayList::&#60;init&#62; &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>parseOverrides<br/><b>Killed by : </b>none</span></span> removed call to java/util/StringTokenizer::countTokens &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_64'>64</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_64'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseOverrides<br/><b>Killed by : </b>org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest.org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>parseOverrides<br/><b>Killed by : </b>org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest.org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest</span></span> removed call to java/util/StringTokenizer::hasMoreTokens &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>parseOverrides<br/><b>Killed by : </b>org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest.org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>parseOverrides<br/><b>Killed by : </b>org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest.org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_65'>65</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_65'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseOverrides<br/><b>Killed by : </b>org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest.org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest</span></span> removed call to java/util/StringTokenizer::nextToken &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>parseOverrides<br/><b>Killed by : </b>org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest.org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest</span></span> removed call to java/lang/String::toUpperCase &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>parseOverrides<br/><b>Killed by : </b>org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest.org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest</span></span> removed call to java/util/List::add &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_67'>67</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_67'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseOverrides<br/><b>Killed by : </b>org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest.org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest</span></span> mutated return of Object value for org/apache/ibatis/scripting/xmltags/TrimSqlNode::parseOverrides to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_69'>69</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_69'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>parseOverrides<br/><b>Killed by : </b>none</span></span> removed call to java/util/Collections::emptyList &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>parseOverrides<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/apache/ibatis/scripting/xmltags/TrimSqlNode::parseOverrides to ( if (x != null) null else throw new RuntimeException ) &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_78'>78</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_78'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> Removed assignment to member variable this$0 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_79'>79</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_79'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode::access$000 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_80'>80</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_80'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> Removed assignment to member variable delegate &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_81'>81</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_81'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> Removed assignment to member variable prefixApplied &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_82'>82</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_82'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> Removed assignment to member variable suffixApplied &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_83'>83</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_83'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> Removed assignment to member variable sqlBuffer &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_87'>87</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_87'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyAll<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applyAll<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to java/lang/StringBuilder::toString &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>applyAll<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to java/lang/String::trim &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>applyAll<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> Removed assignment to member variable sqlBuffer &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_88'>88</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_88'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyAll<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to java/lang/StringBuilder::toString &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applyAll<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to java/lang/String::toUpperCase &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_89'>89</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_89'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyAll<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applyAll<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>applyAll<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to java/lang/String::length &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>applyAll<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed conditional - replaced comparison check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>applyAll<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed conditional - replaced comparison check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_90'>90</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_90'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyAll<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode$FilteredDynamicContext::applyPrefix &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_91'>91</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_91'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyAll<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode$FilteredDynamicContext::applySuffix &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_93'>93</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_93'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyAll<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to java/lang/StringBuilder::toString &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applyAll<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to org/apache/ibatis/scripting/xmltags/DynamicContext::appendSql &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_98'>98</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_98'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getBindings<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to org/apache/ibatis/scripting/xmltags/DynamicContext::getBindings &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getBindings<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> mutated return of Object value for org/apache/ibatis/scripting/xmltags/TrimSqlNode$FilteredDynamicContext::getBindings to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_103'>103</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_103'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>bind<br/><b>Killed by : </b>org.apache.ibatis.submitted.dynsql2.DynSqlTest.org.apache.ibatis.submitted.dynsql2.DynSqlTest</span></span> removed call to org/apache/ibatis/scripting/xmltags/DynamicContext::bind &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_108'>108</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_108'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getUniqueNumber<br/><b>Killed by : </b>org.apache.ibatis.submitted.dynsql2.DynSqlTest.org.apache.ibatis.submitted.dynsql2.DynSqlTest</span></span> removed call to org/apache/ibatis/scripting/xmltags/DynamicContext::getUniqueNumber &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getUniqueNumber<br/><b>Killed by : </b>org.apache.ibatis.submitted.dynsql2.DynSqlTest.org.apache.ibatis.submitted.dynsql2.DynSqlTest</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_113'>113</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_113'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>appendSql<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to java/lang/StringBuilder::append &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_118'>118</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_118'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getSql<br/><b>Killed by : </b>none</span></span> removed call to org/apache/ibatis/scripting/xmltags/DynamicContext::getSql &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getSql<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/apache/ibatis/scripting/xmltags/TrimSqlNode$FilteredDynamicContext::getSql to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_122'>122</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_122'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_123'>123</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_123'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> Removed assignment to member variable prefixApplied &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_124'>124</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_124'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode::access$100 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_125'>125</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_125'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode::access$100 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to java/util/List::iterator &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to java/util/Iterator::hasNext &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to java/util/Iterator::next &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_126'>126</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_126'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to java/lang/String::startsWith &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_127'>127</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_127'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest.org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest.org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest</span></span> removed call to java/lang/String::trim &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest.org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest</span></span> removed call to java/lang/String::length &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest.org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest</span></span> removed call to java/lang/StringBuilder::delete &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_132'>132</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_132'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode::access$200 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_133'>133</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_133'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to java/lang/StringBuilder::insert &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_134'>134</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_134'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode::access$200 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>applyPrefix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to java/lang/StringBuilder::insert &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_140'>140</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_140'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_141'>141</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_141'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> Removed assignment to member variable suffixApplied &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_142'>142</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_142'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode::access$300 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldTrimSETInsteadOfCOMMAForBothConditions(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_143'>143</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_143'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest.org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest.org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest</span></span> removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode::access$300 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest.org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest</span></span> removed call to java/util/List::iterator &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldTrimSETInsteadOfCOMMAForBothConditions(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest)</span></span> removed call to java/util/Iterator::hasNext &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldTrimSETInsteadOfCOMMAForBothConditions(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest)</span></span> removed call to java/util/Iterator::next &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldTrimSETInsteadOfCOMMAForBothConditions(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest.org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_144'>144</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_144'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>none</span></span> removed call to java/lang/String::endsWith &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>none</span></span> removed call to java/lang/String::trim &rarr; SURVIVED</p> <p class='TIMED_OUT'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>none</span></span> removed call to java/lang/String::endsWith &rarr; TIMED_OUT</p> <p class='SURVIVED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_145'>145</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_145'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldTrimSETInsteadOfCOMMAForBothConditions(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest)</span></span> Replaced integer subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldTrimSETInsteadOfCOMMAForBothConditions(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest)</span></span> removed call to java/lang/StringBuilder::length &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldTrimSETInsteadOfCOMMAForBothConditions(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest)</span></span> removed call to java/lang/String::trim &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldTrimSETInsteadOfCOMMAForBothConditions(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest)</span></span> removed call to java/lang/String::length &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_146'>146</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_146'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldTrimSETInsteadOfCOMMAForBothConditions(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest)</span></span> removed call to java/lang/StringBuilder::length &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_147'>147</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_147'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldTrimSETInsteadOfCOMMAForBothConditions(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest)</span></span> removed call to java/lang/StringBuilder::delete &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_152'>152</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_152'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode::access$400 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_153'>153</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_153'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>none</span></span> removed call to java/lang/StringBuilder::append &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@4612995a_154'>154</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@4612995a_154'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>none</span></span> removed call to org/apache/ibatis/scripting/xmltags/TrimSqlNode::access$400 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>applySuffix<br/><b>Killed by : </b>none</span></span> removed call to java/lang/StringBuilder::append &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_61</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_60</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_56</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_55</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_58</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_57</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_52</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_51</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_54</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_53</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_59</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_50</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_45</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_44</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_47</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_46</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_41</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_40</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_43</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_42</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_49</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_48</li>
+<li class='mutator'>INLINE_CONSTANT_MUTATOR</li>
+<li class='mutator'>CONSTRUCTOR_CALL_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_34</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_33</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_36</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_35</li>
+<li class='mutator'>EXPERIMENTAL_MEMBER_VARIABLE_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_30</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_32</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_31</li>
+<li class='mutator'>REMOVE_CONDITIONALS_ORDER_ELSE_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_38</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_37</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_39</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_3</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_2</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_1</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_0</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_23</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_22</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_25</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_9</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_24</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_8</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_7</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_6</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_21</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_5</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_20</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_4</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_27</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_26</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_29</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_28</li>
+<li class='mutator'>REMOVE_INCREMENTS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_12</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_11</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_99</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_14</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_13</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_96</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_95</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_10</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_98</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_97</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_19</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_16</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_15</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_18</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_17</li>
+<li class='mutator'>EXPERIMENTAL_SWITCH_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_92</li>
+<li class='mutator'>ARGUMENT_PROPAGATION_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_91</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_94</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_93</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_90</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_89</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_88</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_85</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_84</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_87</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_86</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NON_VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>REMOVE_CONDITIONALS_EQUAL_IF_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_81</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_80</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_83</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_82</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_78</li>
+<li class='mutator'>REMOVE_CONDITIONALS_EQUAL_ELSE_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_77</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_79</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_74</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_73</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_76</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_75</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_70</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_72</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_71</li>
+<li class='mutator'>REMOVE_CONDITIONALS_ORDER_IF_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_67</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_66</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_69</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_68</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_63</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_62</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_65</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_64</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>org.apache.ibatis.session.SqlSessionManagerTest.org.apache.ibatis.session.SqlSessionManagerTest (2868 ms)</li><li>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldTrimWHEREANDWithLFForFirstCondition(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest) (2426 ms)</li><li>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldDemonstrateSimpleExpectedTextWithNoLoopsOrConditionals(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest) (2198 ms)</li><li>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldTrimWHEREANDWithTABForFirstCondition(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest) (2688 ms)</li><li>org.apache.ibatis.submitted.foreach.ForEachTest.org.apache.ibatis.submitted.foreach.ForEachTest (63 ms)</li><li>org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest.org.apache.ibatis.submitted.ognlstatic.OgnlStaticTest (19 ms)</li><li>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldTrimWHEREORWithCRLFForFirstCondition(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest) (2209 ms)</li><li>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldTrimWHEREORWithLFForFirstCondition(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest) (2490 ms)</li><li>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldTrimWHEREInsteadOfORForSecondCondition(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest) (2527 ms)</li><li>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldTrimWHEREInsteadOfANDForFirstCondition(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest) (2826 ms)</li><li>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldIterateOnceForEachItemInCollection(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest) (2243 ms)</li><li>org.apache.ibatis.submitted.criterion.CriterionTest.org.apache.ibatis.submitted.criterion.CriterionTest (19 ms)</li><li>org.apache.ibatis.builder.XmlMapperBuilderTest.shouldSuccessfullyLoadXMLMapperFile(org.apache.ibatis.builder.XmlMapperBuilderTest) (16 ms)</li><li>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldTrimNoSetClause(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest) (2434 ms)</li><li>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldConditionallyChooseSecond(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest) (2488 ms)</li><li>org.apache.ibatis.submitted.order_prefix_removed.OrderPrefixRemoved.org.apache.ibatis.submitted.order_prefix_removed.OrderPrefixRemoved (16 ms)</li><li>org.apache.ibatis.submitted.ognl_enum.EnumWithOgnlTest.org.apache.ibatis.submitted.ognl_enum.EnumWithOgnlTest (27 ms)</li><li>org.apache.ibatis.session.SqlSessionTest.org.apache.ibatis.session.SqlSessionTest (2482 ms)</li><li>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldConditionallyDefault(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest) (2272 ms)</li><li>org.apache.ibatis.submitted.nested.NestedForEachTest.org.apache.ibatis.submitted.nested.NestedForEachTest (22 ms)</li><li>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldConditionallyIncludeWhere(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest) (2434 ms)</li><li>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldTrimNoWhereClause(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest) (2349 ms)</li><li>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldPerformStrictMatchOnForEachVariableSubstitution(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest) (2223 ms)</li><li>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldTrimWHEREORWithTABForFirstCondition(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest) (1998 ms)</li><li>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldTrimWHEREInsteadOfANDForBothConditions(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest) (2577 ms)</li><li>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldConditionallyChooseFirst(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest) (2190 ms)</li><li>org.apache.ibatis.submitted.dynsql2.DynSqlTest.org.apache.ibatis.submitted.dynsql2.DynSqlTest (27 ms)</li><li>org.apache.ibatis.submitted.awful_table.AwfulTableTest.testAwfulTableInsert(org.apache.ibatis.submitted.awful_table.AwfulTableTest) (36 ms)</li><li>org.apache.ibatis.builder.XmlMapperBuilderTest.mappedStatementWithOptions(org.apache.ibatis.builder.XmlMapperBuilderTest) (31 ms)</li><li>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldConditionallyExcludeWhere(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest) (2678 ms)</li><li>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldDemonstrateMultipartExpectedTextWithNoLoopsOrConditionals(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest) (2864 ms)</li><li>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldTrimWHEREANDWithCRLFForFirstCondition(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest) (2831 ms)</li><li>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldHandleOgnlExpression(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest) (2321 ms)</li><li>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldTrimSETInsteadOfCOMMAForBothConditions(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest) (2608 ms)</li><li>org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest.shouldSkipForEachWhenCollectionIsEmpty(org.apache.ibatis.builder.xml.dynamic.DynamicSqlSourceTest) (2432 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.1.11
+
+</body>
+</html>

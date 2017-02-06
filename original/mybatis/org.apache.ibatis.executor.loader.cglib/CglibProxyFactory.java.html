@@ -1,0 +1,3648 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+	border: 1px solid #dddddd;
+	padding-top: 10px;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-family: Consolas, Courier, monospace;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+
+.pop {outline:none; }
+.pop strong {line-height:30px;}
+.pop {text-decoration:none;}
+.pop span { z-index:10;display:none; padding:14px 20px; margin-top:-30px; margin-left:28px; width:800px; line-height:16px; word-wrap:break-word; }
+.pop:hover span{ display:inline; position:absolute; color:#111; border:1px solid #DCA; background:#fffAF0;}
+
+.pop span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -moz-box-shadow: 5px 5px 8px #CCC; -webkit-box-shadow: 5px 5px 8px #CCC; box-shadow: 5px 5px 8px #CCC; }
+</style>
+
+</head>
+<body>
+
+
+<h1>CglibProxyFactory.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    Copyright 2009-2016 the original author or authors.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    you may not use this file except in compliance with the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    You may obtain a copy of the License at</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *       http://www.apache.org/licenses/LICENSE-2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    Unless required by applicable law or agreed to in writing, software</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    See the License for the specific language governing permissions and</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *    limitations under the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_16'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.apache.ibatis.executor.loader.cglib;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_17'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.lang.reflect.Method;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_20'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Map;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_21'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Properties;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_22'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Set;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_23'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_24'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import net.sf.cglib.proxy.Callback;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_25'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import net.sf.cglib.proxy.Enhancer;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_26'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import net.sf.cglib.proxy.MethodInterceptor;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_27'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import net.sf.cglib.proxy.MethodProxy;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_28'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_29'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.executor.loader.AbstractEnhancedDeserializationProxy;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_30'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.executor.loader.AbstractSerialStateHolder;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_31'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.executor.loader.ProxyFactory;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_32'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.executor.loader.ResultLoaderMap;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_33'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.executor.loader.WriteReplaceInterface;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_34'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.io.Resources;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_35'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.logging.Log;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_36'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.logging.LogFactory;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_37'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.reflection.ExceptionUtil;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_38'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.reflection.factory.ObjectFactory;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_39'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.reflection.property.PropertyCopier;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_40'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.reflection.property.PropertyNamer;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_41'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.apache.ibatis.session.Configuration;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_42'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_43'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/**</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_44'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * @author Clinton Begin</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_45'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_46'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class CglibProxyFactory implements ProxyFactory {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_47'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_48'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  private static final Log log = LogFactory.getLog(CglibProxyFactory.class);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_49'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  private static final String FINALIZE_METHOD = &#34;finalize&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_50'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  private static final String WRITE_REPLACE_METHOD = &#34;writeReplace&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_51'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_52'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  public CglibProxyFactory() {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_53'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    try {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_54'/>
+54
+</td>
+<td class='uncertain'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_54'>1</a>
+<span>
+1. <init> : removed call to org/apache/ibatis/io/Resources::classForName &rarr; TIMED_OUT<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='uncertain'>      Resources.classForName(&#34;net.sf.cglib.proxy.Enhancer&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_55'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    } catch (Throwable e) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_56'/>
+56
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_56'>1</a>
+<span>
+1. <init> : removed call to java/lang/IllegalStateException::&#60;init&#62; &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>      throw new IllegalStateException(&#34;Cannot enable lazy loading because CGLIB is not available. Add CGLIB to your classpath.&#34;, e);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_57'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_58'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_59'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_60'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_61'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public Object createProxy(Object target, ResultLoaderMap lazyLoader, Configuration configuration, ObjectFactory objectFactory, List&#60;Class&#60;?&#62;&#62; constructorArgTypes, List&#60;Object&#62; constructorArgs) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_62'/>
+62
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_62'>3</a>
+<span>
+1. createProxy : replaced call to org/apache/ibatis/executor/loader/cglib/CglibProxyFactory$EnhancedResultObjectProxyImpl::createProxy with argument &rarr; KILLED<br/>
+2. createProxy : removed call to org/apache/ibatis/executor/loader/cglib/CglibProxyFactory$EnhancedResultObjectProxyImpl::createProxy &rarr; KILLED<br/>
+3. createProxy : mutated return of Object value for org/apache/ibatis/executor/loader/cglib/CglibProxyFactory::createProxy to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return EnhancedResultObjectProxyImpl.createProxy(target, lazyLoader, configuration, objectFactory, constructorArgTypes, constructorArgs);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_63'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_64'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_65'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public Object createDeserializationProxy(Object target, Map&#60;String, ResultLoaderMap.LoadPair&#62; unloadedProperties, ObjectFactory objectFactory, List&#60;Class&#60;?&#62;&#62; constructorArgTypes, List&#60;Object&#62; constructorArgs) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_66'/>
+66
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_66'>3</a>
+<span>
+1. createDeserializationProxy : replaced call to org/apache/ibatis/executor/loader/cglib/CglibProxyFactory$EnhancedDeserializationProxyImpl::createProxy with argument &rarr; KILLED<br/>
+2. createDeserializationProxy : removed call to org/apache/ibatis/executor/loader/cglib/CglibProxyFactory$EnhancedDeserializationProxyImpl::createProxy &rarr; KILLED<br/>
+3. createDeserializationProxy : mutated return of Object value for org/apache/ibatis/executor/loader/cglib/CglibProxyFactory::createDeserializationProxy to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return EnhancedDeserializationProxyImpl.createProxy(target, unloadedProperties, objectFactory, constructorArgTypes, constructorArgs);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_67'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_68'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_69'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_70'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  public void setProperties(Properties properties) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_71'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      // Not Implemented</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_72'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_73'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_74'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  static Object crateProxy(Class&#60;?&#62; type, Callback callback, List&#60;Class&#60;?&#62;&#62; constructorArgTypes, List&#60;Object&#62; constructorArgs) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_75'/>
+75
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_75'>1</a>
+<span>
+1. crateProxy : removed call to net/sf/cglib/proxy/Enhancer::&#60;init&#62; &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    Enhancer enhancer = new Enhancer();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_76'/>
+76
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_76'>1</a>
+<span>
+1. crateProxy : removed call to net/sf/cglib/proxy/Enhancer::setCallback &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    enhancer.setCallback(callback);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_77'/>
+77
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_77'>1</a>
+<span>
+1. crateProxy : removed call to net/sf/cglib/proxy/Enhancer::setSuperclass &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    enhancer.setSuperclass(type);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_78'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    try {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_79'/>
+79
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_79'>2</a>
+<span>
+1. crateProxy : Substituted 0 with 1 &rarr; KILLED<br/>
+2. crateProxy : removed call to java/lang/Class::getDeclaredMethod &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      type.getDeclaredMethod(WRITE_REPLACE_METHOD);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_80'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      // ObjectOutputStream will call writeReplace of objects returned by writeReplace</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_81'/>
+81
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_81'>4</a>
+<span>
+1. crateProxy : negated conditional &rarr; SURVIVED<br/>
+2. crateProxy : removed call to org/apache/ibatis/logging/Log::isDebugEnabled &rarr; SURVIVED<br/>
+3. crateProxy : removed conditional - replaced equality check with false &rarr; SURVIVED<br/>
+4. crateProxy : removed conditional - replaced equality check with true &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      if (log.isDebugEnabled()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_82'/>
+82
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_82'>6</a>
+<span>
+1. crateProxy : removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; NO_COVERAGE<br/>
+2. crateProxy : removed call to java/lang/StringBuilder::append &rarr; NO_COVERAGE<br/>
+3. crateProxy : removed call to java/lang/StringBuilder::append &rarr; NO_COVERAGE<br/>
+4. crateProxy : removed call to java/lang/StringBuilder::append &rarr; NO_COVERAGE<br/>
+5. crateProxy : removed call to java/lang/StringBuilder::toString &rarr; NO_COVERAGE<br/>
+6. crateProxy : removed call to org/apache/ibatis/logging/Log::debug &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        log.debug(WRITE_REPLACE_METHOD + &#34; method was found on bean &#34; + type + &#34;, make sure it returns this&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_83'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_84'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    } catch (NoSuchMethodException e) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_85'/>
+85
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_85'>3</a>
+<span>
+1. crateProxy : Substituted 1 with 0 &rarr; KILLED<br/>
+2. crateProxy : Substituted 0 with 1 &rarr; KILLED<br/>
+3. crateProxy : removed call to net/sf/cglib/proxy/Enhancer::setInterfaces &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      enhancer.setInterfaces(new Class[]{WriteReplaceInterface.class});</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_86'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    } catch (SecurityException e) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_87'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      // nothing to do here</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_88'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_89'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    Object enhanced;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_90'/>
+90
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_90'>4</a>
+<span>
+1. crateProxy : removed call to java/util/List::isEmpty &rarr; SURVIVED<br/>
+2. crateProxy : removed conditional - replaced equality check with false &rarr; SURVIVED<br/>
+3. crateProxy : negated conditional &rarr; KILLED<br/>
+4. crateProxy : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>    if (constructorArgTypes.isEmpty()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_91'/>
+91
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_91'>1</a>
+<span>
+1. crateProxy : removed call to net/sf/cglib/proxy/Enhancer::create &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      enhanced = enhancer.create();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_92'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_93'/>
+93
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_93'>3</a>
+<span>
+1. crateProxy : removed call to java/util/List::size &rarr; SURVIVED<br/>
+2. crateProxy : replaced call to java/util/List::toArray with argument &rarr; KILLED<br/>
+3. crateProxy : removed call to java/util/List::toArray &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      Class&#60;?&#62;[] typesArray = constructorArgTypes.toArray(new Class[constructorArgTypes.size()]);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_94'/>
+94
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_94'>3</a>
+<span>
+1. crateProxy : removed call to java/util/List::size &rarr; SURVIVED<br/>
+2. crateProxy : replaced call to java/util/List::toArray with argument &rarr; KILLED<br/>
+3. crateProxy : removed call to java/util/List::toArray &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      Object[] valuesArray = constructorArgs.toArray(new Object[constructorArgs.size()]);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_95'/>
+95
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_95'>1</a>
+<span>
+1. crateProxy : removed call to net/sf/cglib/proxy/Enhancer::create &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      enhanced = enhancer.create(typesArray, valuesArray);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_96'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_97'/>
+97
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_97'>1</a>
+<span>
+1. crateProxy : mutated return of Object value for org/apache/ibatis/executor/loader/cglib/CglibProxyFactory::crateProxy to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    return enhanced;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_98'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_99'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_100'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  private static class EnhancedResultObjectProxyImpl implements MethodInterceptor {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_101'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_102'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Class&#60;?&#62; type;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_103'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final ResultLoaderMap lazyLoader;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_104'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final boolean aggressive;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_105'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final Set&#60;String&#62; lazyLoadTriggerMethods;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_106'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final ObjectFactory objectFactory;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_107'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final List&#60;Class&#60;?&#62;&#62; constructorArgTypes;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_108'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final List&#60;Object&#62; constructorArgs;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_109'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_110'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private EnhancedResultObjectProxyImpl(Class&#60;?&#62; type, ResultLoaderMap lazyLoader, Configuration configuration, ObjectFactory objectFactory, List&#60;Class&#60;?&#62;&#62; constructorArgTypes, List&#60;Object&#62; constructorArgs) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_111'/>
+111
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_111'>1</a>
+<span>
+1. <init> : Removed assignment to member variable type &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      this.type = type;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_112'/>
+112
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_112'>1</a>
+<span>
+1. <init> : Removed assignment to member variable lazyLoader &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      this.lazyLoader = lazyLoader;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_113'/>
+113
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_113'>2</a>
+<span>
+1. <init> : removed call to org/apache/ibatis/session/Configuration::isAggressiveLazyLoading &rarr; SURVIVED<br/>
+2. <init> : Removed assignment to member variable aggressive &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>      this.aggressive = configuration.isAggressiveLazyLoading();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_114'/>
+114
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_114'>2</a>
+<span>
+1. <init> : removed call to org/apache/ibatis/session/Configuration::getLazyLoadTriggerMethods &rarr; KILLED<br/>
+2. <init> : Removed assignment to member variable lazyLoadTriggerMethods &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      this.lazyLoadTriggerMethods = configuration.getLazyLoadTriggerMethods();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_115'/>
+115
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_115'>1</a>
+<span>
+1. <init> : Removed assignment to member variable objectFactory &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      this.objectFactory = objectFactory;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_116'/>
+116
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_116'>1</a>
+<span>
+1. <init> : Removed assignment to member variable constructorArgTypes &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      this.constructorArgTypes = constructorArgTypes;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_117'/>
+117
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_117'>1</a>
+<span>
+1. <init> : Removed assignment to member variable constructorArgs &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      this.constructorArgs = constructorArgs;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_118'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_119'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_120'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static Object createProxy(Object target, ResultLoaderMap lazyLoader, Configuration configuration, ObjectFactory objectFactory, List&#60;Class&#60;?&#62;&#62; constructorArgTypes, List&#60;Object&#62; constructorArgs) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_121'/>
+121
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_121'>1</a>
+<span>
+1. createProxy : removed call to java/lang/Object::getClass &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      final Class&#60;?&#62; type = target.getClass();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_122'/>
+122
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_122'>1</a>
+<span>
+1. createProxy : removed call to org/apache/ibatis/executor/loader/cglib/CglibProxyFactory$EnhancedResultObjectProxyImpl::&#60;init&#62; &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      EnhancedResultObjectProxyImpl callback = new EnhancedResultObjectProxyImpl(type, lazyLoader, configuration, objectFactory, constructorArgTypes, constructorArgs);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_123'/>
+123
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_123'>1</a>
+<span>
+1. createProxy : removed call to org/apache/ibatis/executor/loader/cglib/CglibProxyFactory::crateProxy &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      Object enhanced = crateProxy(type, callback, constructorArgTypes, constructorArgs);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_124'/>
+124
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_124'>1</a>
+<span>
+1. createProxy : removed call to org/apache/ibatis/reflection/property/PropertyCopier::copyBeanProperties &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      PropertyCopier.copyBeanProperties(type, target, enhanced);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_125'/>
+125
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_125'>1</a>
+<span>
+1. createProxy : mutated return of Object value for org/apache/ibatis/executor/loader/cglib/CglibProxyFactory$EnhancedResultObjectProxyImpl::createProxy to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return enhanced;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_126'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_127'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_128'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_129'/>
+129
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_129'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Object intercept(Object enhanced, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_130'/>
+130
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_130'>1</a>
+<span>
+1. intercept : removed call to java/lang/reflect/Method::getName &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      final String methodName = method.getName();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_131'/>
+131
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_131'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      try {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_132'/>
+132
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_132'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        synchronized (lazyLoader) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_133'/>
+133
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_133'>4</a>
+<span>
+1. intercept : negated conditional &rarr; KILLED<br/>
+2. intercept : removed call to java/lang/String::equals &rarr; KILLED<br/>
+3. intercept : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+4. intercept : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>          if (WRITE_REPLACE_METHOD.equals(methodName)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_134'/>
+134
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_134'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            Object original;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_135'/>
+135
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_135'>4</a>
+<span>
+1. intercept : removed call to java/util/List::isEmpty &rarr; SURVIVED<br/>
+2. intercept : removed conditional - replaced equality check with false &rarr; SURVIVED<br/>
+3. intercept : negated conditional &rarr; KILLED<br/>
+4. intercept : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            if (constructorArgTypes.isEmpty()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_136'/>
+136
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_136'>1</a>
+<span>
+1. intercept : removed call to org/apache/ibatis/reflection/factory/ObjectFactory::create &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>              original = objectFactory.create(type);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_137'/>
+137
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_137'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_138'/>
+138
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_138'>1</a>
+<span>
+1. intercept : removed call to org/apache/ibatis/reflection/factory/ObjectFactory::create &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>              original = objectFactory.create(type, constructorArgTypes, constructorArgs);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_139'/>
+139
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_139'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_140'/>
+140
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_140'>1</a>
+<span>
+1. intercept : removed call to org/apache/ibatis/reflection/property/PropertyCopier::copyBeanProperties &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            PropertyCopier.copyBeanProperties(type, enhanced, original);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_141'/>
+141
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_141'>5</a>
+<span>
+1. intercept : changed conditional boundary &rarr; KILLED<br/>
+2. intercept : negated conditional &rarr; KILLED<br/>
+3. intercept : removed call to org/apache/ibatis/executor/loader/ResultLoaderMap::size &rarr; KILLED<br/>
+4. intercept : removed conditional - replaced comparison check with false &rarr; KILLED<br/>
+5. intercept : removed conditional - replaced comparison check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (lazyLoader.size() &#62; 0) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_142'/>
+142
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_142'>3</a>
+<span>
+1. intercept : removed call to org/apache/ibatis/executor/loader/cglib/CglibSerialStateHolder::&#60;init&#62; &rarr; KILLED<br/>
+2. intercept : removed call to org/apache/ibatis/executor/loader/ResultLoaderMap::getProperties &rarr; KILLED<br/>
+3. intercept : mutated return of Object value for org/apache/ibatis/executor/loader/cglib/CglibProxyFactory$EnhancedResultObjectProxyImpl::intercept to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>              return new CglibSerialStateHolder(original, lazyLoader.getProperties(), objectFactory, constructorArgTypes, constructorArgs);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_143'/>
+143
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_143'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_144'/>
+144
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_144'>1</a>
+<span>
+1. intercept : mutated return of Object value for org/apache/ibatis/executor/loader/cglib/CglibProxyFactory$EnhancedResultObjectProxyImpl::intercept to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>              return original;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_145'/>
+145
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_145'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_146'/>
+146
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_146'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>          } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_147'/>
+147
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_147'>9</a>
+<span>
+1. intercept : changed conditional boundary &rarr; SURVIVED<br/>
+2. intercept : removed call to java/lang/String::equals &rarr; SURVIVED<br/>
+3. intercept : removed conditional - replaced equality check with true &rarr; SURVIVED<br/>
+4. intercept : removed conditional - replaced comparison check with true &rarr; SURVIVED<br/>
+5. intercept : negated conditional &rarr; KILLED<br/>
+6. intercept : negated conditional &rarr; KILLED<br/>
+7. intercept : removed call to org/apache/ibatis/executor/loader/ResultLoaderMap::size &rarr; KILLED<br/>
+8. intercept : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+9. intercept : removed conditional - replaced comparison check with false &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            if (lazyLoader.size() &#62; 0 &#38;&#38; !FINALIZE_METHOD.equals(methodName)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_148'/>
+148
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_148'>7</a>
+<span>
+1. intercept : removed call to java/util/Set::contains &rarr; SURVIVED<br/>
+2. intercept : removed conditional - replaced equality check with false &rarr; SURVIVED<br/>
+3. intercept : removed conditional - replaced equality check with true &rarr; SURVIVED<br/>
+4. intercept : negated conditional &rarr; KILLED<br/>
+5. intercept : negated conditional &rarr; KILLED<br/>
+6. intercept : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+7. intercept : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>              if (aggressive || lazyLoadTriggerMethods.contains(methodName)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_149'/>
+149
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_149'>1</a>
+<span>
+1. intercept : removed call to org/apache/ibatis/executor/loader/ResultLoaderMap::loadAll &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                lazyLoader.loadAll();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_150'/>
+150
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_150'>4</a>
+<span>
+1. intercept : negated conditional &rarr; KILLED<br/>
+2. intercept : removed call to org/apache/ibatis/reflection/property/PropertyNamer::isGetter &rarr; KILLED<br/>
+3. intercept : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+4. intercept : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>              } else if (PropertyNamer.isGetter(methodName)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_151'/>
+151
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_151'>2</a>
+<span>
+1. intercept : replaced call to org/apache/ibatis/reflection/property/PropertyNamer::methodToProperty with argument &rarr; KILLED<br/>
+2. intercept : removed call to org/apache/ibatis/reflection/property/PropertyNamer::methodToProperty &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                final String property = PropertyNamer.methodToProperty(methodName);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_152'/>
+152
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_152'>4</a>
+<span>
+1. intercept : removed conditional - replaced equality check with true &rarr; SURVIVED<br/>
+2. intercept : negated conditional &rarr; KILLED<br/>
+3. intercept : removed call to org/apache/ibatis/executor/loader/ResultLoaderMap::hasLoader &rarr; KILLED<br/>
+4. intercept : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                if (lazyLoader.hasLoader(property)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_153'/>
+153
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_153'>1</a>
+<span>
+1. intercept : removed call to org/apache/ibatis/executor/loader/ResultLoaderMap::load &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                  lazyLoader.load(property);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_154'/>
+154
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_154'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_155'/>
+155
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_155'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>              }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_156'/>
+156
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_156'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_157'/>
+157
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_157'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>          }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_158'/>
+158
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_158'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_159'/>
+159
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_159'>3</a>
+<span>
+1. intercept : replaced call to net/sf/cglib/proxy/MethodProxy::invokeSuper with argument &rarr; KILLED<br/>
+2. intercept : removed call to net/sf/cglib/proxy/MethodProxy::invokeSuper &rarr; KILLED<br/>
+3. intercept : mutated return of Object value for org/apache/ibatis/executor/loader/cglib/CglibProxyFactory$EnhancedResultObjectProxyImpl::intercept to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return methodProxy.invokeSuper(enhanced, args);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_160'/>
+160
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_160'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>      } catch (Throwable t) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_161'/>
+161
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_161'>2</a>
+<span>
+1. intercept : replaced call to org/apache/ibatis/reflection/ExceptionUtil::unwrapThrowable with argument &rarr; NO_COVERAGE<br/>
+2. intercept : removed call to org/apache/ibatis/reflection/ExceptionUtil::unwrapThrowable &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        throw ExceptionUtil.unwrapThrowable(t);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_162'/>
+162
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_162'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>      }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_163'/>
+163
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_163'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_164'/>
+164
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_164'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_165'/>
+165
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_165'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_166'/>
+166
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_166'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  private static class EnhancedDeserializationProxyImpl extends AbstractEnhancedDeserializationProxy implements MethodInterceptor {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_167'/>
+167
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_167'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_168'/>
+168
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_168'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private EnhancedDeserializationProxyImpl(Class&#60;?&#62; type, Map&#60;String, ResultLoaderMap.LoadPair&#62; unloadedProperties, ObjectFactory objectFactory,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_169'/>
+169
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_169'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            List&#60;Class&#60;?&#62;&#62; constructorArgTypes, List&#60;Object&#62; constructorArgs) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_170'/>
+170
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_170'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>      super(type, unloadedProperties, objectFactory, constructorArgTypes, constructorArgs);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_171'/>
+171
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_171'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_172'/>
+172
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_172'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_173'/>
+173
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_173'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static Object createProxy(Object target, Map&#60;String, ResultLoaderMap.LoadPair&#62; unloadedProperties, ObjectFactory objectFactory,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_174'/>
+174
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_174'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            List&#60;Class&#60;?&#62;&#62; constructorArgTypes, List&#60;Object&#62; constructorArgs) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_175'/>
+175
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_175'>1</a>
+<span>
+1. createProxy : removed call to java/lang/Object::getClass &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      final Class&#60;?&#62; type = target.getClass();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_176'/>
+176
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_176'>1</a>
+<span>
+1. createProxy : removed call to org/apache/ibatis/executor/loader/cglib/CglibProxyFactory$EnhancedDeserializationProxyImpl::&#60;init&#62; &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      EnhancedDeserializationProxyImpl callback = new EnhancedDeserializationProxyImpl(type, unloadedProperties, objectFactory, constructorArgTypes, constructorArgs);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_177'/>
+177
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_177'>1</a>
+<span>
+1. createProxy : removed call to org/apache/ibatis/executor/loader/cglib/CglibProxyFactory::crateProxy &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      Object enhanced = crateProxy(type, callback, constructorArgTypes, constructorArgs);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_178'/>
+178
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_178'>1</a>
+<span>
+1. createProxy : removed call to org/apache/ibatis/reflection/property/PropertyCopier::copyBeanProperties &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      PropertyCopier.copyBeanProperties(type, target, enhanced);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_179'/>
+179
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_179'>1</a>
+<span>
+1. createProxy : mutated return of Object value for org/apache/ibatis/executor/loader/cglib/CglibProxyFactory$EnhancedDeserializationProxyImpl::createProxy to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return enhanced;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_180'/>
+180
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_180'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_181'/>
+181
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_181'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_182'/>
+182
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_182'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_183'/>
+183
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_183'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Object intercept(Object enhanced, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_184'/>
+184
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_184'>2</a>
+<span>
+1. intercept : replaced call to org/apache/ibatis/executor/loader/AbstractEnhancedDeserializationProxy::invoke with argument &rarr; KILLED<br/>
+2. intercept : removed call to org/apache/ibatis/executor/loader/AbstractEnhancedDeserializationProxy::invoke &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      final Object o = super.invoke(enhanced, method, args);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_185'/>
+185
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_185'>6</a>
+<span>
+1. intercept : replaced call to net/sf/cglib/proxy/MethodProxy::invokeSuper with argument &rarr; KILLED<br/>
+2. intercept : negated conditional &rarr; KILLED<br/>
+3. intercept : removed call to net/sf/cglib/proxy/MethodProxy::invokeSuper &rarr; KILLED<br/>
+4. intercept : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+5. intercept : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+6. intercept : mutated return of Object value for org/apache/ibatis/executor/loader/cglib/CglibProxyFactory$EnhancedDeserializationProxyImpl::intercept to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return (o instanceof AbstractSerialStateHolder) ? o : methodProxy.invokeSuper(o, args);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_186'/>
+186
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_186'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_187'/>
+187
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_187'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_188'/>
+188
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_188'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_189'/>
+189
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_189'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    protected AbstractSerialStateHolder newSerialStateHolder(Object userBean, Map&#60;String, ResultLoaderMap.LoadPair&#62; unloadedProperties, ObjectFactory objectFactory,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_190'/>
+190
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_190'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            List&#60;Class&#60;?&#62;&#62; constructorArgTypes, List&#60;Object&#62; constructorArgs) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_191'/>
+191
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_191'>2</a>
+<span>
+1. newSerialStateHolder : removed call to org/apache/ibatis/executor/loader/cglib/CglibSerialStateHolder::&#60;init&#62; &rarr; KILLED<br/>
+2. newSerialStateHolder : mutated return of Object value for org/apache/ibatis/executor/loader/cglib/CglibProxyFactory$EnhancedDeserializationProxyImpl::newSerialStateHolder to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>      return new CglibSerialStateHolder(userBean, unloadedProperties, objectFactory, constructorArgTypes, constructorArgs);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_192'/>
+192
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_192'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_193'/>
+193
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_193'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>  }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@71daa97d_194'/>
+194
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_194'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_54'>54</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_54'/> 
+
+<p class='TIMED_OUT'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>none</span></span> removed call to org/apache/ibatis/io/Resources::classForName &rarr; TIMED_OUT</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_56'>56</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_56'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>none</span></span> removed call to java/lang/IllegalStateException::&#60;init&#62; &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_62'>62</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_62'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldGenerateWriteReplace(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> replaced call to org/apache/ibatis/executor/loader/cglib/CglibProxyFactory$EnhancedResultObjectProxyImpl::createProxy with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>createProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldGenerateWriteReplace(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to org/apache/ibatis/executor/loader/cglib/CglibProxyFactory$EnhancedResultObjectProxyImpl::createProxy &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>createProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldGenerateWriteReplace(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> mutated return of Object value for org/apache/ibatis/executor/loader/cglib/CglibProxyFactory::createProxy to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_66'>66</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_66'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createDeserializationProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldFailCallingAnUnloadedProperty(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> replaced call to org/apache/ibatis/executor/loader/cglib/CglibProxyFactory$EnhancedDeserializationProxyImpl::createProxy with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>createDeserializationProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetCallALoadedProperty(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to org/apache/ibatis/executor/loader/cglib/CglibProxyFactory$EnhancedDeserializationProxyImpl::createProxy &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>createDeserializationProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetCallALoadedProperty(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> mutated return of Object value for org/apache/ibatis/executor/loader/cglib/CglibProxyFactory::createDeserializationProxy to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_75'>75</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_75'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetCallALoadedProperty(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to net/sf/cglib/proxy/Enhancer::&#60;init&#62; &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_76'>76</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_76'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetCallALoadedProperty(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to net/sf/cglib/proxy/Enhancer::setCallback &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_77'>77</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_77'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetCallALoadedProperty(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to net/sf/cglib/proxy/Enhancer::setSuperclass &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_79'>79</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_79'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldNotGenerateWriteReplaceItThereIsAlreadyOne(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldSerizalizeADeserlizaliedProxy(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to java/lang/Class::getDeclaredMethod &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_81'>81</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_81'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>none</span></span> removed call to org/apache/ibatis/logging/Log::isDebugEnabled &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_82'>82</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_82'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>none</span></span> removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>none</span></span> removed call to java/lang/StringBuilder::append &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>none</span></span> removed call to java/lang/StringBuilder::append &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>none</span></span> removed call to java/lang/StringBuilder::append &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>none</span></span> removed call to java/lang/StringBuilder::toString &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>none</span></span> removed call to org/apache/ibatis/logging/Log::debug &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_85'>85</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_85'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetCallALoadedProperty(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetCallALoadedProperty(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldSerizalizeADeserlizaliedProxy(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to net/sf/cglib/proxy/Enhancer::setInterfaces &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_90'>90</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_90'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldSerializeAProxyForABeanWithoutDefaultConstructorAndUnloadedProperties(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>none</span></span> removed call to java/util/List::isEmpty &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldSerializeAProxyForABeanWithoutDefaultConstructorAndUnloadedProperties(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_91'>91</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_91'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetCallALoadedProperty(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to net/sf/cglib/proxy/Enhancer::create &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_93'>93</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_93'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldSerializeAProxyForABeanWithoutDefaultConstructorAndUnloadedProperties(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> replaced call to java/util/List::toArray with argument &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>none</span></span> removed call to java/util/List::size &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldSerializeAProxyForABeanWithoutDefaultConstructorAndUnloadedProperties(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to java/util/List::toArray &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_94'>94</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_94'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldSerializeAProxyForABeanWithoutDefaultConstructorAndUnloadedProperties(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> replaced call to java/util/List::toArray with argument &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>none</span></span> removed call to java/util/List::size &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldSerializeAProxyForABeanWithoutDefaultConstructorAndUnloadedProperties(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to java/util/List::toArray &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_95'>95</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_95'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldSerializeAProxyForABeanWithoutDefaultConstructorAndUnloadedProperties(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to net/sf/cglib/proxy/Enhancer::create &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_97'>97</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_97'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crateProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetCallALoadedProperty(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> mutated return of Object value for org/apache/ibatis/executor/loader/cglib/CglibProxyFactory::crateProxy to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_111'>111</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_111'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetReadALoadedPropertyAfterSerialization(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> Removed assignment to member variable type &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_112'>112</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_112'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetReadALoadedPropertyAfterSerialization(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> Removed assignment to member variable lazyLoader &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_113'>113</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_113'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>none</span></span> removed call to org/apache/ibatis/session/Configuration::isAggressiveLazyLoading &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b><init><br/><b>Killed by : </b>none</span></span> Removed assignment to member variable aggressive &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_114'>114</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_114'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetObjectWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest)</span></span> removed call to org/apache/ibatis/session/Configuration::getLazyLoadTriggerMethods &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetObjectWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest)</span></span> Removed assignment to member variable lazyLoadTriggerMethods &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_115'>115</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_115'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetReadALoadedPropertyAfterSerialization(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> Removed assignment to member variable objectFactory &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_116'>116</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_116'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetReadALoadedPropertyAfterSerialization(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> Removed assignment to member variable constructorArgTypes &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_117'>117</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_117'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldSerializeAProxyForABeanWithoutDefaultConstructorAndUnloadedProperties(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> Removed assignment to member variable constructorArgs &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_121'>121</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_121'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldGenerateWriteReplace(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to java/lang/Object::getClass &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_122'>122</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_122'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldGenerateWriteReplace(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to org/apache/ibatis/executor/loader/cglib/CglibProxyFactory$EnhancedResultObjectProxyImpl::&#60;init&#62; &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_123'>123</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_123'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldGenerateWriteReplace(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to org/apache/ibatis/executor/loader/cglib/CglibProxyFactory::crateProxy &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_124'>124</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_124'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetReadALoadedPropertyAfterSerialization(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to org/apache/ibatis/reflection/property/PropertyCopier::copyBeanProperties &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_125'>125</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_125'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldGenerateWriteReplace(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> mutated return of Object value for org/apache/ibatis/executor/loader/cglib/CglibProxyFactory$EnhancedResultObjectProxyImpl::createProxy to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_130'>130</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_130'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetReadALoadedPropertyAfterSerialization(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to java/lang/reflect/Method::getName &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_133'>133</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_133'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetReadALoadedPropertyAfterSerialization(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetReadALoadedPropertyAfterSerialization(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to java/lang/String::equals &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetReadALoadedPropertyAfterSerialization(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetObjectWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest)</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_135'>135</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_135'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldSerializeAProxyForABeanWithoutDefaultConstructorAndUnloadedProperties(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>none</span></span> removed call to java/util/List::isEmpty &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldSerializeAProxyForABeanWithoutDefaultConstructorAndUnloadedProperties(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_136'>136</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_136'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetReadALoadedPropertyAfterSerialization(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to org/apache/ibatis/reflection/factory/ObjectFactory::create &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_138'>138</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_138'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldSerializeAProxyForABeanWithoutDefaultConstructorAndUnloadedProperties(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to org/apache/ibatis/reflection/factory/ObjectFactory::create &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_140'>140</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_140'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetReadALoadedPropertyAfterSerialization(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to org/apache/ibatis/reflection/property/PropertyCopier::copyBeanProperties &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_141'>141</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_141'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldNotCreateAProxyForAFullyLoadedBean(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldNotCreateAProxyForAFullyLoadedBean(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldNotLetReadUnloadedPropertyAfterSerialization(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to org/apache/ibatis/executor/loader/ResultLoaderMap::size &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldNotLetReadUnloadedPropertyAfterSerialization(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed conditional - replaced comparison check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldNotCreateAProxyForAFullyLoadedBean(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed conditional - replaced comparison check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_142'>142</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_142'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldSerializeAProxyForABeanWithoutDefaultConstructorAndUnloadedProperties(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to org/apache/ibatis/executor/loader/cglib/CglibSerialStateHolder::&#60;init&#62; &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldSerializeAProxyForABeanWithoutDefaultConstructorAndUnloadedProperties(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to org/apache/ibatis/executor/loader/ResultLoaderMap::getProperties &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldSerializeAProxyForABeanWithoutDefaultConstructorAndUnloadedProperties(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> mutated return of Object value for org/apache/ibatis/executor/loader/cglib/CglibProxyFactory$EnhancedResultObjectProxyImpl::intercept to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_144'>144</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_144'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetReadALoadedPropertyAfterSerialization(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> mutated return of Object value for org/apache/ibatis/executor/loader/cglib/CglibProxyFactory$EnhancedResultObjectProxyImpl::intercept to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_147'>147</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_147'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetObjectWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetObjectWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetObjectWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest)</span></span> removed call to org/apache/ibatis/executor/loader/ResultLoaderMap::size &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>none</span></span> removed call to java/lang/String::equals &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetObjectWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetObjectWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest)</span></span> removed conditional - replaced comparison check with false &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>none</span></span> removed conditional - replaced comparison check with true &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_148'>148</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_148'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazy_properties.LazyPropertiesTest.org.apache.ibatis.submitted.lazy_properties.LazyPropertiesTest</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazy_properties.LazyPropertiesTest.org.apache.ibatis.submitted.lazy_properties.LazyPropertiesTest</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>none</span></span> removed call to java/util/Set::contains &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazy_properties.LazyPropertiesTest.org.apache.ibatis.submitted.lazy_properties.LazyPropertiesTest</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazy_properties.LazyPropertiesTest.org.apache.ibatis.submitted.lazy_properties.LazyPropertiesTest</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_149'>149</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_149'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>none</span></span> removed call to org/apache/ibatis/executor/loader/ResultLoaderMap::loadAll &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_150'>150</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_150'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetObjectWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetObjectWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest)</span></span> removed call to org/apache/ibatis/reflection/property/PropertyNamer::isGetter &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetObjectWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazy_properties.LazyPropertiesTest.org.apache.ibatis.submitted.lazy_properties.LazyPropertiesTest</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_151'>151</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_151'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetObjectWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest)</span></span> replaced call to org/apache/ibatis/reflection/property/PropertyNamer::methodToProperty with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetObjectWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest)</span></span> removed call to org/apache/ibatis/reflection/property/PropertyNamer::methodToProperty &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_152'>152</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_152'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetObjectWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetObjectWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest)</span></span> removed call to org/apache/ibatis/executor/loader/ResultLoaderMap::hasLoader &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetObjectWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_153'>153</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_153'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetObjectWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest)</span></span> removed call to org/apache/ibatis/executor/loader/ResultLoaderMap::load &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_159'>159</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_159'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetObjectWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest)</span></span> replaced call to net/sf/cglib/proxy/MethodProxy::invokeSuper with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetObjectWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest)</span></span> removed call to net/sf/cglib/proxy/MethodProxy::invokeSuper &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetObjectWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest)</span></span> mutated return of Object value for org/apache/ibatis/executor/loader/cglib/CglibProxyFactory$EnhancedResultObjectProxyImpl::intercept to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_161'>161</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_161'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>none</span></span> replaced call to org/apache/ibatis/reflection/ExceptionUtil::unwrapThrowable with argument &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>none</span></span> removed call to org/apache/ibatis/reflection/ExceptionUtil::unwrapThrowable &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_175'>175</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_175'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetCallALoadedProperty(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to java/lang/Object::getClass &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_176'>176</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_176'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetCallALoadedProperty(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to org/apache/ibatis/executor/loader/cglib/CglibProxyFactory$EnhancedDeserializationProxyImpl::&#60;init&#62; &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_177'>177</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_177'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetCallALoadedProperty(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to org/apache/ibatis/executor/loader/cglib/CglibProxyFactory::crateProxy &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_178'>178</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_178'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetCallALoadedProperty(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to org/apache/ibatis/reflection/property/PropertyCopier::copyBeanProperties &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_179'>179</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_179'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>createProxy<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetCallALoadedProperty(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> mutated return of Object value for org/apache/ibatis/executor/loader/cglib/CglibProxyFactory$EnhancedDeserializationProxyImpl::createProxy to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_184'>184</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_184'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldFailCallingAnUnloadedProperty(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> replaced call to org/apache/ibatis/executor/loader/AbstractEnhancedDeserializationProxy::invoke with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetCallALoadedProperty(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to org/apache/ibatis/executor/loader/AbstractEnhancedDeserializationProxy::invoke &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_185'>185</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_185'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetCallALoadedProperty(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> replaced call to net/sf/cglib/proxy/MethodProxy::invokeSuper with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetCallALoadedProperty(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetCallALoadedProperty(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to net/sf/cglib/proxy/MethodProxy::invokeSuper &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldSerizalizeADeserlizaliedProxy(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetCallALoadedProperty(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>intercept<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetCallALoadedProperty(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> mutated return of Object value for org/apache/ibatis/executor/loader/cglib/CglibProxyFactory$EnhancedDeserializationProxyImpl::intercept to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@71daa97d_191'>191</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@71daa97d_191'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>newSerialStateHolder<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldSerizalizeADeserlizaliedProxy(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> removed call to org/apache/ibatis/executor/loader/cglib/CglibSerialStateHolder::&#60;init&#62; &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>newSerialStateHolder<br/><b>Killed by : </b>org.apache.ibatis.executor.loader.CglibProxyTest.shouldSerizalizeADeserlizaliedProxy(org.apache.ibatis.executor.loader.CglibProxyTest)</span></span> mutated return of Object value for org/apache/ibatis/executor/loader/cglib/CglibProxyFactory$EnhancedDeserializationProxyImpl::newSerialStateHolder to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_61</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_60</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_56</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_55</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_58</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_57</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_52</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_51</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_54</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_53</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_59</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_50</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_45</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_44</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_47</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_46</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_41</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_40</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_43</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_42</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_49</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_48</li>
+<li class='mutator'>INLINE_CONSTANT_MUTATOR</li>
+<li class='mutator'>CONSTRUCTOR_CALL_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_34</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_33</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_36</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_35</li>
+<li class='mutator'>EXPERIMENTAL_MEMBER_VARIABLE_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_30</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_32</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_31</li>
+<li class='mutator'>REMOVE_CONDITIONALS_ORDER_ELSE_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_38</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_37</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_39</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_3</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_2</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_1</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_0</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_23</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_22</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_25</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_9</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_24</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_8</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_7</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_6</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_21</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_5</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_20</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_4</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_27</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_26</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_29</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_28</li>
+<li class='mutator'>REMOVE_INCREMENTS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_12</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_11</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_99</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_14</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_13</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_96</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_95</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_10</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_98</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_97</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_19</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_16</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_15</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_18</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_17</li>
+<li class='mutator'>EXPERIMENTAL_SWITCH_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_92</li>
+<li class='mutator'>ARGUMENT_PROPAGATION_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_91</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_94</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_93</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_90</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_89</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_88</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_85</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_84</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_87</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_86</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NON_VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>REMOVE_CONDITIONALS_EQUAL_IF_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_81</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_80</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_83</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_82</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_78</li>
+<li class='mutator'>REMOVE_CONDITIONALS_EQUAL_ELSE_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_77</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_79</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_74</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_73</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_76</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_75</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_70</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_72</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_71</li>
+<li class='mutator'>REMOVE_CONDITIONALS_ORDER_IF_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_67</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_66</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_69</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_68</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_63</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_62</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_65</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_64</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetObjectWithInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest) (42 ms)</li><li>org.apache.ibatis.executor.loader.CglibProxyTest.shouldNotCreateAProxyForAFullyLoadedBean(org.apache.ibatis.executor.loader.CglibProxyTest) (1 ms)</li><li>org.apache.ibatis.executor.loader.CglibProxyTest.shouldSerizaliceAFullLoadedObjectToOriginalClass(org.apache.ibatis.executor.loader.CglibProxyTest) (1 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetObjectWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest) (27 ms)</li><li>org.apache.ibatis.executor.loader.CglibProxyTest.shouldSerizalizeADeserlizaliedProxy(org.apache.ibatis.executor.loader.CglibProxyTest) (1 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithNothingWithInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest) (28 ms)</li><li>org.apache.ibatis.executor.loader.CglibProxyTest.shouldKeepGenericTypes(org.apache.ibatis.executor.loader.CglibProxyTest) (1888 ms)</li><li>org.apache.ibatis.executor.loader.CglibProxyTest.shouldNotLetReadUnloadedPropertyAfterTwoSerializations(org.apache.ibatis.executor.loader.CglibProxyTest) (2 ms)</li><li>org.apache.ibatis.executor.loader.CglibProxyTest.shouldSerializeAProxyForABeanWithoutDefaultConstructor(org.apache.ibatis.executor.loader.CglibProxyTest) (12 ms)</li><li>org.apache.ibatis.submitted.lazy_properties.LazyPropertiesTest.org.apache.ibatis.submitted.lazy_properties.LazyPropertiesTest (50 ms)</li><li>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetCallALoadedProperty(org.apache.ibatis.executor.loader.CglibProxyTest) (0 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithNothingWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest) (90 ms)</li><li>org.apache.ibatis.executor.loader.CglibProxyTest.shouldFailCallingAnUnloadedProperty(org.apache.ibatis.executor.loader.CglibProxyTest) (2 ms)</li><li>org.apache.ibatis.executor.loader.CglibProxyTest.shouldNotLetReadUnloadedPropertyAfterSerialization(org.apache.ibatis.executor.loader.CglibProxyTest) (2 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetXxxWithInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest) (29 ms)</li><li>org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest.lazyLoadUserWithGetXxxWithoutInterface(org.apache.ibatis.submitted.lazyload_proxyfactory_comparison.CglibLazyTest) (27 ms)</li><li>org.apache.ibatis.executor.loader.CglibProxyTest.shouldSerializeAProxyForABeanWithoutDefaultConstructorAndUnloadedProperties(org.apache.ibatis.executor.loader.CglibProxyTest) (2 ms)</li><li>org.apache.ibatis.executor.loader.CglibProxyTest.shouldSerializeAProxyForABeanWithDefaultConstructor(org.apache.ibatis.executor.loader.CglibProxyTest) (1 ms)</li><li>org.apache.ibatis.executor.loader.CglibProxyTest.shouldCreateAProxyForAPartiallyLoadedBean(org.apache.ibatis.executor.loader.CglibProxyTest) (43 ms)</li><li>org.apache.ibatis.executor.loader.CglibProxyTest.shouldLetReadALoadedPropertyAfterSerialization(org.apache.ibatis.executor.loader.CglibProxyTest) (1 ms)</li><li>org.apache.ibatis.executor.loader.CglibProxyTest.shouldGenerateWriteReplace(org.apache.ibatis.executor.loader.CglibProxyTest) (1 ms)</li><li>org.apache.ibatis.executor.loader.CglibProxyTest.shouldNotGenerateWriteReplaceItThereIsAlreadyOne(org.apache.ibatis.executor.loader.CglibProxyTest) (11 ms)</li><li>org.apache.ibatis.builder.XmlConfigBuilderTest.shouldSuccessfullyLoadXMLConfigFile(org.apache.ibatis.builder.XmlConfigBuilderTest) (198 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.1.11
+
+</body>
+</html>

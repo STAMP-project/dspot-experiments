@@ -5,9 +5,12 @@ import fr.inria.diversify.dspot.DSpotUtils;
 import fr.inria.diversify.dspot.selector.PitMutantScoreSelector;
 import fr.inria.diversify.runner.InputConfiguration;
 import fr.inria.diversify.runner.InputProgram;
+import spoon.reflect.declaration.CtMethod;
 import spoon.reflect.declaration.CtType;
 
 import java.io.File;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by Benjamin DANGLOT
@@ -27,15 +30,27 @@ public class Main {
         AmplificationHelper.setSeedRandom(23L);
         InputProgram program = new InputProgram();
         inputConfiguration.setInputProgram(program);
-        DSpot dspot = new DSpot(inputConfiguration, configuration.nbIteration, configuration.amplifiers, new PitMutantScoreSelector());
+        PitMutantScoreSelector selector;
+        if (!"".equals(configuration.pathToOriginalMutantScore)) {
+            selector = new PitMutantScoreSelector(configuration.pathToOriginalMutantScore);
+        } else {
+            selector = new PitMutantScoreSelector();
+        }
+        DSpot dspot = new DSpot(inputConfiguration, configuration.nbIteration, configuration.amplifiers, selector);
         if (!"".equals(configuration.pathToOutput)) {
             inputConfiguration.getProperties().setProperty("outputDirectory", configuration.pathToOutput);
         }
         createOutputDirectories(inputConfiguration);
+
+
         if ("all".equals(configuration.testCase)) {
             amplifyAll(dspot, inputConfiguration);
         } else {
-            amplifyOne(dspot, configuration.testCase, inputConfiguration);
+            if (!configuration.namesOfTestCases.isEmpty()) {
+                amplifyOne(dspot, configuration.testCase, inputConfiguration, configuration.namesOfTestCases);
+            } else {
+                amplifyOne(dspot, configuration.testCase, inputConfiguration, Collections.EMPTY_LIST);
+            }
         }
     }
 
@@ -50,11 +65,16 @@ public class Main {
         }
     }
 
-    private static void amplifyOne(DSpot dspot, String fullQualifiedNameTestClass, InputConfiguration configuration) {
+    private static void amplifyOne(DSpot dspot, String fullQualifiedNameTestClass, InputConfiguration configuration, List<String> testCases) {
         long time = System.currentTimeMillis();
         final File outputDirectory = new File(configuration.getOutputDirectory() + "/");
         try {
-            CtType amplifiedTestClass = dspot.amplifyTest(fullQualifiedNameTestClass);
+            CtType amplifiedTestClass;
+            if (testCases.isEmpty()) {
+                amplifiedTestClass = dspot.amplifyTest(fullQualifiedNameTestClass);
+            } else {
+                amplifiedTestClass = dspot.amplifyTest(fullQualifiedNameTestClass, testCases);
+            }
             DSpotUtils.printJavaFileWithComment(amplifiedTestClass, outputDirectory);
         } catch (Exception e) {
             throw new RuntimeException(e);
