@@ -1,0 +1,4349 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+	border: 1px solid #dddddd;
+	padding-top: 10px;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-family: Consolas, Courier, monospace;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+
+.pop {outline:none; }
+.pop strong {line-height:30px;}
+.pop {text-decoration:none;}
+.pop span { z-index:10;display:none; padding:14px 20px; margin-top:-30px; margin-left:28px; width:800px; line-height:16px; word-wrap:break-word; }
+.pop:hover span{ display:inline; position:absolute; color:#111; border:1px solid #DCA; background:#fffAF0;}
+
+.pop span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -moz-box-shadow: 5px 5px 8px #CCC; -webkit-box-shadow: 5px 5px 8px #CCC; box-shadow: 5px 5px 8px #CCC; }
+</style>
+
+</head>
+<body>
+
+
+<h1>Checksum.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/*</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Copyright 2012 - 2015 Anton Tananaev (anton@traccar.org)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * you may not use this file except in compliance with the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * You may obtain a copy of the License at</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *     http://www.apache.org/licenses/LICENSE-2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Unless required by applicable law or agreed to in writing, software</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * See the License for the specific language governing permissions and</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * limitations under the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_16'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.traccar.helper;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_17'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.nio.ByteBuffer;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.nio.charset.StandardCharsets;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_20'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.zip.CRC32;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_21'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_22'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public final class Checksum {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_23'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_24'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    private Checksum() {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_25'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_26'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_27'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private static final int[] CRC16_CCITT_TABLE_REVERSE = {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_28'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x0000, 0x1189, 0x2312, 0x329B, 0x4624, 0x57AD, 0x6536, 0x74BF,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_29'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x8C48, 0x9DC1, 0xAF5A, 0xBED3, 0xCA6C, 0xDBE5, 0xE97E, 0xF8F7,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_30'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x1081, 0x0108, 0x3393, 0x221A, 0x56A5, 0x472C, 0x75B7, 0x643E,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_31'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x9CC9, 0x8D40, 0xBFDB, 0xAE52, 0xDAED, 0xCB64, 0xF9FF, 0xE876,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_32'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x2102, 0x308B, 0x0210, 0x1399, 0x6726, 0x76AF, 0x4434, 0x55BD,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_33'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xAD4A, 0xBCC3, 0x8E58, 0x9FD1, 0xEB6E, 0xFAE7, 0xC87C, 0xD9F5,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_34'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x3183, 0x200A, 0x1291, 0x0318, 0x77A7, 0x662E, 0x54B5, 0x453C,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_35'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xBDCB, 0xAC42, 0x9ED9, 0x8F50, 0xFBEF, 0xEA66, 0xD8FD, 0xC974,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_36'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x4204, 0x538D, 0x6116, 0x709F, 0x0420, 0x15A9, 0x2732, 0x36BB,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_37'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xCE4C, 0xDFC5, 0xED5E, 0xFCD7, 0x8868, 0x99E1, 0xAB7A, 0xBAF3,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_38'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x5285, 0x430C, 0x7197, 0x601E, 0x14A1, 0x0528, 0x37B3, 0x263A,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_39'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xDECD, 0xCF44, 0xFDDF, 0xEC56, 0x98E9, 0x8960, 0xBBFB, 0xAA72,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_40'/>
+40
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_40'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x6306, 0x728F, 0x4014, 0x519D, 0x2522, 0x34AB, 0x0630, 0x17B9,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_41'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xEF4E, 0xFEC7, 0xCC5C, 0xDDD5, 0xA96A, 0xB8E3, 0x8A78, 0x9BF1,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_42'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x7387, 0x620E, 0x5095, 0x411C, 0x35A3, 0x242A, 0x16B1, 0x0738,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_43'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xFFCF, 0xEE46, 0xDCDD, 0xCD54, 0xB9EB, 0xA862, 0x9AF9, 0x8B70,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_44'/>
+44
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_44'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x8408, 0x9581, 0xA71A, 0xB693, 0xC22C, 0xD3A5, 0xE13E, 0xF0B7,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_45'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x0840, 0x19C9, 0x2B52, 0x3ADB, 0x4E64, 0x5FED, 0x6D76, 0x7CFF,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_46'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x9489, 0x8500, 0xB79B, 0xA612, 0xD2AD, 0xC324, 0xF1BF, 0xE036,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_47'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x18C1, 0x0948, 0x3BD3, 0x2A5A, 0x5EE5, 0x4F6C, 0x7DF7, 0x6C7E,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_48'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xA50A, 0xB483, 0x8618, 0x9791, 0xE32E, 0xF2A7, 0xC03C, 0xD1B5,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_49'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x2942, 0x38CB, 0x0A50, 0x1BD9, 0x6F66, 0x7EEF, 0x4C74, 0x5DFD,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_50'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xB58B, 0xA402, 0x9699, 0x8710, 0xF3AF, 0xE226, 0xD0BD, 0xC134,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_51'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x39C3, 0x284A, 0x1AD1, 0x0B58, 0x7FE7, 0x6E6E, 0x5CF5, 0x4D7C,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_52'/>
+52
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_52'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xC60C, 0xD785, 0xE51E, 0xF497, 0x8028, 0x91A1, 0xA33A, 0xB2B3,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_53'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x4A44, 0x5BCD, 0x6956, 0x78DF, 0x0C60, 0x1DE9, 0x2F72, 0x3EFB,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_54'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xD68D, 0xC704, 0xF59F, 0xE416, 0x90A9, 0x8120, 0xB3BB, 0xA232,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_55'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x5AC5, 0x4B4C, 0x79D7, 0x685E, 0x1CE1, 0x0D68, 0x3FF3, 0x2E7A,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_56'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xE70E, 0xF687, 0xC41C, 0xD595, 0xA12A, 0xB0A3, 0x8238, 0x93B1,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_57'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x6B46, 0x7ACF, 0x4854, 0x59DD, 0x2D62, 0x3CEB, 0x0E70, 0x1FF9,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_58'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xF78F, 0xE606, 0xD49D, 0xC514, 0xB1AB, 0xA022, 0x92B9, 0x8330,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_59'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x7BC7, 0x6A4E, 0x58D5, 0x495C, 0x3DE3, 0x2C6A, 0x1EF1, 0x0F78</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_60'/>
+60
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_60'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    };</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_61'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_62'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private static final int[] CRC16_CCITT_TABLE = {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_63'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x0000, 0x1021, 0x2042, 0x3063, 0x4084, 0x50A5, 0x60C6, 0x70E7,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_64'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x8108, 0x9129, 0xA14A, 0xB16B, 0xC18C, 0xD1AD, 0xE1CE, 0xF1EF,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_65'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x1231, 0x0210, 0x3273, 0x2252, 0x52B5, 0x4294, 0x72F7, 0x62D6,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_66'/>
+66
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_66'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x9339, 0x8318, 0xB37B, 0xA35A, 0xD3BD, 0xC39C, 0xF3FF, 0xE3DE,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_67'/>
+67
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_67'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x2462, 0x3443, 0x0420, 0x1401, 0x64E6, 0x74C7, 0x44A4, 0x5485,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_68'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xA56A, 0xB54B, 0x8528, 0x9509, 0xE5EE, 0xF5CF, 0xC5AC, 0xD58D,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_69'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x3653, 0x2672, 0x1611, 0x0630, 0x76D7, 0x66F6, 0x5695, 0x46B4,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_70'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xB75B, 0xA77A, 0x9719, 0x8738, 0xF7DF, 0xE7FE, 0xD79D, 0xC7BC,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_71'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x48C4, 0x58E5, 0x6886, 0x78A7, 0x0840, 0x1861, 0x2802, 0x3823,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_72'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xC9CC, 0xD9ED, 0xE98E, 0xF9AF, 0x8948, 0x9969, 0xA90A, 0xB92B,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_73'/>
+73
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_73'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x5AF5, 0x4AD4, 0x7AB7, 0x6A96, 0x1A71, 0x0A50, 0x3A33, 0x2A12,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_74'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xDBFD, 0xCBDC, 0xFBBF, 0xEB9E, 0x9B79, 0x8B58, 0xBB3B, 0xAB1A,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_75'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x6CA6, 0x7C87, 0x4CE4, 0x5CC5, 0x2C22, 0x3C03, 0x0C60, 0x1C41,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_76'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xEDAE, 0xFD8F, 0xCDEC, 0xDDCD, 0xAD2A, 0xBD0B, 0x8D68, 0x9D49,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_77'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x7E97, 0x6EB6, 0x5ED5, 0x4EF4, 0x3E13, 0x2E32, 0x1E51, 0x0E70,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_78'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xFF9F, 0xEFBE, 0xDFDD, 0xCFFC, 0xBF1B, 0xAF3A, 0x9F59, 0x8F78,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_79'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x9188, 0x81A9, 0xB1CA, 0xA1EB, 0xD10C, 0xC12D, 0xF14E, 0xE16F,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_80'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x1080, 0x00A1, 0x30C2, 0x20E3, 0x5004, 0x4025, 0x7046, 0x6067,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_81'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x83B9, 0x9398, 0xA3FB, 0xB3DA, 0xC33D, 0xD31C, 0xE37F, 0xF35E,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_82'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x02B1, 0x1290, 0x22F3, 0x32D2, 0x4235, 0x5214, 0x6277, 0x7256,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_83'/>
+83
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_83'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xB5EA, 0xA5CB, 0x95A8, 0x8589, 0xF56E, 0xE54F, 0xD52C, 0xC50D,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_84'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x34E2, 0x24C3, 0x14A0, 0x0481, 0x7466, 0x6447, 0x5424, 0x4405,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_85'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xA7DB, 0xB7FA, 0x8799, 0x97B8, 0xE75F, 0xF77E, 0xC71D, 0xD73C,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_86'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x26D3, 0x36F2, 0x0691, 0x16B0, 0x6657, 0x7676, 0x4615, 0x5634,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_87'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xD94C, 0xC96D, 0xF90E, 0xE92F, 0x99C8, 0x89E9, 0xB98A, 0xA9AB,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_88'/>
+88
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_88'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x5844, 0x4865, 0x7806, 0x6827, 0x18C0, 0x08E1, 0x3882, 0x28A3,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_89'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xCB7D, 0xDB5C, 0xEB3F, 0xFB1E, 0x8BF9, 0x9BD8, 0xABBB, 0xBB9A,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_90'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x4A75, 0x5A54, 0x6A37, 0x7A16, 0x0AF1, 0x1AD0, 0x2AB3, 0x3A92,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_91'/>
+91
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_91'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xFD2E, 0xED0F, 0xDD6C, 0xCD4D, 0xBDAA, 0xAD8B, 0x9DE8, 0x8DC9,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_92'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x7C26, 0x6C07, 0x5C64, 0x4C45, 0x3CA2, 0x2C83, 0x1CE0, 0x0CC1,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_93'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xEF1F, 0xFF3E, 0xCF5D, 0xDF7C, 0xAF9B, 0xBFBA, 0x8FD9, 0x9FF8,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_94'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x6E17, 0x7E36, 0x4E55, 0x5E74, 0x2E93, 0x3EB2, 0x0ED1, 0x1EF0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_95'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    };</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_96'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_97'/>
+97
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_97'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    private static final int[] CRC16_IBM_TABLE = {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_98'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x0000, 0xc0c1, 0xc181, 0x0140, 0xc301, 0x03c0, 0x0280, 0xc241,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_99'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xc601, 0x06c0, 0x0780, 0xc741, 0x0500, 0xc5c1, 0xc481, 0x0440,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_100'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xcc01, 0x0cc0, 0x0d80, 0xcd41, 0x0f00, 0xcfc1, 0xce81, 0x0e40,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_101'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x0a00, 0xcac1, 0xcb81, 0x0b40, 0xc901, 0x09c0, 0x0880, 0xc841,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_102'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xd801, 0x18c0, 0x1980, 0xd941, 0x1b00, 0xdbc1, 0xda81, 0x1a40,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_103'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x1e00, 0xdec1, 0xdf81, 0x1f40, 0xdd01, 0x1dc0, 0x1c80, 0xdc41,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_104'/>
+104
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_104'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x1400, 0xd4c1, 0xd581, 0x1540, 0xd701, 0x17c0, 0x1680, 0xd641,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_105'/>
+105
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_105'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xd201, 0x12c0, 0x1380, 0xd341, 0x1100, 0xd1c1, 0xd081, 0x1040,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_106'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xf001, 0x30c0, 0x3180, 0xf141, 0x3300, 0xf3c1, 0xf281, 0x3240,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_107'/>
+107
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_107'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x3600, 0xf6c1, 0xf781, 0x3740, 0xf501, 0x35c0, 0x3480, 0xf441,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_108'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x3c00, 0xfcc1, 0xfd81, 0x3d40, 0xff01, 0x3fc0, 0x3e80, 0xfe41,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_109'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xfa01, 0x3ac0, 0x3b80, 0xfb41, 0x3900, 0xf9c1, 0xf881, 0x3840,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_110'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x2800, 0xe8c1, 0xe981, 0x2940, 0xeb01, 0x2bc0, 0x2a80, 0xea41,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_111'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xee01, 0x2ec0, 0x2f80, 0xef41, 0x2d00, 0xedc1, 0xec81, 0x2c40,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_112'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xe401, 0x24c0, 0x2580, 0xe541, 0x2700, 0xe7c1, 0xe681, 0x2640,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_113'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x2200, 0xe2c1, 0xe381, 0x2340, 0xe101, 0x21c0, 0x2080, 0xe041,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_114'/>
+114
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_114'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xa001, 0x60c0, 0x6180, 0xa141, 0x6300, 0xa3c1, 0xa281, 0x6240,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_115'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x6600, 0xa6c1, 0xa781, 0x6740, 0xa501, 0x65c0, 0x6480, 0xa441,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_116'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x6c00, 0xacc1, 0xad81, 0x6d40, 0xaf01, 0x6fc0, 0x6e80, 0xae41,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_117'/>
+117
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_117'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xaa01, 0x6ac0, 0x6b80, 0xab41, 0x6900, 0xa9c1, 0xa881, 0x6840,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_118'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x7800, 0xb8c1, 0xb981, 0x7940, 0xbb01, 0x7bc0, 0x7a80, 0xba41,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_119'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xbe01, 0x7ec0, 0x7f80, 0xbf41, 0x7d00, 0xbdc1, 0xbc81, 0x7c40,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_120'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0xb401, 0x74c0, 0x7580, 0xb541, 0x7700, 0xb7c1, 0xb681, 0x7640,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_121'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x7200, 0xb2c1, 0xb381, 0x7340, 0xb101, 0x71c0, 0x7080, 0xb041,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_122'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x5000, 0x90c1, 0x9181, 0x5140, 0x9301, 0x53c0, 0x5280, 0x9241,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_123'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x9601, 0x56c0, 0x5780, 0x9741, 0x5500, 0x95c1, 0x9481, 0x5440,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_124'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x9c01, 0x5cc0, 0x5d80, 0x9d41, 0x5f00, 0x9fc1, 0x9e81, 0x5e40,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_125'/>
+125
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_125'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x5a00, 0x9ac1, 0x9b81, 0x5b40, 0x9901, 0x59c0, 0x5880, 0x9841,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_126'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x8801, 0x48c0, 0x4980, 0x8941, 0x4b00, 0x8bc1, 0x8a81, 0x4a40,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_127'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x4e00, 0x8ec1, 0x8f81, 0x4f40, 0x8d01, 0x4dc0, 0x4c80, 0x8c41,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_128'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x4400, 0x84c1, 0x8581, 0x4540, 0x8701, 0x47c0, 0x4680, 0x8641,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_129'/>
+129
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_129'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        0x8201, 0x42c0, 0x4380, 0x8341, 0x4100, 0x81c1, 0x8081, 0x4040,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_130'/>
+130
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_130'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    };</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_131'/>
+131
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_131'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_132'/>
+132
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_132'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    // More info: http://reveng.sourceforge.net/crc-catalogue/16.htm</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_133'/>
+133
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_133'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static final String CRC16_IBM = &#34;IBM&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_134'/>
+134
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_134'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static final String CRC16_X25 = &#34;X-25&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_135'/>
+135
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_135'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static final String CRC16_CCITT_FALSE = &#34;CCITT-FALSE&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_136'/>
+136
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_136'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static final String CRC16_KERMIT = &#34;KERMIT&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_137'/>
+137
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_137'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static final String CRC16_XMODEM = &#34;XMODEM&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_138'/>
+138
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_138'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static final String CRC16_AUG_CCITT = &#34;AUG-CCITT&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_139'/>
+139
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_139'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static final String CRC16_GENIBUS = &#34;GENIBUS&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_140'/>
+140
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_140'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static final String CRC16_MCRF4XX = &#34;MCRF4XX&#34;;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_141'/>
+141
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_141'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_142'/>
+142
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_142'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static int crc16Unreflected(ByteBuffer buf, int crcIn, int[] table) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_143'/>
+143
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_143'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        int crc16 = crcIn;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_144'/>
+144
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_144'>4</a>
+<span>
+1. crc16Unreflected : negated conditional &rarr; KILLED<br/>
+2. crc16Unreflected : removed call to java/nio/ByteBuffer::hasRemaining &rarr; KILLED<br/>
+3. crc16Unreflected : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+4. crc16Unreflected : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        while (buf.hasRemaining()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_145'/>
+145
+</td>
+<td class='uncertain'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_145'>9</a>
+<span>
+1. crc16Unreflected : removed call to java/nio/ByteBuffer::get &rarr; TIMED_OUT<br/>
+2. crc16Unreflected : Substituted 8 with 9 &rarr; KILLED<br/>
+3. crc16Unreflected : Substituted 255 with 256 &rarr; KILLED<br/>
+4. crc16Unreflected : Substituted 8 with 9 &rarr; KILLED<br/>
+5. crc16Unreflected : Replaced Shift Right with Shift Left &rarr; KILLED<br/>
+6. crc16Unreflected : Replaced XOR with AND &rarr; KILLED<br/>
+7. crc16Unreflected : Replaced bitwise AND with OR &rarr; KILLED<br/>
+8. crc16Unreflected : Replaced Shift Left with Shift Right &rarr; KILLED<br/>
+9. crc16Unreflected : Replaced XOR with AND &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='uncertain'>            crc16 = table[((crc16 &#62;&#62; 8) ^ buf.get()) &#38; 0xff] ^ (crc16 &#60;&#60; 8);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_146'/>
+146
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_146'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_147'/>
+147
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_147'>3</a>
+<span>
+1. crc16Unreflected : Substituted 65535 with 65536 &rarr; KILLED<br/>
+2. crc16Unreflected : Replaced bitwise AND with OR &rarr; KILLED<br/>
+3. crc16Unreflected : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return crc16 &#38; 0xFFFF;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_148'/>
+148
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_148'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_149'/>
+149
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_149'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_150'/>
+150
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_150'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private static int crc16Reflected(ByteBuffer buf, int crcIn, int[] table) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_151'/>
+151
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_151'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        int crc16 = crcIn;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_152'/>
+152
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_152'>4</a>
+<span>
+1. crc16Reflected : negated conditional &rarr; KILLED<br/>
+2. crc16Reflected : removed call to java/nio/ByteBuffer::hasRemaining &rarr; KILLED<br/>
+3. crc16Reflected : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+4. crc16Reflected : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        while (buf.hasRemaining()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_153'/>
+153
+</td>
+<td class='uncertain'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_153'>7</a>
+<span>
+1. crc16Reflected : removed call to java/nio/ByteBuffer::get &rarr; TIMED_OUT<br/>
+2. crc16Reflected : Substituted 255 with 256 &rarr; KILLED<br/>
+3. crc16Reflected : Substituted 8 with 9 &rarr; KILLED<br/>
+4. crc16Reflected : Replaced XOR with AND &rarr; KILLED<br/>
+5. crc16Reflected : Replaced bitwise AND with OR &rarr; KILLED<br/>
+6. crc16Reflected : Replaced Shift Right with Shift Left &rarr; KILLED<br/>
+7. crc16Reflected : Replaced XOR with AND &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='uncertain'>            crc16 = table[(crc16 ^ buf.get()) &#38; 0xff] ^ (crc16 &#62;&#62; 8);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_154'/>
+154
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_154'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_155'/>
+155
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_155'>3</a>
+<span>
+1. crc16Reflected : Substituted 65535 with 65536 &rarr; KILLED<br/>
+2. crc16Reflected : Replaced bitwise AND with OR &rarr; KILLED<br/>
+3. crc16Reflected : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return crc16 &#38; 0xFFFF;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_156'/>
+156
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_156'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_157'/>
+157
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_157'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_158'/>
+158
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_158'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static int crc16(String type, ByteBuffer buf) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_159'/>
+159
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_159'>60</a>
+<span>
+1. crc16 : Substituted -1 with 0 &rarr; SURVIVED<br/>
+2. crc16 : removed conditional - replaced equality check with true &rarr; SURVIVED<br/>
+3. crc16 : removed conditional - replaced equality check with true &rarr; SURVIVED<br/>
+4. crc16 : removed conditional - replaced equality check with true &rarr; SURVIVED<br/>
+5. crc16 : removed conditional - replaced equality check with true &rarr; SURVIVED<br/>
+6. crc16 : removed conditional - replaced equality check with true &rarr; SURVIVED<br/>
+7. crc16 : removed conditional - replaced equality check with true &rarr; SURVIVED<br/>
+8. crc16 : removed conditional - replaced equality check with true &rarr; SURVIVED<br/>
+9. crc16 : removed conditional - replaced equality check with true &rarr; SURVIVED<br/>
+10. crc16 : Substituted 0 with 1 &rarr; KILLED<br/>
+11. crc16 : Substituted 1 with 0 &rarr; KILLED<br/>
+12. crc16 : Substituted 2 with 3 &rarr; KILLED<br/>
+13. crc16 : Substituted 3 with 4 &rarr; KILLED<br/>
+14. crc16 : Substituted 4 with 5 &rarr; KILLED<br/>
+15. crc16 : Substituted 5 with 6 &rarr; KILLED<br/>
+16. crc16 : Substituted 6 with 7 &rarr; KILLED<br/>
+17. crc16 : Substituted 7 with 8 &rarr; KILLED<br/>
+18. crc16 : negated conditional &rarr; KILLED<br/>
+19. crc16 : negated conditional &rarr; KILLED<br/>
+20. crc16 : negated conditional &rarr; KILLED<br/>
+21. crc16 : negated conditional &rarr; KILLED<br/>
+22. crc16 : negated conditional &rarr; KILLED<br/>
+23. crc16 : negated conditional &rarr; KILLED<br/>
+24. crc16 : negated conditional &rarr; KILLED<br/>
+25. crc16 : negated conditional &rarr; KILLED<br/>
+26. crc16 : removed call to java/lang/String::hashCode &rarr; KILLED<br/>
+27. crc16 : removed call to java/lang/String::equals &rarr; KILLED<br/>
+28. crc16 : removed call to java/lang/String::equals &rarr; KILLED<br/>
+29. crc16 : removed call to java/lang/String::equals &rarr; KILLED<br/>
+30. crc16 : removed call to java/lang/String::equals &rarr; KILLED<br/>
+31. crc16 : removed call to java/lang/String::equals &rarr; KILLED<br/>
+32. crc16 : removed call to java/lang/String::equals &rarr; KILLED<br/>
+33. crc16 : removed call to java/lang/String::equals &rarr; KILLED<br/>
+34. crc16 : removed call to java/lang/String::equals &rarr; KILLED<br/>
+35. crc16 : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+36. crc16 : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+37. crc16 : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+38. crc16 : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+39. crc16 : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+40. crc16 : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+41. crc16 : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+42. crc16 : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+43. crc16 : RemoveSwitch 0 mutation &rarr; KILLED<br/>
+44. crc16 : RemoveSwitch 0 mutation &rarr; KILLED<br/>
+45. crc16 : RemoveSwitch 1 mutation &rarr; KILLED<br/>
+46. crc16 : RemoveSwitch 1 mutation &rarr; KILLED<br/>
+47. crc16 : RemoveSwitch 2 mutation &rarr; KILLED<br/>
+48. crc16 : RemoveSwitch 2 mutation &rarr; KILLED<br/>
+49. crc16 : RemoveSwitch 3 mutation &rarr; KILLED<br/>
+50. crc16 : RemoveSwitch 3 mutation &rarr; KILLED<br/>
+51. crc16 : RemoveSwitch 4 mutation &rarr; KILLED<br/>
+52. crc16 : RemoveSwitch 4 mutation &rarr; KILLED<br/>
+53. crc16 : RemoveSwitch 5 mutation &rarr; KILLED<br/>
+54. crc16 : RemoveSwitch 5 mutation &rarr; KILLED<br/>
+55. crc16 : RemoveSwitch 6 mutation &rarr; KILLED<br/>
+56. crc16 : RemoveSwitch 6 mutation &rarr; KILLED<br/>
+57. crc16 : RemoveSwitch 7 mutation &rarr; KILLED<br/>
+58. crc16 : RemoveSwitch 7 mutation &rarr; KILLED<br/>
+59. crc16 : Switch mutation &rarr; KILLED<br/>
+60. crc16 : Switch mutation &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        switch (type) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_160'/>
+160
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_160'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case CRC16_IBM:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_161'/>
+161
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_161'>4</a>
+<span>
+1. crc16 : replaced call to org/traccar/helper/Checksum::crc16Reflected with argument &rarr; KILLED<br/>
+2. crc16 : Substituted 0 with 1 &rarr; KILLED<br/>
+3. crc16 : removed call to org/traccar/helper/Checksum::crc16Reflected &rarr; KILLED<br/>
+4. crc16 : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return crc16Reflected(buf, 0, CRC16_IBM_TABLE);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_162'/>
+162
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_162'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case CRC16_X25:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_163'/>
+163
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_163'>6</a>
+<span>
+1. crc16 : replaced call to org/traccar/helper/Checksum::crc16Reflected with argument &rarr; KILLED<br/>
+2. crc16 : Substituted 65535 with 65536 &rarr; KILLED<br/>
+3. crc16 : Substituted 65535 with 65536 &rarr; KILLED<br/>
+4. crc16 : Replaced XOR with AND &rarr; KILLED<br/>
+5. crc16 : removed call to org/traccar/helper/Checksum::crc16Reflected &rarr; KILLED<br/>
+6. crc16 : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return crc16Reflected(buf, 0xFFFF, CRC16_CCITT_TABLE_REVERSE) ^ 0xFFFF;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_164'/>
+164
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_164'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case CRC16_CCITT_FALSE:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_165'/>
+165
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_165'>4</a>
+<span>
+1. crc16 : replaced call to org/traccar/helper/Checksum::crc16Unreflected with argument &rarr; KILLED<br/>
+2. crc16 : Substituted 65535 with 65536 &rarr; KILLED<br/>
+3. crc16 : removed call to org/traccar/helper/Checksum::crc16Unreflected &rarr; KILLED<br/>
+4. crc16 : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return crc16Unreflected(buf, 0xFFFF, CRC16_CCITT_TABLE);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_166'/>
+166
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_166'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case CRC16_KERMIT:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_167'/>
+167
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_167'>4</a>
+<span>
+1. crc16 : replaced call to org/traccar/helper/Checksum::crc16Reflected with argument &rarr; KILLED<br/>
+2. crc16 : Substituted 0 with 1 &rarr; KILLED<br/>
+3. crc16 : removed call to org/traccar/helper/Checksum::crc16Reflected &rarr; KILLED<br/>
+4. crc16 : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return crc16Reflected(buf, 0, CRC16_CCITT_TABLE_REVERSE);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_168'/>
+168
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_168'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case CRC16_XMODEM:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_169'/>
+169
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_169'>4</a>
+<span>
+1. crc16 : replaced call to org/traccar/helper/Checksum::crc16Unreflected with argument &rarr; KILLED<br/>
+2. crc16 : Substituted 0 with 1 &rarr; KILLED<br/>
+3. crc16 : removed call to org/traccar/helper/Checksum::crc16Unreflected &rarr; KILLED<br/>
+4. crc16 : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return crc16Unreflected(buf, 0, CRC16_CCITT_TABLE);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_170'/>
+170
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_170'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case CRC16_AUG_CCITT:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_171'/>
+171
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_171'>4</a>
+<span>
+1. crc16 : replaced call to org/traccar/helper/Checksum::crc16Unreflected with argument &rarr; KILLED<br/>
+2. crc16 : Substituted 7439 with 7440 &rarr; KILLED<br/>
+3. crc16 : removed call to org/traccar/helper/Checksum::crc16Unreflected &rarr; KILLED<br/>
+4. crc16 : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return crc16Unreflected(buf, 0x1d0f, CRC16_CCITT_TABLE);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_172'/>
+172
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_172'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case CRC16_GENIBUS:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_173'/>
+173
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_173'>6</a>
+<span>
+1. crc16 : replaced call to org/traccar/helper/Checksum::crc16Unreflected with argument &rarr; KILLED<br/>
+2. crc16 : Substituted 65535 with 65536 &rarr; KILLED<br/>
+3. crc16 : Substituted 65535 with 65536 &rarr; KILLED<br/>
+4. crc16 : Replaced XOR with AND &rarr; KILLED<br/>
+5. crc16 : removed call to org/traccar/helper/Checksum::crc16Unreflected &rarr; KILLED<br/>
+6. crc16 : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return crc16Unreflected(buf, 0xFFFF, CRC16_CCITT_TABLE) ^ 0xFFFF;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_174'/>
+174
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_174'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            case CRC16_MCRF4XX:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_175'/>
+175
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_175'>4</a>
+<span>
+1. crc16 : replaced call to org/traccar/helper/Checksum::crc16Reflected with argument &rarr; KILLED<br/>
+2. crc16 : Substituted 65535 with 65536 &rarr; KILLED<br/>
+3. crc16 : removed call to org/traccar/helper/Checksum::crc16Reflected &rarr; KILLED<br/>
+4. crc16 : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                return crc16Reflected(buf, 0xFFFF, CRC16_CCITT_TABLE_REVERSE);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_176'/>
+176
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_176'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            default:</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_177'/>
+177
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_177'>1</a>
+<span>
+1. crc16 : removed call to java/lang/UnsupportedOperationException::&#60;init&#62; &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                throw new UnsupportedOperationException(type);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_178'/>
+178
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_178'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_179'/>
+179
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_179'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_180'/>
+180
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_180'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_181'/>
+181
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_181'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static int crc32(ByteBuffer buf) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_182'/>
+182
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_182'>1</a>
+<span>
+1. crc32 : removed call to java/util/zip/CRC32::&#60;init&#62; &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        CRC32 checksum = new CRC32();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_183'/>
+183
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_183'>4</a>
+<span>
+1. crc32 : negated conditional &rarr; NO_COVERAGE<br/>
+2. crc32 : removed call to java/nio/ByteBuffer::hasRemaining &rarr; NO_COVERAGE<br/>
+3. crc32 : removed conditional - replaced equality check with false &rarr; NO_COVERAGE<br/>
+4. crc32 : removed conditional - replaced equality check with true &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        while (buf.hasRemaining()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_184'/>
+184
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_184'>2</a>
+<span>
+1. crc32 : removed call to java/nio/ByteBuffer::get &rarr; NO_COVERAGE<br/>
+2. crc32 : removed call to java/util/zip/CRC32::update &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            checksum.update(buf.get());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_185'/>
+185
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_185'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_186'/>
+186
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_186'>2</a>
+<span>
+1. crc32 : removed call to java/util/zip/CRC32::getValue &rarr; NO_COVERAGE<br/>
+2. crc32 : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return (int) checksum.getValue();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_187'/>
+187
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_187'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_188'/>
+188
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_188'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_189'/>
+189
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_189'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static int xor(ByteBuffer buf) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_190'/>
+190
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_190'>1</a>
+<span>
+1. xor : Substituted 0 with 1 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        int checksum = 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_191'/>
+191
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_191'>4</a>
+<span>
+1. xor : negated conditional &rarr; KILLED<br/>
+2. xor : removed call to java/nio/ByteBuffer::hasRemaining &rarr; KILLED<br/>
+3. xor : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+4. xor : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        while (buf.hasRemaining()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_192'/>
+192
+</td>
+<td class='uncertain'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_192'>2</a>
+<span>
+1. xor : removed call to java/nio/ByteBuffer::get &rarr; TIMED_OUT<br/>
+2. xor : Replaced XOR with AND &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='uncertain'>            checksum ^= buf.get();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_193'/>
+193
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_193'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_194'/>
+194
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_194'>1</a>
+<span>
+1. xor : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return checksum;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_195'/>
+195
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_195'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_196'/>
+196
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_196'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_197'/>
+197
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_197'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static int xor(String string) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_198'/>
+198
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_198'>1</a>
+<span>
+1. xor : Substituted 0 with 1 &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        byte checksum = 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_199'/>
+199
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_199'>8</a>
+<span>
+1. xor : changed conditional boundary &rarr; NO_COVERAGE<br/>
+2. xor : Changed increment from 1 to -1 &rarr; NO_COVERAGE<br/>
+3. xor : Substituted 0 with 1 &rarr; NO_COVERAGE<br/>
+4. xor : negated conditional &rarr; NO_COVERAGE<br/>
+5. xor : removed call to java/lang/String::getBytes &rarr; NO_COVERAGE<br/>
+6. xor : removed conditional - replaced comparison check with false &rarr; NO_COVERAGE<br/>
+7. xor : removed conditional - replaced comparison check with true &rarr; NO_COVERAGE<br/>
+8. xor : Removed increment 1 &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        for (byte b : string.getBytes(StandardCharsets.US_ASCII)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_200'/>
+200
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_200'>1</a>
+<span>
+1. xor : Replaced XOR with AND &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            checksum ^= b;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_201'/>
+201
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_201'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_202'/>
+202
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_202'>1</a>
+<span>
+1. xor : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        return checksum;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_203'/>
+203
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_203'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_204'/>
+204
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_204'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_205'/>
+205
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_205'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static String nmea(String msg) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_206'/>
+206
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_206'>1</a>
+<span>
+1. nmea : Substituted 0 with 1 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        int checksum = 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_207'/>
+207
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_207'>1</a>
+<span>
+1. nmea : removed call to java/lang/String::getBytes &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        byte[] bytes = msg.getBytes(StandardCharsets.US_ASCII);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_208'/>
+208
+</td>
+<td class='uncertain'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_208'>7</a>
+<span>
+1. nmea : Removed increment 1 &rarr; TIMED_OUT<br/>
+2. nmea : changed conditional boundary &rarr; KILLED<br/>
+3. nmea : Changed increment from 1 to -1 &rarr; KILLED<br/>
+4. nmea : Substituted 1 with 0 &rarr; KILLED<br/>
+5. nmea : negated conditional &rarr; KILLED<br/>
+6. nmea : removed conditional - replaced comparison check with false &rarr; KILLED<br/>
+7. nmea : removed conditional - replaced comparison check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='uncertain'>        for (int i = 1; i &#60; bytes.length; i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_209'/>
+209
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_209'>1</a>
+<span>
+1. nmea : Replaced XOR with AND &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            checksum ^= bytes[i];</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_210'/>
+210
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_210'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_211'/>
+211
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_211'>7</a>
+<span>
+1. nmea : replaced call to java/lang/String::format with argument &rarr; KILLED<br/>
+2. nmea : Substituted 1 with 0 &rarr; KILLED<br/>
+3. nmea : Substituted 0 with 1 &rarr; KILLED<br/>
+4. nmea : removed call to java/lang/Integer::valueOf &rarr; KILLED<br/>
+5. nmea : removed call to java/lang/String::format &rarr; KILLED<br/>
+6. nmea : removed call to java/lang/String::toUpperCase &rarr; KILLED<br/>
+7. nmea : mutated return of Object value for org/traccar/helper/Checksum::nmea to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return String.format(&#34;*%02x&#34;, checksum).toUpperCase();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_212'/>
+212
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_212'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_213'/>
+213
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_213'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_214'/>
+214
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_214'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static String sum(String msg) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_215'/>
+215
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_215'>1</a>
+<span>
+1. sum : Substituted 0 with 1 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        byte checksum = 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_216'/>
+216
+</td>
+<td class='uncertain'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_216'>8</a>
+<span>
+1. sum : Removed increment 1 &rarr; TIMED_OUT<br/>
+2. sum : changed conditional boundary &rarr; KILLED<br/>
+3. sum : Changed increment from 1 to -1 &rarr; KILLED<br/>
+4. sum : Substituted 0 with 1 &rarr; KILLED<br/>
+5. sum : negated conditional &rarr; KILLED<br/>
+6. sum : removed call to java/lang/String::getBytes &rarr; KILLED<br/>
+7. sum : removed conditional - replaced comparison check with false &rarr; KILLED<br/>
+8. sum : removed conditional - replaced comparison check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='uncertain'>        for (byte b : msg.getBytes(StandardCharsets.US_ASCII)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_217'/>
+217
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_217'>1</a>
+<span>
+1. sum : Replaced integer addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            checksum += b;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_218'/>
+218
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_218'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_219'/>
+219
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_219'>7</a>
+<span>
+1. sum : replaced call to java/lang/String::format with argument &rarr; KILLED<br/>
+2. sum : Substituted 1 with 0 &rarr; KILLED<br/>
+3. sum : Substituted 0 with 1 &rarr; KILLED<br/>
+4. sum : removed call to java/lang/Byte::valueOf &rarr; KILLED<br/>
+5. sum : removed call to java/lang/String::format &rarr; KILLED<br/>
+6. sum : removed call to java/lang/String::toUpperCase &rarr; KILLED<br/>
+7. sum : mutated return of Object value for org/traccar/helper/Checksum::sum to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return String.format(&#34;%02X&#34;, checksum).toUpperCase();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_220'/>
+220
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_220'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_221'/>
+221
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_221'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_222'/>
+222
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_222'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public static long luhn(long imei) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_223'/>
+223
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_223'>1</a>
+<span>
+1. luhn : Substituted 0 with 1 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        long checksum = 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_224'/>
+224
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_224'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        long remain = imei;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_225'/>
+225
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_225'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_226'/>
+226
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_226'>7</a>
+<span>
+1. luhn : Changed increment from 1 to -1 &rarr; SURVIVED<br/>
+2. luhn : removed conditional - replaced equality check with true &rarr; TIMED_OUT<br/>
+3. luhn : Substituted 0 with 1 &rarr; KILLED<br/>
+4. luhn : Substituted 0 with 1 &rarr; KILLED<br/>
+5. luhn : negated conditional &rarr; KILLED<br/>
+6. luhn : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+7. luhn : Removed increment 1 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        for (int i = 0; remain != 0; i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_227'/>
+227
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_227'>2</a>
+<span>
+1. luhn : Substituted 10 with 11 &rarr; KILLED<br/>
+2. luhn : Replaced long modulus with multiplication &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            long digit = remain % 10;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_228'/>
+228
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_228'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_229'/>
+229
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_229'>5</a>
+<span>
+1. luhn : Substituted 2 with 3 &rarr; KILLED<br/>
+2. luhn : Replaced integer modulus with multiplication &rarr; KILLED<br/>
+3. luhn : negated conditional &rarr; KILLED<br/>
+4. luhn : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+5. luhn : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            if (i % 2 == 0) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_230'/>
+230
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_230'>2</a>
+<span>
+1. luhn : Substituted 2 with 3 &rarr; KILLED<br/>
+2. luhn : Replaced long multiplication with division &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                digit *= 2;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_231'/>
+231
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_231'>5</a>
+<span>
+1. luhn : changed conditional boundary &rarr; SURVIVED<br/>
+2. luhn : Substituted 10 with 11 &rarr; SURVIVED<br/>
+3. luhn : negated conditional &rarr; KILLED<br/>
+4. luhn : removed conditional - replaced comparison check with false &rarr; KILLED<br/>
+5. luhn : removed conditional - replaced comparison check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                if (digit &#62;= 10) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_232'/>
+232
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_232'>4</a>
+<span>
+1. luhn : Substituted 1 with 2 &rarr; KILLED<br/>
+2. luhn : Substituted 10 with 11 &rarr; KILLED<br/>
+3. luhn : Replaced long modulus with multiplication &rarr; KILLED<br/>
+4. luhn : Replaced long addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    digit = 1 + (digit % 10);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_233'/>
+233
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_233'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_234'/>
+234
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_234'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_235'/>
+235
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_235'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_236'/>
+236
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_236'>1</a>
+<span>
+1. luhn : Replaced long addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            checksum += digit;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_237'/>
+237
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_237'>2</a>
+<span>
+1. luhn : Substituted 10 with 11 &rarr; KILLED<br/>
+2. luhn : Replaced long division with multiplication &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            remain /= 10;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_238'/>
+238
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_238'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_239'/>
+239
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_239'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_240'/>
+240
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_240'>7</a>
+<span>
+1. luhn : Substituted 10 with 11 &rarr; KILLED<br/>
+2. luhn : Substituted 10 with 11 &rarr; KILLED<br/>
+3. luhn : Substituted 10 with 11 &rarr; KILLED<br/>
+4. luhn : Replaced long modulus with multiplication &rarr; KILLED<br/>
+5. luhn : Replaced long subtraction with addition &rarr; KILLED<br/>
+6. luhn : Replaced long modulus with multiplication &rarr; KILLED<br/>
+7. luhn : replaced return of long value with value + 1 for org/traccar/helper/Checksum::luhn &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return (10 - (checksum % 10)) % 10;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_241'/>
+241
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_241'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_242'/>
+242
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_242'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@34a2957c_243'/>
+243
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_243'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_144'>144</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_144'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crc16Unreflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>crc16Unreflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed call to java/nio/ByteBuffer::hasRemaining &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>crc16Unreflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>crc16Unreflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_145'>145</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_145'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crc16Unreflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Substituted 8 with 9 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>crc16Unreflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Substituted 255 with 256 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>crc16Unreflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Substituted 8 with 9 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>crc16Unreflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Replaced Shift Right with Shift Left &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>crc16Unreflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Replaced XOR with AND &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>crc16Unreflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Replaced bitwise AND with OR &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>crc16Unreflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Replaced Shift Left with Shift Right &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>crc16Unreflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Replaced XOR with AND &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>crc16Unreflected<br/><b>Killed by : </b>none</span></span> removed call to java/nio/ByteBuffer::get &rarr; TIMED_OUT</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_147'>147</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_147'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crc16Unreflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Substituted 65535 with 65536 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>crc16Unreflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Replaced bitwise AND with OR &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>crc16Unreflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_152'>152</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_152'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crc16Reflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>crc16Reflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed call to java/nio/ByteBuffer::hasRemaining &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>crc16Reflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>crc16Reflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_153'>153</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_153'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crc16Reflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Substituted 255 with 256 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>crc16Reflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Substituted 8 with 9 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>crc16Reflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Replaced XOR with AND &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>crc16Reflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Replaced bitwise AND with OR &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>crc16Reflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Replaced Shift Right with Shift Left &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>crc16Reflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Replaced XOR with AND &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>crc16Reflected<br/><b>Killed by : </b>none</span></span> removed call to java/nio/ByteBuffer::get &rarr; TIMED_OUT</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_155'>155</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_155'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crc16Reflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Substituted 65535 with 65536 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>crc16Reflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Replaced bitwise AND with OR &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>crc16Reflected<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_159'>159</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_159'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>none</span></span> Substituted -1 with 0 &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.protocol.TeltonikaProtocolEncoderTest.testEncode(org.traccar.protocol.TeltonikaProtocolEncoderTest)</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Substituted 2 with 3 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Substituted 3 with 4 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Substituted 4 with 5 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Substituted 5 with 6 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Substituted 6 with 7 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Substituted 7 with 8 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.protocol.TeltonikaProtocolEncoderTest.testEncode(org.traccar.protocol.TeltonikaProtocolEncoderTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>17.<span><b>17</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>18.<span><b>18</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed call to java/lang/String::hashCode &rarr; KILLED</p> <p class='KILLED'><span class='pop'>19.<span><b>19</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.protocol.TeltonikaProtocolEncoderTest.testEncode(org.traccar.protocol.TeltonikaProtocolEncoderTest)</span></span> removed call to java/lang/String::equals &rarr; KILLED</p> <p class='KILLED'><span class='pop'>20.<span><b>20</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed call to java/lang/String::equals &rarr; KILLED</p> <p class='KILLED'><span class='pop'>21.<span><b>21</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed call to java/lang/String::equals &rarr; KILLED</p> <p class='KILLED'><span class='pop'>22.<span><b>22</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed call to java/lang/String::equals &rarr; KILLED</p> <p class='KILLED'><span class='pop'>23.<span><b>23</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed call to java/lang/String::equals &rarr; KILLED</p> <p class='KILLED'><span class='pop'>24.<span><b>24</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed call to java/lang/String::equals &rarr; KILLED</p> <p class='KILLED'><span class='pop'>25.<span><b>25</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed call to java/lang/String::equals &rarr; KILLED</p> <p class='KILLED'><span class='pop'>26.<span><b>26</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed call to java/lang/String::equals &rarr; KILLED</p> <p class='KILLED'><span class='pop'>27.<span><b>27</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.protocol.TeltonikaProtocolEncoderTest.testEncode(org.traccar.protocol.TeltonikaProtocolEncoderTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>28.<span><b>28</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>29.<span><b>29</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>30.<span><b>30</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>31.<span><b>31</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>32.<span><b>32</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>33.<span><b>33</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>34.<span><b>34</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>35.<span><b>35</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>36.<span><b>36</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>37.<span><b>37</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>38.<span><b>38</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>39.<span><b>39</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>40.<span><b>40</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>41.<span><b>41</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>42.<span><b>42</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>43.<span><b>43</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> RemoveSwitch 0 mutation &rarr; KILLED</p> <p class='KILLED'><span class='pop'>44.<span><b>44</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.protocol.TeltonikaProtocolEncoderTest.testEncode(org.traccar.protocol.TeltonikaProtocolEncoderTest)</span></span> RemoveSwitch 0 mutation &rarr; KILLED</p> <p class='KILLED'><span class='pop'>45.<span><b>45</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> RemoveSwitch 1 mutation &rarr; KILLED</p> <p class='KILLED'><span class='pop'>46.<span><b>46</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> RemoveSwitch 1 mutation &rarr; KILLED</p> <p class='KILLED'><span class='pop'>47.<span><b>47</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> RemoveSwitch 2 mutation &rarr; KILLED</p> <p class='KILLED'><span class='pop'>48.<span><b>48</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> RemoveSwitch 2 mutation &rarr; KILLED</p> <p class='KILLED'><span class='pop'>49.<span><b>49</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.protocol.TeltonikaProtocolEncoderTest.testEncode(org.traccar.protocol.TeltonikaProtocolEncoderTest)</span></span> RemoveSwitch 3 mutation &rarr; KILLED</p> <p class='KILLED'><span class='pop'>50.<span><b>50</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> RemoveSwitch 3 mutation &rarr; KILLED</p> <p class='KILLED'><span class='pop'>51.<span><b>51</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> RemoveSwitch 4 mutation &rarr; KILLED</p> <p class='KILLED'><span class='pop'>52.<span><b>52</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> RemoveSwitch 4 mutation &rarr; KILLED</p> <p class='KILLED'><span class='pop'>53.<span><b>53</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> RemoveSwitch 5 mutation &rarr; KILLED</p> <p class='KILLED'><span class='pop'>54.<span><b>54</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> RemoveSwitch 5 mutation &rarr; KILLED</p> <p class='KILLED'><span class='pop'>55.<span><b>55</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> RemoveSwitch 6 mutation &rarr; KILLED</p> <p class='KILLED'><span class='pop'>56.<span><b>56</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> RemoveSwitch 6 mutation &rarr; KILLED</p> <p class='KILLED'><span class='pop'>57.<span><b>57</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> RemoveSwitch 7 mutation &rarr; KILLED</p> <p class='KILLED'><span class='pop'>58.<span><b>58</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> RemoveSwitch 7 mutation &rarr; KILLED</p> <p class='KILLED'><span class='pop'>59.<span><b>59</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Switch mutation &rarr; KILLED</p> <p class='KILLED'><span class='pop'>60.<span><b>60</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Switch mutation &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_161'>161</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_161'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.protocol.TeltonikaProtocolEncoderTest.testEncode(org.traccar.protocol.TeltonikaProtocolEncoderTest)</span></span> replaced call to org/traccar/helper/Checksum::crc16Reflected with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.protocol.TeltonikaProtocolEncoderTest.testEncode(org.traccar.protocol.TeltonikaProtocolEncoderTest)</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.protocol.TeltonikaProtocolEncoderTest.testEncode(org.traccar.protocol.TeltonikaProtocolEncoderTest)</span></span> removed call to org/traccar/helper/Checksum::crc16Reflected &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.protocol.TeltonikaProtocolEncoderTest.testEncode(org.traccar.protocol.TeltonikaProtocolEncoderTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_163'>163</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_163'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> replaced call to org/traccar/helper/Checksum::crc16Reflected with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Substituted 65535 with 65536 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Substituted 65535 with 65536 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Replaced XOR with AND &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed call to org/traccar/helper/Checksum::crc16Reflected &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_165'>165</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_165'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> replaced call to org/traccar/helper/Checksum::crc16Unreflected with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Substituted 65535 with 65536 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed call to org/traccar/helper/Checksum::crc16Unreflected &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_167'>167</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_167'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> replaced call to org/traccar/helper/Checksum::crc16Reflected with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed call to org/traccar/helper/Checksum::crc16Reflected &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_169'>169</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_169'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> replaced call to org/traccar/helper/Checksum::crc16Unreflected with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed call to org/traccar/helper/Checksum::crc16Unreflected &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_171'>171</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_171'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> replaced call to org/traccar/helper/Checksum::crc16Unreflected with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Substituted 7439 with 7440 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed call to org/traccar/helper/Checksum::crc16Unreflected &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_173'>173</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_173'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> replaced call to org/traccar/helper/Checksum::crc16Unreflected with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Substituted 65535 with 65536 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Substituted 65535 with 65536 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Replaced XOR with AND &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed call to org/traccar/helper/Checksum::crc16Unreflected &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_175'>175</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_175'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> replaced call to org/traccar/helper/Checksum::crc16Reflected with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> Substituted 65535 with 65536 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> removed call to org/traccar/helper/Checksum::crc16Reflected &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_177'>177</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_177'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crc16<br/><b>Killed by : </b>none</span></span> removed call to java/lang/UnsupportedOperationException::&#60;init&#62; &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_182'>182</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_182'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crc32<br/><b>Killed by : </b>none</span></span> removed call to java/util/zip/CRC32::&#60;init&#62; &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_183'>183</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_183'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crc32<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>crc32<br/><b>Killed by : </b>none</span></span> removed call to java/nio/ByteBuffer::hasRemaining &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>crc32<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>crc32<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_184'>184</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_184'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crc32<br/><b>Killed by : </b>none</span></span> removed call to java/nio/ByteBuffer::get &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>crc32<br/><b>Killed by : </b>none</span></span> removed call to java/util/zip/CRC32::update &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_186'>186</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_186'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>crc32<br/><b>Killed by : </b>none</span></span> removed call to java/util/zip/CRC32::getValue &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>crc32<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_190'>190</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_190'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>xor<br/><b>Killed by : </b>org.traccar.protocol.KhdProtocolEncoderTest.testEncode(org.traccar.protocol.KhdProtocolEncoderTest)</span></span> Substituted 0 with 1 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_191'>191</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_191'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>xor<br/><b>Killed by : </b>org.traccar.protocol.KhdProtocolEncoderTest.testEncode(org.traccar.protocol.KhdProtocolEncoderTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>xor<br/><b>Killed by : </b>org.traccar.protocol.KhdProtocolEncoderTest.testEncode(org.traccar.protocol.KhdProtocolEncoderTest)</span></span> removed call to java/nio/ByteBuffer::hasRemaining &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>xor<br/><b>Killed by : </b>org.traccar.protocol.KhdProtocolEncoderTest.testEncode(org.traccar.protocol.KhdProtocolEncoderTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>xor<br/><b>Killed by : </b>org.traccar.protocol.KhdProtocolEncoderTest.testEncode(org.traccar.protocol.KhdProtocolEncoderTest)</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_192'>192</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_192'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>xor<br/><b>Killed by : </b>org.traccar.protocol.KhdProtocolEncoderTest.testEncode(org.traccar.protocol.KhdProtocolEncoderTest)</span></span> Replaced XOR with AND &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>xor<br/><b>Killed by : </b>none</span></span> removed call to java/nio/ByteBuffer::get &rarr; TIMED_OUT</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_194'>194</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_194'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>xor<br/><b>Killed by : </b>org.traccar.protocol.KhdProtocolEncoderTest.testEncode(org.traccar.protocol.KhdProtocolEncoderTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_198'>198</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_198'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>xor<br/><b>Killed by : </b>none</span></span> Substituted 0 with 1 &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_199'>199</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_199'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>xor<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>xor<br/><b>Killed by : </b>none</span></span> Changed increment from 1 to -1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>xor<br/><b>Killed by : </b>none</span></span> Substituted 0 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>xor<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>xor<br/><b>Killed by : </b>none</span></span> removed call to java/lang/String::getBytes &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>xor<br/><b>Killed by : </b>none</span></span> removed conditional - replaced comparison check with false &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>xor<br/><b>Killed by : </b>none</span></span> removed conditional - replaced comparison check with true &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>xor<br/><b>Killed by : </b>none</span></span> Removed increment 1 &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_200'>200</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_200'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>xor<br/><b>Killed by : </b>none</span></span> Replaced XOR with AND &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_202'>202</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_202'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>xor<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_206'>206</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_206'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>nmea<br/><b>Killed by : </b>org.traccar.WebDataHandlerTest.testFormatRequest(org.traccar.WebDataHandlerTest)</span></span> Substituted 0 with 1 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_207'>207</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_207'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>nmea<br/><b>Killed by : </b>org.traccar.protocol.LaipacProtocolDecoderTest.testDecode(org.traccar.protocol.LaipacProtocolDecoderTest)</span></span> removed call to java/lang/String::getBytes &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_208'>208</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_208'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>nmea<br/><b>Killed by : </b>org.traccar.protocol.LaipacProtocolDecoderTest.testDecode(org.traccar.protocol.LaipacProtocolDecoderTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>nmea<br/><b>Killed by : </b>org.traccar.protocol.LaipacProtocolDecoderTest.testDecode(org.traccar.protocol.LaipacProtocolDecoderTest)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>nmea<br/><b>Killed by : </b>org.traccar.WebDataHandlerTest.testFormatRequest(org.traccar.WebDataHandlerTest)</span></span> Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>nmea<br/><b>Killed by : </b>org.traccar.WebDataHandlerTest.testFormatRequest(org.traccar.WebDataHandlerTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>nmea<br/><b>Killed by : </b>org.traccar.WebDataHandlerTest.testFormatRequest(org.traccar.WebDataHandlerTest)</span></span> removed conditional - replaced comparison check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>nmea<br/><b>Killed by : </b>org.traccar.protocol.LaipacProtocolDecoderTest.testDecode(org.traccar.protocol.LaipacProtocolDecoderTest)</span></span> removed conditional - replaced comparison check with true &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>nmea<br/><b>Killed by : </b>none</span></span> Removed increment 1 &rarr; TIMED_OUT</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_209'>209</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_209'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>nmea<br/><b>Killed by : </b>org.traccar.WebDataHandlerTest.testFormatRequest(org.traccar.WebDataHandlerTest)</span></span> Replaced XOR with AND &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_211'>211</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_211'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>nmea<br/><b>Killed by : </b>org.traccar.WebDataHandlerTest.testFormatRequest(org.traccar.WebDataHandlerTest)</span></span> replaced call to java/lang/String::format with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>nmea<br/><b>Killed by : </b>org.traccar.protocol.LaipacProtocolDecoderTest.testDecode(org.traccar.protocol.LaipacProtocolDecoderTest)</span></span> Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>nmea<br/><b>Killed by : </b>org.traccar.protocol.LaipacProtocolDecoderTest.testDecode(org.traccar.protocol.LaipacProtocolDecoderTest)</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>nmea<br/><b>Killed by : </b>org.traccar.WebDataHandlerTest.testFormatRequest(org.traccar.WebDataHandlerTest)</span></span> removed call to java/lang/Integer::valueOf &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>nmea<br/><b>Killed by : </b>org.traccar.protocol.LaipacProtocolDecoderTest.testDecode(org.traccar.protocol.LaipacProtocolDecoderTest)</span></span> removed call to java/lang/String::format &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>nmea<br/><b>Killed by : </b>org.traccar.WebDataHandlerTest.testFormatRequest(org.traccar.WebDataHandlerTest)</span></span> removed call to java/lang/String::toUpperCase &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>nmea<br/><b>Killed by : </b>org.traccar.WebDataHandlerTest.testFormatRequest(org.traccar.WebDataHandlerTest)</span></span> mutated return of Object value for org/traccar/helper/Checksum::nmea to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_215'>215</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_215'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>sum<br/><b>Killed by : </b>org.traccar.protocol.MeitrackProtocolEncoderTest.testEncode(org.traccar.protocol.MeitrackProtocolEncoderTest)</span></span> Substituted 0 with 1 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_216'>216</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_216'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>sum<br/><b>Killed by : </b>org.traccar.protocol.MeitrackProtocolEncoderTest.testEncode(org.traccar.protocol.MeitrackProtocolEncoderTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>sum<br/><b>Killed by : </b>org.traccar.protocol.MeitrackProtocolEncoderTest.testEncode(org.traccar.protocol.MeitrackProtocolEncoderTest)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>sum<br/><b>Killed by : </b>org.traccar.protocol.MeitrackProtocolEncoderTest.testEncode(org.traccar.protocol.MeitrackProtocolEncoderTest)</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>sum<br/><b>Killed by : </b>org.traccar.protocol.MeitrackProtocolEncoderTest.testEncode(org.traccar.protocol.MeitrackProtocolEncoderTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>sum<br/><b>Killed by : </b>org.traccar.protocol.MeitrackProtocolEncoderTest.testEncode(org.traccar.protocol.MeitrackProtocolEncoderTest)</span></span> removed call to java/lang/String::getBytes &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>sum<br/><b>Killed by : </b>org.traccar.protocol.MeitrackProtocolEncoderTest.testEncode(org.traccar.protocol.MeitrackProtocolEncoderTest)</span></span> removed conditional - replaced comparison check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>sum<br/><b>Killed by : </b>org.traccar.protocol.MeitrackProtocolEncoderTest.testEncode(org.traccar.protocol.MeitrackProtocolEncoderTest)</span></span> removed conditional - replaced comparison check with true &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>sum<br/><b>Killed by : </b>none</span></span> Removed increment 1 &rarr; TIMED_OUT</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_217'>217</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_217'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>sum<br/><b>Killed by : </b>org.traccar.protocol.MeitrackProtocolEncoderTest.testEncode(org.traccar.protocol.MeitrackProtocolEncoderTest)</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_219'>219</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_219'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>sum<br/><b>Killed by : </b>org.traccar.protocol.MeitrackProtocolEncoderTest.testEncode(org.traccar.protocol.MeitrackProtocolEncoderTest)</span></span> replaced call to java/lang/String::format with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>sum<br/><b>Killed by : </b>org.traccar.protocol.MeitrackProtocolEncoderTest.testEncode(org.traccar.protocol.MeitrackProtocolEncoderTest)</span></span> Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>sum<br/><b>Killed by : </b>org.traccar.protocol.MeitrackProtocolEncoderTest.testEncode(org.traccar.protocol.MeitrackProtocolEncoderTest)</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>sum<br/><b>Killed by : </b>org.traccar.protocol.MeitrackProtocolEncoderTest.testEncode(org.traccar.protocol.MeitrackProtocolEncoderTest)</span></span> removed call to java/lang/Byte::valueOf &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>sum<br/><b>Killed by : </b>org.traccar.protocol.MeitrackProtocolEncoderTest.testEncode(org.traccar.protocol.MeitrackProtocolEncoderTest)</span></span> removed call to java/lang/String::format &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>sum<br/><b>Killed by : </b>org.traccar.protocol.MeitrackProtocolEncoderTest.testEncode(org.traccar.protocol.MeitrackProtocolEncoderTest)</span></span> removed call to java/lang/String::toUpperCase &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>sum<br/><b>Killed by : </b>org.traccar.protocol.MeitrackProtocolEncoderTest.testEncode(org.traccar.protocol.MeitrackProtocolEncoderTest)</span></span> mutated return of Object value for org/traccar/helper/Checksum::sum to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_223'>223</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_223'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> Substituted 0 with 1 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_226'>226</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_226'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>none</span></span> Changed increment from 1 to -1 &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='TIMED_OUT'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; TIMED_OUT</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> Removed increment 1 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_227'>227</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_227'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> Substituted 10 with 11 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> Replaced long modulus with multiplication &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_229'>229</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_229'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> Substituted 2 with 3 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> Replaced integer modulus with multiplication &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_230'>230</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_230'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> Substituted 2 with 3 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> Replaced long multiplication with division &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_231'>231</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_231'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>none</span></span> Substituted 10 with 11 &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> removed conditional - replaced comparison check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> removed conditional - replaced comparison check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_232'>232</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_232'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> Substituted 1 with 2 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> Substituted 10 with 11 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> Replaced long modulus with multiplication &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> Replaced long addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_236'>236</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_236'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> Replaced long addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_237'>237</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_237'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> Substituted 10 with 11 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> Replaced long division with multiplication &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@34a2957c_240'>240</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@34a2957c_240'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> Substituted 10 with 11 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> Substituted 10 with 11 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> Substituted 10 with 11 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> Replaced long modulus with multiplication &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> Replaced long subtraction with addition &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> Replaced long modulus with multiplication &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>luhn<br/><b>Killed by : </b>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest)</span></span> replaced return of long value with value + 1 for org/traccar/helper/Checksum::luhn &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_61</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_60</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_56</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_55</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_58</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_57</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_52</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_51</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_54</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_53</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_59</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_50</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_45</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_44</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_47</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_46</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_41</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_40</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_43</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_42</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_49</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_48</li>
+<li class='mutator'>INLINE_CONSTANT_MUTATOR</li>
+<li class='mutator'>CONSTRUCTOR_CALL_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_34</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_33</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_36</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_35</li>
+<li class='mutator'>EXPERIMENTAL_MEMBER_VARIABLE_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_30</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_32</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_31</li>
+<li class='mutator'>REMOVE_CONDITIONALS_ORDER_ELSE_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_38</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_37</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_39</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_3</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_2</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_1</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_0</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_23</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_22</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_25</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_9</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_24</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_8</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_7</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_6</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_21</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_5</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_20</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_4</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_27</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_26</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_29</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_28</li>
+<li class='mutator'>REMOVE_INCREMENTS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_12</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_11</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_99</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_14</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_13</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_96</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_95</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_10</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_98</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_97</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_19</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_16</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_15</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_18</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_17</li>
+<li class='mutator'>EXPERIMENTAL_SWITCH_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_92</li>
+<li class='mutator'>ARGUMENT_PROPAGATION_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_91</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_94</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_93</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_90</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_89</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_88</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_85</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_84</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_87</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_86</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NON_VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>REMOVE_CONDITIONALS_EQUAL_IF_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_81</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_80</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_83</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_82</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_78</li>
+<li class='mutator'>REMOVE_CONDITIONALS_EQUAL_ELSE_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_77</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_79</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_74</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_73</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_76</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_75</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_70</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_72</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_71</li>
+<li class='mutator'>REMOVE_CONDITIONALS_ORDER_IF_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_67</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_66</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_69</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_68</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_63</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_62</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_65</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_64</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>org.traccar.protocol.CityeasyProtocolEncoderTest.testEncode(org.traccar.protocol.CityeasyProtocolEncoderTest) (2 ms)</li><li>org.traccar.protocol.AplicomProtocolDecoderTest.testDecode(org.traccar.protocol.AplicomProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.TeltonikaProtocolEncoderTest.testEncode(org.traccar.protocol.TeltonikaProtocolEncoderTest) (1 ms)</li><li>org.traccar.protocol.RuptelaProtocolEncoderTest.testEncode(org.traccar.protocol.RuptelaProtocolEncoderTest) (0 ms)</li><li>org.traccar.protocol.CityeasyProtocolDecoderTest.testDecode(org.traccar.protocol.CityeasyProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.NavigilProtocolDecoderTest.testDecode(org.traccar.protocol.NavigilProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.KhdProtocolEncoderTest.testEncode(org.traccar.protocol.KhdProtocolEncoderTest) (0 ms)</li><li>org.traccar.protocol.LaipacProtocolDecoderTest.testDecode(org.traccar.protocol.LaipacProtocolDecoderTest) (3 ms)</li><li>org.traccar.helper.ChecksumTest.testCrc16(org.traccar.helper.ChecksumTest) (2 ms)</li><li>org.traccar.protocol.Gt06ProtocolEncoderTest.testEncode(org.traccar.protocol.Gt06ProtocolEncoderTest) (1 ms)</li><li>org.traccar.protocol.MeiligaoProtocolEncoderTest.testEncode(org.traccar.protocol.MeiligaoProtocolEncoderTest) (1 ms)</li><li>org.traccar.WebDataHandlerTest.testFormatRequest(org.traccar.WebDataHandlerTest) (17 ms)</li><li>org.traccar.helper.ChecksumTest.testLuhn(org.traccar.helper.ChecksumTest) (0 ms)</li><li>org.traccar.protocol.MeiligaoProtocolDecoderTest.testDecode(org.traccar.protocol.MeiligaoProtocolDecoderTest) (6 ms)</li><li>org.traccar.protocol.MeitrackProtocolEncoderTest.testEncode(org.traccar.protocol.MeitrackProtocolEncoderTest) (6 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.1.11
+
+</body>
+</html>
