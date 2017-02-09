@@ -42,7 +42,7 @@ public class TestClassMinimisation {
     public CtType minimiseTests(CtType classTest) {
         inputProgram.getFactory().Type().get(Runnable.class);
 
-        CtType cl = classWithLoggerBuilder.buildClassWithLogger(classTest, classTest.getMethods());
+        CtType cl = classWithLoggerBuilder.buildClassWithLogger(classTest, (List<CtMethod<?>>) classTest.getMethods());
         try {
             fr.inria.diversify.logger.Logger.reset();
             fr.inria.diversify.logger.Logger.setLogDir(logDir);
