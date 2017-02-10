@@ -1,0 +1,16 @@
+
+
+package org.traccar.protocol;
+
+
+public class AmplStl060ProtocolDecoderTest extends org.traccar.ProtocolTest {
+    @org.junit.Test
+    public void testDecode() throws java.lang.Exception {
+        org.traccar.protocol.Stl060ProtocolDecoder decoder = new org.traccar.protocol.Stl060ProtocolDecoder(new org.traccar.protocol.Stl060Protocol());
+        verifyPosition(decoder, text("$1,357804048043099,D001,AP29AW0963,23/02/14,14:06:54,17248488N,078342226E,0.08,193.12,1,1,1,1,1,A"), position("2014-02-23 14:06:54.000", true, 17.41415, 78.57038));
+        verifyPosition(decoder, text("$1,357804048043099,D001,AP29AW0963,12/05/14,07:39:57,1724.8564N,07834.2199E,0.00,302.84,1,1,1,1,1,A"));
+        verifyPosition(decoder, text("$1,357804047969310,D001,AP29AW0963,01/01/13,13:24:47,1723.9582N,07834.0945E,00100,010,0,0,0,0,0,A,"));
+        verifyPosition(decoder, text("$1,357804047969310,D001,AP29AW0963,01/01/13,13:24:47,1723.9582N,07834.0945E,00100,010,0,0,0,0,0,0008478660,1450,40,34,0,0,0,A"));
+    }
+}
+
