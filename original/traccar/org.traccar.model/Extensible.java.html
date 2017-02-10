@@ -1,0 +1,2154 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+	border: 1px solid #dddddd;
+	padding-top: 10px;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-family: Consolas, Courier, monospace;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+
+.pop {outline:none; }
+.pop strong {line-height:30px;}
+.pop {text-decoration:none;}
+.pop span { z-index:10;display:none; padding:14px 20px; margin-top:-30px; margin-left:28px; width:800px; line-height:16px; word-wrap:break-word; }
+.pop:hover span{ display:inline; position:absolute; color:#111; border:1px solid #DCA; background:#fffAF0;}
+
+.pop span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -moz-box-shadow: 5px 5px 8px #CCC; -webkit-box-shadow: 5px 5px 8px #CCC; box-shadow: 5px 5px 8px #CCC; }
+</style>
+
+</head>
+<body>
+
+
+<h1>Extensible.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/*</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Copyright 2016 Anton Tananaev (anton@traccar.org)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * you may not use this file except in compliance with the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * You may obtain a copy of the License at</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *     http://www.apache.org/licenses/LICENSE-2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Unless required by applicable law or agreed to in writing, software</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * See the License for the specific language governing permissions and</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * limitations under the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_16'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.traccar.model;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_17'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.LinkedHashMap;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Map;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_20'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_21'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>public class Extensible {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_22'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_23'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private long id;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_24'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_25'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public long getId() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_26'/>
+26
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_26'>1</a>
+<span>
+1. getId : replaced return of long value with value + 1 for org/traccar/model/Extensible::getId &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return id;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_27'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_28'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_29'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setId(long id) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_30'/>
+30
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_30'>1</a>
+<span>
+1. setId : Removed assignment to member variable id &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        this.id = id;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_31'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_32'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_33'/>
+33
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_33'>2</a>
+<span>
+1. <init> : removed call to java/util/LinkedHashMap::&#60;init&#62; &rarr; KILLED<br/>
+2. <init> : Removed assignment to member variable attributes &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>    private Map&#60;String, Object&#62; attributes = new LinkedHashMap&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_34'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_35'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public Map&#60;String, Object&#62; getAttributes() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_36'/>
+36
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_36'>1</a>
+<span>
+1. getAttributes : mutated return of Object value for org/traccar/model/Extensible::getAttributes to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return attributes;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_37'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_38'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_39'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void setAttributes(Map&#60;String, Object&#62; attributes) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_40'/>
+40
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_40'>1</a>
+<span>
+1. setAttributes : Removed assignment to member variable attributes &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        this.attributes = attributes;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_41'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_42'/>
+42
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_42'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_43'/>
+43
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_43'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void set(String key, boolean value) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_44'/>
+44
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_44'>3</a>
+<span>
+1. set : replaced call to java/util/Map::put with argument &rarr; KILLED<br/>
+2. set : removed call to java/lang/Boolean::valueOf &rarr; KILLED<br/>
+3. set : removed call to java/util/Map::put &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        attributes.put(key, value);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_45'/>
+45
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_45'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_46'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_47'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void set(String key, int value) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_48'/>
+48
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_48'>3</a>
+<span>
+1. set : replaced call to java/util/Map::put with argument &rarr; KILLED<br/>
+2. set : removed call to java/lang/Integer::valueOf &rarr; KILLED<br/>
+3. set : removed call to java/util/Map::put &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        attributes.put(key, value);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_49'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_50'/>
+50
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_50'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_51'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void set(String key, long value) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_52'/>
+52
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_52'>3</a>
+<span>
+1. set : removed call to java/lang/Long::valueOf &rarr; SURVIVED<br/>
+2. set : replaced call to java/util/Map::put with argument &rarr; KILLED<br/>
+3. set : removed call to java/util/Map::put &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        attributes.put(key, value);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_53'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_54'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_55'/>
+55
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_55'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void set(String key, double value) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_56'/>
+56
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_56'>3</a>
+<span>
+1. set : replaced call to java/util/Map::put with argument &rarr; KILLED<br/>
+2. set : removed call to java/lang/Double::valueOf &rarr; KILLED<br/>
+3. set : removed call to java/util/Map::put &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        attributes.put(key, value);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_57'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_58'/>
+58
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_58'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_59'/>
+59
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_59'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void set(String key, String value) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_60'/>
+60
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_60'>7</a>
+<span>
+1. set : removed call to java/lang/String::isEmpty &rarr; SURVIVED<br/>
+2. set : removed conditional - replaced equality check with true &rarr; SURVIVED<br/>
+3. set : negated conditional &rarr; KILLED<br/>
+4. set : negated conditional &rarr; KILLED<br/>
+5. set : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+6. set : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+7. set : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (value != null &#38;&#38; !value.isEmpty()) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_61'/>
+61
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_61'>2</a>
+<span>
+1. set : replaced call to java/util/Map::put with argument &rarr; KILLED<br/>
+2. set : removed call to java/util/Map::put &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            attributes.put(key, value);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_62'/>
+62
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_62'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_63'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_64'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_65'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public void add(Map.Entry&#60;String, Object&#62; entry) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_66'/>
+66
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_66'>7</a>
+<span>
+1. add : negated conditional &rarr; SURVIVED<br/>
+2. add : removed call to java/util/Map$Entry::getValue &rarr; SURVIVED<br/>
+3. add : removed conditional - replaced equality check with false &rarr; SURVIVED<br/>
+4. add : removed conditional - replaced equality check with false &rarr; SURVIVED<br/>
+5. add : removed conditional - replaced equality check with true &rarr; SURVIVED<br/>
+6. add : negated conditional &rarr; KILLED<br/>
+7. add : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (entry != null &#38;&#38; entry.getValue() != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_67'/>
+67
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_67'>4</a>
+<span>
+1. add : replaced call to java/util/Map::put with argument &rarr; SURVIVED<br/>
+2. add : removed call to java/util/Map$Entry::getKey &rarr; SURVIVED<br/>
+3. add : removed call to java/util/Map$Entry::getValue &rarr; SURVIVED<br/>
+4. add : removed call to java/util/Map::put &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            attributes.put(entry.getKey(), entry.getValue());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_68'/>
+68
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_68'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_69'/>
+69
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_69'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_70'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_71'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public String getString(String key) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_72'/>
+72
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_72'>4</a>
+<span>
+1. getString : removed conditional - replaced equality check with true &rarr; SURVIVED<br/>
+2. getString : negated conditional &rarr; KILLED<br/>
+3. getString : removed call to java/util/Map::containsKey &rarr; KILLED<br/>
+4. getString : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (attributes.containsKey(key)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_73'/>
+73
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_73'>3</a>
+<span>
+1. getString : replaced call to java/util/Map::get with argument &rarr; KILLED<br/>
+2. getString : removed call to java/util/Map::get &rarr; KILLED<br/>
+3. getString : mutated return of Object value for org/traccar/model/Extensible::getString to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return (String) attributes.get(key);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_74'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_75'/>
+75
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_75'>1</a>
+<span>
+1. getString : mutated return of Object value for org/traccar/model/Extensible::getString to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_76'/>
+76
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_76'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_77'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_78'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_79'/>
+79
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_79'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public double getDouble(String key) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_80'/>
+80
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_80'>4</a>
+<span>
+1. getDouble : negated conditional &rarr; KILLED<br/>
+2. getDouble : removed call to java/util/Map::containsKey &rarr; KILLED<br/>
+3. getDouble : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+4. getDouble : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        if (attributes.containsKey(key)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_81'/>
+81
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_81'>4</a>
+<span>
+1. getDouble : replaced call to java/util/Map::get with argument &rarr; KILLED<br/>
+2. getDouble : removed call to java/util/Map::get &rarr; KILLED<br/>
+3. getDouble : removed call to java/lang/Number::doubleValue &rarr; KILLED<br/>
+4. getDouble : replaced return of double value with -(x + 1) for org/traccar/model/Extensible::getDouble &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return ((Number) attributes.get(key)).doubleValue();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_82'/>
+82
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_82'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_83'/>
+83
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_83'>2</a>
+<span>
+1. getDouble : Substituted 0.0 with 1.0 &rarr; KILLED<br/>
+2. getDouble : replaced return of double value with -(x + 1) for org/traccar/model/Extensible::getDouble &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return 0.0;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_84'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_85'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_86'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_87'/>
+87
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_87'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public boolean getBoolean(String key) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_88'/>
+88
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_88'>4</a>
+<span>
+1. getBoolean : removed call to java/util/Map::containsKey &rarr; SURVIVED<br/>
+2. getBoolean : removed conditional - replaced equality check with false &rarr; SURVIVED<br/>
+3. getBoolean : negated conditional &rarr; KILLED<br/>
+4. getBoolean : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (attributes.containsKey(key)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_89'/>
+89
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_89'>5</a>
+<span>
+1. getBoolean : replaced call to java/util/Map::get with argument &rarr; SURVIVED<br/>
+2. getBoolean : removed call to java/lang/Object::toString &rarr; SURVIVED<br/>
+3. getBoolean : removed call to java/lang/Boolean::parseBoolean &rarr; SURVIVED<br/>
+4. getBoolean : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; SURVIVED<br/>
+5. getBoolean : removed call to java/util/Map::get &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            return Boolean.parseBoolean(attributes.get(key).toString());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_90'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_91'/>
+91
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_91'>2</a>
+<span>
+1. getBoolean : Substituted 0 with 1 &rarr; KILLED<br/>
+2. getBoolean : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return false;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_92'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_93'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_94'/>
+94
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_94'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_95'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public int getInteger(String key) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_96'/>
+96
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_96'>4</a>
+<span>
+1. getInteger : removed conditional - replaced equality check with true &rarr; SURVIVED<br/>
+2. getInteger : negated conditional &rarr; KILLED<br/>
+3. getInteger : removed call to java/util/Map::containsKey &rarr; KILLED<br/>
+4. getInteger : removed conditional - replaced equality check with false &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (attributes.containsKey(key)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_97'/>
+97
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_97'>4</a>
+<span>
+1. getInteger : replaced call to java/util/Map::get with argument &rarr; KILLED<br/>
+2. getInteger : removed call to java/util/Map::get &rarr; KILLED<br/>
+3. getInteger : removed call to java/lang/Number::intValue &rarr; KILLED<br/>
+4. getInteger : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            return ((Number) attributes.get(key)).intValue();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_98'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_99'/>
+99
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_99'>2</a>
+<span>
+1. getInteger : Substituted 0 with 1 &rarr; NO_COVERAGE<br/>
+2. getInteger : replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_100'/>
+100
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_100'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_101'/>
+101
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_101'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_102'/>
+102
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_102'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_103'/>
+103
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_103'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public long getLong(String key) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_104'/>
+104
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_104'>4</a>
+<span>
+1. getLong : negated conditional &rarr; NO_COVERAGE<br/>
+2. getLong : removed call to java/util/Map::containsKey &rarr; NO_COVERAGE<br/>
+3. getLong : removed conditional - replaced equality check with false &rarr; NO_COVERAGE<br/>
+4. getLong : removed conditional - replaced equality check with true &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>        if (attributes.containsKey(key)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_105'/>
+105
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_105'>4</a>
+<span>
+1. getLong : replaced call to java/util/Map::get with argument &rarr; NO_COVERAGE<br/>
+2. getLong : removed call to java/util/Map::get &rarr; NO_COVERAGE<br/>
+3. getLong : removed call to java/lang/Number::longValue &rarr; NO_COVERAGE<br/>
+4. getLong : replaced return of long value with value + 1 for org/traccar/model/Extensible::getLong &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return ((Number) attributes.get(key)).longValue();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_106'/>
+106
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_106'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_107'/>
+107
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_107'>2</a>
+<span>
+1. getLong : Substituted 0 with 1 &rarr; NO_COVERAGE<br/>
+2. getLong : replaced return of long value with value + 1 for org/traccar/model/Extensible::getLong &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return 0;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_108'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_109'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_110'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@3388deaa_111'/>
+111
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_111'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_26'>26</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_26'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getId<br/><b>Killed by : </b>org.traccar.database.GroupTreeTest.testGetDescendants(org.traccar.database.GroupTreeTest)</span></span> replaced return of long value with value + 1 for org/traccar/model/Extensible::getId &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_30'>30</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_30'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setId<br/><b>Killed by : </b>org.traccar.database.GroupTreeTest.testGetDescendants(org.traccar.database.GroupTreeTest)</span></span> Removed assignment to member variable id &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_33'>33</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_33'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.traccar.model.MiscFormatterTest.testToString(org.traccar.model.MiscFormatterTest)</span></span> removed call to java/util/LinkedHashMap::&#60;init&#62; &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.traccar.model.MiscFormatterTest.testToString(org.traccar.model.MiscFormatterTest)</span></span> Removed assignment to member variable attributes &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_36'>36</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_36'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getAttributes<br/><b>Killed by : </b>org.traccar.model.MiscFormatterTest.testToString(org.traccar.model.MiscFormatterTest)</span></span> mutated return of Object value for org/traccar/model/Extensible::getAttributes to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_40'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>setAttributes<br/><b>Killed by : </b>none</span></span> Removed assignment to member variable attributes &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_44'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>set<br/><b>Killed by : </b>org.traccar.protocol.Gt06ProtocolDecoderTest.testDecode(org.traccar.protocol.Gt06ProtocolDecoderTest)</span></span> replaced call to java/util/Map::put with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>set<br/><b>Killed by : </b>org.traccar.events.IgnitionEventHandlerTest.testIgnitionEventHandler(org.traccar.events.IgnitionEventHandlerTest)</span></span> removed call to java/lang/Boolean::valueOf &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>set<br/><b>Killed by : </b>org.traccar.protocol.Gt06ProtocolDecoderTest.testDecode(org.traccar.protocol.Gt06ProtocolDecoderTest)</span></span> removed call to java/util/Map::put &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_48'>48</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_48'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>set<br/><b>Killed by : </b>org.traccar.protocol.Jt600ProtocolEncoderTest.testSetTimezone(org.traccar.protocol.Jt600ProtocolEncoderTest)</span></span> replaced call to java/util/Map::put with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>set<br/><b>Killed by : </b>org.traccar.protocol.Jt600ProtocolEncoderTest.testSetTimezone(org.traccar.protocol.Jt600ProtocolEncoderTest)</span></span> removed call to java/lang/Integer::valueOf &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>set<br/><b>Killed by : </b>org.traccar.protocol.Jt600ProtocolEncoderTest.testSetTimezone(org.traccar.protocol.Jt600ProtocolEncoderTest)</span></span> removed call to java/util/Map::put &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_52'>52</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_52'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>set<br/><b>Killed by : </b>org.traccar.protocol.Tk103ProtocolDecoderTest.testDecode(org.traccar.protocol.Tk103ProtocolDecoderTest)</span></span> replaced call to java/util/Map::put with argument &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>set<br/><b>Killed by : </b>none</span></span> removed call to java/lang/Long::valueOf &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>set<br/><b>Killed by : </b>org.traccar.protocol.Tk103ProtocolDecoderTest.testDecode(org.traccar.protocol.Tk103ProtocolDecoderTest)</span></span> removed call to java/util/Map::put &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_56'>56</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_56'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>set<br/><b>Killed by : </b>org.traccar.reports.ReportUtilsTest.testCalculateSpentFuel(org.traccar.reports.ReportUtilsTest)</span></span> replaced call to java/util/Map::put with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>set<br/><b>Killed by : </b>org.traccar.reports.ReportUtilsTest.testCalculateSpentFuel(org.traccar.reports.ReportUtilsTest)</span></span> removed call to java/lang/Double::valueOf &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>set<br/><b>Killed by : </b>org.traccar.reports.ReportUtilsTest.testCalculateSpentFuel(org.traccar.reports.ReportUtilsTest)</span></span> removed call to java/util/Map::put &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_60'>60</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_60'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>set<br/><b>Killed by : </b>org.traccar.model.MiscFormatterTest.testToString(org.traccar.model.MiscFormatterTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>set<br/><b>Killed by : </b>org.traccar.model.MiscFormatterTest.testToString(org.traccar.model.MiscFormatterTest)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>set<br/><b>Killed by : </b>none</span></span> removed call to java/lang/String::isEmpty &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>set<br/><b>Killed by : </b>org.traccar.model.MiscFormatterTest.testToString(org.traccar.model.MiscFormatterTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>set<br/><b>Killed by : </b>org.traccar.model.MiscFormatterTest.testToString(org.traccar.model.MiscFormatterTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>set<br/><b>Killed by : </b>org.traccar.protocol.HuabaoProtocolDecoderTest.testDecode(org.traccar.protocol.HuabaoProtocolDecoderTest)</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>set<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_61'>61</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_61'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>set<br/><b>Killed by : </b>org.traccar.model.MiscFormatterTest.testToString(org.traccar.model.MiscFormatterTest)</span></span> replaced call to java/util/Map::put with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>set<br/><b>Killed by : </b>org.traccar.model.MiscFormatterTest.testToString(org.traccar.model.MiscFormatterTest)</span></span> removed call to java/util/Map::put &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_66'>66</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_66'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>add<br/><b>Killed by : </b>org.traccar.protocol.CastelProtocolDecoderTest.testDecode(org.traccar.protocol.CastelProtocolDecoderTest)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>add<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>add<br/><b>Killed by : </b>none</span></span> removed call to java/util/Map$Entry::getValue &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>add<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>add<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>add<br/><b>Killed by : </b>org.traccar.protocol.CastelProtocolDecoderTest.testDecode(org.traccar.protocol.CastelProtocolDecoderTest)</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>add<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_67'>67</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_67'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>add<br/><b>Killed by : </b>none</span></span> replaced call to java/util/Map::put with argument &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>add<br/><b>Killed by : </b>none</span></span> removed call to java/util/Map$Entry::getKey &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>add<br/><b>Killed by : </b>none</span></span> removed call to java/util/Map$Entry::getValue &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>add<br/><b>Killed by : </b>none</span></span> removed call to java/util/Map::put &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_72'>72</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_72'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getString<br/><b>Killed by : </b>org.traccar.protocol.RuptelaProtocolEncoderTest.testEncode(org.traccar.protocol.RuptelaProtocolEncoderTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getString<br/><b>Killed by : </b>org.traccar.protocol.RuptelaProtocolEncoderTest.testEncode(org.traccar.protocol.RuptelaProtocolEncoderTest)</span></span> removed call to java/util/Map::containsKey &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getString<br/><b>Killed by : </b>org.traccar.protocol.RuptelaProtocolEncoderTest.testEncode(org.traccar.protocol.RuptelaProtocolEncoderTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>getString<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_73'>73</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_73'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getString<br/><b>Killed by : </b>org.traccar.protocol.RuptelaProtocolEncoderTest.testEncode(org.traccar.protocol.RuptelaProtocolEncoderTest)</span></span> replaced call to java/util/Map::get with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getString<br/><b>Killed by : </b>org.traccar.protocol.RuptelaProtocolEncoderTest.testEncode(org.traccar.protocol.RuptelaProtocolEncoderTest)</span></span> removed call to java/util/Map::get &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getString<br/><b>Killed by : </b>org.traccar.protocol.RuptelaProtocolEncoderTest.testEncode(org.traccar.protocol.RuptelaProtocolEncoderTest)</span></span> mutated return of Object value for org/traccar/model/Extensible::getString to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_75'>75</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_75'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getString<br/><b>Killed by : </b>org.traccar.protocol.MiniFinderProtocolEncoderTest.testEncode(org.traccar.protocol.MiniFinderProtocolEncoderTest)</span></span> mutated return of Object value for org/traccar/model/Extensible::getString to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_80'>80</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_80'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getDouble<br/><b>Killed by : </b>org.traccar.reports.ReportUtilsTest.testCalculateDistance(org.traccar.reports.ReportUtilsTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getDouble<br/><b>Killed by : </b>org.traccar.reports.ReportUtilsTest.testCalculateDistance(org.traccar.reports.ReportUtilsTest)</span></span> removed call to java/util/Map::containsKey &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getDouble<br/><b>Killed by : </b>org.traccar.reports.ReportUtilsTest.testCalculateDistance(org.traccar.reports.ReportUtilsTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>getDouble<br/><b>Killed by : </b>org.traccar.reports.ReportUtilsTest.testCalculateDistance(org.traccar.reports.ReportUtilsTest)</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_81'>81</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_81'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getDouble<br/><b>Killed by : </b>org.traccar.reports.ReportUtilsTest.testCalculateDistance(org.traccar.reports.ReportUtilsTest)</span></span> replaced call to java/util/Map::get with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getDouble<br/><b>Killed by : </b>org.traccar.reports.ReportUtilsTest.testCalculateDistance(org.traccar.reports.ReportUtilsTest)</span></span> removed call to java/util/Map::get &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getDouble<br/><b>Killed by : </b>org.traccar.reports.ReportUtilsTest.testCalculateDistance(org.traccar.reports.ReportUtilsTest)</span></span> removed call to java/lang/Number::doubleValue &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>getDouble<br/><b>Killed by : </b>org.traccar.reports.ReportUtilsTest.testCalculateDistance(org.traccar.reports.ReportUtilsTest)</span></span> replaced return of double value with -(x + 1) for org/traccar/model/Extensible::getDouble &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_83'>83</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_83'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getDouble<br/><b>Killed by : </b>org.traccar.reports.ReportUtilsTest.testCalculateDistance(org.traccar.reports.ReportUtilsTest)</span></span> Substituted 0.0 with 1.0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getDouble<br/><b>Killed by : </b>org.traccar.reports.ReportUtilsTest.testCalculateDistance(org.traccar.reports.ReportUtilsTest)</span></span> replaced return of double value with -(x + 1) for org/traccar/model/Extensible::getDouble &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_88'>88</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_88'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getBoolean<br/><b>Killed by : </b>org.traccar.FilterHandlerTest.testFilterInvalid(org.traccar.FilterHandlerTest)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getBoolean<br/><b>Killed by : </b>none</span></span> removed call to java/util/Map::containsKey &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getBoolean<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>getBoolean<br/><b>Killed by : </b>org.traccar.FilterHandlerTest.testFilterInvalid(org.traccar.FilterHandlerTest)</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_89'>89</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_89'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getBoolean<br/><b>Killed by : </b>none</span></span> replaced call to java/util/Map::get with argument &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getBoolean<br/><b>Killed by : </b>org.traccar.events.IgnitionEventHandlerTest.testIgnitionEventHandler(org.traccar.events.IgnitionEventHandlerTest)</span></span> removed call to java/util/Map::get &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getBoolean<br/><b>Killed by : </b>none</span></span> removed call to java/lang/Object::toString &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>getBoolean<br/><b>Killed by : </b>none</span></span> removed call to java/lang/Boolean::parseBoolean &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>getBoolean<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_91'>91</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_91'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getBoolean<br/><b>Killed by : </b>org.traccar.FilterHandlerTest.testFilterInvalid(org.traccar.FilterHandlerTest)</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getBoolean<br/><b>Killed by : </b>org.traccar.FilterHandlerTest.testFilterInvalid(org.traccar.FilterHandlerTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_96'>96</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_96'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getInteger<br/><b>Killed by : </b>org.traccar.protocol.Jt600ProtocolEncoderTest.testSetTimezone(org.traccar.protocol.Jt600ProtocolEncoderTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getInteger<br/><b>Killed by : </b>org.traccar.protocol.Jt600ProtocolEncoderTest.testSetTimezone(org.traccar.protocol.Jt600ProtocolEncoderTest)</span></span> removed call to java/util/Map::containsKey &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getInteger<br/><b>Killed by : </b>org.traccar.protocol.Jt600ProtocolEncoderTest.testSetTimezone(org.traccar.protocol.Jt600ProtocolEncoderTest)</span></span> removed conditional - replaced equality check with false &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>getInteger<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_97'>97</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_97'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getInteger<br/><b>Killed by : </b>org.traccar.protocol.Jt600ProtocolEncoderTest.testSetTimezone(org.traccar.protocol.Jt600ProtocolEncoderTest)</span></span> replaced call to java/util/Map::get with argument &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getInteger<br/><b>Killed by : </b>org.traccar.protocol.Jt600ProtocolEncoderTest.testSetTimezone(org.traccar.protocol.Jt600ProtocolEncoderTest)</span></span> removed call to java/util/Map::get &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getInteger<br/><b>Killed by : </b>org.traccar.protocol.Jt600ProtocolEncoderTest.testSetTimezone(org.traccar.protocol.Jt600ProtocolEncoderTest)</span></span> removed call to java/lang/Number::intValue &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>getInteger<br/><b>Killed by : </b>org.traccar.protocol.Jt600ProtocolEncoderTest.testSetTimezone(org.traccar.protocol.Jt600ProtocolEncoderTest)</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_99'>99</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_99'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getInteger<br/><b>Killed by : </b>none</span></span> Substituted 0 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getInteger<br/><b>Killed by : </b>none</span></span> replaced return of integer sized value with (x == 0 ? 1 : 0) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_104'>104</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_104'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getLong<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getLong<br/><b>Killed by : </b>none</span></span> removed call to java/util/Map::containsKey &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getLong<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>getLong<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_105'>105</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_105'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getLong<br/><b>Killed by : </b>none</span></span> replaced call to java/util/Map::get with argument &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getLong<br/><b>Killed by : </b>none</span></span> removed call to java/util/Map::get &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>getLong<br/><b>Killed by : </b>none</span></span> removed call to java/lang/Number::longValue &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>getLong<br/><b>Killed by : </b>none</span></span> replaced return of long value with value + 1 for org/traccar/model/Extensible::getLong &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@3388deaa_107'>107</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@3388deaa_107'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getLong<br/><b>Killed by : </b>none</span></span> Substituted 0 with 1 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>getLong<br/><b>Killed by : </b>none</span></span> replaced return of long value with value + 1 for org/traccar/model/Extensible::getLong &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_61</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_60</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_56</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_55</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_58</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_57</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_52</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_51</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_54</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_53</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_59</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_50</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_45</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_44</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_47</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_46</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_41</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_40</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_43</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_42</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_49</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_48</li>
+<li class='mutator'>INLINE_CONSTANT_MUTATOR</li>
+<li class='mutator'>CONSTRUCTOR_CALL_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_34</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_33</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_36</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_35</li>
+<li class='mutator'>EXPERIMENTAL_MEMBER_VARIABLE_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_30</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_32</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_31</li>
+<li class='mutator'>REMOVE_CONDITIONALS_ORDER_ELSE_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_38</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_37</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_39</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_3</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_2</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_1</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_0</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_23</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_22</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_25</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_9</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_24</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_8</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_7</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_6</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_21</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_5</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_20</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_4</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_27</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_26</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_29</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_28</li>
+<li class='mutator'>REMOVE_INCREMENTS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_12</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_11</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_99</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_14</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_13</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_96</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_95</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_10</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_98</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_97</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_19</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_16</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_15</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_18</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_17</li>
+<li class='mutator'>EXPERIMENTAL_SWITCH_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_92</li>
+<li class='mutator'>ARGUMENT_PROPAGATION_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_91</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_94</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_93</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_90</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_89</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_88</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_85</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_84</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_87</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_86</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NON_VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>REMOVE_CONDITIONALS_EQUAL_IF_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_81</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_80</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_83</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_82</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_78</li>
+<li class='mutator'>REMOVE_CONDITIONALS_EQUAL_ELSE_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_77</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_79</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_74</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_73</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_76</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_75</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_70</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_72</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_71</li>
+<li class='mutator'>REMOVE_CONDITIONALS_ORDER_IF_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_67</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_66</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_69</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_68</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_63</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_62</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_65</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_64</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>org.traccar.protocol.NoranProtocolEncoderTest.testEncode(org.traccar.protocol.NoranProtocolEncoderTest) (1 ms)</li><li>org.traccar.protocol.GranitProtocolDecoderTest.testDecode(org.traccar.protocol.GranitProtocolDecoderTest) (4 ms)</li><li>org.traccar.protocol.Avl301ProtocolDecoderTest.testDecode(org.traccar.protocol.Avl301ProtocolDecoderTest) (5 ms)</li><li>org.traccar.protocol.CityeasyProtocolDecoderTest.testDecode(org.traccar.protocol.CityeasyProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.Tr20ProtocolDecoderTest.testDecode(org.traccar.protocol.Tr20ProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.ManPowerProtocolDecoderTest.testDecode(org.traccar.protocol.ManPowerProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.H02ProtocolEncoderTest.testEngineStopEncode(org.traccar.protocol.H02ProtocolEncoderTest) (0 ms)</li><li>org.traccar.protocol.WatchProtocolEncoderTest.testEncode(org.traccar.protocol.WatchProtocolEncoderTest) (3 ms)</li><li>org.traccar.protocol.CastelProtocolDecoderTest.testDecode(org.traccar.protocol.CastelProtocolDecoderTest) (7 ms)</li><li>org.traccar.protocol.YwtProtocolDecoderTest.testDecode(org.traccar.protocol.YwtProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.TrvProtocolDecoderTest.testDecode(org.traccar.protocol.TrvProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.ArknavProtocolDecoderTest.testDecode(org.traccar.protocol.ArknavProtocolDecoderTest) (4 ms)</li><li>org.traccar.protocol.OrionProtocolDecoderTest.testDecode(org.traccar.protocol.OrionProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.HaicomProtocolDecoderTest.testDecode(org.traccar.protocol.HaicomProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.MxtProtocolDecoderTest.testDecode(org.traccar.protocol.MxtProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.FreedomProtocolDecoderTest.testDecode(org.traccar.protocol.FreedomProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.OigoProtocolDecoderTest.testDecode(org.traccar.protocol.OigoProtocolDecoderTest) (2 ms)</li><li>org.traccar.events.CommandResultEventHandlerTest.testCommandResultEventHandler(org.traccar.events.CommandResultEventHandlerTest) (1 ms)</li><li>org.traccar.protocol.AppelloProtocolDecoderTest.testDecode(org.traccar.protocol.AppelloProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.CityeasyProtocolEncoderTest.testEncode(org.traccar.protocol.CityeasyProtocolEncoderTest) (2 ms)</li><li>org.traccar.protocol.MtxProtocolDecoderTest.testDecode(org.traccar.protocol.MtxProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.DishaProtocolDecoderTest.testDecode(org.traccar.protocol.DishaProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.TeltonikaProtocolDecoderTest.testDecode(org.traccar.protocol.TeltonikaProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.CradlepointProtocolDecoderTest.testDecode(org.traccar.protocol.CradlepointProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.IdplProtocolDecoderTest.testDecode(org.traccar.protocol.IdplProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.CarTrackProtocolDecoderTest.testDecode(org.traccar.protocol.CarTrackProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.Gl200ProtocolDecoderTest.testDecode(org.traccar.protocol.Gl200ProtocolDecoderTest) (17 ms)</li><li>org.traccar.protocol.MegastekProtocolDecoderTest.testDecode(org.traccar.protocol.MegastekProtocolDecoderTest) (5 ms)</li><li>org.traccar.FilterHandlerTest.testFilterInvalid(org.traccar.FilterHandlerTest) (185 ms)</li><li>org.traccar.protocol.CellocatorProtocolDecoderTest.testDecode(org.traccar.protocol.CellocatorProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.PiligrimProtocolDecoderTest.testDecode(org.traccar.protocol.PiligrimProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.FifotrackProtocolDecoderTest.testDecode(org.traccar.protocol.FifotrackProtocolDecoderTest) (8 ms)</li><li>org.traccar.protocol.Pt3000ProtocolDecoderTest.testDecode(org.traccar.protocol.Pt3000ProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.PretraceProtocolDecoderTest.testDecode(org.traccar.protocol.PretraceProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.H02ProtocolEncoderTest.testPositionPeriodicEncode(org.traccar.protocol.H02ProtocolEncoderTest) (0 ms)</li><li>org.traccar.protocol.KenjiProtocolDecoderTest.testDecode(org.traccar.protocol.KenjiProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.SupermateProtocolDecoderTest.testDecode(org.traccar.protocol.SupermateProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.TrakMateProtocolDecoderTest.testDecode(org.traccar.protocol.TrakMateProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.ProgressProtocolDecoderTest.testDecode(org.traccar.protocol.ProgressProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.CarscopProtocolDecoderTest.testDecode(org.traccar.protocol.CarscopProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.SmokeyProtocolDecoderTest.testDecode(org.traccar.protocol.SmokeyProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.AstraProtocolDecoderTest.testDecode(org.traccar.protocol.AstraProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.FoxProtocolDecoderTest.testDecode(org.traccar.protocol.FoxProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.T55ProtocolDecoderTest.testMaxonDecode(org.traccar.protocol.T55ProtocolDecoderTest) (0 ms)</li><li>org.traccar.protocol.Ardi01ProtocolDecoderTest.testDecode(org.traccar.protocol.Ardi01ProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.ExtremTracProtocolDecoderTest.testDecode(org.traccar.protocol.ExtremTracProtocolDecoderTest) (4 ms)</li><li>org.traccar.protocol.Jt600ProtocolEncoderTest.testReboot(org.traccar.protocol.Jt600ProtocolEncoderTest) (0 ms)</li><li>org.traccar.protocol.KhdProtocolDecoderTest.testDecode(org.traccar.protocol.KhdProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.BoxProtocolDecoderTest.testDecode(org.traccar.protocol.BoxProtocolDecoderTest) (6 ms)</li><li>org.traccar.protocol.Jt600ProtocolEncoderTest.testSetTimezone(org.traccar.protocol.Jt600ProtocolEncoderTest) (0 ms)</li><li>org.traccar.protocol.M2mProtocolDecoderTest.testDecode(org.traccar.protocol.M2mProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.H02ProtocolDecoderTest.testDecode(org.traccar.protocol.H02ProtocolDecoderTest) (14 ms)</li><li>org.traccar.protocol.GalileoProtocolDecoderTest.testDecode(org.traccar.protocol.GalileoProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.TmgProtocolDecoderTest.testDecode(org.traccar.protocol.TmgProtocolDecoderTest) (59 ms)</li><li>org.traccar.protocol.XirgoProtocolDecoderTest.testDecodeOld(org.traccar.protocol.XirgoProtocolDecoderTest) (0 ms)</li><li>org.traccar.protocol.BceProtocolDecoderTest.testDecode(org.traccar.protocol.BceProtocolDecoderTest) (4 ms)</li><li>org.traccar.protocol.Tt8850ProtocolDecoderTest.testDecode(org.traccar.protocol.Tt8850ProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.SuntechProtocolDecoderTest.testDecode(org.traccar.protocol.SuntechProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.SkypatrolProtocolDecoderTest.testDecode(org.traccar.protocol.SkypatrolProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.Gt02ProtocolDecoderTest.testDecode(org.traccar.protocol.Gt02ProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.Tlt2hProtocolDecoderTest.testDecode(org.traccar.protocol.Tlt2hProtocolDecoderTest) (19 ms)</li><li>org.traccar.protocol.T800xProtocolDecoderTest.testDecode(org.traccar.protocol.T800xProtocolDecoderTest) (2 ms)</li><li>org.traccar.DistanceHandlerTest.testCalculateDistance(org.traccar.DistanceHandlerTest) (94 ms)</li><li>org.traccar.protocol.TelicProtocolDecoderTest.testDecode(org.traccar.protocol.TelicProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.Gt06ProtocolDecoderTest.testDecode(org.traccar.protocol.Gt06ProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.Gps103ProtocolEncoderTest.testEncodePositionPeriodic(org.traccar.protocol.Gps103ProtocolEncoderTest) (1 ms)</li><li>org.traccar.protocol.GnxProtocolDecoderTest.testDecode(org.traccar.protocol.GnxProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.VisiontekProtocolDecoderTest.testDecode(org.traccar.protocol.VisiontekProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.NvsProtocolDecoderTest.testDecode(org.traccar.protocol.NvsProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.Gt06ProtocolEncoderTest.testEncode(org.traccar.protocol.Gt06ProtocolEncoderTest) (1 ms)</li><li>org.traccar.protocol.PathAwayProtocolDecoderTest.testDecode(org.traccar.protocol.PathAwayProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.L100ProtocolDecoderTest.testDecode(org.traccar.protocol.L100ProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.EnforaProtocolDecoderTest.testDecode(org.traccar.protocol.EnforaProtocolDecoderTest) (8 ms)</li><li>org.traccar.protocol.H02ProtocolEncoderTest.testEngineResumeEncode(org.traccar.protocol.H02ProtocolEncoderTest) (1 ms)</li><li>org.traccar.events.AlertEventHandlerTest.testAlertEventHandler(org.traccar.events.AlertEventHandlerTest) (3 ms)</li><li>org.traccar.protocol.TotemProtocolEncoderTest.testEncode(org.traccar.protocol.TotemProtocolEncoderTest) (2 ms)</li><li>org.traccar.protocol.RaveonProtocolDecoderTest.testDecode(org.traccar.protocol.RaveonProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.MeiligaoProtocolDecoderTest.testDecode(org.traccar.protocol.MeiligaoProtocolDecoderTest) (6 ms)</li><li>org.traccar.reports.ReportUtilsTest.testCalculateDistance(org.traccar.reports.ReportUtilsTest) (2 ms)</li><li>org.traccar.protocol.HunterProProtocolDecoderTest.testDecode(org.traccar.protocol.HunterProProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.ArnaviProtocolDecoderTest.testDecode(org.traccar.protocol.ArnaviProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.NavisProtocolDecoderTest.testDecode(org.traccar.protocol.NavisProtocolDecoderTest) (4 ms)</li><li>org.traccar.protocol.NoranProtocolDecoderTest.testDecode(org.traccar.protocol.NoranProtocolDecoderTest) (11 ms)</li><li>org.traccar.protocol.RitiProtocolDecoderTest.testDecode(org.traccar.protocol.RitiProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.TeltonikaProtocolEncoderTest.testEncode(org.traccar.protocol.TeltonikaProtocolEncoderTest) (1 ms)</li><li>org.traccar.protocol.RuptelaProtocolEncoderTest.testEncode(org.traccar.protocol.RuptelaProtocolEncoderTest) (0 ms)</li><li>org.traccar.protocol.XirgoProtocolDecoderTest.testDecodeNew(org.traccar.protocol.XirgoProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.WatchProtocolDecoderTest.testDecode(org.traccar.protocol.WatchProtocolDecoderTest) (4 ms)</li><li>org.traccar.protocol.BlackKiteProtocolDecoderTest.testDecode(org.traccar.protocol.BlackKiteProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.H02ProtocolEncoderTest.testAlarmArmEncode(org.traccar.protocol.H02ProtocolEncoderTest) (36 ms)</li><li>org.traccar.protocol.LaipacProtocolDecoderTest.testDecode(org.traccar.protocol.LaipacProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.XexunProtocolDecoderTest.testDecode(org.traccar.protocol.XexunProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.UlbotechProtocolDecoderTest.testDecode(org.traccar.protocol.UlbotechProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.Tr900ProtocolDecoderTest.testDecode(org.traccar.protocol.Tr900ProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.EasyTrackProtocolDecoderTest.testDecode(org.traccar.protocol.EasyTrackProtocolDecoderTest) (4 ms)</li><li>org.traccar.protocol.MeiligaoProtocolEncoderTest.testEncode(org.traccar.protocol.MeiligaoProtocolEncoderTest) (1 ms)</li><li>org.traccar.protocol.SanavProtocolDecoderTest.testDecode(org.traccar.protocol.SanavProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.Gps103ProtocolEncoderTest.testEncodeCustom(org.traccar.protocol.Gps103ProtocolEncoderTest) (2 ms)</li><li>org.traccar.protocol.TzoneProtocolDecoderTest.testDecode(org.traccar.protocol.TzoneProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.HomtecsProtocolDecoderTest.testDecode(org.traccar.protocol.HomtecsProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.MiniFinderProtocolDecoderTest.testDecode(org.traccar.protocol.MiniFinderProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.Pt502ProtocolDecoderTest.testDecode(org.traccar.protocol.Pt502ProtocolDecoderTest) (3 ms)</li><li>org.traccar.events.IgnitionEventHandlerTest.testIgnitionEventHandler(org.traccar.events.IgnitionEventHandlerTest) (1 ms)</li><li>org.traccar.protocol.MeitrackProtocolEncoderTest.testEncode(org.traccar.protocol.MeitrackProtocolEncoderTest) (6 ms)</li><li>org.traccar.protocol.AutoGradeProtocolDecoderTest.testDecode(org.traccar.protocol.AutoGradeProtocolDecoderTest) (9 ms)</li><li>org.traccar.protocol.Pt502ProtocolEncoderTest.testEncodeOutputControl(org.traccar.protocol.Pt502ProtocolEncoderTest) (1 ms)</li><li>org.traccar.protocol.ObdDongleProtocolDecoderTest.testDecode(org.traccar.protocol.ObdDongleProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.EelinkProtocolEncoderTest.testEncode(org.traccar.protocol.EelinkProtocolEncoderTest) (0 ms)</li><li>org.traccar.protocol.IntellitracProtocolDecoderTest.testDecode(org.traccar.protocol.IntellitracProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.AutoFonProtocolDecoderTest.testDecode(org.traccar.protocol.AutoFonProtocolDecoderTest) (6 ms)</li><li>org.traccar.protocol.EelinkProtocolDecoderTest.testDecode(org.traccar.protocol.EelinkProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.UproProtocolDecoderTest.testDecode(org.traccar.protocol.UproProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.RuptelaProtocolDecoderTest.testDecode(org.traccar.protocol.RuptelaProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.Xt013ProtocolDecoderTest.testDecode(org.traccar.protocol.Xt013ProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.AtrackProtocolDecoderTest.testDecode(org.traccar.protocol.AtrackProtocolDecoderTest) (4 ms)</li><li>org.traccar.protocol.T55ProtocolDecoderTest.testDecode(org.traccar.protocol.T55ProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.GatorProtocolDecoderTest.testDecode(org.traccar.protocol.GatorProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.NavigilProtocolDecoderTest.testDecode(org.traccar.protocol.NavigilProtocolDecoderTest) (2 ms)</li><li>org.traccar.database.GroupTreeTest.testGetDescendants(org.traccar.database.GroupTreeTest) (4 ms)</li><li>org.traccar.protocol.MaestroProtocolDecoderTest.testDecode(org.traccar.protocol.MaestroProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.Tk103ProtocolDecoderTest.testDecode(org.traccar.protocol.Tk103ProtocolDecoderTest) (4 ms)</li><li>org.traccar.protocol.AquilaProtocolDecoderTest.testDecode(org.traccar.protocol.AquilaProtocolDecoderTest) (4 ms)</li><li>org.traccar.protocol.GlobalSatProtocolDecoderTest.testDecode(org.traccar.protocol.GlobalSatProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.AuroProtocolDecoderTest.testDecode(org.traccar.protocol.AuroProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.GpsMarkerProtocolDecoderTest.testDecode(org.traccar.protocol.GpsMarkerProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.Pt502ProtocolEncoderTest.testEncodeTimezone(org.traccar.protocol.Pt502ProtocolEncoderTest) (0 ms)</li><li>org.traccar.protocol.GpsmtaProtocolDecoderTest.testDecode(org.traccar.protocol.GpsmtaProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.MeitrackProtocolDecoderTest.testDecode(org.traccar.protocol.MeitrackProtocolDecoderTest) (7 ms)</li><li>org.traccar.protocol.Stl060ProtocolDecoderTest.testDecode(org.traccar.protocol.Stl060ProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.WialonProtocolDecoderTest.testDecode(org.traccar.protocol.WialonProtocolDecoderTest) (11 ms)</li><li>org.traccar.protocol.Jt600ProtocolEncoderTest.testEngineStop(org.traccar.protocol.Jt600ProtocolEncoderTest) (0 ms)</li><li>org.traccar.protocol.CalAmpProtocolDecoderTest.testDecode(org.traccar.protocol.CalAmpProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.CguardProtocolDecoderTest.testDecode(org.traccar.protocol.CguardProtocolDecoderTest) (3 ms)</li><li>org.traccar.WebDataHandlerTest.testFormatRequest(org.traccar.WebDataHandlerTest) (17 ms)</li><li>org.traccar.calendar.CalendarTest.testCalendar(org.traccar.calendar.CalendarTest) (128 ms)</li><li>org.traccar.protocol.ThinkRaceProtocolDecoderTest.testDecode(org.traccar.protocol.ThinkRaceProtocolDecoderTest) (1 ms)</li><li>org.traccar.reports.ReportUtilsTest.testCalculateSpentFuel(org.traccar.reports.ReportUtilsTest) (0 ms)</li><li>org.traccar.protocol.Jt600ProtocolEncoderTest.testEngineResume(org.traccar.protocol.Jt600ProtocolEncoderTest) (0 ms)</li><li>org.traccar.protocol.Pt502ProtocolEncoderTest.testEncodeAlarmSpeed(org.traccar.protocol.Pt502ProtocolEncoderTest) (1 ms)</li><li>org.traccar.protocol.Gt30ProtocolDecoderTest.testDecode(org.traccar.protocol.Gt30ProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.FlextrackProtocolDecoderTest.testDecode(org.traccar.protocol.FlextrackProtocolDecoderTest) (3 ms)</li><li>org.traccar.reports.TripsTest.testDetectTripsSimple(org.traccar.reports.TripsTest) (7 ms)</li><li>org.traccar.protocol.GpsGateProtocolDecoderTest.testDecode(org.traccar.protocol.GpsGateProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.H02ProtocolEncoderTest.testAlarmDisarmEncode(org.traccar.protocol.H02ProtocolEncoderTest) (0 ms)</li><li>org.traccar.protocol.WondexProtocolDecoderTest.testDecode(org.traccar.protocol.WondexProtocolDecoderTest) (5 ms)</li><li>org.traccar.protocol.GoSafeProtocolDecoderTest.testDecode(org.traccar.protocol.GoSafeProtocolDecoderTest) (6 ms)</li><li>org.traccar.protocol.JpKorjarProtocolDecoderTest.testDecode(org.traccar.protocol.JpKorjarProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.V680ProtocolDecoderTest.testDecode(org.traccar.protocol.V680ProtocolDecoderTest) (2 ms)</li><li>org.traccar.events.MotionEventHandlerTest.testMotionEventHandler(org.traccar.events.MotionEventHandlerTest) (1 ms)</li><li>org.traccar.model.MiscFormatterTest.testToString(org.traccar.model.MiscFormatterTest) (1 ms)</li><li>org.traccar.protocol.HuaShengProtocolDecoderTest.testDecode(org.traccar.protocol.HuaShengProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.TaipProtocolDecoderTest.testDecode(org.traccar.protocol.TaipProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.Gps103ProtocolDecoderTest.testDecode(org.traccar.protocol.Gps103ProtocolDecoderTest) (8 ms)</li><li>org.traccar.protocol.ArknavX8ProtocolDecoderTest.testDecode(org.traccar.protocol.ArknavX8ProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.T800xProtocolEncoderTest.testEncode(org.traccar.protocol.T800xProtocolEncoderTest) (0 ms)</li><li>org.traccar.protocol.TrackboxProtocolDecoderTest.testDecode(org.traccar.protocol.TrackboxProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.AplicomProtocolDecoderTest.testDecode(org.traccar.protocol.AplicomProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.GotopProtocolDecoderTest.testDecode(org.traccar.protocol.GotopProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.HuabaoProtocolDecoderTest.testDecode(org.traccar.protocol.HuabaoProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.KhdProtocolEncoderTest.testEncode(org.traccar.protocol.KhdProtocolEncoderTest) (0 ms)</li><li>org.traccar.protocol.WondexProtocolEncoderTest.testEncode(org.traccar.protocol.WondexProtocolEncoderTest) (8 ms)</li><li>org.traccar.protocol.AdmProtocolDecoderTest.testDecode(org.traccar.protocol.AdmProtocolDecoderTest) (9 ms)</li><li>org.traccar.protocol.OsmAndProtocolDecoderTest.testDecode(org.traccar.protocol.OsmAndProtocolDecoderTest) (12 ms)</li><li>org.traccar.protocol.Gl100ProtocolDecoderTest.testDecode(org.traccar.protocol.Gl100ProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.MiniFinderProtocolEncoderTest.testEncode(org.traccar.protocol.MiniFinderProtocolEncoderTest) (3 ms)</li><li>org.traccar.protocol.Tk102ProtocolDecoderTest.testDecode(org.traccar.protocol.Tk102ProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.AisProtocolDecoderTest.testDecode(org.traccar.protocol.AisProtocolDecoderTest) (12 ms)</li><li>org.traccar.protocol.TopflytechProtocolDecoderTest.testDecode(org.traccar.protocol.TopflytechProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.TramigoProtocolDecoderTest.testDecode(org.traccar.protocol.TramigoProtocolDecoderTest) (7 ms)</li><li>org.traccar.protocol.TotemProtocolDecoderTest.testDecode(org.traccar.protocol.TotemProtocolDecoderTest) (5 ms)</li><li>org.traccar.protocol.Jt600ProtocolDecoderTest.testDecode(org.traccar.protocol.Jt600ProtocolDecoderTest) (4 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.1.11
+
+</body>
+</html>

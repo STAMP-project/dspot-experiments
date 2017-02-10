@@ -1,0 +1,211 @@
+<html>
+<head>
+  
+    <style type='text/css'>
+   
+   .tests{ 
+     width : 50%;
+     float : left;
+   }
+   
+   .mutees{
+     float : right;
+     width : 50%;
+   }
+   
+   .unit {
+     padding-top : 20px;
+     clear : both;
+   }
+   
+   .coverage_bar {
+    display : inline-block;
+    height : 1.1em;
+    width: 130px;
+    background: #FAA;
+    margin: 0 5px;
+    vertical-align: middle;
+    border: 1px solid #AAA;
+    position : relative;
+   }
+   
+   .coverage_complete {
+    display : inline-block;
+    height : 100%;
+    background: #DFD;
+    float: left;
+   }
+   
+   .coverage_ledgend {
+        position : absolute;
+        height : 100%;
+        width : 100%;
+        left : 0;
+        top : 0;
+        text-align : center;
+   }
+   
+   .line, .mut {
+        vertical-align : middle;
+   }
+   
+   .coveragePercentage {
+    display: inline-block;
+    width: 3em;
+    text-align: right;
+   }
+  </style>
+  
+</head>
+<body>
+
+<h1>Pit Test Coverage Report</h1>
+
+<h3>Project Summary</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Number of Classes</th>
+            <th>Line Coverage</th>
+            <th>Mutation Coverage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>478</td>
+            <td>60% <div class="coverage_bar"><div class="coverage_complete" style="width:60%"></div><div class="coverage_ledgend">11435/19018</div></div></td>
+            <td>34% <div class="coverage_bar"><div class="coverage_complete" style="width:34%"></div><div class="coverage_ledgend">14151/41116</div></div></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<h3>Breakdown by Package</h3>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Number of Classes</th>
+            <th>Line Coverage</th>
+            <th>Mutation Coverage</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        <tr>
+            <td><a href="./org.traccar/index.html">org.traccar</a></td>
+            <td>28</td>
+            <td><div class="coveragePercentage">23% </div><div class="coverage_bar"><div class="coverage_complete" style="width:23%"></div><div class="coverage_ledgend">220/945</div></div></td>
+            <td><div class="coveragePercentage">15% </div><div class="coverage_bar"><div class="coverage_complete" style="width:15%"></div><div class="coverage_ledgend">330/2221</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.traccar.api/index.html">org.traccar.api</a></td>
+            <td>9</td>
+            <td><div class="coveragePercentage">0% </div><div class="coverage_bar"><div class="coverage_complete" style="width:0%"></div><div class="coverage_ledgend">0/118</div></div></td>
+            <td><div class="coveragePercentage">0% </div><div class="coverage_bar"><div class="coverage_complete" style="width:0%"></div><div class="coverage_ledgend">0/231</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.traccar.api.resource/index.html">org.traccar.api.resource</a></td>
+            <td>22</td>
+            <td><div class="coveragePercentage">0% </div><div class="coverage_bar"><div class="coverage_complete" style="width:0%"></div><div class="coverage_ledgend">0/412</div></div></td>
+            <td><div class="coveragePercentage">0% </div><div class="coverage_bar"><div class="coverage_complete" style="width:0%"></div><div class="coverage_ledgend">0/1196</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.traccar.database/index.html">org.traccar.database</a></td>
+            <td>12</td>
+            <td><div class="coveragePercentage">4% </div><div class="coverage_bar"><div class="coverage_complete" style="width:4%"></div><div class="coverage_ledgend">62/1557</div></div></td>
+            <td><div class="coveragePercentage">4% </div><div class="coverage_bar"><div class="coverage_complete" style="width:4%"></div><div class="coverage_ledgend">130/3550</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.traccar.events/index.html">org.traccar.events</a></td>
+            <td>7</td>
+            <td><div class="coveragePercentage">26% </div><div class="coverage_bar"><div class="coverage_complete" style="width:26%"></div><div class="coverage_ledgend">35/134</div></div></td>
+            <td><div class="coveragePercentage">13% </div><div class="coverage_bar"><div class="coverage_complete" style="width:13%"></div><div class="coverage_ledgend">45/346</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.traccar.geocoder/index.html">org.traccar.geocoder</a></td>
+            <td>11</td>
+            <td><div class="coveragePercentage">13% </div><div class="coverage_bar"><div class="coverage_complete" style="width:13%"></div><div class="coverage_ledgend">36/273</div></div></td>
+            <td><div class="coveragePercentage">7% </div><div class="coverage_bar"><div class="coverage_complete" style="width:7%"></div><div class="coverage_ledgend">48/687</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.traccar.geofence/index.html">org.traccar.geofence</a></td>
+            <td>4</td>
+            <td><div class="coveragePercentage">76% </div><div class="coverage_bar"><div class="coverage_complete" style="width:76%"></div><div class="coverage_ledgend">143/187</div></div></td>
+            <td><div class="coveragePercentage">72% </div><div class="coverage_bar"><div class="coverage_complete" style="width:72%"></div><div class="coverage_ledgend">386/537</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.traccar.geolocation/index.html">org.traccar.geolocation</a></td>
+            <td>2</td>
+            <td><div class="coveragePercentage">0% </div><div class="coverage_bar"><div class="coverage_complete" style="width:0%"></div><div class="coverage_ledgend">0/52</div></div></td>
+            <td><div class="coveragePercentage">0% </div><div class="coverage_bar"><div class="coverage_complete" style="width:0%"></div><div class="coverage_ledgend">0/100</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.traccar.helper/index.html">org.traccar.helper</a></td>
+            <td>16</td>
+            <td><div class="coveragePercentage">76% </div><div class="coverage_bar"><div class="coverage_complete" style="width:76%"></div><div class="coverage_ledgend">434/569</div></div></td>
+            <td><div class="coveragePercentage">71% </div><div class="coverage_bar"><div class="coverage_complete" style="width:71%"></div><div class="coverage_ledgend">1075/1523</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.traccar.model/index.html">org.traccar.model</a></td>
+            <td>26</td>
+            <td><div class="coveragePercentage">34% </div><div class="coverage_bar"><div class="coverage_complete" style="width:34%"></div><div class="coverage_ledgend">185/545</div></div></td>
+            <td><div class="coveragePercentage">33% </div><div class="coverage_bar"><div class="coverage_complete" style="width:33%"></div><div class="coverage_ledgend">201/608</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.traccar.notification/index.html">org.traccar.notification</a></td>
+            <td>5</td>
+            <td><div class="coveragePercentage">0% </div><div class="coverage_bar"><div class="coverage_complete" style="width:0%"></div><div class="coverage_ledgend">0/140</div></div></td>
+            <td><div class="coveragePercentage">0% </div><div class="coverage_bar"><div class="coverage_complete" style="width:0%"></div><div class="coverage_ledgend">0/281</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.traccar.protocol/index.html">org.traccar.protocol</a></td>
+            <td>323</td>
+            <td><div class="coveragePercentage">76% </div><div class="coverage_bar"><div class="coverage_complete" style="width:76%"></div><div class="coverage_ledgend">10186/13473</div></div></td>
+            <td><div class="coveragePercentage">41% </div><div class="coverage_bar"><div class="coverage_complete" style="width:41%"></div><div class="coverage_ledgend">11718/28457</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.traccar.reports/index.html">org.traccar.reports</a></td>
+            <td>5</td>
+            <td><div class="coveragePercentage">26% </div><div class="coverage_bar"><div class="coverage_complete" style="width:26%"></div><div class="coverage_ledgend">87/335</div></div></td>
+            <td><div class="coveragePercentage">22% </div><div class="coverage_bar"><div class="coverage_complete" style="width:22%"></div><div class="coverage_ledgend">187/855</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.traccar.reports.model/index.html">org.traccar.reports.model</a></td>
+            <td>4</td>
+            <td><div class="coveragePercentage">58% </div><div class="coverage_bar"><div class="coverage_complete" style="width:58%"></div><div class="coverage_ledgend">47/81</div></div></td>
+            <td><div class="coveragePercentage">40% </div><div class="coverage_bar"><div class="coverage_complete" style="width:40%"></div><div class="coverage_ledgend">31/77</div></div></td>
+        </tr>
+
+        <tr>
+            <td><a href="./org.traccar.web/index.html">org.traccar.web</a></td>
+            <td>4</td>
+            <td><div class="coveragePercentage">0% </div><div class="coverage_bar"><div class="coverage_complete" style="width:0%"></div><div class="coverage_ledgend">0/197</div></div></td>
+            <td><div class="coveragePercentage">0% </div><div class="coverage_bar"><div class="coverage_complete" style="width:0%"></div><div class="coverage_ledgend">0/447</div></div></td>
+        </tr>
+
+     </tbody>
+</table>
+<br/>
+
+
+
+<hr/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.1.11
+
+</body>
+</html>

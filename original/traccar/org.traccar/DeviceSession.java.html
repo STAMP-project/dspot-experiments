@@ -1,0 +1,649 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+	border: 1px solid #dddddd;
+	padding-top: 10px;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-family: Consolas, Courier, monospace;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+
+.pop {outline:none; }
+.pop strong {line-height:30px;}
+.pop {text-decoration:none;}
+.pop span { z-index:10;display:none; padding:14px 20px; margin-top:-30px; margin-left:28px; width:800px; line-height:16px; word-wrap:break-word; }
+.pop:hover span{ display:inline; position:absolute; color:#111; border:1px solid #DCA; background:#fffAF0;}
+
+.pop span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -moz-box-shadow: 5px 5px 8px #CCC; -webkit-box-shadow: 5px 5px 8px #CCC; box-shadow: 5px 5px 8px #CCC; }
+</style>
+
+</head>
+<body>
+
+
+<h1>DeviceSession.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/*</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Copyright 2016 Anton Tananaev (anton@traccar.org)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * you may not use this file except in compliance with the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * You may obtain a copy of the License at</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *     http://www.apache.org/licenses/LICENSE-2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Unless required by applicable law or agreed to in writing, software</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * See the License for the specific language governing permissions and</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * limitations under the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_16'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.traccar;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_17'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class DeviceSession {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_20'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private final long deviceId;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_21'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_22'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    public DeviceSession(long deviceId) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_23'/>
+23
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_23'>1</a>
+<span>
+1. <init> : Removed assignment to member variable deviceId &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        this.deviceId = deviceId;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_24'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_25'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_26'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public long getDeviceId() {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_27'/>
+27
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_27'>1</a>
+<span>
+1. getDeviceId : replaced return of long value with value + 1 for org/traccar/DeviceSession::getDeviceId &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        return deviceId;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_28'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_29'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@558e686_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@558e686_30'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@558e686_23'>23</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@558e686_23'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b><init><br/><b>Killed by : </b>org.traccar.protocol.TaipProtocolDecoderTest.testDecode(org.traccar.protocol.TaipProtocolDecoderTest)</span></span> Removed assignment to member variable deviceId &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@558e686_27'>27</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@558e686_27'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>getDeviceId<br/><b>Killed by : </b>none</span></span> replaced return of long value with value + 1 for org/traccar/DeviceSession::getDeviceId &rarr; SURVIVED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_61</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_60</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_56</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_55</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_58</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_57</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_52</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_51</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_54</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_53</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_59</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_50</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_45</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_44</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_47</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_46</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_41</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_40</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_43</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_42</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_49</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_48</li>
+<li class='mutator'>INLINE_CONSTANT_MUTATOR</li>
+<li class='mutator'>CONSTRUCTOR_CALL_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_34</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_33</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_36</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_35</li>
+<li class='mutator'>EXPERIMENTAL_MEMBER_VARIABLE_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_30</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_32</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_31</li>
+<li class='mutator'>REMOVE_CONDITIONALS_ORDER_ELSE_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_38</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_37</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_39</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_3</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_2</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_1</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_0</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_23</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_22</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_25</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_9</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_24</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_8</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_7</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_6</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_21</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_5</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_20</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_4</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_27</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_26</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_29</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_28</li>
+<li class='mutator'>REMOVE_INCREMENTS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_12</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_11</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_99</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_14</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_13</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_96</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_95</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_10</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_98</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_97</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_19</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_16</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_15</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_18</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_17</li>
+<li class='mutator'>EXPERIMENTAL_SWITCH_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_92</li>
+<li class='mutator'>ARGUMENT_PROPAGATION_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_91</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_94</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_93</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_90</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_89</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_88</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_85</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_84</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_87</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_86</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NON_VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>REMOVE_CONDITIONALS_EQUAL_IF_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_81</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_80</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_83</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_82</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_78</li>
+<li class='mutator'>REMOVE_CONDITIONALS_EQUAL_ELSE_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_77</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_79</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_74</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_73</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_76</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_75</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_70</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_72</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_71</li>
+<li class='mutator'>REMOVE_CONDITIONALS_ORDER_IF_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_67</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_66</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_69</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_68</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_63</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_62</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_65</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_64</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>org.traccar.protocol.GranitProtocolDecoderTest.testDecode(org.traccar.protocol.GranitProtocolDecoderTest) (4 ms)</li><li>org.traccar.protocol.Avl301ProtocolDecoderTest.testDecode(org.traccar.protocol.Avl301ProtocolDecoderTest) (5 ms)</li><li>org.traccar.protocol.CityeasyProtocolDecoderTest.testDecode(org.traccar.protocol.CityeasyProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.Tr20ProtocolDecoderTest.testDecode(org.traccar.protocol.Tr20ProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.ManPowerProtocolDecoderTest.testDecode(org.traccar.protocol.ManPowerProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.CastelProtocolDecoderTest.testDecode(org.traccar.protocol.CastelProtocolDecoderTest) (7 ms)</li><li>org.traccar.protocol.YwtProtocolDecoderTest.testDecode(org.traccar.protocol.YwtProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.TrvProtocolDecoderTest.testDecode(org.traccar.protocol.TrvProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.ArknavProtocolDecoderTest.testDecode(org.traccar.protocol.ArknavProtocolDecoderTest) (4 ms)</li><li>org.traccar.protocol.OrionProtocolDecoderTest.testDecode(org.traccar.protocol.OrionProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.HaicomProtocolDecoderTest.testDecode(org.traccar.protocol.HaicomProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.MxtProtocolDecoderTest.testDecode(org.traccar.protocol.MxtProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.FreedomProtocolDecoderTest.testDecode(org.traccar.protocol.FreedomProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.OigoProtocolDecoderTest.testDecode(org.traccar.protocol.OigoProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.AppelloProtocolDecoderTest.testDecode(org.traccar.protocol.AppelloProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.MtxProtocolDecoderTest.testDecode(org.traccar.protocol.MtxProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.DishaProtocolDecoderTest.testDecode(org.traccar.protocol.DishaProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.TeltonikaProtocolDecoderTest.testDecode(org.traccar.protocol.TeltonikaProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.CradlepointProtocolDecoderTest.testDecode(org.traccar.protocol.CradlepointProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.IdplProtocolDecoderTest.testDecode(org.traccar.protocol.IdplProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.CarTrackProtocolDecoderTest.testDecode(org.traccar.protocol.CarTrackProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.Gl200ProtocolDecoderTest.testDecode(org.traccar.protocol.Gl200ProtocolDecoderTest) (17 ms)</li><li>org.traccar.protocol.MegastekProtocolDecoderTest.testDecode(org.traccar.protocol.MegastekProtocolDecoderTest) (5 ms)</li><li>org.traccar.protocol.CellocatorProtocolDecoderTest.testDecode(org.traccar.protocol.CellocatorProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.PiligrimProtocolDecoderTest.testDecode(org.traccar.protocol.PiligrimProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.FifotrackProtocolDecoderTest.testDecode(org.traccar.protocol.FifotrackProtocolDecoderTest) (8 ms)</li><li>org.traccar.protocol.Pt3000ProtocolDecoderTest.testDecode(org.traccar.protocol.Pt3000ProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.PretraceProtocolDecoderTest.testDecode(org.traccar.protocol.PretraceProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.KenjiProtocolDecoderTest.testDecode(org.traccar.protocol.KenjiProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.SupermateProtocolDecoderTest.testDecode(org.traccar.protocol.SupermateProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.TrakMateProtocolDecoderTest.testDecode(org.traccar.protocol.TrakMateProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.ProgressProtocolDecoderTest.testDecode(org.traccar.protocol.ProgressProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.CarscopProtocolDecoderTest.testDecode(org.traccar.protocol.CarscopProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.SmokeyProtocolDecoderTest.testDecode(org.traccar.protocol.SmokeyProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.AstraProtocolDecoderTest.testDecode(org.traccar.protocol.AstraProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.FoxProtocolDecoderTest.testDecode(org.traccar.protocol.FoxProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.T55ProtocolDecoderTest.testMaxonDecode(org.traccar.protocol.T55ProtocolDecoderTest) (0 ms)</li><li>org.traccar.protocol.Ardi01ProtocolDecoderTest.testDecode(org.traccar.protocol.Ardi01ProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.ExtremTracProtocolDecoderTest.testDecode(org.traccar.protocol.ExtremTracProtocolDecoderTest) (4 ms)</li><li>org.traccar.protocol.KhdProtocolDecoderTest.testDecode(org.traccar.protocol.KhdProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.BoxProtocolDecoderTest.testDecode(org.traccar.protocol.BoxProtocolDecoderTest) (6 ms)</li><li>org.traccar.protocol.M2mProtocolDecoderTest.testDecode(org.traccar.protocol.M2mProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.H02ProtocolDecoderTest.testDecode(org.traccar.protocol.H02ProtocolDecoderTest) (14 ms)</li><li>org.traccar.protocol.GalileoProtocolDecoderTest.testDecode(org.traccar.protocol.GalileoProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.TmgProtocolDecoderTest.testDecode(org.traccar.protocol.TmgProtocolDecoderTest) (59 ms)</li><li>org.traccar.protocol.XirgoProtocolDecoderTest.testDecodeOld(org.traccar.protocol.XirgoProtocolDecoderTest) (0 ms)</li><li>org.traccar.protocol.BceProtocolDecoderTest.testDecode(org.traccar.protocol.BceProtocolDecoderTest) (4 ms)</li><li>org.traccar.protocol.Tt8850ProtocolDecoderTest.testDecode(org.traccar.protocol.Tt8850ProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.SuntechProtocolDecoderTest.testDecode(org.traccar.protocol.SuntechProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.SkypatrolProtocolDecoderTest.testDecode(org.traccar.protocol.SkypatrolProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.Gt02ProtocolDecoderTest.testDecode(org.traccar.protocol.Gt02ProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.Tlt2hProtocolDecoderTest.testDecode(org.traccar.protocol.Tlt2hProtocolDecoderTest) (19 ms)</li><li>org.traccar.protocol.T800xProtocolDecoderTest.testDecode(org.traccar.protocol.T800xProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.TelicProtocolDecoderTest.testDecode(org.traccar.protocol.TelicProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.Gt06ProtocolDecoderTest.testDecode(org.traccar.protocol.Gt06ProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.GnxProtocolDecoderTest.testDecode(org.traccar.protocol.GnxProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.VisiontekProtocolDecoderTest.testDecode(org.traccar.protocol.VisiontekProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.NvsProtocolDecoderTest.testDecode(org.traccar.protocol.NvsProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.PathAwayProtocolDecoderTest.testDecode(org.traccar.protocol.PathAwayProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.L100ProtocolDecoderTest.testDecode(org.traccar.protocol.L100ProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.EnforaProtocolDecoderTest.testDecode(org.traccar.protocol.EnforaProtocolDecoderTest) (8 ms)</li><li>org.traccar.protocol.RaveonProtocolDecoderTest.testDecode(org.traccar.protocol.RaveonProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.MeiligaoProtocolDecoderTest.testDecode(org.traccar.protocol.MeiligaoProtocolDecoderTest) (6 ms)</li><li>org.traccar.protocol.HunterProProtocolDecoderTest.testDecode(org.traccar.protocol.HunterProProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.ArnaviProtocolDecoderTest.testDecode(org.traccar.protocol.ArnaviProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.NavisProtocolDecoderTest.testDecode(org.traccar.protocol.NavisProtocolDecoderTest) (4 ms)</li><li>org.traccar.protocol.NoranProtocolDecoderTest.testDecode(org.traccar.protocol.NoranProtocolDecoderTest) (11 ms)</li><li>org.traccar.protocol.RitiProtocolDecoderTest.testDecode(org.traccar.protocol.RitiProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.XirgoProtocolDecoderTest.testDecodeNew(org.traccar.protocol.XirgoProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.WatchProtocolDecoderTest.testDecode(org.traccar.protocol.WatchProtocolDecoderTest) (4 ms)</li><li>org.traccar.protocol.BlackKiteProtocolDecoderTest.testDecode(org.traccar.protocol.BlackKiteProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.LaipacProtocolDecoderTest.testDecode(org.traccar.protocol.LaipacProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.XexunProtocolDecoderTest.testDecode(org.traccar.protocol.XexunProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.UlbotechProtocolDecoderTest.testDecode(org.traccar.protocol.UlbotechProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.Tr900ProtocolDecoderTest.testDecode(org.traccar.protocol.Tr900ProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.EasyTrackProtocolDecoderTest.testDecode(org.traccar.protocol.EasyTrackProtocolDecoderTest) (4 ms)</li><li>org.traccar.protocol.SanavProtocolDecoderTest.testDecode(org.traccar.protocol.SanavProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.TzoneProtocolDecoderTest.testDecode(org.traccar.protocol.TzoneProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.HomtecsProtocolDecoderTest.testDecode(org.traccar.protocol.HomtecsProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.MiniFinderProtocolDecoderTest.testDecode(org.traccar.protocol.MiniFinderProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.Pt502ProtocolDecoderTest.testDecode(org.traccar.protocol.Pt502ProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.AutoGradeProtocolDecoderTest.testDecode(org.traccar.protocol.AutoGradeProtocolDecoderTest) (9 ms)</li><li>org.traccar.protocol.ObdDongleProtocolDecoderTest.testDecode(org.traccar.protocol.ObdDongleProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.IntellitracProtocolDecoderTest.testDecode(org.traccar.protocol.IntellitracProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.AutoFonProtocolDecoderTest.testDecode(org.traccar.protocol.AutoFonProtocolDecoderTest) (6 ms)</li><li>org.traccar.protocol.EelinkProtocolDecoderTest.testDecode(org.traccar.protocol.EelinkProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.UproProtocolDecoderTest.testDecode(org.traccar.protocol.UproProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.RuptelaProtocolDecoderTest.testDecode(org.traccar.protocol.RuptelaProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.Xt013ProtocolDecoderTest.testDecode(org.traccar.protocol.Xt013ProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.AtrackProtocolDecoderTest.testDecode(org.traccar.protocol.AtrackProtocolDecoderTest) (4 ms)</li><li>org.traccar.protocol.T55ProtocolDecoderTest.testDecode(org.traccar.protocol.T55ProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.GatorProtocolDecoderTest.testDecode(org.traccar.protocol.GatorProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.NavigilProtocolDecoderTest.testDecode(org.traccar.protocol.NavigilProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.MaestroProtocolDecoderTest.testDecode(org.traccar.protocol.MaestroProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.Tk103ProtocolDecoderTest.testDecode(org.traccar.protocol.Tk103ProtocolDecoderTest) (4 ms)</li><li>org.traccar.protocol.AquilaProtocolDecoderTest.testDecode(org.traccar.protocol.AquilaProtocolDecoderTest) (4 ms)</li><li>org.traccar.protocol.GlobalSatProtocolDecoderTest.testDecode(org.traccar.protocol.GlobalSatProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.AuroProtocolDecoderTest.testDecode(org.traccar.protocol.AuroProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.GpsMarkerProtocolDecoderTest.testDecode(org.traccar.protocol.GpsMarkerProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.GpsmtaProtocolDecoderTest.testDecode(org.traccar.protocol.GpsmtaProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.MeitrackProtocolDecoderTest.testDecode(org.traccar.protocol.MeitrackProtocolDecoderTest) (7 ms)</li><li>org.traccar.protocol.Stl060ProtocolDecoderTest.testDecode(org.traccar.protocol.Stl060ProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.WialonProtocolDecoderTest.testDecode(org.traccar.protocol.WialonProtocolDecoderTest) (11 ms)</li><li>org.traccar.protocol.CalAmpProtocolDecoderTest.testDecode(org.traccar.protocol.CalAmpProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.CguardProtocolDecoderTest.testDecode(org.traccar.protocol.CguardProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.ThinkRaceProtocolDecoderTest.testDecode(org.traccar.protocol.ThinkRaceProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.Gt30ProtocolDecoderTest.testDecode(org.traccar.protocol.Gt30ProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.FlextrackProtocolDecoderTest.testDecode(org.traccar.protocol.FlextrackProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.GpsGateProtocolDecoderTest.testDecode(org.traccar.protocol.GpsGateProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.WondexProtocolDecoderTest.testDecode(org.traccar.protocol.WondexProtocolDecoderTest) (5 ms)</li><li>org.traccar.protocol.GoSafeProtocolDecoderTest.testDecode(org.traccar.protocol.GoSafeProtocolDecoderTest) (6 ms)</li><li>org.traccar.protocol.JpKorjarProtocolDecoderTest.testDecode(org.traccar.protocol.JpKorjarProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.V680ProtocolDecoderTest.testDecode(org.traccar.protocol.V680ProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.HuaShengProtocolDecoderTest.testDecode(org.traccar.protocol.HuaShengProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.TaipProtocolDecoderTest.testDecode(org.traccar.protocol.TaipProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.Gps103ProtocolDecoderTest.testDecode(org.traccar.protocol.Gps103ProtocolDecoderTest) (8 ms)</li><li>org.traccar.protocol.ArknavX8ProtocolDecoderTest.testDecode(org.traccar.protocol.ArknavX8ProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.TrackboxProtocolDecoderTest.testDecode(org.traccar.protocol.TrackboxProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.AplicomProtocolDecoderTest.testDecode(org.traccar.protocol.AplicomProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.GotopProtocolDecoderTest.testDecode(org.traccar.protocol.GotopProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.HuabaoProtocolDecoderTest.testDecode(org.traccar.protocol.HuabaoProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.AdmProtocolDecoderTest.testDecode(org.traccar.protocol.AdmProtocolDecoderTest) (9 ms)</li><li>org.traccar.protocol.OsmAndProtocolDecoderTest.testDecode(org.traccar.protocol.OsmAndProtocolDecoderTest) (12 ms)</li><li>org.traccar.protocol.Gl100ProtocolDecoderTest.testDecode(org.traccar.protocol.Gl100ProtocolDecoderTest) (3 ms)</li><li>org.traccar.protocol.Tk102ProtocolDecoderTest.testDecode(org.traccar.protocol.Tk102ProtocolDecoderTest) (2 ms)</li><li>org.traccar.protocol.AisProtocolDecoderTest.testDecode(org.traccar.protocol.AisProtocolDecoderTest) (12 ms)</li><li>org.traccar.protocol.TopflytechProtocolDecoderTest.testDecode(org.traccar.protocol.TopflytechProtocolDecoderTest) (1 ms)</li><li>org.traccar.protocol.TramigoProtocolDecoderTest.testDecode(org.traccar.protocol.TramigoProtocolDecoderTest) (7 ms)</li><li>org.traccar.protocol.TotemProtocolDecoderTest.testDecode(org.traccar.protocol.TotemProtocolDecoderTest) (5 ms)</li><li>org.traccar.protocol.Jt600ProtocolDecoderTest.testDecode(org.traccar.protocol.Jt600ProtocolDecoderTest) (4 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.1.11
+
+</body>
+</html>

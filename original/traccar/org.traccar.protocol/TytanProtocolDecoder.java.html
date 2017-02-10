@@ -1,0 +1,3936 @@
+<html>
+<head>
+<style type='text/css'>
+html, body, div, span, p, blockquote, pre {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
+body{
+	line-height: 1;
+	color: black;
+	background: white;
+	margin-left: 20px;
+}
+
+.src { 
+	border: 1px solid #dddddd;
+	padding-top: 10px;
+	padding-right: 5px;
+	padding-left: 5px;
+	font-family: Consolas, Courier, monospace;
+}
+
+
+.covered {background-color: #ddffdd}
+.uncovered {background-color: #ffdddd}
+.killed {background-color: #aaffaa}
+.survived {background-color: #ffaaaa}
+.uncertain {background-color: #dde7ef}
+.run_error {background-color: #dde7ef}
+.na {background-color: #eeeeee}
+.timed_out {background-color: #dde7ef}
+.non_viable {background-color: #aaffaa}
+.memory_error {background-color: #dde7ef}
+.not_started {background-color: #dde7ef; color : red}
+.no_coverage {background-color: #ffaaaa}
+
+
+.pop {outline:none; }
+.pop strong {line-height:30px;}
+.pop {text-decoration:none;}
+.pop span { z-index:10;display:none; padding:14px 20px; margin-top:-30px; margin-left:28px; width:800px; line-height:16px; word-wrap:break-word; }
+.pop:hover span{ display:inline; position:absolute; color:#111; border:1px solid #DCA; background:#fffAF0;}
+
+.pop span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; -moz-box-shadow: 5px 5px 8px #CCC; -webkit-box-shadow: 5px 5px 8px #CCC; box-shadow: 5px 5px 8px #CCC; }
+</style>
+
+</head>
+<body>
+
+
+<h1>TytanProtocolDecoder.java</h1>
+
+<table class="src">
+
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_1'/>
+1
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_1'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>/*</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_2'/>
+2
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_2'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Copyright 2015 Anton Tananaev (anton@traccar.org)</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_3'/>
+3
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_3'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_4'/>
+4
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_4'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_5'/>
+5
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_5'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * you may not use this file except in compliance with the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_6'/>
+6
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_6'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * You may obtain a copy of the License at</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_7'/>
+7
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_7'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_8'/>
+8
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_8'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *     http://www.apache.org/licenses/LICENSE-2.0</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_9'/>
+9
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_9'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> *</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_10'/>
+10
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_10'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * Unless required by applicable law or agreed to in writing, software</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_11'/>
+11
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_11'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_12'/>
+12
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_12'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_13'/>
+13
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_13'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * See the License for the specific language governing permissions and</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_14'/>
+14
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_14'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> * limitations under the License.</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_15'/>
+15
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_15'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''> */</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_16'/>
+16
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_16'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>package org.traccar.protocol;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_17'/>
+17
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_17'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_18'/>
+18
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_18'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jboss.netty.buffer.ChannelBuffer;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_19'/>
+19
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_19'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jboss.netty.buffer.ChannelBuffers;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_20'/>
+20
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_20'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.jboss.netty.channel.Channel;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_21'/>
+21
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_21'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.traccar.BaseProtocolDecoder;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_22'/>
+22
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_22'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.traccar.DeviceSession;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_23'/>
+23
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_23'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.traccar.helper.BitUtil;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_24'/>
+24
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_24'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.traccar.helper.UnitsConverter;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_25'/>
+25
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_25'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import org.traccar.model.Position;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_26'/>
+26
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_26'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_27'/>
+27
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_27'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.net.SocketAddress;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_28'/>
+28
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_28'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.nio.charset.StandardCharsets;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_29'/>
+29
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_29'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.Date;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_30'/>
+30
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_30'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.LinkedList;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_31'/>
+31
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_31'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>import java.util.List;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_32'/>
+32
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_32'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_33'/>
+33
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_33'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>public class TytanProtocolDecoder extends BaseProtocolDecoder {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_34'/>
+34
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_34'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_35'/>
+35
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_35'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    public TytanProtocolDecoder(TytanProtocol protocol) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_36'/>
+36
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_36'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        super(protocol);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_37'/>
+37
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_37'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_38'/>
+38
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_38'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_39'/>
+39
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_39'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    private void decodeExtraData(Position position, ChannelBuffer buf, int end) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_40'/>
+40
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_40'>5</a>
+<span>
+1. decodeExtraData : changed conditional boundary &rarr; KILLED<br/>
+2. decodeExtraData : negated conditional &rarr; KILLED<br/>
+3. decodeExtraData : removed call to org/jboss/netty/buffer/ChannelBuffer::readerIndex &rarr; KILLED<br/>
+4. decodeExtraData : removed conditional - replaced comparison check with false &rarr; KILLED<br/>
+5. decodeExtraData : removed conditional - replaced comparison check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        while (buf.readerIndex() &#60; end) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_41'/>
+41
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_41'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_42'/>
+42
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_42'>1</a>
+<span>
+1. decodeExtraData : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            int type = buf.readUnsignedByte();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_43'/>
+43
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_43'>1</a>
+<span>
+1. decodeExtraData : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            int length = buf.readUnsignedByte();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_44'/>
+44
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_44'>4</a>
+<span>
+1. decodeExtraData : Substituted 255 with 256 &rarr; SURVIVED<br/>
+2. decodeExtraData : removed conditional - replaced equality check with false &rarr; SURVIVED<br/>
+3. decodeExtraData : negated conditional &rarr; KILLED<br/>
+4. decodeExtraData : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            if (length == 255) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_45'/>
+45
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_45'>2</a>
+<span>
+1. decodeExtraData : Replaced integer addition with subtraction &rarr; NO_COVERAGE<br/>
+2. decodeExtraData : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                length += buf.readUnsignedByte();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_46'/>
+46
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_46'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_47'/>
+47
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_47'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_48'/>
+48
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_48'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            int n;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_49'/>
+49
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_49'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_50'/>
+50
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_50'>16</a>
+<span>
+1. decodeExtraData : RemoveSwitch 0 mutation &rarr; SURVIVED<br/>
+2. decodeExtraData : RemoveSwitch 1 mutation &rarr; SURVIVED<br/>
+3. decodeExtraData : RemoveSwitch 10 mutation &rarr; SURVIVED<br/>
+4. decodeExtraData : RemoveSwitch 11 mutation &rarr; SURVIVED<br/>
+5. decodeExtraData : RemoveSwitch 12 mutation &rarr; SURVIVED<br/>
+6. decodeExtraData : RemoveSwitch 13 mutation &rarr; SURVIVED<br/>
+7. decodeExtraData : RemoveSwitch 14 mutation &rarr; SURVIVED<br/>
+8. decodeExtraData : RemoveSwitch 2 mutation &rarr; SURVIVED<br/>
+9. decodeExtraData : RemoveSwitch 3 mutation &rarr; SURVIVED<br/>
+10. decodeExtraData : RemoveSwitch 4 mutation &rarr; SURVIVED<br/>
+11. decodeExtraData : RemoveSwitch 5 mutation &rarr; SURVIVED<br/>
+12. decodeExtraData : RemoveSwitch 6 mutation &rarr; SURVIVED<br/>
+13. decodeExtraData : RemoveSwitch 7 mutation &rarr; SURVIVED<br/>
+14. decodeExtraData : RemoveSwitch 8 mutation &rarr; SURVIVED<br/>
+15. decodeExtraData : RemoveSwitch 9 mutation &rarr; SURVIVED<br/>
+16. decodeExtraData : Switch mutation &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            switch (type) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_51'/>
+51
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_51'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                case 2:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_52'/>
+52
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_52'>2</a>
+<span>
+1. decodeExtraData : removed call to org/traccar/model/Position::set &rarr; SURVIVED<br/>
+2. decodeExtraData : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedMedium &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                    position.set(Position.KEY_TRIP_ODOMETER, buf.readUnsignedMedium());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_53'/>
+53
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_53'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_54'/>
+54
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_54'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                case 5:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_55'/>
+55
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_55'>2</a>
+<span>
+1. decodeExtraData : removed call to org/traccar/model/Position::set &rarr; SURVIVED<br/>
+2. decodeExtraData : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                    position.set(Position.KEY_INPUT, buf.readUnsignedByte());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_56'/>
+56
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_56'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_57'/>
+57
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_57'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                case 6:</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_58'/>
+58
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_58'>3</a>
+<span>
+1. decodeExtraData : Substituted 4 with 5 &rarr; NO_COVERAGE<br/>
+2. decodeExtraData : Replaced Shift Right with Shift Left &rarr; NO_COVERAGE<br/>
+3. decodeExtraData : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                    n = buf.readUnsignedByte() &#62;&#62; 4;</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_59'/>
+59
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_59'>5</a>
+<span>
+1. decodeExtraData : changed conditional boundary &rarr; NO_COVERAGE<br/>
+2. decodeExtraData : Substituted 2 with 3 &rarr; NO_COVERAGE<br/>
+3. decodeExtraData : negated conditional &rarr; NO_COVERAGE<br/>
+4. decodeExtraData : removed conditional - replaced comparison check with false &rarr; NO_COVERAGE<br/>
+5. decodeExtraData : removed conditional - replaced comparison check with true &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                    if (n &#60; 2) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_60'/>
+60
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_60'>6</a>
+<span>
+1. decodeExtraData : removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; NO_COVERAGE<br/>
+2. decodeExtraData : removed call to java/lang/StringBuilder::append &rarr; NO_COVERAGE<br/>
+3. decodeExtraData : removed call to java/lang/StringBuilder::append &rarr; NO_COVERAGE<br/>
+4. decodeExtraData : removed call to java/lang/StringBuilder::toString &rarr; NO_COVERAGE<br/>
+5. decodeExtraData : removed call to org/jboss/netty/buffer/ChannelBuffer::readFloat &rarr; NO_COVERAGE<br/>
+6. decodeExtraData : removed call to org/traccar/model/Position::set &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                        position.set(Position.PREFIX_ADC + n, buf.readFloat());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_61'/>
+61
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_61'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    } else {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_62'/>
+62
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_62'>8</a>
+<span>
+1. decodeExtraData : removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; NO_COVERAGE<br/>
+2. decodeExtraData : Substituted 2 with 3 &rarr; NO_COVERAGE<br/>
+3. decodeExtraData : Replaced integer subtraction with addition &rarr; NO_COVERAGE<br/>
+4. decodeExtraData : removed call to java/lang/StringBuilder::append &rarr; NO_COVERAGE<br/>
+5. decodeExtraData : removed call to java/lang/StringBuilder::append &rarr; NO_COVERAGE<br/>
+6. decodeExtraData : removed call to java/lang/StringBuilder::toString &rarr; NO_COVERAGE<br/>
+7. decodeExtraData : removed call to org/jboss/netty/buffer/ChannelBuffer::readFloat &rarr; NO_COVERAGE<br/>
+8. decodeExtraData : removed call to org/traccar/model/Position::set &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                        position.set(&#34;di&#34; + (n - 2), buf.readFloat());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_63'/>
+63
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_63'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    }</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_64'/>
+64
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_64'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                    break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_65'/>
+65
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_65'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                case 7:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_66'/>
+66
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_66'>1</a>
+<span>
+1. decodeExtraData : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    int alarm = buf.readUnsignedByte();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_67'/>
+67
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_67'>1</a>
+<span>
+1. decodeExtraData : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    buf.readUnsignedByte();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_68'/>
+68
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_68'>5</a>
+<span>
+1. decodeExtraData : Substituted 5 with 6 &rarr; SURVIVED<br/>
+2. decodeExtraData : negated conditional &rarr; SURVIVED<br/>
+3. decodeExtraData : removed call to org/traccar/helper/BitUtil::check &rarr; SURVIVED<br/>
+4. decodeExtraData : removed conditional - replaced equality check with false &rarr; SURVIVED<br/>
+5. decodeExtraData : removed conditional - replaced equality check with true &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                    if (BitUtil.check(alarm, 5)) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_69'/>
+69
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_69'>1</a>
+<span>
+1. decodeExtraData : removed call to org/traccar/model/Position::set &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                        position.set(Position.KEY_ALARM, Position.ALARM_GENERAL);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_70'/>
+70
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_70'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_71'/>
+71
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_71'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_72'/>
+72
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_72'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                case 8:</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_73'/>
+73
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_73'>2</a>
+<span>
+1. decodeExtraData : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; NO_COVERAGE<br/>
+2. decodeExtraData : removed call to org/traccar/model/Position::set &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                    position.set(&#34;antihijack&#34;, buf.readUnsignedByte());</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_74'/>
+74
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_74'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                    break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_75'/>
+75
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_75'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                case 9:</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_76'/>
+76
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_76'>4</a>
+<span>
+1. decodeExtraData : Substituted 8 with 9 &rarr; NO_COVERAGE<br/>
+2. decodeExtraData : removed call to org/jboss/netty/buffer/ChannelBuffer::readBytes &rarr; NO_COVERAGE<br/>
+3. decodeExtraData : removed call to org/jboss/netty/buffer/ChannelBuffers::hexDump &rarr; NO_COVERAGE<br/>
+4. decodeExtraData : removed call to org/traccar/model/Position::set &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                    position.set(&#34;unauthorized&#34;, ChannelBuffers.hexDump(buf.readBytes(8)));</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_77'/>
+77
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_77'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                    break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_78'/>
+78
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_78'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                case 10:</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_79'/>
+79
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_79'>4</a>
+<span>
+1. decodeExtraData : Substituted 8 with 9 &rarr; NO_COVERAGE<br/>
+2. decodeExtraData : removed call to org/jboss/netty/buffer/ChannelBuffer::readBytes &rarr; NO_COVERAGE<br/>
+3. decodeExtraData : removed call to org/jboss/netty/buffer/ChannelBuffers::hexDump &rarr; NO_COVERAGE<br/>
+4. decodeExtraData : removed call to org/traccar/model/Position::set &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                    position.set(&#34;authorized&#34;, ChannelBuffers.hexDump(buf.readBytes(8)));</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_80'/>
+80
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_80'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                    break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_81'/>
+81
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_81'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                case 24:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_82'/>
+82
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_82'>9</a>
+<span>
+1. decodeExtraData : changed conditional boundary &rarr; SURVIVED<br/>
+2. decodeExtraData : Changed increment from 1 to -1 &rarr; KILLED<br/>
+3. decodeExtraData : Substituted 0 with 1 &rarr; KILLED<br/>
+4. decodeExtraData : Substituted 2 with 3 &rarr; KILLED<br/>
+5. decodeExtraData : Replaced integer division with multiplication &rarr; KILLED<br/>
+6. decodeExtraData : negated conditional &rarr; KILLED<br/>
+7. decodeExtraData : removed conditional - replaced comparison check with false &rarr; KILLED<br/>
+8. decodeExtraData : removed conditional - replaced comparison check with true &rarr; KILLED<br/>
+9. decodeExtraData : Removed increment 1 &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                    for (int i = 0; i &#60; length / 2; i++) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_83'/>
+83
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_83'>7</a>
+<span>
+1. decodeExtraData : removed call to java/lang/StringBuilder::toString &rarr; SURVIVED<br/>
+2. decodeExtraData : removed call to org/traccar/model/Position::set &rarr; SURVIVED<br/>
+3. decodeExtraData : removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; KILLED<br/>
+4. decodeExtraData : removed call to java/lang/StringBuilder::append &rarr; KILLED<br/>
+5. decodeExtraData : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; KILLED<br/>
+6. decodeExtraData : removed call to java/lang/StringBuilder::append &rarr; KILLED<br/>
+7. decodeExtraData : removed call to org/jboss/netty/buffer/ChannelBuffer::readByte &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                        position.set(Position.PREFIX_TEMP + buf.readUnsignedByte(), buf.readByte());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_84'/>
+84
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_84'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_85'/>
+85
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_85'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_86'/>
+86
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_86'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                case 28:</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_87'/>
+87
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_87'>2</a>
+<span>
+1. decodeExtraData : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedShort &rarr; NO_COVERAGE<br/>
+2. decodeExtraData : removed call to org/traccar/model/Position::set &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                    position.set(&#34;weight&#34;, buf.readUnsignedShort());</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_88'/>
+88
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_88'>1</a>
+<span>
+1. decodeExtraData : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                    buf.readUnsignedByte();</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_89'/>
+89
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_89'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                    break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_90'/>
+90
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_90'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                case 90:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_91'/>
+91
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_91'>2</a>
+<span>
+1. decodeExtraData : removed call to org/traccar/model/Position::set &rarr; SURVIVED<br/>
+2. decodeExtraData : removed call to org/jboss/netty/buffer/ChannelBuffer::readFloat &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                    position.set(Position.KEY_POWER, buf.readFloat());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_92'/>
+92
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_92'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_93'/>
+93
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_93'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                case 101:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_94'/>
+94
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_94'>2</a>
+<span>
+1. decodeExtraData : removed call to org/traccar/model/Position::set &rarr; SURVIVED<br/>
+2. decodeExtraData : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                    position.set(Position.KEY_OBD_SPEED, buf.readUnsignedByte());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_95'/>
+95
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_95'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_96'/>
+96
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_96'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                case 102:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_97'/>
+97
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_97'>4</a>
+<span>
+1. decodeExtraData : Substituted 50 with 51 &rarr; SURVIVED<br/>
+2. decodeExtraData : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+3. decodeExtraData : removed call to org/traccar/model/Position::set &rarr; SURVIVED<br/>
+4. decodeExtraData : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                    position.set(Position.KEY_RPM, buf.readUnsignedByte() * 50);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_98'/>
+98
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_98'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_99'/>
+99
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_99'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                case 107:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_100'/>
+100
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_100'>1</a>
+<span>
+1. decodeExtraData : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedShort &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>                    int fuel = buf.readUnsignedShort();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_101'/>
+101
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_101'>2</a>
+<span>
+1. decodeExtraData : Substituted 14 with 15 &rarr; SURVIVED<br/>
+2. decodeExtraData : Replaced Shift Right with Shift Left &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                    int fuelFormat = fuel &#62;&#62; 14;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_102'/>
+102
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_102'>4</a>
+<span>
+1. decodeExtraData : Substituted 1 with 0 &rarr; SURVIVED<br/>
+2. decodeExtraData : negated conditional &rarr; SURVIVED<br/>
+3. decodeExtraData : removed conditional - replaced equality check with false &rarr; SURVIVED<br/>
+4. decodeExtraData : removed conditional - replaced equality check with true &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                    if (fuelFormat == 1) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_103'/>
+103
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_103'>9</a>
+<span>
+1. decodeExtraData : Substituted 16383 with 16384 &rarr; SURVIVED<br/>
+2. decodeExtraData : Substituted 0.4 with 1.0 &rarr; SURVIVED<br/>
+3. decodeExtraData : Replaced bitwise AND with OR &rarr; SURVIVED<br/>
+4. decodeExtraData : Replaced double multiplication with division &rarr; SURVIVED<br/>
+5. decodeExtraData : removed call to java/lang/StringBuilder::toString &rarr; SURVIVED<br/>
+6. decodeExtraData : removed call to org/traccar/model/Position::set &rarr; SURVIVED<br/>
+7. decodeExtraData : removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; KILLED<br/>
+8. decodeExtraData : removed call to java/lang/StringBuilder::append &rarr; KILLED<br/>
+9. decodeExtraData : removed call to java/lang/StringBuilder::append &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                        position.set(Position.KEY_FUEL, (fuel &#38; 0x3fff) * 0.4 + &#34;%&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_104'/>
+104
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_104'>4</a>
+<span>
+1. decodeExtraData : Substituted 2 with 3 &rarr; SURVIVED<br/>
+2. decodeExtraData : negated conditional &rarr; SURVIVED<br/>
+3. decodeExtraData : removed conditional - replaced equality check with false &rarr; SURVIVED<br/>
+4. decodeExtraData : removed conditional - replaced equality check with true &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                    } else if (fuelFormat == 2) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_105'/>
+105
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_105'>9</a>
+<span>
+1. decodeExtraData : Substituted 16383 with 16384 &rarr; SURVIVED<br/>
+2. decodeExtraData : Substituted 0.5 with 1.0 &rarr; SURVIVED<br/>
+3. decodeExtraData : Replaced bitwise AND with OR &rarr; SURVIVED<br/>
+4. decodeExtraData : Replaced double multiplication with division &rarr; SURVIVED<br/>
+5. decodeExtraData : removed call to java/lang/StringBuilder::toString &rarr; SURVIVED<br/>
+6. decodeExtraData : removed call to org/traccar/model/Position::set &rarr; SURVIVED<br/>
+7. decodeExtraData : removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; KILLED<br/>
+8. decodeExtraData : removed call to java/lang/StringBuilder::append &rarr; KILLED<br/>
+9. decodeExtraData : removed call to java/lang/StringBuilder::append &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                        position.set(Position.KEY_FUEL, (fuel &#38; 0x3fff) * 0.5 + &#34; l&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_106'/>
+106
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_106'>4</a>
+<span>
+1. decodeExtraData : Substituted 3 with 4 &rarr; NO_COVERAGE<br/>
+2. decodeExtraData : negated conditional &rarr; NO_COVERAGE<br/>
+3. decodeExtraData : removed conditional - replaced equality check with false &rarr; NO_COVERAGE<br/>
+4. decodeExtraData : removed conditional - replaced equality check with true &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                    } else if (fuelFormat == 3) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_107'/>
+107
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_107'>9</a>
+<span>
+1. decodeExtraData : removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; NO_COVERAGE<br/>
+2. decodeExtraData : Substituted 16383 with 16384 &rarr; NO_COVERAGE<br/>
+3. decodeExtraData : Substituted -0.5 with 1.0 &rarr; NO_COVERAGE<br/>
+4. decodeExtraData : Replaced bitwise AND with OR &rarr; NO_COVERAGE<br/>
+5. decodeExtraData : Replaced double multiplication with division &rarr; NO_COVERAGE<br/>
+6. decodeExtraData : removed call to java/lang/StringBuilder::append &rarr; NO_COVERAGE<br/>
+7. decodeExtraData : removed call to java/lang/StringBuilder::append &rarr; NO_COVERAGE<br/>
+8. decodeExtraData : removed call to java/lang/StringBuilder::toString &rarr; NO_COVERAGE<br/>
+9. decodeExtraData : removed call to org/traccar/model/Position::set &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                        position.set(Position.KEY_FUEL, (fuel &#38; 0x3fff) * -0.5 + &#34; l&#34;);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_108'/>
+108
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_108'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_109'/>
+109
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_109'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_110'/>
+110
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_110'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                case 108:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_111'/>
+111
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_111'>4</a>
+<span>
+1. decodeExtraData : Substituted 5 with 6 &rarr; SURVIVED<br/>
+2. decodeExtraData : Replaced long multiplication with division &rarr; SURVIVED<br/>
+3. decodeExtraData : removed call to org/traccar/model/Position::set &rarr; SURVIVED<br/>
+4. decodeExtraData : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedInt &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                    position.set(Position.KEY_OBD_ODOMETER, buf.readUnsignedInt() * 5);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_112'/>
+112
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_112'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>                    break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_113'/>
+113
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_113'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                case 150:</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_114'/>
+114
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_114'>2</a>
+<span>
+1. decodeExtraData : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; NO_COVERAGE<br/>
+2. decodeExtraData : removed call to org/traccar/model/Position::set &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>                    position.set(&#34;door&#34;, buf.readUnsignedByte());</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_115'/>
+115
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_115'></a>
+<span>
+</span>
+</td>
+<td class='uncovered'><pre><span  class=''>                    break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_116'/>
+116
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_116'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                default:</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_117'/>
+117
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_117'>1</a>
+<span>
+1. decodeExtraData : removed call to org/jboss/netty/buffer/ChannelBuffer::skipBytes &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                    buf.skipBytes(length);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_118'/>
+118
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_118'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    break;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_119'/>
+119
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_119'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_120'/>
+120
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_120'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_121'/>
+121
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_121'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_122'/>
+122
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_122'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_123'/>
+123
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_123'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    @Override</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_124'/>
+124
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_124'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    protected Object decode(</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_125'/>
+125
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_125'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            Channel channel, SocketAddress remoteAddress, Object msg) throws Exception {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_126'/>
+126
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_126'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_127'/>
+127
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_127'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        ChannelBuffer buf = (ChannelBuffer) msg;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_128'/>
+128
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_128'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_129'/>
+129
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_129'>1</a>
+<span>
+1. decode : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        buf.readUnsignedByte(); // protocol</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_130'/>
+130
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_130'>1</a>
+<span>
+1. decode : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedShort &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        buf.readUnsignedShort(); // length</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_131'/>
+131
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_131'>3</a>
+<span>
+1. decode : Substituted 3 with 4 &rarr; SURVIVED<br/>
+2. decode : Replaced Shift Right with Shift Left &rarr; SURVIVED<br/>
+3. decode : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        int index = buf.readUnsignedByte() &#62;&#62; 3;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_132'/>
+132
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_132'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_133'/>
+133
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_133'>3</a>
+<span>
+1. decode : removed conditional - replaced equality check with false &rarr; SURVIVED<br/>
+2. decode : negated conditional &rarr; KILLED<br/>
+3. decode : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (channel != null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_134'/>
+134
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_134'>5</a>
+<span>
+1. decode : removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; NO_COVERAGE<br/>
+2. decode : removed call to java/lang/StringBuilder::append &rarr; NO_COVERAGE<br/>
+3. decode : removed call to java/lang/StringBuilder::append &rarr; NO_COVERAGE<br/>
+4. decode : removed call to java/lang/StringBuilder::toString &rarr; NO_COVERAGE<br/>
+5. decode : removed call to org/jboss/netty/buffer/ChannelBuffers::copiedBuffer &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            ChannelBuffer response = ChannelBuffers.copiedBuffer(</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_135'/>
+135
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_135'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>                    &#34;^&#34; + index, StandardCharsets.US_ASCII);</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_136'/>
+136
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_136'>1</a>
+<span>
+1. decode : removed call to org/jboss/netty/channel/Channel::write &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            channel.write(response, remoteAddress);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_137'/>
+137
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_137'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_138'/>
+138
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_138'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_139'/>
+139
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_139'>2</a>
+<span>
+1. decode : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedInt &rarr; KILLED<br/>
+2. decode : removed call to java/lang/String::valueOf &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        String id = String.valueOf(buf.readUnsignedInt());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_140'/>
+140
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_140'>3</a>
+<span>
+1. decode : Substituted 1 with 0 &rarr; KILLED<br/>
+2. decode : Substituted 0 with 1 &rarr; KILLED<br/>
+3. decode : removed call to org/traccar/protocol/TytanProtocolDecoder::getDeviceSession &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        DeviceSession deviceSession = getDeviceSession(channel, remoteAddress, id);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_141'/>
+141
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_141'>3</a>
+<span>
+1. decode : removed conditional - replaced equality check with false &rarr; SURVIVED<br/>
+2. decode : negated conditional &rarr; KILLED<br/>
+3. decode : removed conditional - replaced equality check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        if (deviceSession == null) {</span></pre></td></tr>
+
+
+<tr>
+<td class='uncovered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_142'/>
+142
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_142'>1</a>
+<span>
+1. decode : mutated return of Object value for org/traccar/protocol/TytanProtocolDecoder::decode to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE<br/>
+
+</span>
+</td>
+<td class='uncovered'><pre><span  class='survived'>            return null;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_143'/>
+143
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_143'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_144'/>
+144
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_144'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_145'/>
+145
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_145'>1</a>
+<span>
+1. decode : removed call to java/util/LinkedList::&#60;init&#62; &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        List&#60;Position&#62; positions = new LinkedList&#60;&#62;();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_146'/>
+146
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_146'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_147'/>
+147
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_147'>6</a>
+<span>
+1. decode : Substituted 2 with 3 &rarr; SURVIVED<br/>
+2. decode : changed conditional boundary &rarr; KILLED<br/>
+3. decode : negated conditional &rarr; KILLED<br/>
+4. decode : removed call to org/jboss/netty/buffer/ChannelBuffer::readableBytes &rarr; KILLED<br/>
+5. decode : removed conditional - replaced comparison check with false &rarr; KILLED<br/>
+6. decode : removed conditional - replaced comparison check with true &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>        while (buf.readableBytes() &#62; 2) {</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_148'/>
+148
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_148'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_149'/>
+149
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_149'>1</a>
+<span>
+1. decode : removed call to org/traccar/model/Position::&#60;init&#62; &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            Position position = new Position();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_150'/>
+150
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_150'>2</a>
+<span>
+1. decode : removed call to org/traccar/protocol/TytanProtocolDecoder::getProtocolName &rarr; KILLED<br/>
+2. decode : removed call to org/traccar/model/Position::setProtocol &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            position.setProtocol(getProtocolName());</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_151'/>
+151
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_151'>2</a>
+<span>
+1. decode : removed call to org/traccar/DeviceSession::getDeviceId &rarr; SURVIVED<br/>
+2. decode : removed call to org/traccar/model/Position::setDeviceId &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            position.setDeviceId(deviceSession.getDeviceId());</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_152'/>
+152
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_152'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_153'/>
+153
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_153'>3</a>
+<span>
+1. decode : Replaced integer addition with subtraction &rarr; KILLED<br/>
+2. decode : removed call to org/jboss/netty/buffer/ChannelBuffer::readerIndex &rarr; KILLED<br/>
+3. decode : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            int end = buf.readerIndex() + buf.readUnsignedByte();</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_154'/>
+154
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_154'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_155'/>
+155
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_155'>5</a>
+<span>
+1. decode : Substituted 1000 with 1001 &rarr; SURVIVED<br/>
+2. decode : removed call to java/util/Date::&#60;init&#62; &rarr; KILLED<br/>
+3. decode : Replaced long multiplication with division &rarr; KILLED<br/>
+4. decode : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedInt &rarr; KILLED<br/>
+5. decode : removed call to org/traccar/model/Position::setTime &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            position.setTime(new Date(buf.readUnsignedInt() * 1000));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_156'/>
+156
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_156'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_157'/>
+157
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_157'>1</a>
+<span>
+1. decode : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            int flags = buf.readUnsignedByte();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_158'/>
+158
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_158'>4</a>
+<span>
+1. decode : replaced call to org/traccar/helper/BitUtil::from with argument &rarr; SURVIVED<br/>
+2. decode : Substituted 2 with 3 &rarr; SURVIVED<br/>
+3. decode : removed call to org/traccar/helper/BitUtil::from &rarr; SURVIVED<br/>
+4. decode : removed call to org/traccar/model/Position::set &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            position.set(Position.KEY_SATELLITES, BitUtil.from(flags, 2));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_159'/>
+159
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_159'>10</a>
+<span>
+1. decode : replaced call to org/traccar/helper/BitUtil::to with argument &rarr; SURVIVED<br/>
+2. decode : changed conditional boundary &rarr; SURVIVED<br/>
+3. decode : Substituted 2 with 3 &rarr; SURVIVED<br/>
+4. decode : Substituted 1 with 0 &rarr; SURVIVED<br/>
+5. decode : Substituted 0 with 1 &rarr; SURVIVED<br/>
+6. decode : negated conditional &rarr; SURVIVED<br/>
+7. decode : removed call to org/traccar/helper/BitUtil::to &rarr; SURVIVED<br/>
+8. decode : removed conditional - replaced comparison check with false &rarr; SURVIVED<br/>
+9. decode : removed conditional - replaced comparison check with true &rarr; SURVIVED<br/>
+10. decode : removed call to org/traccar/model/Position::setValid &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            position.setValid(BitUtil.to(flags, 2) &#62; 0);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_160'/>
+160
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_160'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_161'/>
+161
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_161'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // Latitude</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_162'/>
+162
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_162'>1</a>
+<span>
+1. decode : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedMedium &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            double lat = buf.readUnsignedMedium();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_163'/>
+163
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_163'>6</a>
+<span>
+1. decode : Substituted 90.0 with 1.0 &rarr; SURVIVED<br/>
+2. decode : Replaced double multiplication with division &rarr; SURVIVED<br/>
+3. decode : Substituted -180.0 with 1.0 &rarr; KILLED<br/>
+4. decode : Substituted 1.6777216E7 with 1.0 &rarr; KILLED<br/>
+5. decode : Replaced double division with multiplication &rarr; KILLED<br/>
+6. decode : Replaced double addition with subtraction &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            lat = lat * -180 / 16777216 + 90;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_164'/>
+164
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_164'>1</a>
+<span>
+1. decode : removed call to org/traccar/model/Position::setLatitude &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            position.setLatitude(lat);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_165'/>
+165
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_165'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_166'/>
+166
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_166'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // Longitude</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_167'/>
+167
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_167'>1</a>
+<span>
+1. decode : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedMedium &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            double lon = buf.readUnsignedMedium();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_168'/>
+168
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_168'>6</a>
+<span>
+1. decode : Substituted 360.0 with 1.0 &rarr; SURVIVED<br/>
+2. decode : Replaced double multiplication with division &rarr; SURVIVED<br/>
+3. decode : Substituted 1.6777216E7 with 1.0 &rarr; KILLED<br/>
+4. decode : Substituted 180.0 with 1.0 &rarr; KILLED<br/>
+5. decode : Replaced double division with multiplication &rarr; KILLED<br/>
+6. decode : Replaced double subtraction with addition &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            lon = lon * 360 / 16777216 - 180;</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_169'/>
+169
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_169'>1</a>
+<span>
+1. decode : removed call to org/traccar/model/Position::setLongitude &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            position.setLongitude(lon);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_170'/>
+170
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_170'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_171'/>
+171
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_171'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // Status</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_172'/>
+172
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_172'>1</a>
+<span>
+1. decode : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            flags = buf.readUnsignedByte();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_173'/>
+173
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_173'>3</a>
+<span>
+1. decode : Substituted 0 with 1 &rarr; SURVIVED<br/>
+2. decode : removed call to org/traccar/helper/BitUtil::check &rarr; SURVIVED<br/>
+3. decode : removed call to org/traccar/model/Position::set &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            position.set(Position.KEY_IGNITION, BitUtil.check(flags, 0));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_174'/>
+174
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_174'>5</a>
+<span>
+1. decode : replaced call to org/traccar/helper/BitUtil::between with argument &rarr; SURVIVED<br/>
+2. decode : Substituted 2 with 3 &rarr; SURVIVED<br/>
+3. decode : Substituted 5 with 6 &rarr; SURVIVED<br/>
+4. decode : removed call to org/traccar/helper/BitUtil::between &rarr; SURVIVED<br/>
+5. decode : removed call to org/traccar/model/Position::set &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            position.set(Position.KEY_RSSI, BitUtil.between(flags, 2, 5));</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_175'/>
+175
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_175'>10</a>
+<span>
+1. decode : replaced call to org/traccar/helper/BitUtil::from with argument &rarr; SURVIVED<br/>
+2. decode : Substituted 5 with 6 &rarr; SURVIVED<br/>
+3. decode : Substituted 45 with 46 &rarr; SURVIVED<br/>
+4. decode : Substituted 180 with 181 &rarr; SURVIVED<br/>
+5. decode : Substituted 360 with 361 &rarr; SURVIVED<br/>
+6. decode : Replaced integer multiplication with division &rarr; SURVIVED<br/>
+7. decode : Replaced integer addition with subtraction &rarr; SURVIVED<br/>
+8. decode : removed call to org/traccar/helper/BitUtil::from &rarr; SURVIVED<br/>
+9. decode : removed call to org/traccar/model/Position::setCourse &rarr; SURVIVED<br/>
+10. decode : Replaced integer modulus with multiplication &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            position.setCourse((BitUtil.from(flags, 5) * 45 + 180) % 360);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_176'/>
+176
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_176'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_177'/>
+177
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_177'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            // Speed</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_178'/>
+178
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_178'>1</a>
+<span>
+1. decode : removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            int speed = buf.readUnsignedByte();</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_179'/>
+179
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_179'>5</a>
+<span>
+1. decode : changed conditional boundary &rarr; SURVIVED<br/>
+2. decode : Substituted 250 with 251 &rarr; SURVIVED<br/>
+3. decode : negated conditional &rarr; SURVIVED<br/>
+4. decode : removed conditional - replaced comparison check with false &rarr; SURVIVED<br/>
+5. decode : removed conditional - replaced comparison check with true &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>            if (speed &#60; 250) {</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_180'/>
+180
+</td>
+<td class='survived'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_180'>3</a>
+<span>
+1. decode : replaced call to org/traccar/helper/UnitsConverter::knotsFromKph with argument &rarr; SURVIVED<br/>
+2. decode : removed call to org/traccar/helper/UnitsConverter::knotsFromKph &rarr; SURVIVED<br/>
+3. decode : removed call to org/traccar/model/Position::setSpeed &rarr; SURVIVED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='survived'>                position.setSpeed(UnitsConverter.knotsFromKph(speed));</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_181'/>
+181
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_181'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>            }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_182'/>
+182
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_182'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_183'/>
+183
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_183'>1</a>
+<span>
+1. decode : removed call to org/traccar/protocol/TytanProtocolDecoder::decodeExtraData &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            decodeExtraData(position, buf, end);</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_184'/>
+184
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_184'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_185'/>
+185
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_185'>1</a>
+<span>
+1. decode : removed call to java/util/List::add &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>            positions.add(position);</span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_186'/>
+186
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_186'></a>
+<span>
+</span>
+</td>
+<td class='covered'><pre><span  class=''>        }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_187'/>
+187
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_187'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='covered'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_188'/>
+188
+</td>
+<td class='killed'>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_188'>1</a>
+<span>
+1. decode : mutated return of Object value for org/traccar/protocol/TytanProtocolDecoder::decode to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED<br/>
+
+</span>
+</td>
+<td class='covered'><pre><span  class='killed'>        return positions;</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_189'/>
+189
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_189'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>    }</span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_190'/>
+190
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_190'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''></span></pre></td></tr>
+
+
+<tr>
+<td class='na'>
+<a name='org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_191'/>
+191
+</td>
+<td class=''>
+<span class='pop'>
+<a href='#grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_191'></a>
+<span>
+</span>
+</td>
+<td class=''><pre><span  class=''>}</span></pre></td></tr>
+
+
+
+<tr><td></td><td></td><td><h2>Mutations</h2></td></tr>
+
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_40'>40</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_40'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readerIndex &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed conditional - replaced comparison check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed conditional - replaced comparison check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_42'>42</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_42'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_43'>43</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_43'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_44'>44</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_44'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Substituted 255 with 256 &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_45'>45</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_45'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_50'>50</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_50'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> RemoveSwitch 0 mutation &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> RemoveSwitch 1 mutation &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> RemoveSwitch 10 mutation &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> RemoveSwitch 11 mutation &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> RemoveSwitch 12 mutation &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> RemoveSwitch 13 mutation &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> RemoveSwitch 14 mutation &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> RemoveSwitch 2 mutation &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> RemoveSwitch 3 mutation &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> RemoveSwitch 4 mutation &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>11.<span><b>11</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> RemoveSwitch 5 mutation &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>12.<span><b>12</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> RemoveSwitch 6 mutation &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>13.<span><b>13</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> RemoveSwitch 7 mutation &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>14.<span><b>14</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> RemoveSwitch 8 mutation &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>15.<span><b>15</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> RemoveSwitch 9 mutation &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>16.<span><b>16</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> Switch mutation &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_52'>52</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_52'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedMedium &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/model/Position::set &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_55'>55</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_55'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/model/Position::set &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_58'>58</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_58'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Substituted 4 with 5 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Replaced Shift Right with Shift Left &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_59'>59</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_59'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Substituted 2 with 3 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed conditional - replaced comparison check with false &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed conditional - replaced comparison check with true &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_60'>60</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_60'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to java/lang/StringBuilder::append &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to java/lang/StringBuilder::append &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to java/lang/StringBuilder::toString &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readFloat &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/model/Position::set &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_62'>62</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_62'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Substituted 2 with 3 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Replaced integer subtraction with addition &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to java/lang/StringBuilder::append &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to java/lang/StringBuilder::append &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to java/lang/StringBuilder::toString &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readFloat &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/model/Position::set &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_66'>66</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_66'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_67'>67</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_67'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_68'>68</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_68'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Substituted 5 with 6 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/helper/BitUtil::check &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_69'>69</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_69'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/model/Position::set &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_73'>73</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_73'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/model/Position::set &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_76'>76</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_76'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Substituted 8 with 9 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readBytes &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/jboss/netty/buffer/ChannelBuffers::hexDump &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/model/Position::set &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_79'>79</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_79'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Substituted 8 with 9 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readBytes &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/jboss/netty/buffer/ChannelBuffers::hexDump &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/model/Position::set &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_82'>82</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_82'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> Changed increment from 1 to -1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> Substituted 2 with 3 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> Replaced integer division with multiplication &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed conditional - replaced comparison check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed conditional - replaced comparison check with true &rarr; KILLED</p> <p class='KILLED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> Removed increment 1 &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_83'>83</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_83'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to java/lang/StringBuilder::append &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to java/lang/StringBuilder::append &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to java/lang/StringBuilder::toString &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readByte &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/model/Position::set &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_87'>87</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_87'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedShort &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/model/Position::set &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_88'>88</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_88'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_91'>91</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_91'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readFloat &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/model/Position::set &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_94'>94</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_94'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/model/Position::set &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_97'>97</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_97'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Substituted 50 with 51 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Replaced integer multiplication with division &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/model/Position::set &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_100'>100</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_100'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedShort &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_101'>101</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_101'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Substituted 14 with 15 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Replaced Shift Right with Shift Left &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_102'>102</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_102'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Substituted 1 with 0 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_103'>103</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_103'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Substituted 16383 with 16384 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Substituted 0.4 with 1.0 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Replaced bitwise AND with OR &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Replaced double multiplication with division &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to java/lang/StringBuilder::append &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to java/lang/StringBuilder::append &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to java/lang/StringBuilder::toString &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/model/Position::set &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_104'>104</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_104'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Substituted 2 with 3 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_105'>105</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_105'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Substituted 16383 with 16384 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Substituted 0.5 with 1.0 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Replaced bitwise AND with OR &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Replaced double multiplication with division &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to java/lang/StringBuilder::append &rarr; KILLED</p> <p class='KILLED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to java/lang/StringBuilder::append &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to java/lang/StringBuilder::toString &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/model/Position::set &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_106'>106</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_106'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Substituted 3 with 4 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with true &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_107'>107</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_107'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Substituted 16383 with 16384 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Substituted -0.5 with 1.0 &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Replaced bitwise AND with OR &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Replaced double multiplication with division &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to java/lang/StringBuilder::append &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to java/lang/StringBuilder::append &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to java/lang/StringBuilder::toString &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/model/Position::set &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_111'>111</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_111'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Substituted 5 with 6 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> Replaced long multiplication with division &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedInt &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/model/Position::set &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_114'>114</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_114'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/model/Position::set &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_117'>117</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_117'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decodeExtraData<br/><b>Killed by : </b>none</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::skipBytes &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_129'>129</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_129'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_130'>130</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_130'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedShort &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_131'>131</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_131'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> Substituted 3 with 4 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> Replaced Shift Right with Shift Left &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_133'>133</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_133'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_134'>134</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_134'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed call to java/lang/StringBuilder::&#60;init&#62; &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed call to java/lang/StringBuilder::append &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed call to java/lang/StringBuilder::append &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed call to java/lang/StringBuilder::toString &rarr; NO_COVERAGE</p> <p class='NO_COVERAGE'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed call to org/jboss/netty/buffer/ChannelBuffers::copiedBuffer &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_136'>136</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_136'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed call to org/jboss/netty/channel/Channel::write &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_139'>139</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_139'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedInt &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to java/lang/String::valueOf &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_140'>140</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_140'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> Substituted 1 with 0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> Substituted 0 with 1 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/traccar/protocol/TytanProtocolDecoder::getDeviceSession &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_141'>141</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_141'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> negated conditional &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed conditional - replaced equality check with false &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed conditional - replaced equality check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_142'>142</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_142'/> 
+
+<p class='NO_COVERAGE'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> mutated return of Object value for org/traccar/protocol/TytanProtocolDecoder::decode to ( if (x != null) null else throw new RuntimeException ) &rarr; NO_COVERAGE</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_145'>145</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_145'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to java/util/LinkedList::&#60;init&#62; &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_147'>147</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_147'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> changed conditional boundary &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> Substituted 2 with 3 &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> negated conditional &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readableBytes &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed conditional - replaced comparison check with false &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed conditional - replaced comparison check with true &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_149'>149</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_149'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/traccar/model/Position::&#60;init&#62; &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_150'>150</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_150'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/traccar/protocol/TytanProtocolDecoder::getProtocolName &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/traccar/model/Position::setProtocol &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_151'>151</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_151'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/DeviceSession::getDeviceId &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/model/Position::setDeviceId &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_153'>153</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_153'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> Replaced integer addition with subtraction &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readerIndex &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_155'>155</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_155'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to java/util/Date::&#60;init&#62; &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> Substituted 1000 with 1001 &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> Replaced long multiplication with division &rarr; KILLED</p> <p class='KILLED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedInt &rarr; KILLED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/traccar/model/Position::setTime &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_157'>157</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_157'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_158'>158</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_158'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> replaced call to org/traccar/helper/BitUtil::from with argument &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> Substituted 2 with 3 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/helper/BitUtil::from &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/model/Position::set &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_159'>159</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_159'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> replaced call to org/traccar/helper/BitUtil::to with argument &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> Substituted 2 with 3 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> Substituted 1 with 0 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> Substituted 0 with 1 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/helper/BitUtil::to &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed conditional - replaced comparison check with false &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed conditional - replaced comparison check with true &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/model/Position::setValid &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_162'>162</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_162'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedMedium &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_163'>163</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_163'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> Substituted -180.0 with 1.0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> Substituted 1.6777216E7 with 1.0 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> Substituted 90.0 with 1.0 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> Replaced double multiplication with division &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> Replaced double division with multiplication &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> Replaced double addition with subtraction &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_164'>164</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_164'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/model/Position::setLatitude &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_167'>167</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_167'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedMedium &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_168'>168</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_168'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> Substituted 360.0 with 1.0 &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> Substituted 1.6777216E7 with 1.0 &rarr; KILLED</p> <p class='KILLED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> Substituted 180.0 with 1.0 &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> Replaced double multiplication with division &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> Replaced double division with multiplication &rarr; KILLED</p> <p class='KILLED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> Replaced double subtraction with addition &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_169'>169</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_169'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/model/Position::setLongitude &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_172'>172</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_172'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_173'>173</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_173'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> Substituted 0 with 1 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/helper/BitUtil::check &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/model/Position::set &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_174'>174</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_174'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> replaced call to org/traccar/helper/BitUtil::between with argument &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> Substituted 2 with 3 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> Substituted 5 with 6 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/helper/BitUtil::between &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/model/Position::set &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_175'>175</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_175'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> replaced call to org/traccar/helper/BitUtil::from with argument &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> Substituted 5 with 6 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> Substituted 45 with 46 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> Substituted 180 with 181 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> Substituted 360 with 361 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>6.<span><b>6</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> Replaced integer multiplication with division &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>7.<span><b>7</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> Replaced integer addition with subtraction &rarr; SURVIVED</p> <p class='KILLED'><span class='pop'>8.<span><b>8</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> Replaced integer modulus with multiplication &rarr; KILLED</p> <p class='SURVIVED'><span class='pop'>9.<span><b>9</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/helper/BitUtil::from &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>10.<span><b>10</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/model/Position::setCourse &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_178'>178</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_178'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/jboss/netty/buffer/ChannelBuffer::readUnsignedByte &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_179'>179</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_179'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> changed conditional boundary &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> Substituted 250 with 251 &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> negated conditional &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>4.<span><b>4</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed conditional - replaced comparison check with false &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>5.<span><b>5</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed conditional - replaced comparison check with true &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_180'>180</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_180'/> 
+
+<p class='SURVIVED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> replaced call to org/traccar/helper/UnitsConverter::knotsFromKph with argument &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>2.<span><b>2</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/helper/UnitsConverter::knotsFromKph &rarr; SURVIVED</p> <p class='SURVIVED'><span class='pop'>3.<span><b>3</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>none</span></span> removed call to org/traccar/model/Position::setSpeed &rarr; SURVIVED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_183'>183</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_183'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to org/traccar/protocol/TytanProtocolDecoder::decodeExtraData &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_185'>185</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_185'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> removed call to java/util/List::add &rarr; KILLED</p> 
+</td>
+</tr>
+<tr>
+<td><a href='#org.pitest.mutationtest.report.html.SourceFile@50b8cbcc_188'>188</a></td> 
+<td></td>
+<td>
+
+<a name='grouporg.pitest.mutationtest.report.html.SourceFile@50b8cbcc_188'/> 
+
+<p class='KILLED'><span class='pop'>1.<span><b>1</b><br/><b>Location : </b>decode<br/><b>Killed by : </b>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest)</span></span> mutated return of Object value for org/traccar/protocol/TytanProtocolDecoder::decode to ( if (x != null) null else throw new RuntimeException ) &rarr; KILLED</p> 
+</td>
+</tr>
+
+</table>
+
+
+<h2>Active mutators</h2>
+<ul>
+<li class='mutator'>RETURN_VALS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_61</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_60</li>
+<li class='mutator'>CONDITIONALS_BOUNDARY_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_56</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_55</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_58</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_57</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_52</li>
+<li class='mutator'>VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_51</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_54</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_53</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_59</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_50</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_45</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_44</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_47</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_46</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_41</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_40</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_43</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_42</li>
+<li class='mutator'>NEGATE_CONDITIONALS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_49</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_48</li>
+<li class='mutator'>INLINE_CONSTANT_MUTATOR</li>
+<li class='mutator'>CONSTRUCTOR_CALL_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_34</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_33</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_36</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_35</li>
+<li class='mutator'>EXPERIMENTAL_MEMBER_VARIABLE_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_30</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_32</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_31</li>
+<li class='mutator'>REMOVE_CONDITIONALS_ORDER_ELSE_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_38</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_37</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_39</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_3</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_2</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_1</li>
+<li class='mutator'>INVERT_NEGS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_0</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_23</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_22</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_25</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_9</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_24</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_8</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_7</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_6</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_21</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_5</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_20</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_4</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_27</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_26</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_29</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_28</li>
+<li class='mutator'>REMOVE_INCREMENTS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_12</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_11</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_99</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_14</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_13</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_96</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_95</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_10</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_98</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_97</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_19</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_16</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_15</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_18</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_17</li>
+<li class='mutator'>EXPERIMENTAL_SWITCH_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_92</li>
+<li class='mutator'>ARGUMENT_PROPAGATION_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_91</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_94</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_93</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_90</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_89</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_88</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_85</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_84</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_87</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_86</li>
+<li class='mutator'>MATH_MUTATOR</li>
+<li class='mutator'>NON_VOID_METHOD_CALL_MUTATOR</li>
+<li class='mutator'>REMOVE_CONDITIONALS_EQUAL_IF_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_81</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_80</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_83</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_82</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_78</li>
+<li class='mutator'>REMOVE_CONDITIONALS_EQUAL_ELSE_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_77</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_79</li>
+<li class='mutator'>INCREMENTS_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_74</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_73</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_76</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_75</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_70</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_72</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_71</li>
+<li class='mutator'>REMOVE_CONDITIONALS_ORDER_IF_MUTATOR</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_67</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_66</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_69</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_68</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_63</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_62</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_65</li>
+<li class='mutator'>EXPERIMENTAL_REMOVE_SWITCH_MUTATOR_64</li>
+
+</ul>
+
+<h2>Tests examined</h2>
+<ul>
+<li>org.traccar.protocol.TytanProtocolDecoderTest.testDecode(org.traccar.protocol.TytanProtocolDecoderTest) (1 ms)</li>
+</ul>
+
+<br/>
+
+Report generated by <a href='http://pitest.org'>PIT</a> 1.1.11
+
+</body>
+</html>
