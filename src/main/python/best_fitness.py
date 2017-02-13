@@ -6,7 +6,10 @@ keyInputs = "#InputAdded"
 keyMutant = "#MutantKilled"
 
 def fitness(NbMutantKilled, statementInserted):
-    return float( float(NbMutantKilled) / float(statementInserted))
+    if statementInserted == 0:
+        return 0
+    else:
+        return float( float(NbMutantKilled) / float(statementInserted))
 
 def usage():
     print("usage : python best_ration.py (-m <mode>) <pathToOutDspot.json>")
