@@ -1,22 +1,3 @@
-/**
- * BioJava development code
- *
- * This code may be freely distributed and modified under the
- * terms of the GNU Lesser General Public Licence.  This should
- * be distributed with the code.  If you do not have a copy,
- * see:
- *
- *      http://www.gnu.org/copyleft/lesser.html
- *
- * Copyright for this code is held jointly by the individual
- * authors.  These should be listed in @author doc comments.
- *
- * For more information on the BioJava project and its aims,
- * or to join the biojava-l mailing list, visit the home page
- * at:
- *
- *      http://www.biojava.org/
- */
 
 
 package org.biojava.nbio.core.sequence;
@@ -134,7 +115,6 @@ public class AmplDNATest {
         java.lang.String expected = "ATGCAACTGA";
         org.biojava.nbio.core.sequence.DNASequence seq = getSeq(expected);
         org.biojava.nbio.core.sequence.template.SequenceReader<org.biojava.nbio.core.sequence.compound.NucleotideCompound> twoBitFromSeq = new org.biojava.nbio.core.sequence.storage.TwoBitSequenceReader<org.biojava.nbio.core.sequence.compound.NucleotideCompound>(seq);
-        // being cheeky here & getting compound set from seq
         org.biojava.nbio.core.sequence.template.SequenceReader<org.biojava.nbio.core.sequence.compound.NucleotideCompound> twoBitFromString = new org.biojava.nbio.core.sequence.storage.TwoBitSequenceReader<org.biojava.nbio.core.sequence.compound.NucleotideCompound>(expected, seq.getCompoundSet());
         org.junit.Assert.assertThat("TwoBit from Sequence not as expected", twoBitFromSeq.getSequenceAsString(), org.hamcrest.CoreMatchers.is(expected));
         org.junit.Assert.assertThat("TwoBit from String not as expected", twoBitFromString.getSequenceAsString(), org.hamcrest.CoreMatchers.is(expected));
@@ -145,7 +125,6 @@ public class AmplDNATest {
         java.lang.String expected = "ATGCAACTGA";
         org.biojava.nbio.core.sequence.DNASequence seq = getSeq(expected);
         org.biojava.nbio.core.sequence.template.SequenceReader<org.biojava.nbio.core.sequence.compound.NucleotideCompound> bitFromSeq = new org.biojava.nbio.core.sequence.storage.FourBitSequenceReader<org.biojava.nbio.core.sequence.compound.NucleotideCompound>(seq);
-        // being cheeky here & getting compound set from seq
         org.biojava.nbio.core.sequence.template.SequenceReader<org.biojava.nbio.core.sequence.compound.NucleotideCompound> bitFromString = new org.biojava.nbio.core.sequence.storage.FourBitSequenceReader<org.biojava.nbio.core.sequence.compound.NucleotideCompound>(expected, seq.getCompoundSet());
         org.junit.Assert.assertThat("FourBit from Sequence not as expected", bitFromSeq.getSequenceAsString(), org.hamcrest.CoreMatchers.is(expected));
         org.junit.Assert.assertThat("FourBit from String not as expected", bitFromString.getSequenceAsString(), org.hamcrest.CoreMatchers.is(expected));
@@ -228,45 +207,6 @@ public class AmplDNATest {
         org.junit.Assert.assertTrue("Asserting sequences are identical ignoring case; backing stores differ", org.biojava.nbio.core.sequence.template.SequenceMixin.sequenceEqualityIgnoreCase(d, bsrCI));
     }
 
-    // @Test
-    // public void randomTwoBit() throws Exception {
-    // int[] ar = new int[1000000];
-    // Random r = new Random();
-    // for(int i = 0; i < ar.length; i++) {
-    // ar[i] = r.nextInt();
-    // }
-    // 
-    // System.out.println(Runtime.getRuntime().freeMemory());
-    // System.out.println(Runtime.getRuntime().totalMemory());
-    // TwoBitArrayWorker<NucleotideCompound> worker =
-    // new TwoBitArrayWorker<NucleotideCompound>(getSeq().getCompoundSet(), ar);
-    // SequenceProxyLoader<NucleotideCompound> sbs =
-    // new BitSequenceReader<NucleotideCompound>(worker, new AccessionID("barf"));
-    // 
-    // System.out.println(sbs.getLength());
-    // 
-    // System.out.println(Runtime.getRuntime().freeMemory());
-    // System.out.println(Runtime.getRuntime().totalMemory());
-    // 
-    // List<NucleotideCompound> c = sbs.getAsList();
-    // 
-    // System.out.println(Runtime.getRuntime().freeMemory());
-    // System.out.println(Runtime.getRuntime().totalMemory());
-    // 
-    // //    OutputStream os = new BufferedOutputStream(new FileOutputStream(new File("/tmp/random.fasta")));
-    // //
-    // //    List<DNASequence> seqs = Arrays.asList(new DNASequence(sbs, sbs.getCompoundSet()));
-    // //    seqs.get(0).setAccession(sbs.getAccession());
-    // //    FastaHeaderFormatInterface<DNASequence, NucleotideCompound> headerFormat =
-    // //      new GenericFastaHeaderFormat<DNASequence, NucleotideCompound>();
-    // //
-    // //    FastaWriter<DNASequence, NucleotideCompound> writer =
-    // //      new FastaWriter<DNASequence, NucleotideCompound>(os, seqs, headerFormat);
-    // //
-    // //    writer.process();
-    // //
-    // //    IOUtils.close(os);
-    // }
     private org.biojava.nbio.core.sequence.DNASequence getSeq() throws org.biojava.nbio.core.exceptions.CompoundNotFoundException {
         return getSeq(null);
     }
@@ -279,6 +219,55 @@ public class AmplDNATest {
     private void assertBaseEquivalence(org.biojava.nbio.core.sequence.template.CompoundSet<org.biojava.nbio.core.sequence.compound.NucleotideCompound> compoundSet, java.lang.String one, java.lang.String two) {
         boolean equal = compoundSet.compoundsEquivalent(compoundSet.getCompoundForString(one), compoundSet.getCompoundForString(two));
         org.junit.Assert.assertTrue((((one + " & ") + two) + " should be equivalent bases"), equal);
+    }
+
+    @org.junit.Test
+    public void twoBit_literalMutation2() throws org.biojava.nbio.core.exceptions.CompoundNotFoundException {
+        java.lang.String expected = "ATCAACTGA";
+        org.junit.Assert.assertEquals(expected, "ATCAACTGA");
+        org.biojava.nbio.core.sequence.DNASequence seq = getSeq(expected);
+        org.biojava.nbio.core.sequence.template.SequenceReader<org.biojava.nbio.core.sequence.compound.NucleotideCompound> twoBitFromSeq = new org.biojava.nbio.core.sequence.storage.TwoBitSequenceReader<org.biojava.nbio.core.sequence.compound.NucleotideCompound>(seq);
+        org.biojava.nbio.core.sequence.template.SequenceReader<org.biojava.nbio.core.sequence.compound.NucleotideCompound> twoBitFromString = new org.biojava.nbio.core.sequence.storage.TwoBitSequenceReader<org.biojava.nbio.core.sequence.compound.NucleotideCompound>(expected, seq.getCompoundSet());
+        org.junit.Assert.assertThat("TwoBit from Sequence not as expected", twoBitFromSeq.getSequenceAsString(), org.hamcrest.CoreMatchers.is(expected));
+        org.junit.Assert.assertThat("TwoBit from String not as expected", twoBitFromString.getSequenceAsString(), org.hamcrest.CoreMatchers.is(expected));
+    }
+
+    @org.junit.Test
+    public void fourBit_literalMutation2() throws org.biojava.nbio.core.exceptions.CompoundNotFoundException {
+        java.lang.String expected = "ATCAACTGA";
+        org.junit.Assert.assertEquals(expected, "ATCAACTGA");
+        org.biojava.nbio.core.sequence.DNASequence seq = getSeq(expected);
+        org.biojava.nbio.core.sequence.template.SequenceReader<org.biojava.nbio.core.sequence.compound.NucleotideCompound> bitFromSeq = new org.biojava.nbio.core.sequence.storage.FourBitSequenceReader<org.biojava.nbio.core.sequence.compound.NucleotideCompound>(seq);
+        org.biojava.nbio.core.sequence.template.SequenceReader<org.biojava.nbio.core.sequence.compound.NucleotideCompound> bitFromString = new org.biojava.nbio.core.sequence.storage.FourBitSequenceReader<org.biojava.nbio.core.sequence.compound.NucleotideCompound>(expected, seq.getCompoundSet());
+        org.junit.Assert.assertThat("FourBit from Sequence not as expected", bitFromSeq.getSequenceAsString(), org.hamcrest.CoreMatchers.is(expected));
+        org.junit.Assert.assertThat("FourBit from String not as expected", bitFromString.getSequenceAsString(), org.hamcrest.CoreMatchers.is(expected));
+    }
+
+    /* amplification of org.biojava.nbio.core.sequence.DNATest#sequenceEquality */
+    @org.junit.Test
+    public void sequenceEquality_literalMutation30_failAssert4() throws org.biojava.nbio.core.exceptions.CompoundNotFoundException {
+        // AssertGenerator generate try/catch block with fail statement
+        try {
+            org.biojava.nbio.core.sequence.DNASequence d = getSeq("ATGC");
+            // MethodAssertGenerator build local variable
+            Object o_3_0 = org.biojava.nbio.core.sequence.template.SequenceMixin.sequenceEquality(d, d);
+            // MethodAssertGenerator build local variable
+            Object o_5_0 = org.biojava.nbio.core.sequence.template.SequenceMixin.sequenceEquality(d, getSeq("ATGc"));
+            // MethodAssertGenerator build local variable
+            Object o_8_0 = org.biojava.nbio.core.sequence.template.SequenceMixin.sequenceEqualityIgnoreCase(d, d);
+            // MethodAssertGenerator build local variable
+            Object o_10_0 = org.biojava.nbio.core.sequence.template.SequenceMixin.sequenceEqualityIgnoreCase(d, getSeq("aTgC"));
+            // MethodAssertGenerator build local variable
+            Object o_13_0 = org.biojava.nbio.core.sequence.template.SequenceMixin.sequenceEquality(d, getSeq("ATG"));
+            org.biojava.nbio.core.sequence.DNASequence bsr = new org.biojava.nbio.core.sequence.DNASequence(new org.biojava.nbio.core.sequence.storage.TwoBitSequenceReader<org.biojava.nbio.core.sequence.compound.NucleotideCompound>("XdYQ", org.biojava.nbio.core.sequence.compound.DNACompoundSet.getDNACompoundSet()));
+            org.biojava.nbio.core.sequence.DNASequence bsrCI = new org.biojava.nbio.core.sequence.DNASequence(new org.biojava.nbio.core.sequence.storage.TwoBitSequenceReader<org.biojava.nbio.core.sequence.compound.NucleotideCompound>("ATGc", org.biojava.nbio.core.sequence.compound.DNACompoundSet.getDNACompoundSet()));
+            // MethodAssertGenerator build local variable
+            Object o_24_0 = org.biojava.nbio.core.sequence.template.SequenceMixin.sequenceEquality(d, bsr);
+            // MethodAssertGenerator build local variable
+            Object o_26_0 = org.biojava.nbio.core.sequence.template.SequenceMixin.sequenceEqualityIgnoreCase(d, bsrCI);
+            org.junit.Assert.fail("sequenceEquality_literalMutation30 should have thrown IllegalStateException");
+        } catch (java.lang.IllegalStateException eee) {
+        }
     }
 }
 

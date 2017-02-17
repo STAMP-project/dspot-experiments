@@ -1,25 +1,3 @@
-/**
- * BioJava development code
- *
- * This code may be freely distributed and modified under the
- * terms of the GNU Lesser General Public Licence.  This should
- * be distributed with the code.  If you do not have a copy,
- * see:
- *
- *      http://www.gnu.org/copyleft/lesser.html
- *
- * Copyright for this code is held jointly by the individual
- * authors.  These should be listed in @author doc comments.
- *
- * For more information on the BioJava project and its aims,
- * or to join the biojava-l mailing list, visit the home page
- * at:
- *
- *      http://www.biojava.org/
- *
- * Created on June 15, 2010
- * Author: Mark Chapman
- */
 
 
 package org.biojava.nbio.core.alignment;
@@ -262,366 +240,303 @@ public class AmplSimpleSequencePairTest {
         org.junit.Assert.assertEquals(local.getTarget().getOriginalSequence(), target);
     }
 
-    /* amplification of org.biojava.nbio.core.alignment.SimpleSequencePairTest#testGetCompoundInQueryAt */
     @org.junit.Test(timeout = 10000)
     public void testGetCompoundInQueryAt_cf17_failAssert16() {
-        // AssertGenerator generate try/catch block with fail statement
         try {
-            // MethodAssertGenerator build local variable
-            Object o_1_0 = global.getCompoundInQueryAt(1).getShortName();
-            // MethodAssertGenerator build local variable
-            Object o_4_0 = global.getCompoundInQueryAt(2).getShortName();
-            // MethodAssertGenerator build local variable
-            Object o_7_0 = global.getCompoundInQueryAt(3).getShortName();
-            // MethodAssertGenerator build local variable
-            Object o_10_0 = global.getCompoundInQueryAt(4).getShortName();
-            // MethodAssertGenerator build local variable
-            Object o_13_0 = global.getCompoundInQueryAt(5).getShortName();
-            // MethodAssertGenerator build local variable
-            Object o_16_0 = local.getCompoundInQueryAt(1).getShortName();
-            // MethodAssertGenerator build local variable
-            Object o_19_0 = local.getCompoundInQueryAt(2).getShortName();
-            // StatementAdderOnAssert create literal from method
+            java.lang.Object o_1_0 = global.getCompoundInQueryAt(1).getShortName();
+            java.lang.Object o_4_0 = global.getCompoundInQueryAt(2).getShortName();
+            java.lang.Object o_7_0 = global.getCompoundInQueryAt(3).getShortName();
+            java.lang.Object o_10_0 = global.getCompoundInQueryAt(4).getShortName();
+            java.lang.Object o_13_0 = global.getCompoundInQueryAt(5).getShortName();
+            java.lang.Object o_16_0 = local.getCompoundInQueryAt(1).getShortName();
+            java.lang.Object o_19_0 = local.getCompoundInQueryAt(2).getShortName();
             int int_vc_0 = 1;
-            // StatementAdderOnAssert create null value
-            org.biojava.nbio.core.sequence.template.Sequence vc_0 = (org.biojava.nbio.core.sequence.template.Sequence)null;
-            // StatementAdderMethod cloned existing statement
+            org.biojava.nbio.core.sequence.template.Sequence vc_0 = ((org.biojava.nbio.core.sequence.template.Sequence) (null));
             vc_0.getCompoundAt(int_vc_0);
-            // MethodAssertGenerator build local variable
-            Object o_28_0 = local.getCompoundInQueryAt(3).getShortName();
+            java.lang.Object o_28_0 = local.getCompoundInQueryAt(3).getShortName();
             org.junit.Assert.fail("testGetCompoundInQueryAt_cf17 should have thrown NullPointerException");
         } catch (java.lang.NullPointerException eee) {
         }
     }
 
-    /* amplification of org.biojava.nbio.core.alignment.SimpleSequencePairTest#testGetCompoundInQueryAtOutOfBounds */
     @org.junit.Test(timeout = 10000)
-    public void testGetCompoundInQueryAtOutOfBounds_add135_failAssert0() {
-        // AssertGenerator generate try/catch block with fail statement
+    public void testGetCompoundInQueryAtOutOfBounds_add1_failAssert0() {
         try {
-            // MethodCallAdder
             global.getCompoundInQueryAt(0);
             global.getCompoundInQueryAt(0);
-            org.junit.Assert.fail("testGetCompoundInQueryAtOutOfBounds_add135 should have thrown ArrayIndexOutOfBoundsException");
+            org.junit.Assert.fail("testGetCompoundInQueryAtOutOfBounds_add1 should have thrown ArrayIndexOutOfBoundsException");
         } catch (java.lang.ArrayIndexOutOfBoundsException eee) {
         }
     }
 
-    /* amplification of org.biojava.nbio.core.alignment.SimpleSequencePairTest#testGetCompoundInQueryAtOutOfBounds2 */
     @org.junit.Test(timeout = 10000)
-    public void testGetCompoundInQueryAtOutOfBounds2_add138_failAssert0() {
-        // AssertGenerator generate try/catch block with fail statement
+    public void testGetCompoundInQueryAtOutOfBounds2_add1_failAssert0() {
         try {
-            // MethodCallAdder
             global.getCompoundInQueryAt(6);
             global.getCompoundInQueryAt(6);
-            org.junit.Assert.fail("testGetCompoundInQueryAtOutOfBounds2_add138 should have thrown ArrayIndexOutOfBoundsException");
+            org.junit.Assert.fail("testGetCompoundInQueryAtOutOfBounds2_add1 should have thrown ArrayIndexOutOfBoundsException");
         } catch (java.lang.ArrayIndexOutOfBoundsException eee) {
         }
     }
 
-    /* amplification of org.biojava.nbio.core.alignment.SimpleSequencePairTest#testGetCompoundInQueryAtOutOfBounds3 */
     @org.junit.Test(timeout = 10000)
-    public void testGetCompoundInQueryAtOutOfBounds3_add141_failAssert0() {
-        // AssertGenerator generate try/catch block with fail statement
+    public void testGetCompoundInQueryAtOutOfBounds3_add1_failAssert0() {
         try {
-            // MethodCallAdder
             local.getCompoundInQueryAt(0);
             local.getCompoundInQueryAt(0);
-            org.junit.Assert.fail("testGetCompoundInQueryAtOutOfBounds3_add141 should have thrown ArrayIndexOutOfBoundsException");
+            org.junit.Assert.fail("testGetCompoundInQueryAtOutOfBounds3_add1 should have thrown ArrayIndexOutOfBoundsException");
         } catch (java.lang.ArrayIndexOutOfBoundsException eee) {
         }
     }
 
-    /* amplification of org.biojava.nbio.core.alignment.SimpleSequencePairTest#testGetCompoundInQueryAtOutOfBounds4 */
     @org.junit.Test(timeout = 10000)
-    public void testGetCompoundInQueryAtOutOfBounds4_add144_failAssert0() {
-        // AssertGenerator generate try/catch block with fail statement
+    public void testGetCompoundInQueryAtOutOfBounds4_add1_failAssert0() {
         try {
-            // MethodCallAdder
             local.getCompoundInQueryAt(4);
             local.getCompoundInQueryAt(4);
-            org.junit.Assert.fail("testGetCompoundInQueryAtOutOfBounds4_add144 should have thrown ArrayIndexOutOfBoundsException");
+            org.junit.Assert.fail("testGetCompoundInQueryAtOutOfBounds4_add1 should have thrown ArrayIndexOutOfBoundsException");
         } catch (java.lang.ArrayIndexOutOfBoundsException eee) {
         }
     }
 
-    /* amplification of org.biojava.nbio.core.alignment.SimpleSequencePairTest#testGetCompoundInTargetAt */
     @org.junit.Test(timeout = 10000)
-    public void testGetCompoundInTargetAt_cf163_failAssert16() {
-        // AssertGenerator generate try/catch block with fail statement
+    public void testGetCompoundInTargetAt_cf17_failAssert15() {
         try {
-            // MethodAssertGenerator build local variable
-            Object o_1_0 = global.getCompoundInTargetAt(1).getShortName();
-            // MethodAssertGenerator build local variable
-            Object o_4_0 = global.getCompoundInTargetAt(2).getShortName();
-            // MethodAssertGenerator build local variable
-            Object o_7_0 = global.getCompoundInTargetAt(3).getShortName();
-            // MethodAssertGenerator build local variable
-            Object o_10_0 = global.getCompoundInTargetAt(4).getShortName();
-            // MethodAssertGenerator build local variable
-            Object o_13_0 = global.getCompoundInTargetAt(5).getShortName();
-            // MethodAssertGenerator build local variable
-            Object o_16_0 = local.getCompoundInTargetAt(1).getShortName();
-            // MethodAssertGenerator build local variable
-            Object o_19_0 = local.getCompoundInTargetAt(2).getShortName();
-            // StatementAdderOnAssert create literal from method
-            int int_vc_1 = 3;
-            // StatementAdderOnAssert create null value
-            org.biojava.nbio.core.sequence.template.Sequence vc_29 = (org.biojava.nbio.core.sequence.template.Sequence)null;
-            // StatementAdderMethod cloned existing statement
-            vc_29.getCompoundAt(int_vc_1);
-            // MethodAssertGenerator build local variable
-            Object o_28_0 = local.getCompoundInTargetAt(3).getShortName();
-            org.junit.Assert.fail("testGetCompoundInTargetAt_cf163 should have thrown NullPointerException");
+            java.lang.Object o_1_0 = global.getCompoundInTargetAt(1).getShortName();
+            java.lang.Object o_4_0 = global.getCompoundInTargetAt(2).getShortName();
+            java.lang.Object o_7_0 = global.getCompoundInTargetAt(3).getShortName();
+            java.lang.Object o_10_0 = global.getCompoundInTargetAt(4).getShortName();
+            java.lang.Object o_13_0 = global.getCompoundInTargetAt(5).getShortName();
+            java.lang.Object o_16_0 = local.getCompoundInTargetAt(1).getShortName();
+            java.lang.Object o_19_0 = local.getCompoundInTargetAt(2).getShortName();
+            int int_vc_0 = 1;
+            org.biojava.nbio.core.sequence.template.Sequence vc_0 = ((org.biojava.nbio.core.sequence.template.Sequence) (null));
+            vc_0.getCompoundAt(int_vc_0);
+            java.lang.Object o_28_0 = local.getCompoundInTargetAt(3).getShortName();
+            org.junit.Assert.fail("testGetCompoundInTargetAt_cf17 should have thrown NullPointerException");
         } catch (java.lang.NullPointerException eee) {
         }
     }
 
-    /* amplification of org.biojava.nbio.core.alignment.SimpleSequencePairTest#testGetCompoundInTargetAtOutOfBounds */
     @org.junit.Test(timeout = 10000)
-    public void testGetCompoundInTargetAtOutOfBounds_add290_failAssert0() {
-        // AssertGenerator generate try/catch block with fail statement
+    public void testGetCompoundInTargetAtOutOfBounds_add1_failAssert0() {
         try {
-            // MethodCallAdder
             global.getCompoundInTargetAt(0);
             global.getCompoundInTargetAt(0);
-            org.junit.Assert.fail("testGetCompoundInTargetAtOutOfBounds_add290 should have thrown ArrayIndexOutOfBoundsException");
+            org.junit.Assert.fail("testGetCompoundInTargetAtOutOfBounds_add1 should have thrown ArrayIndexOutOfBoundsException");
         } catch (java.lang.ArrayIndexOutOfBoundsException eee) {
         }
     }
 
-    /* amplification of org.biojava.nbio.core.alignment.SimpleSequencePairTest#testGetCompoundInTargetAtOutOfBounds2 */
     @org.junit.Test(timeout = 10000)
-    public void testGetCompoundInTargetAtOutOfBounds2_add293_failAssert0() {
-        // AssertGenerator generate try/catch block with fail statement
+    public void testGetCompoundInTargetAtOutOfBounds2_add1_failAssert0() {
         try {
-            // MethodCallAdder
             global.getCompoundInTargetAt(6);
             global.getCompoundInTargetAt(6);
-            org.junit.Assert.fail("testGetCompoundInTargetAtOutOfBounds2_add293 should have thrown ArrayIndexOutOfBoundsException");
+            org.junit.Assert.fail("testGetCompoundInTargetAtOutOfBounds2_add1 should have thrown ArrayIndexOutOfBoundsException");
         } catch (java.lang.ArrayIndexOutOfBoundsException eee) {
         }
     }
 
-    /* amplification of org.biojava.nbio.core.alignment.SimpleSequencePairTest#testGetCompoundInTargetAtOutOfBounds3 */
     @org.junit.Test(timeout = 10000)
-    public void testGetCompoundInTargetAtOutOfBounds3_add296_failAssert0() {
-        // AssertGenerator generate try/catch block with fail statement
+    public void testGetCompoundInTargetAtOutOfBounds3_add1_failAssert0() {
         try {
-            // MethodCallAdder
             local.getCompoundInTargetAt(0);
             local.getCompoundInTargetAt(0);
-            org.junit.Assert.fail("testGetCompoundInTargetAtOutOfBounds3_add296 should have thrown ArrayIndexOutOfBoundsException");
+            org.junit.Assert.fail("testGetCompoundInTargetAtOutOfBounds3_add1 should have thrown ArrayIndexOutOfBoundsException");
         } catch (java.lang.ArrayIndexOutOfBoundsException eee) {
         }
     }
 
-    /* amplification of org.biojava.nbio.core.alignment.SimpleSequencePairTest#testGetCompoundInTargetAtOutOfBounds4 */
     @org.junit.Test(timeout = 10000)
-    public void testGetCompoundInTargetAtOutOfBounds4_add299_failAssert0() {
-        // AssertGenerator generate try/catch block with fail statement
+    public void testGetCompoundInTargetAtOutOfBounds4_add1_failAssert0() {
         try {
-            // MethodCallAdder
             local.getCompoundInTargetAt(4);
             local.getCompoundInTargetAt(4);
-            org.junit.Assert.fail("testGetCompoundInTargetAtOutOfBounds4_add299 should have thrown ArrayIndexOutOfBoundsException");
+            org.junit.Assert.fail("testGetCompoundInTargetAtOutOfBounds4_add1 should have thrown ArrayIndexOutOfBoundsException");
         } catch (java.lang.ArrayIndexOutOfBoundsException eee) {
         }
     }
 
-    /* amplification of org.biojava.nbio.core.alignment.SimpleSequencePairTest#testGetIndexInQueryAt */
     @org.junit.Test(timeout = 10000)
-    public void testGetIndexInQueryAt_cf339_failAssert37() {
-        // AssertGenerator generate try/catch block with fail statement
+    public void testGetIndexInQueryAt_cf38_failAssert37() {
         try {
-            // MethodAssertGenerator build local variable
-            Object o_1_0 = global.getIndexInQueryAt(1);
-            // MethodAssertGenerator build local variable
-            Object o_3_0 = global.getIndexInQueryAt(2);
-            // MethodAssertGenerator build local variable
-            Object o_5_0 = global.getIndexInQueryAt(3);
-            // MethodAssertGenerator build local variable
-            Object o_7_0 = global.getIndexInQueryAt(4);
-            // MethodAssertGenerator build local variable
-            Object o_9_0 = global.getIndexInQueryAt(5);
-            // MethodAssertGenerator build local variable
-            Object o_11_0 = local.getIndexInQueryAt(1);
-            // MethodAssertGenerator build local variable
-            Object o_13_0 = local.getIndexInQueryAt(2);
-            // StatementAdderOnAssert create literal from method
-            int int_vc_2 = 1;
-            // StatementAdderOnAssert create null value
-            org.biojava.nbio.core.sequence.template.Sequence vc_58 = (org.biojava.nbio.core.sequence.template.Sequence)null;
-            // StatementAdderMethod cloned existing statement
-            vc_58.getCompoundAt(int_vc_2);
-            // MethodAssertGenerator build local variable
-            Object o_21_0 = local.getIndexInQueryAt(3);
-            org.junit.Assert.fail("testGetIndexInQueryAt_cf339 should have thrown NullPointerException");
+            java.lang.Object o_1_0 = global.getIndexInQueryAt(1);
+            java.lang.Object o_3_0 = global.getIndexInQueryAt(2);
+            java.lang.Object o_5_0 = global.getIndexInQueryAt(3);
+            java.lang.Object o_7_0 = global.getIndexInQueryAt(4);
+            java.lang.Object o_9_0 = global.getIndexInQueryAt(5);
+            java.lang.Object o_11_0 = local.getIndexInQueryAt(1);
+            java.lang.Object o_13_0 = local.getIndexInQueryAt(2);
+            int int_vc_0 = 2;
+            org.biojava.nbio.core.sequence.template.Sequence vc_0 = ((org.biojava.nbio.core.sequence.template.Sequence) (null));
+            vc_0.getCompoundAt(int_vc_0);
+            java.lang.Object o_21_0 = local.getIndexInQueryAt(3);
+            org.junit.Assert.fail("testGetIndexInQueryAt_cf38 should have thrown NullPointerException");
         } catch (java.lang.NullPointerException eee) {
         }
     }
 
-    /* amplification of org.biojava.nbio.core.alignment.SimpleSequencePairTest#testGetIndexInQueryAtOutOfBounds */
     @org.junit.Test(timeout = 10000)
-    public void testGetIndexInQueryAtOutOfBounds_add457_failAssert0() {
-        // AssertGenerator generate try/catch block with fail statement
+    public void testGetIndexInQueryAtOutOfBounds_add1_failAssert0() {
         try {
-            // MethodCallAdder
             global.getIndexInQueryAt(0);
             global.getIndexInQueryAt(0);
-            org.junit.Assert.fail("testGetIndexInQueryAtOutOfBounds_add457 should have thrown ArrayIndexOutOfBoundsException");
+            org.junit.Assert.fail("testGetIndexInQueryAtOutOfBounds_add1 should have thrown ArrayIndexOutOfBoundsException");
         } catch (java.lang.ArrayIndexOutOfBoundsException eee) {
         }
     }
 
-    /* amplification of org.biojava.nbio.core.alignment.SimpleSequencePairTest#testGetIndexInQueryAtOutOfBounds2 */
     @org.junit.Test(timeout = 10000)
-    public void testGetIndexInQueryAtOutOfBounds2_add460_failAssert0() {
-        // AssertGenerator generate try/catch block with fail statement
+    public void testGetIndexInQueryForTargetAt_cf29_failAssert28() {
         try {
-            // MethodCallAdder
-            global.getIndexInQueryAt(6);
-            global.getIndexInQueryAt(6);
-            org.junit.Assert.fail("testGetIndexInQueryAtOutOfBounds2_add460 should have thrown ArrayIndexOutOfBoundsException");
-        } catch (java.lang.ArrayIndexOutOfBoundsException eee) {
-        }
-    }
-
-    /* amplification of org.biojava.nbio.core.alignment.SimpleSequencePairTest#testGetIndexInQueryAtOutOfBounds3 */
-    @org.junit.Test(timeout = 10000)
-    public void testGetIndexInQueryAtOutOfBounds3_add463_failAssert0() {
-        // AssertGenerator generate try/catch block with fail statement
-        try {
-            // MethodCallAdder
-            local.getIndexInQueryAt(0);
-            local.getIndexInQueryAt(0);
-            org.junit.Assert.fail("testGetIndexInQueryAtOutOfBounds3_add463 should have thrown ArrayIndexOutOfBoundsException");
-        } catch (java.lang.ArrayIndexOutOfBoundsException eee) {
-        }
-    }
-
-    /* amplification of org.biojava.nbio.core.alignment.SimpleSequencePairTest#testGetIndexInQueryAtOutOfBounds4 */
-    @org.junit.Test(timeout = 10000)
-    public void testGetIndexInQueryAtOutOfBounds4_add466_failAssert0() {
-        // AssertGenerator generate try/catch block with fail statement
-        try {
-            // MethodCallAdder
-            local.getIndexInQueryAt(4);
-            local.getIndexInQueryAt(4);
-            org.junit.Assert.fail("testGetIndexInQueryAtOutOfBounds4_add466 should have thrown ArrayIndexOutOfBoundsException");
-        } catch (java.lang.ArrayIndexOutOfBoundsException eee) {
-        }
-    }
-
-    /* amplification of org.biojava.nbio.core.alignment.SimpleSequencePairTest#testGetIndexInQueryForTargetAt */
-    @org.junit.Test(timeout = 10000)
-    public void testGetIndexInQueryForTargetAt_cf497_failAssert28() {
-        // AssertGenerator generate try/catch block with fail statement
-        try {
-            // MethodAssertGenerator build local variable
-            Object o_1_0 = global.getIndexInQueryForTargetAt(1);
-            // MethodAssertGenerator build local variable
-            Object o_3_0 = global.getIndexInQueryForTargetAt(2);
-            // MethodAssertGenerator build local variable
-            Object o_5_0 = global.getIndexInQueryForTargetAt(3);
-            // MethodAssertGenerator build local variable
-            Object o_7_0 = local.getIndexInQueryForTargetAt(1);
-            // MethodAssertGenerator build local variable
-            Object o_9_0 = local.getIndexInQueryForTargetAt(2);
-            // StatementAdderOnAssert create literal from method
-            int int_vc_3 = 4;
-            // StatementAdderOnAssert create null value
-            org.biojava.nbio.core.sequence.template.Sequence vc_87 = (org.biojava.nbio.core.sequence.template.Sequence)null;
-            // StatementAdderMethod cloned existing statement
-            vc_87.getCompoundAt(int_vc_3);
-            // MethodAssertGenerator build local variable
-            Object o_17_0 = local.getIndexInQueryForTargetAt(3);
-            org.junit.Assert.fail("testGetIndexInQueryForTargetAt_cf497 should have thrown NullPointerException");
+            java.lang.Object o_1_0 = global.getIndexInQueryForTargetAt(1);
+            java.lang.Object o_3_0 = global.getIndexInQueryForTargetAt(2);
+            java.lang.Object o_5_0 = global.getIndexInQueryForTargetAt(3);
+            java.lang.Object o_7_0 = local.getIndexInQueryForTargetAt(1);
+            java.lang.Object o_9_0 = local.getIndexInQueryForTargetAt(2);
+            int int_vc_0 = 2;
+            org.biojava.nbio.core.sequence.template.Sequence vc_0 = ((org.biojava.nbio.core.sequence.template.Sequence) (null));
+            vc_0.getCompoundAt(int_vc_0);
+            java.lang.Object o_17_0 = local.getIndexInQueryForTargetAt(3);
+            org.junit.Assert.fail("testGetIndexInQueryForTargetAt_cf29 should have thrown NullPointerException");
         } catch (java.lang.NullPointerException eee) {
         }
     }
 
-    /* amplification of org.biojava.nbio.core.alignment.SimpleSequencePairTest#testGetIndexInQueryForTargetAtOutOfBounds */
     @org.junit.Test(timeout = 10000)
-    public void testGetIndexInQueryForTargetAtOutOfBounds_add625_failAssert0() {
-        // AssertGenerator generate try/catch block with fail statement
+    public void testGetIndexInQueryForTargetAtOutOfBounds_add1_failAssert0() {
         try {
-            // MethodCallAdder
             global.getIndexInQueryForTargetAt(0);
             global.getIndexInQueryForTargetAt(0);
-            org.junit.Assert.fail("testGetIndexInQueryForTargetAtOutOfBounds_add625 should have thrown ArrayIndexOutOfBoundsException");
+            org.junit.Assert.fail("testGetIndexInQueryForTargetAtOutOfBounds_add1 should have thrown ArrayIndexOutOfBoundsException");
         } catch (java.lang.ArrayIndexOutOfBoundsException eee) {
         }
     }
 
-    /* amplification of org.biojava.nbio.core.alignment.SimpleSequencePairTest#testGetIndexInQueryForTargetAtOutOfBounds2 */
     @org.junit.Test(timeout = 10000)
-    public void testGetIndexInQueryForTargetAtOutOfBounds2_add628_failAssert0() {
-        // AssertGenerator generate try/catch block with fail statement
+    public void testGetIndexInTargetAt_cf34_failAssert33() {
         try {
-            // MethodCallAdder
-            global.getIndexInQueryForTargetAt(4);
-            global.getIndexInQueryForTargetAt(4);
-            org.junit.Assert.fail("testGetIndexInQueryForTargetAtOutOfBounds2_add628 should have thrown ArrayIndexOutOfBoundsException");
+            java.lang.Object o_1_0 = global.getIndexInTargetAt(1);
+            java.lang.Object o_3_0 = global.getIndexInTargetAt(2);
+            java.lang.Object o_5_0 = global.getIndexInTargetAt(3);
+            java.lang.Object o_7_0 = global.getIndexInTargetAt(4);
+            java.lang.Object o_9_0 = global.getIndexInTargetAt(5);
+            java.lang.Object o_11_0 = local.getIndexInTargetAt(1);
+            java.lang.Object o_13_0 = local.getIndexInTargetAt(2);
+            int int_vc_0 = 2;
+            org.biojava.nbio.core.sequence.template.Sequence vc_0 = ((org.biojava.nbio.core.sequence.template.Sequence) (null));
+            vc_0.getCompoundAt(int_vc_0);
+            java.lang.Object o_21_0 = local.getIndexInTargetAt(3);
+            org.junit.Assert.fail("testGetIndexInTargetAt_cf34 should have thrown NullPointerException");
+        } catch (java.lang.NullPointerException eee) {
+        }
+    }
+
+    @org.junit.Test(timeout = 10000)
+    public void testGetIndexInTargetAtOutOfBounds_add1_failAssert0() {
+        try {
+            global.getIndexInTargetAt(0);
+            global.getIndexInTargetAt(0);
+            org.junit.Assert.fail("testGetIndexInTargetAtOutOfBounds_add1 should have thrown ArrayIndexOutOfBoundsException");
         } catch (java.lang.ArrayIndexOutOfBoundsException eee) {
         }
     }
 
-    /* amplification of org.biojava.nbio.core.alignment.SimpleSequencePairTest#testGetIndexInQueryForTargetAtOutOfBounds3 */
     @org.junit.Test(timeout = 10000)
-    public void testGetIndexInQueryForTargetAtOutOfBounds3_add631_failAssert0() {
-        // AssertGenerator generate try/catch block with fail statement
+    public void testGetIndexInTargetForQueryAt_cf33_failAssert32() {
         try {
-            // MethodCallAdder
-            local.getIndexInQueryForTargetAt(0);
-            local.getIndexInQueryForTargetAt(0);
-            org.junit.Assert.fail("testGetIndexInQueryForTargetAtOutOfBounds3_add631 should have thrown ArrayIndexOutOfBoundsException");
+            java.lang.Object o_1_0 = global.getIndexInTargetForQueryAt(1);
+            java.lang.Object o_3_0 = global.getIndexInTargetForQueryAt(2);
+            java.lang.Object o_5_0 = global.getIndexInTargetForQueryAt(3);
+            java.lang.Object o_7_0 = global.getIndexInTargetForQueryAt(4);
+            java.lang.Object o_9_0 = local.getIndexInTargetForQueryAt(1);
+            java.lang.Object o_11_0 = local.getIndexInTargetForQueryAt(2);
+            java.lang.Object o_13_0 = local.getIndexInTargetForQueryAt(3);
+            int int_vc_0 = 3;
+            org.biojava.nbio.core.sequence.template.Sequence vc_0 = ((org.biojava.nbio.core.sequence.template.Sequence) (null));
+            vc_0.getCompoundAt(int_vc_0);
+            java.lang.Object o_21_0 = local.getIndexInTargetForQueryAt(4);
+            org.junit.Assert.fail("testGetIndexInTargetForQueryAt_cf33 should have thrown NullPointerException");
+        } catch (java.lang.NullPointerException eee) {
+        }
+    }
+
+    @org.junit.Test(timeout = 10000)
+    public void testGetIndexInTargetForQueryAtOutOfBounds_add1_failAssert0() {
+        try {
+            global.getIndexInTargetForQueryAt(0);
+            global.getIndexInTargetForQueryAt(0);
+            org.junit.Assert.fail("testGetIndexInTargetForQueryAtOutOfBounds_add1 should have thrown ArrayIndexOutOfBoundsException");
         } catch (java.lang.ArrayIndexOutOfBoundsException eee) {
         }
     }
 
-    /* amplification of org.biojava.nbio.core.alignment.SimpleSequencePairTest#testGetIndexInQueryForTargetAtOutOfBounds4 */
     @org.junit.Test(timeout = 10000)
-    public void testGetIndexInQueryForTargetAtOutOfBounds4_add634_failAssert0() {
-        // AssertGenerator generate try/catch block with fail statement
+    public void testGetNumIdenticals_cf10_failAssert9() {
         try {
-            // MethodCallAdder
-            local.getIndexInQueryForTargetAt(4);
-            local.getIndexInQueryForTargetAt(4);
-            org.junit.Assert.fail("testGetIndexInQueryForTargetAtOutOfBounds4_add634 should have thrown ArrayIndexOutOfBoundsException");
-        } catch (java.lang.ArrayIndexOutOfBoundsException eee) {
+            java.lang.Object o_1_0 = global.getNumIdenticals();
+            int vc_2 = 362573722;
+            org.biojava.nbio.core.sequence.template.Sequence vc_0 = ((org.biojava.nbio.core.sequence.template.Sequence) (null));
+            vc_0.getCompoundAt(vc_2);
+            java.lang.Object o_9_0 = local.getNumIdenticals();
+            org.junit.Assert.fail("testGetNumIdenticals_cf10 should have thrown NullPointerException");
+        } catch (java.lang.NullPointerException eee) {
         }
     }
 
-    /* amplification of org.biojava.nbio.core.alignment.SimpleSequencePairTest#testGetIndexInTargetAt */
     @org.junit.Test(timeout = 10000)
-    public void testGetIndexInTargetAt_cf670_failAssert33() {
+    public void testGetPercentageOfIdentity_cf19_failAssert8() {
+        try {
+            java.lang.Object o_1_0 = global.getPercentageOfIdentity();
+            int vc_2 = 1517406316;
+            org.biojava.nbio.core.sequence.template.Sequence vc_0 = ((org.biojava.nbio.core.sequence.template.Sequence) (null));
+            vc_0.getCompoundAt(vc_2);
+            java.lang.Object o_9_0 = local.getPercentageOfIdentity();
+            org.junit.Assert.fail("testGetPercentageOfIdentity_cf19 should have thrown NullPointerException");
+        } catch (java.lang.NullPointerException eee) {
+        }
+    }
+
+    @org.junit.Test(timeout = 10000)
+    public void testGetNumSimilars_cf10_failAssert9() {
+        try {
+            java.lang.Object o_1_0 = global.getNumSimilars();
+            int vc_2 = 362573722;
+            org.biojava.nbio.core.sequence.template.Sequence vc_0 = ((org.biojava.nbio.core.sequence.template.Sequence) (null));
+            vc_0.getCompoundAt(vc_2);
+            java.lang.Object o_9_0 = local.getNumSimilars();
+            org.junit.Assert.fail("testGetNumSimilars_cf10 should have thrown NullPointerException");
+        } catch (java.lang.NullPointerException eee) {
+        }
+    }
+
+    @org.junit.Test(timeout = 10000)
+    public void testGetQuery_cf15_failAssert1() {
+        try {
+            java.lang.Object o_1_0 = global.getQuery().getOriginalSequence();
+            org.biojava.nbio.core.sequence.template.Sequence vc_15 = ((org.biojava.nbio.core.sequence.template.Sequence) (null));
+            vc_15.getLength();
+            java.lang.Object o_8_0 = local.getQuery().getOriginalSequence();
+            org.junit.Assert.fail("testGetQuery_cf15 should have thrown NullPointerException");
+        } catch (java.lang.NullPointerException eee) {
+        }
+    }
+
+    /* amplification of org.biojava.nbio.core.alignment.SimpleSequencePairTest#testGetTarget */
+    @org.junit.Test(timeout = 10000)
+    public void testGetTarget_cf15_failAssert1() {
         // AssertGenerator generate try/catch block with fail statement
         try {
             // MethodAssertGenerator build local variable
-            Object o_1_0 = global.getIndexInTargetAt(1);
-            // MethodAssertGenerator build local variable
-            Object o_3_0 = global.getIndexInTargetAt(2);
-            // MethodAssertGenerator build local variable
-            Object o_5_0 = global.getIndexInTargetAt(3);
-            // MethodAssertGenerator build local variable
-            Object o_7_0 = global.getIndexInTargetAt(4);
-            // MethodAssertGenerator build local variable
-            Object o_9_0 = global.getIndexInTargetAt(5);
-            // MethodAssertGenerator build local variable
-            Object o_11_0 = local.getIndexInTargetAt(1);
-            // MethodAssertGenerator build local variable
-            Object o_13_0 = local.getIndexInTargetAt(2);
-            // StatementAdderOnAssert create literal from method
-            int int_vc_4 = 5;
+            Object o_1_0 = global.getTarget().getOriginalSequence();
             // StatementAdderOnAssert create null value
-            org.biojava.nbio.core.sequence.template.Sequence vc_116 = (org.biojava.nbio.core.sequence.template.Sequence)null;
+            org.biojava.nbio.core.sequence.template.Sequence vc_15 = (org.biojava.nbio.core.sequence.template.Sequence)null;
             // StatementAdderMethod cloned existing statement
-            vc_116.getCompoundAt(int_vc_4);
+            vc_15.getLength();
             // MethodAssertGenerator build local variable
-            Object o_21_0 = local.getIndexInTargetAt(3);
-            org.junit.Assert.fail("testGetIndexInTargetAt_cf670 should have thrown NullPointerException");
+            Object o_8_0 = local.getTarget().getOriginalSequence();
+            org.junit.Assert.fail("testGetTarget_cf15 should have thrown NullPointerException");
         } catch (java.lang.NullPointerException eee) {
         }
     }

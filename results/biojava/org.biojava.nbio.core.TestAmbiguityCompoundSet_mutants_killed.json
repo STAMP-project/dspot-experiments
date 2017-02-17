@@ -1,0 +1,76 @@
+{
+  "name": "TestAmbiguityCompoundSet",
+  "testCases": [
+    {
+      "name": "testCompountSet_literalMutation17_failAssert15",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 10,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 96,
+          "locationMethod": "equalsIgnoreCase"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 100,
+          "locationMethod": "getCompoundForString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 93,
+          "locationMethod": "equalsIgnoreCase"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 96,
+          "locationMethod": "getCompoundForString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "lineNumber": 112,
+          "locationMethod": "getMaxSingleCompoundStringLength"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "lineNumber": 112,
+          "locationMethod": "getMaxSingleCompoundStringLength"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 109,
+          "locationMethod": "getMaxSingleCompoundStringLength"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 76,
+          "locationMethod": "equals"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 79,
+          "locationMethod": "equals"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 92,
+          "locationMethod": "getCompoundForString"
+        }
+      ]
+    },
+    {
+      "name": "testCompountSet_literalMutation17_failAssert15_cf698",
+      "nbAssertionAdded": 15,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 132,
+          "locationMethod": "isCompoundStringLengthEqual"
+        }
+      ]
+    }
+  ]
+}

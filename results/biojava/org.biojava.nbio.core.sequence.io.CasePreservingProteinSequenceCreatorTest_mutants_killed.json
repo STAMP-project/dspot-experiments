@@ -1,0 +1,33 @@
+{
+  "name": "CasePreservingProteinSequenceCreatorTest",
+  "testCases": [
+    {
+      "name": "testConstructor_literalMutation1",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        }
+      ]
+    }
+  ]
+}

@@ -1,65 +1,957 @@
 {
-	"org.biojava.nbio.core.alignment.SimpleAlignedSequenceTest": {
-		"testCountCompounds_cf14_failAssert13":{
-			"#AssertionAdded":1,
-			"#InputAdded":3,
-			"#MutantKilled":4,
-			"MutantsKilled":[
-			{
-				"ID":"org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
-				"lineNumber":"75",
-				"location":"setShortName"
-			}
-,
-			{
-				"ID":"org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
-				"lineNumber":"95",
-				"location":"setMolecularWeight"
-			}
-,
-			{
-				"ID":"org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
-				"lineNumber":"65",
-				"location":"setDescription"
-			}
-,
-			{
-				"ID":"org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
-				"lineNumber":"85",
-				"location":"setLongName"
-			}
-			]
-		},
-		"testGetAccession_cf434_failAssert0":{
-			"#AssertionAdded":1,
-			"#InputAdded":3,
-			"#MutantKilled":4,
-			"MutantsKilled":[
-			{
-				"ID":"org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
-				"lineNumber":"75",
-				"location":"setShortName"
-			}
-,
-			{
-				"ID":"org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
-				"lineNumber":"95",
-				"location":"setMolecularWeight"
-			}
-,
-			{
-				"ID":"org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
-				"lineNumber":"65",
-				"location":"setDescription"
-			}
-,
-			{
-				"ID":"org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
-				"lineNumber":"85",
-				"location":"setLongName"
-			}
-			]
-		}
-
-	}
+  "name": "SimpleAlignedSequenceTest",
+  "testCases": [
+    {
+      "name": "testGetAlignmentIndexAt_cf109_failAssert87",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        }
+      ]
+    },
+    {
+      "name": "testGetAlignmentIndexAt_cf113_failAssert89_add188_add434",
+      "nbAssertionAdded": 35,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        }
+      ]
+    },
+    {
+      "name": "testGetAlignmentIndexAtOutOfBounds_add1_failAssert0",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        }
+      ]
+    },
+    {
+      "name": "testGetAlignmentIndexAtOutOfBounds2_add1_failAssert0",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        }
+      ]
+    },
+    {
+      "name": "testGetAlignmentIndexAtOutOfBounds3_add1_failAssert0",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        }
+      ]
+    },
+    {
+      "name": "testGetAlignmentIndexAtOutOfBounds4_add1_failAssert0",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        }
+      ]
+    },
+    {
+      "name": "testGetEnd_cf10_failAssert5",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        }
+      ]
+    },
+    {
+      "name": "testGetLocationInAlignment_cf107_failAssert84_literalMutation6432_failAssert12",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        }
+      ]
+    },
+    {
+      "name": "testGetLocationInAlignment_cf105_failAssert83",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        }
+      ]
+    },
+    {
+      "name": "testGetLocationInAlignment_cf109_failAssert85_literalMutation6479_failAssert11_literalMutation8438_failAssert4",
+      "nbAssertionAdded": 3,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        }
+      ]
+    },
+    {
+      "name": "testGetNumGaps_cf14_failAssert11",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        }
+      ]
+    },
+    {
+      "name": "testGetNumGapPositions_cf15_failAssert12",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        }
+      ]
+    },
+    {
+      "name": "testGetCoverage_cf30_failAssert15",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        }
+      ]
+    },
+    {
+      "name": "testGetOriginalSequence_cf15_failAssert5",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        }
+      ]
+    },
+    {
+      "name": "testGetOverlapCount_cf13_failAssert12",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        }
+      ]
+    },
+    {
+      "name": "testGetSequenceIndexAt_cf103_failAssert91",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        }
+      ]
+    },
+    {
+      "name": "testGetSequenceIndexAtOutOfBounds_add1_failAssert0",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        }
+      ]
+    },
+    {
+      "name": "testGetSequenceIndexAtOutOfBounds2_add1_failAssert0",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        }
+      ]
+    },
+    {
+      "name": "testGetSequenceIndexAtOutOfBounds3_add1_failAssert0",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        }
+      ]
+    },
+    {
+      "name": "testGetSequenceIndexAtOutOfBounds4_add1_failAssert0",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        }
+      ]
+    },
+    {
+      "name": "testGetStart_cf10_failAssert5",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        }
+      ]
+    },
+    {
+      "name": "testIsCircular_cf15_failAssert5",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        }
+      ]
+    },
+    {
+      "name": "testCountCompounds_cf14_failAssert13",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        }
+      ]
+    },
+    {
+      "name": "testGetAccession_cf15_failAssert5",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        }
+      ]
+    },
+    {
+      "name": "testGetAsList_cf16_failAssert6",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        }
+      ]
+    },
+    {
+      "name": "testGetCompoundAt_cf10_failAssert5",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        }
+      ]
+    },
+    {
+      "name": "testGetCompoundSet_cf15_failAssert5",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        }
+      ]
+    },
+    {
+      "name": "testGetIndexOf_cf28_failAssert27",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        }
+      ]
+    },
+    {
+      "name": "testGetLastIndexOf_cf29_failAssert28",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        }
+      ]
+    },
+    {
+      "name": "testGetLength_cf16_failAssert15",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        }
+      ]
+    },
+    {
+      "name": "testGetSequenceAsString_cf16_failAssert15",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        }
+      ]
+    },
+    {
+      "name": "testGetSequenceAsStringIntegerIntegerStrand_cf13_failAssert12",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        }
+      ]
+    },
+    {
+      "name": "testIterator_cf15_failAssert5",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        }
+      ]
+    },
+    {
+      "name": "testToString_cf16_failAssert15",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "setMolecularWeight"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 75,
+          "locationMethod": "setShortName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 85,
+          "locationMethod": "setLongName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 65,
+          "locationMethod": "setDescription"
+        }
+      ]
+    }
+  ]
 }

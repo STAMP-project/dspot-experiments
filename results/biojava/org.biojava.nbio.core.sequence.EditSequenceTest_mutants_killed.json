@@ -1,5 +1,377 @@
 {
-	"org.biojava.nbio.core.sequence.EditSequenceTest": {
-
-	}
+  "testCases": [
+    {
+      "name": "badSubstitute_add1_failAssert0",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 5,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 50,
+          "locationMethod": "addNucleotideCompound"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 50,
+          "locationMethod": "newNucleotideCompound"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 50,
+          "locationMethod": "newNucleotideCompound"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 50,
+          "locationMethod": "addNucleotideCompound"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 50,
+          "locationMethod": "newNucleotideCompound"
+        }
+      ]
+    },
+    {
+      "name": "delete_literalMutation14_failAssert10_literalMutation288_failAssert0",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 5,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 50,
+          "locationMethod": "addNucleotideCompound"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 50,
+          "locationMethod": "newNucleotideCompound"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 50,
+          "locationMethod": "newNucleotideCompound"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 50,
+          "locationMethod": "addNucleotideCompound"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 50,
+          "locationMethod": "newNucleotideCompound"
+        }
+      ]
+    },
+    {
+      "name": "delete_literalMutation4_failAssert0_literalMutation35_failAssert1_literalMutation651_failAssert5",
+      "nbAssertionAdded": 3,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 127,
+          "locationMethod": "setBioStart"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 127,
+          "locationMethod": "setBioStart"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 126,
+          "locationMethod": "setBioStart"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 126,
+          "locationMethod": "setBioStart"
+        }
+      ]
+    },
+    {
+      "name": "delete_literalMutation14_failAssert10_literalMutation288_failAssert0_literalMutation622_failAssert0",
+      "nbAssertionAdded": 3,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 99,
+          "locationMethod": "grepCompoundSet"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 190,
+          "locationMethod": "getThreePrime"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 98,
+          "locationMethod": "grepCompoundSet"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 98,
+          "locationMethod": "grepCompoundSet"
+        }
+      ]
+    },
+    {
+      "name": "delete_literalMutation4_failAssert0",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 99,
+          "locationMethod": "grepCompoundSet"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 190,
+          "locationMethod": "getThreePrime"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 98,
+          "locationMethod": "grepCompoundSet"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 98,
+          "locationMethod": "grepCompoundSet"
+        }
+      ]
+    },
+    {
+      "name": "delete_literalMutation4_failAssert0_literalMutation35_failAssert1",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 170,
+          "locationMethod": "toStringBuilder"
+        }
+      ]
+    },
+    {
+      "name": "insert_literalMutation66_failAssert60_literalMutation4040_failAssert10",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 428,
+          "locationMethod": "next"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 429,
+          "locationMethod": "next"
+        }
+      ]
+    },
+    {
+      "name": "insert_literalMutation58_failAssert52_literalMutation3531_failAssert2_literalMutation4226_failAssert1",
+      "nbAssertionAdded": 3,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 127,
+          "locationMethod": "setBioStart"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 126,
+          "locationMethod": "setBioStart"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 127,
+          "locationMethod": "setBioStart"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 126,
+          "locationMethod": "setBioStart"
+        }
+      ]
+    },
+    {
+      "name": "insert_literalMutation14_failAssert8_literalMutation599_failAssert29",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 5,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 50,
+          "locationMethod": "addNucleotideCompound"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 50,
+          "locationMethod": "newNucleotideCompound"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 50,
+          "locationMethod": "newNucleotideCompound"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 50,
+          "locationMethod": "addNucleotideCompound"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 50,
+          "locationMethod": "newNucleotideCompound"
+        }
+      ]
+    },
+    {
+      "name": "insert_literalMutation34_failAssert28_literalMutation1944_failAssert15_literalMutation5082_failAssert13",
+      "nbAssertionAdded": 3,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 428,
+          "locationMethod": "next"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 429,
+          "locationMethod": "next"
+        }
+      ]
+    },
+    {
+      "name": "insert_literalMutation34_failAssert28_literalMutation1944_failAssert15",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 127,
+          "locationMethod": "setBioStart"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 126,
+          "locationMethod": "setBioStart"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 127,
+          "locationMethod": "setBioStart"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 126,
+          "locationMethod": "setBioStart"
+        }
+      ]
+    },
+    {
+      "name": "insert_literalMutation63_failAssert57_literalMutation3840_failAssert5_literalMutation4412_failAssert24",
+      "nbAssertionAdded": 3,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 248,
+          "locationMethod": "getFivePrime"
+        }
+      ]
+    },
+    {
+      "name": "insert_literalMutation27_failAssert21",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 428,
+          "locationMethod": "next"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 429,
+          "locationMethod": "next"
+        }
+      ]
+    },
+    {
+      "name": "insert_literalMutation58_failAssert52_literalMutation3495_failAssert28",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 248,
+          "locationMethod": "getFivePrime"
+        }
+      ]
+    },
+    {
+      "name": "insert_literalMutation25_failAssert19",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 127,
+          "locationMethod": "setBioStart"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 126,
+          "locationMethod": "setBioStart"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 127,
+          "locationMethod": "setBioStart"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 126,
+          "locationMethod": "setBioStart"
+        }
+      ]
+    },
+    {
+      "name": "insert_literalMutation13_failAssert7",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 248,
+          "locationMethod": "getFivePrime"
+        }
+      ]
+    }
+  ]
 }
