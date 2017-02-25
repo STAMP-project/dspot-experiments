@@ -1,7 +1,7 @@
 import json
 import sys
 
-keyMutant = "NbMutantKilled"
+keyMutant = "#MutantKilled"
 
 def usage():
     print("usage : python top_killer.py (-m <mode>) <pathToOutDspot.json>")
@@ -13,15 +13,15 @@ def top_killer(filename):
 
     with open(filename) as data_file:
         data = json.load(data_file)
-    if "testCases" in data:
-        for amplifiedMethod in data["testCases"]:
-            currentScore = amplifiedMethod["nbMutantKilled"]
+    for clazz in data:
+        for amplifiedMethod in data[clazz]:
+            currentScore = data[clazz][amplifiedMethod][keyMutant]
             if currentScore > topScore:
                 topScore = currentScore
                 bestAmplifiedMethodName = amplifiedMethod
-
         if bestAmplifiedMethodName != "none":
-            print(bestAmplifiedMethodName["name"] + " kills " + str(topScore) + " mutants")
+            print clazz
+            print(bestAmplifiedMethodName + " kills " + str(topScore) + " mutants")
 
 if len(sys.argv) < 2:
     usage()
