@@ -1,0 +1,51 @@
+{
+  "name": "JsonUtf8WriterTest",
+  "testCases": [
+    {
+      "name": "repeatedNameIgnored_add17244_failAssert0_add17250",
+      "nbAssertionAdded": 6,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 208,
+          "locationMethod": "isLenient"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 224,
+          "locationMethod": "getSerializeNulls"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 89,
+          "locationMethod": "beginObject"
+        }
+      ]
+    },
+    {
+      "name": "prettyPrintObject_add13114_failAssert0_add13208",
+      "nbAssertionAdded": 6,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 208,
+          "locationMethod": "isLenient"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 224,
+          "locationMethod": "getSerializeNulls"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 89,
+          "locationMethod": "beginObject"
+        }
+      ]
+    }
+  ]
+}
