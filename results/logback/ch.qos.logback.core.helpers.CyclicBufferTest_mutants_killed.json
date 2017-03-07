@@ -1,0 +1,69 @@
+{
+  "name": "CyclicBufferTest",
+  "testCases": [
+    {
+      "name": "cloning_cf39_failAssert12",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 146,
+          "locationMethod": "resize"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 146,
+          "locationMethod": "resize"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 147,
+          "locationMethod": "resize"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 147,
+          "locationMethod": "resize"
+        }
+      ]
+    },
+    {
+      "name": "smoke_cf773_failAssert24_literalMutation887_literalMutation1398_failAssert37",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 5,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 45,
+          "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 44,
+          "locationMethod": "\u003cinit\u003e"
+        }
+      ]
+    },
+    {
+      "name": "cloning_cf24_failAssert8_literalMutation100_literalMutation425_failAssert0",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 45,
+          "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 44,
+          "locationMethod": "\u003cinit\u003e"
+        }
+      ]
+    }
+  ]
+}

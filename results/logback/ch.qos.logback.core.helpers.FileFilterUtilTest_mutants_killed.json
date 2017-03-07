@@ -1,0 +1,72 @@
+{
+  "name": "FileFilterUtilTest",
+  "testCases": [
+    {
+      "name": "findHighestCounterTest_literalMutation70_failAssert3",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 105,
+          "locationMethod": "extractCounter"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 105,
+          "locationMethod": "extractCounter"
+        }
+      ]
+    },
+    {
+      "name": "findHighestCounterTest_cf213",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 117,
+          "locationMethod": "removeEmptyParentDirectories"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 117,
+          "locationMethod": "removeEmptyParentDirectories"
+        }
+      ]
+    },
+    {
+      "name": "findHighestCounterTest_literalMutation69_failAssert11",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 71,
+          "locationMethod": "parse"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 71,
+          "locationMethod": "parse"
+        }
+      ]
+    },
+    {
+      "name": "findHighestCounterTest_cf149",
+      "nbAssertionAdded": 3,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 76,
+          "locationMethod": "filesInFolderMatchingStemRegex"
+        }
+      ]
+    }
+  ]
+}

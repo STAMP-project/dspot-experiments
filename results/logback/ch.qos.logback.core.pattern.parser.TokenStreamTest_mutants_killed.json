@@ -1,0 +1,33 @@
+{
+  "name": "TokenStreamTest",
+  "testCases": [
+    {
+      "name": "compositedKeyword_cf37_failAssert36_add132_literalMutation3850_failAssert13",
+      "nbAssertionAdded": 4,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "lineNumber": 62,
+          "locationMethod": "tokenize"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 119,
+          "locationMethod": "tokenize"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "lineNumber": 62,
+          "locationMethod": "tokenize"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 129,
+          "locationMethod": "tokenize"
+        }
+      ]
+    }
+  ]
+}
