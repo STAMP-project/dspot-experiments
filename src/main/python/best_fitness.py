@@ -32,7 +32,7 @@ def best_fitness(filename):
                 bestAmplifiedMethodName = amplifiedMethod
 
         if bestAmplifiedMethodName != "none":
-            print (bestAmplifiedMethodName["name"] + " kills " + str(bestAmplifiedMethodName["nbMutantKilled"]) +
+            print (filename + "  " + bestAmplifiedMethodName["name"] + " kills " + str(bestAmplifiedMethodName["nbMutantKilled"]) +
                 " by adding " + str(bestAmplifiedMethodName[keyAssertion] + bestAmplifiedMethodName[keyInputs]) +
                 "(" + str(maxFitness) + ")")
 
