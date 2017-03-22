@@ -1,0 +1,83 @@
+{
+  "name": "CallTest",
+  "testCases": [
+    {
+      "name": "cancelOkHttpRequest_cf12_cf70",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 73,
+          "locationMethod": "isDefaultMethod"
+        }
+      ]
+    },
+    {
+      "name": "requestAfterEnqueueFailingThrows_add3_failAssert1",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 78,
+          "locationMethod": "enqueue"
+        }
+      ]
+    },
+    {
+      "name": "requestAfterEnqueueFailingThrows_literalMutation17_add139_failAssert16",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 78,
+          "locationMethod": "enqueue"
+        }
+      ]
+    },
+    {
+      "name": "requestThrowingBeforeEnqueueFailsEnqueue_literalMutation17_cf157_failAssert11_add1268_failAssert27",
+      "nbAssertionAdded": 3,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 78,
+          "locationMethod": "enqueue"
+        }
+      ]
+    },
+    {
+      "name": "requestThrowingBeforeEnqueueFailsEnqueue_cf21_failAssert9_add275_failAssert29",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 78,
+          "locationMethod": "enqueue"
+        }
+      ]
+    },
+    {
+      "name": "requestThrowingBeforeEnqueueFailsEnqueue_add6_failAssert1",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 78,
+          "locationMethod": "enqueue"
+        }
+      ]
+    }
+  ]
+}
