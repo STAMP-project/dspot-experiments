@@ -10,6 +10,9 @@ random.seed(23)
 '''
 
 name = "name"
+originalMutantScore="nbMutantKilledOriginally"
+originalMutantScore="nbOriginalTestCases"#TODO
+nbOriginalTestCases="nbOriginalTestCases"
 testCases = "testCases"
 assertion = "nbAssertionAdded"
 input = "nbInputAdded"
@@ -20,7 +23,7 @@ ln = "lineNumber"
 method = "locationMethod"
 
 prefix = "results/"
-projects = ["protostuff", ]
+projects = [ "javapoet",  ]
 
 '''
     Compare functions
@@ -29,91 +32,22 @@ projects = ["protostuff", ]
 def gt(a, b):
     return a > b
 
-
 def lt(a, b):
     return a < b
-
 
 def eq(a, b):
     return a == b
 
-
-def compare_(compareFunc, array, testCase):
-    if compareFunc(testCase[mutant], array[1]) or (
-                    testCase[mutant] == array[1] and compareFunc(array[2],
-                                                                 testCase[input] + testCase[assertion])):
-        return [data[name], testCase[mutant], testCase[input] + testCase[assertion]], True
+def near(a, b):
+    if a == None:
+        return -1
+    if b == None:
+        return 1
     else:
-        return array, False
-
-
-def checkOnArray(compareFunc, array, testCase):
-    for i in range(2):
-        array[i], change = compare_(compareFunc, array[i], testCase)
-        if change:
-            return array, change
-    return array, change
-
-
-def checkZeroTestGenerated():
-    change = False
-    for i in range(2):
-        if badlyAmplifiedTestClasses[i][1] > 0:
-            badlyAmplifiedTestClasses[i] = [data[name], 0, 0]
-            change = True
-            break
-    if not change:
-        for i in range(2):
-            if badlyAmplifiedTestClasses[i][1] == 0 and bool(random.getrandbits(1)):
-                badlyAmplifiedTestClasses[i] = [data[name], 0, 0]
-                break
-    return badlyAmplifiedTestClasses
-
-
-def getNumbers(testCases):
-    mutantKilled = []
-    nbMutationTest = 0
-    nbAssertion = 0
-    for testCase in testCases:
-        for mutant in testCase[mutants]:
-            mutant_id = str(mutant[id]) + ":" + str(mutant[ln]) + ":" + str(mutant[method])
-            if mutant_id not in mutantKilled:
-                mutantKilled.append(mutant_id)
-        nbMutationTest += testCase[input]
-        nbAssertion += testCase[assertion]
-    return len(mutantKilled), nbMutationTest, nbAssertion
+        return lt (abs(avgNbMutantKilledOriginally - a), abs(avgNbMutantKilledOriginally - b))
 
 '''
-    Final output function: print the content of a latex table
-'''
-
-def toLatex():
-    latexStrWell = ""
-    latexStrBad = ""
-    for file in files:
-        for i in range(2):
-            if wellAmplifiedTestClasses[i][0] in file:
-                path = prefix + project + "/" + file
-                with open(path) as data_file:
-                    data = json.load(data_file)
-                    nbTestCaseGenerated = len(data[testCases])
-                    nbUniqueMutantKilled, nbMutationTest, nbAssertion = getNumbers(data[testCases])
-                    latexStrWell += project + "&" + str(data[
-                                                  name]) + "&" + str(0) + "&" + str(nbTestCaseGenerated) + "&" + str(
-                        nbUniqueMutantKilled) + "&" + str(nbMutationTest) + "&" + str(nbAssertion) + "\\\\\n"
-            elif badlyAmplifiedTestClasses[i][0] in file:
-                path = prefix + project + "/" + file
-                with open(path) as data_file:
-                    data = json.load(data_file)
-                    nbTestCaseGenerated = len(data[testCases])
-                    nbUniqueMutantKilled, nbMutationTest, nbAssertion = getNumbers(data[testCases])
-                    latexStrBad += project + "&" + str(data[
-                                                  name]) + "&" + str(0) + "&" + str(nbTestCaseGenerated) + "&" + str(
-                        nbUniqueMutantKilled) + "&" + str(nbMutationTest) + "&" + str(nbAssertion) + "\\\\\n"
-    print(latexStrWell + latexStrBad)
-
-'''
-    Sort functions
+    Sort Functions
 '''
 
 def sortByMutantScoreAndMutation(test1, test2):
@@ -122,45 +56,83 @@ def sortByMutantScoreAndMutation(test1, test2):
     if test2[0] == None:
         return 1
     if test1[1] == test2[1]:
-        return test1[2] - test2[2]
+        if bool(random.getrandbits(1)):
+            return -1
+        else:
+            return 1
     else:
         return test1[1] - test2[1]
+
+def sortByDistanceFromAVG(test1, test2):
+    if test1[0] == None:
+        return -1
+    if test2[0] == None:
+        return 1
+    d1 = abs(avgNbMutantKilledOriginally - test1[1])
+    d2 = abs(avgNbMutantKilledOriginally - test2[1])
+    return - (d1 - d2)
+
 def reverseSortByMutantScoreAndMutation(test1, test2):
     return - sortByMutantScoreAndMutation(test1, test2)
 
 
 '''
-    Main Function
+    Main Functions
 '''
+
+def compare(compareFunc, array, testClass):
+    if compareFunc(testClass[originalMutantScore], array[1]):
+        return [testClass[name], testClass[originalMutantScore]], True
+    else:
+        return array, False
+
+def compareArray(compareFunc, array, testClass):
+    for i in range(2):
+        array[i], change = compare(compareFunc, array[i], testClass)
+        if change:
+            break
+    return array
+
+
+def iterateOnArray(testClass):
+    print testClass[name], testClass[originalMutantScore]
+
+
 
 for project in projects:
 
     '''
-        Retrieve per project: two classes that is well amplified, and two classes that we could not amplify
-            criterion: - number of new mutants killed by the generated test cases.
+        Retrieve per project: 2 classes that are top killers, 2 classes that does not kill mutant,
+        and 2 classes that have a mutation score near to the avg score mutant
     '''
 
-    wellAmplifiedTestClasses = [[None for y in range(3)] for x in range(2)]
-    badlyAmplifiedTestClasses = [[None, sys.maxint, 0], [None, sys.maxint, 0]]
+    bestTestClasses = [ [None for y in range(2) ] for x in range(2) ]
+    avgTestClasses = [ [None for y in range(2) ] for x in range(2) ]
+    worstTestClasses = [ [None, sys.maxint] for x in range(2) ]
 
-    files = filter(lambda x: x.endswith(".json"), os.listdir(prefix + project))
+    avgNbMutantKilledOriginally = 0
+    cpt = 0
+
+    files = filter(lambda x: x.endswith(".json") and not x == project+".json", os.listdir(prefix + project))
     for file in files:
-        path = prefix + project + "/" + file
-        with open(path) as data_file:
+        with open(prefix + project + "/" + file) as data_file:
             data = json.load(data_file)
-            print data[name]
-            if data[testCases]:
-                for testCase in data[testCases]:
-                    wellAmplifiedTestClasses, change = checkOnArray(gt, wellAmplifiedTestClasses, testCase)
-                    if not change:
-                        badlyAmplifiedTestClasses, change = checkOnArray(lt, badlyAmplifiedTestClasses, testCase)
-                    if change:
-                        print "break"
-                        break
-            else:
-                checkZeroTestGenerated()
+            avgNbMutantKilledOriginally += data[originalMutantScore]
+            cpt += 1
 
-        wellAmplifiedTestClasses=sorted(wellAmplifiedTestClasses, cmp=sortByMutantScoreAndMutation)
-        badlyAmplifiedTestClasses=sorted(badlyAmplifiedTestClasses, cmp=reverseSortByMutantScoreAndMutation)
 
-    toLatex()
+    avgNbMutantKilledOriginally = avgNbMutantKilledOriginally / cpt
+
+    for file in files:
+        with open(prefix + project + "/" + file) as data_file:
+            testClass = json.load(data_file)
+            bestTestClasses = sorted(compareArray(gt, bestTestClasses, testClass), cmp=sortByMutantScoreAndMutation)
+            avgTestClasses = sorted(compareArray(near, avgTestClasses, testClass), cmp=sortByDistanceFromAVG)
+            badlyAmplifiedTestClasses = sorted(compareArray(lt, worstTestClasses, testClass), cmp=reverseSortByMutantScoreAndMutation)
+
+    print avgNbMutantKilledOriginally
+    print bestTestClasses
+    print avgTestClasses
+    print worstTestClasses
+
+
