@@ -26,7 +26,6 @@ def buildCmd(project, testClass, suffix):
     print cmd
     return cmd
 
-
 def select(project):
     global avg
     path = "/home/spirals/danglot/" + project + "_mutant/mutations.csv"
