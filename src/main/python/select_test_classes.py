@@ -1,15 +1,19 @@
+import json
 import csv
 import operator
 import sys
+
 
 def nearestFromAvg(a, b):
     global avg
     return abs(avg - a) - abs(avg - b)
 
+
 def getKeyByValue(dict, searchValue, alreadySelected):
     for key, value in dict.iteritems():
         if value == searchValue and not key == alreadySelected:
             return key
+
 
 def buildCmd(project, testClass, suffix):
     print testClass
@@ -26,9 +30,10 @@ def buildCmd(project, testClass, suffix):
     print cmd
     return cmd
 
-def select(project):
+def select(project, excludedClasses=[], isPackage=False):
     global avg
     path = "/home/spirals/danglot/" + project + "_mutant/mutations.csv"
+
     print path
 
     with open(path, 'rb') as csvfile:
@@ -52,13 +57,23 @@ def select(project):
                     scorePerClass[killer] = 1
                 nbTotalKilled = nbTotalKilled + 1
 
+        if isPackage:
+            for key in scorePerClass.keys():
+                if key.startswith(excludedClasses[0]):
+                    del scorePerClass[key]
+        else:
+            for excludedClass in excludedClasses:
+                del scorePerClass[excludedClass]
+
         avg = nbTotalKilled / len(scorePerClass)
         max1 = max(scorePerClass.iteritems(), key=operator.itemgetter(1))
         del scorePerClass[max1[0]]
         max2 = max(scorePerClass.iteritems(), key=operator.itemgetter(1))
+        del scorePerClass[max2[0]]
         min1 = min(scorePerClass.iteritems(), key=operator.itemgetter(1))
         del scorePerClass[min1[0]]
         min2 = min(scorePerClass.iteritems(), key=operator.itemgetter(1))
+        del scorePerClass[min2[0]]
         tmp = sorted(scorePerClass.values(), cmp=nearestFromAvg)
         avg1 = getKeyByValue(scorePerClass, tmp[0], None), tmp[0]
         avg2 = getKeyByValue(scorePerClass, tmp[1], avg1[0]), tmp[1]
@@ -66,8 +81,22 @@ def select(project):
         print min1[0], min2[0]
         print avg1[0], avg2[0]
 
+    return max1, max2, min1, min2, avg1, avg2
+
+
+def getCmd(project, excludedClasses=[], isPackage=False):
+    max1, max2, min1, min2, avg1, avg2 = select(project, excludedClasses, isPackage)
+
     return buildCmd(project, max1[0], "max1"), buildCmd(project, max2[0], "max2"), buildCmd(project, min1[0], "min1"), \
            buildCmd(project, min2[0], "min2"), buildCmd(project, avg1[0], "avg1"), buildCmd(project, avg2[0], "avg2")
-
 avg = 0
-select(sys.argv[1])
+
+if __name__ == '__main__':
+    project = sys.argv[1]
+    pathDataset = sys.argv[2]
+    print project
+    print pathDataset
+    with open(pathDataset + "/properties_rates.json") as data_file:
+        properties_rates = json.load(data_file)
+    select(project, properties_rates[project]["excludedClasses"].split(":"), properties_rates[project]["isPackage"])
+    getCmd(project, properties_rates[project]["excludedClasses"].split(":"), properties_rates[project]["isPackage"])
