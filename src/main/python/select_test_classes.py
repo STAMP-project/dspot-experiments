@@ -100,5 +100,5 @@ if __name__ == '__main__':
     print pathDataset
     with open(pathDataset + "/properties_rates.json") as data_file:
         properties_rates = json.load(data_file)
-    select(project, properties_rates[project]["excludedClasses"].split(":"), properties_rates[project]["isPackage"])
+    print select(project, properties_rates[project]["excludedClasses"].split(":"), properties_rates[project]["isPackage"])
     getCmd(project, properties_rates[project]["excludedClasses"].split(":"), properties_rates[project]["isPackage"])

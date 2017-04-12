@@ -1,3 +1,4 @@
+import sys
 import os
 import subprocess
 import json
@@ -14,8 +15,9 @@ def cmdPitest(filter):
           "-DwithHistory " \
           "-Dmutators=ALL " \
           "-DtargetClasses=" + filter + " " \
+          "-DexcludedClasses=" + fullQualifiedName  + " " \
           "-DtimeoutConst=10000 " \
-          "-DjvmArgs=16G "
+          "-DjvmArgs=16G 1>/dev/null"
     print cmd
     return cmd
 
@@ -73,7 +75,7 @@ prefixDataset = prefixDspot + "dataset"
 
 with open(prefixDataset + "/properties_rates.json") as data_file:
     properties_rates = json.load(data_file)
-types_class = ["max1", "max2", "avg1", "avg2", "min1", "min2"]
+types_class = ["max1", "max2", "min1", "min2", "avg1", "avg2"]
 
 prefixProperties = prefixDspot + "src/main/resources/"
 suffix_original = "_mutant/mutations.csv"
@@ -83,12 +85,16 @@ for project in projects:
     excludedClasses = properties_rates[project]["excludedClasses"].split(":")
     rates = []
     properties = load_properties(prefixProperties + project + ".properties")
-    subprocess.call("cd " + prefixDataset + "/" + project + "/" + subModule + " && " +
+    fullQualifiedName = ""
+    resultSelect = select_test_classes.select(project, excludedClasses, isPackage)
+    print resultSelect
+    code=subprocess.call("cd " + prefixDataset + "/" + project + "/" + subModule + " && " +
                     cmdPitest(properties["filter"]), shell=True)
+    if not code == 0:
+	sys.exit(code)
     original_rate = (project, extract_rates_from_file.extract(
         buildPathToGeneratedPitestResults(prefixDataset + "/" + project + "/" + subModule)
     ))
-    resultSelect = select_test_classes.select(project, excludedClasses, isPackage)
     for type_class in types_class:
         root_folder = "results"
         fullQualifiedName = resultSelect[types_class.index(type_class)][0]
@@ -100,8 +106,10 @@ for project in projects:
                            fullQualifiedName.split(".")[-1] + ".java"
         outputPath = prefixDataset + "/" + project + "/" + \
                      subModule + "/src/test/java/" + buildPackageAsPath(fullQualifiedName)
-        subprocess.call("cp " + amplTestPath + " " + outputPath, shell=True)
-        subprocess.call("rm -f " + originalTestPath, shell=True)
+        code=subprocess.call("cp " + amplTestPath + " " + outputPath, shell=True)
+    	if not code == 0:
+	    sys.exit(code)
+        #subprocess.call("rm -f " + originalTestPath, shell=True)
         subprocess.call("cd " + prefixDataset + "/" + project + "/" + subModule + " && " +
                         cmdPitest(properties["filter"]), shell=True)
         current_rate = extract_rates_from_file.extract(
@@ -109,10 +117,11 @@ for project in projects:
         )
         rates.append((fullQualifiedName.split(".")[-1], current_rate))
         fullQualifiedName = resultSelect[types_class.index(type_class)][0]
-        toBeRemove = outputPath + buildAmplTestPath(fullQualifiedName) + ".java"
+        toBeRemove = prefixDataset+ "/" +project + "/" + subModule + "/src/test/java/" \
+			 + buildAmplTestPath(fullQualifiedName) + ".java"
         print "rm " + toBeRemove
         subprocess.call("rm -f " + toBeRemove, shell=True)
-        subprocess.call("cd " + prefixDataset + "/" + project + " && git checkout -- .", shell=True)
+        #subprocess.call("cd " + prefixDataset + "/" + project + " && git checkout -- .", shell=True)
 
     print original_rate
     for rate in rates:
@@ -121,4 +130,4 @@ for project in projects:
     print "\\hline"
     for rate in rates:
         print rate[0] + "&" + getLine(rate[1]) + "\\\\"
-w
+
