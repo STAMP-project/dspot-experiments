@@ -62,8 +62,10 @@ def select(project, excludedClasses=[], isPackage=False):
                 if key.startswith(excludedClasses[0]):
                     del scorePerClass[key]
         else:
-            for excludedClass in excludedClasses:
-                del scorePerClass[excludedClass]
+            if excludedClasses:
+                for excludedClass in excludedClasses:
+                    if excludedClass in scorePerClass:
+                        del scorePerClass[excludedClass]
 
         avg = nbTotalKilled / len(scorePerClass)
         max1 = max(scorePerClass.iteritems(), key=operator.itemgetter(1))
