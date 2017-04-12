@@ -1,4 +1,5 @@
 import csv
+import sys
 
 def extract(path):
     indexState = 5
@@ -24,3 +25,7 @@ def extract(path):
                 nbRun += 1
             nbTotal += 1
         return nbTotal, nbRun, nbCoveredMutant, nbKilledMutant, nbError
+
+if __name__ == '__main__':
+    path = sys.argv[1]
+    print extract(path)
