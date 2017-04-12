@@ -15,8 +15,7 @@ def cmdPitest(filter):
           "-Dmutators=ALL " \
           "-DtargetClasses=" + filter + " " \
           "-DtimeoutConst=10000 " \
-          "-DjvmArgs=16G " \
-          "-DexcludedClasses=" + originalClass
+          "-DjvmArgs=16G "
     print cmd
     return cmd
 
@@ -78,11 +77,10 @@ types_class = ["max1", "max2", "avg1", "avg2", "min1", "min2"]
 
 prefixProperties = prefixDspot + "src/main/resources/"
 suffix_original = "_mutant/mutations.csv"
-originalClass = ""
 for project in projects:
     subModule = properties_rates[project]["subModule"]
     isPackage = properties_rates[project]["isPackage"]
-    excludedClasses = properties_rates[project]["excludeClasses"].split(":")
+    excludedClasses = properties_rates[project]["excludedClasses"].split(":")
     rates = []
     properties = load_properties(prefixProperties + project + ".properties")
     subprocess.call("cd " + prefixDataset + "/" + project + "/" + subModule + " && " +
@@ -94,12 +92,16 @@ for project in projects:
     for type_class in types_class:
         root_folder = "results"
         fullQualifiedName = resultSelect[types_class.index(type_class)][0]
-        originalClass = fullQualifiedName
         amplTestPath = root_folder + "/" + project + "_" + type_class + "/" + \
                        buildAmplTestPath(fullQualifiedName) + ".java"
+        originalTestPath = prefixDataset + "/" + project + "/" + \
+                           subModule + "/src/test/java/" + \
+                           buildPackageAsPath(fullQualifiedName) + "/" + \
+                           fullQualifiedName.split(".")[-1] + ".java"
         outputPath = prefixDataset + "/" + project + "/" + \
                      subModule + "/src/test/java/" + buildPackageAsPath(fullQualifiedName)
         subprocess.call("cp " + amplTestPath + " " + outputPath, shell=True)
+        subprocess.call("rm -f " + originalTestPath, shell=True)
         subprocess.call("cd " + prefixDataset + "/" + project + "/" + subModule + " && " +
                         cmdPitest(properties["filter"]), shell=True)
         current_rate = extract_rates_from_file.extract(
@@ -107,11 +109,10 @@ for project in projects:
         )
         rates.append((fullQualifiedName.split(".")[-1], current_rate))
         fullQualifiedName = resultSelect[types_class.index(type_class)][0]
-        toBeRemove = prefixDataset + "/" + project + "/" + \
-                     subModule + "/src/test/java/" + \
-                     buildAmplTestPath(fullQualifiedName) + ".java"
+        toBeRemove = outputPath + buildAmplTestPath(fullQualifiedName) + ".java"
         print "rm " + toBeRemove
         subprocess.call("rm -f " + toBeRemove, shell=True)
+        subprocess.call("cd " + prefixDataset + "/" + project + " && git checkout -- .", shell=True)
 
     print original_rate
     for rate in rates:
@@ -120,3 +121,4 @@ for project in projects:
     print "\\hline"
     for rate in rates:
         print rate[0] + "&" + getLine(rate[1]) + "\\\\"
+w
