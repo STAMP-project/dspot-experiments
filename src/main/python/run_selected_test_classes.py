@@ -6,16 +6,9 @@ def copyResult(project, suffix):
     return "cp -R " + project + "_" + suffix + "  ${HOME}/results/" + project + "_" + suffix
 
 project = sys.argv[1]
-if len(sys.argv) > 2:
-    blacklist = sys.argv[2].split(":")
-else:
-    blacklist = []
-isPackage = len(sys.argv) > 3
-print project
-print blacklist
-print isPackage
+path = sys.argv[2]
 
-max1, max2, min1, min2, avg1, avg2 = select_test_classes.getCmd(project, blacklist, isPackage)
+max1, max2, min1, min2, avg1, avg2 = select_test_classes.getCmd(project, path)
 
 subprocess.call(max1, shell=True)
 subprocess.call(copyResult(project, "max1"), shell=True)

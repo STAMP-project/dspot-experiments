@@ -5,6 +5,7 @@ import json
 
 import select_test_classes
 import extract_rates_from_file
+import install
 
 
 def cmdPitest(filter):
@@ -65,10 +66,8 @@ def getLine(rates):
            str(rates[3]) + " " + '{:.2%}'.format(float(rates[3]) / float(rates[1])).replace("%", "\\%") + "&" + \
            '{:.2%}'.format(float(rates[3]) / float(rates[2])).replace("%", "\\%")
 
-projects = ["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup", "protostuff",
-            "logback"]
-projects = ["protostuff", ]  # "javapoet", "logback", "protostuff", "stream-lib",
-# "traccar", "twilio-java", "mustache.java", "mybatis"]
+projects = ["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup", "protostuff", "logback"]
+projects = ["javapoet", "mybatis", "traccar", "mustache.java", "twilio-java", "protostuff", "logback"]
 
 prefixDspot = "/tmp/dspot-experiments/"
 prefixDataset = prefixDspot + "dataset"
@@ -79,7 +78,11 @@ types_class = ["max1", "max2", "min1", "min2", "avg1", "avg2"]
 
 prefixProperties = prefixDspot + "src/main/resources/"
 suffix_original = "_mutant/mutations.csv"
+
+f = open('workfile', 'w')
+
 for project in projects:
+    install.install(project)
     subModule = properties_rates[project]["subModule"]
     isPackage = properties_rates[project]["isPackage"]
     excludedClasses = properties_rates[project]["excludedClasses"].split(":")
@@ -130,4 +133,14 @@ for project in projects:
     print "\\hline"
     for rate in rates:
         print rate[0] + "&" + getLine(rate[1]) + "\\\\"
+    current = original_rate[0] + "&" + getLine(original_rate[1]) + "\\\\\n"
+    current += "\\hline\n"
+    for rate in rates:
+        current += rate[0] + "&" + getLine(rate[1]) + "\\\\\n"
+    f.write(current)
+
+    
+
+
+
 

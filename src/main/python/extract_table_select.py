@@ -3,10 +3,10 @@ import os
 import sys
 import random
 
-root_folder = "results_select"
+root_folder = "results"
 projects = ["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup", "protostuff",
             "logback"]
-types_class = ["max1", "max2", "avg1", "avg2", "min1", "min2"]
+types_class = ["max1", "max2", "min1", "min2", "avg1", "avg2"]
 
 prefixDspot = "/tmp/dspot-experiments/"
 prefixDataset = prefixDspot + "dataset"
