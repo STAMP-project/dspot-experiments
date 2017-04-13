@@ -1,0 +1,25 @@
+{
+  "nbMutantKilledOriginally": 422,
+  "name": "retrofit2.RetrofitTest",
+  "nbOriginalTestCases": 65,
+  "testCases": [
+    {
+      "name": "argumentCapture_cf167_failAssert29_add476",
+      "nbAssertionAdded": 3,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "lineNumber": 294,
+          "locationMethod": "parseHttpMethodAndPath"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 294,
+          "locationMethod": "parseHttpMethodAndPath"
+        }
+      ]
+    }
+  ]
+}

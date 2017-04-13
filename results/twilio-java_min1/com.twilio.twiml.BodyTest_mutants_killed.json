@@ -1,0 +1,33 @@
+{
+  "nbMutantKilledOriginally": 1,
+  "name": "com.twilio.twiml.BodyTest",
+  "nbOriginalTestCases": 2,
+  "testCases": [
+    {
+      "name": "testXml_cf55",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 25,
+          "locationMethod": "getBody"
+        }
+      ]
+    },
+    {
+      "name": "testUrl_cf12",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 25,
+          "locationMethod": "getBody"
+        }
+      ]
+    }
+  ]
+}

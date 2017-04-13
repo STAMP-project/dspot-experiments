@@ -1,0 +1,74 @@
+{
+  "nbMutantKilledOriginally": 8,
+  "name": "org.traccar.events.CommandResultEventHandlerTest",
+  "nbOriginalTestCases": 1,
+  "testCases": [
+    {
+      "name": "testCommandResultEventHandler_cf8",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 64,
+          "locationMethod": "getServerTime"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 64,
+          "locationMethod": "getServerTime"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 67,
+          "locationMethod": "getServerTime"
+        }
+      ]
+    },
+    {
+      "name": "testCommandResultEventHandler_cf13",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 82,
+          "locationMethod": "getPositionId"
+        }
+      ]
+    },
+    {
+      "name": "testCommandResultEventHandler_cf10",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 89,
+          "locationMethod": "\u003cinit\u003e"
+        }
+      ]
+    },
+    {
+      "name": "testCommandResultEventHandler_cf11",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 89,
+          "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 92,
+          "locationMethod": "getGeofenceId"
+        }
+      ]
+    }
+  ]
+}

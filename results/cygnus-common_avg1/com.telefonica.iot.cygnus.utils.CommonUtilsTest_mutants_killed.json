@@ -1,0 +1,3789 @@
+{
+  "nbMutantKilledOriginally": 72,
+  "name": "com.telefonica.iot.cygnus.utils.CommonUtilsTest",
+  "nbOriginalTestCases": 7,
+  "testCases": [
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithoutMiliseconds_cf17060",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 258,
+          "locationMethod": "getTimeInstant"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 258,
+          "locationMethod": "getTimeInstant"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 259,
+          "locationMethod": "getTimeInstant"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithMicroseconds_cf23496",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 54,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 380,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 376,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 432,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 388,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 384,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 363,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 396,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 392,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 371,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 404,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 367,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 400,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 379,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 412,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 375,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 408,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 387,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 420,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 383,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 416,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 392,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 395,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 428,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 362,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 396,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 391,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 363,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 424,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 384,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 403,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 370,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 388,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 399,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 432,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 366,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 376,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 411,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 380,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 407,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 419,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 415,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 424,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 427,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 428,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 423,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 416,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 420,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 431,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 408,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 412,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 400,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 367,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 404,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 371,
+          "locationMethod": "printLoadedJars"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMiliseconds_cf10737",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 336,
+          "locationMethod": "isMAdeOfAlphaNumericsOrUnderscores"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 336,
+          "locationMethod": "isMAdeOfAlphaNumericsOrUnderscores"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMiliseconds_cf10739",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 336,
+          "locationMethod": "isMAdeOfAlphaNumericsOrUnderscores"
+        }
+      ]
+    },
+    {
+      "name": "testGetMilliseconds_cf33",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 5,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 194,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 193,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 193,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 194,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 193,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetMilliseconds_literalMutation13_failAssert3_literalMutation2878_cf3279_failAssert24",
+      "nbAssertionAdded": 4,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithMiliseconds_literalMutation30076_cf32711_failAssert0",
+      "nbAssertionAdded": 9,
+      "nbInputAdded": 5,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 182,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithoutMiliseconds_cf17051",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 336,
+          "locationMethod": "isMAdeOfAlphaNumericsOrUnderscores"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 336,
+          "locationMethod": "isMAdeOfAlphaNumericsOrUnderscores"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithoutMiliseconds_cf17052",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 336,
+          "locationMethod": "isMAdeOfAlphaNumericsOrUnderscores"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMicroseconds_cf4338_failAssert4",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        }
+      ]
+    },
+    {
+      "name": "testGetMilliseconds_cf49",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 336,
+          "locationMethod": "isMAdeOfAlphaNumericsOrUnderscores"
+        }
+      ]
+    },
+    {
+      "name": "testGetMilliseconds_cf33_cf410_failAssert6",
+      "nbAssertionAdded": 3,
+      "nbInputAdded": 9,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 182,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetMilliseconds_cf48",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 336,
+          "locationMethod": "isMAdeOfAlphaNumericsOrUnderscores"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 336,
+          "locationMethod": "isMAdeOfAlphaNumericsOrUnderscores"
+        }
+      ]
+    },
+    {
+      "name": "testGetMilliseconds_cf47_cf1113_failAssert5",
+      "nbAssertionAdded": 3,
+      "nbInputAdded": 7,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithMiliseconds_cf30146",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 54,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 380,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 376,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 432,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 388,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 384,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 363,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 396,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 392,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 371,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 404,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 367,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 400,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 379,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 412,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 375,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 408,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 387,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 420,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 383,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 416,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 392,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 395,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 428,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 362,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 396,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 391,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 363,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 424,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 384,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 403,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 370,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 388,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 399,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 432,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 366,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 376,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 411,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 380,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 407,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 419,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 415,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 424,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 427,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 428,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 423,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 416,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 420,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 431,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 408,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 412,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 400,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 367,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 404,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 371,
+          "locationMethod": "printLoadedJars"
+        }
+      ]
+    },
+    {
+      "name": "testGetMilliseconds_cf40",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 8,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 218,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithoutMiliseconds_cf36456_cf41069_failAssert17",
+      "nbAssertionAdded": 11,
+      "nbInputAdded": 8,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMiliseconds_cf10722",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 218,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMiliseconds_cf10723",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 5,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 194,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 193,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 193,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 194,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 193,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMicroseconds_cf4305",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 336,
+          "locationMethod": "isMAdeOfAlphaNumericsOrUnderscores"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 336,
+          "locationMethod": "isMAdeOfAlphaNumericsOrUnderscores"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMicroseconds_cf4306",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 336,
+          "locationMethod": "isMAdeOfAlphaNumericsOrUnderscores"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithoutMiliseconds_cf17085",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 104,
+          "locationMethod": "toString"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithMiliseconds_cf30084_failAssert0",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 182,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMicroseconds_cf4288_failAssert0",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 182,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithMicroseconds_cf23478",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 134,
+          "locationMethod": "getLastCommit"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 137,
+          "locationMethod": "getLastCommit"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithMicroseconds_cf23474",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 8,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator",
+          "lineNumber": 123,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 121,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 123,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 118,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 114,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 112,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 114,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 123,
+          "locationMethod": "getCygnusVersion"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithMicroseconds_cf23476",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 8,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 161,
+          "locationMethod": "getHumanReadable"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithMiliseconds_cf30128",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 134,
+          "locationMethod": "getLastCommit"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 137,
+          "locationMethod": "getLastCommit"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithMiliseconds_cf30135",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 104,
+          "locationMethod": "toString"
+        }
+      ]
+    },
+    {
+      "name": "testGetMilliseconds_cf56",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 258,
+          "locationMethod": "getTimeInstant"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 258,
+          "locationMethod": "getTimeInstant"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 259,
+          "locationMethod": "getTimeInstant"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMiliseconds_literalMutation10698_cf12087_failAssert6",
+      "nbAssertionAdded": 9,
+      "nbInputAdded": 5,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithMiliseconds_cf30095",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 8,
+      "nbMutantKilled": 5,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 194,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 193,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 193,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 194,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 193,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithoutMiliseconds_cf36488",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 104,
+          "locationMethod": "toString"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithMicroseconds_cf23434_failAssert0",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 182,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithMiliseconds_cf30110_cf34856_failAssert11",
+      "nbAssertionAdded": 11,
+      "nbInputAdded": 8,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 259,
+          "locationMethod": "getTimeInstant"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithoutMiliseconds_cf17074",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 8,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator",
+          "lineNumber": 123,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 121,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 123,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 118,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 114,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 112,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 114,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 123,
+          "locationMethod": "getCygnusVersion"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMicroseconds_cf4314",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 258,
+          "locationMethod": "getTimeInstant"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 258,
+          "locationMethod": "getTimeInstant"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 259,
+          "locationMethod": "getTimeInstant"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMiliseconds_cf10782",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 54,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 380,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 376,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 432,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 388,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 384,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 363,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 396,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 392,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 371,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 404,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 367,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 400,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 379,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 412,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 375,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 408,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 387,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 420,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 383,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 416,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 392,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 395,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 428,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 362,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 396,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 391,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 363,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 424,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 384,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 403,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 370,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 388,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 399,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 432,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 366,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 376,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 411,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 380,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 407,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 419,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 415,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 424,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 427,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 428,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 423,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 416,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 420,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 431,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 408,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 412,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 400,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 367,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 404,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 371,
+          "locationMethod": "printLoadedJars"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithoutMiliseconds_cf17034_failAssert0",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 182,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithoutMiliseconds_cf36446_cf40240_failAssert9",
+      "nbAssertionAdded": 11,
+      "nbInputAdded": 8,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 182,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithMicroseconds_cf23485",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 104,
+          "locationMethod": "toString"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithoutMiliseconds_cf17078",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 134,
+          "locationMethod": "getLastCommit"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 137,
+          "locationMethod": "getLastCommit"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithoutMiliseconds_cf36437_failAssert0",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 182,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMicroseconds_cf4291_cf8032_failAssert2",
+      "nbAssertionAdded": 11,
+      "nbInputAdded": 9,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithMiliseconds_cf30124",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 8,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator",
+          "lineNumber": 123,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 121,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 123,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 118,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 114,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 112,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 114,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 123,
+          "locationMethod": "getCygnusVersion"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithoutMiliseconds_cf17053_cf21664_failAssert8",
+      "nbAssertionAdded": 11,
+      "nbInputAdded": 9,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMiliseconds_literalMutation10707_cf12880_failAssert1",
+      "nbAssertionAdded": 9,
+      "nbInputAdded": 5,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 182,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithMiliseconds_cf30086",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 218,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithoutMiliseconds_cf36499",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 54,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 380,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 376,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 432,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 388,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 384,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 363,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 396,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 392,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 371,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 404,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 367,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 400,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 379,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 412,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 375,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 408,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 387,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 420,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 383,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 416,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 392,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 395,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 428,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 362,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 396,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 391,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 363,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 424,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 384,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 403,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 370,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 388,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 399,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 432,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 366,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 376,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 411,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 380,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 407,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 419,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 415,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 424,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 427,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 428,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 423,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 416,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 420,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 431,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 408,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 412,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 400,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 367,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 404,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 371,
+          "locationMethod": "printLoadedJars"
+        }
+      ]
+    },
+    {
+      "name": "testGetMilliseconds_cf57_cf1733_failAssert16",
+      "nbAssertionAdded": 3,
+      "nbInputAdded": 9,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 259,
+          "locationMethod": "getTimeInstant"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMicroseconds_cf4328",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 8,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator",
+          "lineNumber": 123,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 121,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 123,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 118,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 114,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 112,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 114,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 123,
+          "locationMethod": "getCygnusVersion"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMiliseconds_cf10770_failAssert4",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithMicroseconds_cf23451",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 336,
+          "locationMethod": "isMAdeOfAlphaNumericsOrUnderscores"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 336,
+          "locationMethod": "isMAdeOfAlphaNumericsOrUnderscores"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMiliseconds_cf10771",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 104,
+          "locationMethod": "toString"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithMicroseconds_cf23453",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 336,
+          "locationMethod": "isMAdeOfAlphaNumericsOrUnderscores"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMicroseconds_cf4290",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 218,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMicroseconds_cf4291",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 5,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 194,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 193,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 193,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 194,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 193,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithMicroseconds_literalMutation23423_cf25779_failAssert13",
+      "nbAssertionAdded": 9,
+      "nbInputAdded": 5,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 182,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithMiliseconds_cf30111",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 258,
+          "locationMethod": "getTimeInstant"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 258,
+          "locationMethod": "getTimeInstant"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 259,
+          "locationMethod": "getTimeInstant"
+        }
+      ]
+    },
+    {
+      "name": "testGetMilliseconds_cf76",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 134,
+          "locationMethod": "getLastCommit"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 137,
+          "locationMethod": "getLastCommit"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMicroseconds_cf4330",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 8,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 161,
+          "locationMethod": "getHumanReadable"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithoutMiliseconds_cf36463",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 258,
+          "locationMethod": "getTimeInstant"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 258,
+          "locationMethod": "getTimeInstant"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 259,
+          "locationMethod": "getTimeInstant"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMicroseconds_cf4332",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 134,
+          "locationMethod": "getLastCommit"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 137,
+          "locationMethod": "getLastCommit"
+        }
+      ]
+    },
+    {
+      "name": "testGetMilliseconds_cf70",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 8,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator",
+          "lineNumber": 123,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 121,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 123,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 118,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 114,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 112,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 114,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 123,
+          "locationMethod": "getCygnusVersion"
+        }
+      ]
+    },
+    {
+      "name": "testGetMilliseconds_literalMutation13_failAssert3_literalMutation2877_cf3327_failAssert2",
+      "nbAssertionAdded": 4,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 182,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMicroseconds_cf4339",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 104,
+          "locationMethod": "toString"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithoutMiliseconds_cf17096",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 54,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 380,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 376,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 432,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 388,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 384,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 363,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 396,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 392,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 371,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 404,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 367,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 400,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 379,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 412,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 375,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 408,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 387,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 420,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 383,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 416,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 392,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 395,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 428,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 362,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 396,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 391,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 363,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 424,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 384,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 403,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 370,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 388,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 399,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 432,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 366,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 376,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 411,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 380,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 407,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 419,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 415,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 424,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 427,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 428,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 423,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 416,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 420,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 431,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 408,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 412,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 400,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 367,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 404,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 371,
+          "locationMethod": "printLoadedJars"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithMicroseconds_cf23461",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 258,
+          "locationMethod": "getTimeInstant"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 258,
+          "locationMethod": "getTimeInstant"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 259,
+          "locationMethod": "getTimeInstant"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithoutMiliseconds_cf17052_cf21443_failAssert3",
+      "nbAssertionAdded": 11,
+      "nbInputAdded": 8,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 182,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithoutMiliseconds_cf36481",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 134,
+          "locationMethod": "getLastCommit"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 137,
+          "locationMethod": "getLastCommit"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMicroseconds_literalMutation4266_cf5605_failAssert9",
+      "nbAssertionAdded": 9,
+      "nbInputAdded": 5,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 182,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMiliseconds_cf10760",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 8,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator",
+          "lineNumber": 123,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 121,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 123,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 118,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 114,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 112,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 114,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 123,
+          "locationMethod": "getCygnusVersion"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithMiliseconds_cf30103",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 336,
+          "locationMethod": "isMAdeOfAlphaNumericsOrUnderscores"
+        }
+      ]
+    },
+    {
+      "name": "testGetMilliseconds_cf83",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 104,
+          "locationMethod": "toString"
+        }
+      ]
+    },
+    {
+      "name": "testGetMilliseconds_cf30_failAssert5",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 182,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithMiliseconds_cf30101",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 336,
+          "locationMethod": "isMAdeOfAlphaNumericsOrUnderscores"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 336,
+          "locationMethod": "isMAdeOfAlphaNumericsOrUnderscores"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithoutMiliseconds_cf36479",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 8,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 156,
+          "locationMethod": "getHumanReadable"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 161,
+          "locationMethod": "getHumanReadable"
+        }
+      ]
+    },
+    {
+      "name": "testGetMilliseconds_cf82_failAssert9",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMiliseconds_cf10762",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 8,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 161,
+          "locationMethod": "getHumanReadable"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMiliseconds_cf10764",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 134,
+          "locationMethod": "getLastCommit"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 137,
+          "locationMethod": "getLastCommit"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithoutMiliseconds_cf36477",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 8,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator",
+          "lineNumber": 123,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 121,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 123,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 118,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 114,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 112,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 114,
+          "locationMethod": "getCygnusVersion"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 123,
+          "locationMethod": "getCygnusVersion"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMiliseconds_cf10720_failAssert0",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 182,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithMicroseconds_cf23437",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 5,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 194,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 193,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 193,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 194,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 193,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithoutMiliseconds_cf36448",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 8,
+      "nbMutantKilled": 5,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 194,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 193,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 193,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 194,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 193,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetMilliseconds_cf94",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 54,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 380,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 376,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 432,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 388,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 384,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 363,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 396,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 392,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 371,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 404,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 367,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 400,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 379,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 412,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 375,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 408,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 387,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 420,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 383,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 416,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 392,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 395,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 428,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 362,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 396,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 391,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 363,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 424,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 384,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 403,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 370,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 388,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 399,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 432,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 366,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 376,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 411,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 380,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 407,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 419,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 415,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 424,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 427,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 428,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 423,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 416,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 420,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 431,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 408,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 412,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 400,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 367,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 404,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 371,
+          "locationMethod": "printLoadedJars"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithMicroseconds_cf23461_cf28347_failAssert14",
+      "nbAssertionAdded": 11,
+      "nbInputAdded": 8,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithoutMiliseconds_cf36446",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 218,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMicroseconds_cf4350",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 54,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 380,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 376,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 432,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 388,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 384,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 363,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 396,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 392,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 371,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 404,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 367,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 400,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 379,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 412,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 375,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 408,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 387,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 420,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 383,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 416,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 392,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 395,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 428,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 362,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 396,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 391,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 363,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 424,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 384,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 403,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 370,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 388,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 399,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 432,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 366,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 376,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 411,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 380,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 407,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 419,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 415,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 424,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 427,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 428,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 423,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 416,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 420,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 431,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 408,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 412,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 400,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 367,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 404,
+          "locationMethod": "printLoadedJars"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 371,
+          "locationMethod": "printLoadedJars"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithMicroseconds_cf23484_failAssert4",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithoutMiliseconds_cf17084_failAssert4",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithMiliseconds_cf30134_failAssert4",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        }
+      ]
+    },
+    {
+      "name": "testGetMilliseconds_cf72_cf2063_failAssert15_literalMutation4006",
+      "nbAssertionAdded": 11,
+      "nbInputAdded": 13,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 161,
+          "locationMethod": "getHumanReadable"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithoutMiliseconds_cf17036",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 218,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithoutMiliseconds_cf17037",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 5,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 194,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 193,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 193,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 194,
+          "locationMethod": "isANumber"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 193,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithMicroseconds_cf23443",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 218,
+          "locationMethod": "isANumber"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithoutMiliseconds_cf36487_failAssert4",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 96,
+          "locationMethod": "toString"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithoutMiliseconds_cf36455",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 336,
+          "locationMethod": "isMAdeOfAlphaNumericsOrUnderscores"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantISO8601TimestampWithMiliseconds_cf10746",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 6,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 258,
+          "locationMethod": "getTimeInstant"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 258,
+          "locationMethod": "getTimeInstant"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 259,
+          "locationMethod": "getTimeInstant"
+        }
+      ]
+    },
+    {
+      "name": "testGetTimeInstantSQLTimestampWithoutMiliseconds_cf36454",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 336,
+          "locationMethod": "isMAdeOfAlphaNumericsOrUnderscores"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 336,
+          "locationMethod": "isMAdeOfAlphaNumericsOrUnderscores"
+        }
+      ]
+    }
+  ]
+}
