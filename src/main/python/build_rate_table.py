@@ -67,7 +67,7 @@ def getLine(rates):
            '{:.2%}'.format(float(rates[3]) / float(rates[2])).replace("%", "\\%")
 
 projects = ["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup", "protostuff", "logback"]
-projects = ["javapoet", "mybatis", "traccar", "mustache.java", "twilio-java", "protostuff", "logback"]
+projects = ["protostuff"]
 
 prefixDspot = "/tmp/dspot-experiments/"
 prefixDataset = prefixDspot + "dataset"
@@ -115,10 +115,10 @@ for project in projects:
         #subprocess.call("rm -f " + originalTestPath, shell=True)
         subprocess.call("cd " + prefixDataset + "/" + project + "/" + subModule + " && " +
                         cmdPitest(properties["filter"]), shell=True)
-        current_rate = extract_rates_from_file.extract(
-            buildPathToGeneratedPitestResults(prefixDataset + "/" + project + "/" + subModule)
-        )
+        mutations_csv_results = buildPathToGeneratedPitestResults(prefixDataset + "/" + project + "/" + subModule)
+        current_rate = extract_rates_from_file.extract(mutations_csv_results)
         rates.append((fullQualifiedName.split(".")[-1], current_rate))
+	subprocess.call("cp " + mutations_csv_results + " " + root_folder + "/" + project + "_" + type_class + "/", shell=True) 
         fullQualifiedName = resultSelect[types_class.index(type_class)][0]
         toBeRemove = prefixDataset+ "/" +project + "/" + subModule + "/src/test/java/" \
 			 + buildAmplTestPath(fullQualifiedName) + ".java"
