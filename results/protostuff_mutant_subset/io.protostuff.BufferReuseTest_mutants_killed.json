@@ -1,0 +1,20 @@
+{
+  "nbMutantKilledOriginally": 130,
+  "name": "io.protostuff.BufferReuseTest",
+  "nbOriginalTestCases": 1,
+  "testCases": [
+    {
+      "name": "testFooSizeLimited_add1_failAssert0",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 246,
+          "locationMethod": "writeDelimitedTo"
+        }
+      ]
+    }
+  ]
+}
