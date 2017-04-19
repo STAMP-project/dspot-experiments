@@ -1,0 +1,33 @@
+{
+  "nbMutantKilledOriginally": 35,
+  "name": "com.squareup.javapoet.AnnotatedTypeNameTest",
+  "nbOriginalTestCases": 10,
+  "testCases": [
+    {
+      "name": "annotated_cf52_failAssert12",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 349,
+          "locationMethod": "get"
+        }
+      ]
+    },
+    {
+      "name": "annotated_cf3",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 197,
+          "locationMethod": "equals"
+        }
+      ]
+    }
+  ]
+}
