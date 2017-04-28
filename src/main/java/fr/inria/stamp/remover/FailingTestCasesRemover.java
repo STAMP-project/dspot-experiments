@@ -1,6 +1,7 @@
 package fr.inria.stamp.remover;
 
 import fr.inria.diversify.buildSystem.android.InvalidSdkException;
+import fr.inria.diversify.dspot.AmplificationChecker;
 import fr.inria.diversify.dspot.DSpot;
 import fr.inria.diversify.dspot.selector.PitMutantScoreSelector;
 import fr.inria.diversify.dspot.support.DSpotCompiler;
@@ -15,6 +16,7 @@ import spoon.Launcher;
 import spoon.reflect.declaration.CtType;
 
 import java.io.File;
+import java.lang.reflect.Field;
 import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -57,7 +59,7 @@ public class FailingTestCasesRemover {
         final InputProgram inputProgram = dspot.getInputProgram();
         final String dependencies = inputProgram.getProgramDir() + inputProgram.getClassesDir() + PATH_SEPARATOR +
                 inputProgram.getProgramDir() + inputProgram.getTestClassesDir();
-        final DSpotCompiler compiler = dspot.getCompiler();
+        final DSpotCompiler compiler = getCompiler(dspot);
         FileUtils.copyDirectory(new File(inputProgram.getProgramDir() + args[1]), compiler.getSourceOutputDirectory());
 
         //TODO compilation problems must be handle
@@ -72,6 +74,11 @@ public class FailingTestCasesRemover {
                 .collect(Collectors.toList());
         runMvnTest(inputConfiguration, inputProgram, fullQualifiedNames);
         removeFailingTestCasesOnClasses(inputProgram, fullQualifiedNames, spoon.getFactory());
+
+        spoon.getFactory().Class().getAll()
+                .stream()
+                .filter(ctType -> ctType.getMethods().stream().anyMatch(AmplificationChecker::isTest))
+                .forEach(ctType -> ctType.getPackage().removeType(ctType));
 
         try {
             FileUtils.forceDelete(compiler.getSourceOutputDirectory());
@@ -99,6 +106,17 @@ public class FailingTestCasesRemover {
                     new File(outputDirectory.getAbsolutePath() + FILE_SEPARATOR + "mutations.csv"));
         } else {
             throw new RuntimeException("error for retrieving results of mutations analysis");
+        }
+    }
+
+    private static DSpotCompiler getCompiler(DSpot dSpot) {
+        try {
+            Class<DSpot> dSpotClass = DSpot.class;
+            Field compiler = dSpotClass.getDeclaredField("compiler");
+            compiler.setAccessible(true);
+            return (DSpotCompiler) compiler.get(dSpot);
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            throw new RuntimeException(e);
         }
     }
 
