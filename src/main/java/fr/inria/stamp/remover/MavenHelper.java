@@ -37,7 +37,8 @@ public class MavenHelper {
                 OPT_VALUE_MUTATORS_EVOSUITE,
                 "-DtargetClasses=" + inputConfiguration.getProperty("filter") + " ",
                 "-DtimeoutConst=10000",
-                "-DjvmArgs=16G"};
+                "-DjvmArgs=16G",
+                "-DexcludedClasses=" + inputConfiguration.getProperty("excludedClasses")};
         MavenBuilder builder = new MavenBuilder(inputProgram.getProgramDir());
         builder.setBuilderPath(buildMavenHome(inputConfiguration));
         builder.setGoals(goals);
