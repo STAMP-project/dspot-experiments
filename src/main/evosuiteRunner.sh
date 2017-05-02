@@ -4,7 +4,7 @@ mavenHome=${3}
 javaHome=${4}
 project=${1}
 project_path=${2}
-END=20
+END=1
 output=evosuite-tests
 
 currentDir=$(echo ${PWD})
@@ -13,7 +13,7 @@ ${mavenHome}mvn dependency:build-classpath -Dmdep.outputFile=cp.txt
 cp=$(<cp.txt)
 rm -f cp.txt
 rm -rf evosuite-*
-mvn clean test -DskipTests
+${mavenHome}mvn clean test -DskipTests
 
 for i in $(seq 1 ${END});
     do echo ${i};
@@ -21,6 +21,8 @@ for i in $(seq 1 ${END});
      cd ${currentDir}
      echo "${javaHome}java -cp target/dspot-experiment-1.0.0-jar-with-dependencies.jar fr.inria.stamp.remover.FailingTestCasesRemover  ${project} ${output} ${i}"
      ${javaHome}java -cp target/dspot-experiment-1.0.0-jar-with-dependencies.jar fr.inria.stamp.remover.FailingTestCasesRemover ${project} ${output} ${i}
+     cd ${project_path}
+     rm -rf evosuite-*
 done
 
 
