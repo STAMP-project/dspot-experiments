@@ -1,0 +1,328 @@
+{
+  "nbMutantKilledOriginally": 106,
+  "name": "io.protostuff.CodedInputTest",
+  "nbOriginalTestCases": 1,
+  "testCases": [
+    {
+      "name": "testSkipFieldOverTheBufferBoundary_cf302_failAssert33",
+      "nbAssertionAdded": 3,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 1113,
+          "locationMethod": "skipRawBytes"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 1115,
+          "locationMethod": "skipRawBytes"
+        }
+      ]
+    },
+    {
+      "name": "testSkipFieldOverTheBufferBoundary",
+      "nbAssertionAdded": 4,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 158,
+          "locationMethod": "skipField"
+        }
+      ]
+    },
+    {
+      "name": "testSkipFieldOverTheBufferBoundary_cf78_failAssert20",
+      "nbAssertionAdded": 3,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 154,
+          "locationMethod": "skipField"
+        }
+      ]
+    },
+    {
+      "name": "testSkipFieldOverTheBufferBoundary_literalMutation15_failAssert60",
+      "nbAssertionAdded": 3,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 933,
+          "locationMethod": "refillBuffer"
+        }
+      ]
+    },
+    {
+      "name": "testSkipFieldOverTheBufferBoundary_cf258_failAssert45",
+      "nbAssertionAdded": 3,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 972,
+          "locationMethod": "readRawByte"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 972,
+          "locationMethod": "readRawByte"
+        }
+      ]
+    },
+    {
+      "name": "testSkipFieldOverTheBufferBoundary_cf197_failAssert22_literalMutation885_failAssert12",
+      "nbAssertionAdded": 4,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 1113,
+          "locationMethod": "skipRawBytes"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 1115,
+          "locationMethod": "skipRawBytes"
+        }
+      ]
+    },
+    {
+      "name": "testSkipFieldOverTheBufferBoundary_cf154_failAssert39",
+      "nbAssertionAdded": 3,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 508,
+          "locationMethod": "readRawVarint32"
+        }
+      ]
+    },
+    {
+      "name": "testSkipFieldOverTheBufferBoundary_cf127_failAssert49",
+      "nbAssertionAdded": 3,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 824,
+          "locationMethod": "pushLimit"
+        }
+      ]
+    },
+    {
+      "name": "testSkipFieldOverTheBufferBoundary_cf198_failAssert30",
+      "nbAssertionAdded": 3,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 919,
+          "locationMethod": "refillBuffer"
+        }
+      ]
+    },
+    {
+      "name": "testSkipFieldOverTheBufferBoundary_cf277_failAssert47",
+      "nbAssertionAdded": 3,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 136,
+          "locationMethod": "checkLastTagWas"
+        }
+      ]
+    },
+    {
+      "name": "testSkipFieldOverTheBufferBoundary_cf93_failAssert15",
+      "nbAssertionAdded": 3,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 995,
+          "locationMethod": "readRawBytes"
+        }
+      ]
+    },
+    {
+      "name": "testSkipFieldOverTheBufferBoundary_cf252_failAssert31_literalMutation1105_failAssert20",
+      "nbAssertionAdded": 4,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 933,
+          "locationMethod": "refillBuffer"
+        }
+      ]
+    },
+    {
+      "name": "testSkipFieldOverTheBufferBoundary_cf176_failAssert48_literalMutation1525_failAssert4_literalMutation2003",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 5,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 919,
+          "locationMethod": "refillBuffer"
+        }
+      ]
+    },
+    {
+      "name": "testSkipFieldOverTheBufferBoundary_cf98_failAssert63_literalMutation1907_failAssert21_add2398",
+      "nbAssertionAdded": 14,
+      "nbInputAdded": 5,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "lineNumber": 822,
+          "locationMethod": "pushLimit"
+        }
+      ]
+    },
+    {
+      "name": "testSkipFieldOverTheBufferBoundary_cf83_failAssert17_literalMutation774_failAssert19_add2351",
+      "nbAssertionAdded": 12,
+      "nbInputAdded": 5,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 866,
+          "locationMethod": "getBytesUntilLimit"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 866,
+          "locationMethod": "getBytesUntilLimit"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 868,
+          "locationMethod": "getBytesUntilLimit"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 933,
+          "locationMethod": "refillBuffer"
+        }
+      ]
+    },
+    {
+      "name": "testSkipFieldOverTheBufferBoundary_cf164_failAssert62_add1872_failAssert13_literalMutation2217",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 5,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 1113,
+          "locationMethod": "skipRawBytes"
+        }
+      ]
+    },
+    {
+      "name": "testSkipFieldOverTheBufferBoundary_cf176_failAssert48_literalMutation1525_failAssert4_literalMutation2006",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 5,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 1136,
+          "locationMethod": "skipRawBytes"
+        }
+      ]
+    },
+    {
+      "name": "testSkipFieldOverTheBufferBoundary_cf246_failAssert18",
+      "nbAssertionAdded": 3,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 1266,
+          "locationMethod": "readByteBuffer"
+        }
+      ]
+    },
+    {
+      "name": "testSkipFieldOverTheBufferBoundary_cf164_failAssert62_add1872_failAssert13",
+      "nbAssertionAdded": 4,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 919,
+          "locationMethod": "refillBuffer"
+        }
+      ]
+    },
+    {
+      "name": "testSkipFieldOverTheBufferBoundary_cf164_failAssert62_add1872_failAssert13_literalMutation2202",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 5,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 158,
+          "locationMethod": "skipField"
+        }
+      ]
+    },
+    {
+      "name": "testSkipFieldOverTheBufferBoundary_cf304_failAssert43",
+      "nbAssertionAdded": 3,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 1107,
+          "locationMethod": "skipRawBytes"
+        }
+      ]
+    },
+    {
+      "name": "testSkipFieldOverTheBufferBoundary_cf176_failAssert48_literalMutation1525_failAssert4_literalMutation2009",
+      "nbAssertionAdded": 8,
+      "nbInputAdded": 5,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 1113,
+          "locationMethod": "skipRawBytes"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 1115,
+          "locationMethod": "skipRawBytes"
+        }
+      ]
+    }
+  ]
+}

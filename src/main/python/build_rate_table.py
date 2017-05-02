@@ -6,6 +6,7 @@ import json
 import select_test_classes
 import extract_rates_from_file
 import install
+import line_builder
 
 
 def cmdPitest(filter):
@@ -57,90 +58,81 @@ def load_properties(filepath, sep='=', comment_char='#'):
                 props[key] = value
     return props
 
+if __name__ == '__main__':
+    path = sys.argv[1]
 
-def getLine(rates):
-    return str(rates[0]) + "&" + \
-           str(rates[4]) + " " + '{:.2%}'.format(float(rates[4]) / float(rates[0])).replace("%", "\\%") + "&" + \
-           str(rates[1]) + "&" + \
-           str(rates[2]) + " " + '{:.2%}'.format(float(rates[2]) / float(rates[1])).replace("%", "\\%") + "&" + \
-           str(rates[3]) + " " + '{:.2%}'.format(float(rates[3]) / float(rates[1])).replace("%", "\\%") + "&" + \
-           '{:.2%}'.format(float(rates[3]) / float(rates[2])).replace("%", "\\%")
+    projects = ["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup", "protostuff", "logback"]
+    projects = ["protostuff"]
 
-projects = ["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup", "protostuff", "logback"]
-projects = ["protostuff"]
+    prefixDspot = "/tmp/dspot-experiments/"
+    prefixDataset = prefixDspot + "dataset"
 
-prefixDspot = "/tmp/dspot-experiments/"
-prefixDataset = prefixDspot + "dataset"
+    with open(prefixDataset + "/properties_rates.json") as data_file:
+        properties_rates = json.load(data_file)
+    types_class = ["max1", "max2", "min1", "min2", "avg1", "avg2"]
 
-with open(prefixDataset + "/properties_rates.json") as data_file:
-    properties_rates = json.load(data_file)
-types_class = ["max1", "max2", "min1", "min2", "avg1", "avg2"]
+    prefixProperties = prefixDspot + "src/main/resources/"
+    suffix_original = "_mutant/mutations.csv"
 
-prefixProperties = prefixDspot + "src/main/resources/"
-suffix_original = "_mutant/mutations.csv"
+    f = open('workfile', 'w')
 
-f = open('workfile', 'w')
-
-for project in projects:
-    install.install(project)
-    subModule = properties_rates[project]["subModule"]
-    isPackage = properties_rates[project]["isPackage"]
-    excludedClasses = properties_rates[project]["excludedClasses"].split(":")
-    rates = []
-    properties = load_properties(prefixProperties + project + ".properties")
-    fullQualifiedName = ""
-    resultSelect = select_test_classes.select(project, excludedClasses, isPackage)
-    print resultSelect
-    code=subprocess.call("cd " + prefixDataset + "/" + project + "/" + subModule + " && " +
-                    cmdPitest(properties["filter"]), shell=True)
-    if not code == 0:
-	sys.exit(code)
-    original_rate = (project, extract_rates_from_file.extract(
-        buildPathToGeneratedPitestResults(prefixDataset + "/" + project + "/" + subModule)
-    ))
-    for type_class in types_class:
-        root_folder = "results"
-        fullQualifiedName = resultSelect[types_class.index(type_class)][0]
-        amplTestPath = root_folder + "/" + project + "_" + type_class + "/" + \
-                       buildAmplTestPath(fullQualifiedName) + ".java"
-        originalTestPath = prefixDataset + "/" + project + "/" + \
-                           subModule + "/src/test/java/" + \
-                           buildPackageAsPath(fullQualifiedName) + "/" + \
-                           fullQualifiedName.split(".")[-1] + ".java"
-        outputPath = prefixDataset + "/" + project + "/" + \
-                     subModule + "/src/test/java/" + buildPackageAsPath(fullQualifiedName)
-        code=subprocess.call("cp " + amplTestPath + " " + outputPath, shell=True)
-    	if not code == 0:
-	    sys.exit(code)
-        #subprocess.call("rm -f " + originalTestPath, shell=True)
+    for project in projects:
+        install.install(project)
+        subModule = properties_rates[project]["subModule"]
+        isPackage = properties_rates[project]["isPackage"]
+        excludedClasses = properties_rates[project]["excludedClasses"].split(":")
+        rates = []
+        properties = load_properties(prefixProperties + project + ".properties")
+        fullQualifiedName = ""
+        resultSelect = select_test_classes.select(project, excludedClasses, isPackage)
+        print resultSelect
         subprocess.call("cd " + prefixDataset + "/" + project + "/" + subModule + " && " +
                         cmdPitest(properties["filter"]), shell=True)
-        mutations_csv_results = buildPathToGeneratedPitestResults(prefixDataset + "/" + project + "/" + subModule)
-        current_rate = extract_rates_from_file.extract(mutations_csv_results)
-        rates.append((fullQualifiedName.split(".")[-1], current_rate))
-	subprocess.call("cp " + mutations_csv_results + " " + root_folder + "/" + project + "_" + type_class + "/", shell=True) 
-        fullQualifiedName = resultSelect[types_class.index(type_class)][0]
-        toBeRemove = prefixDataset+ "/" +project + "/" + subModule + "/src/test/java/" \
-			 + buildAmplTestPath(fullQualifiedName) + ".java"
-        print "rm " + toBeRemove
-        subprocess.call("rm -f " + toBeRemove, shell=True)
-        #subprocess.call("cd " + prefixDataset + "/" + project + " && git checkout -- .", shell=True)
+        original_rate = (project, extract_rates_from_file.extract(
+            buildPathToGeneratedPitestResults(prefixDataset + "/" + project + "/" + subModule)
+        ))
+        for type_class in types_class:
+            root_folder = "results"
+            fullQualifiedName = resultSelect[types_class.index(type_class)][0]
+            amplTestPath = root_folder + "/" + project + "_" + type_class + "/" + \
+                           buildAmplTestPath(fullQualifiedName) + ".java"
 
-    print original_rate
-    for rate in rates:
-        print rate
-    print original_rate[0] + "&" + getLine(original_rate[1]) + "\\\\"
-    print "\\hline"
-    for rate in rates:
-        print rate[0] + "&" + getLine(rate[1]) + "\\\\"
-    current = original_rate[0] + "&" + getLine(original_rate[1]) + "\\\\\n"
-    current += "\\hline\n"
-    for rate in rates:
-        current += rate[0] + "&" + getLine(rate[1]) + "\\\\\n"
-    f.write(current)
+            with open(root_folder + "/" + project + "_" + type_class + "/" + fullQualifiedName + "_mutants_killed.json") as data_file:
+                current_results = json.load(data_file)
+            if current_results["testCases"]: # If we could amplify a test, we re-run the pitest analysis
+                originalTestPath = prefixDataset + "/" + project + "/" + \
+                                   subModule + "/src/test/java/" + \
+                                   buildPackageAsPath(fullQualifiedName) + "/" + \
+                                   fullQualifiedName.split(".")[-1] + ".java"
+                outputPath = prefixDataset + "/" + project + "/" + \
+                             subModule + "/src/test/java/" + buildPackageAsPath(fullQualifiedName)
 
-    
+                subprocess.call("cp " + amplTestPath + " " + outputPath, shell=True)
+                #subprocess.call("rm -f " + originalTestPath, shell=True)
+                subprocess.call("cd " + prefixDataset + "/" + project + "/" + subModule + " && " +
+                                cmdPitest(properties["filter"]), shell=True)
+                mutations_csv_results = buildPathToGeneratedPitestResults(prefixDataset + "/" + project + "/" + subModule)
+                current_rate = extract_rates_from_file.extract(mutations_csv_results)
+                rates.append((fullQualifiedName.split(".")[-1], current_rate))
+                subprocess.call("cp " + mutations_csv_results + " " + root_folder + "/" + project + "_" + type_class + "/", shell=True)
+                fullQualifiedName = resultSelect[types_class.index(type_class)][0]
+                toBeRemove = prefixDataset+ "/" +project + "/" + subModule + "/src/test/java/" \
+                     + buildAmplTestPath(fullQualifiedName) + ".java"
+                print "rm " + toBeRemove
+                subprocess.call("rm -f " + toBeRemove, shell=True)
+                #subprocess.call("cd " + prefixDataset + "/" + project + " && git checkout -- .", shell=True)
+            else:# else the test is the same, we copy the original results
+                rates.append( (fullQualifiedName.split(".")[-1], original_rate) )
 
-
-
-
+        print original_rate
+        for rate in rates:
+            print rate
+        print original_rate[0] + "&" + line_builder.getLine(original_rate[1]) + "\\\\"
+        print "\\hline"
+        for rate in rates:
+            print rate[0] + "&" + line_builder.getLine(rate[1]) + "\\\\"
+        current = original_rate[0] + "&" + line_builder.getLine(original_rate[1]) + "\\\\\n"
+        current += "\\hline\n"
+        for rate in rates:
+            current += rate[0] + "&" + line_builder.getLine(rate[1]) + "\\\\\n"
+        f.write(current)

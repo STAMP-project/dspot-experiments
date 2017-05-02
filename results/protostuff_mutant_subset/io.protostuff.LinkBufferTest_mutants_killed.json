@@ -1,0 +1,95 @@
+{
+  "nbMutantKilledOriginally": 66,
+  "name": "io.protostuff.LinkBufferTest",
+  "nbOriginalTestCases": 3,
+  "testCases": [
+    {
+      "name": "testBasics_cf94_failAssert71",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 212,
+          "locationMethod": "writeDouble"
+        }
+      ]
+    },
+    {
+      "name": "testGetBuffersAndAppendData_cf3862_failAssert44_literalMutation4198_failAssert2",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 52,
+          "locationMethod": "getBuffers"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 198,
+          "locationMethod": "writeVarInt64"
+        }
+      ]
+    },
+    {
+      "name": "testBasics_cf97_failAssert73",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 217,
+          "locationMethod": "writeFloat"
+        }
+      ]
+    },
+    {
+      "name": "testGetBuffers_cf2666_failAssert39_literalMutation2813_failAssert7_literalMutation3183_failAssert43",
+      "nbAssertionAdded": 3,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 52,
+          "locationMethod": "getBuffers"
+        }
+      ]
+    },
+    {
+      "name": "testBasics_cf132_failAssert97",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 182,
+          "locationMethod": "writeVarInt32"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator",
+          "lineNumber": 181,
+          "locationMethod": "writeVarInt32"
+        }
+      ]
+    },
+    {
+      "name": "testGetBuffers_cf2694_failAssert46_literalMutation2883_failAssert23",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 52,
+          "locationMethod": "getBuffers"
+        }
+      ]
+    }
+  ]
+}

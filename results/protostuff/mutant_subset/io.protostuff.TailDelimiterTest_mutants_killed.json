@@ -1,0 +1,59 @@
+{
+  "nbMutantKilledOriginally": 55,
+  "name": "io.protostuff.TailDelimiterTest",
+  "nbOriginalTestCases": 10,
+  "testCases": [
+    {
+      "name": "testEmptyList_cf9674_failAssert3_add10104",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 286,
+          "locationMethod": "writeListTo"
+        }
+      ]
+    },
+    {
+      "name": "testEmptyList_add9615_cf9811_failAssert15_literalMutation10570",
+      "nbAssertionAdded": 3,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 286,
+          "locationMethod": "writeListTo"
+        }
+      ]
+    },
+    {
+      "name": "testEmptyList_literalMutation9616",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 286,
+          "locationMethod": "writeListTo"
+        }
+      ]
+    },
+    {
+      "name": "testEmptyList",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 286,
+          "locationMethod": "writeListTo"
+        }
+      ]
+    }
+  ]
+}
