@@ -9,10 +9,11 @@ def replace(csv, rows_mutant_killed):
     for row_mutant_killed in rows_mutant_killed:
         mutant = row_to_mutant(row_mutant_killed)
         for current_row in csv:
-            if current_row[index_state] == "SURVIVED":
-                if row_to_mutant(current_row) == mutant:
+            if current_row[index_state] == "SURVIVED" and \
+                            row_to_mutant(current_row) == mutant:
                     csv[csv.index(current_row)] = row_mutant_killed
                     cpt += 1
+                    break
     print cpt
     return csv
 
