@@ -1,9 +1,4 @@
 import csv
-from os import walk
-
-def getTotalKilled(project, name):
-    prefix_results = "original/per_class/"
-    return countForTestClass(prefix_results + project + "/" + name + "_mutations.csv")
 
 def countForTestClass(path):
     total = 0
