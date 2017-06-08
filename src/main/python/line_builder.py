@@ -7,7 +7,8 @@ def getLine(rates):
        str(rates[1]) + "&" + \
        str(rates[2]) + " " + '{:.2%}'.format(float(rates[2]) / float(rates[1])).replace("%", "\\%") + "&" + \
        str(rates[3]) + " " + '{:.2%}'.format(float(rates[3]) / float(rates[1])).replace("%", "\\%") + "&" + \
-       '{:.2%}'.format(float(rates[3]) / float(rates[2])).replace("%", "\\%")
+       '{:.2%}'.format(float(rates[3]) / float(rates[2])).replace("%", "\\%") + \
+       "\\\\"
 
 if __name__ == '__main__':
     print getLine(extract_rates_from_file.extract(sys.argv[1]))
