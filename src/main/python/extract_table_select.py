@@ -59,7 +59,7 @@ for type_class in types_class:
                         nbAAmpl += testCase["nbAssertionAdded"]
 
                     total, killed = count_mutant.countForTestClass(
-                        "original/per_class/" + project + "/" + name + "_mutations.csv")
+                        "original/per_class/" + project + "/" + fullqualifiedname + "_mutations.csv")
 
                     if total <= 1000:
                         full_qualified_name_ampl = ".".join(data["name"].split(".")[:-1]) + "." + \

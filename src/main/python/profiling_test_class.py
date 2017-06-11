@@ -1,4 +1,3 @@
-import csv
 from os import walk
 import count_mutant
 
@@ -26,8 +25,6 @@ def profile(projects):
 if __name__ == '__main__':
     projects = ["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup", "protostuff",
                 "logback", "retrofit"]
-    projects = ["javapoet", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup", "protostuff", "logback",
-                "retrofit"]
     top, worst = profile(projects)
 
     gray = False

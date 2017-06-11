@@ -57,7 +57,8 @@ def build_lines_for_array(table):
 
 root_folder = "results"
 
-projects = ["javapoet", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup", "protostuff", "logback"]
+projects = ["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup", "protostuff",
+            "logback", "retrofit"]
 
 types_class = ["max", "min", "avg"]
 prefixDataset = "dataset"
