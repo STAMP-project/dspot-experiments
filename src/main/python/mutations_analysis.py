@@ -12,7 +12,7 @@ def allsame(x):
 def run(projects, mvnHome="~/apache-maven-3.3.9/bin/"):
     prefix_dataset = "dataset/"
 
-    run_pitest = mvnHome + "mvn clean test --quiet -DskipTests org.pitest:pitest-maven:mutationCoverage -DwithHistory -DoutputFormats=CSV -Dmutators=ALL -DtimeoutConst=10000 -DjvmArgs=16G "
+    run_pitest = mvnHome + "mvn clean test --quiet -DskipTests org.pitest:pitest-maven:mutationCoverage -DwithHistory -DoutputFormats=CSV -Dmutators=ALL -DtimeoutConst=20000 -DjvmArgs=16G "
     report = " -DreportsDirectory=target/pitest-reports"
     targetClasses = " -DtargetClasses="
     test_class = " -DtargetTests="

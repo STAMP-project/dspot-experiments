@@ -1,4 +1,4 @@
-import count_original_mutant_per_class
+import count_mutant
 from os import walk
 import matplotlib.pyplot as plt
 import numpy as np
@@ -23,15 +23,17 @@ def buildScatters(projects):
         yaxis = []
         colors = []
         z += 1
+        testClasses = []
         for (dirpath, dirnames, filenames) in walk(prefix + project):
             if filenames:
                 for filename in filenames:
-                    total , killed = count_original_mutant_per_class.countForTestClass(prefix + project + "/" + filename)
+                    total , killed = count_mutant.countForTestClass(prefix + project + "/" + filename)
                     if total > 0:#skipping abstract test class that can not kill
                         xaxis.append(total)
                         yaxis.append(float(float(killed) / float(total) if total > 0 else 0) * 100)
                         colors.append(colors_array[projects.index(project)])
-        scatters.append((xaxis, yaxis, colors, project, markers[projects.index(project)]))
+                        testClasses.append(filename)
+        scatters.append((xaxis, yaxis, colors, project, markers[projects.index(project)], testClasses))
     return scatters
 
 projects = ["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup", "protostuff",
@@ -44,7 +46,7 @@ scatters = buildScatters(projects)
 fig = plt.figure()
 ax = plt.gca()
 max_xaxis = -1
-for (xaxis, yaxis, colors, project, marker) in scatters:
+for (xaxis, yaxis, colors, project, marker, testClasses) in scatters:
     ax.scatter(xaxis, yaxis, c=colors, s=60, label=project, marker=marker)
     if max(xaxis) > max_xaxis :
         max_xaxis  = max(xaxis)

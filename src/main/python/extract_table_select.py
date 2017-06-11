@@ -2,7 +2,7 @@ import json
 import os
 import sys
 import random
-import count_original_mutant_per_class
+import count_mutant
 
 root_folder = "results"
 projects = ["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup", "protostuff",
@@ -11,8 +11,6 @@ projects = ["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "tw
 projects = ["javapoet", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup", "protostuff",
             "logback"]
 
-# projects = ["javapoet",]
-types_class = ["max1", "max2", "min1", "min2", "avg1", "avg2"]
 types_class = ["max", "min", "avg"]
 
 prefixDspot = ""  # ""/tmp/dspot-experiments/"
@@ -23,14 +21,13 @@ with open(prefixDataset + "/properties_rates.json") as data_file:
 
 # project class nbTest nbMutant nbTestGen nbMutantGen nbIAmpl nbAAmpl time
 
-gray = False
+lines = []
 
 for type_class in types_class:
     for project in projects:
         for index in range(1, 3):
             path = root_folder + "/" + project
-            line = ("\\rowcolor[HTML]{EFEFEF}" + "\n" if gray else "") + project + "&"
-            gray = not gray
+            line = "\scriptsize{"+ project + "}" + "&"
             folder = path + "_" + type_class + str(index)
             files = filter(lambda x: x.endswith(".json") and
                                      not x == project + ".json" and
@@ -40,6 +37,7 @@ for type_class in types_class:
                 with open(folder + "/" + file) as data_file:
                     data = json.load(data_file)
                     name = data["name"].split(".")[-1]
+                    fullqualifiedname = data["name"]
                     nbTest = data["nbOriginalTestCases"]
                     nbMutant = data["nbMutantKilledOriginally"]
                     nbTestGen = len(data["testCases"])
@@ -60,34 +58,75 @@ for type_class in types_class:
                         nbIAmpl += testCase["nbInputAdded"]
                         nbAAmpl += testCase["nbAssertionAdded"]
 
-                    if not name == "Basic":
-                        total, killed = count_original_mutant_per_class.getTotalKilled(project, name)
-                    else:
-                        total, killed = 1, 0
-                    line += name \
-                            + "&" + str(nbTest) \
-                            + "&" + str(nbTestGen) \
-                            + "&" + str(total) \
-                            + "&" + str("{0:.2f}".format(float(killed) / float(total) * 100)) \
-                            + "&" + ("{\color{ForestGreen}$\\nearrow$}" if nbMutantGen > 0 else "$\\rightarrow$") \
-                            + "&" + str(nbMutant + nbMutantGen) \
-                            + "&" + ("+" if nbMutantGen > 0 else "") + str(nbMutantGen) \
-                            + "&" + ("+" + "{0:.2f}".format(float(float(nbMutantGen) / float(nbMutant)) * 100)
-                                     if nbMutantGen > 0 else "0") + "\%" \
-                            + "&" + str(nbIAmpl) \
-                            + "&" + str(nbAAmpl) + "&"
+                    total, killed = count_mutant.countForTestClass(
+                        "original/per_class/" + project + "/" + name + "_mutations.csv")
 
-                timer = filter(lambda x: x.endswith(".json") and
-                                         not x == file, os.listdir(folder))[0]
-                with open(folder + "/" + timer) as data_file:
-                    data = json.load(data_file)
-                    time = data["classTimes"][0]["timeInMs"]
-                    line += "{0:.2f}".format(float(float(time) / 1000.0 / 60.0)) + "\\\\"
-                    # line += str(time) + "\\\\"
+                    if total <= 1000:
+                        full_qualified_name_ampl = ".".join(data["name"].split(".")[:-1]) + "." + \
+                                                   (name + "Ampl" if name.startswith("Test") else "Ampl" + name)
+                        totalAmpl, killedAmpl = count_mutant.countForTestClass(
+                            "results/per_class/" + project + "/" + full_qualified_name_ampl + "_mutations.csv"
+                        )
+
+                        deltaAmplTotal = totalAmpl - total
+                        deltaAmplKilled = killedAmpl - killed
+
+                        line += "\scriptsize{"+ name + "}" \
+                                + "&" + str(nbTest) \
+                                + "&" + str(nbTestGen) \
+                                + "&" + str(total) \
+                                + "&" + str(killed) \
+                                + "&" + str("{0:.2f}".format(float(killed) / float(total) * 100)) \
+                                + "&" + (
+                                    "{\color{ForestGreen}$\\nearrow$}" if deltaAmplTotal > 0 else "$\\rightarrow$") \
+                                + "&" + str(totalAmpl) \
+                                + "&" + (
+                                    "{\color{ForestGreen}$\\nearrow$}" if deltaAmplKilled > 0 else "$\\rightarrow$") \
+                                + "&" + str(killedAmpl) \
+                                + "&" + str("{0:.2f}".format(float(killedAmpl) / float(totalAmpl) * 100)) \
+                                + "&" + ("+" if deltaAmplKilled > 0 else "") + str(deltaAmplKilled) \
+                                + "&" + "+" + "{0:.2f}".format(
+                            float(float(deltaAmplKilled) / float(total)) * 100) + "\%" \
+                                + "&" + str(nbIAmpl) \
+                                + "&" + str(nbAAmpl) + "&"
+                        '''
+
+                        line += "\small{"+ name + "}" \
+                                + "&" + str(nbTest) \
+                                + "&" + str(nbTestGen) \
+                                + "&" + str(total) \
+                                + "&" + str(killed) \
+                                + "&" + str("{0:.2f}".format(float(killed) / float(total) * 100)) \
+                                + "&" + ("{\color{ForestGreen}$\\nearrow$}" if nbMutantGen > 0 else "$\\rightarrow$") \
+                                + "&" + str(nbMutant + nbMutantGen) \
+                                + "&" + str("{0:.2f}".format(float(nbMutant + nbMutantGen) / float(total) *100)) \
+                                + "&" + ("+" if nbMutantGen > 0 else "") + str(nbMutantGen) \
+                                + "&" + ("+" + "{0:.2f}".format(float(float(nbMutantGen) / float(nbMutant)) * 100)
+                                         if nbMutantGen > 0 else "0") + "\%" \
+                                + "&" + str(nbIAmpl) \
+                                + "&" + str(nbAAmpl) + "&"
+                        '''
+
+                if total <= 1000:
+                    timer = filter(lambda x: x.endswith(".json") and
+                                             not x == file, os.listdir(folder))[0]
+                    with open(folder + "/" + timer) as data_file:
+                        data = json.load(data_file)
+                        time = data["classTimes"][0]["timeInMs"]
+                        line += "{0:.2f}".format(float(float(time) / 1000.0 / 60.0)) + "\\\\"
+                        # line += str(time) + "\\\\"
 
             else:
                 line += "-&" * 7
                 line += "-\\\\"
+            if total <= 1000:
+                lines.append((float(float(killed) / float(total) * 100), line))
+gray = False
+line_draw = False
+for line in sorted(lines, key=lambda array: array[0]):
+    if line[0] > 50 and not line_draw:
+        print "\\hline\\hline"
+        line_draw = True
 
-            print line
-    print "\\hline\\hline"
+    print  ("\\rowcolor[HTML]{EFEFEF}" + "\n" if gray else "") + line[1]
+    gray = not gray
