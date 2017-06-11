@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.cm as cm
 from matplotlib.font_manager import FontProperties
-from matplotlib.backends.backend_pdf import PdfPages
+import sys
 
 
 def buildScatters(projects):
@@ -36,28 +36,33 @@ def buildScatters(projects):
         scatters.append((xaxis, yaxis, colors, project, markers[projects.index(project)], testClasses))
     return scatters
 
-projects = ["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup", "protostuff",
-            "logback", "retrofit"]
-projects = ["javapoet", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup", "protostuff", "logback",
-            "retrofit"]
+def run(projects=["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup", "protostuff",
+                  "logback", "retrofit"]):
+    scatters = buildScatters(projects)
 
-scatters = buildScatters(projects)
+    fig = plt.figure()
+    ax = plt.gca()
+    max_xaxis = -1
+    for (xaxis, yaxis, colors, project, marker, testClasses) in scatters:
+        ax.scatter(xaxis, yaxis, c=colors, s=60, label=project, marker=marker)
+        if max(xaxis) > max_xaxis :
+            max_xaxis  = max(xaxis)
 
-fig = plt.figure()
-ax = plt.gca()
-max_xaxis = -1
-for (xaxis, yaxis, colors, project, marker, testClasses) in scatters:
-    ax.scatter(xaxis, yaxis, c=colors, s=60, label=project, marker=marker)
-    if max(xaxis) > max_xaxis :
-        max_xaxis  = max(xaxis)
+    plt.xlabel('covered (absolute nb)')
+    plt.ylabel('score (%)')
+    plt.axis([-50, max_xaxis + 50, -10, 110])
+    fontP = FontProperties()
+    fontP.set_size('small')
+    plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.1),
+               ncol=5, fancybox=True, shadow=True, prop=fontP)
+    plt.title("test suites\' power map")
+    fig.savefig("original/power_map_all.pdf", bbox_inches='tight')
+    fig.savefig("original/power_map_all.jpeg", bbox_inches='tight')
 
-plt.xlabel('covered (absolute nb)')
-plt.ylabel('score (%)')
-plt.axis([-50, max_xaxis + 50, -10, 110])
-fontP = FontProperties()
-fontP.set_size('small')
-plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.1),
-           ncol=5, fancybox=True, shadow=True, prop=fontP)
-plt.title("test suites\' power map")
-fig.savefig("original/power_map_all.pdf", bbox_inches='tight')
-fig.savefig("original/power_map_all.jpeg", bbox_inches='tight')
+
+if __name__ == '__main__':
+    if len(sys.argv) > 1:
+        projects = sys.argv[1:]
+        run(projects=projects)
+    else:
+        run()

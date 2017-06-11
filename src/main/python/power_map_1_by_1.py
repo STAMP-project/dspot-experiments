@@ -4,14 +4,13 @@ import power_map
 
 projects = ["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup", "protostuff",
             "logback", "retrofit"]
-projects = ["javapoet", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup", "protostuff", "logback",
-            "retrofit"]
 
 scatters = power_map.buildScatters(projects)
 
-for (xaxis, yaxis, colors, project, marker) in scatters:
+for (xaxis, yaxis, colors, project, marker, testClasses) in scatters:
     fig = plt.figure()
     ax = plt.gca()
+
     ax.scatter(xaxis, yaxis, c=colors, s=60, label=project, marker=marker)
     plt.xlabel('covered (absolute nb)')
     plt.ylabel('score (%)')
