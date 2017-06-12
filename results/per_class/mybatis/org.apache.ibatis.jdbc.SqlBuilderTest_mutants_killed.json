@@ -1,0 +1,61 @@
+{
+  "nbMutantKilledOriginally": 192,
+  "name": "org.apache.ibatis.jdbc.SqlBuilderTest",
+  "nbOriginalTestCases": 5,
+  "testCases": [
+    {
+      "name": "shouldProduceExpectedSimpleSelectStatementMissingFirstParam_cf23462_cf23642_failAssert7",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 117,
+          "locationMethod": "DELETE_FROM"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 76,
+          "locationMethod": "DELETE_FROM"
+        }
+      ]
+    },
+    {
+      "name": "shouldProduceExpectedSimpleSelectStatementMissingFirstParam_cf23546_cf24056_failAssert9",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 44,
+          "locationMethod": "UPDATE"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 40,
+          "locationMethod": "UPDATE"
+        }
+      ]
+    },
+    {
+      "name": "shouldProduceExpectedSimpleSelectStatementMissingAllParams_cf21576_cf22068_failAssert22",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 44,
+          "locationMethod": "UPDATE"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 40,
+          "locationMethod": "UPDATE"
+        }
+      ]
+    }
+  ]
+}

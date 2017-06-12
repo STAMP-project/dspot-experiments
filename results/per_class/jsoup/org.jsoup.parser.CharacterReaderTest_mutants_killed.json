@@ -1,0 +1,144 @@
+{
+  "nbMutantKilledOriginally": 301,
+  "name": "org.jsoup.parser.CharacterReaderTest",
+  "nbOriginalTestCases": 19,
+  "testCases": [
+    {
+      "name": "consumeToChar_literalMutation3417_failAssert3",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 395,
+          "locationMethod": "cacheString"
+        }
+      ]
+    },
+    {
+      "name": "consumeToString_literalMutation4148_failAssert11_literalMutation4360",
+      "nbAssertionAdded": 11,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 395,
+          "locationMethod": "cacheString"
+        }
+      ]
+    },
+    {
+      "name": "consumeToString_literalMutation4150_failAssert13",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 106,
+          "locationMethod": "nextIndexOf"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 106,
+          "locationMethod": "nextIndexOf"
+        }
+      ]
+    },
+    {
+      "name": "cachesStrings_literalMutation440_failAssert5",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 395,
+          "locationMethod": "cacheString"
+        }
+      ]
+    },
+    {
+      "name": "consumeLetterSequence_literalMutation1050_failAssert5_literalMutation1073",
+      "nbAssertionAdded": 9,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 222,
+          "locationMethod": "consumeLetterSequence"
+        }
+      ]
+    },
+    {
+      "name": "consumeLetterThenDigitSequence_literalMutation1178_failAssert0",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 395,
+          "locationMethod": "cacheString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 398,
+          "locationMethod": "cacheString"
+        }
+      ]
+    },
+    {
+      "name": "consumeToString_literalMutation4147_failAssert10_literalMutation4351",
+      "nbAssertionAdded": 5,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 106,
+          "locationMethod": "nextIndexOf"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 106,
+          "locationMethod": "nextIndexOf"
+        }
+      ]
+    },
+    {
+      "name": "consumeToString_literalMutation4137_failAssert0",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 395,
+          "locationMethod": "cacheString"
+        }
+      ]
+    },
+    {
+      "name": "consumeLetterSequence_literalMutation1050_failAssert5_literalMutation1069",
+      "nbAssertionAdded": 9,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "lineNumber": 220,
+          "locationMethod": "consumeLetterSequence"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "lineNumber": 220,
+          "locationMethod": "consumeLetterSequence"
+        }
+      ]
+    }
+  ]
+}
