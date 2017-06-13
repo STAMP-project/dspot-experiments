@@ -23,7 +23,7 @@ def run(projects, mvnHome="~/apache-maven-3.3.9/bin/"):
     prefix = "results/per_class/"
 
     for project in projects:
-        install.install(project)
+        #install.install(project)
         properties = build_rate_table.load_properties(
             prefix_properties + project + extension_properties
         )
@@ -39,7 +39,7 @@ def run(projects, mvnHome="~/apache-maven-3.3.9/bin/"):
             filename = prefix + project + "/" + test_name_ampl.replace(".", "/") + ".java"
             cmd = "cp " + filename + " " + path_to_test_directory
             print cmd
-            subprocess.call(cmd, shell=True)
+            #subprocess.call(cmd, shell=True)
 
             cmd = "cd " + path_to_module + " && "
             cmd += run_pitest
@@ -51,7 +51,7 @@ def run(projects, mvnHome="~/apache-maven-3.3.9/bin/"):
             if "excludedClasses" in properties:
                 cmd += " -DexcludedClasses=" + properties["excludedClasses"]
             print cmd
-            subprocess.call(cmd, shell=True)
+            #subprocess.call(cmd, shell=True)
 
             path_to_pit_reports = path_to_module + "/target/pitest-reports/"
             for (dirpathpit, dirnamespit, filenamespit) in walk(path_to_pit_reports):
@@ -61,7 +61,7 @@ def run(projects, mvnHome="~/apache-maven-3.3.9/bin/"):
                             cmd = "cp " + dirpathpit + "/" + filenamepit + " " + \
                                   prefix + project + "/" + test_name_ampl + "_mutations.csv"
                             print cmd
-                            subprocess.call(cmd, shell=True)
+                            #subprocess.call(cmd, shell=True)
 
 
 if __name__ == '__main__':
