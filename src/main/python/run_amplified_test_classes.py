@@ -1,9 +1,11 @@
-from os import walk
 import json
-import build_rate_table
 import subprocess
-import install
 import sys
+from os import walk
+
+import build_rate_table
+import install
+
 
 def run(projects, mvnHome="~/apache-maven-3.3.9/bin/"):
     with open("dataset/properties_rates.json") as data_file:
@@ -59,7 +61,6 @@ def run(projects, mvnHome="~/apache-maven-3.3.9/bin/"):
                                       ("Ampl*" if filename.startswith("Ampl") else "*Ampl.java")
                                 print cmd
                                 subprocess.call(cmd, shell=True)
-
 
 if __name__ == '__main__':
 

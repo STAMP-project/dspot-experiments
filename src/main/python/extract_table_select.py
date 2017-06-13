@@ -1,7 +1,6 @@
 import json
 import os
-import sys
-import random
+
 import count_mutant
 
 root_folder = "results"

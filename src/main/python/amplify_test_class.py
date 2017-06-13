@@ -1,6 +1,7 @@
-import profiling_test_class
 import subprocess
 import sys
+
+import profiling_test_class
 
 projects = sys.argv[1:]
 
@@ -26,4 +27,4 @@ for project in projects:
     subprocess.call(cmd.format(project, project, worst[0][2], project, worst[0][2])
                     , shell=True)
     print cmd.format(project, project, worst[1][2], project, worst[1][2])
-    subprocess.call(cmd.format(project, project, worst[0][2], project, worst[1][2]), shell=True)
+    subprocess.call(cmd.format(project, project, worst[1][2], project, worst[1][2]), shell=True)

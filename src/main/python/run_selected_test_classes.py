@@ -1,6 +1,8 @@
-import sys
 import subprocess
+import sys
+
 import select_test_classes
+
 
 def copyResult(project, suffix):
     return "cp -R " + project + "_" + suffix + "  ${HOME}/results/" + project + "_" + suffix

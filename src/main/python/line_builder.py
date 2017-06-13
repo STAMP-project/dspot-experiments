@@ -1,5 +1,7 @@
 import sys
+
 import extract_rates_from_file
+
 
 def getLine(rates):
     return str(rates[0]) + "&" + \

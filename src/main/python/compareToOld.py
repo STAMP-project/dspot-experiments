@@ -1,7 +1,8 @@
-import profiling_test_class
-import count_mutant
-import os
 import json
+import os
+
+import count_mutant
+import profiling_test_class
 
 
 def get_for_project_and_class(project, test_class, arrays):

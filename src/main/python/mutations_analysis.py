@@ -1,10 +1,10 @@
 import json
-from os import walk
-from itertools import takewhile, izip
-import os
-import install
-import build_rate_table
 import subprocess
+from os import walk
+
+import build_rate_table
+import install
+
 
 def allsame(x):
     return len(set(x)) == 1

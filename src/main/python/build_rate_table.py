@@ -1,12 +1,12 @@
-import sys
+import json
 import os
 import subprocess
-import json
+import sys
 
-import select_test_classes
 import extract_rates_from_file
-import install
 import line_builder
+import select_test_classes
+import install
 
 
 def cmdPitest(filter):
