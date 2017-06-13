@@ -24,9 +24,13 @@ def profile(projects):
                         if 0 < total <= 1000:
                             results.append((total, killed, filename[:-len("_mutations.csv")], project))
         sorted_results = sorted(
-                                sorted(results, key=lambda result: float(result[1]) / float(result[0]) * 100.0),
-                                key=lambda result: result[0]
-                                )
+            sorted(
+                sorted(
+                    sorted(results, key=lambda result: float(result[1]) / float(result[0]) * 100.0),
+                    key=lambda result: result[0]
+                ), key=lambda result: result[1]
+            ), key=lambda result: result[2]
+        )
 
         for result in sorted_results:
             print result
@@ -94,13 +98,8 @@ if __name__ == '__main__':
         projects = sys.argv[1:]
     else:
         projects = ["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup",
-                    "protostuff", "logback"]  # , "retrofit"]
-
-        projects = ["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup",
                     "protostuff",
                     "logback", "retrofit"]
-
-        projects = ["javapoet", "mybatis", "traccar", "stream-lib", "twilio-java", "jsoup", "protostuff", "logback"]
 
     top, worst = profile(projects)
 
