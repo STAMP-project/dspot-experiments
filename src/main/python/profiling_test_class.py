@@ -3,6 +3,7 @@ import json
 import count_mutant
 import sys
 
+
 def profile(projects):
     top = []
     worst = []
@@ -22,7 +23,10 @@ def profile(projects):
                         total, killed = count_mutant.countForTestClass(prefix + project + "/" + filename)
                         if 0 < total <= 1000:
                             results.append((total, killed, filename[:-len("_mutations.csv")], project))
-        sorted_results = sorted(results, key=lambda result: float(result[1]) / float(result[0]) * 100.0)
+        sorted_results = sorted(
+                                sorted(results, key=lambda result: float(result[1]) / float(result[0]) * 100.0),
+                                key=lambda result: result[0]
+                                )
 
         for result in sorted_results:
             print result
@@ -34,6 +38,7 @@ def profile(projects):
 
     return top, worst
 
+
 def load_data_from_json(path):
     with open(path.replace("Ampl", "")) as data_file:
         json_report = json.load(data_file)
@@ -42,6 +47,7 @@ def load_data_from_json(path):
             a_ampl += testCase["nbAssertionAdded"]
             i_ampl += testCase["nbInputAdded"]
         return json_report["nbOriginalTestCases"], len(json_report["testCases"]), i_ampl, a_ampl
+
 
 def print_line(t, gray):
     prefix_result = "results/per_class/"
@@ -69,7 +75,7 @@ def print_line(t, gray):
 
     print "{}{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}\\\\".format(
         ("\\rowcolor[HTML]{EFEFEF}" + "\n" if gray else ""),
-        "\small{"+project+"}", "\small{"+test_name.split(".")[-1]+"}",
+        "\small{" + project + "}", "\small{" + test_name.split(".")[-1] + "}",
         nb_test, nb_test_ampl,
         total,
         ("{\color{ForestGreen}$\\nearrow$}" if delta_total > 0 else "$\\rightarrow$"),
@@ -81,16 +87,17 @@ def print_line(t, gray):
         perc_killed_ampl, perc_delta_killed, i_ampl, a_ampl, 0
     )
 
-if __name__ == '__main__':
 
+if __name__ == '__main__':
 
     if len(sys.argv) > 1:
         projects = sys.argv[1:]
     else:
         projects = ["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup",
-                    "protostuff", "logback"]#, "retrofit"]
+                    "protostuff", "logback"]  # , "retrofit"]
 
-        projects = ["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup", "protostuff",
+        projects = ["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup",
+                    "protostuff",
                     "logback", "retrofit"]
 
         projects = ["javapoet", "mybatis", "traccar", "stream-lib", "twilio-java", "jsoup", "protostuff", "logback"]

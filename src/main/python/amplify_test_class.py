@@ -18,13 +18,10 @@ cmd = "~/jdk1.8.0_121/jre/bin/java -Xms16G -Xmx32G" \
 for project in projects:
     top, worst = profiling_test_class.profile(projects=[project])
     print cmd.format(project, project, top[0][2], project, top[0][2])
-    subprocess.call(cmd.format(project, project, top[0][2], project, top[0][2]),
-                    shell=True)
+    subprocess.call(cmd.format(project, project, top[0][2], project, top[0][2]), shell=True)
     print cmd.format(project, project, top[1][2], project, top[1][2])
-    subprocess.call(cmd.format(project, project, top[1][2], project, top[1][2]),
-                    shell=True)
+    subprocess.call(cmd.format(project, project, top[1][2], project, top[1][2]), shell=True)
     print cmd.format(project, project, worst[0][2], project, worst[0][2])
-    subprocess.call(cmd.format(project, project, worst[0][2], project, worst[0][2])
-                    , shell=True)
+    subprocess.call(cmd.format(project, project, worst[0][2], project, worst[0][2]), shell=True)
     print cmd.format(project, project, worst[1][2], project, worst[1][2])
     subprocess.call(cmd.format(project, project, worst[1][2], project, worst[1][2]), shell=True)
