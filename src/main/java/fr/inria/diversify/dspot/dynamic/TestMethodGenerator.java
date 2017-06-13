@@ -71,12 +71,12 @@ public class TestMethodGenerator {
         }
 
         if(target != null) {
-            List<CtExpression<?>> localVarRefs = (List<CtExpression<?>>) localVariables.stream()
+          /*  List<CtExpression<?>> localVarRefs = (List<CtExpression<?>>) localVariables.stream()
                     .map(var -> factory.Code().createLocalVariableReference(var))
                     .map(varRef -> factory.Code().createVariableRead((CtLocalVariableReference) varRef, false))
                     .map(varRef -> (CtExpression<?>) varRef)
-                    .collect(Collectors.toList());
-
+                    .collect(Collectors.toList());*/
+            List<CtExpression<?>> localVarRefs = Collections.emptyList();
             CtInvocation call = factory.Code().createInvocation(target,
                     factory.Executable().createReference(methodCall.getMethod()),
                     localVarRefs);
