@@ -2,5 +2,264 @@
   "nbMutantKilledOriginally": 63,
   "name": "com.squareup.javapoet.UtilTest",
   "nbOriginalTestCases": 2,
-  "testCases": []
+  "testCases": [
+    {
+      "name": "characterLiteral_cf84_cf1171_failAssert17",
+      "nbAssertionAdded": 9,
+      "nbInputAdded": 14,
+      "nbMutantKilled": 8,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 107,
+          "locationMethod": "requireExactlyOneOf"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "lineNumber": 103,
+          "locationMethod": "requireExactlyOneOf"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 102,
+          "locationMethod": "requireExactlyOneOf"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 107,
+          "locationMethod": "requireExactlyOneOf"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 107,
+          "locationMethod": "requireExactlyOneOf"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "lineNumber": 103,
+          "locationMethod": "requireExactlyOneOf"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 103,
+          "locationMethod": "requireExactlyOneOf"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 107,
+          "locationMethod": "requireExactlyOneOf"
+        }
+      ]
+    },
+    {
+      "name": "characterLiteral_cf76_failAssert9",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 5,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 64,
+          "locationMethod": "checkArgument"
+        }
+      ]
+    },
+    {
+      "name": "characterLiteral_cf83",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 10,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 73,
+          "locationMethod": "checkState"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 73,
+          "locationMethod": "checkState"
+        }
+      ]
+    },
+    {
+      "name": "characterLiteral_cf49_cf239_failAssert15",
+      "nbAssertionAdded": 7,
+      "nbInputAdded": 10,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 73,
+          "locationMethod": "checkState"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 73,
+          "locationMethod": "checkState"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 73,
+          "locationMethod": "checkState"
+        }
+      ]
+    },
+    {
+      "name": "characterLiteral_cf50_cf325_failAssert11",
+      "nbAssertionAdded": 7,
+      "nbInputAdded": 9,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 112,
+          "locationMethod": "hasDefaultModifier"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 112,
+          "locationMethod": "hasDefaultModifier"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 112,
+          "locationMethod": "hasDefaultModifier"
+        }
+      ]
+    },
+    {
+      "name": "characterLiteral_cf88_cf2717_failAssert10_literalMutation3596_failAssert14",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 15,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 73,
+          "locationMethod": "checkState"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 73,
+          "locationMethod": "checkState"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 73,
+          "locationMethod": "checkState"
+        }
+      ]
+    },
+    {
+      "name": "characterLiteral_cf73_failAssert6_literalMutation2749",
+      "nbAssertionAdded": 67,
+      "nbInputAdded": 7,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 64,
+          "locationMethod": "checkArgument"
+        }
+      ]
+    },
+    {
+      "name": "characterLiteral_cf83_cf700_failAssert6",
+      "nbAssertionAdded": 11,
+      "nbInputAdded": 14,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 73,
+          "locationMethod": "checkState"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator",
+          "lineNumber": 73,
+          "locationMethod": "checkState"
+        }
+      ]
+    },
+    {
+      "name": "characterLiteral_cf72_failAssert5",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 5,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 64,
+          "locationMethod": "checkArgument"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 64,
+          "locationMethod": "checkArgument"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator",
+          "lineNumber": 64,
+          "locationMethod": "checkArgument"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 64,
+          "locationMethod": "checkArgument"
+        }
+      ]
+    },
+    {
+      "name": "characterLiteral_cf45_failAssert0",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 112,
+          "locationMethod": "hasDefaultModifier"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 112,
+          "locationMethod": "hasDefaultModifier"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 112,
+          "locationMethod": "hasDefaultModifier"
+        }
+      ]
+    },
+    {
+      "name": "characterLiteral_cf50_cf367_failAssert5",
+      "nbAssertionAdded": 7,
+      "nbInputAdded": 11,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 64,
+          "locationMethod": "checkArgument"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 64,
+          "locationMethod": "checkArgument"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator",
+          "lineNumber": 64,
+          "locationMethod": "checkArgument"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 64,
+          "locationMethod": "checkArgument"
+        }
+      ]
+    }
+  ]
 }
