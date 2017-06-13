@@ -2,6 +2,7 @@ import subprocess
 import sys
 import os.path
 
+import install
 import profiling_test_class
 
 def run(projects):
@@ -19,17 +20,16 @@ def run(projects):
     results_path = "results/per_class/"
 
     for project in projects:
+        install.install(project)
         top, worst = profiling_test_class.profile(projects=[project])
         for e in top + worst:
             test_name = e[2].split(".")[-1]
             mutations_csv_file = ".".join(e[2].split(".")[:-1]) + "." + (
                 "Ampl" + test_name if test_name.endswith("Test") else "Ampl" + test_name) + "_mutations.csv"
             path_to_mutation_csv_file = results_path + project + "/" + mutations_csv_file
-            print path_to_mutation_csv_file
             if not os.path.isfile(path_to_mutation_csv_file):
-                print cmd.format(project, project, e[2], project, e[2])
-                #subprocess.call(cmd.format(project, project, e[2], project, e[2]), shell=True)
-    return cpt
+                #print cmd.format(project, project, e[2], project, e[2])
+                subprocess.call(cmd.format(project, project, e[2], project, e[2]), shell=True)
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
