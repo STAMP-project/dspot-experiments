@@ -25,6 +25,12 @@ def install(project):
     subprocess.call(cmd, shell=True)
 
 if __name__ == '__main__':
+    if "all" == sys.argv[1]:
+        projects = ["javapoet", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup", "protostuff", "logback",
+                    "retrofit"]
+        for project in projects:
+            install(project)
+
     install(sys.argv[1])
 
 

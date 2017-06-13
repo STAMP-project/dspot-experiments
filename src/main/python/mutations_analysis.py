@@ -60,8 +60,6 @@ def run(projects, mvnHome="~/apache-maven-3.3.9/bin/"):
             print copycmd
             subprocess.call(copycmd, shell=True)
 
-projects = ["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup", "protostuff",
-            "logback", "retrofit"]
 projects = ["javapoet", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup", "protostuff", "logback",
             "retrofit"]
 
