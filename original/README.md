@@ -8,9 +8,12 @@ Following, power maps created according to results per class for each projects:
 
 ## All projects
 ![power_map_all](power_map_all.jpeg)
+## All projects (covered <= 1000)
+![power_map_all_1000](power_map_all_1000.jpeg)
 ## javapoet
 ![power_map_javapoet](power_map_javapoet.jpeg)
-## mybatis (TODO)
+## mybatis
+![power_map_mybatis](power_map_mybatis.jpeg)
 ## traccar
 ![power_map_traccar](power_map_traccar.jpeg)
 ## stream-lib
