@@ -1,27 +1,42 @@
 import subprocess
 import sys
+import os.path
 
 import profiling_test_class
 
-projects = sys.argv[1:]
+def run(projects):
 
-cmd = "~/jdk1.8.0_121/jre/bin/java -Xms16G -Xmx32G" \
-      " -jar ../dspot/target/dspot-1.0.0-jar-with-dependencies.jar" \
-      " --path-to-properties src/main/resources/{}.properties" \
-      " --amplifiers MethodAdd:TestDataMutator:StatementAdderOnAssert" \
-      " --iteration 3" \
-      " --output-path {}" \
-      " --maven-home /home/spirals/danglot/apache-maven-3.3.9/" \
-      " -t {}" \
-      " -m original/per_class/{}/{}_mutations.csv"
+    cmd = "~/jdk1.8.0_121/jre/bin/java -Xms16G -Xmx32G" \
+          " -jar ../dspot/target/dspot-1.0.0-jar-with-dependencies.jar" \
+          " --path-to-properties src/main/resources/{}.properties" \
+          " --amplifiers MethodAdd:TestDataMutator:StatementAdderOnAssert" \
+          " --iteration 3" \
+          " --output-path {}" \
+          " --maven-home /home/spirals/danglot/apache-maven-3.3.9/" \
+          " -t {}" \
+          " -m original/per_class/{}/{}_mutations.csv"
 
-for project in projects:
-    top, worst = profiling_test_class.profile(projects=[project])
-    print cmd.format(project, project, top[0][2], project, top[0][2])
-    subprocess.call(cmd.format(project, project, top[0][2], project, top[0][2]), shell=True)
-    print cmd.format(project, project, top[1][2], project, top[1][2])
-    subprocess.call(cmd.format(project, project, top[1][2], project, top[1][2]), shell=True)
-    print cmd.format(project, project, worst[0][2], project, worst[0][2])
-    subprocess.call(cmd.format(project, project, worst[0][2], project, worst[0][2]), shell=True)
-    print cmd.format(project, project, worst[1][2], project, worst[1][2])
-    subprocess.call(cmd.format(project, project, worst[1][2], project, worst[1][2]), shell=True)
+    results_path = "results/per_class/"
+
+    for project in projects:
+        top, worst = profiling_test_class.profile(projects=[project])
+        for e in top + worst:
+            test_name = e[2].split(".")[-1]
+            mutations_csv_file = ".".join(e[2].split(".")[:-1]) + "." + (
+                "Ampl" + test_name if test_name.endswith("Test") else "Ampl" + test_name) + "_mutations.csv"
+            path_to_mutation_csv_file = results_path + project + "/" + mutations_csv_file
+            print path_to_mutation_csv_file
+            if not os.path.isfile(path_to_mutation_csv_file):
+                print cmd.format(project, project, e[2], project, e[2])
+                #subprocess.call(cmd.format(project, project, e[2], project, e[2]), shell=True)
+    return cpt
+
+if __name__ == '__main__':
+    if len(sys.argv) > 1:
+        projects = sys.argv[1:]
+    else:
+        projects = ["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup",
+                    "protostuff",
+                    "logback", "retrofit"]
+    print run(projects)
+
