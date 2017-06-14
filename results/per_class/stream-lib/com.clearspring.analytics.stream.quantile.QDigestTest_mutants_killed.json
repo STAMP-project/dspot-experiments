@@ -1,0 +1,264 @@
+{
+  "nbMutantKilledOriginally": 252,
+  "name": "com.clearspring.analytics.stream.quantile.QDigestTest",
+  "nbOriginalTestCases": 3,
+  "testCases": [
+    {
+      "name": "testSerialization_literalMutation66142_failAssert0_literalMutation67239",
+      "nbAssertionAdded": 9,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 330,
+          "locationMethod": "serialize"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 329,
+          "locationMethod": "serialize"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 353,
+          "locationMethod": "deserialize"
+        }
+      ]
+    },
+    {
+      "name": "testMerge_literalMutation40748_cf46994",
+      "nbAssertionAdded": 5,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 330,
+          "locationMethod": "serialize"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 77,
+          "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 329,
+          "locationMethod": "serialize"
+        }
+      ]
+    },
+    {
+      "name": "testMerge_literalMutation40728_cf43674",
+      "nbAssertionAdded": 4,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 17,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "lineNumber": 270,
+          "locationMethod": "compressDownward"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "lineNumber": 236,
+          "locationMethod": "compressUpward"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator",
+          "lineNumber": 333,
+          "locationMethod": "serialize"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 236,
+          "locationMethod": "compressUpward"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "lineNumber": 232,
+          "locationMethod": "compressUpward"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 209,
+          "locationMethod": "rebuildToCapacity"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 231,
+          "locationMethod": "compressUpward"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 232,
+          "locationMethod": "compressUpward"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 148,
+          "locationMethod": "offer"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 330,
+          "locationMethod": "serialize"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 240,
+          "locationMethod": "compressUpward"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 229,
+          "locationMethod": "compressUpward"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 269,
+          "locationMethod": "compressDownward"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 231,
+          "locationMethod": "compressUpward"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 186,
+          "locationMethod": "rebuildToCapacity"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 333,
+          "locationMethod": "serialize"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "lineNumber": 240,
+          "locationMethod": "compressUpward"
+        }
+      ]
+    },
+    {
+      "name": "testMerge_literalMutation40733_literalMutation44403",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "lineNumber": 137,
+          "locationMethod": "offer"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 114,
+          "locationMethod": "rightChild"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 102,
+          "locationMethod": "sibling"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 235,
+          "locationMethod": "compressUpward"
+        }
+      ]
+    },
+    {
+      "name": "testSerialization_literalMutation66151",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 329,
+          "locationMethod": "serialize"
+        }
+      ]
+    },
+    {
+      "name": "testSerialization_literalMutation66142_failAssert0",
+      "nbAssertionAdded": 7,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 134,
+          "locationMethod": "offer"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 134,
+          "locationMethod": "offer"
+        }
+      ]
+    },
+    {
+      "name": "testSerialization_literalMutation66158_cf66912_failAssert29_literalMutation69768",
+      "nbAssertionAdded": 19,
+      "nbInputAdded": 7,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 330,
+          "locationMethod": "serialize"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 329,
+          "locationMethod": "serialize"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 353,
+          "locationMethod": "deserialize"
+        }
+      ]
+    },
+    {
+      "name": "testMerge_literalMutation40733_literalMutation44493",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator",
+          "lineNumber": 230,
+          "locationMethod": "compressUpward"
+        }
+      ]
+    },
+    {
+      "name": "testComprehensiveOnMixture",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "lineNumber": 60,
+          "locationMethod": "compare"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 56,
+          "locationMethod": "compare"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "lineNumber": 60,
+          "locationMethod": "compare"
+        }
+      ]
+    }
+  ]
+}

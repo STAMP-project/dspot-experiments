@@ -1,0 +1,381 @@
+{
+  "nbMutantKilledOriginally": 380,
+  "name": "io.protostuff.TailDelimiterTest",
+  "nbOriginalTestCases": 10,
+  "testCases": [
+    {
+      "name": "testBar_cf67_failAssert9_add343",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 69,
+          "locationMethod": "writeInt32"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 300,
+          "locationMethod": "writeListTo"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 69,
+          "locationMethod": "writeInt32"
+        }
+      ]
+    },
+    {
+      "name": "testFoo",
+      "nbAssertionAdded": 3,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 69,
+          "locationMethod": "writeInt32"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 69,
+          "locationMethod": "writeInt32"
+        }
+      ]
+    },
+    {
+      "name": "testEmptyBar_add5544",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 300,
+          "locationMethod": "writeListTo"
+        }
+      ]
+    },
+    {
+      "name": "testEmptyBar2_cf10132_failAssert6_add10324",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 300,
+          "locationMethod": "writeListTo"
+        }
+      ]
+    },
+    {
+      "name": "testEmptyFooInner_add31640",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 300,
+          "locationMethod": "writeListTo"
+        }
+      ]
+    },
+    {
+      "name": "testEmptyBar2",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 300,
+          "locationMethod": "writeListTo"
+        }
+      ]
+    },
+    {
+      "name": "testBar_add3",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 69,
+          "locationMethod": "writeInt32"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 300,
+          "locationMethod": "writeListTo"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 69,
+          "locationMethod": "writeInt32"
+        }
+      ]
+    },
+    {
+      "name": "testEmptyFooInner2_add36251",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 300,
+          "locationMethod": "writeListTo"
+        }
+      ]
+    },
+    {
+      "name": "testEmptyFoo_cf21684_failAssert6_add21955",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 300,
+          "locationMethod": "writeListTo"
+        }
+      ]
+    },
+    {
+      "name": "testEmptyBarInner_cf15625_failAssert6_add15826",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 300,
+          "locationMethod": "writeListTo"
+        }
+      ]
+    },
+    {
+      "name": "testEmptyList_add41324",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 285,
+          "locationMethod": "writeListTo"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 286,
+          "locationMethod": "writeListTo"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 286,
+          "locationMethod": "writeListTo"
+        }
+      ]
+    },
+    {
+      "name": "testEmptyFoo2_add26050",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 300,
+          "locationMethod": "writeListTo"
+        }
+      ]
+    },
+    {
+      "name": "testFoo_cf44872_failAssert5_add45136",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 69,
+          "locationMethod": "writeInt32"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 300,
+          "locationMethod": "writeListTo"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 69,
+          "locationMethod": "writeInt32"
+        }
+      ]
+    },
+    {
+      "name": "testEmptyFooInner2_cf36313_failAssert8_add36622",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 300,
+          "locationMethod": "writeListTo"
+        }
+      ]
+    },
+    {
+      "name": "testEmptyBarInner_add15567",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 300,
+          "locationMethod": "writeListTo"
+        }
+      ]
+    },
+    {
+      "name": "testEmptyList_cf41382_failAssert2_add41676",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 285,
+          "locationMethod": "writeListTo"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 286,
+          "locationMethod": "writeListTo"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 286,
+          "locationMethod": "writeListTo"
+        }
+      ]
+    },
+    {
+      "name": "testFoo_add44816",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 69,
+          "locationMethod": "writeInt32"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 300,
+          "locationMethod": "writeListTo"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 69,
+          "locationMethod": "writeInt32"
+        }
+      ]
+    },
+    {
+      "name": "testEmptyBar2_add10074",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 300,
+          "locationMethod": "writeListTo"
+        }
+      ]
+    },
+    {
+      "name": "testEmptyFoo2_cf26110_failAssert7_add26308",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 300,
+          "locationMethod": "writeListTo"
+        }
+      ]
+    },
+    {
+      "name": "testEmptyFoo_add21626",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 300,
+          "locationMethod": "writeListTo"
+        }
+      ]
+    },
+    {
+      "name": "testEmptyFooInner_cf31700_failAssert7_add31989",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 300,
+          "locationMethod": "writeListTo"
+        }
+      ]
+    },
+    {
+      "name": "testEmptyBar_cf5610_failAssert10_add5909",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 300,
+          "locationMethod": "writeListTo"
+        }
+      ]
+    },
+    {
+      "name": "testEmptyList",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 285,
+          "locationMethod": "writeListTo"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 286,
+          "locationMethod": "writeListTo"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 286,
+          "locationMethod": "writeListTo"
+        }
+      ]
+    }
+  ]
+}
