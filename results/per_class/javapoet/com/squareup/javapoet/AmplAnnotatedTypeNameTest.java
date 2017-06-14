@@ -249,7 +249,7 @@ public class AmplAnnotatedTypeNameTest {
         org.junit.Assert.assertTrue(annotated.isAnnotated());
         // AssertGenerator replace invocation
         boolean o_annotated_cf11__11 = // StatementAdderMethod cloned existing statement
-annotated.isBoxedPrimitive();
+                annotated.isBoxedPrimitive();
         // AssertGenerator add assertion
         org.junit.Assert.assertFalse(o_annotated_cf11__11);
         org.junit.Assert.assertEquals(annotated, annotated.annotated());
@@ -269,7 +269,7 @@ annotated.isBoxedPrimitive();
         org.junit.Assert.assertNull(vc_2);
         // AssertGenerator replace invocation
         boolean o_annotated_cf3__13 = // StatementAdderMethod cloned existing statement
-annotated.equals(vc_2);
+                annotated.equals(vc_2);
         // AssertGenerator add assertion
         org.junit.Assert.assertFalse(o_annotated_cf3__13);
         org.junit.Assert.assertEquals(annotated, annotated.annotated());
@@ -290,7 +290,7 @@ annotated.equals(vc_2);
             Object o_9_0 = annotated.isAnnotated();
             // AssertGenerator replace invocation
             boolean o_annotated_cf14__11 = // StatementAdderMethod cloned existing statement
-annotated.isPrimitive();
+                    annotated.isPrimitive();
             // MethodAssertGenerator build local variable
             Object o_13_0 = o_annotated_cf14__11;
             // StatementAdderOnAssert create null value
@@ -327,7 +327,7 @@ annotated.isPrimitive();
             Object o_13_0 = vc_2;
             // AssertGenerator replace invocation
             boolean o_annotated_cf3__13 = // StatementAdderMethod cloned existing statement
-annotated.equals(vc_2);
+                    annotated.equals(vc_2);
             // MethodAssertGenerator build local variable
             Object o_17_0 = o_annotated_cf3__13;
             // StatementAdderOnAssert create null value
@@ -362,7 +362,7 @@ annotated.equals(vc_2);
             Object o_9_0 = annotated.isAnnotated();
             // AssertGenerator replace invocation
             int o_annotated_cf89__11 = // StatementAdderMethod cloned existing statement
-annotated.hashCode();
+                    annotated.hashCode();
             // MethodAssertGenerator build local variable
             Object o_13_0 = o_annotated_cf89__11;
             // StatementAdderOnAssert create null value
@@ -387,7 +387,7 @@ annotated.hashCode();
         java.lang.String actual = com.squareup.javapoet.ParameterizedTypeName.get(list, type).toString();
         // AssertGenerator replace invocation
         boolean o_annotatedArgumentOfParameterizedType_cf927__10 = // StatementAdderMethod cloned existing statement
-type.isBoxedPrimitive();
+                type.isBoxedPrimitive();
         // AssertGenerator add assertion
         org.junit.Assert.assertFalse(o_annotatedArgumentOfParameterizedType_cf927__10);
         org.junit.Assert.assertEquals(expected, actual);
@@ -406,7 +406,7 @@ type.isBoxedPrimitive();
         org.junit.Assert.assertNull(vc_434);
         // AssertGenerator replace invocation
         boolean o_annotatedArgumentOfParameterizedType_cf919__12 = // StatementAdderMethod cloned existing statement
-type.equals(vc_434);
+                type.equals(vc_434);
         // AssertGenerator add assertion
         org.junit.Assert.assertFalse(o_annotatedArgumentOfParameterizedType_cf919__12);
         org.junit.Assert.assertEquals(expected, actual);
@@ -477,7 +477,7 @@ type.equals(vc_434);
         java.lang.Object vc_435 = new java.lang.Object();
         // AssertGenerator replace invocation
         boolean o_annotatedArgumentOfParameterizedType_cf920__12 = // StatementAdderMethod cloned existing statement
-type.equals(vc_435);
+                type.equals(vc_435);
         // AssertGenerator add assertion
         org.junit.Assert.assertFalse(o_annotatedArgumentOfParameterizedType_cf920__12);
         org.junit.Assert.assertEquals(expected, actual);
@@ -496,7 +496,7 @@ type.equals(vc_435);
             java.lang.Object vc_435 = new java.lang.Object();
             // AssertGenerator replace invocation
             boolean o_annotatedArgumentOfParameterizedType_cf920__12 = // StatementAdderMethod cloned existing statement
-type.equals(vc_435);
+                    type.equals(vc_435);
             // MethodAssertGenerator build local variable
             Object o_14_0 = o_annotatedArgumentOfParameterizedType_cf920__12;
             // StatementAdderOnAssert create null value
@@ -519,7 +519,7 @@ type.equals(vc_435);
             java.lang.String actual = com.squareup.javapoet.ParameterizedTypeName.get(list, type).toString();
             // AssertGenerator replace invocation
             boolean o_annotatedArgumentOfParameterizedType_cf924__10 = // StatementAdderMethod cloned existing statement
-type.isAnnotated();
+                    type.isAnnotated();
             // MethodAssertGenerator build local variable
             Object o_12_0 = o_annotatedArgumentOfParameterizedType_cf924__10;
             // StatementAdderOnAssert create null value
@@ -540,7 +540,7 @@ type.isAnnotated();
         try {
             java.lang.String expected = ("javautil.List<@" + (com.squareup.javapoet.AmplAnnotatedTypeNameTest.NN)) + " java.lang.String>";
             // AssertGenerator add assertion
-            org.junit.Assert.assertEquals(expected, "javautil.List<@com.squareup.javapoet.AnnotatedTypeNameTest.NeverNull java.lang.String>");
+            org.junit.Assert.assertEquals(expected, "javautil.List<@com.squareup.javapoet.AmplAnnotatedTypeNameTest.NeverNull java.lang.String>");
             com.squareup.javapoet.TypeName type = com.squareup.javapoet.TypeName.get(java.lang.String.class).annotated(NEVER_NULL);
             com.squareup.javapoet.ClassName list = com.squareup.javapoet.ClassName.get(java.util.List.class);
             java.lang.String actual = com.squareup.javapoet.ParameterizedTypeName.get(list, type).toString();
@@ -684,7 +684,7 @@ type.isAnnotated();
         java.lang.String actual = type.annotated(NEVER_NULL).toString();
         // AssertGenerator replace invocation
         boolean o_annotatedParameterizedType_cf8782__7 = // StatementAdderMethod cloned existing statement
-type.isBoxedPrimitive();
+                type.isBoxedPrimitive();
         // AssertGenerator add assertion
         org.junit.Assert.assertFalse(o_annotatedParameterizedType_cf8782__7);
         org.junit.Assert.assertEquals(expected, actual);
@@ -721,7 +721,7 @@ type.isBoxedPrimitive();
         org.junit.Assert.assertNull(vc_3674);
         // AssertGenerator replace invocation
         boolean o_annotatedParameterizedType_cf8774__9 = // StatementAdderMethod cloned existing statement
-type.equals(vc_3674);
+                type.equals(vc_3674);
         // AssertGenerator add assertion
         org.junit.Assert.assertFalse(o_annotatedParameterizedType_cf8774__9);
         org.junit.Assert.assertEquals(expected, actual);
@@ -737,7 +737,7 @@ type.equals(vc_3674);
         java.lang.Object vc_3675 = new java.lang.Object();
         // AssertGenerator replace invocation
         boolean o_annotatedParameterizedType_cf8775__9 = // StatementAdderMethod cloned existing statement
-type.equals(vc_3675);
+                type.equals(vc_3675);
         // AssertGenerator add assertion
         org.junit.Assert.assertFalse(o_annotatedParameterizedType_cf8775__9);
         org.junit.Assert.assertEquals(expected, actual);
@@ -834,7 +834,7 @@ type.equals(vc_3675);
             java.lang.String actual = type.annotated(NEVER_NULL).toString();
             // AssertGenerator replace invocation
             int o_annotatedParameterizedType_cf8860__7 = // StatementAdderMethod cloned existing statement
-type.hashCode();
+                    type.hashCode();
             // MethodAssertGenerator build local variable
             Object o_9_0 = o_annotatedParameterizedType_cf8860__7;
             // StatementAdderMethod cloned existing statement
@@ -854,7 +854,7 @@ type.hashCode();
             java.lang.String actual = type.annotated(NEVER_NULL).toString();
             // AssertGenerator replace invocation
             java.lang.String o_annotatedParameterizedType_cf8863__7 = // StatementAdderMethod cloned existing statement
-type.toString();
+                    type.toString();
             // MethodAssertGenerator build local variable
             Object o_9_0 = o_annotatedParameterizedType_cf8863__7;
             // StatementAdderOnAssert create null value
@@ -986,7 +986,7 @@ type.toString();
         org.junit.Assert.assertNull(vc_7130);
         // AssertGenerator replace invocation
         boolean o_annotatedTwice_cf16418__12 = // StatementAdderMethod cloned existing statement
-type.equals(vc_7130);
+                type.equals(vc_7130);
         // AssertGenerator add assertion
         org.junit.Assert.assertFalse(o_annotatedTwice_cf16418__12);
         org.junit.Assert.assertEquals(expected, actual);
@@ -1002,7 +1002,7 @@ type.equals(vc_7130);
         java.lang.Object vc_7131 = new java.lang.Object();
         // AssertGenerator replace invocation
         boolean o_annotatedTwice_cf16419__12 = // StatementAdderMethod cloned existing statement
-type.equals(vc_7131);
+                type.equals(vc_7131);
         // AssertGenerator add assertion
         org.junit.Assert.assertFalse(o_annotatedTwice_cf16419__12);
         org.junit.Assert.assertEquals(expected, actual);
@@ -1065,7 +1065,7 @@ type.equals(vc_7131);
         java.lang.String actual = type.annotated(NEVER_NULL).annotated(com.squareup.javapoet.AnnotationSpec.builder(java.lang.Override.class).build()).toString();
         // AssertGenerator replace invocation
         boolean o_annotatedTwice_cf16426__10 = // StatementAdderMethod cloned existing statement
-type.isBoxedPrimitive();
+                type.isBoxedPrimitive();
         // AssertGenerator add assertion
         org.junit.Assert.assertFalse(o_annotatedTwice_cf16426__10);
         org.junit.Assert.assertEquals(expected, actual);
@@ -1081,7 +1081,7 @@ type.isBoxedPrimitive();
             java.lang.String actual = type.annotated(NEVER_NULL).annotated(com.squareup.javapoet.AnnotationSpec.builder(java.lang.Override.class).build()).toString();
             // AssertGenerator replace invocation
             java.lang.String o_annotatedTwice_cf16507__10 = // StatementAdderMethod cloned existing statement
-type.toString();
+                    type.toString();
             // MethodAssertGenerator build local variable
             Object o_12_0 = o_annotatedTwice_cf16507__10;
             // StatementAdderOnAssert create null value
@@ -1107,7 +1107,7 @@ type.toString();
             java.lang.String actual = type.annotated(NEVER_NULL).annotated(com.squareup.javapoet.AnnotationSpec.builder(java.lang.Override.class).build()).toString();
             // AssertGenerator replace invocation
             java.lang.String o_annotatedTwice_cf16507__10 = // StatementAdderMethod cloned existing statement
-type.toString();
+                    type.toString();
             // MethodAssertGenerator build local variable
             Object o_12_0 = o_annotatedTwice_cf16507__10;
             // StatementAdderOnAssert create null value
@@ -1197,7 +1197,7 @@ type.toString();
         java.lang.String actual = type.annotated(NEVER_NULL).toString();
         // AssertGenerator replace invocation
         boolean o_annotatedType_cf21147__7 = // StatementAdderMethod cloned existing statement
-type.isBoxedPrimitive();
+                type.isBoxedPrimitive();
         // AssertGenerator add assertion
         org.junit.Assert.assertFalse(o_annotatedType_cf21147__7);
         org.junit.Assert.assertEquals(expected, actual);
@@ -1215,7 +1215,7 @@ type.isBoxedPrimitive();
         org.junit.Assert.assertNull(vc_9218);
         // AssertGenerator replace invocation
         boolean o_annotatedType_cf21139__9 = // StatementAdderMethod cloned existing statement
-type.equals(vc_9218);
+                type.equals(vc_9218);
         // AssertGenerator add assertion
         org.junit.Assert.assertFalse(o_annotatedType_cf21139__9);
         org.junit.Assert.assertEquals(expected, actual);
@@ -1263,7 +1263,7 @@ type.equals(vc_9218);
         java.lang.Object vc_9219 = new java.lang.Object();
         // AssertGenerator replace invocation
         boolean o_annotatedType_cf21140__9 = // StatementAdderMethod cloned existing statement
-type.equals(vc_9219);
+                type.equals(vc_9219);
         // AssertGenerator add assertion
         org.junit.Assert.assertFalse(o_annotatedType_cf21140__9);
         org.junit.Assert.assertEquals(expected, actual);
@@ -1406,7 +1406,7 @@ type.equals(vc_9219);
         java.lang.Object vc_12387 = new java.lang.Object();
         // AssertGenerator replace invocation
         boolean o_annotatedWildcardTypeNameWithExtends_cf27961__10 = // StatementAdderMethod cloned existing statement
-type.equals(vc_12387);
+                type.equals(vc_12387);
         // AssertGenerator add assertion
         org.junit.Assert.assertFalse(o_annotatedWildcardTypeNameWithExtends_cf27961__10);
         org.junit.Assert.assertEquals(expected, actual);
@@ -1424,7 +1424,7 @@ type.equals(vc_12387);
         org.junit.Assert.assertNull(vc_12386);
         // AssertGenerator replace invocation
         boolean o_annotatedWildcardTypeNameWithExtends_cf27960__10 = // StatementAdderMethod cloned existing statement
-type.equals(vc_12386);
+                type.equals(vc_12386);
         // AssertGenerator add assertion
         org.junit.Assert.assertFalse(o_annotatedWildcardTypeNameWithExtends_cf27960__10);
         org.junit.Assert.assertEquals(expected, actual);
@@ -1491,7 +1491,7 @@ type.equals(vc_12386);
         java.lang.String actual = com.squareup.javapoet.WildcardTypeName.subtypeOf(type).toString();
         // AssertGenerator replace invocation
         boolean o_annotatedWildcardTypeNameWithExtends_cf27968__8 = // StatementAdderMethod cloned existing statement
-type.isBoxedPrimitive();
+                type.isBoxedPrimitive();
         // AssertGenerator add assertion
         org.junit.Assert.assertFalse(o_annotatedWildcardTypeNameWithExtends_cf27968__8);
         org.junit.Assert.assertEquals(expected, actual);
@@ -1509,7 +1509,7 @@ type.isBoxedPrimitive();
             java.lang.String actual = com.squareup.javapoet.WildcardTypeName.subtypeOf(type).toString();
             // AssertGenerator replace invocation
             int o_annotatedWildcardTypeNameWithExtends_cf28046__8 = // StatementAdderMethod cloned existing statement
-type.hashCode();
+                    type.hashCode();
             // MethodAssertGenerator build local variable
             Object o_10_0 = o_annotatedWildcardTypeNameWithExtends_cf28046__8;
             // StatementAdderOnAssert create null value
@@ -1535,7 +1535,7 @@ type.hashCode();
             Object o_10_0 = vc_12386;
             // AssertGenerator replace invocation
             boolean o_annotatedWildcardTypeNameWithExtends_cf27960__10 = // StatementAdderMethod cloned existing statement
-type.equals(vc_12386);
+                    type.equals(vc_12386);
             // MethodAssertGenerator build local variable
             Object o_14_0 = o_annotatedWildcardTypeNameWithExtends_cf27960__10;
             // StatementAdderOnAssert create null value
@@ -1554,7 +1554,7 @@ type.equals(vc_12386);
         try {
             java.lang.String expected = ("? e{xtends @" + (com.squareup.javapoet.AmplAnnotatedTypeNameTest.NN)) + " java.lang.String";
             // AssertGenerator add assertion
-            org.junit.Assert.assertEquals(expected, "? e{xtends @com.squareup.javapoet.AnnotatedTypeNameTest.NeverNull java.lang.String");
+            org.junit.Assert.assertEquals(expected, "? e{xtends @com.squareup.javapoet.AmplAnnotatedTypeNameTest.NeverNull java.lang.String");
             com.squareup.javapoet.TypeName type = com.squareup.javapoet.TypeName.get(java.lang.String.class).annotated(NEVER_NULL);
             java.lang.String actual = com.squareup.javapoet.WildcardTypeName.subtypeOf(type).toString();
             // StatementAdderOnAssert create null value
@@ -1658,7 +1658,7 @@ type.equals(vc_12386);
         java.lang.Object vc_16131 = new java.lang.Object();
         // AssertGenerator replace invocation
         boolean o_annotatedWildcardTypeNameWithSuper_cf36372__10 = // StatementAdderMethod cloned existing statement
-type.equals(vc_16131);
+                type.equals(vc_16131);
         // AssertGenerator add assertion
         org.junit.Assert.assertFalse(o_annotatedWildcardTypeNameWithSuper_cf36372__10);
         org.junit.Assert.assertEquals(expected, actual);
@@ -1672,7 +1672,7 @@ type.equals(vc_16131);
         java.lang.String actual = com.squareup.javapoet.WildcardTypeName.supertypeOf(type).toString();
         // AssertGenerator replace invocation
         boolean o_annotatedWildcardTypeNameWithSuper_cf36379__8 = // StatementAdderMethod cloned existing statement
-type.isBoxedPrimitive();
+                type.isBoxedPrimitive();
         // AssertGenerator add assertion
         org.junit.Assert.assertFalse(o_annotatedWildcardTypeNameWithSuper_cf36379__8);
         org.junit.Assert.assertEquals(expected, actual);
@@ -1743,7 +1743,7 @@ type.isBoxedPrimitive();
         org.junit.Assert.assertNull(vc_16130);
         // AssertGenerator replace invocation
         boolean o_annotatedWildcardTypeNameWithSuper_cf36371__10 = // StatementAdderMethod cloned existing statement
-type.equals(vc_16130);
+                type.equals(vc_16130);
         // AssertGenerator add assertion
         org.junit.Assert.assertFalse(o_annotatedWildcardTypeNameWithSuper_cf36371__10);
         org.junit.Assert.assertEquals(expected, actual);
@@ -1759,7 +1759,7 @@ type.equals(vc_16130);
             java.lang.String actual = com.squareup.javapoet.WildcardTypeName.supertypeOf(type).toString();
             // AssertGenerator replace invocation
             boolean o_annotatedWildcardTypeNameWithSuper_cf36376__8 = // StatementAdderMethod cloned existing statement
-type.isAnnotated();
+                    type.isAnnotated();
             // MethodAssertGenerator build local variable
             Object o_10_0 = o_annotatedWildcardTypeNameWithSuper_cf36376__8;
             // StatementAdderOnAssert create null value
@@ -1778,7 +1778,7 @@ type.isAnnotated();
         try {
             java.lang.String expected = ("? super @" + (com.squareup.javapoet.AmplAnnotatedTypeNameTest.NN)) + "";
             // AssertGenerator add assertion
-            org.junit.Assert.assertEquals(expected, "? super @com.squareup.javapoet.AnnotatedTypeNameTest.NeverNull");
+            org.junit.Assert.assertEquals(expected, "? super @com.squareup.javapoet.AmplAnnotatedTypeNameTest.NeverNull");
             com.squareup.javapoet.TypeName type = com.squareup.javapoet.TypeName.get(java.lang.String.class).annotated(NEVER_NULL);
             java.lang.String actual = com.squareup.javapoet.WildcardTypeName.supertypeOf(type).toString();
             // StatementAdderOnAssert create null value
