@@ -1,0 +1,43 @@
+{
+  "nbMutantKilledOriginally": 142,
+  "name": "org.traccar.FilterHandlerTest",
+  "nbOriginalTestCases": 1,
+  "testCases": [
+    {
+      "name": "testFilterInvalid_cf94_failAssert7",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 112,
+          "locationMethod": "filterApproximate"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 165,
+          "locationMethod": "filter"
+        }
+      ]
+    },
+    {
+      "name": "testFilterInvalid_cf99_cf223_failAssert2",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 112,
+          "locationMethod": "filterApproximate"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 165,
+          "locationMethod": "filter"
+        }
+      ]
+    }
+  ]
+}

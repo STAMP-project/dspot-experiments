@@ -7,12 +7,17 @@
       "name": "html_cf81",
       "nbAssertionAdded": 8,
       "nbInputAdded": 4,
-      "nbMutantKilled": 4,
+      "nbMutantKilled": 11,
       "mutantsKilled": [
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
-          "lineNumber": 53,
-          "locationMethod": "setKey"
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 61,
+          "locationMethod": "getValue"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 136,
+          "locationMethod": "isBooleanAttribute"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
@@ -21,6 +26,36 @@
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 136,
+          "locationMethod": "isBooleanAttribute"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 136,
+          "locationMethod": "isBooleanAttribute"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 136,
+          "locationMethod": "isBooleanAttribute"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "lineNumber": 136,
+          "locationMethod": "isBooleanAttribute"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 53,
+          "locationMethod": "setKey"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 44,
+          "locationMethod": "getKey"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
           "lineNumber": 53,
           "locationMethod": "setKey"
         },
@@ -38,7 +73,12 @@
       "nbMutantKilled": 9,
       "mutantsKilled": [
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 152,
+          "locationMethod": "hashCode"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
           "lineNumber": 153,
           "locationMethod": "hashCode"
         },
@@ -63,12 +103,7 @@
           "locationMethod": "hashCode"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 153,
-          "locationMethod": "hashCode"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
           "lineNumber": 153,
           "locationMethod": "hashCode"
         },
@@ -78,8 +113,8 @@
           "locationMethod": "hashCode"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 152,
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 153,
           "locationMethod": "hashCode"
         }
       ]
@@ -91,12 +126,7 @@
       "nbMutantKilled": 13,
       "mutantsKilled": [
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
-          "lineNumber": 142,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
           "lineNumber": 147,
           "locationMethod": "equals"
         },
@@ -107,12 +137,17 @@
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 147,
+          "locationMethod": "equals"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
           "lineNumber": 146,
           "locationMethod": "equals"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 146,
+          "lineNumber": 147,
           "locationMethod": "equals"
         },
         {
@@ -122,8 +157,23 @@
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 146,
+          "locationMethod": "equals"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
           "lineNumber": 147,
           "locationMethod": "equals"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 146,
+          "locationMethod": "equals"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 160,
+          "locationMethod": "clone"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
@@ -137,22 +187,7 @@
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
-          "lineNumber": 147,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 160,
-          "locationMethod": "clone"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
-          "lineNumber": 146,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 147,
+          "lineNumber": 142,
           "locationMethod": "equals"
         }
       ]
@@ -176,81 +211,7 @@
       ]
     },
     {
-      "name": "html_cf45",
-      "nbAssertionAdded": 4,
-      "nbInputAdded": 4,
-      "nbMutantKilled": 4,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 211,
-          "locationMethod": "escape"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
-          "lineNumber": 210,
-          "locationMethod": "escape"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-          "lineNumber": 210,
-          "locationMethod": "escape"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 210,
-          "locationMethod": "escape"
-        }
-      ]
-    },
-    {
-      "name": "testWithSupplementaryCharacterInAttributeKeyAndValue_cf10742",
-      "nbAssertionAdded": 2,
-      "nbInputAdded": 4,
-      "nbMutantKilled": 5,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
-          "lineNumber": 141,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 142,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 142,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 141,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-          "lineNumber": 142,
-          "locationMethod": "equals"
-        }
-      ]
-    },
-    {
-      "name": "testWithSupplementaryCharacterInAttributeKeyAndValue_cf10775",
-      "nbAssertionAdded": 4,
-      "nbInputAdded": 4,
-      "nbMutantKilled": 1,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 72,
-          "locationMethod": "setValue"
-        }
-      ]
-    },
-    {
-      "name": "html_cf33",
+      "name": "testWithSupplementaryCharacterInAttributeKeyAndValue_cf10761",
       "nbAssertionAdded": 2,
       "nbInputAdded": 2,
       "nbMutantKilled": 1,
@@ -263,90 +224,83 @@
       ]
     },
     {
-      "name": "testWithSupplementaryCharacterInAttributeKeyAndValue_cf10785",
-      "nbAssertionAdded": 8,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 14,
+      "name": "html_cf45",
+      "nbAssertionAdded": 4,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 5,
       "mutantsKilled": [
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
-          "lineNumber": 142,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-          "lineNumber": 147,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 147,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-          "lineNumber": 146,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 146,
-          "locationMethod": "equals"
+          "lineNumber": 210,
+          "locationMethod": "escape"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 160,
-          "locationMethod": "clone"
+          "lineNumber": 72,
+          "locationMethod": "setValue"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 147,
-          "locationMethod": "equals"
+          "lineNumber": 211,
+          "locationMethod": "escape"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 147,
-          "locationMethod": "equals"
+          "lineNumber": 210,
+          "locationMethod": "escape"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 146,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
-          "lineNumber": 147,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 160,
-          "locationMethod": "clone"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 142,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
-          "lineNumber": 146,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 147,
-          "locationMethod": "equals"
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 210,
+          "locationMethod": "escape"
         }
       ]
     },
     {
-      "name": "html_cf14",
+      "name": "testWithSupplementaryCharacterInAttributeKeyAndValue_cf10775",
+      "nbAssertionAdded": 4,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 210,
+          "locationMethod": "escape"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 211,
+          "locationMethod": "escape"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 210,
+          "locationMethod": "escape"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 210,
+          "locationMethod": "escape"
+        }
+      ]
+    },
+    {
+      "name": "testWithSupplementaryCharacterInAttributeKeyAndValue_cf10742",
       "nbAssertionAdded": 2,
       "nbInputAdded": 4,
       "nbMutantKilled": 6,
       "mutantsKilled": [
         {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 142,
+          "locationMethod": "equals"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 142,
+          "locationMethod": "equals"
+        },
+        {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
           "lineNumber": 141,
           "locationMethod": "equals"
@@ -358,28 +312,18 @@
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 142,
+          "lineNumber": 141,
           "locationMethod": "equals"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
           "lineNumber": 142,
           "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 141,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-          "lineNumber": 142,
-          "locationMethod": "equals"
         }
       ]
     },
     {
-      "name": "html_cf36",
+      "name": "testWithSupplementaryCharacterInAttributeKeyAndValue_cf10764",
       "nbAssertionAdded": 2,
       "nbInputAdded": 2,
       "nbMutantKilled": 1,
@@ -392,9 +336,82 @@
       ]
     },
     {
-      "name": "html_cf46",
-      "nbAssertionAdded": 4,
-      "nbInputAdded": 4,
+      "name": "testWithSupplementaryCharacterInAttributeKeyAndValue_cf10785",
+      "nbAssertionAdded": 8,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 13,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 147,
+          "locationMethod": "equals"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 147,
+          "locationMethod": "equals"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 147,
+          "locationMethod": "equals"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 146,
+          "locationMethod": "equals"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 147,
+          "locationMethod": "equals"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 160,
+          "locationMethod": "clone"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 146,
+          "locationMethod": "equals"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 147,
+          "locationMethod": "equals"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 146,
+          "locationMethod": "equals"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 160,
+          "locationMethod": "clone"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 147,
+          "locationMethod": "equals"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 146,
+          "locationMethod": "equals"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 142,
+          "locationMethod": "equals"
+        }
+      ]
+    },
+    {
+      "name": "testWithSupplementaryCharacterInAttributeKeyAndValue_cf10774",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 2,
       "nbMutantKilled": 1,
       "mutantsKilled": [
         {
@@ -405,13 +422,56 @@
       ]
     },
     {
+      "name": "html_cf14",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 6,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 142,
+          "locationMethod": "equals"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 142,
+          "locationMethod": "equals"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 141,
+          "locationMethod": "equals"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 142,
+          "locationMethod": "equals"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 141,
+          "locationMethod": "equals"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 142,
+          "locationMethod": "equals"
+        }
+      ]
+    },
+    {
       "name": "testWithSupplementaryCharacterInAttributeKeyAndValue_cf10746",
       "nbAssertionAdded": 2,
       "nbInputAdded": 2,
       "nbMutantKilled": 5,
       "mutantsKilled": [
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 136,
+          "locationMethod": "isBooleanAttribute"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
           "lineNumber": 136,
           "locationMethod": "isBooleanAttribute"
         },
@@ -426,45 +486,7 @@
           "locationMethod": "isBooleanAttribute"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 136,
-          "locationMethod": "isBooleanAttribute"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 136,
-          "locationMethod": "isBooleanAttribute"
-        }
-      ]
-    },
-    {
-      "name": "html_cf18",
-      "nbAssertionAdded": 2,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 5,
-      "mutantsKilled": [
-        {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
-          "lineNumber": 136,
-          "locationMethod": "isBooleanAttribute"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 136,
-          "locationMethod": "isBooleanAttribute"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 136,
-          "locationMethod": "isBooleanAttribute"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 136,
-          "locationMethod": "isBooleanAttribute"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
           "lineNumber": 136,
           "locationMethod": "isBooleanAttribute"
         }
@@ -477,7 +499,12 @@
       "nbMutantKilled": 9,
       "mutantsKilled": [
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 152,
+          "locationMethod": "hashCode"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
           "lineNumber": 153,
           "locationMethod": "hashCode"
         },
@@ -502,12 +529,7 @@
           "locationMethod": "hashCode"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 153,
-          "locationMethod": "hashCode"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
           "lineNumber": 153,
           "locationMethod": "hashCode"
         },
@@ -517,8 +539,8 @@
           "locationMethod": "hashCode"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 152,
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 153,
           "locationMethod": "hashCode"
         }
       ]
@@ -527,22 +549,12 @@
       "name": "testWithSupplementaryCharacterInAttributeKeyAndValue_cf10816",
       "nbAssertionAdded": 6,
       "nbInputAdded": 2,
-      "nbMutantKilled": 3,
+      "nbMutantKilled": 1,
       "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 61,
-          "locationMethod": "getValue"
-        },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
           "lineNumber": 53,
           "locationMethod": "setKey"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 44,
-          "locationMethod": "getKey"
         }
       ]
     },
@@ -561,623 +573,6 @@
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
           "lineNumber": 120,
           "locationMethod": "isDataAttribute"
-        }
-      ]
-    },
-    {
-      "name": "testWithSupplementaryCharacterInAttributeKeyAndValue_cf10817",
-      "nbAssertionAdded": 8,
-      "nbInputAdded": 4,
-      "nbMutantKilled": 1,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
-          "lineNumber": 53,
-          "locationMethod": "setKey"
-        }
-      ]
-    },
-    {
-      "name": "html_cf81",
-      "nbAssertionAdded": 8,
-      "nbInputAdded": 4,
-      "nbMutantKilled": 9,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
-          "lineNumber": 136,
-          "locationMethod": "isBooleanAttribute"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
-          "lineNumber": 53,
-          "locationMethod": "setKey"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 136,
-          "locationMethod": "isBooleanAttribute"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 136,
-          "locationMethod": "isBooleanAttribute"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 136,
-          "locationMethod": "isBooleanAttribute"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 136,
-          "locationMethod": "isBooleanAttribute"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
-          "lineNumber": 132,
-          "locationMethod": "shouldCollapseAttribute"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 53,
-          "locationMethod": "setKey"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 132,
-          "locationMethod": "shouldCollapseAttribute"
-        }
-      ]
-    },
-    {
-      "name": "html_cf30",
-      "nbAssertionAdded": 2,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 9,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 153,
-          "locationMethod": "hashCode"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 152,
-          "locationMethod": "hashCode"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-          "lineNumber": 153,
-          "locationMethod": "hashCode"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-          "lineNumber": 152,
-          "locationMethod": "hashCode"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 153,
-          "locationMethod": "hashCode"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 153,
-          "locationMethod": "hashCode"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 153,
-          "locationMethod": "hashCode"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 154,
-          "locationMethod": "hashCode"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 152,
-          "locationMethod": "hashCode"
-        }
-      ]
-    },
-    {
-      "name": "html_cf54",
-      "nbAssertionAdded": 8,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 13,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
-          "lineNumber": 142,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-          "lineNumber": 147,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 147,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-          "lineNumber": 146,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 146,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 160,
-          "locationMethod": "clone"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 147,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 147,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 146,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
-          "lineNumber": 147,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 160,
-          "locationMethod": "clone"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
-          "lineNumber": 146,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 147,
-          "locationMethod": "equals"
-        }
-      ]
-    },
-    {
-      "name": "testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutation10733",
-      "nbAssertionAdded": 2,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 15,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
-          "lineNumber": 222,
-          "locationMethod": "escape"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 224,
-          "locationMethod": "escape"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
-          "lineNumber": 83,
-          "locationMethod": "html"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 222,
-          "locationMethod": "escape"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
-          "lineNumber": 223,
-          "locationMethod": "escape"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 223,
-          "locationMethod": "escape"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
-          "lineNumber": 80,
-          "locationMethod": "html"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-          "lineNumber": 223,
-          "locationMethod": "escape"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 105,
-          "locationMethod": "toString"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 87,
-          "locationMethod": "html"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 105,
-          "locationMethod": "toString"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 223,
-          "locationMethod": "escape"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 83,
-          "locationMethod": "html"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
-          "lineNumber": 83,
-          "locationMethod": "html"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 87,
-          "locationMethod": "html"
-        }
-      ]
-    },
-    {
-      "name": "html_cf45",
-      "nbAssertionAdded": 4,
-      "nbInputAdded": 4,
-      "nbMutantKilled": 4,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 211,
-          "locationMethod": "escape"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
-          "lineNumber": 210,
-          "locationMethod": "escape"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-          "lineNumber": 210,
-          "locationMethod": "escape"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 210,
-          "locationMethod": "escape"
-        }
-      ]
-    },
-    {
-      "name": "testWithSupplementaryCharacterInAttributeKeyAndValue_cf10742",
-      "nbAssertionAdded": 2,
-      "nbInputAdded": 4,
-      "nbMutantKilled": 5,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
-          "lineNumber": 141,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 142,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 142,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 141,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-          "lineNumber": 142,
-          "locationMethod": "equals"
-        }
-      ]
-    },
-    {
-      "name": "testWithSupplementaryCharacterInAttributeKeyAndValue_cf10775",
-      "nbAssertionAdded": 4,
-      "nbInputAdded": 4,
-      "nbMutantKilled": 1,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 72,
-          "locationMethod": "setValue"
-        }
-      ]
-    },
-    {
-      "name": "testWithSupplementaryCharacterInAttributeKeyAndValue_cf10785",
-      "nbAssertionAdded": 8,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 14,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
-          "lineNumber": 142,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-          "lineNumber": 147,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 147,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-          "lineNumber": 146,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 146,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 160,
-          "locationMethod": "clone"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 147,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 147,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 146,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
-          "lineNumber": 147,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 160,
-          "locationMethod": "clone"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 142,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
-          "lineNumber": 146,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 147,
-          "locationMethod": "equals"
-        }
-      ]
-    },
-    {
-      "name": "html_cf14",
-      "nbAssertionAdded": 2,
-      "nbInputAdded": 4,
-      "nbMutantKilled": 6,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
-          "lineNumber": 141,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 142,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 142,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 142,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 141,
-          "locationMethod": "equals"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-          "lineNumber": 142,
-          "locationMethod": "equals"
-        }
-      ]
-    },
-    {
-      "name": "html_cf46",
-      "nbAssertionAdded": 4,
-      "nbInputAdded": 4,
-      "nbMutantKilled": 9,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 105,
-          "locationMethod": "toString"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
-          "lineNumber": 83,
-          "locationMethod": "html"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 72,
-          "locationMethod": "setValue"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
-          "lineNumber": 80,
-          "locationMethod": "html"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 83,
-          "locationMethod": "html"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
-          "lineNumber": 83,
-          "locationMethod": "html"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 105,
-          "locationMethod": "toString"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 87,
-          "locationMethod": "html"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 87,
-          "locationMethod": "html"
-        }
-      ]
-    },
-    {
-      "name": "testWithSupplementaryCharacterInAttributeKeyAndValue_cf10746",
-      "nbAssertionAdded": 2,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 5,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
-          "lineNumber": 136,
-          "locationMethod": "isBooleanAttribute"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 136,
-          "locationMethod": "isBooleanAttribute"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 136,
-          "locationMethod": "isBooleanAttribute"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 136,
-          "locationMethod": "isBooleanAttribute"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 136,
-          "locationMethod": "isBooleanAttribute"
-        }
-      ]
-    },
-    {
-      "name": "testWithSupplementaryCharacterInAttributeKeyAndValue_cf10758",
-      "nbAssertionAdded": 2,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 9,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 153,
-          "locationMethod": "hashCode"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 152,
-          "locationMethod": "hashCode"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-          "lineNumber": 153,
-          "locationMethod": "hashCode"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-          "lineNumber": 152,
-          "locationMethod": "hashCode"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 153,
-          "locationMethod": "hashCode"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 153,
-          "locationMethod": "hashCode"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 153,
-          "locationMethod": "hashCode"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 154,
-          "locationMethod": "hashCode"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 152,
-          "locationMethod": "hashCode"
-        }
-      ]
-    },
-    {
-      "name": "testWithSupplementaryCharacterInAttributeKeyAndValue_cf10816",
-      "nbAssertionAdded": 6,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 1,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 53,
-          "locationMethod": "setKey"
         }
       ]
     },

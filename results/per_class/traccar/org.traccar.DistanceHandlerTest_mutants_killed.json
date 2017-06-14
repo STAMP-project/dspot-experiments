@@ -1,0 +1,25 @@
+{
+  "nbMutantKilledOriginally": 22,
+  "name": "org.traccar.DistanceHandlerTest",
+  "nbOriginalTestCases": 1,
+  "testCases": [
+    {
+      "name": "testCalculateDistance_cf13_failAssert8",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 64,
+          "locationMethod": "handlePosition"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator",
+          "lineNumber": 64,
+          "locationMethod": "handlePosition"
+        }
+      ]
+    }
+  ]
+}

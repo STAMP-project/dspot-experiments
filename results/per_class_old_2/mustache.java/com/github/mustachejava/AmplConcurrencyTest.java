@@ -3,9 +3,6 @@
 package com.github.mustachejava;
 
 
-/**
- * Inspired by an unconfirmed bug report.
- */
 public class AmplConcurrencyTest {
     static java.util.Random r = new java.security.SecureRandom();
 
@@ -59,7 +56,6 @@ public class AmplConcurrencyTest {
         }
     }
 
-    // Alternate render
     static java.lang.String render(com.github.mustachejava.AmplConcurrencyTest.TestObject to) {
         return ((((to.a) + ":") + (to.b)) + ":") + (to.c);
     }
@@ -90,7 +86,6 @@ public class AmplConcurrencyTest {
                         total.incrementAndGet();
                     }
                 } catch (java.io.IOException e) {
-                    // Can't fail
                     e.printStackTrace();
                     java.lang.System.exit(1);
                 } finally {
@@ -98,7 +93,6 @@ public class AmplConcurrencyTest {
                 }
             });
         }
-        // Wait for them all to complete
         semaphore.acquire(100);
         return total;
     }
