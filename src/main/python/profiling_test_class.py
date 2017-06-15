@@ -24,16 +24,15 @@ def profile(projects):
                         if 0 < total <= 1000:
                             results.append((total, killed, filename[:-len("_mutations.csv")], project))
         sorted_results = sorted(
-            sorted(
-                sorted(
-                    sorted(results, key=lambda result: float(result[1]) / float(result[0]) * 100.0),
-                    key=lambda result: result[0]
-                ), key=lambda result: result[1]
-            ), key=lambda result: result[2]
+            sorted(sorted(sorted(results, key=lambda result: result[2]), key=lambda result: result[1]),
+                   key=lambda result: result[0]),
+            key=lambda result: float(result[1]) / float(result[0]) * 100.0
         )
 
+        print "=" * 30
         for result in sorted_results:
-            print result
+            print result, "{0:.2f}".format(float(result[1]) / float(result[0]) * 100.0)
+        print "=" * 30
 
         worst.append(sorted_results[0])
         worst.append(sorted_results[1])
@@ -50,7 +49,12 @@ def load_data_from_json(path):
         for testCase in json_report["testCases"]:
             a_ampl += testCase["nbAssertionAdded"]
             i_ampl += testCase["nbInputAdded"]
-        return json_report["nbOriginalTestCases"], len(json_report["testCases"]), i_ampl, a_ampl
+        return json_report["nbOriginalTestCases"], \
+               len(json_report["testCases"]), \
+               "{0:.2f}".format(float(i_ampl) / len(json_report["testCases"])) \
+                   if len(json_report["testCases"]) > 0 else "0.0", \
+               "{0:.2f}".format(float(a_ampl) / len(json_report["testCases"])) \
+                   if len(json_report["testCases"]) > 0 else "0.0"
 
 
 def print_line(t, gray):
@@ -75,7 +79,15 @@ def print_line(t, gray):
     perc_delta_killed = "{0:.2f}".format(float((killed_ampl - killed)) / float(killed) * 100.0)
 
     path_to_json = path_to_file + "_mutants_killed.json"
-    nb_test, nb_test_ampl, i_ampl, a_ampl = load_data_from_json(path_to_json)
+    nb_test, nb_test_ampl, i_ampl_avg, a_ampl_avg = load_data_from_json(path_to_json)
+
+    with open(prefix_result + project + "/" + project + ".json") as data_file:
+        json_time = json.load(data_file)
+    for time_class in json_time["classTimes"]:
+        if time_class["fullQualifiedName"] == test_name:
+            time_ms = time_class["timeInMs"]
+
+    time_min = "{0:.2f}".format(float(time_ms) / 1000.0 / 60.0)
 
     print "{}{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}\\\\".format(
         ("\\rowcolor[HTML]{EFEFEF}" + "\n" if gray else ""),
@@ -88,7 +100,7 @@ def print_line(t, gray):
         ("{\color{ForestGreen}$\\nearrow$}" if delta_killed > 0 else "$\\rightarrow$"),
         killed_ampl, delta_killed,
         perc_killed,
-        perc_killed_ampl, perc_delta_killed, i_ampl, a_ampl, 0
+        perc_killed_ampl, perc_delta_killed, i_ampl_avg, a_ampl_avg, time_min
     )
 
 
@@ -98,8 +110,7 @@ if __name__ == '__main__':
         projects = sys.argv[1:]
     else:
         projects = ["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup",
-                    "protostuff",
-                    "logback", "retrofit"]
+                    "protostuff", "logback", "retrofit"]
 
     top, worst = profile(projects)
 
