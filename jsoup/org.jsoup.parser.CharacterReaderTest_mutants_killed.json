@@ -1,0 +1,131 @@
+{
+  "nbMutantKilledOriginally": 301,
+  "name": "org.jsoup.parser.CharacterReaderTest",
+  "nbOriginalTestCases": 19,
+  "testCases": [
+    {
+      "name": "consumeToString_literalMutation4163_failAssert6_literalMutation4246",
+      "nbAssertionAdded": 11,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 395,
+          "locationMethod": "cacheString"
+        }
+      ]
+    },
+    {
+      "name": "consumeToString_literalMutation4171_failAssert14",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 106,
+          "locationMethod": "nextIndexOf"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 106,
+          "locationMethod": "nextIndexOf"
+        }
+      ]
+    },
+    {
+      "name": "cachesStrings_literalMutation440_failAssert5",
+      "nbAssertionAdded": 5,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 395,
+          "locationMethod": "cacheString"
+        }
+      ]
+    },
+    {
+      "name": "consumeLetterThenDigitSequence_literalMutation1390_failAssert0",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 395,
+          "locationMethod": "cacheString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 398,
+          "locationMethod": "cacheString"
+        }
+      ]
+    },
+    {
+      "name": "consumeToString_literalMutation4157_failAssert0",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 395,
+          "locationMethod": "cacheString"
+        }
+      ]
+    },
+    {
+      "name": "consumeLetterSequence_literalMutation1263_failAssert6_literalMutation1281",
+      "nbAssertionAdded": 9,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "lineNumber": 220,
+          "locationMethod": "consumeLetterSequence"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "lineNumber": 220,
+          "locationMethod": "consumeLetterSequence"
+        }
+      ]
+    },
+    {
+      "name": "consumeToString_literalMutation4165_failAssert8_literalMutation4291",
+      "nbAssertionAdded": 5,
+      "nbInputAdded": 3,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 106,
+          "locationMethod": "nextIndexOf"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 106,
+          "locationMethod": "nextIndexOf"
+        }
+      ]
+    },
+    {
+      "name": "consumeToChar_literalMutation3436_failAssert2",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 395,
+          "locationMethod": "cacheString"
+        }
+      ]
+    }
+  ]
+}
