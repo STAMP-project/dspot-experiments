@@ -1,3 +1,4 @@
+import sys
 import json
 import subprocess
 from os import walk
@@ -24,8 +25,8 @@ def run(projects, mvnHome="~/apache-maven-3.3.9/bin/"):
     extension_properties = ".properties"
 
     for project in projects:
-        install.install(project)
-        subprocess.call("mkdir " + project, shell=True)
+        #install.install(project)
+        #subprocess.call("mkdir " + project, shell=True)
         properties = build_rate_table.load_properties(prefix_properties + project + extension_properties)
         path = prefix_dataset + project + "/" + properties_rates[project]["subModule"] + "/"
         cmd = "cd " + path + " && "
@@ -41,7 +42,8 @@ def run(projects, mvnHome="~/apache-maven-3.3.9/bin/"):
         package = properties["filter"]
         for java_file in java_files:
             name = java_file.split("/")[-1].split(".")[0]
-            subcmd = run_pitest + report + targetClasses + package + test_class + java_file.split(".")[0].replace("/", ".")
+            fullqualified_name =package + test_class + java_file.split(".")[0].replace("/", ".")
+            subcmd = run_pitest + report + targetClasses + fullqualified_name
 
             if "additionalClasspathElements" in properties:
                 subcmd  += " -DadditionalClasspathElements=" + properties["additionalClasspathElements"]
@@ -49,18 +51,22 @@ def run(projects, mvnHome="~/apache-maven-3.3.9/bin/"):
                 subcmd += " -DexcludedClasses=" + properties["excludedClasses"]
 
             print cmd + subcmd
-            subprocess.call(cmd + subcmd, shell=True)
+            #subprocess.call(cmd + subcmd, shell=True)
 
             copycmd = "cp "
             for (dirpath, dirnames, filenames) in walk(path):
                 if filenames:
-                    copycmd += dirpath + "/" + filenames[0] + " " + project + "/" + name + "_mutations.csv"
+                    copycmd += dirpath + "/" + filenames[0] + " " + project + "/" + fullqualified_name + "_mutations.csv"
                     break
 
             print copycmd
-            subprocess.call(copycmd, shell=True)
+            #subprocess.call(copycmd, shell=True)
+if __name__ == '__main__':
 
-projects = ["javapoet", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup", "protostuff", "logback",
-            "retrofit"]
+    if len(sys.argv) > 1:
+        projects = sys.argv[1:]
+    else:
+        projects = ["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup",
+                    "protostuff", "logback", "retrofit"]
 
-run(projects=projects)
+    run(projects=projects)
