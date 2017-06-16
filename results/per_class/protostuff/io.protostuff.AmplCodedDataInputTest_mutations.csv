@@ -1,17 +1,3 @@
-ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator,readInt32,334,TIMED_OUT,none
-ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,readRawVarint32,516,TIMED_OUT,none
-ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,readRawVarint32,522,TIMED_OUT,none
-ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,readRawVarint32,516,TIMED_OUT,none
-ByteBufferInput.java,io.protostuff.ByteBufferInput,org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator,readInt32,323,TIMED_OUT,none
-CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,readBytes,376,TIMED_OUT,none
-CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator,readInt32,239,TIMED_OUT,none
-CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,readRawByte,974,TIMED_OUT,none
-CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,readRawByte,974,TIMED_OUT,none
-ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,writeRawVarInt32Bytes,644,TIMED_OUT,none
-ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,writeRawVarInt32Bytes,644,TIMED_OUT,none
-ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE,writeRawVarInt32Bytes,644,TIMED_OUT,none
-ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,writeRawVarInt32Bytes,624,TIMED_OUT,none
-ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE,writeRawVarInt32Bytes,624,TIMED_OUT,none
 ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator,clear,57,NO_COVERAGE,none
 ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator,clear,58,NO_COVERAGE,none
 ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,computeRawVarint32Size,870,NO_COVERAGE,none
@@ -618,9 +604,12 @@ ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.
 ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,writeRawVarInt32Bytes,651,SURVIVED,none
 ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,writeRawVarInt32Bytes,651,SURVIVED,none
 ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,writeRawVarInt32Bytes,652,SURVIVED,none
+ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,writeRawVarInt32Bytes,644,TIMED_OUT,none
 ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,writeRawVarInt32Bytes,651,SURVIVED,none
 ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,writeRawVarInt32Bytes,651,SURVIVED,none
 ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,writeRawVarInt32Bytes,652,SURVIVED,none
+ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,writeRawVarInt32Bytes,644,TIMED_OUT,none
+ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE,writeRawVarInt32Bytes,644,TIMED_OUT,none
 ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF,writeRawVarInt32Bytes,644,SURVIVED,none
 ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator,writeRawVarInt32Bytes,646,SURVIVED,none
 ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator,writeRawVarInt32Bytes,651,SURVIVED,none
@@ -628,10 +617,12 @@ ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.
 ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,writeRawVarInt32Bytes,631,NO_COVERAGE,none
 ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,writeRawVarInt32Bytes,631,NO_COVERAGE,none
 ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,writeRawVarInt32Bytes,632,NO_COVERAGE,none
+ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,writeRawVarInt32Bytes,624,NO_COVERAGE,none
 ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,writeRawVarInt32Bytes,631,NO_COVERAGE,none
 ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,writeRawVarInt32Bytes,631,NO_COVERAGE,none
 ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,writeRawVarInt32Bytes,632,NO_COVERAGE,none
 ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,writeRawVarInt32Bytes,624,NO_COVERAGE,none
+ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE,writeRawVarInt32Bytes,624,NO_COVERAGE,none
 ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF,writeRawVarInt32Bytes,624,NO_COVERAGE,none
 ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator,writeRawVarInt32Bytes,626,NO_COVERAGE,none
 ProtobufOutput.java,io.protostuff.ProtobufOutput,org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator,writeRawVarInt32Bytes,631,NO_COVERAGE,none
@@ -1149,6 +1140,7 @@ CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.m
 CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator,readBytes,371,NO_COVERAGE,none
 CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator,readBytes,371,NO_COVERAGE,none
 CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,readBytes,371,NO_COVERAGE,none
+CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,readBytes,376,NO_COVERAGE,none
 CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,readBytes,366,NO_COVERAGE,none
 CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,readBytes,371,NO_COVERAGE,none
 CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,readBytes,371,NO_COVERAGE,none
@@ -1241,6 +1233,7 @@ CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.m
 CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator,readFloat,209,NO_COVERAGE,none
 CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator,readFloat,209,NO_COVERAGE,none
 CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator,readFloat,208,NO_COVERAGE,none
+CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator,readInt32,239,NO_COVERAGE,none
 CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator,readInt32,239,NO_COVERAGE,none
 CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator,readInt32,238,NO_COVERAGE,none
 CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator,readInt64,229,NO_COVERAGE,none
@@ -1248,12 +1241,14 @@ CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.m
 CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator,readInt64,228,NO_COVERAGE,none
 CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator,readRawByte,972,SURVIVED,none
 CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,readRawByte,972,SURVIVED,none
+CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,readRawByte,974,SURVIVED,none
 CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,readRawByte,974,SURVIVED,none
 CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator,readRawByte,970,SURVIVED,none
 CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator,readRawByte,972,SURVIVED,none
 CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE,readRawByte,970,SURVIVED,none
 CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF,readRawByte,970,SURVIVED,none
 CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator,readRawByte,974,SURVIVED,none
+CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,readRawByte,974,SURVIVED,none
 CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator,readRawBytes,1020,SURVIVED,none
 CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator,readRawBytes,1027,NO_COVERAGE,none
 CodedInput.java,io.protostuff.CodedInput,org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator,readRawBytes,1061,NO_COVERAGE,none
@@ -2080,6 +2075,7 @@ ByteBufferInput.java,io.protostuff.ByteBufferInput,org.pitest.mutationtest.engin
 ByteBufferInput.java,io.protostuff.ByteBufferInput,org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator,readFloat,293,NO_COVERAGE,none
 ByteBufferInput.java,io.protostuff.ByteBufferInput,org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator,readFloat,293,NO_COVERAGE,none
 ByteBufferInput.java,io.protostuff.ByteBufferInput,org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator,readFloat,292,NO_COVERAGE,none
+ByteBufferInput.java,io.protostuff.ByteBufferInput,org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator,readInt32,323,NO_COVERAGE,none
 ByteBufferInput.java,io.protostuff.ByteBufferInput,org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator,readInt32,323,NO_COVERAGE,none
 ByteBufferInput.java,io.protostuff.ByteBufferInput,org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator,readInt32,322,NO_COVERAGE,none
 ByteBufferInput.java,io.protostuff.ByteBufferInput,org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator,readInt64,313,NO_COVERAGE,none
@@ -2610,6 +2606,7 @@ ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.
 ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator,readFloat,304,NO_COVERAGE,none
 ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator,readFloat,304,NO_COVERAGE,none
 ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator,readFloat,303,NO_COVERAGE,none
+ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator,readInt32,334,NO_COVERAGE,none
 ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator,readInt32,334,NO_COVERAGE,none
 ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator,readInt32,333,NO_COVERAGE,none
 ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator,readInt64,324,NO_COVERAGE,none
@@ -2705,6 +2702,7 @@ ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.
 ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator,readRawVarint32,547,NO_COVERAGE,none
 ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator,readRawVarint32,549,NO_COVERAGE,none
 ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator,readRawVarint32,547,NO_COVERAGE,none
+ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,readRawVarint32,516,SURVIVED,none
 ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,readRawVarint32,521,NO_COVERAGE,none
 ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,readRawVarint32,522,NO_COVERAGE,none
 ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,readRawVarint32,524,NO_COVERAGE,none
@@ -2725,6 +2723,7 @@ ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.
 ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator,readRawVarint32,549,NO_COVERAGE,none
 ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,readRawVarint32,516,SURVIVED,none
 ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,readRawVarint32,521,NO_COVERAGE,none
+ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,readRawVarint32,522,NO_COVERAGE,none
 ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,readRawVarint32,524,NO_COVERAGE,none
 ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,readRawVarint32,524,NO_COVERAGE,none
 ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.MathMutator,readRawVarint32,528,NO_COVERAGE,none
@@ -2771,6 +2770,7 @@ ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.
 ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator,readRawVarint32,519,SURVIVED,none
 ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator,readRawVarint32,551,NO_COVERAGE,none
 ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator,readRawVarint32,559,NO_COVERAGE,none
+ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,readRawVarint32,516,SURVIVED,none
 ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,readRawVarint32,522,NO_COVERAGE,none
 ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,readRawVarint32,529,NO_COVERAGE,none
 ByteArrayInput.java,io.protostuff.ByteArrayInput,org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator,readRawVarint32,536,NO_COVERAGE,none
