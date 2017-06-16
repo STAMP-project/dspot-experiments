@@ -43,10 +43,10 @@ public class AmplParameterSpecTest {
 
     /* amplification of com.squareup.javapoet.ParameterSpecTest#equalsAndHashCode */
     @org.junit.Test
-    public void equalsAndHashCode_literalMutation6_failAssert1() {
+    public void equalsAndHashCode_literalMutation5_failAssert0() {
         // AssertGenerator generate try/catch block with fail statement
         try {
-            com.squareup.javapoet.ParameterSpec a = com.squareup.javapoet.ParameterSpec.builder(int.class, "f}oo").build();
+            com.squareup.javapoet.ParameterSpec a = com.squareup.javapoet.ParameterSpec.builder(int.class, "").build();
             com.squareup.javapoet.ParameterSpec b = com.squareup.javapoet.ParameterSpec.builder(int.class, "foo").build();
             com.google.common.truth.Truth.assertThat(a.equals(b)).isTrue();
             com.google.common.truth.Truth.assertThat(a.hashCode()).isEqualTo(b.hashCode());
@@ -54,7 +54,7 @@ public class AmplParameterSpecTest {
             b = com.squareup.javapoet.ParameterSpec.builder(int.class, "i").addModifiers(javax.lang.model.element.Modifier.STATIC).build();
             com.google.common.truth.Truth.assertThat(a.equals(b)).isTrue();
             com.google.common.truth.Truth.assertThat(a.hashCode()).isEqualTo(b.hashCode());
-            org.junit.Assert.fail("equalsAndHashCode_literalMutation6 should have thrown IllegalArgumentException");
+            org.junit.Assert.fail("equalsAndHashCode_literalMutation5 should have thrown IllegalArgumentException");
         } catch (java.lang.IllegalArgumentException eee) {
         }
     }

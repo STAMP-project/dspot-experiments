@@ -163,32 +163,33 @@ public final class AmplNameAllocatorTest {
 
     /* amplification of com.squareup.javapoet.NameAllocatorTest#cloneUsage */
     @org.junit.Test(timeout = 10000)
-    public void cloneUsage_literalMutation3847_failAssert17_literalMutation4846_cf8269_failAssert28() throws java.lang.Exception {
+    public void cloneUsage_literalMutation3837_cf4125_failAssert63_literalMutation10710() throws java.lang.Exception {
         // AssertGenerator generate try/catch block with fail statement
         try {
-            // AssertGenerator generate try/catch block with fail statement
-            try {
-                com.squareup.javapoet.NameAllocator outterAllocator = new com.squareup.javapoet.NameAllocator();
-                // AssertGenerator replace invocation
-                java.lang.String o_cloneUsage_literalMutation3847_failAssert17_literalMutation4846__5 = outterAllocator.newName("]2^", 1);
-                // StatementAdderOnAssert create null value
-                java.lang.Object vc_514 = (java.lang.Object)null;
-                // StatementAdderOnAssert create literal from method
-                java.lang.String String_vc_76 = "foo_";
-                // StatementAdderMethod cloned existing statement
-                outterAllocator.newName(String_vc_76, vc_514);
-                // MethodAssertGenerator build local variable
-                Object o_13_0 = o_cloneUsage_literalMutation3847_failAssert17_literalMutation4846__5;
-                com.squareup.javapoet.NameAllocator innerAllocator1 = outterAllocator.clone();
-                com.google.common.truth.Truth.assertThat(innerAllocator1.newName("bar", 3)).isEqualTo("bar");
-                com.google.common.truth.Truth.assertThat(innerAllocator1.newName("foo", 3)).isEqualTo("foo_");
-                com.squareup.javapoet.NameAllocator innerAllocator2 = outterAllocator.clone();
-                com.google.common.truth.Truth.assertThat(innerAllocator2.newName("foo", 2)).isEqualTo("foo_");
-                com.google.common.truth.Truth.assertThat(innerAllocator2.newName("bar", 3)).isEqualTo("bar");
-                org.junit.Assert.fail("cloneUsage_literalMutation3847 should have thrown IllegalArgumentException");
-            } catch (java.lang.IllegalArgumentException eee) {
-            }
-            org.junit.Assert.fail("cloneUsage_literalMutation3847_failAssert17_literalMutation4846_cf8269 should have thrown NullPointerException");
+            com.squareup.javapoet.NameAllocator outterAllocator = new com.squareup.javapoet.NameAllocator();
+            // AssertGenerator replace invocation
+            java.lang.String o_cloneUsage_literalMutation3837__3 = outterAllocator.newName("foo", 0);
+            // StatementAdderOnAssert create null value
+            java.lang.Object vc_34 = (java.lang.Object)null;
+            // AssertGenerator add assertion
+            org.junit.Assert.assertNull(vc_34);
+            // StatementAdderOnAssert create literal from method
+            java.lang.String String_vc_4 = "foo";
+            // AssertGenerator add assertion
+            org.junit.Assert.assertEquals(String_vc_4, "foo");
+            // StatementAdderOnAssert create random local variable
+            com.squareup.javapoet.NameAllocator vc_31 = new com.squareup.javapoet.NameAllocator();
+            // StatementAdderMethod cloned existing statement
+            vc_31.newName(String_vc_4, vc_34);
+            // MethodAssertGenerator build local variable
+            Object o_13_0 = o_cloneUsage_literalMutation3837__3;
+            com.squareup.javapoet.NameAllocator innerAllocator1 = outterAllocator.clone();
+            com.google.common.truth.Truth.assertThat(innerAllocator1.newName("bar", 2)).isEqualTo("bar");
+            com.google.common.truth.Truth.assertThat(innerAllocator1.newName("foo", 1)).isEqualTo("foo_");
+            com.squareup.javapoet.NameAllocator innerAllocator2 = outterAllocator.clone();
+            com.google.common.truth.Truth.assertThat(innerAllocator2.newName("foo", 2)).isEqualTo("foo_");
+            com.google.common.truth.Truth.assertThat(innerAllocator2.newName("bar", 3)).isEqualTo("bar");
+            org.junit.Assert.fail("cloneUsage_literalMutation3837_cf4125 should have thrown NullPointerException");
         } catch (java.lang.NullPointerException eee) {
         }
     }

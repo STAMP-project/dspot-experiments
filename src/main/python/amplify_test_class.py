@@ -27,9 +27,9 @@ def run(projects):
             mutations_csv_file = ".".join(e[2].split(".")[:-1]) + "." + test_name + "_mutants_killed.json"
             print mutations_csv_file
             path_to_mutation_csv_file = results_path + project + "/" + mutations_csv_file
-            if not os.path.isfile(path_to_mutation_csv_file):
-                print cmd.format(project, project, e[2], project, e[2])
-                #subprocess.call(cmd.format(project, project, e[2], project, e[2]), shell=True)
+            #if not os.path.isfile(path_to_mutation_csv_file):
+            print cmd.format(project, project, e[2], project, e[2])
+            subprocess.call(cmd.format(project, project, e[2], project, e[2]), shell=True)
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
