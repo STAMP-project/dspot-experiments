@@ -7,14 +7,7 @@ if __name__ == '__main__':
         projects = sys.argv[1:]
     else:
         projects = ["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup",
-                    "protostuff", "logback"]#, "retrofit"]
-
-        projects = ["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup", "protostuff",
-                    "logback", "retrofit"]
-
-        projects = ["javapoet", "mybatis", "traccar", "stream-lib", "twilio-java", "jsoup", "protostuff", "logback"]
-
-
+                    "protostuff", "logback", "retrofit"]
 
     top, worst = profiling_test_class.profile(projects)
 

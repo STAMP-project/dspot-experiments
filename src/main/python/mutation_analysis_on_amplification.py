@@ -72,5 +72,5 @@ if __name__ == '__main__':
         projects = sys.argv[1:]
     else:
         projects = ["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup",
-                    "protostuff", "logback"]#, "retrofit"]
+                    "protostuff", "logback" "retrofit"]
     run(projects=projects)
