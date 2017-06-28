@@ -70,7 +70,7 @@ def run(projects=["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java
                         if filenamepit.endswith(".csv"):
                             cmd = "cp " + dirpathpit + "/" + filenamepit + " " + \
                                   prefix_original + "/" + project + "/" + \
-                                  full_qualified_name[0] + "_mutations.csv"
+                                  full_qualified_name[0] + suffix_results
                             print cmd
                             subprocess.call(cmd, shell=True)
             print "-" * 30
@@ -99,7 +99,7 @@ def run(projects=["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java
                         if filenamepit.endswith(".csv"):
                             cmd = "cp " + dirpathpit + "/" + filenamepit + " " + \
                                   prefix_a_ampl + "/" + project + "/" + \
-                                  full_qualified_name[0] + "_mutations.csv"
+                                  toAmplName(full_qualified_name[0]) + suffix_results
                             print cmd
                             subprocess.call(cmd, shell=True)
 
@@ -129,7 +129,7 @@ def run(projects=["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java
                         if filenamepit.endswith(".csv"):
                             cmd = "cp " + dirpathpit + "/" + filenamepit + " " + \
                                   prefix_ampl + "/" + project + "/" + \
-                                  full_qualified_name[0] + "_mutations.csv"
+                                  toAmplName(full_qualified_name[0]) + suffix_results
                             print cmd
                             subprocess.call(cmd, shell=True)
             print "=" * 30
