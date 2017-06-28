@@ -1,23 +1,21 @@
 import sys
-import subprocess
 import json
 
 def read(projects):
 
-    cmd = "~/jdk1.8.0_121/jre/bin/java -Xms16G -Xmx32G" \
-          " -jar ../dspot/target/dspot-1.0.0-jar-with-dependencies.jar" \
-          " --path-to-properties src/main/resources/{}.properties" \
-          " --iteration 3" \
-          " --output-path {}" \
-          " --maven-home /home/spirals/danglot/apache-maven-3.3.9/" \
-          " -t {}" \
-          " -m original/per_class/{}/{}_mutations.csv"
-
     with open("dataset/selected_classes.json") as data_file:
         classes = json.load(data_file)
+    top1 = []
+    top2 = []
+    worst1 = []
+    worst2 = []
     for project in projects:
-        for clazz in classes[project]:
-            subprocess.call(cmd.format(project, project, classes[project][clazz], project, classes[project][clazz], shell=True))
+        top1.append(classes[project]["top_1"])
+        top2.append(classes[project]["top_2"])
+        worst1.append(classes[project]["worst_1"])
+        worst2.append(classes[project]["worst_2"])
+
+    return top1, top2, worst1, worst2
 
 
 

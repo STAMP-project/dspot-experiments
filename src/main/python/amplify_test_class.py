@@ -10,14 +10,13 @@ def run(projects):
     cmd = "~/jdk1.8.0_121/jre/bin/java -Xms16G -Xmx32G" \
           " -jar ../dspot/target/dspot-1.0.0-jar-with-dependencies.jar" \
           " --path-to-properties src/main/resources/{}.properties" \
-          " --amplifiers MethodAdd:TestDataMutator:StatementAdderOnAssert" \
           " --iteration 3" \
           " --output-path {}" \
           " --maven-home /home/spirals/danglot/apache-maven-3.3.9/" \
           " -t {}" \
           " -m original/per_class/{}/{}_mutations.csv"
 
-    results_path = "results/per_class/"
+    results_path = "results/per_class_only_ampli/"
     already_run = []
     for project in projects:
         #install.install(project)
@@ -40,3 +39,12 @@ def run(projects):
     for a in already_run:
         print a
 
+if __name__ == '__main__':
+
+    if len(sys.argv) > 1:
+        projects = sys.argv[1:]
+    else:
+        projects = ["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup",
+                    "protostuff", "logback", "retrofit"]
+
+run(projects=projects)

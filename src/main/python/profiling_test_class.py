@@ -113,6 +113,7 @@ def print_line_2(t, gray):
     prefix_result = "results/per_class/"
 
     total, killed = t[0], t[1]
+    score = "{0:.2f}".format( float(killed) / float(total) * 100.0) if total > 0 else 0.0
     project = t[-1]
     test_name = t[2]
     test_name_ampl = '.'.join(test_name.split(".")[:-1]) + '.' + \
@@ -122,8 +123,10 @@ def print_line_2(t, gray):
     path_to_csv = path_to_file + "_mutations.csv"
     total_ampl, killed_ampl = count_mutant.countForTestClass(path_to_csv)
 
-    delta_total = total_ampl - total
-    delta_killed = killed_ampl - killed
+    delta_total = "{0:.2f}".format(float((total_ampl - total)) / float(total) * 100.0) \
+        if total > 0 else 0.0
+    delta_killed = "{0:.2f}".format(float((killed_ampl - killed)) / float(killed) * 100.0) \
+        if killed > 0 else 0.0
 
     path_to_json = path_to_file + "_mutants_killed.json"
     nb_test, nb_test_ampl, i_ampl_avg, a_ampl_avg = load_data_from_json(path_to_json)
@@ -142,17 +145,15 @@ def print_line_2(t, gray):
 
     time_min = "{0:.2f}".format(float(time_ms) / 1000.0 / 60.0)
 
-    print "{}{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}\\\\".format(
+    print "{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}\\\\".format(
         ("\\rowcolor[HTML]{EFEFEF}" + "\n" if gray else ""),
         "\small{" + project + "}", "\small{" + test_name.split(".")[-1].replace("_", "\\_") + "}",
         nb_test, nb_test_ampl,
-        total,
-        ("{\color{ForestGreen}$\\nearrow$}" if delta_total > 0 else "$\\rightarrow$"),
-        delta_total, total_ampl,
-        killed,
-        ("{\color{ForestGreen}$\\nearrow$}" if delta_killed > 0 else "$\\rightarrow$"),
-        delta_killed, killed_ampl,
-        i_ampl_avg, a_ampl_avg,
+        score,
+        total, total_ampl,
+        delta_total, ("{\color{ForestGreen}$\\nearrow$}" if not float(delta_total) == 0.0 else "$\\rightarrow$"),
+        killed, killed_ampl,
+        delta_killed, ("{\color{ForestGreen}$\\nearrow$}" if not float(delta_killed) == 0.0 else "$\\rightarrow$"),
         time_min
     )
     return delta_killed, (delta_total if i_ampl_avg != "0.0" else 0)

@@ -26,5 +26,3 @@ if __name__ == '__main__':
     for delta_killed in deltas_killed:
         if delta_killed > 0:
             nb_increase += 1
-    print "nb_increase", nb_increase
-    print "avg increase", sum(deltas_killed) / len(deltas_killed)
