@@ -5,17 +5,15 @@ def read(projects):
 
     with open("dataset/selected_classes.json") as data_file:
         classes = json.load(data_file)
-    top1 = []
-    top2 = []
-    worst1 = []
-    worst2 = []
+    top = []
+    worst = []
     for project in projects:
-        top1.append(classes[project]["top_1"])
-        top2.append(classes[project]["top_2"])
-        worst1.append(classes[project]["worst_1"])
-        worst2.append(classes[project]["worst_2"])
+        top.append(classes[project]["top_1"])
+        top.append(classes[project]["top_2"])
+        worst.append(classes[project]["worst_1"])
+        worst.append(classes[project]["worst_2"])
 
-    return top1, top2, worst1, worst2
+    return top, worst
 
 
 
