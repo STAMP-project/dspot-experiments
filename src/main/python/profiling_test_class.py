@@ -109,13 +109,14 @@ def print_line(t, gray):
         perc_killed_ampl, perc_delta_killed, i_ampl_avg, a_ampl_avg, time_min
     )
 
-def print_line_2(t, gray, lowPMS=False):
+cpt = 1
+
+def print_line_2(t, gray):
+    global cpt
     prefix_result = "results/per_class/"
 
     total, killed = t[0], t[1]
     score = round(float(killed) / float(total) * 100.0, 2)
-    if lowPMS and score > 50:
-        return
     project = t[-1]
     test_name = t[2]
     test_name_ampl = '.'.join(test_name.split(".")[:-1]) + '.' + \
@@ -147,8 +148,9 @@ def print_line_2(t, gray, lowPMS=False):
 
     time_min = "{0:.2f}".format(float(time_ms) / 1000.0 / 60.0)
 
-    print "{}{}&{}&{}&{}\\%&{}&{}&{}&{}\\%&{}&{}&{}&{}\\%&{}&{}\\\\".format(
+    print "{}{}&{}&{}&{}&{}\\%&{}&{}&{}&{}\\%&{}&{}&{}&{}\\%&{}&{}\\\\".format(
         ("\\rowcolor[HTML]{EFEFEF}" + "\n" if gray else ""),
+        cpt,
         "\small{" + project + "}", "\small{" + test_name.split(".")[-1].replace("_", "\\_") + "}",
         nb_test, score,
         nb_test_ampl,
@@ -158,6 +160,7 @@ def print_line_2(t, gray, lowPMS=False):
         round(delta_killed, 2), ("{\color{ForestGreen}$\\nearrow$}" if not float(delta_killed) == 0.0 else "$\\rightarrow$"),
         time_min
     )
+    cpt += 1
     return delta_total, delta_killed
 
 if __name__ == '__main__':

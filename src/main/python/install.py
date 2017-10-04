@@ -19,14 +19,9 @@ def install(project):
 
     subprocess.call(cmd, shell=True)
 
-    cmd = "cd dataset/" + project + " && "
-    cmd += "~/apache-maven-3.3.9/bin/mvn clean install -DskipTests"
-
-    subprocess.call(cmd, shell=True)
-
 if __name__ == '__main__':
     if "all" == sys.argv[1]:
-        projects = ["javapoet", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup", "protostuff", "logback",
+        projects = ["javapoet", "mybatis", "traccar", "stream-lib", "mustache.java", "twilio-java", "jsoup", "protostuff", "logback",
                     "retrofit"]
         for project in projects:
             install(project)

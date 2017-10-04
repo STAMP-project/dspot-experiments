@@ -10,8 +10,8 @@ cache:
     - $HOME/.m2
 
 install:
-  - chmod +x install.sh
-  - ./install.sh
+  - ./src/main/bash/install_dspot.sh
+  - export MAVEN_HOME=/usr/local/maven-3.5.0
 
 script:
-  - mvn clean install
+  - ./src/main/bash/amplification.sh
