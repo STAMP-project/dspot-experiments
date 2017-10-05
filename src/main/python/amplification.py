@@ -10,8 +10,8 @@ def allsame(x):
 
 def run(projects, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"):
     prefix_dataset = "dataset/"
-    mvnHome=""
-    javaHome=""
+    #mvnHome=""
+    #javaHome=""
     amplify = javaHome + "java -Xms8G -Xmx16G -jar ../dspot/target/dspot-1.0.0-jar-with-dependencies.jar \
     --path-to-properties src/main/resources/${project}.properties \
     --iteration 3 \
@@ -24,6 +24,8 @@ def run(projects, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/
     opt_test = " --test "
     opt_mutations_original= " --path-pit-result "
     for project in projects:
+
+        print "#!/usr/bin/env bash"
 
         print "project=" + project
         print "root_exp=${PWD}"

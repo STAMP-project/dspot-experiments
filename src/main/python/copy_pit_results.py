@@ -10,4 +10,4 @@ def run(path_to_project, fullqualified_name):
             subprocess.call(copycmd, shell=True)
 
 if __name__ == '__main__':
-    run(project=sys.argv[1], fullqualified_name=sys.argv[2])
+    run(path_to_project=sys.argv[1], fullqualified_name=sys.argv[2])
