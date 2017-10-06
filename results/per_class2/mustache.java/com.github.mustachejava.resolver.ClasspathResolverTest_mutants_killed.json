@@ -1,0 +1,109 @@
+{
+  "nbMutantKilledOriginally": 55,
+  "name": "com.github.mustachejava.resolver.ClasspathResolverTest",
+  "nbOriginalTestCases": 10,
+  "testCases": [
+    {
+      "name": "getReaderNullRootDoesNotFindFileWithAbsolutePath_sd234_failAssert2",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 6,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 35,
+          "locationMethod": "getReader"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 38,
+          "locationMethod": "getReader"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 35,
+          "locationMethod": "getReader"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 32,
+          "locationMethod": "getReader"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 29,
+          "locationMethod": "getReader"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 27,
+          "locationMethod": "getReader"
+        }
+      ]
+    },
+    {
+      "name": "getReaderNullRootDoesNotFindFileWithAbsolutePath_literalMutationString230_failAssert1",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 6,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 43,
+          "locationMethod": "concatResourceRootAndResourceName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 44,
+          "locationMethod": "concatResourceRootAndResourceName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 43,
+          "locationMethod": "concatResourceRootAndResourceName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 29,
+          "locationMethod": "getReader"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 27,
+          "locationMethod": "getReader"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 28,
+          "locationMethod": "getReader"
+        }
+      ]
+    },
+    {
+      "name": "getReaderWithRootAndNullResource_literalMutationString402_failAssert2",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 44,
+          "locationMethod": "concatResourceRootAndResourceName"
+        }
+      ]
+    },
+    {
+      "name": "getReaderNullRootAndNullResourceThrowsNullPointer_sd1_failAssert0",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 44,
+          "locationMethod": "concatResourceRootAndResourceName"
+        }
+      ]
+    }
+  ]
+}
