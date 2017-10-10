@@ -1,8 +1,11 @@
-
-
 package io.protostuff;
 
 
+/**
+ *
+ *
+ * @author Ryan Rawson
+ */
 public class AmplLowCopyProtostuffOutputTest extends junit.framework.TestCase {
     public void testCompareVsOther() throws java.lang.Exception {
         io.protostuff.Baz aBaz = new io.protostuff.Baz(1, "hello world", 1238372479L);
@@ -21,10 +24,13 @@ public class AmplLowCopyProtostuffOutputTest extends junit.framework.TestCase {
     }
 
     private java.nio.ByteBuffer testObj(io.protostuff.Message msg, io.protostuff.Schema sch) throws java.io.IOException {
+        // do protostuff now:
         java.io.ByteArrayOutputStream controlStream = new java.io.ByteArrayOutputStream();
-        io.protostuff.LinkedBuffer linkedBuffer = io.protostuff.LinkedBuffer.allocate(512);
+        io.protostuff.LinkedBuffer linkedBuffer = io.protostuff.LinkedBuffer.allocate(512);// meh
+
         io.protostuff.ProtostuffIOUtil.writeTo(controlStream, msg, sch, linkedBuffer);
         byte[] controlData = controlStream.toByteArray();
+        // now my new serialization:
         io.protostuff.LowCopyProtostuffOutput lcpo = new io.protostuff.LowCopyProtostuffOutput();
         sch.writeTo(lcpo, msg);
         java.util.List<java.nio.ByteBuffer> testDatas = lcpo.buffer.finish();

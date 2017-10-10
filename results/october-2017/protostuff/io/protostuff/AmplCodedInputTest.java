@@ -37,8 +37,6 @@
 /**
  * ========================================================================
  */
-
-
 package io.protostuff;
 
 
@@ -46,7 +44,7 @@ package io.protostuff;
  * Tests for {@link CodedInput}.
  *
  * @author Max Lanin
- * @created Dec 22, 2012
+ * @unknown Dec 22, 2012
  */
 public class AmplCodedInputTest extends io.protostuff.AbstractTest {
     public void testSkipFieldOverTheBufferBoundary() throws java.lang.Exception {
@@ -58,15 +56,43 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
         io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
         for (int i = 1; i <= msgLength; i++)
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-        
+
         io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
         byte[] data = out.toByteArray();
         io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
         ci.pushLimit((msgLength + 2));// +2 for tag and length
-        
+
         junit.framework.TestCase.assertEquals(tag, ci.readTag());
         ci.skipField(tag);
         junit.framework.TestCase.assertEquals(0, ci.readTag());
+    }
+
+    /* amplification of io.protostuff.CodedInputTest#testSkipFieldOverTheBufferBoundary */
+    @org.junit.Test(timeout = 10000)
+    public void testSkipFieldOverTheBufferBoundary_literalMutationNumber29_failAssert3() throws java.lang.Exception {
+        // AssertGenerator generate try/catch block with fail statement
+        try {
+            java.io.ByteArrayOutputStream out = new java.io.ByteArrayOutputStream();
+            int tag = io.protostuff.WireFormat.makeTag(1, io.protostuff.WireFormat.WIRETYPE_LENGTH_DELIMITED);
+            int anotherTag = io.protostuff.WireFormat.makeTag(2, io.protostuff.WireFormat.WIRETYPE_LENGTH_DELIMITED);
+            int msgLength = 10;
+            io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, tag);
+            io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
+            for (int i = 1; i <= msgLength; i++)
+                io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
+
+            io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
+            byte[] data = out.toByteArray();
+            io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
+            ci.pushLimit((msgLength + // TestDataMutator on numbers
+            0));// +2 for tag and length
+
+            ci.readTag();
+            ci.skipField(tag);
+            ci.readTag();
+            org.junit.Assert.fail("testSkipFieldOverTheBufferBoundary_literalMutationNumber29 should have thrown ProtobufException");
+        } catch (io.protostuff.ProtobufException eee) {
+        }
     }
 
     /* amplification of io.protostuff.CodedInputTest#testSkipFieldOverTheBufferBoundary */
@@ -82,13 +108,12 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
             for (int i = 1; i <= msgLength; i++)
                 io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-            
+
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
             byte[] data = out.toByteArray();
             io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
             ci.pushLimit((msgLength + 2));// +2 for tag and length
-            
-            int int_31 = tag;
+
             ci.readTag();
             ci.skipField(tag);
             ci.readTag();
@@ -112,14 +137,13 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
             for (int i = 1; i <= msgLength; i++)
                 io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-            
+
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
             byte[] data = out.toByteArray();
             io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[// TestDataMutator on numbers
             0], false);
             ci.pushLimit((msgLength + 2));// +2 for tag and length
-            
-            int int_14 = tag;
+
             ci.readTag();
             ci.skipField(tag);
             ci.readTag();
@@ -141,13 +165,12 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
             for (int i = 1; i <= msgLength; i++)
                 io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-            
+
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
             byte[] data = out.toByteArray();
             io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
             ci.pushLimit((msgLength + 2));// +2 for tag and length
-            
-            int int_30 = tag;
+
             ci.readTag();
             ci.skipField(tag);
             ci.readTag();
@@ -171,13 +194,13 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
             for (int i = 1; i <= msgLength; i++)
                 io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-            
+
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
             byte[] data = out.toByteArray();
             io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
-            ci.pushLimit((msgLength + 1));// +2 for tag and length
-            
-            int int_20 = tag;
+            ci.pushLimit((msgLength + // TestDataMutator on numbers
+            1));// +2 for tag and length
+
             ci.readTag();
             ci.skipField(tag);
             ci.readTag();
@@ -200,13 +223,12 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
             for (int i = 1; i <= msgLength; i++)
                 io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-            
+
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
             byte[] data = out.toByteArray();
             io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
             ci.pushLimit((msgLength + 2));// +2 for tag and length
-            
-            int int_44 = tag;
+
             ci.readTag();
             ci.skipField(tag);
             ci.readTag();
@@ -230,13 +252,12 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
             for (int i = 1; i <= msgLength; i++)
                 io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-            
+
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
             byte[] data = out.toByteArray();
             io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
             ci.pushLimit((msgLength + 2));// +2 for tag and length
-            
-            int int_52 = tag;
+
             ci.readTag();
             ci.skipField(tag);
             ci.readTag();
@@ -260,13 +281,12 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
             for (int i = 1; i <= msgLength; i++)
                 io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-            
+
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
             byte[] data = out.toByteArray();
             io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
             ci.pushLimit((msgLength + 2));// +2 for tag and length
-            
-            int int_45 = tag;
+
             ci.readTag();
             ci.skipField(tag);
             ci.readTag();
@@ -291,13 +311,12 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
             for (int i = 1; i <= msgLength; i++)
                 io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-            
+
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
             byte[] data = out.toByteArray();
             io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
             ci.pushLimit((msgLength + 2));// +2 for tag and length
-            
-            int int_50 = tag;
+
             ci.readTag();
             ci.skipField(tag);
             ci.readTag();
@@ -321,13 +340,12 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
             for (int i = 1; i <= msgLength; i++)
                 io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-            
+
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
             byte[] data = out.toByteArray();
             io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
             ci.pushLimit((msgLength + 2));// +2 for tag and length
-            
-            int int_51 = tag;
+
             ci.readTag();
             ci.skipField(tag);
             ci.readTag();
@@ -351,13 +369,12 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
             for (int i = 1; i <= msgLength; i++)
                 io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-            
+
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
             byte[] data = out.toByteArray();
             io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
             ci.pushLimit((msgLength + 2));// +2 for tag and length
-            
-            int int_26 = tag;
+
             ci.readTag();
             ci.skipField(tag);
             ci.readTag();
@@ -381,13 +398,12 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
             for (int i = 1; i <= msgLength; i++)
                 io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-            
+
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
             byte[] data = out.toByteArray();
             io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
             ci.pushLimit((msgLength + 2));// +2 for tag and length
-            
-            int int_61 = tag;
+
             ci.readTag();
             ci.skipField(tag);
             ci.readTag();
@@ -411,13 +427,12 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
             for (int i = 1; i <= msgLength; i++)
                 io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-            
+
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
             byte[] data = out.toByteArray();
             io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
             ci.pushLimit((msgLength + 2));// +2 for tag and length
-            
-            int int_55 = tag;
+
             ci.readTag();
             ci.skipField(tag);
             ci.readTag();
@@ -441,13 +456,12 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
             for (int i = 1; i <= msgLength; i++)
                 io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-            
+
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
             byte[] data = out.toByteArray();
             io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
             ci.pushLimit((msgLength + 2));// +2 for tag and length
-            
-            int int_62 = tag;
+
             ci.readTag();
             ci.skipField(tag);
             ci.readTag();
@@ -471,13 +485,12 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
             for (int i = 1; i <= msgLength; i++)
                 io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-            
+
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
             byte[] data = out.toByteArray();
             io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
             ci.pushLimit((msgLength + 2));// +2 for tag and length
-            
-            int int_54 = tag;
+
             ci.readTag();
             ci.skipField(tag);
             ci.readTag();
@@ -501,13 +514,12 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
             for (int i = 1; i <= msgLength; i++)
                 io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-            
+
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
             byte[] data = out.toByteArray();
             io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
             ci.pushLimit((msgLength + 2));// +2 for tag and length
-            
-            int int_46 = tag;
+
             ci.readTag();
             ci.skipField(tag);
             ci.readTag();
@@ -531,13 +543,12 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
             for (int i = 1; i <= msgLength; i++)
                 io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-            
+
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
             byte[] data = out.toByteArray();
             io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
             ci.pushLimit((msgLength + 2));// +2 for tag and length
-            
-            int int_25 = tag;
+
             ci.readTag();
             ci.skipField(tag);
             ci.readTag();
@@ -561,13 +572,12 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
             for (int i = 1; i <= msgLength; i++)
                 io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-            
+
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
             byte[] data = out.toByteArray();
             io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
             ci.pushLimit((msgLength + 2));// +2 for tag and length
-            
-            int int_59 = tag;
+
             ci.readTag();
             ci.skipField(tag);
             ci.readTag();
@@ -592,13 +602,12 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
             for (int i = 1; i <= msgLength; i++)
                 io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-            
+
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
             byte[] data = out.toByteArray();
             io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
             ci.pushLimit((msgLength + 2));// +2 for tag and length
-            
-            int int_58 = tag;
+
             ci.readTag();
             ci.skipField(tag);
             ci.readTag();
@@ -622,13 +631,12 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
             for (int i = 1; i <= msgLength; i++)
                 io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-            
+
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
             byte[] data = out.toByteArray();
             io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
             ci.pushLimit((msgLength + 2));// +2 for tag and length
-            
-            int int_33 = tag;
+
             ci.readTag();
             ci.skipField(tag);
             ci.readTag();
@@ -652,13 +660,12 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
             for (int i = 1; i <= msgLength; i++)
                 io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-            
+
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
             byte[] data = out.toByteArray();
             io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
             ci.pushLimit((msgLength + 2));// +2 for tag and length
-            
-            int int_28 = tag;
+
             ci.readTag();
             ci.skipField(tag);
             ci.readTag();
@@ -682,13 +689,12 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
             for (int i = 1; i <= msgLength; i++)
                 io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-            
+
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
             byte[] data = out.toByteArray();
             io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
             ci.pushLimit((msgLength + 2));// +2 for tag and length
-            
-            int int_27 = tag;
+
             ci.readTag();
             ci.skipField(tag);
             ci.readTag();
@@ -712,13 +718,12 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
             for (int i = 1; i <= msgLength; i++)
                 io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-            
+
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
             byte[] data = out.toByteArray();
             io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
             ci.pushLimit((msgLength + 2));// +2 for tag and length
-            
-            int int_48 = tag;
+
             ci.readTag();
             ci.skipField(tag);
             ci.readTag();
@@ -743,13 +748,12 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
             for (int i = 1; i <= msgLength; i++)
                 io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-            
+
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
             byte[] data = out.toByteArray();
             io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
             ci.pushLimit((msgLength + 2));// +2 for tag and length
-            
-            int int_39 = tag;
+
             ci.readTag();
             ci.skipField(tag);
             ci.readTag();
@@ -766,20 +770,20 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
         // AssertGenerator generate try/catch block with fail statement
         try {
             java.io.ByteArrayOutputStream out = new java.io.ByteArrayOutputStream();
-            int tag = io.protostuff.WireFormat.makeTag(0, io.protostuff.WireFormat.WIRETYPE_LENGTH_DELIMITED);
+            int tag = io.protostuff.WireFormat.makeTag(// TestDataMutator on numbers
+            0, io.protostuff.WireFormat.WIRETYPE_LENGTH_DELIMITED);
             int anotherTag = io.protostuff.WireFormat.makeTag(2, io.protostuff.WireFormat.WIRETYPE_LENGTH_DELIMITED);
             int msgLength = 10;
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, tag);
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
             for (int i = 1; i <= msgLength; i++)
                 io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-            
+
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
             byte[] data = out.toByteArray();
             io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
             ci.pushLimit((msgLength + 2));// +2 for tag and length
-            
-            int int_2 = tag;
+
             ci.readTag();
             ci.skipField(tag);
             ci.readTag();
@@ -801,13 +805,12 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
             for (int i = 1; i <= msgLength; i++)
                 io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-            
+
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
             byte[] data = out.toByteArray();
             io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
             ci.pushLimit((msgLength + 2));// +2 for tag and length
-            
-            int int_40 = tag;
+
             ci.readTag();
             ci.skipField(tag);
             ci.readTag();
@@ -832,13 +835,12 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
             for (int i = 1; i <= msgLength; i++)
                 io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-            
+
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
             byte[] data = out.toByteArray();
             io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
             ci.pushLimit((msgLength + 2));// +2 for tag and length
-            
-            int int_38 = tag;
+
             ci.readTag();
             ci.skipField(tag);
             ci.readTag();
@@ -863,13 +865,12 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
             for (int i = 1; i <= msgLength; i++)
                 io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-            
+
             io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
             byte[] data = out.toByteArray();
             io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
             ci.pushLimit((msgLength + 2));// +2 for tag and length
-            
-            int int_36 = tag;
+
             ci.readTag();
             ci.skipField(tag);
             ci.readTag();
