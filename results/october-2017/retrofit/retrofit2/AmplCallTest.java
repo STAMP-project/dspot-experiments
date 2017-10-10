@@ -13,34 +13,32 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package retrofit2;
 
 
 public final class AmplCallTest {
-    @org.junit.Rule
-    public final okhttp3.mockwebserver.MockWebServer server = new okhttp3.mockwebserver.MockWebServer();
-
     interface Service {
-        @retrofit2.http.GET(value = "/")
+        @retrofit2.http.GET("/")
         retrofit2.Call<java.lang.String> getString();
 
-        @retrofit2.http.GET(value = "/")
+        @retrofit2.http.GET("/")
         retrofit2.Call<okhttp3.ResponseBody> getBody();
 
-        @retrofit2.http.GET(value = "/")
+        @retrofit2.http.GET("/")
         @retrofit2.http.Streaming
         retrofit2.Call<okhttp3.ResponseBody> getStreamingBody();
 
-        @retrofit2.http.POST(value = "/")
+        @retrofit2.http.POST("/")
         retrofit2.Call<java.lang.String> postString(@retrofit2.http.Body
         java.lang.String body);
 
-        @retrofit2.http.POST(value = "/{a}")
-        retrofit2.Call<java.lang.String> postRequestBody(@retrofit2.http.Path(value = "a")
+        @retrofit2.http.POST("/{a}")
+        retrofit2.Call<java.lang.String> postRequestBody(@retrofit2.http.Path("a")
         java.lang.Object a);
     }
+
+    @org.junit.Rule
+    public final okhttp3.mockwebserver.MockWebServer server = new okhttp3.mockwebserver.MockWebServer();
 
     @org.junit.Test
     public void http200Sync() throws java.io.IOException {

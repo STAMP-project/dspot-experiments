@@ -13,8 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package retrofit2;
 
 
@@ -28,7 +26,7 @@ public final class AmplServiceMethodTest {
         retrofit2.AmplServiceMethodTest.expectParams("/foo/bar/{taco}", "taco");
         retrofit2.AmplServiceMethodTest.expectParams("/foo/bar/{t}", "t");
         retrofit2.AmplServiceMethodTest.expectParams("/foo/bar/{!!!}/");// Invalid parameter.
-        
+
         retrofit2.AmplServiceMethodTest.expectParams("/foo/bar/{}/{taco}", "taco");
         retrofit2.AmplServiceMethodTest.expectParams("/foo/bar/{taco}/or/{burrito}", "taco", "burrito");
         retrofit2.AmplServiceMethodTest.expectParams("/foo/bar/{taco}/or/{taco}", "taco");
@@ -38,7 +36,7 @@ public final class AmplServiceMethodTest {
         retrofit2.AmplServiceMethodTest.expectParams("/foo/bar/{TACO}", "TACO");
         retrofit2.AmplServiceMethodTest.expectParams("/foo/bar/{taco}/{tAco}/{taCo}", "taco", "tAco", "taCo");
         retrofit2.AmplServiceMethodTest.expectParams("/foo/bar/{1}");// Invalid parameter, name cannot start with digit.
-        
+
     }
 
     private static void expectParams(java.lang.String path, java.lang.String... expected) {
