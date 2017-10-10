@@ -56,7 +56,7 @@ def run(project, mvnHome="~/apache-maven-3.3.9/bin/", amplified=True):
                   path_to_target + "src/test/java/" + build_rate_table.buildPackageAsPath(java_file) + "/"
         cmd_pit = run_pitest + report
         cmd_pit += target_classes + target_classes_values + " "
-        cmd_pit += target_tests + fullQualifiedNameToAmplifiedName(selected_classes[project][type])
+        cmd_pit += target_tests + (fullQualifiedNameToAmplifiedName(selected_classes[project][type]) if amplified else selected_classes[project][type])
         if "additionalClasspathElements" in properties:
             cmd_pit += " -DadditionalClasspathElements=" + properties["additionalClasspathElements"]
         if "excludedClasses" in properties:
@@ -67,10 +67,15 @@ def run(project, mvnHome="~/apache-maven-3.3.9/bin/", amplified=True):
         print "python src/main/python/copy_pit_results.py " + path_to_target + " " + \
               (fullQualifiedNameToAmplifiedName(selected_classes[project][type])
                if amplified else selected_classes[project][type])
-        print "to_download_" + type + "=$(curl --upload-file " + \
+        if amplified:
+            print "to_download_" + type + "=$(curl --upload-file " + \
               fullQualifiedNameToAmplifiedName(selected_classes[project][type]) + "_mutations.csv " + "https://transfer.sh/" + \
               (fullQualifiedNameToAmplifiedName(selected_classes[project][type])
                if amplified else selected_classes[project][type]) + "_mutations.csv)"
+        else:
+            print "to_download_" + type + "=$(curl --upload-file " + \
+                  selected_classes[project][type] + "_mutations.csv " + "https://transfer.sh/" + \
+                  selected_classes[project][type] + "_mutations.csv)"
 
     for type in types:
         print "echo \"curl ${to_download_" + type + "} -o " + \
@@ -82,5 +87,7 @@ if __name__ == '__main__':
 
     if len(sys.argv) == 1:
         print "usage is : python src/main/python/mutations_analysis.py <project> (amplified)"
-
-    run(project=sys.argv[1], amplified=len(sys.argv) > 2)
+    elif len(sys.argv) > 2:
+        run(project=sys.argv[1], amplified=sys.argv[2] == "amplified")
+    else:
+        run(project=sys.argv[1], amplified=False)
