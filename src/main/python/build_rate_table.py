@@ -24,7 +24,7 @@ def cmdPitest(filter):
     return cmd
 
 def buildAmplTest(test):
-    if test.lower().startswith("Test"):
+    if test.lower().startswith("test"):
         return test + "Ampl"
     else:
         return "Ampl" + test
