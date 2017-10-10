@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011 Clearspring Technologies, Inc.
+ * Copyright (C) 2011 Clearspring Technologies, Inc. 
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,12 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.clearspring.analytics.stream.cardinality;
 
 
-@org.junit.runner.RunWith(value = org.junit.runners.Parameterized.class)
+@org.junit.runner.RunWith(org.junit.runners.Parameterized.class)
 public class TestICardinalityAmpl {
     private int N = 1000000;
 
@@ -27,6 +25,8 @@ public class TestICardinalityAmpl {
     private static java.util.Random prng = new java.util.Random();
 
     private static char[] hex = "0123456789abcdef".toCharArray();
+
+    static int se = 0;
 
     public TestICardinalityAmpl(com.clearspring.analytics.stream.cardinality.ICardinality cardinalityEstimator) {
         super();
@@ -60,8 +60,6 @@ public class TestICardinalityAmpl {
         java.lang.System.out.println(("% Error: " + (err * 100)));
     }
 
-    static int se = 0;
-
     protected static java.lang.Object streamElement(int i) {
         return java.lang.Long.toHexString(com.clearspring.analytics.stream.cardinality.TestICardinalityAmpl.prng.nextLong());
         // return se++;
@@ -73,8 +71,6 @@ public class TestICardinalityAmpl {
         // { new LogLog(12) },
         // { new LogLog(14) },
         new java.lang.Object[][]{ // { new LinearCounting(65536) },
-        // { new CountThenEstimate() },
-        // { new LinearCounting(65536) },
         // { new CountThenEstimate() },
         new java.lang.Object[]{ new com.clearspring.analytics.stream.cardinality.AdaptiveCounting(16) }// { new LogLog(10) },
         // { new LogLog(12) },

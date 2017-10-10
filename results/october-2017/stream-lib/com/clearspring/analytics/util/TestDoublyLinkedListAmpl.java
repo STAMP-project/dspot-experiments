@@ -1,5 +1,5 @@
 /**
- * Copyright (C) 2011 Clearspring Technologies, Inc.
+ * Copyright (C) 2011 Clearspring Technologies, Inc. 
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,8 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.clearspring.analytics.util;
 
 
@@ -217,19 +215,20 @@ public class TestDoublyLinkedListAmpl {
 
     /* amplification of com.clearspring.analytics.util.TestDoublyLinkedList#testConcurrentModification */
     @org.junit.Test(timeout = 10000)
-    public void testConcurrentModification_literalMutationNumber30993_failAssert9() {
+    public void testConcurrentModification_literalMutationNumber30982_failAssert3() {
         // AssertGenerator generate try/catch block with fail statement
         try {
             com.clearspring.analytics.util.DoublyLinkedList<java.lang.Integer> list = new com.clearspring.analytics.util.DoublyLinkedList<java.lang.Integer>();
             list.add(1);
             list.add(2);
-            list.add(3);
+            list.add(// TestDataMutator on numbers
+            2);
             for (int i : list) {
                 if (i == 2) {
-                    list.add(8);
+                    list.add(4);
                 }
             }
-            org.junit.Assert.fail("testConcurrentModification_literalMutationNumber30993 should have thrown ConcurrentModificationException");
+            org.junit.Assert.fail("testConcurrentModification_literalMutationNumber30982 should have thrown ConcurrentModificationException");
         } catch (java.util.ConcurrentModificationException eee) {
         }
     }
