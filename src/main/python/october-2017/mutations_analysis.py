@@ -40,7 +40,7 @@ def run(project, mvnHome="~/apache-maven-3.3.9/bin/", amplified=True):
     print "project=" + project
     print "root_exp=${PWD}"
 
-    print "python src/main/python/install.py ${project}"
+    print "python src/main/python/october-2017/install.py ${project}"
     print "cd dataset/${project}/"
     print mvnHome + "mvn install -DskipTests"
     print "cd ${root_exp}"
@@ -64,7 +64,7 @@ def run(project, mvnHome="~/apache-maven-3.3.9/bin/", amplified=True):
         print cmd
         print cmd_pit + " >> /dev/null"
         print "cd ${root_exp}"
-        print "python src/main/python/copy_pit_results.py " + path_to_target + " " + \
+        print "python src/main/python/october-2017/copy_pit_results.py " + path_to_target + " " + \
               (fullQualifiedNameToAmplifiedName(selected_classes[project][type])
                if amplified else selected_classes[project][type])
         if amplified:

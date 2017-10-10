@@ -30,7 +30,7 @@ def run(projects, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/
         print "project=" + project
         print "root_exp=${PWD}"
 
-        print "python src/main/python/install.py ${project}"
+        print "python src/main/python/october-2017/install.py ${project}"
         print "cd dataset/${project}/"
         print mvnHome + "bin/mvn install -DskipTests"
         print "cd ${root_exp}"
