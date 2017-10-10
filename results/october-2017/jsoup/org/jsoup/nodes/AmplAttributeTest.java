@@ -150,6 +150,40 @@ public class AmplAttributeTest {
 
     /* amplification of org.jsoup.nodes.AttributeTest#html */
     @org.junit.Test(timeout = 10000)
+    public void html_literalMutationString4() {
+        org.jsoup.nodes.Attribute attr = new org.jsoup.nodes.Attribute("Gdh", "value &");
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("Gdh=\"value &amp;\"", ((org.jsoup.nodes.Attribute)attr).html());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("Gdh", ((org.jsoup.nodes.Attribute)attr).getKey());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("value &", ((org.jsoup.nodes.Attribute)attr).getValue());
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_html_literalMutationString4__3 = attr.html();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("Gdh=\"value &amp;\"", o_html_literalMutationString4__3);
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_html_literalMutationString4__4 = attr.html();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("Gdh=\"value &amp;\"", o_html_literalMutationString4__4);
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_html_literalMutationString4__5 = attr.toString();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("Gdh=\"value &amp;\"", o_html_literalMutationString4__5);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("Gdh=\"value &amp;\"", ((org.jsoup.nodes.Attribute)attr).html());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("Gdh", ((org.jsoup.nodes.Attribute)attr).getKey());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("value &", ((org.jsoup.nodes.Attribute)attr).getValue());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("Gdh=\"value &amp;\"", o_html_literalMutationString4__4);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("Gdh=\"value &amp;\"", o_html_literalMutationString4__3);
+    }
+
+    /* amplification of org.jsoup.nodes.AttributeTest#html */
+    @org.junit.Test(timeout = 10000)
     public void html_sd16() {
         org.jsoup.nodes.Attribute attr = new org.jsoup.nodes.Attribute("key", "value &");
         // AssertGenerator add assertion
@@ -560,6 +594,48 @@ public class AmplAttributeTest {
 
     /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
     @org.junit.Test(timeout = 10000)
+    public void testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6188() {
+        java.lang.String s = new java.lang.String(java.lang.Character.toChars(135361));
+        org.jsoup.nodes.Attribute attr = new org.jsoup.nodes.Attribute(s, (("A" + s) + ":last-of-type"));
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1:last-of-type\"", ((org.jsoup.nodes.Attribute)attr).html());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getKey());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("A\ud844\udcc1:last-of-type", ((org.jsoup.nodes.Attribute)attr).getValue());
+        java.lang.String String_10 = ((s + "=\"A") + s) + "B\"";
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", String_10);
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6188__7 = attr.html();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1:last-of-type\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6188__7);
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6188__8 = attr.html();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1:last-of-type\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6188__8);
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6188__9 = attr.toString();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1:last-of-type\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6188__9);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1:last-of-type\"", ((org.jsoup.nodes.Attribute)attr).html());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getKey());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("A\ud844\udcc1:last-of-type", ((org.jsoup.nodes.Attribute)attr).getValue());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1", s);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", String_10);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1:last-of-type\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6188__7);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1:last-of-type\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6188__8);
+    }
+
+    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
+    @org.junit.Test(timeout = 10000)
     public void testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195() {
         java.lang.String __DSPOT_value_734 = "&1&x#LaHAzB|sTDCK4;`";
         java.lang.String s = new java.lang.String(java.lang.Character.toChars(135361));
@@ -649,102 +725,6 @@ public class AmplAttributeTest {
         org.junit.Assert.assertEquals("\ud844\udcc2=\"A\ud844\udcc2B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6179__9);
         // AssertGenerator add assertion
         org.junit.Assert.assertEquals("\ud844\udcc2", s);
-    }
-
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
-    @org.junit.Test(timeout = 10000)
-    public void testWithSupplementaryCharacterInAttributeKeyAndValue_sd6197() {
-        java.lang.String s = new java.lang.String(java.lang.Character.toChars(135361));
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1", s);
-        org.jsoup.nodes.Attribute attr = new org.jsoup.nodes.Attribute(s, (("A" + s) + "B"));
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", ((org.jsoup.nodes.Attribute)attr).html());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getKey());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("A\ud844\udcc1B", ((org.jsoup.nodes.Attribute)attr).getValue());
-        java.lang.String String_19 = ((s + "=\"A") + s) + "B\"";
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", String_19);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6197__7 = attr.html();
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6197__8 = attr.html();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6197__8);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6197__9 = attr.toString();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6197__9);
-        // StatementAdd: add invocation of a method
-        attr.getValue();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", ((org.jsoup.nodes.Attribute)attr).html());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getKey());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("A\ud844\udcc1B", ((org.jsoup.nodes.Attribute)attr).getValue());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6197__9);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6197__8);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", String_19);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1", s);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6197__7);
-    }
-
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191 */
-    @org.junit.Test(timeout = 10000)
-    public void testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191_sd6642() {
-        java.lang.Object __DSPOT_o_772 = new java.lang.Object();
-        java.lang.String __DSPOT_key_732 = "r>0!aCVk!S!Cq&Z&g-HM";
-        java.lang.String s = new java.lang.String(java.lang.Character.toChars(135361));
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1", s);
-        org.jsoup.nodes.Attribute attr = new org.jsoup.nodes.Attribute(s, (("A" + s) + "B"));
-        java.lang.String String_13 = ((s + "=\"A") + s) + "B\"";
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", String_13);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__8 = attr.html();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__8);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__9 = attr.html();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__9);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__10 = attr.toString();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__10);
-        // StatementAdd: add invocation of a method
-        attr.setKey(__DSPOT_key_732);
-        // AssertGenerator create local variable with return value of invocation
-        boolean o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191_sd6642__21 = // StatementAdd: add invocation of a method
-        attr.equals(__DSPOT_o_772);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertFalse(o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191_sd6642__21);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__9);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1", s);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", String_13);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("r>0!aCVk!S!Cq&Z&g-HM=\"A\ud844\udcc1B\"", ((org.jsoup.nodes.Attribute)attr).html());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("r>0!aCVk!S!Cq&Z&g-HM", ((org.jsoup.nodes.Attribute)attr).getKey());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("A\ud844\udcc1B", ((org.jsoup.nodes.Attribute)attr).getValue());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__8);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__10);
     }
 
     /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
@@ -839,6 +819,66 @@ public class AmplAttributeTest {
         org.junit.Assert.assertEquals("A\u8430B", ((org.jsoup.nodes.Attribute)attr).getValue());
         // AssertGenerator add assertion
         org.junit.Assert.assertEquals("\u8430=\"A\u8430B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6182__9);
+    }
+
+    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
+    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193 */
+    @org.junit.Test(timeout = 10000)
+    public void testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193_sd6700() {
+        java.lang.Object __DSPOT_o_778 = new java.lang.Object();
+        java.lang.String s = new java.lang.String(java.lang.Character.toChars(135361));
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1", s);
+        org.jsoup.nodes.Attribute attr = new org.jsoup.nodes.Attribute(s, (("A" + s) + "B"));
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", ((org.jsoup.nodes.Attribute)attr).html());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getKey());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("A\ud844\udcc1B", ((org.jsoup.nodes.Attribute)attr).getValue());
+        java.lang.String String_15 = ((s + "=\"A") + s) + "B\"";
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__7 = attr.html();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__7);
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__8 = attr.html();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__8);
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__9 = attr.toString();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__9);
+        // AssertGenerator create local variable with return value of invocation
+        org.jsoup.nodes.Attribute o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__10 = // StatementAdd: add invocation of a method
+        attr.clone();
+        // AssertGenerator create local variable with return value of invocation
+        boolean o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193_sd6700__22 = // StatementAdd: add invocation of a method
+        attr.equals(__DSPOT_o_778);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertFalse(o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193_sd6700__22);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", ((org.jsoup.nodes.Attribute)o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__10).html());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__10).getKey());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("A\ud844\udcc1B", ((org.jsoup.nodes.Attribute)o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__10).getValue());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1", s);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", String_15);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", ((org.jsoup.nodes.Attribute)attr).html());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getKey());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("A\ud844\udcc1B", ((org.jsoup.nodes.Attribute)attr).getValue());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__8);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__7);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__9);
     }
 
     /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
@@ -938,63 +978,53 @@ public class AmplAttributeTest {
     }
 
     /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190 */
+    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6189 */
     @org.junit.Test(timeout = 10000)
-    public void testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190_sd6607() {
-        java.lang.Object __DSPOT_o_769 = new java.lang.Object();
+    public void testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6189_sd6575() {
+        java.lang.String __DSPOT_key_765 = "(*HOUk%dv72/A8OJTm=Q";
         java.lang.String s = new java.lang.String(java.lang.Character.toChars(135361));
         // AssertGenerator add assertion
         org.junit.Assert.assertEquals("\ud844\udcc1", s);
-        org.jsoup.nodes.Attribute attr = new org.jsoup.nodes.Attribute(s, (("A" + s) + "B"));
+        org.jsoup.nodes.Attribute attr = new org.jsoup.nodes.Attribute(s, (("A" + s) + "4"));
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", ((org.jsoup.nodes.Attribute)attr).html());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getKey());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("A\ud844\udcc1B", ((org.jsoup.nodes.Attribute)attr).getValue());
-        java.lang.String String_12 = ((s + "=\"A") + s) + "B\"";
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", String_12);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190__7 = attr.html();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190__7);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190__8 = attr.html();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190__8);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190__9 = attr.toString();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190__9);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190__10 = // StatementAdd: add invocation of a method
-        attr.toString();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190__10);
-        // AssertGenerator create local variable with return value of invocation
-        boolean o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190_sd6607__22 = // StatementAdd: add invocation of a method
-        attr.equals(__DSPOT_o_769);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertFalse(o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190_sd6607__22);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190__10);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190__9);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190__8);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190__7);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", ((org.jsoup.nodes.Attribute)attr).html());
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc14\"", ((org.jsoup.nodes.Attribute)attr).html());
         // AssertGenerator add assertion
         org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getKey());
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("A\ud844\udcc1B", ((org.jsoup.nodes.Attribute)attr).getValue());
+        org.junit.Assert.assertEquals("A\ud844\udcc14", ((org.jsoup.nodes.Attribute)attr).getValue());
+        java.lang.String String_11 = ((s + "=\"A") + s) + "B\"";
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", String_12);
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", String_11);
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6189__7 = attr.html();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc14\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6189__7);
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6189__8 = attr.html();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc14\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6189__8);
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6189__9 = attr.toString();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc14\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6189__9);
+        // StatementAdd: add invocation of a method
+        attr.setKey(__DSPOT_key_765);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", String_11);
         // AssertGenerator add assertion
         org.junit.Assert.assertEquals("\ud844\udcc1", s);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc14\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6189__9);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("(*HOUk%dv72/A8OJTm=Q=\"A\ud844\udcc14\"", ((org.jsoup.nodes.Attribute)attr).html());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("(*HOUk%dv72/A8OJTm=Q", ((org.jsoup.nodes.Attribute)attr).getKey());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("A\ud844\udcc14", ((org.jsoup.nodes.Attribute)attr).getValue());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc14\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6189__8);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc14\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6189__7);
     }
 
     /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
@@ -1143,171 +1173,16 @@ public class AmplAttributeTest {
     }
 
     /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190 */
-    @org.junit.Test(timeout = 10000)
-    public void testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190_literalMutationString6591() {
-        java.lang.String s = new java.lang.String(java.lang.Character.toChars(135361));
-        org.jsoup.nodes.Attribute attr = new org.jsoup.nodes.Attribute(s, (("A" + s) + ""));
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1\"", ((org.jsoup.nodes.Attribute)attr).html());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getKey());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("A\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getValue());
-        java.lang.String String_12 = ((s + "=\"A") + s) + "B\"";
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", String_12);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190__7 = attr.html();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190__7);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190__8 = attr.html();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190__8);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190__9 = attr.toString();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190__9);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190__10 = // StatementAdd: add invocation of a method
-        attr.toString();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190__10);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190__8);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190__9);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1\"", ((org.jsoup.nodes.Attribute)attr).html());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getKey());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("A\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getValue());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6190__7);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", String_12);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1", s);
-    }
-
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191 */
-    @org.junit.Test(timeout = 10000)
-    public void testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191_literalMutationString6628() {
-        java.lang.String __DSPOT_key_732 = "r>0!aCVk!S!Cq&Z&g-HM";
-        java.lang.String s = new java.lang.String(java.lang.Character.toChars(135361));
-        org.jsoup.nodes.Attribute attr = new org.jsoup.nodes.Attribute(s, (("A" + s) + "&"));
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1&amp;\"", ((org.jsoup.nodes.Attribute)attr).html());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getKey());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("A\ud844\udcc1&", ((org.jsoup.nodes.Attribute)attr).getValue());
-        java.lang.String String_13 = ((s + "=\"A") + s) + "B\"";
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", String_13);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__8 = attr.html();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1&amp;\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__8);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__9 = attr.html();
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__10 = attr.toString();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1&amp;\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__10);
-        // StatementAdd: add invocation of a method
-        attr.setKey(__DSPOT_key_732);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1&amp;\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__9);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1&amp;\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__10);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("r>0!aCVk!S!Cq&Z&g-HM=\"A\ud844\udcc1&amp;\"", ((org.jsoup.nodes.Attribute)attr).html());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("r>0!aCVk!S!Cq&Z&g-HM", ((org.jsoup.nodes.Attribute)attr).getKey());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("A\ud844\udcc1&", ((org.jsoup.nodes.Attribute)attr).getValue());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1&amp;\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__8);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", String_13);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1", s);
-    }
-
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191 */
-    @org.junit.Test(timeout = 10000)
-    public void testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191_sd6641() {
-        java.lang.String __DSPOT_key_732 = "r>0!aCVk!S!Cq&Z&g-HM";
-        java.lang.String s = new java.lang.String(java.lang.Character.toChars(135361));
-        org.jsoup.nodes.Attribute attr = new org.jsoup.nodes.Attribute(s, (("A" + s) + "B"));
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", ((org.jsoup.nodes.Attribute)attr).html());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getKey());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("A\ud844\udcc1B", ((org.jsoup.nodes.Attribute)attr).getValue());
-        java.lang.String String_13 = ((s + "=\"A") + s) + "B\"";
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", String_13);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__8 = attr.html();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__8);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__9 = attr.html();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__9);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__10 = attr.toString();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__10);
-        // StatementAdd: add invocation of a method
-        attr.setKey(__DSPOT_key_732);
-        // AssertGenerator create local variable with return value of invocation
-        org.jsoup.nodes.Attribute o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191_sd6641__19 = // StatementAdd: add invocation of a method
-        attr.clone();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("r>0!aCVk!S!Cq&Z&g-HM=\"A\ud844\udcc1B\"", ((org.jsoup.nodes.Attribute)o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191_sd6641__19).html());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("r>0!aCVk!S!Cq&Z&g-HM", ((org.jsoup.nodes.Attribute)o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191_sd6641__19).getKey());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("A\ud844\udcc1B", ((org.jsoup.nodes.Attribute)o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191_sd6641__19).getValue());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__8);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("r>0!aCVk!S!Cq&Z&g-HM=\"A\ud844\udcc1B\"", ((org.jsoup.nodes.Attribute)attr).html());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("r>0!aCVk!S!Cq&Z&g-HM", ((org.jsoup.nodes.Attribute)attr).getKey());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("A\ud844\udcc1B", ((org.jsoup.nodes.Attribute)attr).getValue());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__9);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__10);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", String_13);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1", s);
-    }
-
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
     /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193 */
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193_sd6704 */
     @org.junit.Test(timeout = 10000)
-    public void testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193_sd6704_sd9982() {
-        java.lang.String __DSPOT_value_1064 = "1A[>2]L3ga,%L?,A96x>";
+    public void testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193_literalMutationString6693() {
         java.lang.String s = new java.lang.String(java.lang.Character.toChars(135361));
         // AssertGenerator add assertion
         org.junit.Assert.assertEquals("\ud844\udcc1", s);
         org.jsoup.nodes.Attribute attr = new org.jsoup.nodes.Attribute(s, (("A" + s) + "B"));
-        java.lang.String String_15 = ((s + "=\"A") + s) + "B\"";
+        java.lang.String String_15 = ((s + "=\"A") + s) + "";
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", String_15);
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1", String_15);
         // AssertGenerator create local variable with return value of invocation
         java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__7 = attr.html();
         // AssertGenerator add assertion
@@ -1329,14 +1204,8 @@ public class AmplAttributeTest {
         org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__10).getKey());
         // AssertGenerator add assertion
         org.junit.Assert.assertEquals("A\ud844\udcc1B", ((org.jsoup.nodes.Attribute)o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__10).getValue());
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193_sd6704__20 = // StatementAdd: add invocation of a method
-        attr.html();
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193_sd6704_sd9982__25 = // StatementAdd: add invocation of a method
-        o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__10.setValue(__DSPOT_value_1064);
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("A\ud844\udcc1B", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193_sd6704_sd9982__25);
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__7);
         // AssertGenerator add assertion
         org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", ((org.jsoup.nodes.Attribute)attr).html());
         // AssertGenerator add assertion
@@ -1344,23 +1213,187 @@ public class AmplAttributeTest {
         // AssertGenerator add assertion
         org.junit.Assert.assertEquals("A\ud844\udcc1B", ((org.jsoup.nodes.Attribute)attr).getValue());
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__7);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", String_15);
-        // AssertGenerator add assertion
         org.junit.Assert.assertEquals("\ud844\udcc1", s);
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"1A[>2]L3ga,%L?,A96x>\"", ((org.jsoup.nodes.Attribute)o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__10).html());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__10).getKey());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("1A[>2]L3ga,%L?,A96x>", ((org.jsoup.nodes.Attribute)o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__10).getValue());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__9);
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1", String_15);
         // AssertGenerator add assertion
         org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__8);
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193_sd6704__20);
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__9);
+    }
+
+    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
+    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6180 */
+    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6180_literalMutationString6294 */
+    @org.junit.Test(timeout = 10000)
+    public void testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6180_literalMutationString6294_sd11779() {
+        java.lang.Object __DSPOT_o_1252 = new java.lang.Object();
+        java.lang.String s = new java.lang.String(java.lang.Character.toChars(// TestDataMutator on numbers
+        135360));
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc0", s);
+        org.jsoup.nodes.Attribute attr = new org.jsoup.nodes.Attribute(s, ((":last-of-type" + s) + "B"));
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc0=\":last-of-type\ud844\udcc0B\"", ((org.jsoup.nodes.Attribute)attr).html());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc0", ((org.jsoup.nodes.Attribute)attr).getKey());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals(":last-of-type\ud844\udcc0B", ((org.jsoup.nodes.Attribute)attr).getValue());
+        java.lang.String String_2 = ((s + "=\"A") + s) + "B\"";
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc0=\"A\ud844\udcc0B\"", String_2);
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6180__8 = attr.html();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc0=\":last-of-type\ud844\udcc0B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6180__8);
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6180__9 = attr.html();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc0=\":last-of-type\ud844\udcc0B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6180__9);
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6180__10 = attr.toString();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc0=\":last-of-type\ud844\udcc0B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6180__10);
+        // AssertGenerator create local variable with return value of invocation
+        boolean o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6180_literalMutationString6294_sd11779__19 = // StatementAdd: add invocation of a method
+        attr.equals(__DSPOT_o_1252);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertFalse(o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6180_literalMutationString6294_sd11779__19);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc0=\":last-of-type\ud844\udcc0B\"", ((org.jsoup.nodes.Attribute)attr).html());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc0", ((org.jsoup.nodes.Attribute)attr).getKey());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals(":last-of-type\ud844\udcc0B", ((org.jsoup.nodes.Attribute)attr).getValue());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc0=\":last-of-type\ud844\udcc0B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6180__9);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc0=\"A\ud844\udcc0B\"", String_2);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc0", s);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc0=\":last-of-type\ud844\udcc0B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6180__8);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc0=\":last-of-type\ud844\udcc0B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6180__10);
+    }
+
+    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
+    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193 */
+    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193_literalMutationString6683 */
+    @org.junit.Test(timeout = 10000)
+    public void testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193_literalMutationString6683_sd9768() {
+        java.lang.String s = new java.lang.String(java.lang.Character.toChars(135361));
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1", s);
+        org.jsoup.nodes.Attribute attr = new org.jsoup.nodes.Attribute(s, (("Y" + s) + "B"));
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"Y\ud844\udcc1B\"", ((org.jsoup.nodes.Attribute)attr).html());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getKey());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("Y\ud844\udcc1B", ((org.jsoup.nodes.Attribute)attr).getValue());
+        java.lang.String String_15 = ((s + "=\"A") + s) + "B\"";
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", String_15);
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__7 = attr.html();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"Y\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__7);
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__8 = attr.html();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"Y\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__8);
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__9 = attr.toString();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"Y\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__9);
+        // AssertGenerator create local variable with return value of invocation
+        org.jsoup.nodes.Attribute o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__10 = // StatementAdd: add invocation of a method
+        attr.clone();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"Y\ud844\udcc1B\"", ((org.jsoup.nodes.Attribute)o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__10).html());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__10).getKey());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("Y\ud844\udcc1B", ((org.jsoup.nodes.Attribute)o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__10).getValue());
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193_literalMutationString6683_sd9768__20 = // StatementAdd: add invocation of a method
+        attr.toString();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"Y\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193_literalMutationString6683_sd9768__20);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"Y\ud844\udcc1B\"", ((org.jsoup.nodes.Attribute)o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__10).html());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__10).getKey());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("Y\ud844\udcc1B", ((org.jsoup.nodes.Attribute)o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__10).getValue());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", String_15);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"Y\ud844\udcc1B\"", ((org.jsoup.nodes.Attribute)attr).html());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getKey());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("Y\ud844\udcc1B", ((org.jsoup.nodes.Attribute)attr).getValue());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1", s);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"Y\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__8);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"Y\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__9);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"Y\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__7);
+    }
+
+    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
+    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192 */
+    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192_literalMutationNumber6649 */
+    @org.junit.Test(timeout = 10000)
+    public void testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192_literalMutationNumber6649_sd12967() {
+        java.lang.String __DSPOT_key_1374 = "M{,!iFw?e1n!O_U4/S;]";
+        java.lang.String s = new java.lang.String(java.lang.Character.toChars(// TestDataMutator on numbers
+        0));
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\u0000", s);
+        org.jsoup.nodes.Attribute attr = new org.jsoup.nodes.Attribute(s, (("A" + s) + "B"));
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("=\"A\u0000B\"", ((org.jsoup.nodes.Attribute)attr).html());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("", ((org.jsoup.nodes.Attribute)attr).getKey());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("A\u0000B", ((org.jsoup.nodes.Attribute)attr).getValue());
+        java.lang.String String_14 = ((s + "=\"A") + s) + "B\"";
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\u0000=\"A\u0000B\"", String_14);
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192__7 = attr.html();
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192__8 = attr.html();
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192__9 = attr.toString();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("=\"A\u0000B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192__9);
+        // AssertGenerator create local variable with return value of invocation
+        int o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192__10 = // StatementAdd: add invocation of a method
+        attr.hashCode();
+        // StatementAdd: add invocation of a method
+        attr.setKey(__DSPOT_key_1374);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\u0000", s);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("=\"A\u0000B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192__9);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("M{,!iFw?e1n!O_U4/S;]=\"A\u0000B\"", ((org.jsoup.nodes.Attribute)attr).html());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("M{,!iFw?e1n!O_U4/S;]", ((org.jsoup.nodes.Attribute)attr).getKey());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("A\u0000B", ((org.jsoup.nodes.Attribute)attr).getValue());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\u0000=\"A\u0000B\"", String_14);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("=\"A\u0000B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192__8);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("=\"A\u0000B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192__7);
     }
 
     /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
@@ -1410,57 +1443,55 @@ public class AmplAttributeTest {
     }
 
     /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6197 */
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6197_literalMutationString6825 */
+    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6194 */
+    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6194_literalMutationString6726 */
     @org.junit.Test(timeout = 10000)
-    public void testWithSupplementaryCharacterInAttributeKeyAndValue_sd6197_literalMutationString6825_sd11360() {
-        java.lang.String __DSPOT_value_1208 = "ZG*2b]t+%Z[5xg4*<ls2";
+    public void testWithSupplementaryCharacterInAttributeKeyAndValue_sd6194_literalMutationString6726_literalMutationString10876() {
+        java.lang.Object __DSPOT_o_733 = new java.lang.Object();
         java.lang.String s = new java.lang.String(java.lang.Character.toChars(135361));
         // AssertGenerator add assertion
         org.junit.Assert.assertEquals("\ud844\udcc1", s);
-        org.jsoup.nodes.Attribute attr = new org.jsoup.nodes.Attribute(s, (("A" + s) + "B"));
+        org.jsoup.nodes.Attribute attr = new org.jsoup.nodes.Attribute(s, (("" + s) + "B"));
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", ((org.jsoup.nodes.Attribute)attr).html());
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"\ud844\udcc1B\"", ((org.jsoup.nodes.Attribute)attr).html());
         // AssertGenerator add assertion
         org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getKey());
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("A\ud844\udcc1B", ((org.jsoup.nodes.Attribute)attr).getValue());
-        java.lang.String String_19 = ((s + "=\"A") + s) + ":last-of-type";
+        org.junit.Assert.assertEquals("\ud844\udcc1B", ((org.jsoup.nodes.Attribute)attr).getValue());
+        java.lang.String String_16 = ((s + ":last-of-type") + s) + "B\"";
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1:last-of-type", String_19);
+        org.junit.Assert.assertEquals("\ud844\udcc1:last-of-type\ud844\udcc1B\"", String_16);
         // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6197__7 = attr.html();
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6194__9 = attr.html();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6194__9);
         // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6197__8 = attr.html();
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6194__10 = attr.html();
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6197__8);
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6194__10);
         // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6197__9 = attr.toString();
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6194__11 = attr.toString();
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6197__9);
-        // StatementAdd: add invocation of a method
-        attr.getValue();
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6194__11);
         // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6197_literalMutationString6825_sd11360__19 = // StatementAdd: add invocation of a method
-        attr.setValue(__DSPOT_value_1208);
+        boolean o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6194__12 = // StatementAdd: add invocation of a method
+        attr.equals(__DSPOT_o_733);
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("A\ud844\udcc1B", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6197_literalMutationString6825_sd11360__19);
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"\ud844\udcc1B\"", ((org.jsoup.nodes.Attribute)attr).html());
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6197__7);
+        org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getKey());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1B", ((org.jsoup.nodes.Attribute)attr).getValue());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6194__11);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6194__10);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1:last-of-type\ud844\udcc1B\"", String_16);
         // AssertGenerator add assertion
         org.junit.Assert.assertEquals("\ud844\udcc1", s);
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6197__8);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1:last-of-type", String_19);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6197__9);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"ZG*2b]t+%Z[5xg4*<ls2\"", ((org.jsoup.nodes.Attribute)attr).html());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getKey());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("ZG*2b]t+%Z[5xg4*<ls2", ((org.jsoup.nodes.Attribute)attr).getValue());
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6194__9);
     }
 
     /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
@@ -1563,174 +1594,238 @@ public class AmplAttributeTest {
 
     /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
     /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195 */
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195_literalMutationString6762 */
+    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195_literalMutationNumber6753 */
     @org.junit.Test(timeout = 10000)
-    public void testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195_literalMutationString6762_literalMutationNumber11790() {
+    public void testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195_literalMutationNumber6753_literalMutationString12145() {
         java.lang.String __DSPOT_value_734 = "&1&x#LaHAzB|sTDCK4;`";
         java.lang.String s = new java.lang.String(java.lang.Character.toChars(// TestDataMutator on numbers
-        135362));
+        270722));
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc2", s);
+        org.junit.Assert.assertEquals("\ud8c8\udd82", s);
         org.jsoup.nodes.Attribute attr = new org.jsoup.nodes.Attribute(s, (("A" + s) + "B"));
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc2=\"A\ud844\udcc2B\"", ((org.jsoup.nodes.Attribute)attr).html());
+        org.junit.Assert.assertEquals("\ud8c8\udd82=\"A\ud8c8\udd82B\"", ((org.jsoup.nodes.Attribute)attr).html());
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc2", ((org.jsoup.nodes.Attribute)attr).getKey());
+        org.junit.Assert.assertEquals("\ud8c8\udd82", ((org.jsoup.nodes.Attribute)attr).getKey());
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("A\ud844\udcc2B", ((org.jsoup.nodes.Attribute)attr).getValue());
-        java.lang.String String_17 = ((s + ":last-of-type") + s) + "B\"";
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc2:last-of-type\ud844\udcc2B\"", String_17);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__8 = attr.html();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc2=\"A\ud844\udcc2B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__8);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__9 = attr.html();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc2=\"A\ud844\udcc2B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__9);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__10 = attr.toString();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc2=\"A\ud844\udcc2B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__10);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__11 = // StatementAdd: add invocation of a method
-        attr.setValue(__DSPOT_value_734);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("A\ud844\udcc2B", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__11);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc2=\"&amp;1&amp;x#LaHAzB|sTDCK4;`\"", ((org.jsoup.nodes.Attribute)attr).html());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc2", ((org.jsoup.nodes.Attribute)attr).getKey());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("&1&x#LaHAzB|sTDCK4;`", ((org.jsoup.nodes.Attribute)attr).getValue());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc2=\"A\ud844\udcc2B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__8);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc2", s);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc2:last-of-type\ud844\udcc2B\"", String_17);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc2=\"A\ud844\udcc2B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__9);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc2=\"A\ud844\udcc2B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__10);
-    }
-
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195 */
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195_literalMutationNumber6751 */
-    @org.junit.Test(timeout = 10000)
-    public void testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195_literalMutationNumber6751_literalMutationString8960() {
-        java.lang.String __DSPOT_value_734 = "&1&x#LaHAzB|sTDCK4;`";
-        java.lang.String s = new java.lang.String(java.lang.Character.toChars(// TestDataMutator on numbers
-        0));
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\u0000", s);
-        org.jsoup.nodes.Attribute attr = new org.jsoup.nodes.Attribute(s, (("A" + s) + "B"));
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("=\"A\u0000B\"", ((org.jsoup.nodes.Attribute)attr).html());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("", ((org.jsoup.nodes.Attribute)attr).getKey());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("A\u0000B", ((org.jsoup.nodes.Attribute)attr).getValue());
+        org.junit.Assert.assertEquals("A\ud8c8\udd82B", ((org.jsoup.nodes.Attribute)attr).getValue());
         java.lang.String String_17 = ((s + "") + s) + "B\"";
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\u0000\u0000B\"", String_17);
+        org.junit.Assert.assertEquals("\ud8c8\udd82\ud8c8\udd82B\"", String_17);
         // AssertGenerator create local variable with return value of invocation
         java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__8 = attr.html();
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("=\"A\u0000B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__8);
+        org.junit.Assert.assertEquals("\ud8c8\udd82=\"A\ud8c8\udd82B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__8);
         // AssertGenerator create local variable with return value of invocation
         java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__9 = attr.html();
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("=\"A\u0000B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__9);
+        org.junit.Assert.assertEquals("\ud8c8\udd82=\"A\ud8c8\udd82B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__9);
         // AssertGenerator create local variable with return value of invocation
         java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__10 = attr.toString();
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("=\"A\u0000B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__10);
+        org.junit.Assert.assertEquals("\ud8c8\udd82=\"A\ud8c8\udd82B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__10);
         // AssertGenerator create local variable with return value of invocation
         java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__11 = // StatementAdd: add invocation of a method
         attr.setValue(__DSPOT_value_734);
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("A\u0000B", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__11);
+        org.junit.Assert.assertEquals("A\ud8c8\udd82B", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__11);
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("=\"A\u0000B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__8);
+        org.junit.Assert.assertEquals("\ud8c8\udd82=\"A\ud8c8\udd82B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__9);
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\u0000", s);
+        org.junit.Assert.assertEquals("\ud8c8\udd82=\"&amp;1&amp;x#LaHAzB|sTDCK4;`\"", ((org.jsoup.nodes.Attribute)attr).html());
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\u0000\u0000B\"", String_17);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("=\"&amp;1&amp;x#LaHAzB|sTDCK4;`\"", ((org.jsoup.nodes.Attribute)attr).html());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("", ((org.jsoup.nodes.Attribute)attr).getKey());
+        org.junit.Assert.assertEquals("\ud8c8\udd82", ((org.jsoup.nodes.Attribute)attr).getKey());
         // AssertGenerator add assertion
         org.junit.Assert.assertEquals("&1&x#LaHAzB|sTDCK4;`", ((org.jsoup.nodes.Attribute)attr).getValue());
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("=\"A\u0000B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__10);
+        org.junit.Assert.assertEquals("\ud8c8\udd82=\"A\ud8c8\udd82B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__10);
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("=\"A\u0000B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__9);
+        org.junit.Assert.assertEquals("\ud8c8\udd82\ud8c8\udd82B\"", String_17);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud8c8\udd82", s);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud8c8\udd82=\"A\ud8c8\udd82B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6195__8);
     }
 
     /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192 */
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192_sd6671 */
+    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193 */
+    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193_literalMutationString6693 */
     @org.junit.Test(timeout = 10000)
-    public void testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192_sd6671_sd7752() {
-        java.lang.Object __DSPOT_o_775 = new java.lang.Object();
+    public void testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193_literalMutationString6693_sd12499() {
+        java.lang.String __DSPOT_value_1325 = "$CI13p%lvD+<4A2-(r|!";
         java.lang.String s = new java.lang.String(java.lang.Character.toChars(135361));
         // AssertGenerator add assertion
         org.junit.Assert.assertEquals("\ud844\udcc1", s);
         org.jsoup.nodes.Attribute attr = new org.jsoup.nodes.Attribute(s, (("A" + s) + "B"));
-        java.lang.String String_14 = ((s + "=\"A") + s) + "B\"";
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", String_14);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192__7 = attr.html();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192__7);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192__8 = attr.html();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192__8);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192__9 = attr.toString();
-        // AssertGenerator create local variable with return value of invocation
-        int o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192__10 = // StatementAdd: add invocation of a method
-        attr.hashCode();
-        // AssertGenerator create local variable with return value of invocation
-        boolean o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192_sd6671__22 = // StatementAdd: add invocation of a method
-        attr.equals(__DSPOT_o_775);
-        // AssertGenerator create local variable with return value of invocation
-        int o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192_sd6671_sd7752__26 = // StatementAdd: add invocation of a method
-        attr.hashCode();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals(111849895, ((int) (o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192_sd6671_sd7752__26)));
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192__8);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192__7);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192__9);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1", s);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", String_14);
         // AssertGenerator add assertion
         org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", ((org.jsoup.nodes.Attribute)attr).html());
         // AssertGenerator add assertion
         org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getKey());
         // AssertGenerator add assertion
         org.junit.Assert.assertEquals("A\ud844\udcc1B", ((org.jsoup.nodes.Attribute)attr).getValue());
+        java.lang.String String_15 = ((s + "=\"A") + s) + "";
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1", String_15);
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__7 = attr.html();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__7);
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__8 = attr.html();
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__9 = attr.toString();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__9);
+        // AssertGenerator create local variable with return value of invocation
+        org.jsoup.nodes.Attribute o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__10 = // StatementAdd: add invocation of a method
+        attr.clone();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", ((org.jsoup.nodes.Attribute)o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__10).html());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__10).getKey());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("A\ud844\udcc1B", ((org.jsoup.nodes.Attribute)o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__10).getValue());
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193_literalMutationString6693_sd12499__21 = // StatementAdd: add invocation of a method
+        attr.setValue(__DSPOT_value_1325);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("A\ud844\udcc1B", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193_literalMutationString6693_sd12499__21);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", ((org.jsoup.nodes.Attribute)o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__10).html());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__10).getKey());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("A\ud844\udcc1B", ((org.jsoup.nodes.Attribute)o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__10).getValue());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1", s);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1", String_15);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__9);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__7);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"$CI13p%lvD+<4A2-(r|!\"", ((org.jsoup.nodes.Attribute)attr).html());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getKey());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("$CI13p%lvD+<4A2-(r|!", ((org.jsoup.nodes.Attribute)attr).getValue());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6193__8);
+    }
+
+    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
+    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6196 */
+    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6196_literalMutationString6791 */
+    @org.junit.Test(timeout = 10000)
+    public void testWithSupplementaryCharacterInAttributeKeyAndValue_sd6196_literalMutationString6791_sd10836() {
+        java.lang.String s = new java.lang.String(java.lang.Character.toChars(135361));
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1", s);
+        org.jsoup.nodes.Attribute attr = new org.jsoup.nodes.Attribute(s, (("A" + s) + "B"));
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", ((org.jsoup.nodes.Attribute)attr).html());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getKey());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("A\ud844\udcc1B", ((org.jsoup.nodes.Attribute)attr).getValue());
+        java.lang.String String_18 = ((s + ":last-of-type") + s) + "B\"";
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1:last-of-type\ud844\udcc1B\"", String_18);
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6196__7 = attr.html();
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6196__8 = attr.html();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6196__8);
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6196__9 = attr.toString();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6196__9);
+        // StatementAdd: add invocation of a method
+        attr.getKey();
+        // AssertGenerator create local variable with return value of invocation
+        int o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6196_literalMutationString6791_sd10836__18 = // StatementAdd: add invocation of a method
+        attr.hashCode();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals(111849895, ((int) (o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6196_literalMutationString6791_sd10836__18)));
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6196__8);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1", s);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1:last-of-type\ud844\udcc1B\"", String_18);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", ((org.jsoup.nodes.Attribute)attr).html());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getKey());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("A\ud844\udcc1B", ((org.jsoup.nodes.Attribute)attr).getValue());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6196__9);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6196__7);
     }
 
     /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
     /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191 */
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191_literalMutationNumber6619 */
+    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191_literalMutationString6635 */
     @org.junit.Test(timeout = 10000)
-    public void testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191_literalMutationNumber6619_sd7554() {
-        java.lang.String __DSPOT_key_732 = "r>0!aCVk!S!Cq&Z&g-HM";
+    public void testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191_literalMutationString6635_literalMutationString12853() {
+        java.lang.String __DSPOT_key_732 = ":last-of-type";
+        java.lang.String s = new java.lang.String(java.lang.Character.toChars(135361));
+        org.jsoup.nodes.Attribute attr = new org.jsoup.nodes.Attribute(s, (("A" + s) + "B"));
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", ((org.jsoup.nodes.Attribute)attr).html());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getKey());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("A\ud844\udcc1B", ((org.jsoup.nodes.Attribute)attr).getValue());
+        java.lang.String String_13 = ((s + "=\"A") + s) + "";
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1", String_13);
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__8 = attr.html();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__8);
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__9 = attr.html();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__9);
+        // AssertGenerator create local variable with return value of invocation
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__10 = attr.toString();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__10);
+        // StatementAdd: add invocation of a method
+        attr.setKey(__DSPOT_key_732);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals(":last-of-type=\"A\ud844\udcc1B\"", ((org.jsoup.nodes.Attribute)attr).html());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals(":last-of-type", ((org.jsoup.nodes.Attribute)attr).getKey());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("A\ud844\udcc1B", ((org.jsoup.nodes.Attribute)attr).getValue());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1", String_13);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__8);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1", s);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__10);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__9);
+    }
+
+    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
+    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6180 */
+    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6180_sd6313 */
+    @org.junit.Test(timeout = 10000)
+    public void testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6180_sd6313_literalMutationString11383() {
+        java.lang.String __DSPOT_value_740 = "Zc]C[i58St7E@+,}lns>";
         java.lang.String s = new java.lang.String(java.lang.Character.toChars(// TestDataMutator on numbers
         135360));
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("\ud844\udcc0", s);
         org.jsoup.nodes.Attribute attr = new org.jsoup.nodes.Attribute(s, (("A" + s) + "B"));
         // AssertGenerator add assertion
         org.junit.Assert.assertEquals("\ud844\udcc0=\"A\ud844\udcc0B\"", ((org.jsoup.nodes.Attribute)attr).html());
@@ -1738,192 +1833,40 @@ public class AmplAttributeTest {
         org.junit.Assert.assertEquals("\ud844\udcc0", ((org.jsoup.nodes.Attribute)attr).getKey());
         // AssertGenerator add assertion
         org.junit.Assert.assertEquals("A\ud844\udcc0B", ((org.jsoup.nodes.Attribute)attr).getValue());
-        java.lang.String String_13 = ((s + "=\"A") + s) + "B\"";
+        java.lang.String String_2 = ((s + "3\"A") + s) + "B\"";
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc0=\"A\ud844\udcc0B\"", String_13);
+        org.junit.Assert.assertEquals("\ud844\udcc03\"A\ud844\udcc0B\"", String_2);
         // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__8 = attr.html();
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6180__8 = attr.html();
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc0=\"A\ud844\udcc0B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__8);
+        org.junit.Assert.assertEquals("\ud844\udcc0=\"A\ud844\udcc0B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6180__8);
         // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__9 = attr.html();
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6180__9 = attr.html();
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc0=\"A\ud844\udcc0B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__9);
+        org.junit.Assert.assertEquals("\ud844\udcc0=\"A\ud844\udcc0B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6180__9);
         // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__10 = attr.toString();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc0=\"A\ud844\udcc0B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__10);
-        // StatementAdd: add invocation of a method
-        attr.setKey(__DSPOT_key_732);
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6180__10 = attr.toString();
         // AssertGenerator create local variable with return value of invocation
-        org.jsoup.nodes.Attribute o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191_literalMutationNumber6619_sd7554__20 = // StatementAdd: add invocation of a method
-        attr.clone();
+        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6180_sd6313__18 = // StatementAdd: add invocation of a method
+        attr.setValue(__DSPOT_value_740);
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("r>0!aCVk!S!Cq&Z&g-HM", ((org.jsoup.nodes.Attribute)o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191_literalMutationNumber6619_sd7554__20).getKey());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("r>0!aCVk!S!Cq&Z&g-HM=\"A\ud844\udcc0B\"", ((org.jsoup.nodes.Attribute)o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191_literalMutationNumber6619_sd7554__20).html());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("A\ud844\udcc0B", ((org.jsoup.nodes.Attribute)o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191_literalMutationNumber6619_sd7554__20).getValue());
+        org.junit.Assert.assertEquals("A\ud844\udcc0B", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6180_sd6313__18);
         // AssertGenerator add assertion
         org.junit.Assert.assertEquals("\ud844\udcc0", s);
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc0=\"A\ud844\udcc0B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__10);
+        org.junit.Assert.assertEquals("\ud844\udcc03\"A\ud844\udcc0B\"", String_2);
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc0=\"A\ud844\udcc0B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__9);
+        org.junit.Assert.assertEquals("\ud844\udcc0=\"A\ud844\udcc0B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6180__8);
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc0=\"A\ud844\udcc0B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6191__8);
+        org.junit.Assert.assertEquals("\ud844\udcc0=\"Zc]C[i58St7E@+,}lns>\"", ((org.jsoup.nodes.Attribute)attr).html());
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("r>0!aCVk!S!Cq&Z&g-HM=\"A\ud844\udcc0B\"", ((org.jsoup.nodes.Attribute)attr).html());
+        org.junit.Assert.assertEquals("\ud844\udcc0", ((org.jsoup.nodes.Attribute)attr).getKey());
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("r>0!aCVk!S!Cq&Z&g-HM", ((org.jsoup.nodes.Attribute)attr).getKey());
+        org.junit.Assert.assertEquals("Zc]C[i58St7E@+,}lns>", ((org.jsoup.nodes.Attribute)attr).getValue());
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("A\ud844\udcc0B", ((org.jsoup.nodes.Attribute)attr).getValue());
+        org.junit.Assert.assertEquals("\ud844\udcc0=\"A\ud844\udcc0B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6180__9);
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc0=\"A\ud844\udcc0B\"", String_13);
-    }
-
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6183 */
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6183_sd6395 */
-    @org.junit.Test(timeout = 10000)
-    public void testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6183_sd6395_literalMutationString8740() {
-        java.lang.String __DSPOT_key_747 = "TWPk#j%Ww$@P|3JXerRh";
-        java.lang.String s = new java.lang.String(java.lang.Character.toChars(// TestDataMutator on numbers
-        270722));
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud8c8\udd82", s);
-        org.jsoup.nodes.Attribute attr = new org.jsoup.nodes.Attribute(s, (("A" + s) + "B"));
-        java.lang.String String_5 = ((s + "=\"A") + s) + "B\"";
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud8c8\udd82=\"A\ud8c8\udd82B\"", String_5);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6183__8 = attr.html();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud8c8\udd82=\"A\ud8c8\udd82B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6183__8);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6183__9 = attr.html();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud8c8\udd82=\"A\ud8c8\udd82B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6183__9);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6183__10 = attr.toString();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud8c8\udd82=\"A\ud8c8\udd82B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6183__10);
-        // StatementAdd: add invocation of a method
-        attr.setKey(__DSPOT_key_747);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud8c8\udd82=\"A\ud8c8\udd82B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6183__9);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud8c8\udd82=\"A\ud8c8\udd82B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6183__10);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud8c8\udd82=\"A\ud8c8\udd82B\"", String_5);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud8c8\udd82=\"A\ud8c8\udd82B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6183__8);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("TWPk#j%Ww$@P|3JXerRh=\"A\ud8c8\udd82B\"", ((org.jsoup.nodes.Attribute)attr).html());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("TWPk#j%Ww$@P|3JXerRh", ((org.jsoup.nodes.Attribute)attr).getKey());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("A\ud8c8\udd82B", ((org.jsoup.nodes.Attribute)attr).getValue());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud8c8\udd82", s);
-    }
-
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6187 */
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6187_literalMutationString6499 */
-    @org.junit.Test(timeout = 10000)
-    public void testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6187_literalMutationString6499_sd7696() {
-        java.lang.Object __DSPOT_o_820 = new java.lang.Object();
-        java.lang.String s = new java.lang.String(java.lang.Character.toChars(135361));
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1", s);
-        org.jsoup.nodes.Attribute attr = new org.jsoup.nodes.Attribute(s, (("q" + s) + ""));
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"q\ud844\udcc1\"", ((org.jsoup.nodes.Attribute)attr).html());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getKey());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("q\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getValue());
-        java.lang.String String_9 = ((s + "=\"A") + s) + "B\"";
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", String_9);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6187__7 = attr.html();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"q\ud844\udcc1\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6187__7);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6187__8 = attr.html();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"q\ud844\udcc1\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6187__8);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6187__9 = attr.toString();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"q\ud844\udcc1\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6187__9);
-        // AssertGenerator create local variable with return value of invocation
-        boolean o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6187_literalMutationString6499_sd7696__18 = // StatementAdd: add invocation of a method
-        attr.equals(__DSPOT_o_820);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertFalse(o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6187_literalMutationString6499_sd7696__18);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"q\ud844\udcc1\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6187__7);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1", s);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"A\ud844\udcc1B\"", String_9);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"q\ud844\udcc1\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6187__9);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"q\ud844\udcc1\"", ((org.jsoup.nodes.Attribute)attr).html());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getKey());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("q\ud844\udcc1", ((org.jsoup.nodes.Attribute)attr).getValue());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\ud844\udcc1=\"q\ud844\udcc1\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationString6187__8);
-    }
-
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue */
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192 */
-    /* amplification of org.jsoup.nodes.AttributeTest#testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192_literalMutationString6652 */
-    @org.junit.Test(timeout = 10000)
-    public void testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192_literalMutationString6652_literalMutationNumber8917() {
-        java.lang.String s = new java.lang.String(java.lang.Character.toChars(// TestDataMutator on numbers
-        0));
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\u0000", s);
-        org.jsoup.nodes.Attribute attr = new org.jsoup.nodes.Attribute(s, (("" + s) + "B"));
-        java.lang.String String_14 = ((s + "=\"A") + s) + "B\"";
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\u0000=\"A\u0000B\"", String_14);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192__7 = attr.html();
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192__8 = attr.html();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("=\"\u0000B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192__8);
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192__9 = attr.toString();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("=\"\u0000B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192__9);
-        // AssertGenerator create local variable with return value of invocation
-        int o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192__10 = // StatementAdd: add invocation of a method
-        attr.hashCode();
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("=\"\u0000B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192__8);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\u0000", s);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("=\"\u0000B\"", ((org.jsoup.nodes.Attribute)attr).html());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("", ((org.jsoup.nodes.Attribute)attr).getKey());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\u0000B", ((org.jsoup.nodes.Attribute)attr).getValue());
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("=\"\u0000B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192__7);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("\u0000=\"A\u0000B\"", String_14);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("=\"\u0000B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_sd6192__9);
+        org.junit.Assert.assertEquals("\ud844\udcc0=\"A\ud844\udcc0B\"", o_testWithSupplementaryCharacterInAttributeKeyAndValue_literalMutationNumber6180__10);
     }
 }
 

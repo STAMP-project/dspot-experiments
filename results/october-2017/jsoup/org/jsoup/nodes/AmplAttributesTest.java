@@ -1,5 +1,3 @@
-
-
 package org.jsoup.nodes;
 
 
@@ -84,119 +82,169 @@ public class AmplAttributesTest {
         org.junit.Assert.assertFalse(a.hasKey("Tot"));
     }
 
-    /* amplification of org.jsoup.nodes.AttributesTest#testIterator */
+    /* amplification of org.jsoup.nodes.AttributesTest#html */
     @org.junit.Test(timeout = 10000)
-    public void testIterator_sd5432_failAssert7() {
+    public void html_literalMutationString68_failAssert3() {
         // AssertGenerator generate try/catch block with fail statement
         try {
             org.jsoup.nodes.Attributes a = new org.jsoup.nodes.Attributes();
-            java.lang.String[][] datas = new java.lang.String[][]{ new java.lang.String[]{ "Tot" , "raul" } , new java.lang.String[]{ "Hello" , "pismuth" } , new java.lang.String[]{ "data-name" , "Jsoup" } };
-            for (java.lang.String[] atts : datas) {
-                a.put(atts[0], atts[1]);
-            }
-            java.util.Iterator<org.jsoup.nodes.Attribute> iterator = a.iterator();
-            iterator.hasNext();
-            int i = 0;
-            for (org.jsoup.nodes.Attribute attribute : a) {
-                java.lang.String String_184 = datas[i][0];
-                attribute.getKey();
-                java.lang.String String_185 = datas[i][1];
-                attribute.getValue();
-                i++;
-            }
-            int int_186 = datas.length;
-            int int_187 = i;
-            // StatementAdd: add invocation of a method
+            a.put("Tot", "a&p");
+            a.put("Hello", "There");
+            a.put("data-name", "Jsoup");
+            a.size();
+            a.hasKey("Tot");
+            a.hasKey("Hello");
+            a.hasKey("data-name");
+            a.hasKey("tot");
+            a.hasKeyIgnoreCase("tot");
+            a.getIgnoreCase("");
+            a.dataset().size();
+            a.dataset().get("name");
+            a.get("tot");
+            a.get("Tot");
+            a.getIgnoreCase("tot");
+            a.html();
+            a.html();
             a.toString();
-            org.junit.Assert.fail("testIterator_sd5432 should have thrown ExceptionInInitializerError");
-        } catch (java.lang.ExceptionInInitializerError eee) {
+            org.junit.Assert.fail("html_literalMutationString68 should have thrown IllegalArgumentException");
+        } catch (java.lang.IllegalArgumentException eee) {
         }
     }
 
-    /* amplification of org.jsoup.nodes.AttributesTest#testIterator */
+    /* amplification of org.jsoup.nodes.AttributesTest#html */
     @org.junit.Test(timeout = 10000)
-    public void testIterator_literalMutationNumber5426_failAssert5() {
+    public void html_literalMutationString25_failAssert2() {
         // AssertGenerator generate try/catch block with fail statement
         try {
             org.jsoup.nodes.Attributes a = new org.jsoup.nodes.Attributes();
-            java.lang.String[][] datas = new java.lang.String[][]{ new java.lang.String[]{ "Tot" , "raul" } , new java.lang.String[]{ "Hello" , "pismuth" } , new java.lang.String[]{ "data-name" , "Jsoup" } };
-            for (java.lang.String[] atts : datas) {
-                a.put(atts[0], atts[1]);
-            }
-            java.util.Iterator<org.jsoup.nodes.Attribute> iterator = a.iterator();
-            iterator.hasNext();
-            int i = 1;
-            for (org.jsoup.nodes.Attribute attribute : a) {
-                java.lang.String String_164 = datas[i][0];
-                attribute.getKey();
-                java.lang.String String_165 = datas[i][1];
-                attribute.getValue();
-                i++;
-            }
-            int int_166 = datas.length;
-            int int_167 = i;
-            org.junit.Assert.fail("testIterator_literalMutationNumber5426 should have thrown ArrayIndexOutOfBoundsException");
-        } catch (java.lang.ArrayIndexOutOfBoundsException eee) {
+            a.put("Tot", "a&p");
+            a.put("Hello", "There");
+            a.put("", "Jsoup");
+            a.size();
+            a.hasKey("Tot");
+            a.hasKey("Hello");
+            a.hasKey("data-name");
+            a.hasKey("tot");
+            a.hasKeyIgnoreCase("tot");
+            a.getIgnoreCase("hEllo");
+            a.dataset().size();
+            a.dataset().get("name");
+            a.get("tot");
+            a.get("Tot");
+            a.getIgnoreCase("tot");
+            a.html();
+            a.html();
+            a.toString();
+            org.junit.Assert.fail("html_literalMutationString25 should have thrown IllegalArgumentException");
+        } catch (java.lang.IllegalArgumentException eee) {
         }
     }
 
-    /* amplification of org.jsoup.nodes.AttributesTest#testIterator */
+    /* amplification of org.jsoup.nodes.AttributesTest#html */
     @org.junit.Test(timeout = 10000)
-    public void testIterator_literalMutationNumber5427_failAssert6() {
+    public void html_literalMutationString86_failAssert5() {
         // AssertGenerator generate try/catch block with fail statement
         try {
             org.jsoup.nodes.Attributes a = new org.jsoup.nodes.Attributes();
-            java.lang.String[][] datas = new java.lang.String[][]{ new java.lang.String[]{ "Tot" , "raul" } , new java.lang.String[]{ "Hello" , "pismuth" } , new java.lang.String[]{ "data-name" , "Jsoup" } };
-            for (java.lang.String[] atts : datas) {
-                a.put(atts[0], atts[1]);
-            }
-            java.util.Iterator<org.jsoup.nodes.Attribute> iterator = a.iterator();
-            iterator.hasNext();
-            int i = -1;
-            for (org.jsoup.nodes.Attribute attribute : a) {
-                java.lang.String String_168 = datas[i][0];
-                attribute.getKey();
-                java.lang.String String_169 = datas[i][1];
-                attribute.getValue();
-                i++;
-            }
-            int int_170 = datas.length;
-            int int_171 = i;
-            org.junit.Assert.fail("testIterator_literalMutationNumber5427 should have thrown ArrayIndexOutOfBoundsException");
-        } catch (java.lang.ArrayIndexOutOfBoundsException eee) {
+            a.put("Tot", "a&p");
+            a.put("Hello", "There");
+            a.put("data-name", "Jsoup");
+            a.size();
+            a.hasKey("Tot");
+            a.hasKey("Hello");
+            a.hasKey("data-name");
+            a.hasKey("tot");
+            a.hasKeyIgnoreCase("tot");
+            a.getIgnoreCase("hEllo");
+            a.dataset().size();
+            a.dataset().get("name");
+            a.get("tot");
+            a.get("");
+            a.getIgnoreCase("tot");
+            a.html();
+            a.html();
+            a.toString();
+            org.junit.Assert.fail("html_literalMutationString86 should have thrown IllegalArgumentException");
+        } catch (java.lang.IllegalArgumentException eee) {
         }
     }
 
-    /* amplification of org.jsoup.nodes.AttributesTest#testIterator */
+    /* amplification of org.jsoup.nodes.AttributesTest#html */
     @org.junit.Test(timeout = 10000)
-    public void testIterator_literalMutationString5383_failAssert0() {
+    public void html_literalMutationString2_failAssert0() {
         // AssertGenerator generate try/catch block with fail statement
         try {
             org.jsoup.nodes.Attributes a = new org.jsoup.nodes.Attributes();
-            java.lang.String[][] datas = new java.lang.String[][]{ new java.lang.String[]{ "" , "raul" } , new java.lang.String[]{ "Hello" , "pismuth" } , new java.lang.String[]{ "data-name" , "Jsoup" } };
-            for (java.lang.String[] atts : datas) {
-                a.put(atts[0], atts[1]);
-            }
-            java.util.Iterator<org.jsoup.nodes.Attribute> iterator = a.iterator();
-            iterator.hasNext();
-            int i = 0;
-            for (org.jsoup.nodes.Attribute attribute : a) {
-                java.lang.String String_4 = datas[i][0];
-                attribute.getKey();
-                java.lang.String String_5 = datas[i][1];
-                attribute.getValue();
-                i++;
-            }
-            int int_6 = datas.length;
-            int int_7 = i;
-            org.junit.Assert.fail("testIterator_literalMutationString5383 should have thrown IllegalArgumentException");
+            a.put("", "a&p");
+            a.put("Hello", "There");
+            a.put("data-name", "Jsoup");
+            a.size();
+            a.hasKey("Tot");
+            a.hasKey("Hello");
+            a.hasKey("data-name");
+            a.hasKey("tot");
+            a.hasKeyIgnoreCase("tot");
+            a.getIgnoreCase("hEllo");
+            a.dataset().size();
+            a.dataset().get("name");
+            a.get("tot");
+            a.get("Tot");
+            a.getIgnoreCase("tot");
+            a.html();
+            a.html();
+            a.toString();
+            org.junit.Assert.fail("html_literalMutationString2 should have thrown IllegalArgumentException");
+        } catch (java.lang.IllegalArgumentException eee) {
+        }
+    }
+
+    /* amplification of org.jsoup.nodes.AttributesTest#removeCaseSensitive */
+    @org.junit.Test(timeout = 10000)
+    public void removeCaseSensitive_literalMutationString2411_failAssert2() {
+        // AssertGenerator generate try/catch block with fail statement
+        try {
+            org.jsoup.nodes.Attributes a = new org.jsoup.nodes.Attributes();
+            a.put("Tot", "a&p");
+            a.put("tot", "one");
+            a.put("", "There");
+            a.put("hello", "There");
+            a.put("data-name", "Jsoup");
+            a.size();
+            a.remove("Tot");
+            a.remove("Hello");
+            a.size();
+            a.hasKey("tot");
+            a.hasKey("Tot");
+            org.junit.Assert.fail("removeCaseSensitive_literalMutationString2411 should have thrown IllegalArgumentException");
+        } catch (java.lang.IllegalArgumentException eee) {
+        }
+    }
+
+    /* amplification of org.jsoup.nodes.AttributesTest#removeCaseSensitive */
+    @org.junit.Test(timeout = 10000)
+    public void removeCaseSensitive_literalMutationString2453_failAssert6() {
+        // AssertGenerator generate try/catch block with fail statement
+        try {
+            org.jsoup.nodes.Attributes a = new org.jsoup.nodes.Attributes();
+            a.put("Tot", "a&p");
+            a.put("tot", "one");
+            a.put("Hello", "There");
+            a.put("hello", "There");
+            a.put("data-name", "Jsoup");
+            a.size();
+            a.remove("Tot");
+            a.remove("");
+            a.size();
+            a.hasKey("tot");
+            a.hasKey("Tot");
+            org.junit.Assert.fail("removeCaseSensitive_literalMutationString2453 should have thrown IllegalArgumentException");
         } catch (java.lang.IllegalArgumentException eee) {
         }
     }
 
     /* amplification of org.jsoup.nodes.AttributesTest#testIterator */
     @org.junit.Test(timeout = 10000)
-    public void testIterator_literalMutationString5394_failAssert1() {
+    public void testIterator_literalMutationString4611_failAssert1() {
         // AssertGenerator generate try/catch block with fail statement
         try {
             org.jsoup.nodes.Attributes a = new org.jsoup.nodes.Attributes();
@@ -208,22 +256,20 @@ public class AmplAttributesTest {
             iterator.hasNext();
             int i = 0;
             for (org.jsoup.nodes.Attribute attribute : a) {
-                java.lang.String String_48 = datas[i][0];
+                java.lang.String String_26 = datas[i][0];
                 attribute.getKey();
-                java.lang.String String_49 = datas[i][1];
+                java.lang.String String_27 = datas[i][1];
                 attribute.getValue();
                 i++;
             }
-            int int_50 = datas.length;
-            int int_51 = i;
-            org.junit.Assert.fail("testIterator_literalMutationString5394 should have thrown IllegalArgumentException");
+            org.junit.Assert.fail("testIterator_literalMutationString4611 should have thrown IllegalArgumentException");
         } catch (java.lang.IllegalArgumentException eee) {
         }
     }
 
     /* amplification of org.jsoup.nodes.AttributesTest#testIterator */
     @org.junit.Test(timeout = 10000)
-    public void testIterator_sd5448_failAssert8() {
+    public void testIterator_literalMutationNumber4643_failAssert5() {
         // AssertGenerator generate try/catch block with fail statement
         try {
             org.jsoup.nodes.Attributes a = new org.jsoup.nodes.Attributes();
@@ -233,50 +279,95 @@ public class AmplAttributesTest {
             }
             java.util.Iterator<org.jsoup.nodes.Attribute> iterator = a.iterator();
             iterator.hasNext();
-            int i = 0;
+            int i = // TestDataMutator on numbers
+            1;
             for (org.jsoup.nodes.Attribute attribute : a) {
-                java.lang.String String_248 = datas[i][0];
+                java.lang.String String_84 = datas[i][0];
                 attribute.getKey();
-                java.lang.String String_249 = datas[i][1];
+                java.lang.String String_85 = datas[i][1];
                 attribute.getValue();
                 i++;
             }
-            int int_250 = datas.length;
-            int int_251 = i;
-            // StatementAdd: add invocation of a method
-            a.html();
-            org.junit.Assert.fail("testIterator_sd5448 should have thrown NoClassDefFoundError");
-        } catch (java.lang.NoClassDefFoundError eee) {
+            org.junit.Assert.fail("testIterator_literalMutationNumber4643 should have thrown ArrayIndexOutOfBoundsException");
+        } catch (java.lang.ArrayIndexOutOfBoundsException eee) {
+        }
+    }
+
+    /* amplification of org.jsoup.nodes.AttributesTest#testIterator */
+    @org.junit.Test(timeout = 10000)
+    public void testIterator_literalMutationNumber4644_failAssert6() {
+        // AssertGenerator generate try/catch block with fail statement
+        try {
+            org.jsoup.nodes.Attributes a = new org.jsoup.nodes.Attributes();
+            java.lang.String[][] datas = new java.lang.String[][]{ new java.lang.String[]{ "Tot" , "raul" } , new java.lang.String[]{ "Hello" , "pismuth" } , new java.lang.String[]{ "data-name" , "Jsoup" } };
+            for (java.lang.String[] atts : datas) {
+                a.put(atts[0], atts[1]);
+            }
+            java.util.Iterator<org.jsoup.nodes.Attribute> iterator = a.iterator();
+            iterator.hasNext();
+            int i = // TestDataMutator on numbers
+            -1;
+            for (org.jsoup.nodes.Attribute attribute : a) {
+                java.lang.String String_86 = datas[i][0];
+                attribute.getKey();
+                java.lang.String String_87 = datas[i][1];
+                attribute.getValue();
+                i++;
+            }
+            org.junit.Assert.fail("testIterator_literalMutationNumber4644 should have thrown ArrayIndexOutOfBoundsException");
+        } catch (java.lang.ArrayIndexOutOfBoundsException eee) {
         }
     }
 
     /* amplification of org.jsoup.nodes.AttributesTest#testIteratorEmpty */
+    /* amplification of testIteratorEmpty_sd7049 */
     @org.junit.Test(timeout = 10000)
-    public void testIteratorEmpty_sd9732_failAssert1() {
+    public void testIteratorEmpty_sd7049_literalMutationString7282_failAssert1() {
         // AssertGenerator generate try/catch block with fail statement
         try {
+            java.lang.String __DSPOT_key_619 = "";
             org.jsoup.nodes.Attributes a = new org.jsoup.nodes.Attributes();
             java.util.Iterator<org.jsoup.nodes.Attribute> iterator = a.iterator();
             iterator.hasNext();
             // StatementAdd: add invocation of a method
-            a.html();
-            org.junit.Assert.fail("testIteratorEmpty_sd9732 should have thrown NoClassDefFoundError");
-        } catch (java.lang.NoClassDefFoundError eee) {
+            a.removeIgnoreCase(__DSPOT_key_619);
+            org.junit.Assert.fail("testIteratorEmpty_sd7049_literalMutationString7282 should have thrown IllegalArgumentException");
+        } catch (java.lang.IllegalArgumentException eee) {
         }
     }
 
     /* amplification of org.jsoup.nodes.AttributesTest#testIteratorEmpty */
+    /* amplification of testIteratorEmpty_sd7044 */
     @org.junit.Test(timeout = 10000)
-    public void testIteratorEmpty_sd9716_failAssert0() {
+    public void testIteratorEmpty_sd7044_literalMutationString7155_failAssert0() {
         // AssertGenerator generate try/catch block with fail statement
         try {
+            java.lang.String __DSPOT_key_616 = "";
             org.jsoup.nodes.Attributes a = new org.jsoup.nodes.Attributes();
             java.util.Iterator<org.jsoup.nodes.Attribute> iterator = a.iterator();
             iterator.hasNext();
             // StatementAdd: add invocation of a method
-            a.toString();
-            org.junit.Assert.fail("testIteratorEmpty_sd9716 should have thrown ExceptionInInitializerError");
-        } catch (java.lang.ExceptionInInitializerError eee) {
+            a.remove(__DSPOT_key_616);
+            org.junit.Assert.fail("testIteratorEmpty_sd7044_literalMutationString7155 should have thrown IllegalArgumentException");
+        } catch (java.lang.IllegalArgumentException eee) {
+        }
+    }
+
+    /* amplification of org.jsoup.nodes.AttributesTest#testIteratorRemovable */
+    @org.junit.Test(timeout = 10000)
+    public void testIteratorRemovable_literalMutationString8130_failAssert2() {
+        // AssertGenerator generate try/catch block with fail statement
+        try {
+            org.jsoup.nodes.Attributes a = new org.jsoup.nodes.Attributes();
+            a.put("Tot", "a&p");
+            a.put("Hello", "There");
+            a.put("", "Jsoup");
+            java.util.Iterator<org.jsoup.nodes.Attribute> iterator = a.iterator();
+            iterator.next();
+            iterator.remove();
+            a.size();
+            org.junit.Assert.fail("testIteratorRemovable_literalMutationString8130 should have thrown IllegalArgumentException");
+        } catch (java.lang.IllegalArgumentException eee) {
         }
     }
 }
