@@ -191,6 +191,7 @@ def print_line_3(t, gray):
     path_to_json_fail_time = prefix_result + project + "/" + \
                              ("/" + properties_rates[project]["subModule"] if properties_rates[project]["subModule"] else project) + \
                              ".json"
+    time_ms = -1
     with open(path_to_json_fail_time) as data_file:
         json_time = json.load(data_file)
     for time_class in json_time["classTimes"]:

@@ -53,7 +53,7 @@ def run(project, mvnHome="~/apache-maven-3.3.9/bin/", amplified=True):
                                                                                   "subModule"] == "" else "")
         if amplified:
             print "cp ${root_exp}/" + prefix_results + project + "/" + build_rate_table.buildAmplTestPath(java_file) + ".java ${root_exp}/" + \
-                  path_to_target + "src/test/java/" + build_rate_table.buildPackageAsPath(java_file) + "/"
+                  path_to_target + properties["testSrc"] + build_rate_table.buildPackageAsPath(java_file) + "/"
         cmd_pit = run_pitest + report
         cmd_pit += target_classes + target_classes_values + " "
         cmd_pit += target_tests + (fullQualifiedNameToAmplifiedName(selected_classes[project][type]) if amplified else selected_classes[project][type])
