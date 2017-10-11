@@ -25,7 +25,7 @@ def run(projects):
 
 def line(name, project, lowPMS=False):
     global gray
-    prefix = "original/per_class2"
+    prefix = "original/october-2017/"
     suffix = "_mutations.csv"
     t = count_mutant.countForTestClass(prefix + "/" + project + "/" + name + suffix)
     pms = profiling_test_class.print_line_3([t[0], t[1], name, project], gray)
@@ -34,7 +34,7 @@ def line(name, project, lowPMS=False):
     return pms
 
 def computePMS(name, project):
-    prefix = "original/per_class2"
+    prefix = "original/october-2017/"
     suffix = "_mutations.csv"
     t = count_mutant.countForTestClass(prefix + "/" + project + "/" + name + suffix)
     return float(t[1]) / float(t[0]) * 100.0 if not float(t[0]) == 0.0 else 0.0
@@ -46,7 +46,7 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         projects = sys.argv[1:]
     else:
-        projects = ["traccar", "stream-lib",  "jsoup",
+        projects = [ "stream-lib",  "jsoup",
                     "protostuff", "logback"]
 
     run(projects=projects)

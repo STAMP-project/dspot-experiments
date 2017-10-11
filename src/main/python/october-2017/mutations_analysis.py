@@ -15,7 +15,7 @@ def fullQualifiedNameToAmplifiedName(fullQualifiedName):
 
 def run(project, mvnHome="~/apache-maven-3.3.9/bin/", amplified=True):
     prefix_dataset = "dataset/"
-    prefix_results = "results/octobre-2017/"
+    prefix_results = "results/october-2017/"
     #mvnHome = ""
     run_pitest = mvnHome + "mvn clean test -DskipTests org.pitest:pitest-maven:mutationCoverage -DwithHistory -DoutputFormats=CSV -Dmutators=ALL -DtimeoutConst=20000 -DjvmArgs=16G "
     report = " -DreportsDirectory=target/pitest-reports"

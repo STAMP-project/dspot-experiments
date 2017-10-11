@@ -165,7 +165,7 @@ def print_line_2(t, gray):
 
 def print_line_3(t, gray):
     global cpt
-    prefix_result = "results/per_class2/"
+    prefix_result = "results/october-2017/"
 
     total, killed = t[0], t[1]
     score = round(float(killed) / float(total) * 100.0, 2)
