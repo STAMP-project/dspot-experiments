@@ -13,6 +13,28 @@
         <default.encoding>UTF-8</default.encoding>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>stamp-maven-repository-mvn-repo</id>
+            <url>https://stamp-project.github.io/stamp-maven-repository/</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>gradle-repo</id>
+            <name>Gradle Tooling API repository</name>
+            <url>https://repo.gradle.org/gradle/libs-releases-local/</url>
+        </repository>
+        <repository>
+            <id>gforge.inria.fr-snapshot</id>
+            <name>Maven Repository for Spoon Snapshot</name>
+            <url>http://spoon.gforge.inria.fr/repositories/snapshots/</url>
+            <snapshots />
+        </repository>
+    </repositories>
+
     <dependencies>
 
         <dependency>
@@ -22,27 +44,15 @@
         </dependency>
 
         <dependency>
+            <groupId>fr.inria.gforge.spoon</groupId>
+            <artifactId>spoon-core</artifactId>
+            <version>6.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.martiansoftware</groupId>
-            <artifactId>jsap</artifactId>
-            <version>2.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.evosuite</groupId>
-            <artifactId>evosuite-master</artifactId>
-            <version>1.0.5</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.evosuite</groupId>
-            <artifactId>evosuite-runtime</artifactId>
-            <version>1.0.5</version>
+            <version>4.12</version>
         </dependency>
 
     </dependencies>
