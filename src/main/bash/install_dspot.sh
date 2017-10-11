@@ -7,5 +7,5 @@
 cd ..
 git clone http://github.com/STAMP-project/dspot.git
 cd dspot
-mvn clean package -DskipTests
+~/apache-maven-3.3.9/bin/mvn clean package install -DskipTests
 cd ../dspot-experiments

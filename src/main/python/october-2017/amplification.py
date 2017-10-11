@@ -51,9 +51,13 @@ def run(projects, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/
             for type in types:
                 java_file = selected_classes[project][type]
                 print amplify + opt_test + java_file + opt_mutations_original + prefix_original_mutation_file + java_file + "_mutations.csv"
-            print "zip -r dspot-report.zip dspot-report"
-            print "to_download=$(curl --upload-file dspot-report.zip " + "https://transfer.sh/" + project + "_dspot-report.zip)"
-            print "echo \"curl ${to_download} -o " + project + "_dspot-report.zip\""
+                print
+            #print "zip -r dspot-report.zip dspot-report"
+            #print "to_download=$(curl --upload-file dspot-report.zip " + "https://transfer.sh/" + project + "_dspot-report.zip)"
+            #print "echo \"curl ${to_download} -o " + project + "_dspot-report.zip\""
+            print "cp -r dspot-report/* " + "results/october-2017/" + project + "/"
+
+
 
 
 if __name__ == '__main__':
