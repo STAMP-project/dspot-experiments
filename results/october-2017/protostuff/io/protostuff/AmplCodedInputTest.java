@@ -183,34 +183,6 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
 
     /* amplification of io.protostuff.CodedInputTest#testSkipFieldOverTheBufferBoundary */
     @org.junit.Test(timeout = 10000)
-    public void testSkipFieldOverTheBufferBoundary_literalMutationNumber27_failAssert2() throws java.lang.Exception {
-        // AssertGenerator generate try/catch block with fail statement
-        try {
-            java.io.ByteArrayOutputStream out = new java.io.ByteArrayOutputStream();
-            int tag = io.protostuff.WireFormat.makeTag(1, io.protostuff.WireFormat.WIRETYPE_LENGTH_DELIMITED);
-            int anotherTag = io.protostuff.WireFormat.makeTag(2, io.protostuff.WireFormat.WIRETYPE_LENGTH_DELIMITED);
-            int msgLength = 10;
-            io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, tag);
-            io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
-            for (int i = 1; i <= msgLength; i++)
-                io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
-
-            io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
-            byte[] data = out.toByteArray();
-            io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
-            ci.pushLimit((msgLength + // TestDataMutator on numbers
-            1));// +2 for tag and length
-
-            ci.readTag();
-            ci.skipField(tag);
-            ci.readTag();
-            org.junit.Assert.fail("testSkipFieldOverTheBufferBoundary_literalMutationNumber27 should have thrown ProtobufException");
-        } catch (io.protostuff.ProtobufException eee) {
-        }
-    }
-
-    /* amplification of io.protostuff.CodedInputTest#testSkipFieldOverTheBufferBoundary */
-    @org.junit.Test(timeout = 10000)
     public void testSkipFieldOverTheBufferBoundary_sd52_failAssert17() throws java.lang.Exception {
         // AssertGenerator generate try/catch block with fail statement
         try {
@@ -352,6 +324,35 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             // StatementAdd: add invocation of a method
             ci.readRawVarint32();
             org.junit.Assert.fail("testSkipFieldOverTheBufferBoundary_sd59 should have thrown ProtobufException");
+        } catch (io.protostuff.ProtobufException eee) {
+        }
+    }
+
+    /* amplification of io.protostuff.CodedInputTest#testSkipFieldOverTheBufferBoundary */
+    @org.junit.Test(timeout = 10000)
+    public void testSkipFieldOverTheBufferBoundary_sd64_failAssert26() throws java.lang.Exception {
+        // AssertGenerator generate try/catch block with fail statement
+        try {
+            java.io.ByteArrayOutputStream out = new java.io.ByteArrayOutputStream();
+            int tag = io.protostuff.WireFormat.makeTag(1, io.protostuff.WireFormat.WIRETYPE_LENGTH_DELIMITED);
+            int anotherTag = io.protostuff.WireFormat.makeTag(2, io.protostuff.WireFormat.WIRETYPE_LENGTH_DELIMITED);
+            int msgLength = 10;
+            io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, tag);
+            io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
+            for (int i = 1; i <= msgLength; i++)
+                io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
+
+            io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
+            byte[] data = out.toByteArray();
+            io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
+            ci.pushLimit((msgLength + 2));// +2 for tag and length
+
+            ci.readTag();
+            ci.skipField(tag);
+            ci.readTag();
+            // StatementAdd: add invocation of a method
+            ci.readRawVarint64();
+            org.junit.Assert.fail("testSkipFieldOverTheBufferBoundary_sd64 should have thrown ProtobufException");
         } catch (io.protostuff.ProtobufException eee) {
         }
     }
@@ -614,6 +615,35 @@ public class AmplCodedInputTest extends io.protostuff.AbstractTest {
             // StatementAdd: add invocation of a method
             ci.skipRawBytes(__DSPOT_size_6);
             org.junit.Assert.fail("testSkipFieldOverTheBufferBoundary_sd66 should have thrown ProtobufException");
+        } catch (io.protostuff.ProtobufException eee) {
+        }
+    }
+
+    /* amplification of io.protostuff.CodedInputTest#testSkipFieldOverTheBufferBoundary */
+    @org.junit.Test(timeout = 10000)
+    public void testSkipFieldOverTheBufferBoundary_sd65_failAssert27() throws java.lang.Exception {
+        // AssertGenerator generate try/catch block with fail statement
+        try {
+            java.io.ByteArrayOutputStream out = new java.io.ByteArrayOutputStream();
+            int tag = io.protostuff.WireFormat.makeTag(1, io.protostuff.WireFormat.WIRETYPE_LENGTH_DELIMITED);
+            int anotherTag = io.protostuff.WireFormat.makeTag(2, io.protostuff.WireFormat.WIRETYPE_LENGTH_DELIMITED);
+            int msgLength = 10;
+            io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, tag);
+            io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, msgLength);
+            for (int i = 1; i <= msgLength; i++)
+                io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, i);
+
+            io.protostuff.ProtobufOutput.writeRawVarInt32Bytes(out, anotherTag);
+            byte[] data = out.toByteArray();
+            io.protostuff.CodedInput ci = new io.protostuff.CodedInput(new java.io.ByteArrayInputStream(data), new byte[10], false);
+            ci.pushLimit((msgLength + 2));// +2 for tag and length
+
+            ci.readTag();
+            ci.skipField(tag);
+            ci.readTag();
+            // StatementAdd: add invocation of a method
+            ci.readByteArray();
+            org.junit.Assert.fail("testSkipFieldOverTheBufferBoundary_sd65 should have thrown ProtobufException");
         } catch (io.protostuff.ProtobufException eee) {
         }
     }
