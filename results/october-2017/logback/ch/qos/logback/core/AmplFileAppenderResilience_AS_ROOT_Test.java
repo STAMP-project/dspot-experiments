@@ -11,20 +11,18 @@
  * under the terms of the GNU Lesser General Public License version 2.1
  * as published by the Free Software Foundation.
  */
-
-
 package ch.qos.logback.core;
 
 
 public class AmplFileAppenderResilience_AS_ROOT_Test {
+    enum LoopFSCommand {
+        setup, shake, teardown;}
+
     static java.lang.String MOUNT_POINT = "/mnt/loop/";
 
     static java.lang.String LONG_STR = " xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
     static java.lang.String PATH_LOOPFS_SCRIPT = "/home/ceki/java/logback/logback-core/src/test/loopfs.sh";
-
-    enum LoopFSCommand {
-setup, shake, teardown;    }
 
     ch.qos.logback.core.Context context = new ch.qos.logback.core.ContextBase();
 
@@ -35,6 +33,12 @@ setup, shake, teardown;    }
     java.lang.String logfileStr = (outputDirStr) + "output.log";
 
     ch.qos.logback.core.FileAppender<java.lang.Object> fa = new ch.qos.logback.core.FileAppender<java.lang.Object>();
+
+    static int TOTAL_DURATION = 5000;
+
+    static int NUM_STEPS = 500;
+
+    static int DELAY = (ch.qos.logback.core.AmplFileAppenderResilience_AS_ROOT_Test.TOTAL_DURATION) / (ch.qos.logback.core.AmplFileAppenderResilience_AS_ROOT_Test.NUM_STEPS);
 
     static boolean isConformingHost() {
         return ch.qos.logback.core.testUtil.EnvUtilForTests.isLocalHostNameInList(new java.lang.String[]{ "haro" });
@@ -85,12 +89,6 @@ setup, shake, teardown;    }
         p.waitFor();
         java.lang.System.out.println("Tearing down");
     }
-
-    static int TOTAL_DURATION = 5000;
-
-    static int NUM_STEPS = 500;
-
-    static int DELAY = (ch.qos.logback.core.AmplFileAppenderResilience_AS_ROOT_Test.TOTAL_DURATION) / (ch.qos.logback.core.AmplFileAppenderResilience_AS_ROOT_Test.NUM_STEPS);
 
     @org.junit.Test
     public void go() throws java.io.IOException, java.lang.InterruptedException {
