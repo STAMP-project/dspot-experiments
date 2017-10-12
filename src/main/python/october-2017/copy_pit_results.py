@@ -3,7 +3,7 @@ import sys
 import subprocess
 
 def run(path_to_project, fullqualified_name):
-    path = path_to_project + "/target/pitest-reports/"
+    path = path_to_project + "/target/pit-reports/"
     for (dirpath, dirnames, filenames) in walk(path):
         if filenames:
             copycmd = "cp " + dirpath + "/" + filenames[0] + " " + fullqualified_name + "_mutations.csv"
