@@ -13,8 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
 package com.squareup.javapoet;
 
 
@@ -79,6 +77,18 @@ public final class AmplNameAllocatorTest {
     }
 
     @org.junit.Test
+    public void tagReuseForbidden() throws java.lang.Exception {
+        com.squareup.javapoet.NameAllocator nameAllocator = new com.squareup.javapoet.NameAllocator();
+        nameAllocator.newName("foo", 1);
+        try {
+            nameAllocator.newName("bar", 1);
+            org.junit.Assert.fail();
+        } catch (java.lang.IllegalArgumentException expected) {
+            com.google.common.truth.Truth.assertThat(expected).hasMessage("tag 1 cannot be used for both 'foo' and 'bar'");
+        }
+    }
+
+    @org.junit.Test
     public void useBeforeAllocateForbidden() throws java.lang.Exception {
         com.squareup.javapoet.NameAllocator nameAllocator = new com.squareup.javapoet.NameAllocator();
         try {
@@ -89,33 +99,16 @@ public final class AmplNameAllocatorTest {
         }
     }
 
-    @org.junit.Test(timeout = 10000)
+    @org.junit.Test
     public void cloneUsage() throws java.lang.Exception {
         com.squareup.javapoet.NameAllocator outterAllocator = new com.squareup.javapoet.NameAllocator();
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_cloneUsage__3 = outterAllocator.newName("foo", 1);
+        outterAllocator.newName("foo", 1);
         com.squareup.javapoet.NameAllocator innerAllocator1 = outterAllocator.clone();
         com.google.common.truth.Truth.assertThat(innerAllocator1.newName("bar", 2)).isEqualTo("bar");
         com.google.common.truth.Truth.assertThat(innerAllocator1.newName("foo", 3)).isEqualTo("foo_");
         com.squareup.javapoet.NameAllocator innerAllocator2 = outterAllocator.clone();
         com.google.common.truth.Truth.assertThat(innerAllocator2.newName("foo", 2)).isEqualTo("foo_");
         com.google.common.truth.Truth.assertThat(innerAllocator2.newName("bar", 3)).isEqualTo("bar");
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("foo", o_cloneUsage__3);
-    }
-
-    @org.junit.Test(timeout = 10000)
-    public void tagReuseForbidden() throws java.lang.Exception {
-        com.squareup.javapoet.NameAllocator nameAllocator = new com.squareup.javapoet.NameAllocator();
-        // AssertGenerator create local variable with return value of invocation
-        java.lang.String o_tagReuseForbidden__3 = nameAllocator.newName("foo", 1);
-        try {
-            nameAllocator.newName("bar", 1);
-        } catch (java.lang.IllegalArgumentException expected) {
-            com.google.common.truth.Truth.assertThat(expected).hasMessage("tag 1 cannot be used for both 'foo' and 'bar'");
-        }
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("foo", o_tagReuseForbidden__3);
     }
 }
 
