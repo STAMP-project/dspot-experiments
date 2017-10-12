@@ -250,20 +250,41 @@ public class TestMurmurHashAmpl {
     }
 
     /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload */
-    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload_literalMutationString2 */
-    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload_literalMutationString2_literalMutationString32 */
+    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload_literalMutationString5 */
+    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload_literalMutationString5_literalMutationString46 */
     @org.junit.Test(timeout = 10000)
-    public void testHash64ByteArrayOverload_literalMutationString2_literalMutationString32_literalMutationString192() {
-        java.lang.String input = "h4llo world";
+    public void testHash64ByteArrayOverload_literalMutationString5_literalMutationString46_literalMutationString270() {
+        java.lang.String input = "MurmurHash.hash64(Object) given a byte[] did not match MurmurHash.hash64(String)";
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("MurmurHash.hash64(Object) given a byte[] did not match MurmurHash.hash64(String)", input);
         byte[] inputBytes = input.getBytes();
         long hashOfString = com.clearspring.analytics.hash.MurmurHash.hash64(input);
         // AssertGenerator create local variable with return value of invocation
-        long o_testHash64ByteArrayOverload_literalMutationString2__6 = com.clearspring.analytics.hash.MurmurHash.hash64(inputBytes);
+        long o_testHash64ByteArrayOverload_literalMutationString5__6 = com.clearspring.analytics.hash.MurmurHash.hash64(inputBytes);
         java.lang.Object bytesAsObject = inputBytes;
         // AssertGenerator create local variable with return value of invocation
-        long o_testHash64ByteArrayOverload_literalMutationString2__8 = com.clearspring.analytics.hash.MurmurHash.hash64(bytesAsObject);
+        long o_testHash64ByteArrayOverload_literalMutationString5__8 = com.clearspring.analytics.hash.MurmurHash.hash64(bytesAsObject);
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("h4llo world", input);
+        org.junit.Assert.assertEquals("MurmurHash.hash64(Object) given a byte[] did not match MurmurHash.hash64(String)", input);
+    }
+
+    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload */
+    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload_literalMutationString4 */
+    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload_literalMutationString4_literalMutationString41 */
+    @org.junit.Test(timeout = 10000)
+    public void testHash64ByteArrayOverload_literalMutationString4_literalMutationString41_literalMutationString241() {
+        java.lang.String input = "";
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("", input);
+        byte[] inputBytes = input.getBytes();
+        long hashOfString = com.clearspring.analytics.hash.MurmurHash.hash64(input);
+        // AssertGenerator create local variable with return value of invocation
+        long o_testHash64ByteArrayOverload_literalMutationString4__6 = com.clearspring.analytics.hash.MurmurHash.hash64(inputBytes);
+        java.lang.Object bytesAsObject = inputBytes;
+        // AssertGenerator create local variable with return value of invocation
+        long o_testHash64ByteArrayOverload_literalMutationString4__8 = com.clearspring.analytics.hash.MurmurHash.hash64(bytesAsObject);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("", input);
     }
 
     /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload */
@@ -284,13 +305,32 @@ public class TestMurmurHashAmpl {
     }
 
     /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload */
-    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload_literalMutationString4 */
-    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload_literalMutationString4_literalMutationString43 */
+    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload_literalMutationString2 */
+    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload_literalMutationString2_literalMutationString33 */
     @org.junit.Test(timeout = 10000)
-    public void testHash64ByteArrayOverload_literalMutationString4_literalMutationString43_literalMutationString252() {
-        java.lang.String input = "MurmurHash.hash64(Object) given a byte[] did not match MurmurHash.hash64(String)";
+    public void testHash64ByteArrayOverload_literalMutationString2_literalMutationString33_literalMutationString200() {
+        java.lang.String input = "hello world";
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("MurmurHash.hash64(Object) given a byte[] did not match MurmurHash.hash64(String)", input);
+        org.junit.Assert.assertEquals("hello world", input);
+        byte[] inputBytes = input.getBytes();
+        long hashOfString = com.clearspring.analytics.hash.MurmurHash.hash64(input);
+        // AssertGenerator create local variable with return value of invocation
+        long o_testHash64ByteArrayOverload_literalMutationString2__6 = com.clearspring.analytics.hash.MurmurHash.hash64(inputBytes);
+        java.lang.Object bytesAsObject = inputBytes;
+        // AssertGenerator create local variable with return value of invocation
+        long o_testHash64ByteArrayOverload_literalMutationString2__8 = com.clearspring.analytics.hash.MurmurHash.hash64(bytesAsObject);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("hello world", input);
+    }
+
+    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload */
+    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload_literalMutationString4 */
+    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload_literalMutationString4_literalMutationString42 */
+    @org.junit.Test(timeout = 10000)
+    public void testHash64ByteArrayOverload_literalMutationString4_literalMutationString42_literalMutationString247() {
+        java.lang.String input = "hshhis";
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("hshhis", input);
         byte[] inputBytes = input.getBytes();
         long hashOfString = com.clearspring.analytics.hash.MurmurHash.hash64(input);
         // AssertGenerator create local variable with return value of invocation
@@ -299,43 +339,7 @@ public class TestMurmurHashAmpl {
         // AssertGenerator create local variable with return value of invocation
         long o_testHash64ByteArrayOverload_literalMutationString4__8 = com.clearspring.analytics.hash.MurmurHash.hash64(bytesAsObject);
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("MurmurHash.hash64(Object) given a byte[] did not match MurmurHash.hash64(String)", input);
-    }
-
-    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload */
-    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload_literalMutationString6 */
-    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload_literalMutationString6_literalMutationString57 */
-    @org.junit.Test(timeout = 10000)
-    public void testHash64ByteArrayOverload_literalMutationString6_literalMutationString57_literalMutationString329() {
-        java.lang.String input = "UhLoAf";
-        byte[] inputBytes = input.getBytes();
-        long hashOfString = com.clearspring.analytics.hash.MurmurHash.hash64(input);
-        // AssertGenerator create local variable with return value of invocation
-        long o_testHash64ByteArrayOverload_literalMutationString6__6 = com.clearspring.analytics.hash.MurmurHash.hash64(inputBytes);
-        java.lang.Object bytesAsObject = inputBytes;
-        // AssertGenerator create local variable with return value of invocation
-        long o_testHash64ByteArrayOverload_literalMutationString6__8 = com.clearspring.analytics.hash.MurmurHash.hash64(bytesAsObject);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("UhLoAf", input);
-    }
-
-    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload */
-    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload_literalMutationString4 */
-    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload_literalMutationString4_literalMutationString43 */
-    @org.junit.Test(timeout = 10000)
-    public void testHash64ByteArrayOverload_literalMutationString4_literalMutationString43_literalMutationString251() {
-        java.lang.String input = "?xw0]W#n";
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("?xw0]W#n", input);
-        byte[] inputBytes = input.getBytes();
-        long hashOfString = com.clearspring.analytics.hash.MurmurHash.hash64(input);
-        // AssertGenerator create local variable with return value of invocation
-        long o_testHash64ByteArrayOverload_literalMutationString4__6 = com.clearspring.analytics.hash.MurmurHash.hash64(inputBytes);
-        java.lang.Object bytesAsObject = inputBytes;
-        // AssertGenerator create local variable with return value of invocation
-        long o_testHash64ByteArrayOverload_literalMutationString4__8 = com.clearspring.analytics.hash.MurmurHash.hash64(bytesAsObject);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("?xw0]W#n", input);
+        org.junit.Assert.assertEquals("hshhis", input);
     }
 
     /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload */
@@ -358,23 +362,6 @@ public class TestMurmurHashAmpl {
     }
 
     /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload */
-    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload_literalMutationString4 */
-    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload_literalMutationString4_literalMutationString43 */
-    @org.junit.Test(timeout = 10000)
-    public void testHash64ByteArrayOverload_literalMutationString4_literalMutationString43_literalMutationString250() {
-        java.lang.String input = "";
-        byte[] inputBytes = input.getBytes();
-        long hashOfString = com.clearspring.analytics.hash.MurmurHash.hash64(input);
-        // AssertGenerator create local variable with return value of invocation
-        long o_testHash64ByteArrayOverload_literalMutationString4__6 = com.clearspring.analytics.hash.MurmurHash.hash64(inputBytes);
-        java.lang.Object bytesAsObject = inputBytes;
-        // AssertGenerator create local variable with return value of invocation
-        long o_testHash64ByteArrayOverload_literalMutationString4__8 = com.clearspring.analytics.hash.MurmurHash.hash64(bytesAsObject);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("", input);
-    }
-
-    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload */
     /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload_literalMutationString6 */
     /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload_literalMutationString6_literalMutationString57 */
     @org.junit.Test(timeout = 10000)
@@ -394,22 +381,20 @@ public class TestMurmurHashAmpl {
     }
 
     /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload */
-    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload_literalMutationString4 */
-    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload_literalMutationString4_literalMutationString44 */
+    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload_literalMutationString5 */
+    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHash64ByteArrayOverload_literalMutationString5_literalMutationString46 */
     @org.junit.Test(timeout = 10000)
-    public void testHash64ByteArrayOverload_literalMutationString4_literalMutationString44_literalMutationString260() {
-        java.lang.String input = "@IY:Wo-9M";
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("@IY:Wo-9M", input);
+    public void testHash64ByteArrayOverload_literalMutationString5_literalMutationString46_literalMutationString269() {
+        java.lang.String input = "3";
         byte[] inputBytes = input.getBytes();
         long hashOfString = com.clearspring.analytics.hash.MurmurHash.hash64(input);
         // AssertGenerator create local variable with return value of invocation
-        long o_testHash64ByteArrayOverload_literalMutationString4__6 = com.clearspring.analytics.hash.MurmurHash.hash64(inputBytes);
+        long o_testHash64ByteArrayOverload_literalMutationString5__6 = com.clearspring.analytics.hash.MurmurHash.hash64(inputBytes);
         java.lang.Object bytesAsObject = inputBytes;
         // AssertGenerator create local variable with return value of invocation
-        long o_testHash64ByteArrayOverload_literalMutationString4__8 = com.clearspring.analytics.hash.MurmurHash.hash64(bytesAsObject);
+        long o_testHash64ByteArrayOverload_literalMutationString5__8 = com.clearspring.analytics.hash.MurmurHash.hash64(bytesAsObject);
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("@IY:Wo-9M", input);
+        org.junit.Assert.assertEquals("3", input);
     }
 
     /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload */
@@ -480,8 +465,10 @@ public class TestMurmurHashAmpl {
     /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload */
     /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload_literalMutationString866 */
     @org.junit.Test(timeout = 10000)
-    public void testHashByteArrayOverload_literalMutationString866_literalMutationString897() {
-        java.lang.String input = "MurmurHashhash64(Object) given a byte[] did not match MurmurHash.hash64(String)";
+    public void testHashByteArrayOverload_literalMutationString866_literalMutationString895() {
+        java.lang.String input = "hello world";
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("hello world", input);
         byte[] inputBytes = input.getBytes();
         int hashOfString = com.clearspring.analytics.hash.MurmurHash.hash(input);
         // AssertGenerator create local variable with return value of invocation
@@ -490,7 +477,7 @@ public class TestMurmurHashAmpl {
         // AssertGenerator create local variable with return value of invocation
         int o_testHashByteArrayOverload_literalMutationString866__8 = com.clearspring.analytics.hash.MurmurHash.hash(bytesAsObject);
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("MurmurHashhash64(Object) given a byte[] did not match MurmurHash.hash64(String)", input);
+        org.junit.Assert.assertEquals("hello world", input);
     }
 
     /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload */
@@ -510,66 +497,63 @@ public class TestMurmurHashAmpl {
     }
 
     /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload */
-    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload_literalMutationString866 */
+    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload_literalMutationString870 */
     @org.junit.Test(timeout = 10000)
-    public void testHashByteArrayOverload_literalMutationString866_literalMutationString893() {
-        java.lang.String input = "ySysP>6W.t0C-?9AC*$S oY.>c^U!$Cz2lvLY3Pe#L360:}[gYFUICnc)SU7EvLBHp9HIW?9U-1%h+1!";
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("ySysP>6W.t0C-?9AC*$S oY.>c^U!$Cz2lvLY3Pe#L360:}[gYFUICnc)SU7EvLBHp9HIW?9U-1%h+1!", input);
-        byte[] inputBytes = input.getBytes();
-        int hashOfString = com.clearspring.analytics.hash.MurmurHash.hash(input);
-        // AssertGenerator create local variable with return value of invocation
-        int o_testHashByteArrayOverload_literalMutationString866__6 = com.clearspring.analytics.hash.MurmurHash.hash(inputBytes);
-        java.lang.Object bytesAsObject = inputBytes;
-        // AssertGenerator create local variable with return value of invocation
-        int o_testHashByteArrayOverload_literalMutationString866__8 = com.clearspring.analytics.hash.MurmurHash.hash(bytesAsObject);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("ySysP>6W.t0C-?9AC*$S oY.>c^U!$Cz2lvLY3Pe#L360:}[gYFUICnc)SU7EvLBHp9HIW?9U-1%h+1!", input);
-    }
-
-    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload */
-    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload_literalMutationString866 */
-    @org.junit.Test(timeout = 10000)
-    public void testHashByteArrayOverload_literalMutationString866_literalMutationString892() {
+    public void testHashByteArrayOverload_literalMutationString870_literalMutationString916() {
         java.lang.String input = "";
-        byte[] inputBytes = input.getBytes();
-        int hashOfString = com.clearspring.analytics.hash.MurmurHash.hash(input);
-        // AssertGenerator create local variable with return value of invocation
-        int o_testHashByteArrayOverload_literalMutationString866__6 = com.clearspring.analytics.hash.MurmurHash.hash(inputBytes);
-        java.lang.Object bytesAsObject = inputBytes;
-        // AssertGenerator create local variable with return value of invocation
-        int o_testHashByteArrayOverload_literalMutationString866__8 = com.clearspring.analytics.hash.MurmurHash.hash(bytesAsObject);
         // AssertGenerator add assertion
         org.junit.Assert.assertEquals("", input);
-    }
-
-    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload */
-    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload_literalMutationString869 */
-    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload_literalMutationString869_literalMutationString910 */
-    @org.junit.Test(timeout = 10000)
-    public void testHashByteArrayOverload_literalMutationString869_literalMutationString910_literalMutationString1134() {
-        java.lang.String input = "U";
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("U", input);
         byte[] inputBytes = input.getBytes();
         int hashOfString = com.clearspring.analytics.hash.MurmurHash.hash(input);
         // AssertGenerator create local variable with return value of invocation
-        int o_testHashByteArrayOverload_literalMutationString869__6 = com.clearspring.analytics.hash.MurmurHash.hash(inputBytes);
+        int o_testHashByteArrayOverload_literalMutationString870__6 = com.clearspring.analytics.hash.MurmurHash.hash(inputBytes);
         java.lang.Object bytesAsObject = inputBytes;
         // AssertGenerator create local variable with return value of invocation
-        int o_testHashByteArrayOverload_literalMutationString869__8 = com.clearspring.analytics.hash.MurmurHash.hash(bytesAsObject);
+        int o_testHashByteArrayOverload_literalMutationString870__8 = com.clearspring.analytics.hash.MurmurHash.hash(bytesAsObject);
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("U", input);
+        org.junit.Assert.assertEquals("", input);
     }
 
     /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload */
     /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload_literalMutationString868 */
-    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload_literalMutationString868_literalMutationString906 */
+    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload_literalMutationString868_literalMutationString908 */
     @org.junit.Test(timeout = 10000)
-    public void testHashByteArrayOverload_literalMutationString868_literalMutationString906_literalMutationString1109() {
-        java.lang.String input = "";
+    public void testHashByteArrayOverload_literalMutationString868_literalMutationString908_literalMutationString1125() {
+        java.lang.String input = "h{ahAthis";
+        byte[] inputBytes = input.getBytes();
+        int hashOfString = com.clearspring.analytics.hash.MurmurHash.hash(input);
+        // AssertGenerator create local variable with return value of invocation
+        int o_testHashByteArrayOverload_literalMutationString868__6 = com.clearspring.analytics.hash.MurmurHash.hash(inputBytes);
+        java.lang.Object bytesAsObject = inputBytes;
+        // AssertGenerator create local variable with return value of invocation
+        int o_testHashByteArrayOverload_literalMutationString868__8 = com.clearspring.analytics.hash.MurmurHash.hash(bytesAsObject);
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("", input);
+        org.junit.Assert.assertEquals("h{ahAthis", input);
+    }
+
+    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload */
+    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload_literalMutationString868 */
+    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload_literalMutationString868_literalMutationString909 */
+    @org.junit.Test(timeout = 10000)
+    public void testHashByteArrayOverload_literalMutationString868_literalMutationString909_literalMutationString1127() {
+        java.lang.String input = "MurmurHash.hash64(Object) give a byte[] did not match MurmurHash.hash64(String)";
+        byte[] inputBytes = input.getBytes();
+        int hashOfString = com.clearspring.analytics.hash.MurmurHash.hash(input);
+        // AssertGenerator create local variable with return value of invocation
+        int o_testHashByteArrayOverload_literalMutationString868__6 = com.clearspring.analytics.hash.MurmurHash.hash(inputBytes);
+        java.lang.Object bytesAsObject = inputBytes;
+        // AssertGenerator create local variable with return value of invocation
+        int o_testHashByteArrayOverload_literalMutationString868__8 = com.clearspring.analytics.hash.MurmurHash.hash(bytesAsObject);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("MurmurHash.hash64(Object) give a byte[] did not match MurmurHash.hash64(String)", input);
+    }
+
+    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload */
+    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload_literalMutationString868 */
+    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload_literalMutationString868_literalMutationString909 */
+    @org.junit.Test(timeout = 10000)
+    public void testHashByteArrayOverload_literalMutationString868_literalMutationString909_literalMutationString1126() {
+        java.lang.String input = "";
         byte[] inputBytes = input.getBytes();
         int hashOfString = com.clearspring.analytics.hash.MurmurHash.hash(input);
         // AssertGenerator create local variable with return value of invocation
@@ -583,10 +567,10 @@ public class TestMurmurHashAmpl {
 
     /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload */
     /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload_literalMutationString867 */
-    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload_literalMutationString867_literalMutationString901 */
+    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload_literalMutationString867_literalMutationString899 */
     @org.junit.Test(timeout = 10000)
-    public void testHashByteArrayOverload_literalMutationString867_literalMutationString901_literalMutationString1085() {
-        java.lang.String input = "hello world";
+    public void testHashByteArrayOverload_literalMutationString867_literalMutationString899_literalMutationString1074() {
+        java.lang.String input = "w";
         byte[] inputBytes = input.getBytes();
         int hashOfString = com.clearspring.analytics.hash.MurmurHash.hash(input);
         // AssertGenerator create local variable with return value of invocation
@@ -595,26 +579,7 @@ public class TestMurmurHashAmpl {
         // AssertGenerator create local variable with return value of invocation
         int o_testHashByteArrayOverload_literalMutationString867__8 = com.clearspring.analytics.hash.MurmurHash.hash(bytesAsObject);
         // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("hello world", input);
-    }
-
-    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload */
-    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload_literalMutationString868 */
-    /* amplification of com.clearspring.analytics.hash.TestMurmurHash#testHashByteArrayOverload_literalMutationString868_literalMutationString904 */
-    @org.junit.Test(timeout = 10000)
-    public void testHashByteArrayOverload_literalMutationString868_literalMutationString904_literalMutationString1102() {
-        java.lang.String input = "O!ZP#i,s";
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("O!ZP#i,s", input);
-        byte[] inputBytes = input.getBytes();
-        int hashOfString = com.clearspring.analytics.hash.MurmurHash.hash(input);
-        // AssertGenerator create local variable with return value of invocation
-        int o_testHashByteArrayOverload_literalMutationString868__6 = com.clearspring.analytics.hash.MurmurHash.hash(inputBytes);
-        java.lang.Object bytesAsObject = inputBytes;
-        // AssertGenerator create local variable with return value of invocation
-        int o_testHashByteArrayOverload_literalMutationString868__8 = com.clearspring.analytics.hash.MurmurHash.hash(bytesAsObject);
-        // AssertGenerator add assertion
-        org.junit.Assert.assertEquals("O!ZP#i,s", input);
+        org.junit.Assert.assertEquals("w", input);
     }
 }
 

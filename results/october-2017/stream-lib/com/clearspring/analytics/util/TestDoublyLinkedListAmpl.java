@@ -151,46 +151,6 @@ public class TestDoublyLinkedListAmpl {
         }
     }
 
-    @org.junit.Test(timeout = 10000)
-    public void testConcurrentModification_failAssert0() {
-        // AssertGenerator generate try/catch block with fail statement
-        try {
-            com.clearspring.analytics.util.DoublyLinkedList<java.lang.Integer> list = new com.clearspring.analytics.util.DoublyLinkedList<java.lang.Integer>();
-            list.add(1);
-            list.add(2);
-            list.add(3);
-            for (int i : list) {
-                if (i == 2) {
-                    list.add(4);
-                }
-            }
-            org.junit.Assert.fail("testConcurrentModification should have thrown ConcurrentModificationException");
-        } catch (java.util.ConcurrentModificationException eee) {
-        }
-    }
-
-    /* amplification of com.clearspring.analytics.util.TestDoublyLinkedList#testConcurrentModification */
-    @org.junit.Test(timeout = 10000)
-    public void testConcurrentModification_sd31022_failAssert30() {
-        // AssertGenerator generate try/catch block with fail statement
-        try {
-            com.clearspring.analytics.util.DoublyLinkedList<java.lang.Integer> list = new com.clearspring.analytics.util.DoublyLinkedList<java.lang.Integer>();
-            list.add(1);
-            list.add(2);
-            list.add(3);
-            for (int i : list) {
-                if (i == 2) {
-                    // StatementAdd: generate variable from return value
-                    com.clearspring.analytics.util.ListNode2<java.lang.Integer> __DSPOT_invoc_11 = list.add(4);
-                    // StatementAdd: add invocation of a method
-                    __DSPOT_invoc_11.getPrev();
-                }
-            }
-            org.junit.Assert.fail("testConcurrentModification_sd31022 should have thrown ConcurrentModificationException");
-        } catch (java.util.ConcurrentModificationException eee) {
-        }
-    }
-
     /* amplification of com.clearspring.analytics.util.TestDoublyLinkedList#testConcurrentModification */
     @org.junit.Test(timeout = 10000)
     public void testConcurrentModification_sd31023_failAssert31() {
@@ -209,26 +169,6 @@ public class TestDoublyLinkedListAmpl {
                 }
             }
             org.junit.Assert.fail("testConcurrentModification_sd31023 should have thrown ConcurrentModificationException");
-        } catch (java.util.ConcurrentModificationException eee) {
-        }
-    }
-
-    /* amplification of com.clearspring.analytics.util.TestDoublyLinkedList#testConcurrentModification */
-    @org.junit.Test(timeout = 10000)
-    public void testConcurrentModification_literalMutationNumber30982_failAssert3() {
-        // AssertGenerator generate try/catch block with fail statement
-        try {
-            com.clearspring.analytics.util.DoublyLinkedList<java.lang.Integer> list = new com.clearspring.analytics.util.DoublyLinkedList<java.lang.Integer>();
-            list.add(1);
-            list.add(2);
-            list.add(// TestDataMutator on numbers
-            2);
-            for (int i : list) {
-                if (i == 2) {
-                    list.add(4);
-                }
-            }
-            org.junit.Assert.fail("testConcurrentModification_literalMutationNumber30982 should have thrown ConcurrentModificationException");
         } catch (java.util.ConcurrentModificationException eee) {
         }
     }
