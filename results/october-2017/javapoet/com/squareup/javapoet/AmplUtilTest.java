@@ -37,27 +37,27 @@ public class AmplUtilTest {
         org.junit.Assert.assertEquals("\\u0007", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('\u0007'));
         org.junit.Assert.assertEquals("?", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('?'));
         org.junit.Assert.assertEquals("\\u007f", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('\u007f'));
-        org.junit.Assert.assertEquals("?", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('\u00bf'));
-        org.junit.Assert.assertEquals("?", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('\u00ff'));
+        org.junit.Assert.assertEquals("¿", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('\u00bf'));
+        org.junit.Assert.assertEquals("ÿ", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('\u00ff'));
         // unicode escapes
         org.junit.Assert.assertEquals("\\u0000", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('\u0000'));
         org.junit.Assert.assertEquals("\\u0001", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('\u0001'));
         org.junit.Assert.assertEquals("\\u0002", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('\u0002'));
-        org.junit.Assert.assertEquals("?", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('\u20ac'));
-        org.junit.Assert.assertEquals("?", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('\u2603'));
-        org.junit.Assert.assertEquals("?", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('\u2660'));
-        org.junit.Assert.assertEquals("?", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('\u2663'));
-        org.junit.Assert.assertEquals("?", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('\u2665'));
-        org.junit.Assert.assertEquals("?", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('\u2666'));
-        org.junit.Assert.assertEquals("?", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('\u2735'));
-        org.junit.Assert.assertEquals("?", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('\u273a'));
-        org.junit.Assert.assertEquals("?", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('\uff0f'));
+        org.junit.Assert.assertEquals("€", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('\u20ac'));
+        org.junit.Assert.assertEquals("☃", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('\u2603'));
+        org.junit.Assert.assertEquals("♠", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('\u2660'));
+        org.junit.Assert.assertEquals("♣", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('\u2663'));
+        org.junit.Assert.assertEquals("♥", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('\u2665'));
+        org.junit.Assert.assertEquals("♦", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('\u2666'));
+        org.junit.Assert.assertEquals("✵", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('\u2735'));
+        org.junit.Assert.assertEquals("✺", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('\u273a'));
+        org.junit.Assert.assertEquals("／", com.squareup.javapoet.Util.characterLiteralWithoutSingleQuotes('\uff0f'));
     }
 
     @org.junit.Test
     public void stringLiteral() {
         stringLiteral("abc");
-        stringLiteral("????");
+        stringLiteral("♦♥♠♣");
         stringLiteral("\u20ac\\t@\\t$", "\u20ac\t@\t$", " ");
         stringLiteral("abc();\\n\"\n  + \"def();", "abc();\ndef();", " ");
         stringLiteral("This is \\\"quoted\\\"!", "This is \"quoted\"!", " ");
