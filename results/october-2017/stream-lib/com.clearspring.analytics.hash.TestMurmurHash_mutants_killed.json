@@ -4,49 +4,162 @@
   "nbOriginalTestCases": 2,
   "testCases": [
     {
-      "name": "testHashByteArrayOverload_literalMutationString865_literalMutationString891",
-      "nbAssertionAdded": 2,
+      "name": "testHashByteArrayOverload_literalMutationString2024_add2086",
+      "nbAssertionAdded": 8,
       "nbInputAdded": 2,
-      "nbMutantKilled": 4,
+      "nbMutantKilled": 23,
       "mutantsKilled": [
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 90,
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 69,
           "locationMethod": "hash"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 87,
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 71,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 73,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 75,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 76,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 77,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 84,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 78,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 79,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 80,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 81,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 72,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 71,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 84,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 85,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 76,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 75,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 74,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 73,
           "locationMethod": "hash"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
-          "lineNumber": 90,
+          "lineNumber": 68,
           "locationMethod": "hash"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
-          "lineNumber": 87,
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 68,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 67,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 65,
           "locationMethod": "hash"
         }
       ]
     },
     {
-      "name": "testHash64ByteArrayOverload_literalMutationString4_literalMutationString41_literalMutationString241",
-      "nbAssertionAdded": 4,
+      "name": "testHashByteArrayOverload_add2029_literalMutationString2134_add3128",
+      "nbAssertionAdded": 6,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 94,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 94,
+          "locationMethod": "hash"
+        }
+      ]
+    },
+    {
+      "name": "testHash64ByteArrayOverload_literalMutationString1_literalMutationString42_add453",
+      "nbAssertionAdded": 8,
       "nbInputAdded": 2,
       "nbMutantKilled": 1,
       "mutantsKilled": [
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 168,
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 169,
           "locationMethod": "hash64"
         }
       ]
     },
     {
-      "name": "testHashByteArrayOverload_literalMutationString867_literalMutationString899_literalMutationString1074",
-      "nbAssertionAdded": 2,
+      "name": "testHashByteArrayOverload_literalMutationString2022_literalMutationString2062_add2463",
+      "nbAssertionAdded": 6,
       "nbInputAdded": 2,
       "nbMutantKilled": 4,
       "mutantsKilled": [
@@ -79,12 +192,12 @@
       "nbMutantKilled": 2,
       "mutantsKilled": [
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
           "lineNumber": 169,
           "locationMethod": "hash64"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
           "lineNumber": 169,
           "locationMethod": "hash64"
         }
@@ -94,106 +207,11 @@
       "name": "testHash64ByteArrayOverload_literalMutationString3",
       "nbAssertionAdded": 10,
       "nbInputAdded": 2,
-      "nbMutantKilled": 33,
+      "nbMutantKilled": 7,
       "mutantsKilled": [
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 194,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 196,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 168,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 192,
-          "locationMethod": "hash64"
-        },
-        {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
           "lineNumber": 177,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 191,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 196,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 175,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 194,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 177,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 175,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 171,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 173,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 173,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 171,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 149,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 195,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 149,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 191,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 149,
           "locationMethod": "hash64"
         },
         {
@@ -202,23 +220,13 @@
           "locationMethod": "hash64"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
-          "lineNumber": 122,
-          "locationMethod": "hash64"
-        },
-        {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 168,
+          "lineNumber": 191,
           "locationMethod": "hash64"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 122,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 166,
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 191,
           "locationMethod": "hash64"
         },
         {
@@ -228,231 +236,35 @@
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 174,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 195,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 197,
+          "lineNumber": 192,
           "locationMethod": "hash64"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 172,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 172,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 166,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
-          "lineNumber": 168,
+          "lineNumber": 177,
           "locationMethod": "hash64"
         }
       ]
     },
     {
-      "name": "testHash64ByteArrayOverload_literalMutationString4",
+      "name": "testHash64ByteArrayOverload_add8_add118_add1170",
       "nbAssertionAdded": 8,
       "nbInputAdded": 2,
-      "nbMutantKilled": 1,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 167,
-          "locationMethod": "hash64"
-        }
-      ]
-    },
-    {
-      "name": "testHashByteArrayOverload_literalMutationString868_literalMutationString908_literalMutationString1125",
-      "nbAssertionAdded": 2,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 2,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 94,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 94,
-          "locationMethod": "hash"
-        }
-      ]
-    },
-    {
-      "name": "testHash64ByteArrayOverload_literalMutationString2_literalMutationString33_literalMutationString200",
-      "nbAssertionAdded": 4,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 2,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 187,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 187,
-          "locationMethod": "hash64"
-        }
-      ]
-    },
-    {
-      "name": "testHash64ByteArrayOverload_literalMutationString6_literalMutationString57_literalMutationString331",
-      "nbAssertionAdded": 4,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 1,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 183,
-          "locationMethod": "hash64"
-        }
-      ]
-    },
-    {
-      "name": "testHashByteArrayOverload_literalMutationString868_literalMutationString909_literalMutationString1127",
-      "nbAssertionAdded": 2,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 2,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 88,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 91,
-          "locationMethod": "hash"
-        }
-      ]
-    },
-    {
-      "name": "testHashByteArrayOverload_literalMutationString868_literalMutationString909_literalMutationString1126",
-      "nbAssertionAdded": 2,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 1,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 68,
-          "locationMethod": "hash"
-        }
-      ]
-    },
-    {
-      "name": "testHash64ByteArrayOverload_literalMutationString3_literalMutationString35",
-      "nbAssertionAdded": 2,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 1,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 191,
-          "locationMethod": "hash64"
-        }
-      ]
-    },
-    {
-      "name": "testHash64ByteArrayOverload",
-      "nbAssertionAdded": 4,
-      "nbInputAdded": 0,
       "nbMutantKilled": 27,
       "mutantsKilled": [
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 194,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 196,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 168,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 167,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 196,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 175,
-          "locationMethod": "hash64"
-        },
-        {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
           "lineNumber": 194,
           "locationMethod": "hash64"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 175,
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 172,
           "locationMethod": "hash64"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 171,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 173,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 173,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 171,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 149,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 195,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 149,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 149,
+          "lineNumber": 174,
           "locationMethod": "hash64"
         },
         {
@@ -461,7 +273,102 @@
           "locationMethod": "hash64"
         },
         {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 166,
+          "locationMethod": "hash64"
+        },
+        {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 167,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 196,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 195,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 175,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 173,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 168,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 171,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 197,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 173,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 175,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 171,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 196,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 168,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 166,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 194,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 195,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 149,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 172,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
           "lineNumber": 168,
           "locationMethod": "hash64"
         },
@@ -472,126 +379,54 @@
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 166,
+          "lineNumber": 149,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 149,
+          "locationMethod": "hash64"
+        }
+      ]
+    },
+    {
+      "name": "testHash64ByteArrayOverload_literalMutationString4_literalMutationString71_add733",
+      "nbAssertionAdded": 8,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 9,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_6",
+          "lineNumber": 177,
           "locationMethod": "hash64"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 174,
+          "lineNumber": 185,
           "locationMethod": "hash64"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 195,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 197,
+          "lineNumber": 185,
           "locationMethod": "hash64"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 172,
+          "lineNumber": 181,
           "locationMethod": "hash64"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 172,
+          "lineNumber": 183,
           "locationMethod": "hash64"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 166,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
-          "lineNumber": 168,
-          "locationMethod": "hash64"
-        }
-      ]
-    },
-    {
-      "name": "testHash64ByteArrayOverload_literalMutationString2_literalMutationString32",
-      "nbAssertionAdded": 2,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 4,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 191,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 187,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 189,
+          "lineNumber": 183,
           "locationMethod": "hash64"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 187,
-          "locationMethod": "hash64"
-        }
-      ]
-    },
-    {
-      "name": "testHashByteArrayOverload_literalMutationString870_literalMutationString916",
-      "nbAssertionAdded": 4,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 1,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 68,
-          "locationMethod": "hash"
-        }
-      ]
-    },
-    {
-      "name": "testHash64ByteArrayOverload_literalMutationString2_literalMutationString31",
-      "nbAssertionAdded": 2,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 1,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 169,
-          "locationMethod": "hash64"
-        }
-      ]
-    },
-    {
-      "name": "testHash64ByteArrayOverload_literalMutationString5_literalMutationString46",
-      "nbAssertionAdded": 2,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 1,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 168,
-          "locationMethod": "hash64"
-        }
-      ]
-    },
-    {
-      "name": "testHash64ByteArrayOverload_literalMutationString5_literalMutationString47",
-      "nbAssertionAdded": 2,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 7,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 179,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
           "lineNumber": 181,
           "locationMethod": "hash64"
         },
@@ -602,12 +437,168 @@
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 187,
+          "lineNumber": 179,
+          "locationMethod": "hash64"
+        }
+      ]
+    },
+    {
+      "name": "testHash64ByteArrayOverload_add8",
+      "nbAssertionAdded": 12,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 27,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 194,
           "locationMethod": "hash64"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 189,
+          "lineNumber": 172,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 174,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 122,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 166,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 167,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 196,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 195,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 175,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 173,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 168,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 171,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 197,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 173,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 175,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 171,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 196,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 168,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 166,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 194,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 195,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 149,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 172,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "lineNumber": 168,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 122,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 149,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 149,
+          "locationMethod": "hash64"
+        }
+      ]
+    },
+    {
+      "name": "testHash64ByteArrayOverload_literalMutationString4_add75_literalMutationString766",
+      "nbAssertionAdded": 4,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 5,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 185,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 181,
           "locationMethod": "hash64"
         },
         {
@@ -616,31 +607,280 @@
           "locationMethod": "hash64"
         },
         {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 179,
+          "locationMethod": "hash64"
+        },
+        {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 185,
+          "lineNumber": 179,
           "locationMethod": "hash64"
         }
       ]
     },
     {
-      "name": "testHashByteArrayOverload",
-      "nbAssertionAdded": 4,
-      "nbInputAdded": 0,
-      "nbMutantKilled": 38,
+      "name": "testHash64ByteArrayOverload_literalMutationString2_literalMutationString53_add551",
+      "nbAssertionAdded": 6,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 5,
       "mutantsKilled": [
         {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 189,
+          "locationMethod": "hash64"
+        },
+        {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 75,
+          "lineNumber": 189,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 187,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 187,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_2",
+          "lineNumber": 177,
+          "locationMethod": "hash64"
+        }
+      ]
+    },
+    {
+      "name": "testHashByteArrayOverload_literalMutationString2026",
+      "nbAssertionAdded": 8,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 11,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 86,
           "locationMethod": "hash"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 90,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 87,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 93,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "lineNumber": 90,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "lineNumber": 87,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "lineNumber": 93,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 94,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 94,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 93,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 96,
+          "locationMethod": "hash"
+        }
+      ]
+    },
+    {
+      "name": "testHashByteArrayOverload_literalMutationString2024_literalMutationString2082_add2651",
+      "nbAssertionAdded": 6,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "lineNumber": 93,
+          "locationMethod": "hash"
+        }
+      ]
+    },
+    {
+      "name": "testHash64ByteArrayOverload_add9_literalMutationString124",
+      "nbAssertionAdded": 4,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 8,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 189,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 191,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 185,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 187,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 181,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 183,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 179,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 179,
+          "locationMethod": "hash64"
+        }
+      ]
+    },
+    {
+      "name": "testHashByteArrayOverload_add2031_literalMutationString2156",
+      "nbAssertionAdded": 4,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 94,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 94,
+          "locationMethod": "hash"
+        }
+      ]
+    },
+    {
+      "name": "testHashByteArrayOverload_literalMutationString2023",
+      "nbAssertionAdded": 8,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 8,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 88,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 87,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 91,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 88,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "lineNumber": 87,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 90,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 87,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 91,
+          "locationMethod": "hash"
+        }
+      ]
+    },
+    {
+      "name": "testHash64ByteArrayOverload_literalMutationString1_literalMutationString43",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 191,
+          "locationMethod": "hash64"
+        }
+      ]
+    },
+    {
+      "name": "testHash64ByteArrayOverload_literalMutationString1_literalMutationString42",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 169,
+          "locationMethod": "hash64"
+        }
+      ]
+    },
+    {
+      "name": "testHashByteArrayOverload_literalMutationString2022_add2066",
+      "nbAssertionAdded": 8,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 15,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
           "lineNumber": 56,
           "locationMethod": "hash"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 100,
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 66,
           "locationMethod": "hash"
         },
         {
@@ -649,13 +889,8 @@
           "locationMethod": "hash"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
-          "lineNumber": 86,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 67,
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 99,
           "locationMethod": "hash"
         },
         {
@@ -664,77 +899,12 @@
           "locationMethod": "hash"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 73,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 69,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 71,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 71,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
-          "lineNumber": 68,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 73,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 75,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 77,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 64,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 79,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 81,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator",
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
           "lineNumber": 56,
           "locationMethod": "hash"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 85,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 68,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator",
           "lineNumber": 56,
           "locationMethod": "hash"
         },
@@ -744,15 +914,117 @@
           "locationMethod": "hash"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 76,
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 68,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 101,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 86,
           "locationMethod": "hash"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 68,
+          "lineNumber": 64,
           "locationMethod": "hash"
         },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 100,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 86,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 98,
+          "locationMethod": "hash"
+        }
+      ]
+    },
+    {
+      "name": "testHash64ByteArrayOverload_add9_literalMutationString123_add1223",
+      "nbAssertionAdded": 6,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 7,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 177,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 192,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 191,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 191,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_0",
+          "lineNumber": 177,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 192,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 177,
+          "locationMethod": "hash64"
+        }
+      ]
+    },
+    {
+      "name": "testHash64ByteArrayOverload_literalMutationString3_literalMutationString61_add630",
+      "nbAssertionAdded": 8,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_1",
+          "lineNumber": 177,
+          "locationMethod": "hash64"
+        }
+      ]
+    },
+    {
+      "name": "testHash64ByteArrayOverload_literalMutationString4_add76",
+      "nbAssertionAdded": 6,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 167,
+          "locationMethod": "hash64"
+        }
+      ]
+    },
+    {
+      "name": "testHashByteArrayOverload_add2029",
+      "nbAssertionAdded": 12,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 38,
+      "mutantsKilled": [
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
           "lineNumber": 66,
@@ -764,23 +1036,8 @@
           "locationMethod": "hash"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 86,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 74,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 72,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 98,
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator",
+          "lineNumber": 56,
           "locationMethod": "hash"
         },
         {
@@ -789,13 +1046,8 @@
           "locationMethod": "hash"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 101,
-          "locationMethod": "hash"
-        },
-        {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 65,
+          "lineNumber": 84,
           "locationMethod": "hash"
         },
         {
@@ -810,306 +1062,180 @@
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 84,
+          "lineNumber": 72,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 85,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 76,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 86,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 74,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 64,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "lineNumber": 68,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 68,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 86,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 56,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 98,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 100,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 56,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 69,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 56,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 71,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 73,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 68,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 75,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 77,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 79,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 101,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 81,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 71,
           "locationMethod": "hash"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
           "lineNumber": 84,
           "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 75,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 73,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 100,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 67,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 98,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 65,
+          "locationMethod": "hash"
         }
       ]
     },
     {
-      "name": "testHash64ByteArrayOverload_literalMutationString5_literalMutationString46_literalMutationString269",
-      "nbAssertionAdded": 2,
+      "name": "testHash64ByteArrayOverload_add9_literalMutationString121",
+      "nbAssertionAdded": 4,
       "nbInputAdded": 2,
       "nbMutantKilled": 1,
       "mutantsKilled": [
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 191,
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 168,
           "locationMethod": "hash64"
         }
       ]
     },
     {
-      "name": "testHashByteArrayOverload_literalMutationString866_literalMutationString895",
-      "nbAssertionAdded": 4,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 4,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 94,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 88,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 91,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 94,
-          "locationMethod": "hash"
-        }
-      ]
-    },
-    {
-      "name": "testHash64ByteArrayOverload_literalMutationString6",
-      "nbAssertionAdded": 10,
+      "name": "testHashByteArrayOverload_literalMutationString2023_add2076_add2592",
+      "nbAssertionAdded": 6,
       "nbInputAdded": 2,
       "nbMutantKilled": 13,
       "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 183,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 181,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 179,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 187,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 189,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 189,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 187,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 183,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 185,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 185,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 179,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 181,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_6",
-          "lineNumber": 177,
-          "locationMethod": "hash64"
-        }
-      ]
-    },
-    {
-      "name": "testHash64ByteArrayOverload_literalMutationString5_literalMutationString46_literalMutationString270",
-      "nbAssertionAdded": 4,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 1,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 169,
-          "locationMethod": "hash64"
-        }
-      ]
-    },
-    {
-      "name": "testHash64ByteArrayOverload_literalMutationString4_literalMutationString42_literalMutationString249",
-      "nbAssertionAdded": 2,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 2,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 179,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 179,
-          "locationMethod": "hash64"
-        }
-      ]
-    },
-    {
-      "name": "testHash64ByteArrayOverload_literalMutationString4_literalMutationString42_literalMutationString247",
-      "nbAssertionAdded": 4,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 7,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 181,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 181,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 191,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 187,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 189,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 183,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 185,
-          "locationMethod": "hash64"
-        }
-      ]
-    },
-    {
-      "name": "testHash64ByteArrayOverload_literalMutationString2_literalMutationString32_literalMutationString195",
-      "nbAssertionAdded": 4,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 2,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 185,
-          "locationMethod": "hash64"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 185,
-          "locationMethod": "hash64"
-        }
-      ]
-    },
-    {
-      "name": "testHash64ByteArrayOverload_literalMutationString6_literalMutationString57",
-      "nbAssertionAdded": 4,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 1,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 181,
-          "locationMethod": "hash64"
-        }
-      ]
-    },
-    {
-      "name": "testHashByteArrayOverload_literalMutationString867",
-      "nbAssertionAdded": 8,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 16,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 88,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 93,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 91,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 94,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 90,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 96,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 87,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
-          "lineNumber": 93,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
-          "lineNumber": 90,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
-          "lineNumber": 87,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 94,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 91,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
-          "lineNumber": 87,
-          "locationMethod": "hash"
-        },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
           "lineNumber": 88,
@@ -1124,18 +1250,1097 @@
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
           "lineNumber": 87,
           "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 91,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 93,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 93,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 88,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "lineNumber": 87,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 90,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 87,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 91,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 94,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 96,
+          "locationMethod": "hash"
         }
       ]
     },
     {
-      "name": "testHashByteArrayOverload_literalMutationString868",
-      "nbAssertionAdded": 10,
+      "name": "testHash64ByteArrayOverload_literalMutationString3_add65",
+      "nbAssertionAdded": 8,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 21,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 194,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 172,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 173,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 192,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 174,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 191,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 175,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 171,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 168,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 166,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 166,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 192,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 177,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 175,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 191,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 173,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 172,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 171,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "lineNumber": 168,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_0",
+          "lineNumber": 177,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 177,
+          "locationMethod": "hash64"
+        }
+      ]
+    },
+    {
+      "name": "testHash64ByteArrayOverload",
+      "nbAssertionAdded": 4,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 27,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 194,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 172,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 174,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 122,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 166,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 167,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 196,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 195,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 175,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 173,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 168,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 171,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 197,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 173,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 175,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 171,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 196,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 168,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 166,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 194,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 195,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 149,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 172,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "lineNumber": 168,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 122,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 149,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 149,
+          "locationMethod": "hash64"
+        }
+      ]
+    },
+    {
+      "name": "testHash64ByteArrayOverload_literalMutationString6_add97",
+      "nbAssertionAdded": 6,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 13,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_6",
+          "lineNumber": 177,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 189,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 187,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 189,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 185,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 187,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 185,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 181,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 183,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 183,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 181,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 179,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 179,
+          "locationMethod": "hash64"
+        }
+      ]
+    },
+    {
+      "name": "testHash64ByteArrayOverload_literalMutationString2_literalMutationString53",
+      "nbAssertionAdded": 2,
       "nbInputAdded": 2,
       "nbMutantKilled": 3,
       "mutantsKilled": [
         {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 189,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 187,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 187,
+          "locationMethod": "hash64"
+        }
+      ]
+    },
+    {
+      "name": "testHashByteArrayOverload_add2031_add2161_add3433",
+      "nbAssertionAdded": 6,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 38,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 66,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 99,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator",
+          "lineNumber": 56,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 76,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 84,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 78,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 80,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 72,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 85,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 76,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 86,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 74,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 64,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "lineNumber": 68,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 68,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 86,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 56,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 98,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 100,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 56,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 69,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 56,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 71,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 73,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 68,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 75,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 77,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 79,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 101,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 81,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 71,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 84,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 75,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 73,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 100,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 67,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 98,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 65,
+          "locationMethod": "hash"
+        }
+      ]
+    },
+    {
+      "name": "testHashByteArrayOverload",
+      "nbAssertionAdded": 4,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 38,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 66,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 99,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator",
+          "lineNumber": 56,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 76,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 84,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 78,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 80,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 72,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 85,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 76,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 86,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 74,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 64,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "lineNumber": 68,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 68,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 86,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 56,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 98,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 100,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 56,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 69,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 56,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 71,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 73,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 68,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 75,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 77,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 79,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 101,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 81,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 71,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 84,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 75,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 73,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 100,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 67,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 98,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 65,
+          "locationMethod": "hash"
+        }
+      ]
+    },
+    {
+      "name": "testHash64ByteArrayOverload_literalMutationString2_add55",
+      "nbAssertionAdded": 6,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 169,
+          "locationMethod": "hash64"
+        }
+      ]
+    },
+    {
+      "name": "testHashByteArrayOverload_literalMutationString2023_literalMutationString2070_add2530",
+      "nbAssertionAdded": 8,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "lineNumber": 90,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 90,
+          "locationMethod": "hash"
+        }
+      ]
+    },
+    {
+      "name": "testHash64ByteArrayOverload_literalMutationString6",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 13,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_6",
+          "lineNumber": 177,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 189,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 187,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 189,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 185,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 187,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 185,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 181,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 183,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 183,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 181,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 179,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 179,
+          "locationMethod": "hash64"
+        }
+      ]
+    },
+    {
+      "name": "testHash64ByteArrayOverload_literalMutationString1_add45",
+      "nbAssertionAdded": 6,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 13,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 197,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 196,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 122,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 166,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 166,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 196,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 194,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 195,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 195,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 149,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 122,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 149,
+          "locationMethod": "hash64"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 149,
+          "locationMethod": "hash64"
+        }
+      ]
+    },
+    {
+      "name": "testHash64ByteArrayOverload_add8_literalMutationString110_literalMutationString1070",
+      "nbAssertionAdded": 4,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 169,
+          "locationMethod": "hash64"
+        }
+      ]
+    },
+    {
+      "name": "testHashByteArrayOverload_literalMutationString2026_add2107",
+      "nbAssertionAdded": 8,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
           "lineNumber": 93,
+          "locationMethod": "hash"
+        }
+      ]
+    },
+    {
+      "name": "testHashByteArrayOverload_literalMutationString2023_add2078",
+      "nbAssertionAdded": 4,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 13,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 88,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 86,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 87,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 91,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 93,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 93,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 88,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "lineNumber": 87,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 90,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
+          "lineNumber": 87,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 91,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 94,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 96,
+          "locationMethod": "hash"
+        }
+      ]
+    },
+    {
+      "name": "testHashByteArrayOverload_literalMutationString2022_literalMutationString2062",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 90,
+          "locationMethod": "hash"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 87,
           "locationMethod": "hash"
         },
         {
@@ -1151,200 +2356,20 @@
       ]
     },
     {
-      "name": "testHashByteArrayOverload_literalMutationString869",
-      "nbAssertionAdded": 8,
+      "name": "testHash64ByteArrayOverload_literalMutationString2_literalMutationString53_literalMutationString544",
+      "nbAssertionAdded": 2,
       "nbInputAdded": 2,
-      "nbMutantKilled": 38,
+      "nbMutantKilled": 2,
       "mutantsKilled": [
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 75,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 56,
-          "locationMethod": "hash"
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
+          "lineNumber": 185,
+          "locationMethod": "hash64"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 100,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 98,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
-          "lineNumber": 86,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 67,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 100,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 73,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 69,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 71,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 71,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
-          "lineNumber": 68,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 73,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 75,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 77,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 64,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 79,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 81,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator",
-          "lineNumber": 56,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 85,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 68,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 56,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 56,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 76,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 68,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 66,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 99,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 86,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 74,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 72,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 98,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 76,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 101,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 65,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 78,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 80,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 84,
-          "locationMethod": "hash"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.MathMutator",
-          "lineNumber": 84,
-          "locationMethod": "hash"
+          "lineNumber": 185,
+          "locationMethod": "hash64"
         }
       ]
     }

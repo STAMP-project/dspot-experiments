@@ -33,11 +33,11 @@ public class TestDoublyLinkedListAmpl {
         list.add(2);
         org.junit.Assert.assertFalse(list.isEmpty());
         org.junit.Assert.assertEquals(2, list.size());
-        org.junit.Assert.assertArrayEquals(new java.lang.Integer[]{ 1 , 2 }, list.toArray());
+        org.junit.Assert.assertArrayEquals(new java.lang.Integer[]{ 1, 2 }, list.toArray());
         list.add(3);
         org.junit.Assert.assertFalse(list.isEmpty());
         org.junit.Assert.assertEquals(3, list.size());
-        org.junit.Assert.assertArrayEquals(new java.lang.Integer[]{ 1 , 2 , 3 }, list.toArray());
+        org.junit.Assert.assertArrayEquals(new java.lang.Integer[]{ 1, 2, 3 }, list.toArray());
         org.junit.Assert.assertEquals(new java.lang.Integer(1), list.first());
     }
 
@@ -51,11 +51,11 @@ public class TestDoublyLinkedListAmpl {
         list.enqueue(2);
         org.junit.Assert.assertFalse(list.isEmpty());
         org.junit.Assert.assertEquals(2, list.size());
-        org.junit.Assert.assertArrayEquals(new java.lang.Integer[]{ 2 , 1 }, list.toArray());
+        org.junit.Assert.assertArrayEquals(new java.lang.Integer[]{ 2, 1 }, list.toArray());
         list.enqueue(3);
         org.junit.Assert.assertFalse(list.isEmpty());
         org.junit.Assert.assertEquals(3, list.size());
-        org.junit.Assert.assertArrayEquals(new java.lang.Integer[]{ 3 , 2 , 1 }, list.toArray());
+        org.junit.Assert.assertArrayEquals(new java.lang.Integer[]{ 3, 2, 1 }, list.toArray());
         org.junit.Assert.assertEquals(new java.lang.Integer(3), list.first());
         org.junit.Assert.assertEquals(new java.lang.Integer(1), list.last());
     }
@@ -70,11 +70,11 @@ public class TestDoublyLinkedListAmpl {
         list.add(new com.clearspring.analytics.util.ListNode2<java.lang.Integer>(2));
         org.junit.Assert.assertFalse(list.isEmpty());
         org.junit.Assert.assertEquals(2, list.size());
-        org.junit.Assert.assertArrayEquals(new java.lang.Integer[]{ 1 , 2 }, list.toArray());
+        org.junit.Assert.assertArrayEquals(new java.lang.Integer[]{ 1, 2 }, list.toArray());
         list.add(new com.clearspring.analytics.util.ListNode2<java.lang.Integer>(3));
         org.junit.Assert.assertFalse(list.isEmpty());
         org.junit.Assert.assertEquals(3, list.size());
-        org.junit.Assert.assertArrayEquals(new java.lang.Integer[]{ 1 , 2 , 3 }, list.toArray());
+        org.junit.Assert.assertArrayEquals(new java.lang.Integer[]{ 1, 2, 3 }, list.toArray());
         org.junit.Assert.assertEquals(new java.lang.Integer(1), list.first());
     }
 
@@ -86,10 +86,10 @@ public class TestDoublyLinkedListAmpl {
         com.clearspring.analytics.util.ListNode2<java.lang.Integer> node4 = list.add(4);
         list.addAfter(node2, 3);
         org.junit.Assert.assertEquals(4, list.size());
-        org.junit.Assert.assertArrayEquals(new java.lang.Integer[]{ 1 , 2 , 3 , 4 }, list.toArray());
+        org.junit.Assert.assertArrayEquals(new java.lang.Integer[]{ 1, 2, 3, 4 }, list.toArray());
         com.clearspring.analytics.util.ListNode2<java.lang.Integer> node5 = list.addAfter(node4, 5);
         org.junit.Assert.assertEquals(5, list.size());
-        org.junit.Assert.assertArrayEquals(new java.lang.Integer[]{ 1 , 2 , 3 , 4 , 5 }, list.toArray());
+        org.junit.Assert.assertArrayEquals(new java.lang.Integer[]{ 1, 2, 3, 4, 5 }, list.toArray());
         org.junit.Assert.assertEquals(new java.lang.Integer(5), list.last());
         org.junit.Assert.assertEquals(node5, list.head());
     }
@@ -118,12 +118,12 @@ public class TestDoublyLinkedListAmpl {
         node2 = list.add(2);
         list.add(3);
         org.junit.Assert.assertEquals(3, list.size());
-        org.junit.Assert.assertArrayEquals(new java.lang.Integer[]{ 1 , 2 , 3 }, list.toArray());
+        org.junit.Assert.assertArrayEquals(new java.lang.Integer[]{ 1, 2, 3 }, list.toArray());
         list.remove(node2);
         org.junit.Assert.assertEquals(2, list.size());
         org.junit.Assert.assertEquals(node1, list.tail());
         org.junit.Assert.assertEquals(new java.lang.Integer(3), list.last());
-        org.junit.Assert.assertArrayEquals(new java.lang.Integer[]{ 1 , 3 }, list.toArray());
+        org.junit.Assert.assertArrayEquals(new java.lang.Integer[]{ 1, 3 }, list.toArray());
     }
 
     @org.junit.Test(expected = java.util.ConcurrentModificationException.class)
@@ -153,7 +153,7 @@ public class TestDoublyLinkedListAmpl {
 
     /* amplification of com.clearspring.analytics.util.TestDoublyLinkedList#testConcurrentModification */
     @org.junit.Test(timeout = 10000)
-    public void testConcurrentModification_sd31023_failAssert31() {
+    public void testConcurrentModification_sd33072_failAssert35() {
         // AssertGenerator generate try/catch block with fail statement
         try {
             com.clearspring.analytics.util.DoublyLinkedList<java.lang.Integer> list = new com.clearspring.analytics.util.DoublyLinkedList<java.lang.Integer>();
@@ -168,7 +168,7 @@ public class TestDoublyLinkedListAmpl {
                     __DSPOT_invoc_11.getNext();
                 }
             }
-            org.junit.Assert.fail("testConcurrentModification_sd31023 should have thrown ConcurrentModificationException");
+            org.junit.Assert.fail("testConcurrentModification_sd33072 should have thrown ConcurrentModificationException");
         } catch (java.util.ConcurrentModificationException eee) {
         }
     }
