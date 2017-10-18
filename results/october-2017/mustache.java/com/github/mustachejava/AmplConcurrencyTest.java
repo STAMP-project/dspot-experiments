@@ -1,5 +1,3 @@
-
-
 package com.github.mustachejava;
 
 
@@ -7,8 +5,6 @@ package com.github.mustachejava;
  * Inspired by an unconfirmed bug report.
  */
 public class AmplConcurrencyTest {
-    static java.util.Random r = new java.security.SecureRandom();
-
     private static class TestObject {
         final int a;
 
@@ -59,6 +55,8 @@ public class AmplConcurrencyTest {
         }
     }
 
+    static java.util.Random r = new java.security.SecureRandom();
+
     // Alternate render
     static java.lang.String render(com.github.mustachejava.AmplConcurrencyTest.TestObject to) {
         return ((((to.a) + ":") + (to.b)) + ":") + (to.c);
@@ -68,7 +66,7 @@ public class AmplConcurrencyTest {
     public void testConcurrentExecution() throws java.lang.InterruptedException {
         if (com.github.mustachejavabenchmarks.BenchmarkTest.skip())
             return ;
-        
+
         java.lang.String template = "{{aa}}:{{bb}}:{{cc}}";
         final com.github.mustachejava.Mustache test = new com.github.mustachejava.DefaultMustacheFactory().compile(new java.io.StringReader(template), "test");
         java.util.concurrent.ExecutorService es = java.util.concurrent.Executors.newCachedThreadPool();
@@ -107,7 +105,7 @@ public class AmplConcurrencyTest {
     public void testConcurrentExecutionWithConcurrentTemplate() throws java.lang.InterruptedException {
         if (com.github.mustachejavabenchmarks.BenchmarkTest.skip())
             return ;
-        
+
         java.lang.String template = "{{calla}}:{{callb}}:{{callc}}";
         java.util.concurrent.ExecutorService es = java.util.concurrent.Executors.newCachedThreadPool();
         com.github.mustachejava.DefaultMustacheFactory dmf = new com.github.mustachejava.DefaultMustacheFactory();
