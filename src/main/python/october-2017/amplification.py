@@ -3,9 +3,16 @@ import json
 
 import build_rate_table
 
+blacklist=[
+    "com.squareup.javapoet.UtilTest",
+    "com.twilio.rest.api.v2010.account.usage.record.AllTimeTest",
+    "com.twilio.rest.api.v2010.account.usage.record.DayTimeTest",
+    "org.traccar.protocol.At2000ProtocolDecoderTest"
+]
 
 def allsame(x):
     return len(set(x)) == 1
+
 
 
 def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/", withAmplifier=True):
@@ -48,8 +55,9 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
     types = ["top_1", "top_2", "worst_1", "worst_2"]
     for type in types:
         java_file = selected_classes[project][type]
-        print amplify + opt_test + java_file + opt_mutations_original + prefix_original_mutation_file + java_file + "_mutations.csv"
-        print
+        if not java_file in blacklist:
+            print amplify + opt_test + java_file + opt_mutations_original + prefix_original_mutation_file + java_file + "_mutations.csv"
+            print
     #print "zip -r dspot-report.zip dspot-report"
     #print "to_download=$(curl --upload-file dspot-report.zip " + "https://transfer.sh/" + project + "_dspot-report.zip)"
     #print "echo \"curl ${to_download} -o " + project + "_dspot-report.zip\""
