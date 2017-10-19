@@ -114,5 +114,55 @@ public class AmplConcurrencyTest {
         final java.util.concurrent.atomic.AtomicInteger total = render(test, es);
         junit.framework.Assert.assertEquals(0, total.intValue());
     }
+
+    /* amplification of com.github.mustachejava.ConcurrencyTest#testConcurrentExecution */
+    @org.junit.Test(timeout = 10000)
+    public void testConcurrentExecution_literalMutationString4() throws java.lang.InterruptedException {
+        if (com.github.mustachejavabenchmarks.BenchmarkTest.skip())
+            return ;
+
+        java.lang.String template = "GdhscbCS@!x*zH_,y(q2";
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("GdhscbCS@!x*zH_,y(q2", template);
+        final com.github.mustachejava.Mustache test = new com.github.mustachejava.DefaultMustacheFactory().compile(new java.io.StringReader(template), "test");
+        java.util.concurrent.ExecutorService es = java.util.concurrent.Executors.newCachedThreadPool();
+        final java.util.concurrent.atomic.AtomicInteger total = render(test, es);
+        // AssertGenerator create local variable with return value of invocation
+        int o_testConcurrentExecution_literalMutationString4__14 = total.intValue();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals(100000, ((int) (o_testConcurrentExecution_literalMutationString4__14)));
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("test", ((com.github.mustachejava.codes.DefaultMustache)test).getName());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertFalse(((com.github.mustachejava.codes.DefaultMustache)test).isRecursive());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("GdhscbCS@!x*zH_,y(q2", template);
+    }
+
+    /* amplification of com.github.mustachejava.ConcurrencyTest#testConcurrentExecution */
+    @org.junit.Test(timeout = 10000)
+    public void testConcurrentExecution_literalMutationString6() throws java.lang.InterruptedException {
+        if (com.github.mustachejavabenchmarks.BenchmarkTest.skip())
+            return ;
+
+        java.lang.String template = "{{aa}}:*{bb}}:{{cc}}";
+        final com.github.mustachejava.Mustache test = new com.github.mustachejava.DefaultMustacheFactory().compile(new java.io.StringReader(template), "test");
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("test", ((com.github.mustachejava.codes.DefaultMustache)test).getName());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertFalse(((com.github.mustachejava.codes.DefaultMustache)test).isRecursive());
+        java.util.concurrent.ExecutorService es = java.util.concurrent.Executors.newCachedThreadPool();
+        final java.util.concurrent.atomic.AtomicInteger total = render(test, es);
+        // AssertGenerator create local variable with return value of invocation
+        int o_testConcurrentExecution_literalMutationString6__14 = total.intValue();
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals(100000, ((int) (o_testConcurrentExecution_literalMutationString6__14)));
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("{{aa}}:*{bb}}:{{cc}}", template);
+        // AssertGenerator add assertion
+        org.junit.Assert.assertEquals("test", ((com.github.mustachejava.codes.DefaultMustache)test).getName());
+        // AssertGenerator add assertion
+        org.junit.Assert.assertFalse(((com.github.mustachejava.codes.DefaultMustache)test).isRecursive());
+    }
 }
 
