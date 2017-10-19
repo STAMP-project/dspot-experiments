@@ -1,0 +1,1 @@
+![TABLE Amplification results](Table_Amplification.jpg)
