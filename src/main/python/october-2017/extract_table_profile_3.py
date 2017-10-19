@@ -46,7 +46,16 @@ if __name__ == '__main__':
     if len(sys.argv) > 1:
         projects = sys.argv[1:]
     else:
-        projects = [ "traccar", "stream-lib",  "jsoup",
-                    "protostuff", "logback"]
+        projects = [ "javapoet",
+                     "mybatis",
+                     "traccar",
+                     "stream-lib",
+                     "mustache.java",
+                     "twilio-java",
+                     "jsoup",
+                     "protostuff",
+                     "logback",
+                     "retrofit"
+        ]
 
     run(projects=projects)

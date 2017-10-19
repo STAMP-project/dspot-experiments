@@ -21,7 +21,7 @@ def fullQualifiedNameToAmplifiedName(fullQualifiedName):
         fullQualifiedName.split(".")[-1])
 
 
-def run(project, mvn_home="~/apache-maven-3.3.9/bin/",  java_home="~/jdk1.8.0_121/bin/", amplified=True):
+def run(project, mvn_home="~/apache-maven-3.3.9/bin/",  java_home="~/jdk1.8.0_121/bin/", amplified=True, withAmplifier=True):
     prefix_dataset = "dataset/"
     prefix_results = "results/october-2017/"
     prefix_properties = "src/main/resources/"
@@ -61,13 +61,16 @@ def run(project, mvn_home="~/apache-maven-3.3.9/bin/",  java_home="~/jdk1.8.0_12
                              (properties_rates[project]["subModule"] + "/" if not properties_rates[project][
                                                                                       "subModule"] == "" else "")
             if amplified:
-                print "cp ${root_exp}/" + prefix_results + project + "/" + build_rate_table.buildAmplTestPath(java_file) + ".java ${root_exp}/" + \
+                path_to_project = project
+                if not withAmplifier:
+                    path_to_project += "_aampl"
+                print "cp ${root_exp}/" + prefix_results + path_to_project + "/" + build_rate_table.buildAmplTestPath(java_file) + ".java ${root_exp}/" + \
                       path_to_target + properties["testSrc"] + build_rate_table.buildPackageAsPath(java_file) + "/"
             print run_pitest + (fullQualifiedNameToAmplifiedName(selected_classes[project][type]) if amplified else selected_classes[project][type])
             path_to_pit_results = prefix_dataset + project + "/" + \
                              (properties_rates[project]["subModule"] + "/" if not properties_rates[project][
                                                                                       "subModule"] == "" else "")
-            path_to_output_pit_results = ("results/" if amplified else "original/") + "october-2017/" + project + \
+            path_to_output_pit_results = ("results/" if amplified else "original/") + "october-2017/" + path_to_project + \
                 "/" + (fullQualifiedNameToAmplifiedName(selected_classes[project][type]) if amplified else selected_classes[project][type])
             print "python src/main/python/october-2017/copy_pit_results.py " + path_to_pit_results + " " + path_to_output_pit_results
             print
@@ -75,8 +78,8 @@ def run(project, mvn_home="~/apache-maven-3.3.9/bin/",  java_home="~/jdk1.8.0_12
 if __name__ == '__main__':
 
     if len(sys.argv) == 1:
-        print "usage is : python src/main/python/mutations_analysis.py <project> (amplified)"
+        print "usage is : python src/main/python/mutations_analysis.py <project> (amplified) (withAmplifier)"
     elif len(sys.argv) > 2:
-        run(project=sys.argv[1], amplified=sys.argv[2] == "amplified")
+        run(project=sys.argv[1], amplified=sys.argv[2] == "amplified", withAmplifier=sys.argv[3]=="withAmplifier")
     else:
         run(project=sys.argv[1], amplified=False)

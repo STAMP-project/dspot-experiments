@@ -67,10 +67,9 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
 
 
 if __name__ == '__main__':
-
     if len(sys.argv) == 1:
-        print "usage is : python src/main/python/mutations_analysis.py <project> (noAmplifier)"
+        print "usage is : python src/main/python/mutations_analysis.py <project> (withAmplifier)"
     elif len(sys.argv) > 2:
-        run(project=sys.argv[1], withAmplifier=sys.argv[2] == "noAmplifier")
+        run(project=sys.argv[1], withAmplifier=sys.argv[2] == "withAmplifier")
     else:
         run(project=sys.argv[1], withAmplifier=True)
