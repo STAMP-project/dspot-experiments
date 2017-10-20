@@ -65,7 +65,7 @@ if __name__ == '__main__':
         "mybatis",
         "traccar",
         "stream-lib",
-        #"mustache.java",
+        "mustache.java",
         "twilio-java",
         "jsoup",
         "protostuff",
