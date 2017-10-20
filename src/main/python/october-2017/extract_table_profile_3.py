@@ -13,15 +13,29 @@ def run(projects):
         PMS.append( ((computePMS(top[1], project)), top[1], project))
         PMS.append( ((computePMS(worst[0], project)), worst[0], project))
         PMS.append( ((computePMS(worst[1], project)), worst[1], project))
+
+    nb_test = 0
+    mutation_score = []
     for array in PMS:
         if array[0] > 50.0:
-            line(array[1], array[2])
+            pms = line(array[1], array[2])
+            nb_test += pms[2]
+            mutation_score.append(pms[3])
+
     print "\\hline"
     print "&& Low $PMS$\\\\"
     print "\\hline"
     for array in PMS:
         if array[0] <= 50.0:
-            line(array[1], array[2])
+            pms = line(array[1], array[2])
+            nb_test += pms[2]
+            mutation_score.append(pms[3])
+
+    print mutation_score
+    mutation_score.sort()
+    print mutation_score
+    print "median mutation score : ", mutation_score[len(mutation_score) / 2]
+    print "total number of test : ", nb_test
 
 def line(name, project, lowPMS=False):
     global gray

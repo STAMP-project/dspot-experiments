@@ -213,7 +213,7 @@ def print_line_3(t, gray):
         time_min
     )
     cpt += 1
-    return delta_total, delta_killed
+    return delta_total, delta_killed, nb_test, score
 
 if __name__ == '__main__':
 
