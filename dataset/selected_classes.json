@@ -3,7 +3,8 @@
     "top_1":"com.squareup.javapoet.UtilTest",
     "top_2":"com.squareup.javapoet.NameAllocatorTest",
     "worst_1":"com.squareup.javapoet.FieldSpecTest",
-    "worst_2":"com.squareup.javapoet.ParameterSpecTest"
+    "worst_2":"com.squareup.javapoet.ParameterSpecTest",
+    "pull_request":"com.squareup.javapoet.TypeNameTest"
   },
   "mybatis": {
     "top_1":"org.apache.ibatis.jdbc.SqlBuilderTest",
@@ -15,31 +16,36 @@
     "top_1":"org.traccar.helper.PatternBuilderTest",
     "top_2":"org.traccar.helper.StringFinderTest",
     "worst_1":"org.traccar.geolocation.GeolocationProviderTest",
-    "worst_2":"org.traccar.protocol.At2000ProtocolDecoderTest"
+    "worst_2":"org.traccar.protocol.At2000ProtocolDecoderTest",
+    "pull_request":"org.traccar.helper.ObdDecoderTest"
   },
   "stream-lib": {
     "top_1":"com.clearspring.analytics.hash.TestLookup3Hash",
     "top_2":"com.clearspring.analytics.util.TestDoublyLinkedList",
     "worst_1":"com.clearspring.analytics.stream.cardinality.TestICardinality",
-    "worst_2":"com.clearspring.analytics.hash.TestMurmurHash"
+    "worst_2":"com.clearspring.analytics.hash.TestMurmurHash",
+    "pull_request":"com.clearspring.analytics.hash.TestMurmurHash"
   },
   "mustache.java": {
     "top_1":"com.github.mustachejava.util.HtmlEscaperTest",
     "top_2":"com.github.mustachejava.resolver.ClasspathResolverTest",
     "worst_1":"com.github.mustachejava.ConcurrencyTest",
-    "worst_2":"com.github.mustachejava.ExplicitMapNullTest"
+    "worst_2":"com.github.mustachejava.ExplicitMapNullTest",
+    "pull_request":"com.github.mustachejava.AbstractClassTest"
   },
   "twilio-java": {
     "top_1":"com.twilio.jwt.taskrouter.UrlUtilsTest",
     "top_2":"com.twilio.twiml.EnqueueTest",
     "worst_1":"com.twilio.rest.api.v2010.account.usage.record.AllTimeTest",
-    "worst_2":"com.twilio.rest.api.v2010.account.usage.record.DailyTest"
+    "worst_2":"com.twilio.rest.api.v2010.account.usage.record.DailyTest",
+    "pull_request":"com.twilio.http.RequestTest"
   },
   "jsoup": {
     "top_1":"org.jsoup.parser.ParserSettingsTest",
     "top_2":"org.jsoup.parser.CharacterReaderTest",
     "worst_1":"org.jsoup.nodes.AttributeTest",
-    "worst_2":"org.jsoup.nodes.AttributesTest"
+    "worst_2":"org.jsoup.nodes.AttributesTest",
+    "pull_request":"org.jsoup.nodes.AttributeTest"
   },
   "protostuff": {
     "top_1":"io.protostuff.LowCopyProtostuffOutputTest",
@@ -51,7 +57,8 @@
     "top_1":"ch.qos.logback.core.net.ssl.SecureRandomFactoryBeanTest",
     "top_2":"ch.qos.logback.core.net.SyslogAppenderBaseTest",
     "worst_1":"ch.qos.logback.core.FileAppenderResilience_AS_ROOT_Test",
-    "worst_2":"ch.qos.logback.core.issue.LOGBACK_849.Basic"
+    "worst_2":"ch.qos.logback.core.issue.LOGBACK_849.Basic",
+    "pull_request":"ch.qos.logback.core.rolling.helper.FileNamePatternTest"
   },
   "retrofit": {
     "top_1":"retrofit2.ResponseTest",

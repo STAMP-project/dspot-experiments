@@ -6,29 +6,35 @@ import count_mutant
 gray = False
 
 def run(projects):
+
     PMS = []
     for project in projects:
-        top, worst = read_select_classes.read([project])
+        top, worst, pr = read_select_classes.read([project])
         PMS.append( ((computePMS(top[0], project)), top[0], project))
         PMS.append( ((computePMS(top[1], project)), top[1], project))
         PMS.append( ((computePMS(worst[0], project)), worst[0], project))
         PMS.append( ((computePMS(worst[1], project)), worst[1], project))
+        if not pr == "":
+            PMS.append( ((computePMS(pr, project)), pr, project))
 
     nb_test = 0
+    nb_test_ampl = 0
     mutation_score = []
     for array in PMS:
         if array[0] > 50.0:
             pms = line(array[1], array[2])
             nb_test += pms[2]
+            nb_test_ampl += pms[4]
             mutation_score.append(pms[3])
 
     print "\\hline"
-    print "&& Low $PMS$\\\\"
+    print "&\scriptsize{Low $PMS$}\\\\"
     print "\\hline"
     for array in PMS:
         if array[0] <= 50.0:
             pms = line(array[1], array[2])
             nb_test += pms[2]
+            nb_test_ampl += pms[4]
             mutation_score.append(pms[3])
 
     print mutation_score
@@ -36,6 +42,7 @@ def run(projects):
     print mutation_score
     print "median mutation score : ", mutation_score[len(mutation_score) / 2]
     print "total number of test : ", nb_test
+    print "total number of amplified test : ", nb_test_ampl
 
 def line(name, project, lowPMS=False):
     global gray

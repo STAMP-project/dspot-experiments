@@ -7,15 +7,17 @@ def read(projects):
         classes = json.load(data_file)
     top = []
     worst = []
+    pr = ""
     for project in projects:
         top.append(classes[project]["top_1"])
         top.append(classes[project]["top_2"])
         worst.append(classes[project]["worst_1"])
         worst.append(classes[project]["worst_2"])
-
-    return top, worst
-
-
+        if "pull_request" in classes[project] \
+                and (not classes[project]["pull_request"] in top
+                and not classes[project]["pull_request"] in worst):
+            pr = classes[project]["pull_request"]
+    return top, worst, pr
 
 if __name__ == '__main__':
 

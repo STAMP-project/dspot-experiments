@@ -3,6 +3,7 @@ import json
 import count_mutant
 import sys
 import build_rate_table
+import math
 
 
 def profile(projects):
@@ -170,6 +171,9 @@ def print_line_3(t, gray):
     total, killed = t[0], t[1]
     score = round(float(killed) / float(total) * 100.0, 2)
     project = t[-1]
+    with open("dataset/selected_classes.json") as data_file:
+        classes = json.load(data_file)
+
     test_name = t[2]
     test_name_ampl = '.'.join(test_name.split(".")[:-1]) + '.' + \
                      (build_rate_table.buildAmplTest(test_name.split(".")[-1]))
@@ -177,9 +181,14 @@ def print_line_3(t, gray):
     path_to_csv = path_to_file + "_mutations.csv"
     total_ampl, killed_ampl = count_mutant.countForTestClass(path_to_csv)
 
+    covered_aampl, killed_aampl = count_mutant.countForTestClass(
+        prefix_result + project + "_aampl/" + test_name_ampl + "_mutations.csv")
+
     delta_total = float((total_ampl - total)) / float(total) * 100.0 \
         if total > 0 else 0.0
     delta_killed = float((killed_ampl - killed)) / float(killed) * 100.0 \
+        if killed > 0 else 0.0
+    delta_killed_aampl = (float(killed_aampl - killed) / float(killed) * 100.0) \
         if killed > 0 else 0.0
 
     path_to_json = path_to_file + "_mutants_killed.json"
@@ -200,20 +209,35 @@ def print_line_3(t, gray):
 
     time_min = "{0:.2f}".format(float(time_ms) / 1000.0 / 60.0)
 
-    print "{}{}&{}&{}&{}&{}\\%&{}&{}&{}&{}\\%&{}&{}&{}&{}\\%&{}&{}\\\\".format(
+    # COLOR ID & testName & nbMethod & PMS & nbAmplMethod & ExpCovOri & ExpCovAmpl & KilledOri & KilledAmpl & IncreaseKilled & Arrow & AAmplKilled &
+    # Increase & Arrow & time
+
+    is_pull_request = False
+    if "pull_request" in classes[project]:
+        is_pull_request = classes[project]["pull_request"] == test_name
+
+
+    print "{}{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}\\\\".format(
         ("\\rowcolor[HTML]{EFEFEF}" + "\n" if gray else ""),
         cpt,
-        "\small{" + project + "}", "\small{" + test_name.split(".")[-1].replace("_", "\\_") + "}",
-        nb_test, score,
+        "\small{" + test_name.split(".")[-1].replace("_", "\\_") + "}" + ("\\textbf{*}" if is_pull_request else ""),
+        nb_test,
+        "0" if score == 0.0 else
+        (round(score, 1) if (score < 1.0) else int(round(score, 1))),
         nb_test_ampl,
         total, total_ampl,
-        round(delta_total, 2), ("{\color{ForestGreen}$\\nearrow$}" if not float(delta_total) == 0.0 else "$\\rightarrow$"),
         killed, killed_ampl,
-        round(delta_killed, 2), ("{\color{ForestGreen}$\\nearrow$}" if not float(delta_killed) == 0.0 else "$\\rightarrow$"),
+        "0" if delta_killed == 0.0 else \
+        (round(delta_killed, 1) if (delta_killed < 1.0) else int(round(delta_killed, 1))),
+        ("{\color{ForestGreen}$\\nearrow$}" if not float(delta_killed) == 0 else "$\\rightarrow$"),
+        killed_aampl,
+        "0" if delta_killed_aampl == 0.0 else \
+        (round(delta_killed_aampl, 1) if (delta_killed_aampl < 1.0) else int(round(delta_killed_aampl, 1))),
+        ("{\color{ForestGreen}$\\nearrow$}" if not float(delta_killed_aampl) == 0 else "$\\rightarrow$"),
         time_min
     )
     cpt += 1
-    return delta_total, delta_killed, nb_test, score
+    return delta_total, delta_killed, nb_test, score, nb_test_ampl
 
 if __name__ == '__main__':
 
