@@ -1,0 +1,30 @@
+{
+  "nbMutantKilledOriginally": 381,
+  "name": "io.protostuff.TailDelimiterTest",
+  "nbOriginalTestCases": 10,
+  "testCases": [
+    {
+      "name": "testEmptyList_add107673_sd108227_sd111991",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 256,
+          "locationMethod": "writeListTo"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 255,
+          "locationMethod": "writeListTo"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 256,
+          "locationMethod": "writeListTo"
+        }
+      ]
+    }
+  ]
+}
