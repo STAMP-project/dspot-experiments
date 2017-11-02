@@ -2,11 +2,10 @@ package fr.inria.stamp;
 
 import fr.inria.diversify.automaticbuilder.AutomaticBuilder;
 import fr.inria.diversify.automaticbuilder.AutomaticBuilderFactory;
-import fr.inria.diversify.buildSystem.android.InvalidSdkException;
 import fr.inria.diversify.dspot.support.DSpotCompiler;
-import fr.inria.diversify.runner.InputConfiguration;
-import fr.inria.diversify.runner.InputProgram;
 import fr.inria.diversify.utils.Initializer;
+import fr.inria.diversify.utils.sosiefier.InputConfiguration;
+import fr.inria.diversify.utils.sosiefier.InputProgram;
 import spoon.reflect.declaration.CtClass;
 
 
@@ -17,7 +16,7 @@ import spoon.reflect.declaration.CtClass;
  */
 public class RunPitMutationAnalysis {
 
-    public static void main(String[] args) throws Exception, InvalidSdkException {
+    public static void main(String[] args) throws Exception  {
         if (args.length < 2) {
             System.err.println("Usage: java -cp target/dspot-experiment-1.0.0-jar-with-dependencies.jar fr.inria.stamp.RunPitMutationAnalysis <path-to-properties> <full-qualified-name-test>");
             System.exit(-1);
