@@ -60,8 +60,8 @@ def run(project, mvn_home="~/apache-maven-3.3.9/bin/",  java_home="~/jdk1.8.0_12
             path_to_target = prefix_dataset + project + "/" + \
                              (properties_rates[project]["subModule"] + "/" if not properties_rates[project][
                                                                                       "subModule"] == "" else "")
+            path_to_project = project
             if amplified:
-                path_to_project = project
                 if not withAmplifier:
                     path_to_project += "_aampl"
                 print "cp ${root_exp}/" + prefix_results + path_to_project + "/" + build_rate_table.buildAmplTestPath(java_file) + ".java ${root_exp}/" + \
