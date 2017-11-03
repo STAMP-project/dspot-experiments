@@ -1,0 +1,43 @@
+{
+  "nbMutantKilledOriginally": 162,
+  "name": "org.apache.ibatis.builder.ParameterExpressionTest",
+  "nbOriginalTestCases": 14,
+  "testCases": [
+    {
+      "name": "simplePropertyWithOneAttribute_add63431_literalMutationString63859_literalMutationString66961",
+      "nbAssertionAdded": 4,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 133,
+          "locationMethod": "trimmedStr"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 76,
+          "locationMethod": "skipWS"
+        }
+      ]
+    },
+    {
+      "name": "simplePropertyWithOneAttribute_literalMutationString63414_literalMutationString63500",
+      "nbAssertionAdded": 6,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 133,
+          "locationMethod": "trimmedStr"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 76,
+          "locationMethod": "skipWS"
+        }
+      ]
+    }
+  ]
+}
