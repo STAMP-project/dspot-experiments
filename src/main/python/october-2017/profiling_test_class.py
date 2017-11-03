@@ -9,11 +9,13 @@ import math
 def profile(projects):
     top = []
     worst = []
-    prefix = "original/per_class/"
+    prefix = "original/june-2017/per_class/"
 
     blacklist = ["com.github.mustachejavabenchmarks.simple.SimpleBenchmarkTest_mutations.csv",
                  "io.protostuff.ProtostuffDelimiterTest_mutations.csv",
-                 "org.traccar.protocol.ApelProtocolDecoderTest_mutations.csv"
+                 "org.traccar.protocol.ApelProtocolDecoderTest_mutations.csv",
+                 "org.apache.ibatis.type.NClobTypeHandlerTest_mutations.csv",
+                 "org.apache.ibatis.type.ClobTypeHandlerTest_mutations.csv",
                  ]
 
     for project in projects:
@@ -23,8 +25,8 @@ def profile(projects):
                 for filename in filenames:
                     if filename not in blacklist:
                         total, killed = count_mutant.countForTestClass(prefix + project + "/" + filename)
-                        if 0 < total <= 1000:
-                            results.append((total, killed, filename[:-len("_mutations.csv")], project))
+                        if 0 < total <= 1000 and total > killed:
+                            results.append((total, killed, filename[:-len("_mutations.csv")], project, float(killed) / float(total) * 100.0))
         sorted_results = sorted(
             sorted(sorted(sorted(results, key=lambda result: result[2]), key=lambda result: result[1]),
                    key=lambda result: result[0]),
@@ -251,5 +253,10 @@ if __name__ == '__main__':
 
     print "=" * 30
 
-    for e in top + worst:
+    for e in top:
+        print e
+
+    print "=" * 30
+
+    for e in worst:
         print e
