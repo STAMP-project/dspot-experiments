@@ -1,23 +1,23 @@
 {
   "javapoet": {
-    "top_1":"com.squareup.javapoet.UtilTest",
+    "top_1":"com.squareup.javapoet.TypeNameTest",
     "top_2":"com.squareup.javapoet.NameAllocatorTest",
     "worst_1":"com.squareup.javapoet.FieldSpecTest",
     "worst_2":"com.squareup.javapoet.ParameterSpecTest",
     "pull_request":"com.squareup.javapoet.TypeNameTest"
   },
   "mybatis": {
-    "top_1":"org.apache.ibatis.reflection.TypeParameterResolverTest",
+    "top_1": "org.apache.ibatis.reflection.MetaClassTest",
     "top_2":"org.apache.ibatis.builder.ParameterExpressionTest",
     "worst_1":"org.apache.ibatis.binding.WrongNamespacesTest",
     "worst_2":"org.apache.ibatis.binding.WrongMapperTest",
     "pull_request": "org.apache.ibatis.reflection.MetaClassTest"
   },
   "traccar": {
-    "top_1":"org.traccar.geocoder.AddressFormatTest",
+    "top_1":"org.traccar.helper.ObdDecoderTest",
     "top_2":"org.traccar.model.MiscFormatterTest",
-    "worst_1":"org.traccar.geolocation.GeolocationProviderTest",
-    "worst_2":"org.traccar.protocol.At2000ProtocolDecoderTest",
+    "worst_1":"org.traccar.protocol.ProgressProtocolDecoderTest",
+    "worst_2":"org.traccar.events.IgnitionEventHandlerTest",
     "pull_request":"org.traccar.helper.ObdDecoderTest"
   },
   "stream-lib": {
@@ -31,11 +31,11 @@
     "top_1":"com.github.mustachejava.ArraysIndexesTest",
     "top_2":"com.github.mustachejava.resolver.ClasspathResolverTest",
     "worst_1":"com.github.mustachejava.ConcurrencyTest",
-    "worst_2":"com.github.mustachejava.ExplicitMapNullTest",
+    "worst_2":"com.github.mustachejava.AbstractClassTest",
     "pull_request":"com.github.mustachejava.AbstractClassTest"
   },
   "twilio-java": {
-    "top_1":"com.twilio.rest.api.v2010.account.usage.RecordTest",
+    "top_1":"com.twilio.http.RequestTest",
     "top_2":"com.twilio.converter.PrefixedCollapsibleMapTest",
     "worst_1":"com.twilio.rest.api.v2010.account.usage.record.AllTimeTest",
     "worst_2":"com.twilio.rest.api.v2010.account.usage.record.DailyTest",
@@ -49,14 +49,14 @@
     "pull_request":"org.jsoup.nodes.AttributeTest"
   },
   "protostuff": {
-    "top_1":"io.protostuff.LowCopyProtostuffOutputTest",
+    "top_1":"io.protostuff.TailDelimiterTest",
     "top_2":"io.protostuff.LinkBufferTest",
     "worst_1":"io.protostuff.CodedDataInputTest",
     "worst_2":"io.protostuff.CodedInputTest",
     "pull_request": "io.protostuff.TailDelimiterTest"
   },
   "logback": {
-    "top_1":"ch.qos.logback.core.util.TimeUtilTest",
+    "top_1":"ch.qos.logback.core.rolling.helper.FileNamePatternTest",
     "top_2":"ch.qos.logback.core.net.SyslogAppenderBaseTest",
     "worst_1":"ch.qos.logback.core.FileAppenderResilience_AS_ROOT_Test",
     "worst_2":"ch.qos.logback.core.issue.LOGBACK_849.Basic",

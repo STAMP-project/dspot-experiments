@@ -16,6 +16,8 @@ def profile(projects):
                  "org.traccar.protocol.ApelProtocolDecoderTest_mutations.csv",
                  "org.apache.ibatis.type.NClobTypeHandlerTest_mutations.csv",
                  "org.apache.ibatis.type.ClobTypeHandlerTest_mutations.csv",
+                 "org.traccar.protocol.At2000ProtocolDecoderTest_mutations.csv",
+                 "org.traccar.geolocation.GeolocationProviderTest_mutations.csv",
                  ]
 
     for project in projects:
@@ -219,7 +221,7 @@ def print_line_3(t, gray):
         is_pull_request = classes[project]["pull_request"] == test_name
 
 
-    print "{}{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}&{}\\\\".format(
+    print "{}{}&{}&{}&{}\%&{}&{}&{}&{}&{}&{}\%&{}&{}&{}\%&{}&{}\\\\".format(
         ("\\rowcolor[HTML]{EFEFEF}" + "\n" if gray else ""),
         cpt,
         "\small{" + test_name.split(".")[-1].replace("_", "\\_") + "}" + ("\\textbf{*}" if is_pull_request else ""),

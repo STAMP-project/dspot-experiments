@@ -32,8 +32,7 @@ def run(projects):
             discardeds.append( (project , top[1], computePMS(top[1], project)) )
         PMS.append( ((computePMS(worst[0], project)), worst[0], project))
         PMS.append( ((computePMS(worst[1], project)), worst[1], project))
-        #if not pr == "":
-            #PMS.append( ((computePMS(pr, project)), pr, project))
+
 
     nb_test = 0
     nb_test_ampl = 0
