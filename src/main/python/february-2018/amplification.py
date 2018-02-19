@@ -19,7 +19,9 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
     prefix_dataset = "dataset/"
     #mvnHome=""
     #javaHome=""
-    amplify = javaHome + "java -Xms8G -Xmx16G -jar /Ex2Amplifier/target/exhaustive-explorer-amplifier-1.0.0-jar-with-dependencies.jar \
+    amplify = javaHome + "java -Xms8G -Xmx16G -cp \
+    ../Ex2Amplifier/target/exhaustive-explorer-amplifier-1.0.0-jar-with-dependencies.jar:../dspot/dspot/target/dspot-1.0.6-SNAPSHOT-jar-with-dependencies.jar \
+    fr.inria.stamp.Main \
     --path-to-properties src/main/resources/${project}.properties \
     --iteration 3 \
     --test-criterion PitMutantScoreSelector \
