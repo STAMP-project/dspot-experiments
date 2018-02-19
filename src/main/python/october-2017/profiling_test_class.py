@@ -211,6 +211,12 @@ def print_line_3(t, gray):
         if time_class["fullQualifiedName"] == test_name:
             time_ms = time_class["timeInMs"]
 
+    time_str = ""
+    if time_ms < 60000:
+        time_str = str((time_ms / 1000)) + " sec"
+    else:
+        time_str = str(int(round(float(time_ms) / 1000.0 / 60.0, 1))) + " min"
+
     time_min = "{0:.2f}".format(float(time_ms) / 1000.0 / 60.0)
 
     # COLOR ID & testName & nbMethod & PMS & nbAmplMethod & ExpCovOri & ExpCovAmpl & KilledOri & KilledAmpl & IncreaseKilled & Arrow & AAmplKilled &
@@ -238,7 +244,7 @@ def print_line_3(t, gray):
         "0" if delta_killed_aampl == 0.0 else \
         (round(delta_killed_aampl, 1) if (delta_killed_aampl < 1.0) else int(round(delta_killed_aampl, 1))),
         ("{\color{ForestGreen}$\\nearrow$}" if not float(delta_killed_aampl) == 0 else "$\\rightarrow$"),
-        time_min
+        time_str
     )
     cpt += 1
     return delta_total, delta_killed, nb_test, score, nb_test_ampl

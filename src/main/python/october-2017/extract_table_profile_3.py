@@ -46,7 +46,7 @@ def run(projects):
             mutation_score.append(pms[3])
 
     print "\\hline"
-    print "&\scriptsize{Low $PMS$}\\\\"
+    print "\\&scriptsize{Low Mutation Score ($<=50\%$)}\\\\"
     print "\\hline"
     for array in PMS:
         if array[0] <= 50.0:
