@@ -1,0 +1,299 @@
+{
+  "nbMutantKilledOriginally": 309,
+  "name": "org.jsoup.parser.CharacterReaderTest",
+  "nbOriginalTestCases": 19,
+  "testCases": [
+    {
+      "name": "consumeToEnd",
+      "nbAssertionAdded": 18,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 6,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanFalseReturnValsMutator",
+          "lineNumber": 44,
+          "locationMethod": "isEmpty"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 231,
+          "locationMethod": "consumeToEnd"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
+          "lineNumber": 53,
+          "locationMethod": "current"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
+          "lineNumber": 44,
+          "locationMethod": "isEmpty"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 401,
+          "locationMethod": "cacheString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
+          "lineNumber": 35,
+          "locationMethod": "pos"
+        }
+      ]
+    },
+    {
+      "name": "consumeLetterSequence",
+      "nbAssertionAdded": 26,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 244,
+          "locationMethod": "consumeLetterSequence"
+        }
+      ]
+    },
+    {
+      "name": "nextIndexOfString",
+      "nbAssertionAdded": 38,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 157,
+          "locationMethod": "consumeTo"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
+          "lineNumber": 127,
+          "locationMethod": "nextIndexOf"
+        }
+      ]
+    },
+    {
+      "name": "containsIgnoreCase",
+      "nbAssertionAdded": 20,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
+          "lineNumber": 381,
+          "locationMethod": "containsIgnoreCase"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator",
+          "lineNumber": 380,
+          "locationMethod": "containsIgnoreCase"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanFalseReturnValsMutator",
+          "lineNumber": 381,
+          "locationMethod": "containsIgnoreCase"
+        }
+      ]
+    },
+    {
+      "name": "cachesStrings",
+      "nbAssertionAdded": 44,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 420,
+          "locationMethod": "cacheString"
+        }
+      ]
+    },
+    {
+      "name": "consumeToChar",
+      "nbAssertionAdded": 32,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 146,
+          "locationMethod": "consumeTo"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
+          "lineNumber": 96,
+          "locationMethod": "nextIndexOf"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 148,
+          "locationMethod": "consumeTo"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
+          "lineNumber": 99,
+          "locationMethod": "nextIndexOf"
+        }
+      ]
+    },
+    {
+      "name": "matches",
+      "nbAssertionAdded": 48,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanFalseReturnValsMutator",
+          "lineNumber": 308,
+          "locationMethod": "matches"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
+          "lineNumber": 301,
+          "locationMethod": "matches"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
+          "lineNumber": 305,
+          "locationMethod": "matches"
+        }
+      ]
+    },
+    {
+      "name": "matchesIgnoreCase",
+      "nbAssertionAdded": 66,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 5,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanFalseReturnValsMutator",
+          "lineNumber": 295,
+          "locationMethod": "matches"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
+          "lineNumber": 314,
+          "locationMethod": "matchesIgnoreCase"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
+          "lineNumber": 320,
+          "locationMethod": "matchesIgnoreCase"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanFalseReturnValsMutator",
+          "lineNumber": 323,
+          "locationMethod": "matchesIgnoreCase"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
+          "lineNumber": 295,
+          "locationMethod": "matches"
+        }
+      ]
+    },
+    {
+      "name": "consumeToString",
+      "nbAssertionAdded": 30,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 159,
+          "locationMethod": "consumeTo"
+        }
+      ]
+    },
+    {
+      "name": "rangeEquals",
+      "nbAssertionAdded": 46,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanFalseReturnValsMutator",
+          "lineNumber": 444,
+          "locationMethod": "rangeEquals"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
+          "lineNumber": 441,
+          "locationMethod": "rangeEquals"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
+          "lineNumber": 446,
+          "locationMethod": "rangeEquals"
+        }
+      ]
+    },
+    {
+      "name": "nextIndexOfUnmatched",
+      "nbAssertionAdded": 14,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
+          "lineNumber": 131,
+          "locationMethod": "nextIndexOf"
+        }
+      ]
+    },
+    {
+      "name": "matchesAny",
+      "nbAssertionAdded": 28,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 4,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
+          "lineNumber": 336,
+          "locationMethod": "matchesAny"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanFalseReturnValsMutator",
+          "lineNumber": 333,
+          "locationMethod": "matchesAny"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 182,
+          "locationMethod": "consumeToAny"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 428,
+          "locationMethod": "cacheString"
+        }
+      ]
+    },
+    {
+      "name": "mark",
+      "nbAssertionAdded": 24,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
+          "lineNumber": 59,
+          "locationMethod": "consume"
+        }
+      ]
+    },
+    {
+      "name": "consumeLetterThenDigitSequence",
+      "nbAssertionAdded": 26,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 265,
+          "locationMethod": "consumeLetterThenDigitSequence"
+        }
+      ]
+    }
+  ]
+}

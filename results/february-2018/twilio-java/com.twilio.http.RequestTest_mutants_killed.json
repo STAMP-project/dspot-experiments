@@ -1,0 +1,99 @@
+{
+  "nbMutantKilledOriginally": 141,
+  "name": "com.twilio.http.RequestTest",
+  "nbOriginalTestCases": 17,
+  "testCases": [
+    {
+      "name": "testConstructURL_literalMutationString15998_failAssert0",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 127,
+          "locationMethod": "constructURL"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 127,
+          "locationMethod": "constructURL"
+        }
+      ]
+    },
+    {
+      "name": "testEncodeFormBody_sd30141_sd33007_failAssert3",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 6,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 88,
+          "locationMethod": "getAuthString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 88,
+          "locationMethod": "getAuthString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 90,
+          "locationMethod": "getAuthString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 91,
+          "locationMethod": "getAuthString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 91,
+          "locationMethod": "getAuthString"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 91,
+          "locationMethod": "getAuthString"
+        }
+      ]
+    },
+    {
+      "name": "testConstructorWithDomain_sd24431_sd24913_failAssert5",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 66,
+          "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 66,
+          "locationMethod": "\u003cinit\u003e"
+        }
+      ]
+    },
+    {
+      "name": "testConstructURLWithMultivaluedParam_literalMutationString21227_failAssert1",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 127,
+          "locationMethod": "constructURL"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 127,
+          "locationMethod": "constructURL"
+        }
+      ]
+    }
+  ]
+}

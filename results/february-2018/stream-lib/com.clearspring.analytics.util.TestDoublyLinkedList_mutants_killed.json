@@ -1,0 +1,20 @@
+{
+  "nbMutantKilledOriginally": 104,
+  "name": "com.clearspring.analytics.util.TestDoublyLinkedList",
+  "nbOriginalTestCases": 7,
+  "testCases": [
+    {
+      "name": "testConcurrentModification_sd33072_failAssert35",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 35,
+          "locationMethod": "getNext"
+        }
+      ]
+    }
+  ]
+}

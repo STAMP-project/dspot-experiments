@@ -1,0 +1,25 @@
+{
+  "nbMutantKilledOriginally": 178,
+  "name": "org.jsoup.nodes.AttributeTest",
+  "nbOriginalTestCases": 2,
+  "testCases": [
+    {
+      "name": "testWithSupplementaryCharacterInAttributeKeyAndValue",
+      "nbAssertionAdded": 28,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 40,
+          "locationMethod": "getKey"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 60,
+          "locationMethod": "getValue"
+        }
+      ]
+    }
+  ]
+}
