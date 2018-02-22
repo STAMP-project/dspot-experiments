@@ -63,7 +63,7 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
     #print "zip -r dspot-report.zip dspot-report"
     #print "to_download=$(curl --upload-file dspot-report.zip " + "https://transfer.sh/" + project + "_dspot-report.zip)"
     #print "echo \"curl ${to_download} -o " + project + "_dspot-report.zip\""
-    print "cp -r dspot-report/* " + "results/october-2017/" + project + ("" if withAmplifier else "_aampl") + "/"
+    print "cp -r dspot-report/* " + "results/february-2018/" + project + ("" if withAmplifier else "_aampl") + "/"
 
 
 
