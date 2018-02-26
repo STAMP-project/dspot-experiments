@@ -15,7 +15,7 @@ def allsame(x):
 
 
 
-def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/", withAmplifier=True, againstAAmpl=True):
+def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/", withAmplifier=True, againstAAmpl=False):
     prefix_dataset = "dataset/"
     #mvnHome=""
     #javaHome=""
@@ -28,7 +28,7 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
     --verbose \
     --output-path dspot-report \
     --randomSeed 23  "
-    amplify += "--amplifiers Ex2Amplifier" if withAmplifier else "--amplifiers Ex2Amplifier:StatementAdd"
+    amplify += "--amplifiers Ex2Amplifier" if withAmplifier else "--amplifiers None"
     amplify += " --maven-home " + mvnHome if not mvnHome == "" else ""
     opt_test = " --test "
     opt_mutations_original= " --path-pit-result "
@@ -58,13 +58,13 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
     for type in types:
         java_file = selected_classes[project][type]
         if not java_file in blacklist:
- 	    ampl_java_file = '.'.join(java_file.split(".")[:-1]) + "." + build_rate_table.buildAmplTest(java_file.split(".")[-1])
-            print amplify + opt_test + java_file + opt_mutations_original + prefix_aampl_mutations_file + ampl_java_file + "_mutations.csv"
+            ampl_java_file = '.'.join(java_file.split(".")[:-1]) + "." + build_rate_table.buildAmplTest(java_file.split(".")[-1])
+            print amplify + opt_test + java_file + opt_mutations_original + prefix_aampl_mutations_file + (ampl_java_file if againstAAmpl else java_file) + "_mutations.csv"
             print
     #print "zip -r dspot-report.zip dspot-report"
     #print "to_download=$(curl --upload-file dspot-report.zip " + "https://transfer.sh/" + project + "_dspot-report.zip)"
     #print "echo \"curl ${to_download} -o " + project + "_dspot-report.zip\""
-    print "cp -r dspot-report/* " + "results/february-2018/" + project + ("" if withAmplifier else "_structural") + "/"
+    print "cp -r dspot-report/* " + "results/february-2018/" + project + ("" if withAmplifier else "_aampl") + "/"
 
 
 
