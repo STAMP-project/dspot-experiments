@@ -185,15 +185,15 @@ def print_line_3(t, gray):
     path_to_csv = path_to_file + "_mutations.csv"
     total_ampl, killed_ampl = count_mutant.countForTestClass(path_to_csv)
 
-    covered_aampl, killed_aampl = count_mutant.countForTestClass(
-        prefix_result + project + "_aampl/" + test_name_ampl + "_mutations.csv")
+    #covered_aampl, killed_aampl = count_mutant.countForTestClass(
+    #    prefix_result + project + "_aampl/" + test_name_ampl + "_mutations.csv")
 
     delta_total = float((total_ampl - total)) / float(total) * 100.0 \
         if total > 0 else 0.0
     delta_killed = float((killed_ampl - killed)) / float(killed) * 100.0 \
         if killed > 0 else 0.0
-    delta_killed_aampl = (float(killed_aampl - killed) / float(killed) * 100.0) \
-        if killed > 0 else 0.0
+    #delta_killed_aampl = (float(killed_aampl - killed) / float(killed) * 100.0) \
+    #    if killed > 0 else 0.0
 
     path_to_json = path_to_file + "_mutants_killed.json"
     nb_test, nb_test_ampl, i_ampl_avg, a_ampl_avg = load_data_from_json(path_to_json)
@@ -227,7 +227,7 @@ def print_line_3(t, gray):
         is_pull_request = classes[project]["pull_request"] == test_name
 
 
-    print "{}{}&{}&{}&{}\%&{}&{}&{}&{}&{}&{}\%&{}&{}&{}\%&{}&{}\\\\".format(
+    print "{}{}&{}&{}&{}\%&{}&{}&{}&{}&{}&{}\%&{}&{}\\\\".format(
         ("\\rowcolor[HTML]{EFEFEF}" + "\n" if gray else ""),
         cpt,
         "\small{" + test_name.split(".")[-1].replace("_", "\\_") + "}" + ("\\textbf{*}" if is_pull_request else ""),
@@ -240,10 +240,10 @@ def print_line_3(t, gray):
         "0" if delta_killed == 0.0 else \
         (round(delta_killed, 1) if (delta_killed < 1.0) else int(round(delta_killed, 1))),
         ("{\color{ForestGreen}$\\nearrow$}" if not float(delta_killed) == 0 else "$\\rightarrow$"),
-        killed_aampl,
-        "0" if delta_killed_aampl == 0.0 else \
-        (round(delta_killed_aampl, 1) if (delta_killed_aampl < 1.0) else int(round(delta_killed_aampl, 1))),
-        ("{\color{ForestGreen}$\\nearrow$}" if not float(delta_killed_aampl) == 0 else "$\\rightarrow$"),
+        #killed_aampl,
+        #"0" if delta_killed_aampl == 0.0 else \
+        #(round(delta_killed_aampl, 1) if (delta_killed_aampl < 1.0) else int(round(delta_killed_aampl, 1))),
+        #("{\color{ForestGreen}$\\nearrow$}" if not float(delta_killed_aampl) == 0 else "$\\rightarrow$"),
         time_str
     )
     cpt += 1
