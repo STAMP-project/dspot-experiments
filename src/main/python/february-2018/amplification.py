@@ -43,7 +43,7 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
     print mvnHome + "bin/mvn install -DskipTests"
     print "cd ${root_exp}"
 
-    prefix_aampl_mutations_file = "results/octorber-2017/" + project + "_aampl/" if againstAAmpl else "original/october-2017/" + project + "/"
+    prefix_aampl_mutations_file = "results/october-2017/" + project + "_aampl/" if againstAAmpl else "original/october-2017/" + project + "/"
 
     with open("dataset/properties_rates.json") as data_file:
         properties_rates = json.load(data_file)
@@ -58,7 +58,8 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
     for type in types:
         java_file = selected_classes[project][type]
         if not java_file in blacklist:
-            print amplify + opt_test + java_file + opt_mutations_original + prefix_aampl_mutations_file + java_file + "_mutations.csv"
+ 	    ampl_java_file = '.'.join(java_file.split(".")[:-1]) + "." + build_rate_table.buildAmplTest(java_file.split(".")[-1])
+            print amplify + opt_test + java_file + opt_mutations_original + prefix_aampl_mutations_file + ampl_java_file + "_mutations.csv"
             print
     #print "zip -r dspot-report.zip dspot-report"
     #print "to_download=$(curl --upload-file dspot-report.zip " + "https://transfer.sh/" + project + "_dspot-report.zip)"
