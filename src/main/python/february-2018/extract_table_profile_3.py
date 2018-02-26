@@ -93,14 +93,9 @@ if __name__ == '__main__':
     else:
         projects = [ "javapoet",
                      "mybatis",
-                     "traccar",
-                     "stream-lib",
-                     "mustache.java",
-                     "twilio-java",
+                     #"mustache.java",
                      "jsoup",
                      "protostuff",
-                     "logback",
-                     "retrofit"
         ]
 
     run(projects=projects)
