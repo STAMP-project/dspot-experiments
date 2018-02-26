@@ -1,0 +1,53 @@
+{
+  "nbMutantKilledOriginally": 0,
+  "name": "com.squareup.javapoet.NameAllocatorTest",
+  "nbOriginalTestCases": 11,
+  "testCases": [
+    {
+      "name": "tagReuseForbidden",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 113,
+          "locationMethod": "newName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 127,
+          "locationMethod": "toJavaIdentifier"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator",
+          "lineNumber": 124,
+          "locationMethod": "toJavaIdentifier"
+        }
+      ]
+    },
+    {
+      "name": "tagReuseForbidden",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 127,
+          "locationMethod": "toJavaIdentifier"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator",
+          "lineNumber": 124,
+          "locationMethod": "toJavaIdentifier"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 113,
+          "locationMethod": "newName"
+        }
+      ]
+    }
+  ]
+}
