@@ -43,7 +43,7 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
     print mvnHome + "bin/mvn install -DskipTests"
     print "cd ${root_exp}"
 
-    prefix_aampl_mutations_file = "results/october-2017/" + project + "_aampl/" if againstAAmpl else "original/october-2017/" + project + "/"
+    prefix_aampl_mutations_file = "results/february-2018/" + project + "_aampl/" if againstAAmpl else "original/october-2017/" + project + "/"
 
     with open("dataset/properties_rates.json") as data_file:
         properties_rates = json.load(data_file)
@@ -73,6 +73,6 @@ if __name__ == '__main__':
     if len(sys.argv) == 1:
         print "usage is : python src/main/python/mutations_analysis.py <project> (withAmplifier)"
     elif len(sys.argv) > 2:
-        run(project=sys.argv[1], withAmplifier=sys.argv[2] == "withAmplifier")
+        run(project=sys.argv[1], withAmplifier=sys.argv[2] == "withAmplifier", againstAAmpl=sys.argv[3] == "againstAampl")
     else:
         run(project=sys.argv[1], withAmplifier=True)
