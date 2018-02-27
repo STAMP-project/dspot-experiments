@@ -4,10 +4,12 @@ import fr.inria.diversify.automaticbuilder.AutomaticBuilder;
 import fr.inria.diversify.automaticbuilder.AutomaticBuilderFactory;
 import fr.inria.diversify.dspot.support.DSpotCompiler;
 import fr.inria.diversify.utils.AmplificationChecker;
+import fr.inria.diversify.utils.AmplificationHelper;
 import fr.inria.diversify.utils.Initializer;
 import fr.inria.diversify.utils.sosiefier.InputConfiguration;
 import fr.inria.diversify.utils.sosiefier.InputProgram;
 import spoon.reflect.declaration.CtClass;
+import spoon.reflect.declaration.CtType;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
@@ -27,7 +29,7 @@ public class RunPitMutationAnalysis {
         }
         Main.verbose = true;
         final InputConfiguration inputConfiguration = new InputConfiguration(args[0]);
-        Initializer.initialize(inputConfiguration, false);
+        Initializer.initialize(inputConfiguration);
 
         InputProgram inputProgram = inputConfiguration.getInputProgram();
 
@@ -37,16 +39,11 @@ public class RunPitMutationAnalysis {
         DSpotCompiler compiler = DSpotCompiler.createDSpotCompiler(inputProgram, dependencies);
         inputProgram.setFactory(compiler.getLauncher().getFactory());
 
-        final CtClass<?> classTestToBeRun = inputProgram.getFactory().Class().get(args[1]);
-        final String[] split = args[1].split("\\.");
-        split[split.length - 1] = split[split.length - 1].startsWith("Test") ? split[split.length - 1] + "Ampl" : "Ampl" + split[split.length - 1];
-        final String amplifiedClassTestToBeRunName = Arrays.stream(split).collect(Collectors.joining("."));
-        final CtClass<Object> amplifiedClassTestToBeRun = inputProgram.getFactory().Class().get(amplifiedClassTestToBeRunName);
-        classTestToBeRun.getMethods().stream().filter(AmplificationChecker::isTest).forEach(amplifiedClassTestToBeRun::addMethod);
-
         AutomaticBuilderFactory.getAutomaticBuilder(inputConfiguration)
                 .runPit(inputConfiguration.getInputProgram().getProgramDir(),
-                        amplifiedClassTestToBeRun
+                        Arrays.stream(args[1].split(AmplificationHelper.PATH_SEPARATOR))
+                                .map(inputProgram.getFactory().Class()::get)
+                                .toArray(CtType[]::new)
                 );
 
     }
