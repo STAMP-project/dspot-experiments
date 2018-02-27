@@ -15,7 +15,7 @@ def allsame(x):
 
 
 
-def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/", withAmplifier=True, againstAAmpl=False):
+def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/", withAmplifier=True, againstAAmpl=False, JBSE=False):
     prefix_dataset = "dataset/"
     #mvnHome=""
     #javaHome=""
@@ -29,6 +29,7 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
     --output-path dspot-report \
     --randomSeed 23  "
     amplify += "--amplifiers Ex2Amplifier" if withAmplifier else "--amplifiers None"
+    amplify += " --jbse" if JBSE else ""
     amplify += " --maven-home " + mvnHome if not mvnHome == "" else ""
     opt_test = " --test "
     opt_mutations_original= " --path-pit-result "
@@ -64,15 +65,17 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
     #print "zip -r dspot-report.zip dspot-report"
     #print "to_download=$(curl --upload-file dspot-report.zip " + "https://transfer.sh/" + project + "_dspot-report.zip)"
     #print "echo \"curl ${to_download} -o " + project + "_dspot-report.zip\""
-    print "cp -r dspot-report/* " + "results/february-2018/" + project + ("" if withAmplifier else "_aampl") + "/"
-
-
-
+    output_dir = "results/february-2018/" + project
+    if not withAmplifier:
+        output_dir += "_aampl"
+    elif JBSE:
+        output_dir += "_JBSE"
+    print "cp -r dspot-report/* " + output_dir + "/"
 
 if __name__ == '__main__':
     if len(sys.argv) == 1:
         print "usage is : python src/main/python/mutations_analysis.py <project> (withAmplifier)"
     elif len(sys.argv) > 2:
-        run(project=sys.argv[1], withAmplifier=sys.argv[2] == "withAmplifier", againstAAmpl=sys.argv[3] == "againstAampl")
+        run(project=sys.argv[1], withAmplifier=sys.argv[2] == "withAmplifier", againstAAmpl=sys.argv[3] == "againstAampl", JBSE=sys.argv[4] == "JBSE")
     else:
         run(project=sys.argv[1], withAmplifier=True)
