@@ -30,9 +30,9 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
     --randomSeed 23  "
     amplify += "--amplifiers"
     if withAmplifier == "withAmplifier":
-        amplify += " Ex2amplifier"
+        amplify += " Ex2Amplifier"
     elif withAmplifier == "withAmplifiers":
-        amplify += " Ex2amplifier:StatementAdd"
+        amplify += " Ex2Amplifier:StatementAdd"
     else:
         amplify += " None"
     amplify += " --jbse" if JBSE else ""
