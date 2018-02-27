@@ -67,7 +67,7 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
         if not java_file in blacklist:
             ampl_java_file = '.'.join(java_file.split(".")[:-1]) + "." + build_rate_table.buildAmplTest(java_file.split(".")[-1])
             print amplify + opt_test + java_file + opt_mutations_original + prefix_aampl_mutations_file + \
-                  (ampl_java_file if withAmplifier == "None" else java_file) + "_mutations.csv"
+                  (java_file if withAmplifier == "None" else ampl_java_file) + "_mutations.csv"
             print
     #print "zip -r dspot-report.zip dspot-report"
     #print "to_download=$(curl --upload-file dspot-report.zip " + "https://transfer.sh/" + project + "_dspot-report.zip)"
