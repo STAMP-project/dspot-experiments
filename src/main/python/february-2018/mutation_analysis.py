@@ -66,7 +66,7 @@ def run(project, mvn_home="~/apache-maven-3.3.9/bin/",  java_home="~/jdk1.8.0_12
                     path_to_project += "_aampl"
                 print "cp ${root_exp}/" + prefix_results + path_to_project + "/" + build_rate_table.buildAmplTestPath(java_file) + ".java ${root_exp}/" + \
                       path_to_target + properties["testSrc"] + build_rate_table.buildPackageAsPath(java_file) + "/"
-            print run_pitest + (fullQualifiedNameToAmplifiedName(selected_classes[project][type]) if amplified else selected_classes[project][type])
+            print run_pitest + selected_classes[project][type]
             path_to_pit_results = prefix_dataset + project + "/" + \
                              (properties_rates[project]["subModule"] + "/" if not properties_rates[project][
                                                                                       "subModule"] == "" else "")

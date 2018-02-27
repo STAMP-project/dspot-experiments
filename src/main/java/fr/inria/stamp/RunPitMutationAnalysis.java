@@ -3,10 +3,14 @@ package fr.inria.stamp;
 import fr.inria.diversify.automaticbuilder.AutomaticBuilder;
 import fr.inria.diversify.automaticbuilder.AutomaticBuilderFactory;
 import fr.inria.diversify.dspot.support.DSpotCompiler;
+import fr.inria.diversify.utils.AmplificationChecker;
 import fr.inria.diversify.utils.Initializer;
 import fr.inria.diversify.utils.sosiefier.InputConfiguration;
 import fr.inria.diversify.utils.sosiefier.InputProgram;
 import spoon.reflect.declaration.CtClass;
+
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 
 /**
@@ -34,9 +38,15 @@ public class RunPitMutationAnalysis {
         inputProgram.setFactory(compiler.getLauncher().getFactory());
 
         final CtClass<?> classTestToBeRun = inputProgram.getFactory().Class().get(args[1]);
+        final String[] split = args[1].split("\\.");
+        split[split.length - 1] = split[split.length - 1].startsWith("Test") ? split[split.length - 1] + "Ampl" : "Ampl" + split[split.length - 1];
+        final String amplifiedClassTestToBeRunName = Arrays.stream(split).collect(Collectors.joining("."));
+        final CtClass<Object> amplifiedClassTestToBeRun = inputProgram.getFactory().Class().get(amplifiedClassTestToBeRunName);
+        classTestToBeRun.getMethods().stream().filter(AmplificationChecker::isTest).forEach(amplifiedClassTestToBeRun::addMethod);
+
         AutomaticBuilderFactory.getAutomaticBuilder(inputConfiguration)
                 .runPit(inputConfiguration.getInputProgram().getProgramDir(),
-                        classTestToBeRun
+                        amplifiedClassTestToBeRun
                 );
 
     }
