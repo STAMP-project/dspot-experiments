@@ -15,7 +15,7 @@ def allsame(x):
 
 
 
-def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/", withAmplifier=True, againstAAmpl=False, JBSE=False):
+def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/", withAmplifier="withAmplifier", JBSE=False):
     prefix_dataset = "dataset/"
     #mvnHome=""
     #javaHome=""
@@ -28,7 +28,13 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
     --verbose \
     --output-path dspot-report \
     --randomSeed 23  "
-    amplify += "--amplifiers Ex2Amplifier" if withAmplifier else "--amplifiers None"
+    amplify += "--amplifiers"
+    if withAmplifier == "withAmplifier":
+        amplify += " Ex2amplifier"
+    elif withAmplifier == "withAmplifiers":
+        amplify += " Ex2amplifier:StatementAdd"
+    else:
+        amplify += " None"
     amplify += " --jbse" if JBSE else ""
     amplify += " --maven-home " + mvnHome if not mvnHome == "" else ""
     opt_test = " --test "
@@ -44,7 +50,7 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
     print mvnHome + "bin/mvn install -DskipTests"
     print "cd ${root_exp}"
 
-    prefix_aampl_mutations_file = "results/february-2018/" + project + "_aampl/" if againstAAmpl else "original/october-2017/" + project + "/"
+    prefix_aampl_mutations_file = "results/february-2018/" + project + "_aampl/" if withAmplifier == "None" else "original/october-2017/" + project + "/"
 
     with open("dataset/properties_rates.json") as data_file:
         properties_rates = json.load(data_file)
@@ -60,22 +66,24 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
         java_file = selected_classes[project][type]
         if not java_file in blacklist:
             ampl_java_file = '.'.join(java_file.split(".")[:-1]) + "." + build_rate_table.buildAmplTest(java_file.split(".")[-1])
-            print amplify + opt_test + java_file + opt_mutations_original + prefix_aampl_mutations_file + (ampl_java_file if againstAAmpl else java_file) + "_mutations.csv"
+            print amplify + opt_test + java_file + opt_mutations_original + prefix_aampl_mutations_file + \
+                  (ampl_java_file if withAmplifier == "None" else java_file) + "_mutations.csv"
             print
     #print "zip -r dspot-report.zip dspot-report"
     #print "to_download=$(curl --upload-file dspot-report.zip " + "https://transfer.sh/" + project + "_dspot-report.zip)"
     #print "echo \"curl ${to_download} -o " + project + "_dspot-report.zip\""
     output_dir = "results/february-2018/" + project
-    if not withAmplifier:
+    if withAmplifier == "withAmplifiers":
+        output_dir += "Ex2amplifier_StatementAdd"
+    elif withAmplifier == "None":
         output_dir += "_aampl"
-    elif JBSE:
-        output_dir += "_JBSE"
+
     print "cp -r dspot-report/* " + output_dir + "/"
 
 if __name__ == '__main__':
     if len(sys.argv) == 1:
         print "usage is : python src/main/python/mutations_analysis.py <project> (withAmplifier)"
     elif len(sys.argv) > 2:
-        run(project=sys.argv[1], withAmplifier=sys.argv[2] == "withAmplifier", againstAAmpl=sys.argv[3] == "againstAampl", JBSE=sys.argv[4] == "JBSE")
+        run(project=sys.argv[1], withAmplifier=sys.argv[2], JBSE=sys.argv[3] == "JBSE")
     else:
-        run(project=sys.argv[1], withAmplifier=True)
+        run(project=sys.argv[1])
