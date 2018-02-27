@@ -50,7 +50,7 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
     print mvnHome + "bin/mvn install -DskipTests"
     print "cd ${root_exp}"
 
-    prefix_aampl_mutations_file = "results/february-2018/" + project + "_aampl/" if withAmplifier == "None" else "original/october-2017/" + project + "/"
+    prefix_aampl_mutations_file = "results/february-2018/" + project + "_aampl/" if not withAmplifier == "None" else "original/october-2017/" + project + "/"
 
     with open("dataset/properties_rates.json") as data_file:
         properties_rates = json.load(data_file)
