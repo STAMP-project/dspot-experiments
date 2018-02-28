@@ -24,7 +24,7 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
     fr.inria.stamp.Main \
     --path-to-properties src/main/resources/${project}.properties \
     --iteration 3 " + \
-    "--test-criterion PitMutantScoreSelector " if selector == "mutant" else "--test-criterion JacocoCoverageSelector " + \
+    "--test-criterion " + ("PitMutantScoreSelector " if selector == "mutation" else "JacocoCoverageSelector ") + \
     "--verbose \
     --output-path dspot-report \
     --randomSeed 23  "
@@ -67,7 +67,7 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
         if not java_file in blacklist:
             ampl_java_file = '.'.join(java_file.split(".")[:-1]) + "." + build_rate_table.buildAmplTest(java_file.split(".")[-1])
             mutation_path_file = (java_file if not againstAampl else ampl_java_file) + "_mutations.csv"
-            print amplify + opt_test + java_file + opt_mutations_original + prefix_aampl_mutations_file + mutation_path_file
+            print amplify + opt_test + java_file + (opt_mutations_original + prefix_aampl_mutations_file + mutation_path_file if selector == "mutation" else "")
             print
     #print "zip -r dspot-report.zip dspot-report"
     #print "to_download=$(curl --upload-file dspot-report.zip " + "https://transfer.sh/" + project + "_dspot-report.zip)"
@@ -77,6 +77,8 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
         output_dir += "Ex2amplifier_StatementAdd"
     elif withAmplifier == "None":
         output_dir += "_aampl"
+    elif selector == "coverage":
+        output_dir += "_coverage"
 
     print "cp -r dspot-report/* " + output_dir + "/"
 
