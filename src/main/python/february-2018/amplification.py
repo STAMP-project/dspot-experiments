@@ -15,7 +15,7 @@ def allsame(x):
 
 
 
-def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/", withAmplifier="withAmplifier", JBSE=False):
+def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/", withAmplifier="withAmplifier", JBSE=False, selector="mutant", againstAampl=True):
     prefix_dataset = "dataset/"
     #mvnHome=""
     #javaHome=""
@@ -23,9 +23,9 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
     ../Ex2Amplifier/target/exhaustive-explorer-amplifier-1.0.0.jar:../Ex2Amplifier/dspot/dspot/target/dspot-1.0.6-SNAPSHOT-jar-with-dependencies.jar \
     fr.inria.stamp.Main \
     --path-to-properties src/main/resources/${project}.properties \
-    --iteration 3 \
-    --test-criterion PitMutantScoreSelector \
-    --verbose \
+    --iteration 3 " + \
+    "--test-criterion PitMutantScoreSelector " if selector == "mutant" else "--test-criterion JacocoCoverageSelector " + \
+    "--verbose \
     --output-path dspot-report \
     --randomSeed 23  "
     amplify += "--amplifiers"
@@ -50,7 +50,7 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
     print mvnHome + "bin/mvn install -DskipTests"
     print "cd ${root_exp}"
 
-    prefix_aampl_mutations_file = "results/february-2018/" + project + "_aampl/" if not withAmplifier == "None" else "original/october-2017/" + project + "/"
+    prefix_aampl_mutations_file = "results/february-2018/" + project + "_aampl/" if againstAampl else "original/october-2017/" + project + "/"
 
     with open("dataset/properties_rates.json") as data_file:
         properties_rates = json.load(data_file)
@@ -66,8 +66,8 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
         java_file = selected_classes[project][type]
         if not java_file in blacklist:
             ampl_java_file = '.'.join(java_file.split(".")[:-1]) + "." + build_rate_table.buildAmplTest(java_file.split(".")[-1])
-            print amplify + opt_test + java_file + opt_mutations_original + prefix_aampl_mutations_file + \
-                  (java_file if withAmplifier == "None" else ampl_java_file) + "_mutations.csv"
+            mutation_path_file = (java_file if not againstAampl else ampl_java_file) + "_mutations.csv"
+            print amplify + opt_test + java_file + opt_mutations_original + prefix_aampl_mutations_file + mutation_path_file
             print
     #print "zip -r dspot-report.zip dspot-report"
     #print "to_download=$(curl --upload-file dspot-report.zip " + "https://transfer.sh/" + project + "_dspot-report.zip)"
@@ -81,9 +81,24 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
     print "cp -r dspot-report/* " + output_dir + "/"
 
 if __name__ == '__main__':
+    withAmplifier = "withAmplifier"
+    mode = "CATG"
+    selector = "mutation"
+    againstAampl = False
+    for i in range(0, len(sys.argv)):
+        if sys.argv[i] == "withAmplifiers":
+            withAmplifier = "withAmplifiers"
+        elif sys.argv[i] == "JBSE":
+            mode = "JBSE"
+        elif sys.argv[i] == "coverage":
+            selector = "coverage"
+        elif sys.argv[i] == "aampl":
+            againstAampl = True
+
+
     if len(sys.argv) == 1:
         print "usage is : python src/main/python/mutations_analysis.py <project> (withAmplifier)"
     elif len(sys.argv) > 2:
-        run(project=sys.argv[1], withAmplifier=sys.argv[2], JBSE=sys.argv[3] == "JBSE")
+        run(project=sys.argv[1], withAmplifier=withAmplifier, JBSE=mode == "JBSE", selector=selector, againstAampl=againstAampl)
     else:
         run(project=sys.argv[1])
