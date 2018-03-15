@@ -1,4 +1,4 @@
-# DSpot Visualization Data
+# DSpot Visualization Data
 
 This folder contains data obtained with the instrumented version of **DSpot**.
 
