@@ -1,7 +1,7 @@
 package com.squareup.javapoet;
 
 
-import java.util.Locale;
+import java.util.regex.PatternSyntaxException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,7 +16,6 @@ public final class AmplNameAllocatorTest {
             nameAllocator.newName("bar", 1);
         } catch (IllegalArgumentException expected) {
         }
-        Assert.assertEquals("foo", o_tagReuseForbidden__3);
     }
 
     @Test(timeout = 10000)
@@ -51,13 +50,13 @@ public final class AmplNameAllocatorTest {
     }
 
     @Test(timeout = 10000)
-    public void characterMappingInvalidStartButValidPart_sd46litString236() throws Exception {
-        Assert.assertEquals("_1ab", new NameAllocator().newName("_1ab", new Object()));
+    public void characterMappingInvalidStartButValidPart_sd45litString201() throws Exception {
+        Assert.assertEquals("bar", new NameAllocator().newName("bar"));
     }
 
     @Test(timeout = 10000)
-    public void characterMappingInvalidStartButValidPart_sd45litString211() throws Exception {
-        Assert.assertEquals("", new NameAllocator().newName(""));
+    public void characterMappingInvalidStartButValidPart_sd45litString212() throws Exception {
+        Assert.assertEquals("public_", new NameAllocator().newName("public"));
     }
 
     @Test(timeout = 10000)
@@ -71,6 +70,16 @@ public final class AmplNameAllocatorTest {
             org.junit.Assert.fail("characterMappingInvalidStartButValidPart_sd46_add248 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException eee) {
         }
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingInvalidStartButValidPart_sd45litString211() throws Exception {
+        Assert.assertEquals("_1ab", new NameAllocator().newName("_1ab"));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingInvalidStartButValidPart_sd45litString210() throws Exception {
+        Assert.assertEquals("_1ab", new NameAllocator().newName("1ab"));
     }
 
     @Test(timeout = 10000)
@@ -88,50 +97,22 @@ public final class AmplNameAllocatorTest {
     }
 
     @Test(timeout = 10000)
-    public void characterMappingInvalidStartButValidPart_sd46_sd247() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_characterMappingInvalidStartButValidPart_sd46__6 = nameAllocator.newName("X(r!Fs2l>UgIvC=TU&zg", new Object());
-        Assert.assertEquals("X_r_Fs2l_UgIvC_TU_zg", o_characterMappingInvalidStartButValidPart_sd46__6);
-        Assert.assertEquals("__Bob5_83OI__k_a8_J8", nameAllocator.newName(">[Bob5_83OI`-k-a8(J8", new Object()));
-        Assert.assertEquals("X_r_Fs2l_UgIvC_TU_zg", o_characterMappingInvalidStartButValidPart_sd46__6);
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingInvalidStartButValidPart_sd46litString235() throws Exception {
-        Assert.assertEquals("_1ab", new NameAllocator().newName("1ab", new Object()));
-    }
-
-    @Test(timeout = 10000)
     public void characterMappingInvalidStartButValidPart_sd45_add223() throws Exception {
         String __DSPOT_suggestion_1 = "[{$QV5:Wz2[|+mr6#-Vt";
         NameAllocator nameAllocator = new NameAllocator();
         String o_characterMappingInvalidStartButValidPart_sd45_add223__4 = nameAllocator.newName(__DSPOT_suggestion_1);
         Assert.assertEquals("__$QV5_Wz2___mr6__Vt", o_characterMappingInvalidStartButValidPart_sd45_add223__4);
         Assert.assertEquals("__$QV5_Wz2___mr6__Vt_", nameAllocator.newName(__DSPOT_suggestion_1));
-        Assert.assertEquals("__$QV5_Wz2___mr6__Vt", o_characterMappingInvalidStartButValidPart_sd45_add223__4);
     }
 
     @Test(timeout = 10000)
-    public void characterMappingInvalidStartButValidPart_sd45_sd219() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_characterMappingInvalidStartButValidPart_sd45__4 = nameAllocator.newName("[{$QV5:Wz2[|+mr6#-Vt");
-        Assert.assertEquals("__$QV5_Wz2___mr6__Vt", o_characterMappingInvalidStartButValidPart_sd45__4);
-        nameAllocator.clone();
-        Assert.assertEquals("__$QV5_Wz2___mr6__Vt", o_characterMappingInvalidStartButValidPart_sd45__4);
+    public void characterMappingInvalidStartButValidPart_sd46litString239() throws Exception {
+        Assert.assertEquals("tag_1_cannot_be_used_for_both__foo__and__bar_", new NameAllocator().newName("tag 1 cannot be used for both 'foo' and 'bar'", new Object()));
     }
 
     @Test(timeout = 10000)
-    public void characterMappingInvalidStartButValidPart_sd45litString214() throws Exception {
-        Assert.assertEquals("public_", new NameAllocator().newName("public"));
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingInvalidStartButValidPart_sd45_sd222litString1404() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_characterMappingInvalidStartButValidPart_sd45__4 = nameAllocator.newName("public");
-        Assert.assertEquals("public_", o_characterMappingInvalidStartButValidPart_sd45__4);
-        Assert.assertEquals("k_201yCi_OdwpauR_h1_", nameAllocator.newName("k*201yCi*OdwpauR%h1,", new Object()));
-        Assert.assertEquals("public_", o_characterMappingInvalidStartButValidPart_sd45__4);
+    public void characterMappingInvalidStartButValidPart_sd46litString242() throws Exception {
+        Assert.assertEquals("_ab", new NameAllocator().newName("&ab", new Object()));
     }
 
     @Test(timeout = 10000)
@@ -143,8 +124,22 @@ public final class AmplNameAllocatorTest {
         String o_characterMappingInvalidStartButValidPart_sd46_sd246_add2071__11 = nameAllocator.newName(__DSPOT_suggestion_9);
         Assert.assertEquals("_YSe__xHdm7__ToX_D7x", o_characterMappingInvalidStartButValidPart_sd46_sd246_add2071__11);
         Assert.assertEquals("_YSe__xHdm7__ToX_D7x_", nameAllocator.newName(__DSPOT_suggestion_9));
-        Assert.assertEquals("_YSe__xHdm7__ToX_D7x", o_characterMappingInvalidStartButValidPart_sd46_sd246_add2071__11);
-        Assert.assertEquals("X_r_Fs2l_UgIvC_TU_zg", o_characterMappingInvalidStartButValidPart_sd46__6);
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingInvalidStartButValidPart_sd45_sd222_sd1412_failAssert4() throws Exception {
+        try {
+            Object __DSPOT_tag_185 = new Object();
+            Object __DSPOT_tag_7 = new Object();
+            String __DSPOT_suggestion_6 = "k*201yCi*OdwpauR%h1,";
+            String __DSPOT_suggestion_1 = "[{$QV5:Wz2[|+mr6#-Vt";
+            NameAllocator nameAllocator = new NameAllocator();
+            String o_characterMappingInvalidStartButValidPart_sd45__4 = nameAllocator.newName("[{$QV5:Wz2[|+mr6#-Vt");
+            String o_characterMappingInvalidStartButValidPart_sd45_sd222__11 = nameAllocator.newName("k*201yCi*OdwpauR%h1,", new Object());
+            nameAllocator.get(new Object());
+            org.junit.Assert.fail("characterMappingInvalidStartButValidPart_sd45_sd222_sd1412 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException eee) {
+        }
     }
 
     @Test(timeout = 10000)
@@ -152,55 +147,23 @@ public final class AmplNameAllocatorTest {
         NameAllocator nameAllocator = new NameAllocator();
         String o_characterMappingInvalidStartButValidPart_sd46__6 = nameAllocator.newName("X(r!Fs2l>UgIvC=TU&zg", new Object());
         Assert.assertEquals("X_r_Fs2l_UgIvC_TU_zg", o_characterMappingInvalidStartButValidPart_sd46__6);
-        Assert.assertEquals("I_2sN3u__h__LLuBuAr_", nameAllocator.clone().newName("I-2sN3u/#h+}LLuBuAr^", new Object()));
-        Assert.assertEquals("X_r_Fs2l_UgIvC_TU_zg", o_characterMappingInvalidStartButValidPart_sd46__6);
+        Assert.assertEquals("N3u__h__LLuBuAr_pT_v", nameAllocator.clone().newName("N3u/#h+}LLuBuAr^pT%v", new Object()));
     }
 
     @Test(timeout = 10000)
-    public void characterMappingInvalidStartButValidPart_sd45_sd222litString1374() throws Exception {
+    public void characterMappingInvalidStartButValidPart_sd46_sd246litString2041() throws Exception {
         NameAllocator nameAllocator = new NameAllocator();
-        String o_characterMappingInvalidStartButValidPart_sd45__4 = nameAllocator.newName("[{$QV5:Wz2[|+mr6#-Vt");
-        Assert.assertEquals("__$QV5_Wz2___mr6__Vt", o_characterMappingInvalidStartButValidPart_sd45__4);
-        Assert.assertEquals("tag_1_cannot_be_used_for_both__foo__and__bar_", nameAllocator.newName("tag 1 cannot be used for both 'foo' and 'bar'", new Object()));
-        Assert.assertEquals("__$QV5_Wz2___mr6__Vt", o_characterMappingInvalidStartButValidPart_sd45__4);
+        String o_characterMappingInvalidStartButValidPart_sd46__6 = nameAllocator.newName("X(r!Fs2l>UgIvC=TU&zg", new Object());
+        Assert.assertEquals("X_r_Fs2l_UgIvC_TU_zg", o_characterMappingInvalidStartButValidPart_sd46__6);
+        Assert.assertEquals("_YSe__xHdm7__To_D7x", nameAllocator.newName(">YSe|%xHdm7#=To)D7x"));
     }
 
     @Test(timeout = 10000)
-    public void characterMappingInvalidStartButValidPart_sd46_sd245_failAssert1_sd3061() throws Exception {
-        try {
-            int __DSPOT_arg3_502 = 836151974;
-            byte[] __DSPOT_arg2_501 = new byte[]{ 70 };
-            int __DSPOT_arg1_500 = 264504726;
-            int __DSPOT_arg0_499 = 322386401;
-            Object __DSPOT_tag_8 = new Object();
-            Object __DSPOT_tag_3 = new Object();
-            String __DSPOT_suggestion_2 = "X(r!Fs2l>UgIvC=TU&zg";
-            NameAllocator nameAllocator = new NameAllocator();
-            String o_characterMappingInvalidStartButValidPart_sd46__6 = nameAllocator.newName("X(r!Fs2l>UgIvC=TU&zg", new Object());
-            Assert.assertEquals("X_r_Fs2l_UgIvC_TU_zg", nameAllocator.newName("X(r!Fs2l>UgIvC=TU&zg", new Object()));
-            String __DSPOT_invoc_14 = nameAllocator.get(new Object());
-            org.junit.Assert.fail("characterMappingInvalidStartButValidPart_sd46_sd245 should have thrown IllegalArgumentException");
-            nameAllocator.get(new Object()).getBytes(322386401, 264504726, new byte[]{ 70 }, 836151974);
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingInvalidStartButValidPart_sd46_sd247litString2106() throws Exception {
+    public void characterMappingInvalidStartButValidPart_sd46_sd247litString2101() throws Exception {
         NameAllocator nameAllocator = new NameAllocator();
         String o_characterMappingInvalidStartButValidPart_sd46__6 = nameAllocator.newName("1ab", new Object());
         Assert.assertEquals("_1ab", o_characterMappingInvalidStartButValidPart_sd46__6);
         Assert.assertEquals("__Bob5_83OI__k_a8_J8", nameAllocator.newName(">[Bob5_83OI`-k-a8(J8", new Object()));
-        Assert.assertEquals("_1ab", o_characterMappingInvalidStartButValidPart_sd46__6);
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingInvalidStartButValidPart_sd46_sd247litString2105() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_characterMappingInvalidStartButValidPart_sd46__6 = nameAllocator.newName("", new Object());
-        Assert.assertEquals("", o_characterMappingInvalidStartButValidPart_sd46__6);
-        Assert.assertEquals("__Bob5_83OI__k_a8_J8", nameAllocator.newName(">[Bob5_83OI`-k-a8(J8", new Object()));
-        Assert.assertEquals("", o_characterMappingInvalidStartButValidPart_sd46__6);
     }
 
     @Test(timeout = 10000)
@@ -219,1477 +182,1388 @@ public final class AmplNameAllocatorTest {
     }
 
     @Test(timeout = 10000)
-    public void characterMappingInvalidStartButValidPart_sd46_sd246litString2038() throws Exception {
+    public void characterMappingInvalidStartButValidPart_sd46_sd246litString2028() throws Exception {
         NameAllocator nameAllocator = new NameAllocator();
         String o_characterMappingInvalidStartButValidPart_sd46__6 = nameAllocator.newName("X(r!Fs2l>UgIvC=TU&zg", new Object());
         Assert.assertEquals("X_r_Fs2l_UgIvC_TU_zg", o_characterMappingInvalidStartButValidPart_sd46__6);
-        Assert.assertEquals("a_b", nameAllocator.newName("a_b"));
-        Assert.assertEquals("X_r_Fs2l_UgIvC_TU_zg", o_characterMappingInvalidStartButValidPart_sd46__6);
+        Assert.assertEquals("public_", nameAllocator.newName("public"));
     }
 
     @Test(timeout = 10000)
-    public void characterMappingInvalidStartButValidPart_sd46_sd247litString2107() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_characterMappingInvalidStartButValidPart_sd46__6 = nameAllocator.newName("_1ab", new Object());
-        Assert.assertEquals("_1ab", o_characterMappingInvalidStartButValidPart_sd46__6);
-        Assert.assertEquals("__Bob5_83OI__k_a8_J8", nameAllocator.newName(">[Bob5_83OI`-k-a8(J8", new Object()));
-        Assert.assertEquals("_1ab", o_characterMappingInvalidStartButValidPart_sd46__6);
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingInvalidStartIsInvalidPart_sd3988_failAssert0() throws Exception {
+    public void characterMappingInvalidStartIsInvalidPart_sd3989_failAssert0() throws Exception {
         try {
             Object __DSPOT_tag_758 = new Object();
             NameAllocator nameAllocator = new NameAllocator();
             new NameAllocator().get(new Object());
-            org.junit.Assert.fail("characterMappingInvalidStartIsInvalidPart_sd3988 should have thrown IllegalArgumentException");
+            org.junit.Assert.fail("characterMappingInvalidStartIsInvalidPart_sd3989 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException eee) {
         }
     }
 
     @Test(timeout = 10000)
-    public void characterMappingInvalidStartIsInvalidPart_add3992() throws Exception {
-        Assert.assertEquals("_ab", new NameAllocator().newName("&ab", 1));
+    public void characterMappingInvalidStartIsInvalidPart_sd3991() throws Exception {
+        Assert.assertEquals("___Rs_TQeQ__7G_rHE0Y", new NameAllocator().newName("*=]Rs@TQeQ<=7G/rHE0Y", new Object()));
     }
 
     @Test(timeout = 10000)
     public void characterMappingInvalidStartIsInvalidPart_sd3990() throws Exception {
-        Assert.assertEquals("gAzGTF_K_aA_n_M_WL_p", new NameAllocator().newName("gAzGTF;K^aA[n|M]WL!p", new Object()));
+        Assert.assertEquals("_a_yvGr_Sm_fld0_x_qm", new NameAllocator().newName("{a=yvGr@Sm?fld0|x(qm"));
     }
 
     @Test(timeout = 10000)
-    public void characterMappingInvalidStartIsInvalidPart_sd3989() throws Exception {
-        Assert.assertEquals("_8yrwa_pGW_Cd__LVcx9V", new NameAllocator().newName("8yrwa/pGW(Cd|#LVcx9V"));
+    public void characterMappingInvalidStartIsInvalidPart_sd3990litString4151() throws Exception {
+        Assert.assertEquals("_KA__P_SF_", new NameAllocator().newName("/KA@(P(SF)"));
     }
 
     @Test(timeout = 10000)
-    public void characterMappingInvalidStartIsInvalidPart_sd3989litString4148() throws Exception {
-        Assert.assertEquals("a_b", new NameAllocator().newName("a-b"));
+    public void characterMappingInvalidStartIsInvalidPart_sd3990litString4161() throws Exception {
+        Assert.assertEquals("public_", new NameAllocator().newName("public"));
     }
 
     @Test(timeout = 10000)
-    public void characterMappingInvalidStartIsInvalidPart_sd3990litString4173() throws Exception {
-        Assert.assertEquals("foo_", new NameAllocator().newName("foo_", new Object()));
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingInvalidStartIsInvalidPart_sd3990litString4183() throws Exception {
-        Assert.assertEquals("_1ab", new NameAllocator().newName("_1ab", new Object()));
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingInvalidStartIsInvalidPart_sd3990_sd4189_failAssert1() throws Exception {
-        try {
-            Object __DSPOT_tag_766 = new Object();
-            Object __DSPOT_tag_761 = new Object();
-            String __DSPOT_suggestion_760 = "gAzGTF;K^aA[n|M]WL!p";
-            NameAllocator nameAllocator = new NameAllocator();
-            String o_characterMappingInvalidStartIsInvalidPart_sd3990__6 = nameAllocator.newName("gAzGTF;K^aA[n|M]WL!p", new Object());
-            nameAllocator.get(new Object());
-            org.junit.Assert.fail("characterMappingInvalidStartIsInvalidPart_sd3990_sd4189 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingInvalidStartIsInvalidPart_sd3990litString4175() throws Exception {
-        Assert.assertEquals("public_", new NameAllocator().newName("public", new Object()));
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingInvalidStartIsInvalidPart_sd3990litString4186() throws Exception {
-        Assert.assertEquals("_ab", new NameAllocator().newName("&ab", new Object()));
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingInvalidStartIsInvalidPart_sd3989litString4160() throws Exception {
-        Assert.assertEquals("_8yrwa_pGW_Cdz_LVcx9V", new NameAllocator().newName("8yrwa/pGW(Cdz#LVcx9V"));
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingInvalidStartIsInvalidPart_sd3990_add4192_failAssert2() throws Exception {
-        try {
-            Object __DSPOT_tag_761 = new Object();
-            String __DSPOT_suggestion_760 = "gAzGTF;K^aA[n|M]WL!p";
-            NameAllocator nameAllocator = new NameAllocator();
-            nameAllocator.newName(__DSPOT_suggestion_760, __DSPOT_tag_761);
-            String o_characterMappingInvalidStartIsInvalidPart_sd3990__6 = nameAllocator.newName(__DSPOT_suggestion_760, __DSPOT_tag_761);
-            org.junit.Assert.fail("characterMappingInvalidStartIsInvalidPart_sd3990_add4192 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingInvalidStartIsInvalidPart_sd3989_add4167() throws Exception {
-        String __DSPOT_suggestion_759 = "8yrwa/pGW(Cd|#LVcx9V";
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_characterMappingInvalidStartIsInvalidPart_sd3989_add4167__4 = nameAllocator.newName(__DSPOT_suggestion_759);
-        Assert.assertEquals("_8yrwa_pGW_Cd__LVcx9V", o_characterMappingInvalidStartIsInvalidPart_sd3989_add4167__4);
-        Assert.assertEquals("_8yrwa_pGW_Cd__LVcx9V_", nameAllocator.newName(__DSPOT_suggestion_759));
-        Assert.assertEquals("_8yrwa_pGW_Cd__LVcx9V", o_characterMappingInvalidStartIsInvalidPart_sd3989_add4167__4);
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingInvalidStartIsInvalidPart_sd3990_sd4189_failAssert1_sd6989() throws Exception {
-        try {
-            Object __DSPOT_tag_1243 = new Object();
-            String __DSPOT_suggestion_1242 = "w=ic8:KL-L74r1@oKmx5";
-            Object __DSPOT_tag_766 = new Object();
-            Object __DSPOT_tag_761 = new Object();
-            String __DSPOT_suggestion_760 = "gAzGTF;K^aA[n|M]WL!p";
-            NameAllocator nameAllocator = new NameAllocator();
-            String o_characterMappingInvalidStartIsInvalidPart_sd3990__6 = nameAllocator.newName("gAzGTF;K^aA[n|M]WL!p", new Object());
-            Assert.assertEquals("gAzGTF_K_aA_n_M_WL_p", nameAllocator.newName("gAzGTF;K^aA[n|M]WL!p", new Object()));
-            nameAllocator.get(new Object());
-            org.junit.Assert.fail("characterMappingInvalidStartIsInvalidPart_sd3990_sd4189 should have thrown IllegalArgumentException");
-            nameAllocator.newName("w=ic8:KL-L74r1@oKmx5", new Object());
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingInvalidStartIsInvalidPart_sd3990_sd4188_sd5963() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_characterMappingInvalidStartIsInvalidPart_sd3990__6 = nameAllocator.newName("gAzGTF;K^aA[n|M]WL!p", new Object());
-        Assert.assertEquals("gAzGTF_K_aA_n_M_WL_p", o_characterMappingInvalidStartIsInvalidPart_sd3990__6);
-        Assert.assertEquals("_8ENt_qB9_4PNg__p__5_", nameAllocator.clone().newName("8ENt*qB9^4PNg#%p_}5^", new Object()));
-        Assert.assertEquals("gAzGTF_K_aA_n_M_WL_p", o_characterMappingInvalidStartIsInvalidPart_sd3990__6);
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingInvalidStartIsInvalidPart_sd3990_sd4191litString6024() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_characterMappingInvalidStartIsInvalidPart_sd3990__6 = nameAllocator.newName("gAzGTF;K^aA[n|M]WL!p", new Object());
-        Assert.assertEquals("gAzGTF_K_aA_n_M_WL_p", o_characterMappingInvalidStartIsInvalidPart_sd3990__6);
-        Assert.assertEquals("_1ab", nameAllocator.newName("1ab", new Object()));
-        Assert.assertEquals("gAzGTF_K_aA_n_M_WL_p", o_characterMappingInvalidStartIsInvalidPart_sd3990__6);
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingInvalidStartIsInvalidPart_sd3989_sd4166litString5330() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_characterMappingInvalidStartIsInvalidPart_sd3989__4 = nameAllocator.newName("8yrwa/pGW(Cd|#LVcx9V");
-        Assert.assertEquals("_8yrwa_pGW_Cd__LVcx9V", o_characterMappingInvalidStartIsInvalidPart_sd3989__4);
-        Assert.assertEquals("_ab", nameAllocator.newName("&ab", new Object()));
-        Assert.assertEquals("_8yrwa_pGW_Cd__LVcx9V", o_characterMappingInvalidStartIsInvalidPart_sd3989__4);
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingInvalidStartIsInvalidPart_sd3990_sd4190litString5998() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_characterMappingInvalidStartIsInvalidPart_sd3990__6 = nameAllocator.newName("public_", new Object());
-        Assert.assertEquals("public_", o_characterMappingInvalidStartIsInvalidPart_sd3990__6);
-        Assert.assertEquals("AJ_2f_OJ_sljavE08z_k", nameAllocator.newName("AJ/2f&OJ[sljavE08z|k"));
-        Assert.assertEquals("public_", o_characterMappingInvalidStartIsInvalidPart_sd3990__6);
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingInvalidStartIsInvalidPart_sd3990_sd4190litString5982() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_characterMappingInvalidStartIsInvalidPart_sd3990__6 = nameAllocator.newName("gAzGTF;K^aA[n|M]WL!p", new Object());
-        Assert.assertEquals("gAzGTF_K_aA_n_M_WL_p", o_characterMappingInvalidStartIsInvalidPart_sd3990__6);
-        Assert.assertEquals("public_", nameAllocator.newName("public_"));
-        Assert.assertEquals("gAzGTF_K_aA_n_M_WL_p", o_characterMappingInvalidStartIsInvalidPart_sd3990__6);
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingInvalidStartIsInvalidPart_sd3990_sd4190litString5985() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_characterMappingInvalidStartIsInvalidPart_sd3990__6 = nameAllocator.newName("gAzGTF;K^aA[n|M]WL!p", new Object());
-        Assert.assertEquals("gAzGTF_K_aA_n_M_WL_p", o_characterMappingInvalidStartIsInvalidPart_sd3990__6);
-        Assert.assertEquals("public_", nameAllocator.newName("public"));
-        Assert.assertEquals("gAzGTF_K_aA_n_M_WL_p", o_characterMappingInvalidStartIsInvalidPart_sd3990__6);
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingInvalidStartIsInvalidPart_sd3990_sd4190_add6011_failAssert6() throws Exception {
-        try {
-            String __DSPOT_suggestion_767 = "AJ/2f&OJ[sljavE08z|k";
-            Object __DSPOT_tag_761 = new Object();
-            String __DSPOT_suggestion_760 = "gAzGTF;K^aA[n|M]WL!p";
-            NameAllocator nameAllocator = new NameAllocator();
-            nameAllocator.newName(__DSPOT_suggestion_760, __DSPOT_tag_761);
-            String o_characterMappingInvalidStartIsInvalidPart_sd3990__6 = nameAllocator.newName(__DSPOT_suggestion_760, __DSPOT_tag_761);
-            String o_characterMappingInvalidStartIsInvalidPart_sd3990_sd4190__11 = nameAllocator.newName("AJ/2f&OJ[sljavE08z|k");
-            org.junit.Assert.fail("characterMappingInvalidStartIsInvalidPart_sd3990_sd4190_add6011 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingInvalidStartIsInvalidPart_sd3990_sd4190_add6012() throws Exception {
-        String __DSPOT_suggestion_767 = "AJ/2f&OJ[sljavE08z|k";
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_characterMappingInvalidStartIsInvalidPart_sd3990__6 = nameAllocator.newName("gAzGTF;K^aA[n|M]WL!p", new Object());
-        Assert.assertEquals("gAzGTF_K_aA_n_M_WL_p", o_characterMappingInvalidStartIsInvalidPart_sd3990__6);
-        String o_characterMappingInvalidStartIsInvalidPart_sd3990_sd4190_add6012__11 = nameAllocator.newName(__DSPOT_suggestion_767);
-        Assert.assertEquals("AJ_2f_OJ_sljavE08z_k", o_characterMappingInvalidStartIsInvalidPart_sd3990_sd4190_add6012__11);
-        Assert.assertEquals("AJ_2f_OJ_sljavE08z_k_", nameAllocator.newName(__DSPOT_suggestion_767));
-        Assert.assertEquals("gAzGTF_K_aA_n_M_WL_p", o_characterMappingInvalidStartIsInvalidPart_sd3990__6);
-        Assert.assertEquals("AJ_2f_OJ_sljavE08z_k", o_characterMappingInvalidStartIsInvalidPart_sd3990_sd4190_add6012__11);
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSubstitute_sd7930_failAssert0() throws Exception {
-        try {
-            Object __DSPOT_tag_1516 = new Object();
-            NameAllocator nameAllocator = new NameAllocator();
-            new NameAllocator().get(new Object());
-            org.junit.Assert.fail("characterMappingSubstitute_sd7930 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSubstitute_sd7931() throws Exception {
-        Assert.assertEquals("_Zz_PAfs_apO_L4y1__c", new NameAllocator().newName("[Zz]PAfs[apO+L4y1=+c"));
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSubstitute_sd7932() throws Exception {
-        Assert.assertEquals("Bv9F_d_C__mA___dN__X", new NameAllocator().newName("Bv9F#d.C@!mA *{dN}*X", new Object()));
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSubstitute_sd7932_add8134_failAssert2() throws Exception {
-        try {
-            Object __DSPOT_tag_1519 = new Object();
-            String __DSPOT_suggestion_1518 = "Bv9F#d.C@!mA *{dN}*X";
-            NameAllocator nameAllocator = new NameAllocator();
-            nameAllocator.newName(__DSPOT_suggestion_1518, __DSPOT_tag_1519);
-            String o_characterMappingSubstitute_sd7932__6 = nameAllocator.newName(__DSPOT_suggestion_1518, __DSPOT_tag_1519);
-            org.junit.Assert.fail("characterMappingSubstitute_sd7932_add8134 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSubstitute_sd7931_add8109() throws Exception {
-        String __DSPOT_suggestion_1517 = "[Zz]PAfs[apO+L4y1=+c";
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_characterMappingSubstitute_sd7931_add8109__4 = nameAllocator.newName(__DSPOT_suggestion_1517);
-        Assert.assertEquals("_Zz_PAfs_apO_L4y1__c", o_characterMappingSubstitute_sd7931_add8109__4);
-        Assert.assertEquals("_Zz_PAfs_apO_L4y1__c_", nameAllocator.newName(__DSPOT_suggestion_1517));
-        Assert.assertEquals("_Zz_PAfs_apO_L4y1__c", o_characterMappingSubstitute_sd7931_add8109__4);
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSubstitute_sd7931litString8088() throws Exception {
+    public void characterMappingInvalidStartIsInvalidPart_sd3990litString4152() throws Exception {
         Assert.assertEquals("", new NameAllocator().newName(""));
     }
 
     @Test(timeout = 10000)
-    public void characterMappingSubstitute_sd7932_sd8131_failAssert1() throws Exception {
-        try {
-            Object __DSPOT_tag_1524 = new Object();
-            Object __DSPOT_tag_1519 = new Object();
-            String __DSPOT_suggestion_1518 = "Bv9F#d.C@!mA *{dN}*X";
-            NameAllocator nameAllocator = new NameAllocator();
-            String o_characterMappingSubstitute_sd7932__6 = nameAllocator.newName("Bv9F#d.C@!mA *{dN}*X", new Object());
-            nameAllocator.get(new Object());
-            org.junit.Assert.fail("characterMappingSubstitute_sd7932_sd8131 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSubstitute_sd7931litString8098() throws Exception {
-        Assert.assertEquals("_Zz_PAfs_apO_4y1__c", new NameAllocator().newName("[Zz]PAfs[apO+4y1=+c"));
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSubstitute_sd7932litString8120() throws Exception {
-        Assert.assertEquals("_1ab", new NameAllocator().newName("1ab", new Object()));
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSubstitute_add7934litString8151() throws Exception {
-        Assert.assertEquals("_ab", new NameAllocator().newName("_ab", 1));
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSubstitute_add7934litString8152() throws Exception {
-        Assert.assertEquals("public_", new NameAllocator().newName("public", 1));
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSubstitute_sd7932_sd8133litString9988() throws Exception {
+    public void characterMappingInvalidStartIsInvalidPart_sd3990_add4168() throws Exception {
+        String __DSPOT_suggestion_759 = "{a=yvGr@Sm?fld0|x(qm";
         NameAllocator nameAllocator = new NameAllocator();
-        String o_characterMappingSubstitute_sd7932__6 = nameAllocator.newName("public", new Object());
-        Assert.assertEquals("public_", o_characterMappingSubstitute_sd7932__6);
-        Assert.assertEquals("_Z5_6h__V_5mdsip___O", nameAllocator.newName("?Z5:6h@`V(5mdsip!%;O", new Object()));
-        Assert.assertEquals("public_", o_characterMappingSubstitute_sd7932__6);
+        String o_characterMappingInvalidStartIsInvalidPart_sd3990_add4168__4 = nameAllocator.newName(__DSPOT_suggestion_759);
+        Assert.assertEquals("_a_yvGr_Sm_fld0_x_qm", o_characterMappingInvalidStartIsInvalidPart_sd3990_add4168__4);
+        Assert.assertEquals("_a_yvGr_Sm_fld0_x_qm_", nameAllocator.newName(__DSPOT_suggestion_759));
     }
 
     @Test(timeout = 10000)
-    public void characterMappingSubstitute_sd7932_sd8132litString9932() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_characterMappingSubstitute_sd7932__6 = nameAllocator.newName("bar", new Object());
-        Assert.assertEquals("bar", o_characterMappingSubstitute_sd7932__6);
-        Assert.assertEquals("_8_W7Ygs_d___k8_f1NY", nameAllocator.newName("(8=W7Ygs|d/=?k8+f1NY"));
-        Assert.assertEquals("bar", o_characterMappingSubstitute_sd7932__6);
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSubstitute_sd7932_sd8131_failAssert1_sd10967() throws Exception {
-        try {
-            char __DSPOT_arg1_2049 = ']';
-            char __DSPOT_arg0_2048 = 'R';
-            Object __DSPOT_tag_1524 = new Object();
-            Object __DSPOT_tag_1519 = new Object();
-            String __DSPOT_suggestion_1518 = "Bv9F#d.C@!mA *{dN}*X";
-            NameAllocator nameAllocator = new NameAllocator();
-            String o_characterMappingSubstitute_sd7932__6 = nameAllocator.newName("Bv9F#d.C@!mA *{dN}*X", new Object());
-            Assert.assertEquals("Bv9F_d_C__mA___dN__X", nameAllocator.newName("Bv9F#d.C@!mA *{dN}*X", new Object()));
-            String __DSPOT_invoc_14 = nameAllocator.get(new Object());
-            org.junit.Assert.fail("characterMappingSubstitute_sd7932_sd8131 should have thrown IllegalArgumentException");
-            nameAllocator.get(new Object()).replace('R', ']');
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSubstitute_sd7932_add8134_failAssert2_sd11009() throws Exception {
-        try {
-            Object __DSPOT_tag_2070 = new Object();
-            String __DSPOT_suggestion_2069 = "<ls2,tD++1V]c}>l;)Y[";
-            Object __DSPOT_tag_1519 = new Object();
-            String __DSPOT_suggestion_1518 = "Bv9F#d.C@!mA *{dN}*X";
-            NameAllocator nameAllocator = new NameAllocator();
-            String o_characterMappingSubstitute_sd7932_add8134_failAssert2_sd11009__11 = nameAllocator.newName(__DSPOT_suggestion_1518, __DSPOT_tag_1519);
-            Assert.assertEquals("Bv9F_d_C__mA___dN__X", nameAllocator.newName(__DSPOT_suggestion_1518, __DSPOT_tag_1519));
-            String o_characterMappingSubstitute_sd7932__6 = nameAllocator.newName(__DSPOT_suggestion_1518, __DSPOT_tag_1519);
-            org.junit.Assert.fail("characterMappingSubstitute_sd7932_add8134 should have thrown IllegalArgumentException");
-            nameAllocator.newName("<ls2,tD++1V]c}>l;)Y[", new Object());
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSubstitute_sd7931_sd8108_add9299() throws Exception {
-        String __DSPOT_suggestion_1517 = "[Zz]PAfs[apO+L4y1=+c";
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_characterMappingSubstitute_sd7931_sd8108_add9299__7 = nameAllocator.newName(__DSPOT_suggestion_1517);
-        Assert.assertEquals("_Zz_PAfs_apO_L4y1__c", o_characterMappingSubstitute_sd7931_sd8108_add9299__7);
-        String o_characterMappingSubstitute_sd7931__4 = nameAllocator.newName(__DSPOT_suggestion_1517);
-        Assert.assertEquals("_Zz_PAfs_apO_L4y1__c_", o_characterMappingSubstitute_sd7931__4);
-        Assert.assertEquals("__g_WJu4_q8_3_lH___l", nameAllocator.newName("}@g/WJu4%q8 3 lH#<.l", new Object()));
-        Assert.assertEquals("_Zz_PAfs_apO_L4y1__c", o_characterMappingSubstitute_sd7931_sd8108_add9299__7);
-        Assert.assertEquals("_Zz_PAfs_apO_L4y1__c_", o_characterMappingSubstitute_sd7931__4);
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSubstitute_sd7932_sd8130_sd9907() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_characterMappingSubstitute_sd7932__6 = nameAllocator.newName("Bv9F#d.C@!mA *{dN}*X", new Object());
-        Assert.assertEquals("Bv9F_d_C__mA___dN__X", o_characterMappingSubstitute_sd7932__6);
-        Assert.assertEquals("HT____Cr_u_DA_1$O1t_", nameAllocator.clone().newName("HT}[;&Cr@u%DA?1$O1t&", new Object()));
-        Assert.assertEquals("Bv9F_d_C__mA___dN__X", o_characterMappingSubstitute_sd7932__6);
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSubstitute_sd7932_sd8133litString9990() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_characterMappingSubstitute_sd7932__6 = nameAllocator.newName("1ab", new Object());
-        Assert.assertEquals("_1ab", o_characterMappingSubstitute_sd7932__6);
-        Assert.assertEquals("_Z5_6h__V_5mdsip___O", nameAllocator.newName("?Z5:6h@`V(5mdsip!%;O", new Object()));
-        Assert.assertEquals("_1ab", o_characterMappingSubstitute_sd7932__6);
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSurrogate_sd11876() throws Exception {
-        Assert.assertEquals("_FCV_50__7_4_32_H___", new NameAllocator().newName("-FCV!50+`7*4!32@H:/*"));
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSurrogate_sd11877() throws Exception {
-        Assert.assertEquals("jAd__I_v___b8d_0i1sO", new NameAllocator().newName("jAd>@I*v{ (b8d<0i1sO", new Object()));
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSurrogate_sd11875_failAssert0() throws Exception {
-        try {
-            Object __DSPOT_tag_2274 = new Object();
-            NameAllocator nameAllocator = new NameAllocator();
-            new NameAllocator().get(new Object());
-            org.junit.Assert.fail("characterMappingSurrogate_sd11875 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSurrogate_sd11877_sd12076_failAssert1() throws Exception {
-        try {
-            Object __DSPOT_tag_2282 = new Object();
-            Object __DSPOT_tag_2277 = new Object();
-            String __DSPOT_suggestion_2276 = "jAd>@I*v{ (b8d<0i1sO";
-            NameAllocator nameAllocator = new NameAllocator();
-            String o_characterMappingSurrogate_sd11877__6 = nameAllocator.newName("jAd>@I*v{ (b8d<0i1sO", new Object());
-            nameAllocator.get(new Object());
-            org.junit.Assert.fail("characterMappingSurrogate_sd11877_sd12076 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSurrogate_sd11876litString12040() throws Exception {
-        Assert.assertEquals("public_", new NameAllocator().newName("public"));
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSurrogate_sd11876litString12038() throws Exception {
-        Assert.assertEquals("_FCV_50__7_4_32____", new NameAllocator().newName("-FCV!50+`7*4!32@:/*"));
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSurrogate_sd11876_add12054() throws Exception {
-        String __DSPOT_suggestion_2275 = "-FCV!50+`7*4!32@H:/*";
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_characterMappingSurrogate_sd11876_add12054__4 = nameAllocator.newName(__DSPOT_suggestion_2275);
-        Assert.assertEquals("_FCV_50__7_4_32_H___", o_characterMappingSurrogate_sd11876_add12054__4);
-        Assert.assertEquals("_FCV_50__7_4_32_H____", nameAllocator.newName(__DSPOT_suggestion_2275));
-        Assert.assertEquals("_FCV_50__7_4_32_H___", o_characterMappingSurrogate_sd11876_add12054__4);
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSurrogate_sd11877litString12056() throws Exception {
-        Assert.assertEquals("foo", new NameAllocator().newName("foo", new Object()));
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSurrogate_sd11877litString12067() throws Exception {
-        Assert.assertEquals("_1ab", new NameAllocator().newName("1ab", new Object()));
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSurrogate_sd11877_add12079_failAssert2() throws Exception {
-        try {
-            Object __DSPOT_tag_2277 = new Object();
-            String __DSPOT_suggestion_2276 = "jAd>@I*v{ (b8d<0i1sO";
-            NameAllocator nameAllocator = new NameAllocator();
-            nameAllocator.newName(__DSPOT_suggestion_2276, __DSPOT_tag_2277);
-            String o_characterMappingSurrogate_sd11877__6 = nameAllocator.newName(__DSPOT_suggestion_2276, __DSPOT_tag_2277);
-            org.junit.Assert.fail("characterMappingSurrogate_sd11877_add12079 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSurrogate_sd11877_sd12076_failAssert1_sd14879() throws Exception {
-        try {
-            Object __DSPOT_tag_2759 = new Object();
-            String __DSPOT_suggestion_2758 = "C#p/6wfQTp@b6xt<S6}7";
-            Object __DSPOT_tag_2282 = new Object();
-            Object __DSPOT_tag_2277 = new Object();
-            String __DSPOT_suggestion_2276 = "jAd>@I*v{ (b8d<0i1sO";
-            NameAllocator nameAllocator = new NameAllocator();
-            String o_characterMappingSurrogate_sd11877__6 = nameAllocator.newName("jAd>@I*v{ (b8d<0i1sO", new Object());
-            Assert.assertEquals("jAd__I_v___b8d_0i1sO", nameAllocator.newName("jAd>@I*v{ (b8d<0i1sO", new Object()));
-            nameAllocator.get(new Object());
-            org.junit.Assert.fail("characterMappingSurrogate_sd11877_sd12076 should have thrown IllegalArgumentException");
-            nameAllocator.newName("C#p/6wfQTp@b6xt<S6}7", new Object());
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSurrogate_sd11876_sd12053litString13215() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_characterMappingSurrogate_sd11876__4 = nameAllocator.newName("-FCV!50+`7*4!32@H:/*");
-        Assert.assertEquals("_FCV_50__7_4_32_H___", o_characterMappingSurrogate_sd11876__4);
-        Assert.assertEquals("_1ab", nameAllocator.newName("1ab", new Object()));
-        Assert.assertEquals("_FCV_50__7_4_32_H___", o_characterMappingSurrogate_sd11876__4);
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSurrogate_sd11876_sd12053litString13238() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_characterMappingSurrogate_sd11876__4 = nameAllocator.newName("public");
-        Assert.assertEquals("public_", o_characterMappingSurrogate_sd11876__4);
-        Assert.assertEquals("A_VeQ9$_KmJB_wq__Y18", nameAllocator.newName("A|VeQ9$(KmJB[wq([Y18", new Object()));
-        Assert.assertEquals("public_", o_characterMappingSurrogate_sd11876__4);
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSurrogate_sd11877_add12079_failAssert2_sd14955() throws Exception {
-        try {
-            Object __DSPOT_tag_2828 = new Object();
-            String __DSPOT_suggestion_2827 = "Th.,2+9]ReH$h|0U<GwR";
-            Object __DSPOT_tag_2277 = new Object();
-            String __DSPOT_suggestion_2276 = "jAd>@I*v{ (b8d<0i1sO";
-            NameAllocator nameAllocator = new NameAllocator();
-            String o_characterMappingSurrogate_sd11877_add12079_failAssert2_sd14955__11 = nameAllocator.newName(__DSPOT_suggestion_2276, __DSPOT_tag_2277);
-            Assert.assertEquals("jAd__I_v___b8d_0i1sO", nameAllocator.newName(__DSPOT_suggestion_2276, __DSPOT_tag_2277));
-            String o_characterMappingSurrogate_sd11877__6 = nameAllocator.newName(__DSPOT_suggestion_2276, __DSPOT_tag_2277);
-            org.junit.Assert.fail("characterMappingSurrogate_sd11877_add12079 should have thrown IllegalArgumentException");
-            nameAllocator.newName("Th.,2+9]ReH$h|0U<GwR", new Object());
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSurrogate_sd11877_sd12075_sd13850() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_characterMappingSurrogate_sd11877__6 = nameAllocator.newName("jAd>@I*v{ (b8d<0i1sO", new Object());
-        Assert.assertEquals("jAd__I_v___b8d_0i1sO", o_characterMappingSurrogate_sd11877__6);
-        Assert.assertEquals("__qmlRn0G_v_7YpIKVY_", nameAllocator.clone().newName("_[qmlRn0G-v]7YpIKVY>", new Object()));
-        Assert.assertEquals("jAd__I_v___b8d_0i1sO", o_characterMappingSurrogate_sd11877__6);
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSurrogate_sd11876_sd12053litString13236() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_characterMappingSurrogate_sd11876__4 = nameAllocator.newName("-CV!50+`7*4!32@H:/*");
-        Assert.assertEquals("_CV_50__7_4_32_H___", o_characterMappingSurrogate_sd11876__4);
-        Assert.assertEquals("A_VeQ9$_KmJB_wq__Y18", nameAllocator.newName("A|VeQ9$(KmJB[wq([Y18", new Object()));
-        Assert.assertEquals("_CV_50__7_4_32_H___", o_characterMappingSurrogate_sd11876__4);
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSurrogate_sd11876_sd12053litString13231() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_characterMappingSurrogate_sd11876__4 = nameAllocator.newName("_1ab");
-        Assert.assertEquals("_1ab", o_characterMappingSurrogate_sd11876__4);
-        Assert.assertEquals("A_VeQ9$_KmJB_wq__Y18", nameAllocator.newName("A|VeQ9$(KmJB[wq([Y18", new Object()));
-        Assert.assertEquals("_1ab", o_characterMappingSurrogate_sd11876__4);
-    }
-
-    @Test(timeout = 10000)
-    public void characterMappingSurrogate_sd11877_sd12077_add13899() throws Exception {
-        String __DSPOT_suggestion_2283 = "b=sgo(}L,VAY[6a{4}7X";
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_characterMappingSurrogate_sd11877__6 = nameAllocator.newName("jAd>@I*v{ (b8d<0i1sO", new Object());
-        Assert.assertEquals("jAd__I_v___b8d_0i1sO", o_characterMappingSurrogate_sd11877__6);
-        String o_characterMappingSurrogate_sd11877_sd12077_add13899__11 = nameAllocator.newName(__DSPOT_suggestion_2283);
-        Assert.assertEquals("b_sgo__L_VAY_6a_4_7X", o_characterMappingSurrogate_sd11877_sd12077_add13899__11);
-        Assert.assertEquals("b_sgo__L_VAY_6a_4_7X_", nameAllocator.newName(__DSPOT_suggestion_2283));
-        Assert.assertEquals("b_sgo__L_VAY_6a_4_7X", o_characterMappingSurrogate_sd11877_sd12077_add13899__11);
-        Assert.assertEquals("jAd__I_v___b8d_0i1sO", o_characterMappingSurrogate_sd11877__6);
-    }
-
-    @Test(timeout = 10000)
-    public void cloneUsagelitString15793() throws Exception {
-        NameAllocator outterAllocator = new NameAllocator();
-        String o_cloneUsagelitString15793__3 = outterAllocator.newName("public", 1);
-        Assert.assertEquals("public_", o_cloneUsagelitString15793__3);
-        NameAllocator innerAllocator1 = outterAllocator.clone();
-        NameAllocator innerAllocator2 = outterAllocator.clone();
-        Assert.assertEquals("public_", o_cloneUsagelitString15793__3);
-    }
-
-    @Test(timeout = 10000)
-    public void cloneUsage_add16032_failAssert18() throws Exception {
-        try {
-            NameAllocator outterAllocator = new NameAllocator();
-            outterAllocator.newName("foo", 1);
-            outterAllocator.newName("foo", 1);
-            NameAllocator innerAllocator1 = outterAllocator.clone();
-            NameAllocator innerAllocator2 = outterAllocator.clone();
-            org.junit.Assert.fail("cloneUsage_add16032 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void cloneUsage_sd15977() throws Exception {
-        NameAllocator outterAllocator = new NameAllocator();
-        String o_cloneUsage_sd15977__6 = outterAllocator.newName("foo", 1);
-        Assert.assertEquals("foo", o_cloneUsage_sd15977__6);
-        NameAllocator innerAllocator2 = outterAllocator.clone();
-        Assert.assertEquals("_N__AA_F_1G8_l$UVzU3", outterAllocator.clone().newName("|N(<AA[F*1G8:l$UVzU3", new Object()));
-        Assert.assertEquals("foo", o_cloneUsage_sd15977__6);
-    }
-
-    @Test(timeout = 10000)
-    public void cloneUsage_sd15976() throws Exception {
-        NameAllocator outterAllocator = new NameAllocator();
-        String o_cloneUsage_sd15976__4 = outterAllocator.newName("foo", 1);
-        Assert.assertEquals("foo", o_cloneUsage_sd15976__4);
-        NameAllocator innerAllocator2 = outterAllocator.clone();
-        Assert.assertEquals("q_N_Z___2G_X_n4G__ai", outterAllocator.clone().newName("q)N>Z{@(2G[X+n4G*-ai"));
-        Assert.assertEquals("foo", o_cloneUsage_sd15976__4);
-    }
-
-    @Test(timeout = 10000)
-    public void cloneUsage_sd15971_failAssert0() throws Exception {
-        try {
-            Object __DSPOT_tag_3032 = new Object();
-            NameAllocator outterAllocator = new NameAllocator();
-            outterAllocator.newName("foo", 1);
-            NameAllocator innerAllocator1 = outterAllocator.clone();
-            NameAllocator innerAllocator2 = outterAllocator.clone();
-            outterAllocator.get(new Object());
-            org.junit.Assert.fail("cloneUsage_sd15971 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void cloneUsage_sd15980() throws Exception {
-        NameAllocator outterAllocator = new NameAllocator();
-        String o_cloneUsage_sd15980__4 = outterAllocator.newName("foo", 1);
-        Assert.assertEquals("foo", o_cloneUsage_sd15980__4);
-        NameAllocator innerAllocator1 = outterAllocator.clone();
-        Assert.assertEquals("_2x0c0Mp__d_Pdoi_T_X_", outterAllocator.clone().newName("2x0c0Mp;?d>Pdoi]T`X!"));
-        Assert.assertEquals("foo", o_cloneUsage_sd15980__4);
-    }
-
-    @Test(timeout = 10000)
-    public void cloneUsage_add16040() throws Exception {
-        NameAllocator outterAllocator = new NameAllocator();
-        String o_cloneUsage_add16040__3 = outterAllocator.newName("foo", 1);
-        Assert.assertEquals("foo", o_cloneUsage_add16040__3);
-        NameAllocator innerAllocator1 = outterAllocator.clone();
-        Assert.assertEquals("foo_", outterAllocator.clone().newName("foo", 2));
-        Assert.assertEquals("foo", o_cloneUsage_add16040__3);
-    }
-
-    @Test(timeout = 10000)
-    public void cloneUsagelitString15778() throws Exception {
-        NameAllocator outterAllocator = new NameAllocator();
-        String o_cloneUsagelitString15778__3 = outterAllocator.newName("bkPYJ.I Lc", 1);
-        Assert.assertEquals("bkPYJ_I_Lc", o_cloneUsagelitString15778__3);
-        NameAllocator innerAllocator1 = outterAllocator.clone();
-        NameAllocator innerAllocator2 = outterAllocator.clone();
-        Assert.assertEquals("bkPYJ_I_Lc", o_cloneUsagelitString15778__3);
-    }
-
-    @Test(timeout = 10000)
-    public void cloneUsage_sd16026() throws Exception {
-        NameAllocator outterAllocator = new NameAllocator();
-        NameAllocator innerAllocator1 = outterAllocator.clone();
-        NameAllocator innerAllocator2 = outterAllocator.clone();
-        Assert.assertEquals("foo", outterAllocator.newName("foo", 1).toLowerCase());
-    }
-
-    @Test(timeout = 10000)
-    public void cloneUsage_sd15981_add20523_failAssert17() throws Exception {
-        try {
-            Object __DSPOT_tag_3043 = new Object();
-            String __DSPOT_suggestion_3042 = ")K8o9j6gEQQ)Fd.4L 0q";
-            NameAllocator outterAllocator = new NameAllocator();
-            String o_cloneUsage_sd15981__6 = outterAllocator.newName("foo", 1);
-            NameAllocator innerAllocator1 = outterAllocator.clone();
-            NameAllocator innerAllocator2 = outterAllocator.clone();
-            innerAllocator2.newName(__DSPOT_suggestion_3042, __DSPOT_tag_3043);
-            String o_cloneUsage_sd15981__11 = innerAllocator2.newName(__DSPOT_suggestion_3042, __DSPOT_tag_3043);
-            org.junit.Assert.fail("cloneUsage_sd15981_add20523 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void cloneUsage_sd15980_sd20452() throws Exception {
-        NameAllocator outterAllocator = new NameAllocator();
-        String o_cloneUsage_sd15980__4 = outterAllocator.newName("foo", 1);
-        Assert.assertEquals("foo", o_cloneUsage_sd15980__4);
-        NameAllocator innerAllocator1 = outterAllocator.clone();
-        String o_cloneUsage_sd15980__9 = outterAllocator.clone().newName("2x0c0Mp;?d>Pdoi]T`X!");
-        Assert.assertEquals("_2x0c0Mp__d_Pdoi_T_X_", o_cloneUsage_sd15980__9);
-        Assert.assertEquals("b__k__wi_iSMZ__nim_f", outterAllocator.newName("b=`k.,wi<iSMZ[)nim/f", new Object()));
-        Assert.assertEquals("_2x0c0Mp__d_Pdoi_T_X_", o_cloneUsage_sd15980__9);
-        Assert.assertEquals("foo", o_cloneUsage_sd15980__4);
-    }
-
-    @Test(timeout = 10000)
-    public void cloneUsage_sd15979_failAssert2_sd24565() throws Exception {
-        try {
-            int __DSPOT_arg3_6936 = 1473657708;
-            int __DSPOT_arg2_6935 = 1369986624;
-            String __DSPOT_arg1_6934 = "Hc?A63w)>pBRt!}7nud<";
-            int __DSPOT_arg0_6933 = -2134222680;
-            Object __DSPOT_tag_3040 = new Object();
-            NameAllocator outterAllocator = new NameAllocator();
-            String o_cloneUsage_sd15979_failAssert2_sd24565__11 = outterAllocator.newName("foo", 1);
-            Assert.assertEquals("foo", outterAllocator.newName("foo", 1));
-            NameAllocator innerAllocator1 = outterAllocator.clone();
-            NameAllocator innerAllocator2 = outterAllocator.clone();
-            String __DSPOT_invoc_12 = outterAllocator.clone().get(new Object());
-            org.junit.Assert.fail("cloneUsage_sd15979 should have thrown IllegalArgumentException");
-            outterAllocator.clone().get(new Object()).regionMatches(-2134222680, "Hc?A63w)>pBRt!}7nud<", 1369986624, 1473657708);
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void cloneUsage_sd16014_sd22337() throws Exception {
-        NameAllocator outterAllocator = new NameAllocator();
-        NameAllocator innerAllocator1 = outterAllocator.clone();
-        NameAllocator innerAllocator2 = outterAllocator.clone();
-        boolean o_cloneUsage_sd16014__14 = outterAllocator.newName("foo", 1).regionMatches(-1740842537, "-b62[$MuoQ9Jel}]?kr4", 545801629, -537965066);
-        Assert.assertEquals("ZH_e_aE_S_A__E__Lfju", outterAllocator.newName("ZH(e@aE]S.A_(E%`Lfju", new Object()));
-    }
-
-    @Test(timeout = 10000)
-    public void cloneUsage_add16037_sd23766() throws Exception {
-        NameAllocator outterAllocator = new NameAllocator();
-        String o_cloneUsage_add16037__3 = outterAllocator.newName("foo", 1);
-        Assert.assertEquals("foo", o_cloneUsage_add16037__3);
-        String o_cloneUsage_add16037__6 = outterAllocator.clone().newName("foo", 3);
-        Assert.assertEquals("foo_", o_cloneUsage_add16037__6);
-        Assert.assertEquals("woJd__uu_3_LeZ_n_p_1", outterAllocator.clone().newName("woJd%/uu[3!LeZ#n`p+1", new Object()));
-        Assert.assertEquals("foo_", o_cloneUsage_add16037__6);
-        Assert.assertEquals("foo", o_cloneUsage_add16037__3);
-    }
-
-    @Test(timeout = 10000)
-    public void cloneUsage_sd15977_sd20346_failAssert8() throws Exception {
-        try {
-            Object __DSPOT_tag_4281 = new Object();
-            Object __DSPOT_tag_3039 = new Object();
-            String __DSPOT_suggestion_3038 = "|N(<AA[F*1G8:l$UVzU3";
-            NameAllocator outterAllocator = new NameAllocator();
-            String o_cloneUsage_sd15977__6 = outterAllocator.newName("foo", 1);
-            NameAllocator innerAllocator1 = outterAllocator.clone();
-            NameAllocator innerAllocator2 = outterAllocator.clone();
-            String o_cloneUsage_sd15977__11 = outterAllocator.clone().newName("|N(<AA[F*1G8:l$UVzU3", new Object());
-            outterAllocator.get(new Object());
-            org.junit.Assert.fail("cloneUsage_sd15977_sd20346 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void cloneUsage_sd16003_sd21588() throws Exception {
-        String __DSPOT_arg0_3070 = "ZzQL`wn^n*2Sdr@IKX2Z";
-        NameAllocator outterAllocator = new NameAllocator();
-        NameAllocator innerAllocator1 = outterAllocator.clone();
-        NameAllocator innerAllocator2 = outterAllocator.clone();
-        int o_cloneUsage_sd16003__12 = outterAllocator.newName("foo", 1).indexOf(__DSPOT_arg0_3070, -1403789164);
-        boolean o_cloneUsage_sd16003_sd21588__21 = __DSPOT_arg0_3070.regionMatches(false, -1531518647, "Q/9$L?lg ;(5},[q ;Vd", 370642262, -920199663);
-        Assert.assertFalse(o_cloneUsage_sd16003_sd21588__21);
-    }
-
-    @Test(timeout = 10000)
-    public void cloneUsage_sd15977_sd20347() throws Exception {
-        NameAllocator outterAllocator = new NameAllocator();
-        String o_cloneUsage_sd15977__6 = outterAllocator.newName("foo", 1);
-        Assert.assertEquals("foo", o_cloneUsage_sd15977__6);
-        NameAllocator innerAllocator2 = outterAllocator.clone();
-        String o_cloneUsage_sd15977__11 = outterAllocator.clone().newName("|N(<AA[F*1G8:l$UVzU3", new Object());
-        Assert.assertEquals("_N__AA_F_1G8_l$UVzU3", o_cloneUsage_sd15977__11);
-        Assert.assertEquals("_9__Rl50X___lE_V6$_w", outterAllocator.newName("-9%|Rl50X;{_lE{V6$^w"));
-        Assert.assertEquals("_N__AA_F_1G8_l$UVzU3", o_cloneUsage_sd15977__11);
-        Assert.assertEquals("foo", o_cloneUsage_sd15977__6);
-    }
-
-    @Test(timeout = 10000)
-    public void cloneUsage_sd15973_sd20193_sd27208() throws Exception {
-        NameAllocator outterAllocator = new NameAllocator();
-        String o_cloneUsage_sd15973__6 = outterAllocator.newName("foo", 1);
-        Assert.assertEquals("foo", o_cloneUsage_sd15973__6);
-        String o_cloneUsage_sd15973__11 = outterAllocator.newName("d6.PxCHe/mJ!4;!mSOJ<", new Object());
-        Assert.assertEquals("d6_PxCHe_mJ_4__mSOJ_", o_cloneUsage_sd15973__11);
-        String o_cloneUsage_sd15973_sd20193__20 = outterAllocator.clone().newName("9:k&c1^LRdP5C[?MkXrV", new Object());
-        Assert.assertEquals("_9_k_c1_LRdP5C__MkXrV", o_cloneUsage_sd15973_sd20193__20);
-        Assert.assertEquals("m_xjhzp__LvWs_q3i_DR", outterAllocator.clone().newName("m`xjhzp &LvWs)q3i&DR", new Object()));
-        Assert.assertEquals("_9_k_c1_LRdP5C__MkXrV", o_cloneUsage_sd15973_sd20193__20);
-        Assert.assertEquals("foo", o_cloneUsage_sd15973__6);
-        Assert.assertEquals("d6_PxCHe_mJ_4__mSOJ_", o_cloneUsage_sd15973__11);
-    }
-
-    @Test(timeout = 10000)
-    public void cloneUsage_sd15976_sd20289_sd30631() throws Exception {
-        NameAllocator outterAllocator = new NameAllocator();
-        String o_cloneUsage_sd15976__4 = outterAllocator.newName("foo", 1);
-        Assert.assertEquals("foo", o_cloneUsage_sd15976__4);
-        NameAllocator innerAllocator2 = outterAllocator.clone();
-        String o_cloneUsage_sd15976__9 = outterAllocator.clone().newName("q)N>Z{@(2G[X+n4G*-ai");
-        Assert.assertEquals("q_N_Z___2G_X_n4G__ai", o_cloneUsage_sd15976__9);
-        String o_cloneUsage_sd15976_sd20289__18 = outterAllocator.newName("x&;&R(INe=cV>i!W`]W6", new Object());
-        Assert.assertEquals("x___R_INe_cV_i_W__W6", o_cloneUsage_sd15976_sd20289__18);
-        Assert.assertEquals("_1K_W__vrs_RD_xZ_P__", outterAllocator.newName(",1K[W=!vrs(RD&xZ+P*&", new Object()));
-        Assert.assertEquals("x___R_INe_cV_i_W__W6", o_cloneUsage_sd15976_sd20289__18);
-        Assert.assertEquals("foo", o_cloneUsage_sd15976__4);
-        Assert.assertEquals("q_N_Z___2G_X_n4G__ai", o_cloneUsage_sd15976__9);
-    }
-
-    @Test(timeout = 10000)
-    public void cloneUsage_sd15977_add20360_failAssert16litString39311() throws Exception {
-        try {
-            Object __DSPOT_tag_3039 = new Object();
-            String __DSPOT_suggestion_3038 = "a-b";
-            NameAllocator outterAllocator = new NameAllocator();
-            String o_cloneUsage_sd15977__6 = outterAllocator.newName("foo", 1);
-            Assert.assertEquals("foo", outterAllocator.newName("foo", 1));
-            NameAllocator innerAllocator1 = outterAllocator.clone();
-            NameAllocator innerAllocator2 = outterAllocator.clone();
-            String o_cloneUsage_sd15977_add20360_failAssert16litString39311__15 = innerAllocator1.newName(__DSPOT_suggestion_3038, __DSPOT_tag_3039);
-            Assert.assertEquals("a_b", innerAllocator1.newName(__DSPOT_suggestion_3038, __DSPOT_tag_3039));
-            String o_cloneUsage_sd15977__11 = innerAllocator1.newName(__DSPOT_suggestion_3038, __DSPOT_tag_3039);
-            org.junit.Assert.fail("cloneUsage_sd15977_add20360 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void cloneUsage_sd16016_sd22543_sd30480() throws Exception {
-        String __DSPOT_arg1_3093 = "?j7$2%zDC6CPY#8v*eeR";
-        String __DSPOT_arg0_3092 = "2ev!M]pK8%U<?:CpSi`t";
-        NameAllocator outterAllocator = new NameAllocator();
-        NameAllocator innerAllocator1 = outterAllocator.clone();
-        NameAllocator innerAllocator2 = outterAllocator.clone();
-        String o_cloneUsage_sd16016__12 = outterAllocator.newName("foo", 1).replaceAll(__DSPOT_arg0_3092, __DSPOT_arg1_3093);
-        Assert.assertEquals("foo", o_cloneUsage_sd16016__12);
-        boolean o_cloneUsage_sd16016_sd22543__21 = __DSPOT_arg1_3093.regionMatches(true, 932294162, "VAO2Cf%l 1<Vtu;)7a N", -1628150656, -323762951);
-        boolean o_cloneUsage_sd16016_sd22543_sd30480__30 = __DSPOT_arg0_3092.regionMatches(true, 1863788455, "w0]nG)7!p)D+gCsAQNHH", 1180616583, 1445997338);
-        Assert.assertFalse(o_cloneUsage_sd16016_sd22543_sd30480__30);
-        Assert.assertEquals("foo", o_cloneUsage_sd16016__12);
-    }
-
-    @Test(timeout = 10000)
-    public void cloneUsage_sd15973_sd20185_sd26892() throws Exception {
-        NameAllocator outterAllocator = new NameAllocator();
-        String o_cloneUsage_sd15973__6 = outterAllocator.newName("foo", 1);
-        Assert.assertEquals("foo", o_cloneUsage_sd15973__6);
-        NameAllocator innerAllocator1 = outterAllocator.clone();
-        String o_cloneUsage_sd15973__11 = outterAllocator.newName("d6.PxCHe/mJ!4;!mSOJ<", new Object());
-        Assert.assertEquals("d6_PxCHe_mJ_4__mSOJ_", o_cloneUsage_sd15973__11);
-        String o_cloneUsage_sd15973_sd20185__20 = outterAllocator.newName("XX5EoW-`H{W^#A.O}d#Q", new Object());
-        Assert.assertEquals("XX5EoW__H_W__A_O_d_Q", o_cloneUsage_sd15973_sd20185__20);
-        Assert.assertEquals("_J4XKsCViK_VJ6_NU__a", outterAllocator.clone().newName(".J4XKsCViK<VJ6-NU(-a", new Object()));
-        Assert.assertEquals("foo", o_cloneUsage_sd15973__6);
-        Assert.assertEquals("d6_PxCHe_mJ_4__mSOJ_", o_cloneUsage_sd15973__11);
-        Assert.assertEquals("XX5EoW__H_W__A_O_d_Q", o_cloneUsage_sd15973_sd20185__20);
-    }
-
-    @Test(timeout = 10000)
-    public void cloneUsage_sd15977_sd20350_failAssert11() throws Exception {
-        try {
-            Object __DSPOT_tag_4285 = new Object();
-            Object __DSPOT_tag_3039 = new Object();
-            String __DSPOT_suggestion_3038 = "|N(<AA[F*1G8:l$UVzU3";
-            NameAllocator outterAllocator = new NameAllocator();
-            String o_cloneUsage_sd15977__6 = outterAllocator.newName("foo", 1);
-            Assert.assertEquals("foo", outterAllocator.newName("foo", 1));
-            NameAllocator innerAllocator1 = outterAllocator.clone();
-            NameAllocator innerAllocator2 = outterAllocator.clone();
-            String o_cloneUsage_sd15977__11 = "+2^GLt38[%V:97_dqr;z";
-            Assert.assertEquals("+2^GLt38[%V:97_dqr;z", "+2^GLt38[%V:97_dqr;z");
-            outterAllocator.clone().get(new Object());
-            org.junit.Assert.fail("cloneUsage_sd15977_sd20350 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void javaKeyword_sd40757_failAssert0() throws Exception {
-        try {
-            Object __DSPOT_tag_15828 = new Object();
-            NameAllocator nameAllocator = new NameAllocator();
-            new NameAllocator().get(new Object());
-            org.junit.Assert.fail("javaKeyword_sd40757 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void javaKeyword_sd40758() throws Exception {
-        Assert.assertEquals("xHG__Lt_oH_NAI_VWT_m", new NameAllocator().newName("xHG))Lt_oH}NAI(VWT<m"));
-    }
-
-    @Test(timeout = 10000)
-    public void javaKeyword_sd40759() throws Exception {
-        Assert.assertEquals("_zj_E5nO___Fk_hExKTT", new NameAllocator().newName("^zj?E5nO-/@Fk/hExKTT", new Object()));
-    }
-
-    @Test(timeout = 10000)
-    public void javaKeyword_add40761() throws Exception {
-        Assert.assertEquals("public_", new NameAllocator().newName("public", 1));
-    }
-
-    @Test(timeout = 10000)
-    public void javaKeyword_sd40758litString40951() throws Exception {
-        Assert.assertEquals("public_", new NameAllocator().newName("public"));
-    }
-
-    @Test(timeout = 10000)
-    public void javaKeyword_sd40759litString40959() throws Exception {
-        Assert.assertEquals("_zZ_p_zH5_", new NameAllocator().newName("/zZ!p`zH5)", new Object()));
-    }
-
-    @Test(timeout = 10000)
-    public void javaKeyword_sd40759_add40981_failAssert2() throws Exception {
-        try {
-            Object __DSPOT_tag_15831 = new Object();
-            String __DSPOT_suggestion_15830 = "^zj?E5nO-/@Fk/hExKTT";
-            NameAllocator nameAllocator = new NameAllocator();
-            nameAllocator.newName(__DSPOT_suggestion_15830, __DSPOT_tag_15831);
-            String o_javaKeyword_sd40759__6 = nameAllocator.newName(__DSPOT_suggestion_15830, __DSPOT_tag_15831);
-            org.junit.Assert.fail("javaKeyword_sd40759_add40981 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void javaKeyword_sd40759litString40965() throws Exception {
-        Assert.assertEquals("a_b", new NameAllocator().newName("a_b", new Object()));
-    }
-
-    @Test(timeout = 10000)
-    public void javaKeyword_sd40759_sd40978_failAssert1() throws Exception {
-        try {
-            Object __DSPOT_tag_15836 = new Object();
-            Object __DSPOT_tag_15831 = new Object();
-            String __DSPOT_suggestion_15830 = "^zj?E5nO-/@Fk/hExKTT";
-            NameAllocator nameAllocator = new NameAllocator();
-            String o_javaKeyword_sd40759__6 = nameAllocator.newName("^zj?E5nO-/@Fk/hExKTT", new Object());
-            nameAllocator.get(new Object());
-            org.junit.Assert.fail("javaKeyword_sd40759_sd40978 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void javaKeyword_sd40758_add40956() throws Exception {
-        String __DSPOT_suggestion_15829 = "xHG))Lt_oH}NAI(VWT<m";
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_javaKeyword_sd40758_add40956__4 = nameAllocator.newName(__DSPOT_suggestion_15829);
-        Assert.assertEquals("xHG__Lt_oH_NAI_VWT_m", o_javaKeyword_sd40758_add40956__4);
-        Assert.assertEquals("xHG__Lt_oH_NAI_VWT_m_", nameAllocator.newName(__DSPOT_suggestion_15829));
-        Assert.assertEquals("xHG__Lt_oH_NAI_VWT_m", o_javaKeyword_sd40758_add40956__4);
-    }
-
-    @Test(timeout = 10000)
-    public void javaKeyword_sd40759litString40969() throws Exception {
-        Assert.assertEquals("_1ab", new NameAllocator().newName("1ab", new Object()));
-    }
-
-    @Test(timeout = 10000)
-    public void javaKeyword_sd40758litString40943() throws Exception {
-        Assert.assertEquals("a_b", new NameAllocator().newName("a\ud83c\udf7ab"));
-    }
-
-    @Test(timeout = 10000)
-    public void javaKeyword_sd40759litString40957() throws Exception {
-        Assert.assertEquals("_1ab", new NameAllocator().newName("_1ab", new Object()));
-    }
-
-    @Test(timeout = 10000)
-    public void javaKeyword_sd40759_sd40980litString43071() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_javaKeyword_sd40759__6 = nameAllocator.newName("azj?E5nO-/@Fk/hExKTT", new Object());
-        Assert.assertEquals("azj_E5nO___Fk_hExKTT", o_javaKeyword_sd40759__6);
-        Assert.assertEquals("_p5q_Y_KF__Y3Ym__i__", nameAllocator.newName("=p5q@Y]KF^?Y3Ym;}i+(", new Object()));
-        Assert.assertEquals("azj_E5nO___Fk_hExKTT", o_javaKeyword_sd40759__6);
-    }
-
-    @Test(timeout = 10000)
-    public void javaKeyword_sd40759_sd40979litString43007() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_javaKeyword_sd40759__6 = nameAllocator.newName("^zj?E5nO-/@Fk/hExKTT", new Object());
-        Assert.assertEquals("_zj_E5nO___Fk_hExKTT", o_javaKeyword_sd40759__6);
-        Assert.assertEquals("public_", nameAllocator.newName("public_"));
-        Assert.assertEquals("_zj_E5nO___Fk_hExKTT", o_javaKeyword_sd40759__6);
-    }
-
-    @Test(timeout = 10000)
-    public void javaKeyword_sd40759_sd40977_sd42984() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_javaKeyword_sd40759__6 = nameAllocator.newName("^zj?E5nO-/@Fk/hExKTT", new Object());
-        Assert.assertEquals("_zj_E5nO___Fk_hExKTT", o_javaKeyword_sd40759__6);
-        Assert.assertEquals("_$A______NqCO__sFFB_", nameAllocator.clone().newName("`$A;*!_)>NqCO/}sFFB-", new Object()));
-        Assert.assertEquals("_zj_E5nO___Fk_hExKTT", o_javaKeyword_sd40759__6);
-    }
-
-    @Test(timeout = 10000)
-    public void javaKeyword_sd40759_sd40980litString43058() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_javaKeyword_sd40759__6 = nameAllocator.newName("public", new Object());
-        Assert.assertEquals("public_", o_javaKeyword_sd40759__6);
-        Assert.assertEquals("_p5q_Y_KF__Y3Ym__i__", nameAllocator.newName("=p5q@Y]KF^?Y3Ym;}i+(", new Object()));
-        Assert.assertEquals("public_", o_javaKeyword_sd40759__6);
-    }
-
-    @Test(timeout = 10000)
-    public void javaKeyword_sd40759_sd40979litString43016() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_javaKeyword_sd40759__6 = nameAllocator.newName("public_", new Object());
-        Assert.assertEquals("public_", o_javaKeyword_sd40759__6);
-        Assert.assertEquals("Z_gHtmedr_p__4N_r_T_", nameAllocator.newName("Z`gHtmedr?p@_4N|r!T-"));
-        Assert.assertEquals("public_", o_javaKeyword_sd40759__6);
-    }
-
-    @Test(timeout = 10000)
-    public void javaKeyword_sd40759_sd40979_add43033() throws Exception {
-        String __DSPOT_suggestion_15837 = "Z`gHtmedr?p@_4N|r!T-";
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_javaKeyword_sd40759__6 = nameAllocator.newName("^zj?E5nO-/@Fk/hExKTT", new Object());
-        Assert.assertEquals("_zj_E5nO___Fk_hExKTT", o_javaKeyword_sd40759__6);
-        String o_javaKeyword_sd40759_sd40979_add43033__11 = nameAllocator.newName(__DSPOT_suggestion_15837);
-        Assert.assertEquals("Z_gHtmedr_p__4N_r_T_", o_javaKeyword_sd40759_sd40979_add43033__11);
-        Assert.assertEquals("Z_gHtmedr_p__4N_r_T__", nameAllocator.newName(__DSPOT_suggestion_15837));
-        Assert.assertEquals("Z_gHtmedr_p__4N_r_T_", o_javaKeyword_sd40759_sd40979_add43033__11);
-        Assert.assertEquals("_zj_E5nO___Fk_hExKTT", o_javaKeyword_sd40759__6);
-    }
-
-    @Test(timeout = 10000)
-    public void javaKeyword_sd40759_sd40980_add43078_failAssert2() throws Exception {
-        try {
-            Object __DSPOT_tag_15839 = new Object();
-            String __DSPOT_suggestion_15838 = "=p5q@Y]KF^?Y3Ym;}i+(";
-            Object __DSPOT_tag_15831 = new Object();
-            String __DSPOT_suggestion_15830 = "^zj?E5nO-/@Fk/hExKTT";
-            NameAllocator nameAllocator = new NameAllocator();
-            nameAllocator.newName(__DSPOT_suggestion_15830, __DSPOT_tag_15831);
-            String o_javaKeyword_sd40759__6 = nameAllocator.newName(__DSPOT_suggestion_15830, __DSPOT_tag_15831);
-            String o_javaKeyword_sd40759_sd40980__13 = nameAllocator.newName("=p5q@Y]KF^?Y3Ym;}i+(", new Object());
-            org.junit.Assert.fail("javaKeyword_sd40759_sd40980_add43078 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void javaKeyword_sd40759_sd40980litString43064() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_javaKeyword_sd40759__6 = nameAllocator.newName("1ab", new Object());
-        Assert.assertEquals("_1ab", o_javaKeyword_sd40759__6);
-        Assert.assertEquals("_p5q_Y_KF__Y3Ym__i__", nameAllocator.newName("=p5q@Y]KF^?Y3Ym;}i+(", new Object()));
-        Assert.assertEquals("_1ab", o_javaKeyword_sd40759__6);
-    }
-
-    @Test(timeout = 10000)
-    public void javaKeyword_sd40759_sd40978_failAssert1_sd44020() throws Exception {
-        try {
-            String __DSPOT_arg0_16389 = "):|ewc9Htf|L1x&hI[K1";
-            Object __DSPOT_tag_15836 = new Object();
-            Object __DSPOT_tag_15831 = new Object();
-            String __DSPOT_suggestion_15830 = "^zj?E5nO-/@Fk/hExKTT";
-            NameAllocator nameAllocator = new NameAllocator();
-            String o_javaKeyword_sd40759__6 = nameAllocator.newName("^zj?E5nO-/@Fk/hExKTT", new Object());
-            Assert.assertEquals("_zj_E5nO___Fk_hExKTT", nameAllocator.newName("^zj?E5nO-/@Fk/hExKTT", new Object()));
-            String __DSPOT_invoc_14 = nameAllocator.get(new Object());
-            org.junit.Assert.fail("javaKeyword_sd40759_sd40978 should have thrown IllegalArgumentException");
-            nameAllocator.get(new Object()).compareTo("):|ewc9Htf|L1x&hI[K1");
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void nameCollision_sd45025() throws Exception {
-        Assert.assertEquals("zGR7uQ_A__r_0DE__E8_", new NameAllocator().newName("zGR7uQ`A(+r<0DE +E8 "));
-    }
-
-    @Test(timeout = 10000)
-    public void nameCollision_sd45024_failAssert0() throws Exception {
-        try {
-            Object __DSPOT_tag_16655 = new Object();
-            NameAllocator nameAllocator = new NameAllocator();
-            new NameAllocator().get(new Object());
-            org.junit.Assert.fail("nameCollision_sd45024 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void nameCollision_sd45026() throws Exception {
-        Assert.assertEquals("______l__b___HJd__$h", new NameAllocator().newName("&}}[!}l^!b^`@HJd[>$h", new Object()));
-    }
-
-    @Test(timeout = 10000)
-    public void nameCollision_sd45025_sd45296_failAssert0() throws Exception {
-        try {
-            Object __DSPOT_tag_16659 = new Object();
-            String __DSPOT_suggestion_16656 = "zGR7uQ`A(+r<0DE +E8 ";
-            NameAllocator nameAllocator = new NameAllocator();
-            String o_nameCollision_sd45025__4 = nameAllocator.newName("zGR7uQ`A(+r<0DE +E8 ");
-            nameAllocator.get(new Object());
-            org.junit.Assert.fail("nameCollision_sd45025_sd45296 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void nameCollision_add45032litString45388() throws Exception {
-        Assert.assertEquals("_ab", new NameAllocator().newName("&ab"));
-    }
-
-    @Test(timeout = 10000)
-    public void nameCollision_add45032litString45385() throws Exception {
+    public void characterMappingInvalidStartIsInvalidPart_sd3990litString4157() throws Exception {
         Assert.assertEquals("_1ab", new NameAllocator().newName("1ab"));
     }
 
     @Test(timeout = 10000)
-    public void nameCollision_add45032litString45384() throws Exception {
-        Assert.assertEquals("eoo", new NameAllocator().newName("eoo"));
+    public void characterMappingInvalidStartIsInvalidPart_sd3991litString4172() throws Exception {
+        Assert.assertEquals("foo_", new NameAllocator().newName("foo_", new Object()));
     }
 
     @Test(timeout = 10000)
-    public void nameCollision_add45032litString45387() throws Exception {
-        Assert.assertEquals("f_oo", new NameAllocator().newName("f!oo"));
-    }
-
-    @Test(timeout = 10000)
-    public void nameCollision_sd45026litString45300() throws Exception {
-        Assert.assertEquals("a_b", new NameAllocator().newName("a_b", new Object()));
-    }
-
-    @Test(timeout = 10000)
-    public void nameCollision_sd45025_add45299() throws Exception {
-        String __DSPOT_suggestion_16656 = "zGR7uQ`A(+r<0DE +E8 ";
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_nameCollision_sd45025_add45299__4 = nameAllocator.newName(__DSPOT_suggestion_16656);
-        Assert.assertEquals("zGR7uQ_A__r_0DE__E8_", o_nameCollision_sd45025_add45299__4);
-        Assert.assertEquals("zGR7uQ_A__r_0DE__E8__", nameAllocator.newName(__DSPOT_suggestion_16656));
-        Assert.assertEquals("zGR7uQ_A__r_0DE__E8_", o_nameCollision_sd45025_add45299__4);
-    }
-
-    @Test(timeout = 10000)
-    public void nameCollision_sd45026litString45311() throws Exception {
+    public void characterMappingInvalidStartIsInvalidPart_sd3991litString4180() throws Exception {
         Assert.assertEquals("_1ab", new NameAllocator().newName("_1ab", new Object()));
     }
 
     @Test(timeout = 10000)
-    public void nameCollision_add45032litString45391() throws Exception {
-        Assert.assertEquals("public_", new NameAllocator().newName("public"));
-    }
-
-    @Test(timeout = 10000)
-    public void nameCollision_sd45026_add45324_failAssert2() throws Exception {
+    public void characterMappingInvalidStartIsInvalidPart_sd3991_sd4190_failAssert1() throws Exception {
         try {
-            Object __DSPOT_tag_16658 = new Object();
-            String __DSPOT_suggestion_16657 = "&}}[!}l^!b^`@HJd[>$h";
+            Object __DSPOT_tag_766 = new Object();
+            Object __DSPOT_tag_761 = new Object();
+            String __DSPOT_suggestion_760 = "*=]Rs@TQeQ<=7G/rHE0Y";
             NameAllocator nameAllocator = new NameAllocator();
-            nameAllocator.newName(__DSPOT_suggestion_16657, __DSPOT_tag_16658);
-            String o_nameCollision_sd45026__6 = nameAllocator.newName(__DSPOT_suggestion_16657, __DSPOT_tag_16658);
-            org.junit.Assert.fail("nameCollision_sd45026_add45324 should have thrown IllegalArgumentException");
+            String o_characterMappingInvalidStartIsInvalidPart_sd3991__6 = nameAllocator.newName("*=]Rs@TQeQ<=7G/rHE0Y", new Object());
+            nameAllocator.get(new Object());
+            org.junit.Assert.fail("characterMappingInvalidStartIsInvalidPart_sd3991_sd4190 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException eee) {
         }
     }
 
     @Test(timeout = 10000)
-    public void nameCollision_sd45026_sd45323litString47356() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_nameCollision_sd45026__6 = nameAllocator.newName("&}}[!}l^!b^`@HJd[>$h", new Object());
-        Assert.assertEquals("______l__b___HJd__$h", o_nameCollision_sd45026__6);
-        Assert.assertEquals("public_", nameAllocator.newName("public", new Object()));
-        Assert.assertEquals("______l__b___HJd__$h", o_nameCollision_sd45026__6);
+    public void characterMappingInvalidStartIsInvalidPart_sd3991_add4193_failAssert2() throws Exception {
+        try {
+            Object __DSPOT_tag_761 = new Object();
+            String __DSPOT_suggestion_760 = "*=]Rs@TQeQ<=7G/rHE0Y";
+            NameAllocator nameAllocator = new NameAllocator();
+            nameAllocator.newName(__DSPOT_suggestion_760, __DSPOT_tag_761);
+            String o_characterMappingInvalidStartIsInvalidPart_sd3991__6 = nameAllocator.newName(__DSPOT_suggestion_760, __DSPOT_tag_761);
+            org.junit.Assert.fail("characterMappingInvalidStartIsInvalidPart_sd3991_add4193 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException eee) {
+        }
     }
 
     @Test(timeout = 10000)
-    public void nameCollision_sd45026_sd45321_failAssert1_sd49493() throws Exception {
+    public void characterMappingInvalidStartIsInvalidPart_sd3991_sd4191litString5982() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_characterMappingInvalidStartIsInvalidPart_sd3991__6 = nameAllocator.newName("*=]Rs@TQeQ<=7G/rHE0Y", new Object());
+        Assert.assertEquals("___Rs_TQeQ__7G_rHE0Y", o_characterMappingInvalidStartIsInvalidPart_sd3991__6);
+        Assert.assertEquals("", nameAllocator.newName(""));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingInvalidStartIsInvalidPart_sd3990_sd4167_sd5359() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_characterMappingInvalidStartIsInvalidPart_sd3990__4 = nameAllocator.newName("{a=yvGr@Sm?fld0|x(qm");
+        Assert.assertEquals("_a_yvGr_Sm_fld0_x_qm", o_characterMappingInvalidStartIsInvalidPart_sd3990__4);
+        String o_characterMappingInvalidStartIsInvalidPart_sd3990_sd4167__11 = nameAllocator.newName("A`GH73;S{@T$husiKa(U", new Object());
+        Assert.assertEquals("A_GH73_S__T$husiKa_U", o_characterMappingInvalidStartIsInvalidPart_sd3990_sd4167__11);
+        Assert.assertEquals("B_VbF_itez__R_vs_zYU", nameAllocator.newName("B.VbF.itez#*R%vs/zYU", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingInvalidStartIsInvalidPart_sd3991_sd4191_add6015_failAssert6() throws Exception {
         try {
-            String __DSPOT_arg0_17351 = "3kW!67l5Y0.]pp<75@U#";
-            Object __DSPOT_tag_16663 = new Object();
-            Object __DSPOT_tag_16658 = new Object();
-            String __DSPOT_suggestion_16657 = "&}}[!}l^!b^`@HJd[>$h";
+            String __DSPOT_suggestion_767 = "(Cd|#LVcx9VgAzGTF;K^";
+            Object __DSPOT_tag_761 = new Object();
+            String __DSPOT_suggestion_760 = "*=]Rs@TQeQ<=7G/rHE0Y";
             NameAllocator nameAllocator = new NameAllocator();
-            String o_nameCollision_sd45026__6 = nameAllocator.newName("&}}[!}l^!b^`@HJd[>$h", new Object());
-            Assert.assertEquals("______l__b___HJd__$h", nameAllocator.newName("&}}[!}l^!b^`@HJd[>$h", new Object()));
+            nameAllocator.newName(__DSPOT_suggestion_760, __DSPOT_tag_761);
+            String o_characterMappingInvalidStartIsInvalidPart_sd3991__6 = nameAllocator.newName(__DSPOT_suggestion_760, __DSPOT_tag_761);
+            String o_characterMappingInvalidStartIsInvalidPart_sd3991_sd4191__11 = nameAllocator.newName("(Cd|#LVcx9VgAzGTF;K^");
+            org.junit.Assert.fail("characterMappingInvalidStartIsInvalidPart_sd3991_sd4191_add6015 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingInvalidStartIsInvalidPart_sd3991_sd4190_failAssert1_sd6991() throws Exception {
+        try {
+            Object __DSPOT_tag_1243 = new Object();
+            String __DSPOT_suggestion_1242 = "nf%+>F|HVSM[sCW8$DSC";
+            Object __DSPOT_tag_766 = new Object();
+            Object __DSPOT_tag_761 = new Object();
+            String __DSPOT_suggestion_760 = "*=]Rs@TQeQ<=7G/rHE0Y";
+            NameAllocator nameAllocator = new NameAllocator();
+            String o_characterMappingInvalidStartIsInvalidPart_sd3991__6 = nameAllocator.newName("*=]Rs@TQeQ<=7G/rHE0Y", new Object());
+            Assert.assertEquals("___Rs_TQeQ__7G_rHE0Y", nameAllocator.newName("*=]Rs@TQeQ<=7G/rHE0Y", new Object()));
+            nameAllocator.get(new Object());
+            org.junit.Assert.fail("characterMappingInvalidStartIsInvalidPart_sd3991_sd4190 should have thrown IllegalArgumentException");
+            nameAllocator.newName("nf%+>F|HVSM[sCW8$DSC", new Object());
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingInvalidStartIsInvalidPart_sd3991_sd4192() throws Exception {
+        Object __DSPOT_tag_761 = new Object();
+        String __DSPOT_suggestion_760 = "*=]Rs@TQeQ<=7G/rHE0Y";
+        String o_characterMappingInvalidStartIsInvalidPart_sd3991__6 = "g#%p_}5^f3RUL01$Q{+L";
+        Assert.assertEquals("g#%p_}5^f3RUL01$Q{+L", o_characterMappingInvalidStartIsInvalidPart_sd3991__6);
+        Assert.assertEquals("aA_n_M_WL_pi_TT_z0__", new NameAllocator().newName("aA[n|M]WL!pi%TT:z0[|", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingInvalidStartIsInvalidPart_sd3991_sd4191_add6016() throws Exception {
+        String __DSPOT_suggestion_767 = "(Cd|#LVcx9VgAzGTF;K^";
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_characterMappingInvalidStartIsInvalidPart_sd3991__6 = nameAllocator.newName("*=]Rs@TQeQ<=7G/rHE0Y", new Object());
+        Assert.assertEquals("___Rs_TQeQ__7G_rHE0Y", o_characterMappingInvalidStartIsInvalidPart_sd3991__6);
+        String o_characterMappingInvalidStartIsInvalidPart_sd3991_sd4191_add6016__11 = nameAllocator.newName(__DSPOT_suggestion_767);
+        Assert.assertEquals("_Cd__LVcx9VgAzGTF_K_", o_characterMappingInvalidStartIsInvalidPart_sd3991_sd4191_add6016__11);
+        Assert.assertEquals("_Cd__LVcx9VgAzGTF_K__", nameAllocator.newName(__DSPOT_suggestion_767));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingInvalidStartIsInvalidPart_sd3991_sd4192litString6052() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_characterMappingInvalidStartIsInvalidPart_sd3991__6 = nameAllocator.newName("public", new Object());
+        Assert.assertEquals("public_", o_characterMappingInvalidStartIsInvalidPart_sd3991__6);
+        Assert.assertEquals("aA_n_M_WL_pi_TT_z0__", nameAllocator.newName("aA[n|M]WL!pi%TT:z0[|", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingInvalidStartIsInvalidPart_sd3991_sd4189_sd5967() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_characterMappingInvalidStartIsInvalidPart_sd3991__6 = nameAllocator.newName("*=]Rs@TQeQ<=7G/rHE0Y", new Object());
+        Assert.assertEquals("___Rs_TQeQ__7G_rHE0Y", o_characterMappingInvalidStartIsInvalidPart_sd3991__6);
+        Assert.assertEquals("dOAP_e__sOtGl2bo___V", nameAllocator.clone().newName("dOAP^e>*sOtGl2bo%`@V", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingInvalidStartIsInvalidPart_sd3991_sd4192litString6046() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_characterMappingInvalidStartIsInvalidPart_sd3991__6 = nameAllocator.newName("1ab", new Object());
+        Assert.assertEquals("_1ab", o_characterMappingInvalidStartIsInvalidPart_sd3991__6);
+        Assert.assertEquals("aA_n_M_WL_pi_TT_z0__", nameAllocator.newName("aA[n|M]WL!pi%TT:z0[|", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSubstitute_sd7931_failAssert0() throws Exception {
+        try {
+            Object __DSPOT_tag_1516 = new Object();
+            NameAllocator nameAllocator = new NameAllocator();
+            new NameAllocator().get(new Object());
+            org.junit.Assert.fail("characterMappingSubstitute_sd7931 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSubstitute_sd7933() throws Exception {
+        Assert.assertEquals("y1__cBv9F_d_C__mA___", new NameAllocator().newName("y1=+cBv9F#d.C@!mA *{", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSubstitute_sd7932() throws Exception {
+        Assert.assertEquals("_fuW2_Zz_PAfs_apO_L4", new NameAllocator().newName("]fuW2[Zz]PAfs[apO+L4"));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSubstitute_sd7933litString8112() throws Exception {
+        Assert.assertEquals("foo", new NameAllocator().newName("foo", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSubstitute_sd7933_sd8132_failAssert1() throws Exception {
+        try {
+            Object __DSPOT_tag_1524 = new Object();
+            Object __DSPOT_tag_1519 = new Object();
+            String __DSPOT_suggestion_1518 = "y1=+cBv9F#d.C@!mA *{";
+            NameAllocator nameAllocator = new NameAllocator();
+            String o_characterMappingSubstitute_sd7933__6 = nameAllocator.newName("y1=+cBv9F#d.C@!mA *{", new Object());
+            nameAllocator.get(new Object());
+            org.junit.Assert.fail("characterMappingSubstitute_sd7933_sd8132 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSubstitute_sd7932litString8098() throws Exception {
+        Assert.assertEquals("_fuW2_Zz_PAfs_apO_WL4", new NameAllocator().newName("]fuW2[Zz]PAfs[apO+WL4"));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSubstitute_sd7932_add8110() throws Exception {
+        String __DSPOT_suggestion_1517 = "]fuW2[Zz]PAfs[apO+L4";
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_characterMappingSubstitute_sd7932_add8110__4 = nameAllocator.newName(__DSPOT_suggestion_1517);
+        Assert.assertEquals("_fuW2_Zz_PAfs_apO_L4", o_characterMappingSubstitute_sd7932_add8110__4);
+        Assert.assertEquals("_fuW2_Zz_PAfs_apO_L4_", nameAllocator.newName(__DSPOT_suggestion_1517));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSubstitute_sd7932litString8088() throws Exception {
+        Assert.assertEquals("public_", new NameAllocator().newName("public_"));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSubstitute_sd7933_add8135_failAssert2() throws Exception {
+        try {
+            Object __DSPOT_tag_1519 = new Object();
+            String __DSPOT_suggestion_1518 = "y1=+cBv9F#d.C@!mA *{";
+            NameAllocator nameAllocator = new NameAllocator();
+            nameAllocator.newName(__DSPOT_suggestion_1518, __DSPOT_tag_1519);
+            String o_characterMappingSubstitute_sd7933__6 = nameAllocator.newName(__DSPOT_suggestion_1518, __DSPOT_tag_1519);
+            org.junit.Assert.fail("characterMappingSubstitute_sd7933_add8135 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSubstitute_sd7933litString8122() throws Exception {
+        Assert.assertEquals("_1ab", new NameAllocator().newName("_1ab", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSubstitute_sd7933litString8130() throws Exception {
+        Assert.assertEquals("public_", new NameAllocator().newName("public", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSubstitute_sd7933litString8120() throws Exception {
+        Assert.assertEquals("_1ab", new NameAllocator().newName("1ab", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSubstitute_sd7933_sd8133_sd9954() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_characterMappingSubstitute_sd7933__6 = nameAllocator.newName("y1=+cBv9F#d.C@!mA *{", new Object());
+        Assert.assertEquals("y1__cBv9F_d_C__mA___", o_characterMappingSubstitute_sd7933__6);
+        String o_characterMappingSubstitute_sd7933_sd8133__11 = nameAllocator.newName("@{xXg(8=W7Ygs|d/=?k8");
+        Assert.assertEquals("__xXg_8_W7Ygs_d___k8", o_characterMappingSubstitute_sd7933_sd8133__11);
+        Assert.assertEquals("Vy__ycSQ75PG__H_f__d", nameAllocator.newName("Vy<=ycSQ75PG%<H(f{_d"));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSubstitute_sd7933_sd8132_failAssert1_sd10973() throws Exception {
+        try {
+            int __DSPOT_arg1_2061 = 68923959;
+            int __DSPOT_arg0_2060 = 1821317345;
+            Object __DSPOT_tag_1524 = new Object();
+            Object __DSPOT_tag_1519 = new Object();
+            String __DSPOT_suggestion_1518 = "y1=+cBv9F#d.C@!mA *{";
+            NameAllocator nameAllocator = new NameAllocator();
+            String o_characterMappingSubstitute_sd7933__6 = nameAllocator.newName("y1=+cBv9F#d.C@!mA *{", new Object());
+            Assert.assertEquals("y1__cBv9F_d_C__mA___", nameAllocator.newName("y1=+cBv9F#d.C@!mA *{", new Object()));
             String __DSPOT_invoc_14 = nameAllocator.get(new Object());
-            org.junit.Assert.fail("nameCollision_sd45026_sd45321 should have thrown IllegalArgumentException");
-            nameAllocator.get(new Object()).compareTo("3kW!67l5Y0.]pp<75@U#");
+            org.junit.Assert.fail("characterMappingSubstitute_sd7933_sd8132 should have thrown IllegalArgumentException");
+            nameAllocator.get(new Object()).subSequence(1821317345, 68923959);
         } catch (IllegalArgumentException eee) {
         }
     }
 
     @Test(timeout = 10000)
-    public void nameCollision_sd45026_sd45322_add47336() throws Exception {
-        String __DSPOT_suggestion_16664 = "FRVKYU^-01J!cxfHkZMM";
+    public void characterMappingSubstitute_sd7933_sd8134litString9989() throws Exception {
         NameAllocator nameAllocator = new NameAllocator();
-        String o_nameCollision_sd45026__6 = nameAllocator.newName("&}}[!}l^!b^`@HJd[>$h", new Object());
-        Assert.assertEquals("______l__b___HJd__$h", o_nameCollision_sd45026__6);
-        String o_nameCollision_sd45026_sd45322_add47336__11 = nameAllocator.newName(__DSPOT_suggestion_16664);
-        Assert.assertEquals("FRVKYU__01J_cxfHkZMM", o_nameCollision_sd45026_sd45322_add47336__11);
-        Assert.assertEquals("FRVKYU__01J_cxfHkZMM_", nameAllocator.newName(__DSPOT_suggestion_16664));
-        Assert.assertEquals("______l__b___HJd__$h", o_nameCollision_sd45026__6);
-        Assert.assertEquals("FRVKYU__01J_cxfHkZMM", o_nameCollision_sd45026_sd45322_add47336__11);
+        String o_characterMappingSubstitute_sd7933__6 = nameAllocator.newName("5p!yG18MPH", new Object());
+        Assert.assertEquals("_5p_yG18MPH", o_characterMappingSubstitute_sd7933__6);
+        Assert.assertEquals("_f1NY_Z5_6h__V_5mdsi", nameAllocator.newName("+f1NY?Z5:6h@`V(5mdsi", new Object()));
     }
 
     @Test(timeout = 10000)
-    public void nameCollision_sd45026_sd45323_add47381_failAssert1() throws Exception {
+    public void characterMappingSubstitute_sd7933_sd8131_sd9908() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_characterMappingSubstitute_sd7933__6 = nameAllocator.newName("y1=+cBv9F#d.C@!mA *{", new Object());
+        Assert.assertEquals("y1__cBv9F_d_C__mA___", o_characterMappingSubstitute_sd7933__6);
+        Assert.assertEquals("HT____Cr_u_DA_1$O1t_", nameAllocator.clone().newName("HT}[;&Cr@u%DA?1$O1t&", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSubstitute_sd7933_sd8133_add9956_failAssert6() throws Exception {
         try {
-            Object __DSPOT_tag_16666 = new Object();
-            String __DSPOT_suggestion_16665 = "=v[c0Jq,0<%c9(S+Gm<C";
-            Object __DSPOT_tag_16658 = new Object();
-            String __DSPOT_suggestion_16657 = "&}}[!}l^!b^`@HJd[>$h";
+            String __DSPOT_suggestion_1525 = "@{xXg(8=W7Ygs|d/=?k8";
+            Object __DSPOT_tag_1519 = new Object();
+            String __DSPOT_suggestion_1518 = "y1=+cBv9F#d.C@!mA *{";
             NameAllocator nameAllocator = new NameAllocator();
-            nameAllocator.newName(__DSPOT_suggestion_16657, __DSPOT_tag_16658);
-            String o_nameCollision_sd45026__6 = nameAllocator.newName(__DSPOT_suggestion_16657, __DSPOT_tag_16658);
-            String o_nameCollision_sd45026_sd45323__13 = nameAllocator.newName("=v[c0Jq,0<%c9(S+Gm<C", new Object());
-            org.junit.Assert.fail("nameCollision_sd45026_sd45323_add47381 should have thrown IllegalArgumentException");
+            nameAllocator.newName(__DSPOT_suggestion_1518, __DSPOT_tag_1519);
+            String o_characterMappingSubstitute_sd7933__6 = nameAllocator.newName(__DSPOT_suggestion_1518, __DSPOT_tag_1519);
+            String o_characterMappingSubstitute_sd7933_sd8133__11 = nameAllocator.newName("@{xXg(8=W7Ygs|d/=?k8");
+            org.junit.Assert.fail("characterMappingSubstitute_sd7933_sd8133_add9956 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException eee) {
         }
     }
 
     @Test(timeout = 10000)
-    public void nameCollision_sd45026_sd45322litString47321() throws Exception {
+    public void characterMappingSubstitute_sd7932_sd8109litString9292() throws Exception {
         NameAllocator nameAllocator = new NameAllocator();
-        String o_nameCollision_sd45026__6 = nameAllocator.newName("1ab", new Object());
-        Assert.assertEquals("_1ab", o_nameCollision_sd45026__6);
-        Assert.assertEquals("FRVKYU__01J_cxfHkZMM", nameAllocator.newName("FRVKYU^-01J!cxfHkZMM"));
-        Assert.assertEquals("_1ab", o_nameCollision_sd45026__6);
+        String o_characterMappingSubstitute_sd7932__4 = nameAllocator.newName("public");
+        Assert.assertEquals("public_", o_characterMappingSubstitute_sd7932__4);
+        Assert.assertEquals("pd_pP__g_WJu4_q8_3_l", nameAllocator.newName("pd!pP}@g/WJu4%q8 3 l", new Object()));
     }
 
     @Test(timeout = 10000)
-    public void nameCollision_sd45025_sd45298litString46674() throws Exception {
+    public void characterMappingSubstitute_sd7933_sd8133_add9957() throws Exception {
+        String __DSPOT_suggestion_1525 = "@{xXg(8=W7Ygs|d/=?k8";
         NameAllocator nameAllocator = new NameAllocator();
-        String o_nameCollision_sd45025__4 = nameAllocator.newName("tag 1 cannot be used for both 'foo' and 'bar'");
-        Assert.assertEquals("tag_1_cannot_be_used_for_both__foo__and__bar_", o_nameCollision_sd45025__4);
-        Assert.assertEquals("qaftBc_1D_MD_SW_K_fZ", nameAllocator.newName("qaftBc#1D(MD*SW}K#fZ", new Object()));
-        Assert.assertEquals("tag_1_cannot_be_used_for_both__foo__and__bar_", o_nameCollision_sd45025__4);
+        String o_characterMappingSubstitute_sd7933__6 = nameAllocator.newName("y1=+cBv9F#d.C@!mA *{", new Object());
+        Assert.assertEquals("y1__cBv9F_d_C__mA___", o_characterMappingSubstitute_sd7933__6);
+        String o_characterMappingSubstitute_sd7933_sd8133_add9957__11 = nameAllocator.newName(__DSPOT_suggestion_1525);
+        Assert.assertEquals("__xXg_8_W7Ygs_d___k8", o_characterMappingSubstitute_sd7933_sd8133_add9957__11);
+        Assert.assertEquals("__xXg_8_W7Ygs_d___k8_", nameAllocator.newName(__DSPOT_suggestion_1525));
     }
 
     @Test(timeout = 10000)
-    public void nameCollision_sd45026_sd45320_sd47287() throws Exception {
+    public void characterMappingSurrogate_sd11874() throws Exception {
+        Assert.assertEquals("__jAd__I_v___b8d_0i1", new NameAllocator().newName("/*jAd>@I*v{ (b8d<0i1"));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSurrogate_sd11875() throws Exception {
+        Assert.assertEquals("sO9MsB1qsf0_zRf__UE_", new NameAllocator().newName("sO9MsB1qsf0%zRf!-UE#", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSurrogate_sd11873_failAssert0() throws Exception {
+        try {
+            Object __DSPOT_tag_2274 = new Object();
+            NameAllocator nameAllocator = new NameAllocator();
+            new NameAllocator().get(new Object());
+            org.junit.Assert.fail("characterMappingSurrogate_sd11873 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSurrogate_sd11875litString12058() throws Exception {
+        Assert.assertEquals("foo__", new NameAllocator().newName("foo__", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSurrogate_sd11875_sd12074_failAssert1() throws Exception {
+        try {
+            Object __DSPOT_tag_2282 = new Object();
+            Object __DSPOT_tag_2277 = new Object();
+            String __DSPOT_suggestion_2276 = "sO9MsB1qsf0%zRf!-UE#";
+            NameAllocator nameAllocator = new NameAllocator();
+            String o_characterMappingSurrogate_sd11875__6 = nameAllocator.newName("sO9MsB1qsf0%zRf!-UE#", new Object());
+            nameAllocator.get(new Object());
+            org.junit.Assert.fail("characterMappingSurrogate_sd11875_sd12074 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSurrogate_sd11874litString12031() throws Exception {
+        Assert.assertEquals("tag_1_cannot_be_used_for_both__foo__and__bar_", new NameAllocator().newName("tag 1 cannot be used for both 'foo' and 'bar'"));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSurrogate_sd11875litString12067() throws Exception {
+        Assert.assertEquals("_1ab", new NameAllocator().newName("_1ab", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSurrogate_sd11875litString12061() throws Exception {
+        Assert.assertEquals("public_", new NameAllocator().newName("public", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSurrogate_sd11874litString12044() throws Exception {
+        Assert.assertEquals("_1ab", new NameAllocator().newName("1ab"));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSurrogate_sd11874_add12052() throws Exception {
+        String __DSPOT_suggestion_2275 = "/*jAd>@I*v{ (b8d<0i1";
         NameAllocator nameAllocator = new NameAllocator();
-        String o_nameCollision_sd45026__6 = nameAllocator.newName("&}}[!}l^!b^`@HJd[>$h", new Object());
-        Assert.assertEquals("______l__b___HJd__$h", o_nameCollision_sd45026__6);
-        Assert.assertEquals("_mQ_zNZCQS_P__BB1X6M", nameAllocator.clone().newName("-mQ_zNZCQS?P=>BB1X6M", new Object()));
-        Assert.assertEquals("______l__b___HJd__$h", o_nameCollision_sd45026__6);
+        String o_characterMappingSurrogate_sd11874_add12052__4 = nameAllocator.newName(__DSPOT_suggestion_2275);
+        Assert.assertEquals("__jAd__I_v___b8d_0i1", o_characterMappingSurrogate_sd11874_add12052__4);
+        Assert.assertEquals("__jAd__I_v___b8d_0i1_", nameAllocator.newName(__DSPOT_suggestion_2275));
     }
 
     @Test(timeout = 10000)
-    public void nameCollisionWithTag_sd50628() throws Exception {
-        Assert.assertEquals("_8__Nv_0_NZ_8__kY__9b", new NameAllocator().newName("8&}Nv 0#NZ=8%`kY{*9b", new Object()));
+    public void characterMappingSurrogate_sd11875_add12077_failAssert2() throws Exception {
+        try {
+            Object __DSPOT_tag_2277 = new Object();
+            String __DSPOT_suggestion_2276 = "sO9MsB1qsf0%zRf!-UE#";
+            NameAllocator nameAllocator = new NameAllocator();
+            nameAllocator.newName(__DSPOT_suggestion_2276, __DSPOT_tag_2277);
+            String o_characterMappingSurrogate_sd11875__6 = nameAllocator.newName(__DSPOT_suggestion_2276, __DSPOT_tag_2277);
+            org.junit.Assert.fail("characterMappingSurrogate_sd11875_add12077 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException eee) {
+        }
     }
 
     @Test(timeout = 10000)
-    public void nameCollisionWithTag_sd50627() throws Exception {
-        Assert.assertEquals("_a_n__3_g2UGB__UY55G", new NameAllocator().newName("[a[n*^3-g2UGB /UY55G"));
+    public void characterMappingSurrogate_sd11874litString12038() throws Exception {
+        Assert.assertEquals("__jAd__I_v_8__b8d_0i1", new NameAllocator().newName("/*jAd>@I*v{8 (b8d<0i1"));
     }
 
     @Test(timeout = 10000)
-    public void nameCollisionWithTag_add50632() throws Exception {
-        Assert.assertEquals("foo", new NameAllocator().newName("foo", 2));
+    public void characterMappingSurrogate_sd11874_sd12051litString13231() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_characterMappingSurrogate_sd11874__4 = nameAllocator.newName("&ab");
+        Assert.assertEquals("_ab", o_characterMappingSurrogate_sd11874__4);
+        Assert.assertEquals("_18_CMnAP__rhd7__Zhbf", nameAllocator.newName("18[CMnAP{@rhd7#<Zhbf", new Object()));
     }
 
     @Test(timeout = 10000)
-    public void nameCollisionWithTag_add50638_failAssert2() throws Exception {
+    public void characterMappingSurrogate_sd11875_sd12074_failAssert1_sd14904() throws Exception {
+        try {
+            int __DSPOT_arg1_2793 = -2127151790;
+            String __DSPOT_arg0_2792 = "qHy=i7jGmyq9/kzQWx;X";
+            Object __DSPOT_tag_2282 = new Object();
+            Object __DSPOT_tag_2277 = new Object();
+            String __DSPOT_suggestion_2276 = "sO9MsB1qsf0%zRf!-UE#";
+            NameAllocator nameAllocator = new NameAllocator();
+            String o_characterMappingSurrogate_sd11875__6 = nameAllocator.newName("sO9MsB1qsf0%zRf!-UE#", new Object());
+            Assert.assertEquals("sO9MsB1qsf0_zRf__UE_", nameAllocator.newName("sO9MsB1qsf0%zRf!-UE#", new Object()));
+            String __DSPOT_invoc_14 = nameAllocator.get(new Object());
+            org.junit.Assert.fail("characterMappingSurrogate_sd11875_sd12074 should have thrown IllegalArgumentException");
+            nameAllocator.get(new Object()).lastIndexOf("qHy=i7jGmyq9/kzQWx;X", -2127151790);
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSurrogate_sd11875_sd12075_add13896() throws Exception {
+        String __DSPOT_suggestion_2283 = "7Xig4;O7 ?M1>l%Ec/iT";
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_characterMappingSurrogate_sd11875__6 = nameAllocator.newName("sO9MsB1qsf0%zRf!-UE#", new Object());
+        Assert.assertEquals("sO9MsB1qsf0_zRf__UE_", o_characterMappingSurrogate_sd11875__6);
+        String o_characterMappingSurrogate_sd11875_sd12075_add13896__11 = nameAllocator.newName(__DSPOT_suggestion_2283);
+        Assert.assertEquals("_7Xig4_O7__M1_l_Ec_iT", o_characterMappingSurrogate_sd11875_sd12075_add13896__11);
+        Assert.assertEquals("_7Xig4_O7__M1_l_Ec_iT_", nameAllocator.newName(__DSPOT_suggestion_2283));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSurrogate_sd11875_sd12076litString13928() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_characterMappingSurrogate_sd11875__6 = nameAllocator.newName("public", new Object());
+        Assert.assertEquals("public_", o_characterMappingSurrogate_sd11875__6);
+        Assert.assertEquals("___v_Yud_f$ott_FH0_D", nameAllocator.newName(",!)v}Yud=f$ott FH0>D", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSurrogate_sd11875_add12077_failAssert2_sd14952() throws Exception {
+        try {
+            Object __DSPOT_tag_2828 = new Object();
+            String __DSPOT_suggestion_2827 = "aqOG6xU]]yR5)TSN_/1/";
+            Object __DSPOT_tag_2277 = new Object();
+            String __DSPOT_suggestion_2276 = "sO9MsB1qsf0%zRf!-UE#";
+            NameAllocator nameAllocator = new NameAllocator();
+            String o_characterMappingSurrogate_sd11875_add12077_failAssert2_sd14952__11 = nameAllocator.newName(__DSPOT_suggestion_2276, __DSPOT_tag_2277);
+            Assert.assertEquals("sO9MsB1qsf0_zRf__UE_", nameAllocator.newName(__DSPOT_suggestion_2276, __DSPOT_tag_2277));
+            String o_characterMappingSurrogate_sd11875__6 = nameAllocator.newName(__DSPOT_suggestion_2276, __DSPOT_tag_2277);
+            org.junit.Assert.fail("characterMappingSurrogate_sd11875_add12077 should have thrown IllegalArgumentException");
+            nameAllocator.newName("aqOG6xU]]yR5)TSN_/1/", new Object());
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void characterMappingSurrogate_sd11875_sd12073_sd13847() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_characterMappingSurrogate_sd11875__6 = nameAllocator.newName("sO9MsB1qsf0%zRf!-UE#", new Object());
+        Assert.assertEquals("sO9MsB1qsf0_zRf__UE_", o_characterMappingSurrogate_sd11875__6);
+        Assert.assertEquals("Pk_gnNp2s_FBZzqDc___", nameAllocator.clone().newName("Pk+gnNp2s(FBZzqDc&?!", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void cloneUsage_sd15986() throws Exception {
+        NameAllocator outterAllocator = new NameAllocator();
+        String o_cloneUsage_sd15986__6 = outterAllocator.newName("foo", 1);
+        Assert.assertEquals("foo", o_cloneUsage_sd15986__6);
+        NameAllocator innerAllocator2 = outterAllocator.clone();
+        Assert.assertEquals("etX_h__aZ___W_05j__R", outterAllocator.clone().newName("etX{h;/aZ]><W_05j]]R", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void cloneUsagelitString15791() throws Exception {
+        NameAllocator outterAllocator = new NameAllocator();
+        String o_cloneUsagelitString15791__3 = outterAllocator.newName("j9[g8!*c?Z", 1);
+        Assert.assertEquals("j9_g8__c_Z", o_cloneUsagelitString15791__3);
+        NameAllocator innerAllocator1 = outterAllocator.clone();
+        NameAllocator innerAllocator2 = outterAllocator.clone();
+    }
+
+    @Test(timeout = 10000)
+    public void cloneUsage_add16049() throws Exception {
+        NameAllocator outterAllocator = new NameAllocator();
+        String o_cloneUsage_add16049__3 = outterAllocator.newName("foo", 1);
+        Assert.assertEquals("foo", o_cloneUsage_add16049__3);
+        NameAllocator innerAllocator1 = outterAllocator.clone();
+        Assert.assertEquals("foo_", outterAllocator.clone().newName("foo", 2));
+    }
+
+    @Test(timeout = 10000)
+    public void cloneUsagelitString15784() throws Exception {
+        NameAllocator outterAllocator = new NameAllocator();
+        String o_cloneUsagelitString15784__3 = outterAllocator.newName("1ab", 1);
+        Assert.assertEquals("_1ab", o_cloneUsagelitString15784__3);
+        NameAllocator innerAllocator1 = outterAllocator.clone();
+        NameAllocator innerAllocator2 = outterAllocator.clone();
+    }
+
+    @Test(timeout = 10000)
+    public void cloneUsagelitString15795() throws Exception {
+        NameAllocator outterAllocator = new NameAllocator();
+        String o_cloneUsagelitString15795__3 = outterAllocator.newName("&ab", 1);
+        Assert.assertEquals("_ab", o_cloneUsagelitString15795__3);
+        NameAllocator innerAllocator1 = outterAllocator.clone();
+        NameAllocator innerAllocator2 = outterAllocator.clone();
+    }
+
+    @Test(timeout = 10000)
+    public void cloneUsage_sd16030() throws Exception {
+        NameAllocator outterAllocator = new NameAllocator();
+        NameAllocator innerAllocator1 = outterAllocator.clone();
+        NameAllocator innerAllocator2 = outterAllocator.clone();
+        boolean o_cloneUsage_sd16030__12 = outterAllocator.newName("foo", 1).startsWith(",1ZiO&8F)cKP^+CnP!jd", -177063689);
+        Assert.assertFalse(o_cloneUsage_sd16030__12);
+    }
+
+    @Test(timeout = 10000)
+    public void cloneUsage_sd15984_failAssert1() throws Exception {
+        try {
+            Object __DSPOT_tag_3040 = new Object();
+            NameAllocator outterAllocator = new NameAllocator();
+            outterAllocator.newName("foo", 1);
+            NameAllocator innerAllocator1 = outterAllocator.clone();
+            NameAllocator innerAllocator2 = outterAllocator.clone();
+            outterAllocator.clone().get(new Object());
+            org.junit.Assert.fail("cloneUsage_sd15984 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void cloneUsagelitString15801() throws Exception {
+        NameAllocator outterAllocator = new NameAllocator();
+        String o_cloneUsagelitString15801__3 = outterAllocator.newName("public", 1);
+        Assert.assertEquals("public_", o_cloneUsagelitString15801__3);
+        NameAllocator innerAllocator1 = outterAllocator.clone();
+        NameAllocator innerAllocator2 = outterAllocator.clone();
+    }
+
+    @Test(timeout = 10000)
+    public void cloneUsagelitString15789() throws Exception {
+        NameAllocator outterAllocator = new NameAllocator();
+        String o_cloneUsagelitString15789__3 = outterAllocator.newName("a-b", 1);
+        Assert.assertEquals("a_b", o_cloneUsagelitString15789__3);
+        NameAllocator innerAllocator1 = outterAllocator.clone();
+        NameAllocator innerAllocator2 = outterAllocator.clone();
+    }
+
+    @Test(timeout = 10000)
+    public void cloneUsage_sd15985() throws Exception {
+        NameAllocator outterAllocator = new NameAllocator();
+        String o_cloneUsage_sd15985__4 = outterAllocator.newName("foo", 1);
+        Assert.assertEquals("foo", o_cloneUsage_sd15985__4);
+        NameAllocator innerAllocator2 = outterAllocator.clone();
+        Assert.assertEquals("_1LxK_0_h__p_y3zliv2", outterAllocator.clone().newName(",1LxK>0<h]+p+y3zliv2"));
+    }
+
+    @Test(timeout = 10000)
+    public void cloneUsage_add16041_failAssert17() throws Exception {
+        try {
+            NameAllocator outterAllocator = new NameAllocator();
+            outterAllocator.newName("foo", 1);
+            outterAllocator.newName("foo", 1);
+            NameAllocator innerAllocator1 = outterAllocator.clone();
+            NameAllocator innerAllocator2 = outterAllocator.clone();
+            org.junit.Assert.fail("cloneUsage_add16041 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void cloneUsage_sd15983() throws Exception {
+        NameAllocator outterAllocator = new NameAllocator();
+        String o_cloneUsage_sd15983__3 = outterAllocator.newName("foo", 1);
+        Assert.assertEquals("foo", o_cloneUsage_sd15983__3);
+        NameAllocator innerAllocator2 = outterAllocator.clone();
+        outterAllocator.clone().clone();
+    }
+
+    @Test(timeout = 10000)
+    public void cloneUsage_sd15986_sd20315() throws Exception {
+        NameAllocator outterAllocator = new NameAllocator();
+        String o_cloneUsage_sd15986__6 = outterAllocator.newName("foo", 1);
+        Assert.assertEquals("foo", o_cloneUsage_sd15986__6);
+        NameAllocator innerAllocator2 = outterAllocator.clone();
+        String o_cloneUsage_sd15986__11 = outterAllocator.clone().newName("etX{h;/aZ]><W_05j]]R", new Object());
+        Assert.assertEquals("etX_h__aZ___W_05j__R", o_cloneUsage_sd15986__11);
+        Assert.assertEquals("_62pPiA__3_dDjiI0_QS_", outterAllocator.newName("62pPiA`(3%dDjiI0<QS!"));
+    }
+
+    @Test(timeout = 10000)
+    public void cloneUsage_sd15986_sd20318_failAssert7() throws Exception {
+        try {
+            Object __DSPOT_tag_4277 = new Object();
+            Object __DSPOT_tag_3043 = new Object();
+            String __DSPOT_suggestion_3042 = "etX{h;/aZ]><W_05j]]R";
+            NameAllocator outterAllocator = new NameAllocator();
+            String o_cloneUsage_sd15986__6 = outterAllocator.newName("foo", 1);
+            NameAllocator innerAllocator1 = outterAllocator.clone();
+            NameAllocator innerAllocator2 = outterAllocator.clone();
+            String o_cloneUsage_sd15986__11 = innerAllocator1.newName("etX{h;/aZ]><W_05j]]R", new Object());
+            innerAllocator1.get(new Object());
+            org.junit.Assert.fail("cloneUsage_sd15986_sd20318 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void cloneUsage_sd15986_sd20316() throws Exception {
+        NameAllocator outterAllocator = new NameAllocator();
+        String o_cloneUsage_sd15986__6 = outterAllocator.newName("foo", 1);
+        Assert.assertEquals("foo", o_cloneUsage_sd15986__6);
+        NameAllocator innerAllocator2 = outterAllocator.clone();
+        String o_cloneUsage_sd15986__11 = outterAllocator.clone().newName("etX{h;/aZ]><W_05j]]R", new Object());
+        Assert.assertEquals("etX_h__aZ___W_05j__R", o_cloneUsage_sd15986__11);
+        Assert.assertEquals("_p___n$_cz_0_awm_VZ_", outterAllocator.newName("<p {&n$#cz#0#awm[VZ;", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void cloneUsage_sd15986_add20328_failAssert15() throws Exception {
+        try {
+            Object __DSPOT_tag_3043 = new Object();
+            String __DSPOT_suggestion_3042 = "etX{h;/aZ]><W_05j]]R";
+            NameAllocator outterAllocator = new NameAllocator();
+            String o_cloneUsage_sd15986__6 = outterAllocator.newName("foo", 1);
+            NameAllocator innerAllocator1 = outterAllocator.clone();
+            NameAllocator innerAllocator2 = outterAllocator.clone();
+            innerAllocator1.newName(__DSPOT_suggestion_3042, __DSPOT_tag_3043);
+            String o_cloneUsage_sd15986__11 = innerAllocator1.newName(__DSPOT_suggestion_3042, __DSPOT_tag_3043);
+            org.junit.Assert.fail("cloneUsage_sd15986_add20328 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void cloneUsage_sd16022_sd22257_failAssert2() throws Exception {
+        try {
+            String __DSPOT_arg1_5408 = "wg90aS=2dA%eVxX(6W:A";
+            String __DSPOT_arg0_5407 = "b[LklXLJ@kQZ:!Fggrmn";
+            int __DSPOT_arg4_3089 = -2073407488;
+            int __DSPOT_arg3_3088 = 1553002281;
+            String __DSPOT_arg2_3087 = "(>((sJo>eQ]k526@F8h%";
+            int __DSPOT_arg1_3086 = 1629463781;
+            boolean __DSPOT_arg0_3085 = false;
+            NameAllocator outterAllocator = new NameAllocator();
+            String __DSPOT_invoc_3 = outterAllocator.newName("foo", 1);
+            NameAllocator innerAllocator1 = outterAllocator.clone();
+            NameAllocator innerAllocator2 = outterAllocator.clone();
+            boolean o_cloneUsage_sd16022__15 = outterAllocator.newName("foo", 1).regionMatches(false, 1629463781, __DSPOT_arg2_3087, 1553002281, -2073407488);
+            __DSPOT_arg2_3087.replaceFirst("b[LklXLJ@kQZ:!Fggrmn", "wg90aS=2dA%eVxX(6W:A");
+            org.junit.Assert.fail("cloneUsage_sd16022_sd22257 should have thrown PatternSyntaxException");
+        } catch (PatternSyntaxException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void cloneUsage_sd16022_sd22238_failAssert0() throws Exception {
+        try {
+            int __DSPOT_arg3_5378 = -1202224806;
+            char[] __DSPOT_arg2_5377 = new char[]{ '`', '.' };
+            int __DSPOT_arg1_5376 = -423165553;
+            int __DSPOT_arg0_5375 = 1496541492;
+            int __DSPOT_arg4_3089 = -2073407488;
+            int __DSPOT_arg3_3088 = 1553002281;
+            String __DSPOT_arg2_3087 = "(>((sJo>eQ]k526@F8h%";
+            int __DSPOT_arg1_3086 = 1629463781;
+            boolean __DSPOT_arg0_3085 = false;
+            NameAllocator outterAllocator = new NameAllocator();
+            String __DSPOT_invoc_3 = outterAllocator.newName("foo", 1);
+            NameAllocator innerAllocator1 = outterAllocator.clone();
+            NameAllocator innerAllocator2 = outterAllocator.clone();
+            boolean o_cloneUsage_sd16022__15 = outterAllocator.newName("foo", 1).regionMatches(false, 1629463781, __DSPOT_arg2_3087, 1553002281, -2073407488);
+            __DSPOT_arg2_3087.getChars(1496541492, -423165553, new char[]{ '`', '.' }, -1202224806);
+            org.junit.Assert.fail("cloneUsage_sd16022_sd22238 should have thrown StringIndexOutOfBoundsException");
+        } catch (StringIndexOutOfBoundsException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void cloneUsage_sd16022_sd22279() throws Exception {
+        NameAllocator outterAllocator = new NameAllocator();
+        NameAllocator innerAllocator2 = outterAllocator.clone();
+        boolean o_cloneUsage_sd16022__15 = outterAllocator.newName("foo", 1).regionMatches(false, 1629463781, "(>((sJo>eQ]k526@F8h%", 1553002281, -2073407488);
+        Assert.assertEquals("DBI$h_f__6W__uCA_$7_", outterAllocator.clone().newName("DBI$h>f![6W]^uCA:$7%", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void cloneUsage_add16046_sd23819() throws Exception {
+        NameAllocator outterAllocator = new NameAllocator();
+        String o_cloneUsage_add16046__3 = outterAllocator.newName("foo", 1);
+        Assert.assertEquals("foo", o_cloneUsage_add16046__3);
+        String o_cloneUsage_add16046__6 = outterAllocator.clone().newName("foo", 3);
+        Assert.assertEquals("foo_", o_cloneUsage_add16046__6);
+        NameAllocator innerAllocator2 = outterAllocator.clone();
+        Assert.assertEquals("tQ_p8_k0_dfG_sbmQ_GM", outterAllocator.newName("tQ&p8{k0`dfG=sbmQ{GM", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void cloneUsage_sd16022_sd22275() throws Exception {
+        NameAllocator outterAllocator = new NameAllocator();
+        NameAllocator innerAllocator1 = outterAllocator.clone();
+        NameAllocator innerAllocator2 = outterAllocator.clone();
+        boolean o_cloneUsage_sd16022__15 = outterAllocator.newName("foo", 1).regionMatches(false, 1629463781, "(>((sJo>eQ]k526@F8h%", 1553002281, -2073407488);
+        Assert.assertEquals("cidUqJ6bS_gJ$__Lq_9_", outterAllocator.newName("cidUqJ6bS]gJ$!(Lq#9=", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void cloneUsage_sd15986_sd20320_sd27073() throws Exception {
+        NameAllocator outterAllocator = new NameAllocator();
+        String o_cloneUsage_sd15986__6 = outterAllocator.newName("foo", 1);
+        Assert.assertEquals("foo", o_cloneUsage_sd15986__6);
+        NameAllocator innerAllocator1 = outterAllocator.clone();
+        NameAllocator innerAllocator2 = outterAllocator.clone();
+        String o_cloneUsage_sd15986__11 = innerAllocator1.newName("etX{h;/aZ]><W_05j]]R", new Object());
+        Assert.assertEquals("etX_h__aZ___W_05j__R", o_cloneUsage_sd15986__11);
+        String o_cloneUsage_sd15986_sd20320__20 = innerAllocator1.newName("]dR!j#-9%|Rl50X;{_lE", new Object());
+        Assert.assertEquals("_dR_j__9__Rl50X___lE", o_cloneUsage_sd15986_sd20320__20);
+        Assert.assertEquals("_0_Z__Zg_x8sI__kcd7kw", innerAllocator1.newName("0}Z<@Zg+x8sI()kcd7kw"));
+    }
+
+    @Test(timeout = 10000)
+    public void cloneUsage_sd15986_add20328_failAssert15litString38967() throws Exception {
+        try {
+            Object __DSPOT_tag_3043 = new Object();
+            String __DSPOT_suggestion_3042 = "a_b";
+            NameAllocator outterAllocator = new NameAllocator();
+            String o_cloneUsage_sd15986__6 = outterAllocator.newName("foo", 1);
+            Assert.assertEquals("foo", outterAllocator.newName("foo", 1));
+            NameAllocator innerAllocator1 = outterAllocator.clone();
+            NameAllocator innerAllocator2 = outterAllocator.clone();
+            String o_cloneUsage_sd15986_add20328_failAssert15litString38967__15 = innerAllocator1.newName(__DSPOT_suggestion_3042, __DSPOT_tag_3043);
+            Assert.assertEquals("a_b", innerAllocator1.newName(__DSPOT_suggestion_3042, __DSPOT_tag_3043));
+            String o_cloneUsage_sd15986__11 = innerAllocator1.newName(__DSPOT_suggestion_3042, __DSPOT_tag_3043);
+            org.junit.Assert.fail("cloneUsage_sd15986_add20328 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void cloneUsage_sd15986_sd20322_failAssert8() throws Exception {
+        try {
+            Object __DSPOT_tag_4281 = new Object();
+            Object __DSPOT_tag_3043 = new Object();
+            String __DSPOT_suggestion_3042 = "etX{h;/aZ]><W_05j]]R";
+            NameAllocator outterAllocator = new NameAllocator();
+            String o_cloneUsage_sd15986__6 = outterAllocator.newName("foo", 1);
+            Assert.assertEquals("foo", outterAllocator.newName("foo", 1));
+            NameAllocator innerAllocator1 = outterAllocator.clone();
+            NameAllocator innerAllocator2 = outterAllocator.clone();
+            String o_cloneUsage_sd15986__11 = "Xa1]-r)Qm1@e`yDYrE8Q";
+            Assert.assertEquals("Xa1]-r)Qm1@e`yDYrE8Q", "Xa1]-r)Qm1@e`yDYrE8Q");
+            outterAllocator.clone().get(new Object());
+            org.junit.Assert.fail("cloneUsage_sd15986_sd20322 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void cloneUsage_sd15986_sd20320_sd27070() throws Exception {
+        NameAllocator outterAllocator = new NameAllocator();
+        String o_cloneUsage_sd15986__6 = outterAllocator.newName("foo", 1);
+        Assert.assertEquals("foo", o_cloneUsage_sd15986__6);
+        NameAllocator innerAllocator1 = outterAllocator.clone();
+        NameAllocator innerAllocator2 = outterAllocator.clone();
+        String o_cloneUsage_sd15986__11 = innerAllocator1.newName("etX{h;/aZ]><W_05j]]R", new Object());
+        Assert.assertEquals("etX_h__aZ___W_05j__R", o_cloneUsage_sd15986__11);
+        String o_cloneUsage_sd15986_sd20320__20 = innerAllocator1.newName("]dR!j#-9%|Rl50X;{_lE", new Object());
+        Assert.assertEquals("_dR_j__9__Rl50X___lE", o_cloneUsage_sd15986_sd20320__20);
+        Assert.assertEquals("c__bTwoL__ISa_M___0$", outterAllocator.newName("c] bTwoL#=ISa!M(|]0$", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void javaKeyword_add40944() throws Exception {
+        Assert.assertEquals("public_", new NameAllocator().newName("public", 1));
+    }
+
+    @Test(timeout = 10000)
+    public void javaKeyword_add40946_failAssert1() throws Exception {
         try {
             NameAllocator nameAllocator = new NameAllocator();
-            new NameAllocator().get(2);
-            org.junit.Assert.fail("nameCollisionWithTag_add50638 should have thrown IllegalArgumentException");
+            new NameAllocator().get(1);
+            org.junit.Assert.fail("javaKeyword_add40946 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException eee) {
         }
     }
 
     @Test(timeout = 10000)
-    public void nameCollisionWithTag_sd50627litString50982() throws Exception {
+    public void javaKeyword_sd40941() throws Exception {
+        Assert.assertEquals("__E8l_NpngrnMS8BMBY_", new NameAllocator().newName("`}E8l[NpngrnMS8BMBY?"));
+    }
+
+    @Test(timeout = 10000)
+    public void javaKeyword_sd40942() throws Exception {
+        Assert.assertEquals("Lx____4A6kQ_nZ_m_2lo", new NameAllocator().newName("Lx/)+#4A6kQ,nZ%m.2lo", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void javaKeyword_sd40941litString41130() throws Exception {
+        Assert.assertEquals("_1ab", new NameAllocator().newName("1ab"));
+    }
+
+    @Test(timeout = 10000)
+    public void javaKeyword_sd40942_add41164_failAssert2() throws Exception {
+        try {
+            Object __DSPOT_tag_16030 = new Object();
+            String __DSPOT_suggestion_16029 = "Lx/)+#4A6kQ,nZ%m.2lo";
+            NameAllocator nameAllocator = new NameAllocator();
+            nameAllocator.newName(__DSPOT_suggestion_16029, __DSPOT_tag_16030);
+            String o_javaKeyword_sd40942__6 = nameAllocator.newName(__DSPOT_suggestion_16029, __DSPOT_tag_16030);
+            org.junit.Assert.fail("javaKeyword_sd40942_add41164 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void javaKeyword_sd40941_add41139() throws Exception {
+        String __DSPOT_suggestion_16028 = "`}E8l[NpngrnMS8BMBY?";
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_javaKeyword_sd40941_add41139__4 = nameAllocator.newName(__DSPOT_suggestion_16028);
+        Assert.assertEquals("__E8l_NpngrnMS8BMBY_", o_javaKeyword_sd40941_add41139__4);
+        Assert.assertEquals("__E8l_NpngrnMS8BMBY__", nameAllocator.newName(__DSPOT_suggestion_16028));
+    }
+
+    @Test(timeout = 10000)
+    public void javaKeyword_sd40942litString41142() throws Exception {
+        Assert.assertEquals("bar", new NameAllocator().newName("bar", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void javaKeyword_add40944litString41182() throws Exception {
+        Assert.assertEquals("_1ab", new NameAllocator().newName("_1ab", 1));
+    }
+
+    @Test(timeout = 10000)
+    public void javaKeyword_sd40941litString41119() throws Exception {
         Assert.assertEquals("", new NameAllocator().newName(""));
     }
 
     @Test(timeout = 10000)
-    public void nameCollisionWithTag_add50634litString51100() throws Exception {
-        Assert.assertEquals("public_", new NameAllocator().newName("public", 3));
-    }
-
-    @Test(timeout = 10000)
-    public void nameCollisionWithTag_sd50628_sd51023() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_nameCollisionWithTag_sd50628__6 = nameAllocator.newName("8&}Nv 0#NZ=8%`kY{*9b", new Object());
-        Assert.assertEquals("_8__Nv_0_NZ_8__kY__9b", o_nameCollisionWithTag_sd50628__6);
-        Assert.assertEquals("i_Z_DT__AA__1_mVL_Fg", nameAllocator.newName("i.Z-DT&*AA @1_mVL]Fg"));
-        Assert.assertEquals("_8__Nv_0_NZ_8__kY__9b", o_nameCollisionWithTag_sd50628__6);
-    }
-
-    @Test(timeout = 10000)
-    public void nameCollisionWithTag_add50632litString51064() throws Exception {
-        Assert.assertEquals("_1ab", new NameAllocator().newName("1ab", 2));
-    }
-
-    @Test(timeout = 10000)
-    public void nameCollisionWithTag_add50632litString51055() throws Exception {
-        Assert.assertEquals("foo__", new NameAllocator().newName("foo__", 2));
-    }
-
-    @Test(timeout = 10000)
-    public void nameCollisionWithTag_add50632litString51058() throws Exception {
-        Assert.assertEquals("_q0I7_NXM3", new NameAllocator().newName("-q0I7=NXM3", 2));
-    }
-
-    @Test(timeout = 10000)
-    public void nameCollisionWithTag_sd50628_sd51022_failAssert0() throws Exception {
+    public void javaKeyword_sd40942_sd41161_failAssert1() throws Exception {
         try {
-            Object __DSPOT_tag_17694 = new Object();
-            Object __DSPOT_tag_17689 = new Object();
-            String __DSPOT_suggestion_17688 = "8&}Nv 0#NZ=8%`kY{*9b";
+            Object __DSPOT_tag_16035 = new Object();
+            Object __DSPOT_tag_16030 = new Object();
+            String __DSPOT_suggestion_16029 = "Lx/)+#4A6kQ,nZ%m.2lo";
             NameAllocator nameAllocator = new NameAllocator();
-            String o_nameCollisionWithTag_sd50628__6 = nameAllocator.newName("8&}Nv 0#NZ=8%`kY{*9b", new Object());
+            String o_javaKeyword_sd40942__6 = nameAllocator.newName("Lx/)+#4A6kQ,nZ%m.2lo", new Object());
             nameAllocator.get(new Object());
-            org.junit.Assert.fail("nameCollisionWithTag_sd50628_sd51022 should have thrown IllegalArgumentException");
+            org.junit.Assert.fail("javaKeyword_sd40942_sd41161 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException eee) {
         }
     }
 
     @Test(timeout = 10000)
-    public void nameCollisionWithTag_sd50628_add51025_failAssert4() throws Exception {
+    public void javaKeyword_sd40941litString41128() throws Exception {
+        Assert.assertEquals("public_", new NameAllocator().newName("public"));
+    }
+
+    @Test(timeout = 10000)
+    public void javaKeyword_sd40942_sd41161_failAssert1_sd44236() throws Exception {
         try {
-            Object __DSPOT_tag_17689 = new Object();
-            String __DSPOT_suggestion_17688 = "8&}Nv 0#NZ=8%`kY{*9b";
+            int __DSPOT_arg1_16639 = -1614334300;
+            String __DSPOT_arg0_16638 = "!W3:VMmI-G&Sm$YXkCp]";
+            Object __DSPOT_tag_16035 = new Object();
+            Object __DSPOT_tag_16030 = new Object();
+            String __DSPOT_suggestion_16029 = "Lx/)+#4A6kQ,nZ%m.2lo";
             NameAllocator nameAllocator = new NameAllocator();
-            nameAllocator.newName(__DSPOT_suggestion_17688, __DSPOT_tag_17689);
-            String o_nameCollisionWithTag_sd50628__6 = nameAllocator.newName(__DSPOT_suggestion_17688, __DSPOT_tag_17689);
-            org.junit.Assert.fail("nameCollisionWithTag_sd50628_add51025 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void nameCollisionWithTag_sd50628_sd51023litString53927() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_nameCollisionWithTag_sd50628__6 = nameAllocator.newName("8&}Nv 0#NZ=8%`kY{*9b", new Object());
-        Assert.assertEquals("_8__Nv_0_NZ_8__kY__9b", o_nameCollisionWithTag_sd50628__6);
-        Assert.assertEquals("tag_1_cannot_be_used_for_both__foo__and__bar_", nameAllocator.newName("tag 1 cannot be used for both 'foo' and 'bar'"));
-        Assert.assertEquals("_8__Nv_0_NZ_8__kY__9b", o_nameCollisionWithTag_sd50628__6);
-    }
-
-    @Test(timeout = 10000)
-    public void nameCollisionWithTag_sd50628_sd51023_add53954() throws Exception {
-        String __DSPOT_suggestion_17695 = "i.Z-DT&*AA @1_mVL]Fg";
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_nameCollisionWithTag_sd50628__6 = nameAllocator.newName("8&}Nv 0#NZ=8%`kY{*9b", new Object());
-        Assert.assertEquals("_8__Nv_0_NZ_8__kY__9b", o_nameCollisionWithTag_sd50628__6);
-        String o_nameCollisionWithTag_sd50628_sd51023_add53954__11 = nameAllocator.newName(__DSPOT_suggestion_17695);
-        Assert.assertEquals("i_Z_DT__AA__1_mVL_Fg", o_nameCollisionWithTag_sd50628_sd51023_add53954__11);
-        Assert.assertEquals("i_Z_DT__AA__1_mVL_Fg_", nameAllocator.newName(__DSPOT_suggestion_17695));
-        Assert.assertEquals("i_Z_DT__AA__1_mVL_Fg", o_nameCollisionWithTag_sd50628_sd51023_add53954__11);
-        Assert.assertEquals("_8__Nv_0_NZ_8__kY__9b", o_nameCollisionWithTag_sd50628__6);
-    }
-
-    @Test(timeout = 10000)
-    public void nameCollisionWithTag_sd50628_sd51023litString53935() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_nameCollisionWithTag_sd50628__6 = nameAllocator.newName("/|FW/tZ]]s", new Object());
-        Assert.assertEquals("__FW_tZ__s", o_nameCollisionWithTag_sd50628__6);
-        Assert.assertEquals("i_Z_DT__AA__1_mVL_Fg", nameAllocator.newName("i.Z-DT&*AA @1_mVL]Fg"));
-        Assert.assertEquals("__FW_tZ__s", o_nameCollisionWithTag_sd50628__6);
-    }
-
-    @Test(timeout = 10000)
-    public void nameCollisionWithTag_sd50628_add51025_failAssert4_sd54842() throws Exception {
-        try {
-            Object __DSPOT_tag_18617 = new Object();
-            String __DSPOT_suggestion_18616 = "ZHb![9r@JhIN86@!_^nV";
-            Object __DSPOT_tag_17689 = new Object();
-            String __DSPOT_suggestion_17688 = "8&}Nv 0#NZ=8%`kY{*9b";
-            NameAllocator nameAllocator = new NameAllocator();
-            String o_nameCollisionWithTag_sd50628_add51025_failAssert4_sd54842__11 = nameAllocator.newName(__DSPOT_suggestion_17688, __DSPOT_tag_17689);
-            Assert.assertEquals("_8__Nv_0_NZ_8__kY__9b", nameAllocator.newName(__DSPOT_suggestion_17688, __DSPOT_tag_17689));
-            String o_nameCollisionWithTag_sd50628__6 = nameAllocator.newName(__DSPOT_suggestion_17688, __DSPOT_tag_17689);
-            org.junit.Assert.fail("nameCollisionWithTag_sd50628_add51025 should have thrown IllegalArgumentException");
-            nameAllocator.newName("ZHb![9r@JhIN86@!_^nV", new Object());
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void nameCollisionWithTag_sd50628_sd51022_failAssert0_sd54469() throws Exception {
-        try {
-            String __DSPOT_arg0_18354 = "@2/:rRs[=;D;:)?Mk<n>";
-            Object __DSPOT_tag_17694 = new Object();
-            Object __DSPOT_tag_17689 = new Object();
-            String __DSPOT_suggestion_17688 = "8&}Nv 0#NZ=8%`kY{*9b";
-            NameAllocator nameAllocator = new NameAllocator();
-            String o_nameCollisionWithTag_sd50628__6 = nameAllocator.newName("8&}Nv 0#NZ=8%`kY{*9b", new Object());
-            Assert.assertEquals("_8__Nv_0_NZ_8__kY__9b", nameAllocator.newName("8&}Nv 0#NZ=8%`kY{*9b", new Object()));
+            String o_javaKeyword_sd40942__6 = nameAllocator.newName("Lx/)+#4A6kQ,nZ%m.2lo", new Object());
+            Assert.assertEquals("Lx____4A6kQ_nZ_m_2lo", nameAllocator.newName("Lx/)+#4A6kQ,nZ%m.2lo", new Object()));
             String __DSPOT_invoc_14 = nameAllocator.get(new Object());
-            org.junit.Assert.fail("nameCollisionWithTag_sd50628_sd51022 should have thrown IllegalArgumentException");
-            nameAllocator.get(new Object()).equalsIgnoreCase("@2/:rRs[=;D;:)?Mk<n>");
+            org.junit.Assert.fail("javaKeyword_sd40942_sd41161 should have thrown IllegalArgumentException");
+            nameAllocator.get(new Object()).startsWith("!W3:VMmI-G&Sm$YXkCp]", -1614334300);
         } catch (IllegalArgumentException eee) {
         }
     }
 
     @Test(timeout = 10000)
-    public void nameCollisionWithTag_sd50628_sd51023litString53932() throws Exception {
+    public void javaKeyword_sd40942_sd41162() throws Exception {
         NameAllocator nameAllocator = new NameAllocator();
-        String o_nameCollisionWithTag_sd50628__6 = nameAllocator.newName("public", new Object());
-        Assert.assertEquals("public_", o_nameCollisionWithTag_sd50628__6);
-        Assert.assertEquals("i_Z_DT__AA__1_mVL_Fg", nameAllocator.newName("i.Z-DT&*AA @1_mVL]Fg"));
-        Assert.assertEquals("public_", o_nameCollisionWithTag_sd50628__6);
+        String o_javaKeyword_sd40942__6 = nameAllocator.newName("Lx/)+#4A6kQ,nZ%m.2lo", new Object());
+        Assert.assertEquals("Lx____4A6kQ_nZ_m_2lo", o_javaKeyword_sd40942__6);
+        Assert.assertEquals("_oDy__xZ__aD8_s_2_Dv", nameAllocator.newName("!oDy^`xZ,{aD8-s:2{Dv"));
     }
 
     @Test(timeout = 10000)
-    public void tagReuseForbiddenlitString55501() throws Exception {
+    public void javaKeyword_sd40942_sd41162litString43202() throws Exception {
         NameAllocator nameAllocator = new NameAllocator();
-        String o_tagReuseForbiddenlitString55501__3 = nameAllocator.newName("bar", 1);
-        Assert.assertEquals("bar", o_tagReuseForbiddenlitString55501__3);
+        String o_javaKeyword_sd40942__6 = nameAllocator.newName("public", new Object());
+        Assert.assertEquals("public_", o_javaKeyword_sd40942__6);
+        Assert.assertEquals("_oDy__xZ__aD8_s_2_Dv", nameAllocator.newName("!oDy^`xZ,{aD8-s:2{Dv"));
+    }
+
+    @Test(timeout = 10000)
+    public void javaKeyword_sd40942_sd41162_add43216() throws Exception {
+        String __DSPOT_suggestion_16036 = "!oDy^`xZ,{aD8-s:2{Dv";
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_javaKeyword_sd40942__6 = nameAllocator.newName("Lx/)+#4A6kQ,nZ%m.2lo", new Object());
+        Assert.assertEquals("Lx____4A6kQ_nZ_m_2lo", o_javaKeyword_sd40942__6);
+        String o_javaKeyword_sd40942_sd41162_add43216__11 = nameAllocator.newName(__DSPOT_suggestion_16036);
+        Assert.assertEquals("_oDy__xZ__aD8_s_2_Dv", o_javaKeyword_sd40942_sd41162_add43216__11);
+        Assert.assertEquals("_oDy__xZ__aD8_s_2_Dv_", nameAllocator.newName(__DSPOT_suggestion_16036));
+    }
+
+    @Test(timeout = 10000)
+    public void javaKeyword_sd40942_sd41163litString43239() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_javaKeyword_sd40942__6 = nameAllocator.newName("foo_", new Object());
+        Assert.assertEquals("foo_", o_javaKeyword_sd40942__6);
+        Assert.assertEquals("___6__l0Sso__fuWxFs_", nameAllocator.newName("+){6#,l0Sso!?fuWxFs ", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void javaKeyword_sd40942_sd41162litString43200() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_javaKeyword_sd40942__6 = nameAllocator.newName("1ab", new Object());
+        Assert.assertEquals("_1ab", o_javaKeyword_sd40942__6);
+        Assert.assertEquals("_oDy__xZ__aD8_s_2_Dv", nameAllocator.newName("!oDy^`xZ,{aD8-s:2{Dv"));
+    }
+
+    @Test(timeout = 10000)
+    public void javaKeyword_sd40942_sd41163_add43262_failAssert1() throws Exception {
+        try {
+            Object __DSPOT_tag_16038 = new Object();
+            String __DSPOT_suggestion_16037 = "+){6#,l0Sso!?fuWxFs ";
+            Object __DSPOT_tag_16030 = new Object();
+            String __DSPOT_suggestion_16029 = "Lx/)+#4A6kQ,nZ%m.2lo";
+            NameAllocator nameAllocator = new NameAllocator();
+            String o_javaKeyword_sd40942__6 = nameAllocator.newName("Lx/)+#4A6kQ,nZ%m.2lo", new Object());
+            nameAllocator.newName(__DSPOT_suggestion_16037, __DSPOT_tag_16038);
+            String o_javaKeyword_sd40942_sd41163__13 = nameAllocator.newName(__DSPOT_suggestion_16037, __DSPOT_tag_16038);
+            org.junit.Assert.fail("javaKeyword_sd40942_sd41163_add43262 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void javaKeyword_sd40942_sd41160_sd43167() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_javaKeyword_sd40942__6 = nameAllocator.newName("Lx/)+#4A6kQ,nZ%m.2lo", new Object());
+        Assert.assertEquals("Lx____4A6kQ_nZ_m_2lo", o_javaKeyword_sd40942__6);
+        Assert.assertEquals("_5CgoK_8n$q_p_6_kev_r", nameAllocator.clone().newName("5CgoK{8n$q p*6%kev}r", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void javaKeyword_sd40942_sd41162litString43172() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_javaKeyword_sd40942__6 = nameAllocator.newName("Lx/)+#4A6kQ,nZ%m.2lo", new Object());
+        Assert.assertEquals("Lx____4A6kQ_nZ_m_2lo", o_javaKeyword_sd40942__6);
+        Assert.assertEquals("foo", nameAllocator.newName("foo"));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollision_sd45206() throws Exception {
+        Assert.assertEquals("H3bz__Xe3_NJcE6hb_J_", new NameAllocator().newName("H3bz*>Xe3/NJcE6hb*J/"));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollision_sd45205_failAssert0() throws Exception {
+        try {
+            Object __DSPOT_tag_16854 = new Object();
+            NameAllocator nameAllocator = new NameAllocator();
+            new NameAllocator().get(new Object());
+            org.junit.Assert.fail("nameCollision_sd45205 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollision_sd45206_sd45474_failAssert0() throws Exception {
+        try {
+            Object __DSPOT_tag_16858 = new Object();
+            String __DSPOT_suggestion_16855 = "H3bz*>Xe3/NJcE6hb*J/";
+            NameAllocator nameAllocator = new NameAllocator();
+            String o_nameCollision_sd45206__4 = nameAllocator.newName("H3bz*>Xe3/NJcE6hb*J/");
+            nameAllocator.get(new Object());
+            org.junit.Assert.fail("nameCollision_sd45206_sd45474 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollision_add45211litString45538() throws Exception {
+        Assert.assertEquals("_ab", new NameAllocator().newName("&ab"));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollision_add45213litString45561() throws Exception {
+        Assert.assertEquals("_1ab", new NameAllocator().newName("1ab"));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollision_sd45207_sd45501() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_nameCollision_sd45207__6 = nameAllocator.newName("v[70:34@]ubAEB<<Qm7F", new Object());
+        Assert.assertEquals("v_70_34__ubAEB__Qm7F", o_nameCollision_sd45207__6);
+        Assert.assertEquals("aisw_t_W_VmWU_hfgX_A", nameAllocator.newName("aisw!t)W#VmWU#hfgX#A", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollision_sd45207_add45502_failAssert2() throws Exception {
+        try {
+            Object __DSPOT_tag_16857 = new Object();
+            String __DSPOT_suggestion_16856 = "v[70:34@]ubAEB<<Qm7F";
+            NameAllocator nameAllocator = new NameAllocator();
+            nameAllocator.newName(__DSPOT_suggestion_16856, __DSPOT_tag_16857);
+            String o_nameCollision_sd45207__6 = nameAllocator.newName(__DSPOT_suggestion_16856, __DSPOT_tag_16857);
+            org.junit.Assert.fail("nameCollision_sd45207_add45502 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollision_sd45207litString45491() throws Exception {
+        Assert.assertEquals("_1ab", new NameAllocator().newName("_1ab", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollision_sd45206_add45477() throws Exception {
+        String __DSPOT_suggestion_16855 = "H3bz*>Xe3/NJcE6hb*J/";
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_nameCollision_sd45206_add45477__4 = nameAllocator.newName(__DSPOT_suggestion_16855);
+        Assert.assertEquals("H3bz__Xe3_NJcE6hb_J_", o_nameCollision_sd45206_add45477__4);
+        Assert.assertEquals("H3bz__Xe3_NJcE6hb_J__", nameAllocator.newName(__DSPOT_suggestion_16855));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollision_sd45207litString45481() throws Exception {
+        Assert.assertEquals("foo_", new NameAllocator().newName("foo_", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollision_add45209litString45521() throws Exception {
+        Assert.assertEquals("public_", new NameAllocator().newName("public"));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollision_sd45206_sd45476litString46838() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_nameCollision_sd45206__4 = nameAllocator.newName("a\ud83c\udf7ab");
+        Assert.assertEquals("a_b", o_nameCollision_sd45206__4);
+        Assert.assertEquals("tQsc2e___l_6___fB___", nameAllocator.newName("tQsc2e%|[l.6^&!fB-!_", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollision_sd45207_sd45499_failAssert1_sd49677() throws Exception {
+        try {
+            String __DSPOT_arg0_17556 = "3p`zHFo>?Rg&O3No)jn]";
+            Object __DSPOT_tag_16862 = new Object();
+            Object __DSPOT_tag_16857 = new Object();
+            String __DSPOT_suggestion_16856 = "v[70:34@]ubAEB<<Qm7F";
+            NameAllocator nameAllocator = new NameAllocator();
+            String o_nameCollision_sd45207__6 = nameAllocator.newName("v[70:34@]ubAEB<<Qm7F", new Object());
+            Assert.assertEquals("v_70_34__ubAEB__Qm7F", nameAllocator.newName("v[70:34@]ubAEB<<Qm7F", new Object()));
+            String __DSPOT_invoc_14 = nameAllocator.get(new Object());
+            org.junit.Assert.fail("nameCollision_sd45207_sd45499 should have thrown IllegalArgumentException");
+            nameAllocator.get(new Object()).equalsIgnoreCase("3p`zHFo>?Rg&O3No)jn]");
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollision_sd45207_sd45498_sd47462() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_nameCollision_sd45207__6 = nameAllocator.newName("v[70:34@]ubAEB<<Qm7F", new Object());
+        Assert.assertEquals("v_70_34__ubAEB__Qm7F", o_nameCollision_sd45207__6);
+        Assert.assertEquals("_Ep2_9U__MuC__Z0g5_Y", nameAllocator.clone().newName(",Ep2<9U|[MuC+&Z0g5`Y", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollision_sd45206_sd45476litString46839() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_nameCollision_sd45206__4 = nameAllocator.newName("1ab");
+        Assert.assertEquals("_1ab", o_nameCollision_sd45206__4);
+        Assert.assertEquals("tQsc2e___l_6___fB___", nameAllocator.newName("tQsc2e%|[l.6^&!fB-!_", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollision_sd45206_sd45476litString46844() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_nameCollision_sd45206__4 = nameAllocator.newName("&ab");
+        Assert.assertEquals("_ab", o_nameCollision_sd45206__4);
+        Assert.assertEquals("tQsc2e___l_6___fB___", nameAllocator.newName("tQsc2e%|[l.6^&!fB-!_", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollision_sd45206_sd45476litString46842() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_nameCollision_sd45206__4 = nameAllocator.newName("public");
+        Assert.assertEquals("public_", o_nameCollision_sd45206__4);
+        Assert.assertEquals("tQsc2e___l_6___fB___", nameAllocator.newName("tQsc2e%|[l.6^&!fB-!_", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollision_sd45207_sd45500_add47511() throws Exception {
+        String __DSPOT_suggestion_16863 = "T5].[r7D|Suw@,?e4x.V";
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_nameCollision_sd45207__6 = nameAllocator.newName("v[70:34@]ubAEB<<Qm7F", new Object());
+        Assert.assertEquals("v_70_34__ubAEB__Qm7F", o_nameCollision_sd45207__6);
+        String o_nameCollision_sd45207_sd45500_add47511__11 = nameAllocator.newName(__DSPOT_suggestion_16863);
+        Assert.assertEquals("T5___r7D_Suw___e4x_V", o_nameCollision_sd45207_sd45500_add47511__11);
+        Assert.assertEquals("T5___r7D_Suw___e4x_V_", nameAllocator.newName(__DSPOT_suggestion_16863));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollision_sd45207_add45502_failAssert2_sd49740() throws Exception {
+        try {
+            Object __DSPOT_tag_17612 = new Object();
+            String __DSPOT_suggestion_17611 = "r{p]W*8l{O,o.p3,Z1J/";
+            Object __DSPOT_tag_16857 = new Object();
+            String __DSPOT_suggestion_16856 = "v[70:34@]ubAEB<<Qm7F";
+            NameAllocator nameAllocator = new NameAllocator();
+            String o_nameCollision_sd45207_add45502_failAssert2_sd49740__11 = nameAllocator.newName(__DSPOT_suggestion_16856, __DSPOT_tag_16857);
+            Assert.assertEquals("v_70_34__ubAEB__Qm7F", nameAllocator.newName(__DSPOT_suggestion_16856, __DSPOT_tag_16857));
+            String o_nameCollision_sd45207__6 = nameAllocator.newName(__DSPOT_suggestion_16856, __DSPOT_tag_16857);
+            org.junit.Assert.fail("nameCollision_sd45207_add45502 should have thrown IllegalArgumentException");
+            nameAllocator.newName("r{p]W*8l{O,o.p3,Z1J/", new Object());
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollisionWithTag_add50817_failAssert1() throws Exception {
+        try {
+            NameAllocator nameAllocator = new NameAllocator();
+            new NameAllocator().get(1);
+            org.junit.Assert.fail("nameCollisionWithTag_add50817 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollisionWithTag_sd50809() throws Exception {
+        Assert.assertEquals("uXXJY__in_I47fYeJ_$5", new NameAllocator().newName("uXXJY%&in:I47fYeJ>$5", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollisionWithTag_add50815() throws Exception {
+        Assert.assertEquals("foo", new NameAllocator().newName("foo", 3));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollisionWithTag_sd50808() throws Exception {
+        Assert.assertEquals("TDWnj_Cx_S5_mpPHyv_B", new NameAllocator().newName("TDWnj#Cx^S5-mpPHyv`B"));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollisionWithTag_add50813litString51254() throws Exception {
+        Assert.assertEquals("public_", new NameAllocator().newName("public", 2));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollisionWithTag_sd50808_sd51183() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_nameCollisionWithTag_sd50808__4 = nameAllocator.newName("TDWnj#Cx^S5-mpPHyv`B");
+        Assert.assertEquals("TDWnj_Cx_S5_mpPHyv_B", o_nameCollisionWithTag_sd50808__4);
+        Assert.assertEquals("o_gqUp__4D_v_Nw__u_h", nameAllocator.newName("o-gqUp,-4D v Nw*%u{h", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollisionWithTag_add50815litNum51287() throws Exception {
+        Assert.assertEquals("foo", new NameAllocator().newName("foo", 2));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollisionWithTag_add50813litString51251() throws Exception {
+        Assert.assertEquals("_oo", new NameAllocator().newName(">oo", 2));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollisionWithTag_add50813litString51238() throws Exception {
+        Assert.assertEquals("_1ab", new NameAllocator().newName("_1ab", 2));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollisionWithTag_sd50809_sd51206_failAssert0() throws Exception {
+        try {
+            Object __DSPOT_tag_17893 = new Object();
+            Object __DSPOT_tag_17888 = new Object();
+            String __DSPOT_suggestion_17887 = "uXXJY%&in:I47fYeJ>$5";
+            NameAllocator nameAllocator = new NameAllocator();
+            String o_nameCollisionWithTag_sd50809__6 = nameAllocator.newName("uXXJY%&in:I47fYeJ>$5", new Object());
+            nameAllocator.get(new Object());
+            org.junit.Assert.fail("nameCollisionWithTag_sd50809_sd51206 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollisionWithTag_add50815_add51295_failAssert3() throws Exception {
+        try {
+            NameAllocator nameAllocator = new NameAllocator();
+            nameAllocator.newName("foo", 3);
+            String o_nameCollisionWithTag_add50815__3 = nameAllocator.newName("foo", 3);
+            org.junit.Assert.fail("nameCollisionWithTag_add50815_add51295 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollisionWithTag_add50813litString51247() throws Exception {
+        Assert.assertEquals("a_b", new NameAllocator().newName("a\ud83c\udf7ab", 2));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollisionWithTag_add50815litString51272() throws Exception {
+        Assert.assertEquals("_9oo", new NameAllocator().newName("9oo", 3));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollisionWithTag_sd50809_sd51207_add53672_failAssert6() throws Exception {
+        try {
+            String __DSPOT_suggestion_17894 = "n6Qj#yvy}PILFHH%_||d";
+            Object __DSPOT_tag_17888 = new Object();
+            String __DSPOT_suggestion_17887 = "uXXJY%&in:I47fYeJ>$5";
+            NameAllocator nameAllocator = new NameAllocator();
+            nameAllocator.newName(__DSPOT_suggestion_17887, __DSPOT_tag_17888);
+            String o_nameCollisionWithTag_sd50809__6 = nameAllocator.newName(__DSPOT_suggestion_17887, __DSPOT_tag_17888);
+            String o_nameCollisionWithTag_sd50809_sd51207__11 = nameAllocator.newName("n6Qj#yvy}PILFHH%_||d");
+            org.junit.Assert.fail("nameCollisionWithTag_sd50809_sd51207_add53672 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollisionWithTag_sd50809_sd51207_add53673() throws Exception {
+        String __DSPOT_suggestion_17894 = "n6Qj#yvy}PILFHH%_||d";
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_nameCollisionWithTag_sd50809__6 = nameAllocator.newName("uXXJY%&in:I47fYeJ>$5", new Object());
+        Assert.assertEquals("uXXJY__in_I47fYeJ_$5", o_nameCollisionWithTag_sd50809__6);
+        String o_nameCollisionWithTag_sd50809_sd51207_add53673__11 = nameAllocator.newName(__DSPOT_suggestion_17894);
+        Assert.assertEquals("n6Qj_yvy_PILFHH____d", o_nameCollisionWithTag_sd50809_sd51207_add53673__11);
+        Assert.assertEquals("n6Qj_yvy_PILFHH____d_", nameAllocator.newName(__DSPOT_suggestion_17894));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollisionWithTag_sd50809_sd51206_failAssert0_sd54686() throws Exception {
+        try {
+            int __DSPOT_arg1_18565 = 2135160085;
+            int __DSPOT_arg0_18564 = -2086255474;
+            Object __DSPOT_tag_17893 = new Object();
+            Object __DSPOT_tag_17888 = new Object();
+            String __DSPOT_suggestion_17887 = "uXXJY%&in:I47fYeJ>$5";
+            NameAllocator nameAllocator = new NameAllocator();
+            String o_nameCollisionWithTag_sd50809__6 = nameAllocator.newName("uXXJY%&in:I47fYeJ>$5", new Object());
+            Assert.assertEquals("uXXJY__in_I47fYeJ_$5", nameAllocator.newName("uXXJY%&in:I47fYeJ>$5", new Object()));
+            String __DSPOT_invoc_14 = nameAllocator.get(new Object());
+            org.junit.Assert.fail("nameCollisionWithTag_sd50809_sd51206 should have thrown IllegalArgumentException");
+            nameAllocator.get(new Object()).indexOf(-2086255474, 2135160085);
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollisionWithTag_sd50809_sd51208litString52148() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_nameCollisionWithTag_sd50809__6 = nameAllocator.newName("1ab", new Object());
+        Assert.assertEquals("_1ab", o_nameCollisionWithTag_sd50809__6);
+        Assert.assertEquals("_vT___kifgWn_vN__anU", nameAllocator.newName(":vT&@}kifgWn?vN.{anU", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollisionWithTag_sd50809_sd51207litString53646() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_nameCollisionWithTag_sd50809__6 = nameAllocator.newName("uXXJY%&in:I47fYeJ>$5", new Object());
+        Assert.assertEquals("uXXJY__in_I47fYeJ_$5", o_nameCollisionWithTag_sd50809__6);
+        Assert.assertEquals("public_", nameAllocator.newName("public"));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollisionWithTag_sd50809_sd51207() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_nameCollisionWithTag_sd50809__6 = nameAllocator.newName("uXXJY%&in:I47fYeJ>$5", new Object());
+        Assert.assertEquals("uXXJY__in_I47fYeJ_$5", o_nameCollisionWithTag_sd50809__6);
+        Assert.assertEquals("n6Qj_yvy_PILFHH____d", nameAllocator.newName("n6Qj#yvy}PILFHH%_||d"));
+    }
+
+    @Test(timeout = 10000)
+    public void nameCollisionWithTag_sd50809_sd51207litString53643() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_nameCollisionWithTag_sd50809__6 = nameAllocator.newName("uXXJY%&in:I47fYeJ>$5", new Object());
+        Assert.assertEquals("uXXJY__in_I47fYeJ_$5", o_nameCollisionWithTag_sd50809__6);
+        Assert.assertEquals("_ab", nameAllocator.newName("&ab"));
+    }
+
+    @Test(timeout = 10000)
+    public void tagReuseForbiddenlitString55696() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_tagReuseForbiddenlitString55696__3 = nameAllocator.newName("bar", 1);
+        Assert.assertEquals("bar", o_tagReuseForbiddenlitString55696__3);
         try {
             nameAllocator.newName("bar", 1);
         } catch (IllegalArgumentException expected) {
         }
-        Assert.assertEquals("bar", o_tagReuseForbiddenlitString55501__3);
     }
 
     @Test(timeout = 10000)
-    public void tagReuseForbiddenlitString55512() throws Exception {
+    public void tagReuseForbiddenlitString55709() throws Exception {
         NameAllocator nameAllocator = new NameAllocator();
-        String o_tagReuseForbiddenlitString55512__3 = nameAllocator.newName("&ab", 1);
-        Assert.assertEquals("_ab", o_tagReuseForbiddenlitString55512__3);
+        String o_tagReuseForbiddenlitString55709__3 = nameAllocator.newName("&ab", 1);
+        Assert.assertEquals("_ab", o_tagReuseForbiddenlitString55709__3);
         try {
             nameAllocator.newName("bar", 1);
         } catch (IllegalArgumentException expected) {
         }
-        Assert.assertEquals("_ab", o_tagReuseForbiddenlitString55512__3);
     }
 
     @Test(timeout = 10000)
-    public void tagReuseForbiddenlitString55511() throws Exception {
+    public void tagReuseForbidden_sd55829() throws Exception {
         NameAllocator nameAllocator = new NameAllocator();
-        String o_tagReuseForbiddenlitString55511__3 = nameAllocator.newName("1ab", 1);
-        Assert.assertEquals("_1ab", o_tagReuseForbiddenlitString55511__3);
+        String o_tagReuseForbidden_sd55829__3 = nameAllocator.newName("foo", 1);
+        Assert.assertEquals("foo", o_tagReuseForbidden_sd55829__3);
         try {
-            nameAllocator.newName("bar", 1);
-        } catch (IllegalArgumentException expected) {
-        }
-        Assert.assertEquals("_1ab", o_tagReuseForbiddenlitString55511__3);
-    }
-
-    @Test(timeout = 10000)
-    public void tagReuseForbiddenlitString55506() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_tagReuseForbiddenlitString55506__3 = nameAllocator.newName("q26X_i]-+}", 1);
-        Assert.assertEquals("q26X_i____", o_tagReuseForbiddenlitString55506__3);
-        try {
-            nameAllocator.newName("bar", 1);
-        } catch (IllegalArgumentException expected) {
-        }
-        Assert.assertEquals("q26X_i____", o_tagReuseForbiddenlitString55506__3);
-    }
-
-    @Test(timeout = 10000)
-    public void tagReuseForbiddenlitString55517() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_tagReuseForbiddenlitString55517__3 = nameAllocator.newName("public", 1);
-        Assert.assertEquals("public_", o_tagReuseForbiddenlitString55517__3);
-        try {
-            nameAllocator.newName("bar", 1);
-        } catch (IllegalArgumentException expected) {
-        }
-        Assert.assertEquals("public_", o_tagReuseForbiddenlitString55517__3);
-    }
-
-    @Test(timeout = 10000)
-    public void tagReuseForbidden_sd55567() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_tagReuseForbidden_sd55567__4 = nameAllocator.newName("foo", 1);
-        Assert.assertEquals("foo", o_tagReuseForbidden_sd55567__4);
-        try {
-            nameAllocator.newName("bar", 1);
-        } catch (IllegalArgumentException expected) {
-        }
-        Assert.assertEquals("G__OD_E_CScbWN__62p_", nameAllocator.newName("G)+OD]E_CScbWN%[62p."));
-        Assert.assertEquals("foo", o_tagReuseForbidden_sd55567__4);
-    }
-
-    @Test(timeout = 10000)
-    public void tagReuseForbidden_sd55634() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_tagReuseForbidden_sd55634__3 = nameAllocator.newName("foo", 1);
-        Assert.assertEquals("foo", o_tagReuseForbidden_sd55634__3);
-        try {
-            String __DSPOT_arg0_18773 = "QCNdiEF`D%$[?kh[m#v(";
+            String __DSPOT_arg0_18968 = "p;8WCM2tJk,-)mxfj$}R";
             String __DSPOT_invoc_6 = nameAllocator.newName("bar", 1);
-            nameAllocator.newName("bar", 1).getBytes("QCNdiEF`D%$[?kh[m#v(");
+            nameAllocator.newName("bar", 1).getBytes("p;8WCM2tJk,-)mxfj$}R");
         } catch (IllegalArgumentException expected) {
         }
-        Assert.assertEquals("foo", o_tagReuseForbidden_sd55634__3);
     }
 
     @Test(timeout = 10000)
-    public void tagReuseForbidden_sd55566_failAssert0() throws Exception {
+    public void tagReuseForbiddenlitString55708() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_tagReuseForbiddenlitString55708__3 = nameAllocator.newName("_1ab", 1);
+        Assert.assertEquals("_1ab", o_tagReuseForbiddenlitString55708__3);
         try {
-            Object __DSPOT_tag_18687 = new Object();
+            nameAllocator.newName("bar", 1);
+        } catch (IllegalArgumentException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void tagReuseForbidden_sd55761_failAssert0() throws Exception {
+        try {
+            Object __DSPOT_tag_18882 = new Object();
             NameAllocator nameAllocator = new NameAllocator();
             nameAllocator.newName("foo", 1);
             try {
@@ -1697,498 +1571,493 @@ public final class AmplNameAllocatorTest {
             } catch (IllegalArgumentException expected) {
             }
             nameAllocator.get(new Object());
-            org.junit.Assert.fail("tagReuseForbidden_sd55566 should have thrown IllegalArgumentException");
+            org.junit.Assert.fail("tagReuseForbidden_sd55761 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException eee) {
         }
     }
 
     @Test(timeout = 10000)
-    public void tagReuseForbidden_sd55650_sd70309() throws Exception {
+    public void tagReuseForbiddenlitString55705() throws Exception {
         NameAllocator nameAllocator = new NameAllocator();
-        String o_tagReuseForbidden_sd55650__3 = nameAllocator.newName("foo", 1);
-        Assert.assertEquals("foo", o_tagReuseForbidden_sd55650__3);
+        String o_tagReuseForbiddenlitString55705__3 = nameAllocator.newName("1ab", 1);
+        Assert.assertEquals("_1ab", o_tagReuseForbiddenlitString55705__3);
         try {
-            int __DSPOT_arg3_27929 = 1231455670;
-            byte[] __DSPOT_arg2_27928 = new byte[]{ 55, 118, 72, -116 };
-            int __DSPOT_arg1_27927 = 2099847855;
-            int __DSPOT_arg0_27926 = -1435500609;
-            int __DSPOT_arg4_18797 = -226733947;
-            int __DSPOT_arg3_18796 = -604874593;
-            String __DSPOT_arg2_18795 = "?s(<M?n(o{q1e?PrR/6L";
-            int __DSPOT_arg1_18794 = 1627776971;
-            boolean __DSPOT_arg0_18793 = false;
+            nameAllocator.newName("bar", 1);
+        } catch (IllegalArgumentException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void tagReuseForbidden_sd55762() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_tagReuseForbidden_sd55762__4 = nameAllocator.newName("foo", 1);
+        Assert.assertEquals("foo", o_tagReuseForbidden_sd55762__4);
+        try {
+            nameAllocator.newName("bar", 1);
+        } catch (IllegalArgumentException expected) {
+        }
+        Assert.assertEquals("___3JA8_5_UBz_x_IeJ4", nameAllocator.newName(" #:3JA8`5]UBz(x`IeJ4"));
+    }
+
+    @Test(timeout = 10000)
+    public void tagReuseForbiddenlitString55713() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_tagReuseForbiddenlitString55713__3 = nameAllocator.newName("public", 1);
+        Assert.assertEquals("public_", o_tagReuseForbiddenlitString55713__3);
+        try {
+            nameAllocator.newName("bar", 1);
+        } catch (IllegalArgumentException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void tagReuseForbiddenlitString55711_sd58160() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_tagReuseForbiddenlitString55711__3 = nameAllocator.newName("tag 1 cannot be used for both 'foo' and 'bar'", 1);
+        Assert.assertEquals("tag_1_cannot_be_used_for_both__foo__and__bar_", o_tagReuseForbiddenlitString55711__3);
+        try {
+            int __DSPOT_arg3_20238 = 1347208564;
+            int __DSPOT_arg2_20237 = -565487053;
+            String __DSPOT_arg1_20236 = "i:i^*Z4Sk`^[*c5b_7C;";
+            int __DSPOT_arg0_20235 = -1072087967;
+            String __DSPOT_invoc_10 = nameAllocator.newName("bar", 1);
+            nameAllocator.newName("bar", 1).regionMatches(-1072087967, "i:i^*Z4Sk`^[*c5b_7C;", -565487053, 1347208564);
+        } catch (IllegalArgumentException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void tagReuseForbidden_sd55841_sd70007() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_tagReuseForbidden_sd55841__3 = nameAllocator.newName("foo", 1);
+        Assert.assertEquals("foo", o_tagReuseForbidden_sd55841__3);
+        try {
+            int __DSPOT_arg4_27873 = -2090795384;
+            int __DSPOT_arg3_27872 = 268454632;
+            String __DSPOT_arg2_27871 = "rr5`(aGtP9@0W2;-mn7t";
+            int __DSPOT_arg1_27870 = -863261891;
+            boolean __DSPOT_arg0_27869 = true;
+            int __DSPOT_arg1_18984 = 149131901;
+            String __DSPOT_arg0_18983 = "u6*8*FL$Q$>Fw%@Wn/80";
             String __DSPOT_invoc_6 = nameAllocator.newName("bar", 1);
-            nameAllocator.newName("bar", 1).regionMatches(false, 1627776971, __DSPOT_arg2_18795, -604874593, -226733947);
-            __DSPOT_arg2_18795.getBytes(-1435500609, 2099847855, new byte[]{ 55, 118, 72, -116 }, 1231455670);
+            nameAllocator.newName("bar", 1).lastIndexOf(__DSPOT_arg0_18983, 149131901);
+            __DSPOT_arg0_18983.regionMatches(true, -863261891, "rr5`(aGtP9@0W2;-mn7t", 268454632, -2090795384);
         } catch (IllegalArgumentException expected) {
         }
-        Assert.assertEquals("foo", o_tagReuseForbidden_sd55650__3);
     }
 
     @Test(timeout = 10000)
-    public void tagReuseForbidden_sd55635_sd69019() throws Exception {
+    public void tagReuseForbidden_sd55845_sd70351() throws Exception {
         NameAllocator nameAllocator = new NameAllocator();
-        String o_tagReuseForbidden_sd55635__3 = nameAllocator.newName("foo", 1);
-        Assert.assertEquals("foo", o_tagReuseForbidden_sd55635__3);
+        String o_tagReuseForbidden_sd55845__3 = nameAllocator.newName("foo", 1);
+        Assert.assertEquals("foo", o_tagReuseForbidden_sd55845__3);
         try {
-            int __DSPOT_arg3_18777 = -564906123;
-            char[] __DSPOT_arg2_18776 = new char[]{ 'N', 'L', '#' };
-            int __DSPOT_arg1_18775 = -1071321231;
-            int __DSPOT_arg0_18774 = 1830519605;
+            int __DSPOT_arg4_18992 = 1511445812;
+            int __DSPOT_arg3_18991 = 312881541;
+            String __DSPOT_arg2_18990 = "rH,?!*5_,wR`tyHWKz6x";
+            int __DSPOT_arg1_18989 = -985176544;
+            boolean __DSPOT_arg0_18988 = true;
             String __DSPOT_invoc_6 = nameAllocator.newName("bar", 1);
-            nameAllocator.newName("bar", 1).getChars(1830519605, -1071321231, new char[]{ 'N', 'L', '#' }, -564906123);
+            nameAllocator.newName("bar", 1).regionMatches(true, -985176544, "rH,?!*5_,wR`tyHWKz6x", 312881541, 1511445812);
         } catch (IllegalArgumentException expected) {
         }
-        Assert.assertEquals("_fU_bvEUCiUpnxHPni__", nameAllocator.newName("}fU(bvEUCiUpnxHPni-{", new Object()));
-        Assert.assertEquals("foo", o_tagReuseForbidden_sd55635__3);
+        Assert.assertEquals("ww___oDpf_F_wO7_UC_G", nameAllocator.newName("ww)^<oDpf#F=wO7{UC:G"));
     }
 
     @Test(timeout = 10000)
-    public void tagReuseForbidden_sd55650_sd70294() throws Exception {
+    public void tagReuseForbidden_sd55828_sd68881() throws Exception {
         NameAllocator nameAllocator = new NameAllocator();
-        String o_tagReuseForbidden_sd55650__3 = nameAllocator.newName("foo", 1);
-        Assert.assertEquals("foo", o_tagReuseForbidden_sd55650__3);
+        String o_tagReuseForbidden_sd55828__3 = nameAllocator.newName("foo", 1);
+        Assert.assertEquals("foo", o_tagReuseForbidden_sd55828__3);
         try {
-            int __DSPOT_arg4_18797 = -226733947;
-            int __DSPOT_arg3_18796 = -604874593;
-            String __DSPOT_arg2_18795 = "?s(<M?n(o{q1e?PrR/6L";
-            int __DSPOT_arg1_18794 = 1627776971;
-            boolean __DSPOT_arg0_18793 = false;
+            int __DSPOT_arg3_18967 = 1531451557;
+            byte[] __DSPOT_arg2_18966 = new byte[]{ 59, 33 };
+            int __DSPOT_arg1_18965 = -1728407724;
+            int __DSPOT_arg0_18964 = 285302294;
             String __DSPOT_invoc_6 = nameAllocator.newName("bar", 1);
-            nameAllocator.newName("bar", 1).regionMatches(false, 1627776971, "?s(<M?n(o{q1e?PrR/6L", -604874593, -226733947);
+            nameAllocator.newName("bar", 1).getBytes(285302294, -1728407724, new byte[]{ 59, 33 }, 1531451557);
         } catch (IllegalArgumentException expected) {
         }
-        Assert.assertEquals("L_I__0_BxOYx__woR15L", nameAllocator.newName("L[I^ 0 BxOYx#(woR15L"));
-        Assert.assertEquals("foo", o_tagReuseForbidden_sd55650__3);
+        Assert.assertEquals("_QZ9Cl8xg____SL_i__U", nameAllocator.newName("|QZ9Cl8xg=#&|SL,i)/U", new Object()));
     }
 
     @Test(timeout = 10000)
-    public void tagReuseForbidden_sd55633_sd68811() throws Exception {
+    public void tagReuseForbidden_sd55830_sd69076() throws Exception {
         NameAllocator nameAllocator = new NameAllocator();
-        String o_tagReuseForbidden_sd55633__3 = nameAllocator.newName("foo", 1);
-        Assert.assertEquals("foo", o_tagReuseForbidden_sd55633__3);
+        String o_tagReuseForbidden_sd55830__3 = nameAllocator.newName("foo", 1);
+        Assert.assertEquals("foo", o_tagReuseForbidden_sd55830__3);
         try {
-            int __DSPOT_arg3_18772 = 232181063;
-            byte[] __DSPOT_arg2_18771 = new byte[]{ 103, -92, -124, -5 };
-            int __DSPOT_arg1_18770 = 945164346;
-            int __DSPOT_arg0_18769 = -99512292;
+            int __DSPOT_arg3_18972 = 2028146662;
+            char[] __DSPOT_arg2_18971 = new char[]{ 'H' };
+            int __DSPOT_arg1_18970 = -452816317;
+            int __DSPOT_arg0_18969 = -744252518;
             String __DSPOT_invoc_6 = nameAllocator.newName("bar", 1);
-            nameAllocator.newName("bar", 1).getBytes(-99512292, 945164346, new byte[]{ 103, -92, -124, -5 }, 232181063);
+            nameAllocator.newName("bar", 1).getChars(-744252518, -452816317, new char[]{ 'H' }, 2028146662);
         } catch (IllegalArgumentException expected) {
         }
-        Assert.assertEquals("_00k__l_YFG_k2caCuL__", nameAllocator.newName("00k}?l?YFG+k2caCuL;?", new Object()));
-        Assert.assertEquals("foo", o_tagReuseForbidden_sd55633__3);
+        Assert.assertEquals("_4teeeZ7__j$ubNCqi__u", nameAllocator.newName("4teeeZ7#)j$ubNCqi}@u", new Object()));
     }
 
     @Test(timeout = 10000)
-    public void tagReuseForbidden_sd55568_sd62615() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_tagReuseForbidden_sd55568__6 = nameAllocator.newName("foo", 1);
-        Assert.assertEquals("foo", o_tagReuseForbidden_sd55568__6);
+    public void tagReuseForbidden_sd55799_sd66422_sd96397_failAssert9() throws Exception {
         try {
-            String __DSPOT_arg0_23037 = "qLps?%ezL1=lN^#X43Rd";
-            String __DSPOT_invoc_13 = nameAllocator.newName("bar", 1);
-            nameAllocator.newName("bar", 1).split("qLps?%ezL1=lN^#X43Rd");
-        } catch (IllegalArgumentException expected) {
-        }
-        Assert.assertEquals("p_P_G_8mRk5yIWsRc_k_", nameAllocator.newName("p]P_G:8mRk5yIWsRc&k;", new Object()));
-        Assert.assertEquals("foo", o_tagReuseForbidden_sd55568__6);
-    }
-
-    @Test(timeout = 10000)
-    public void tagReuseForbidden_sd55568_sd62578_sd79701() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_tagReuseForbidden_sd55568__6 = nameAllocator.newName("foo", 1);
-        Assert.assertEquals("foo", o_tagReuseForbidden_sd55568__6);
-        try {
-            String __DSPOT_arg0_33604 = "@R0z]39VL^*aAc-ryjgO";
-            String __DSPOT_invoc_16 = nameAllocator.newName("bar", 1);
-            nameAllocator.newName("bar", 1).compareToIgnoreCase("@R0z]39VL^*aAc-ryjgO");
-        } catch (IllegalArgumentException expected) {
-        }
-        String o_tagReuseForbidden_sd55568__11 = nameAllocator.newName("p]P_G:8mRk5yIWsRc&k;", new Object());
-        Assert.assertEquals("p_P_G_8mRk5yIWsRc_k_", o_tagReuseForbidden_sd55568__11);
-        Assert.assertEquals("r_4G5e_meCW___lm2_e_", nameAllocator.newName("r<4G5e)meCW}}}lm2#e;", new Object()));
-        Assert.assertEquals("foo", o_tagReuseForbidden_sd55568__6);
-        Assert.assertEquals("p_P_G_8mRk5yIWsRc_k_", o_tagReuseForbidden_sd55568__11);
-    }
-
-    @Test(timeout = 10000)
-    public void tagReuseForbidden_sd55568_sd62578_sd79734() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_tagReuseForbidden_sd55568__6 = nameAllocator.newName("foo", 1);
-        Assert.assertEquals("foo", o_tagReuseForbidden_sd55568__6);
-        try {
-            int __DSPOT_arg1_33656 = 1986261400;
-            int __DSPOT_arg0_33655 = -457453300;
-            String __DSPOT_invoc_16 = nameAllocator.newName("bar", 1);
-            nameAllocator.newName("bar", 1).subSequence(-457453300, 1986261400);
-        } catch (IllegalArgumentException expected) {
-        }
-        String o_tagReuseForbidden_sd55568__11 = nameAllocator.newName("p]P_G:8mRk5yIWsRc&k;", new Object());
-        Assert.assertEquals("p_P_G_8mRk5yIWsRc_k_", o_tagReuseForbidden_sd55568__11);
-        Assert.assertEquals("r_4G5e_meCW___lm2_e_", nameAllocator.newName("r<4G5e)meCW}}}lm2#e;", new Object()));
-        Assert.assertEquals("p_P_G_8mRk5yIWsRc_k_", o_tagReuseForbidden_sd55568__11);
-        Assert.assertEquals("foo", o_tagReuseForbidden_sd55568__6);
-    }
-
-    @Test(timeout = 10000)
-    public void tagReuseForbidden_remove55672litNum72753_sd98010() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        try {
-            String o_tagReuseForbidden_remove55672__5 = nameAllocator.newName("bar", 0);
-            Assert.assertEquals("bar", nameAllocator.newName("bar", 0));
-        } catch (IllegalArgumentException expected) {
-        }
-        Assert.assertEquals("_Qzrs_DqdNuGAPQT_M_Q", nameAllocator.newName(")Qzrs#DqdNuGAPQT>M?Q"));
-    }
-
-    @Test(timeout = 10000)
-    public void tagReuseForbidden_remove55672litNum72752litString98031() throws Exception {
-        try {
-            String o_tagReuseForbidden_remove55672__5 = new NameAllocator().newName("public", 2);
-            Assert.assertEquals("public_", new NameAllocator().newName("public", 2));
-        } catch (IllegalArgumentException expected) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void tagReuseForbidden_remove55672litNum72752litString98030() throws Exception {
-        try {
-            String o_tagReuseForbidden_remove55672__5 = new NameAllocator().newName("unknown tag: 1", 2);
-            Assert.assertEquals("unknown_tag__1", new NameAllocator().newName("unknown tag: 1", 2));
-        } catch (IllegalArgumentException expected) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void tagReuseForbidden_remove55672litNum72753_sd98009_failAssert3() throws Exception {
-        try {
-            Object __DSPOT_tag_45019 = new Object();
+            int __DSPOT_arg3_44155 = -383700388;
+            char[] __DSPOT_arg2_44154 = new char[]{ ' ' };
+            int __DSPOT_arg1_44153 = 426733112;
+            int __DSPOT_arg0_44152 = -1451558282;
+            int __DSPOT_arg4_25917 = -88677006;
+            int __DSPOT_arg3_25916 = -1506268177;
+            String __DSPOT_arg2_25915 = "TR2UV5g/6ilMCWes}aoE";
+            int __DSPOT_arg1_25914 = 619292335;
+            boolean __DSPOT_arg0_25913 = true;
+            String __DSPOT_arg1_18937 = "RgH[pc#nJs&8,c[(|XF#";
+            String __DSPOT_arg0_18936 = "w9lcS9m<5qQ:]#c,-qOf";
             NameAllocator nameAllocator = new NameAllocator();
+            String __DSPOT_invoc_3 = nameAllocator.newName("foo", 1);
             try {
-                String o_tagReuseForbidden_remove55672__5 = nameAllocator.newName("bar", 0);
+                nameAllocator.newName("bar", 1);
             } catch (IllegalArgumentException expected) {
             }
+            String o_tagReuseForbidden_sd55799__12 = nameAllocator.newName("foo", 1).replaceFirst(__DSPOT_arg0_18936, "RgH[pc#nJs&8,c[(|XF#");
+            boolean o_tagReuseForbidden_sd55799_sd66422__21 = nameAllocator.newName("foo", 1).replaceFirst(__DSPOT_arg0_18936, "RgH[pc#nJs&8,c[(|XF#").regionMatches(true, 619292335, "TR2UV5g/6ilMCWes}aoE", -1506268177, -88677006);
+            __DSPOT_arg0_18936.getChars(-1451558282, 426733112, new char[]{ ' ' }, -383700388);
+            org.junit.Assert.fail("tagReuseForbidden_sd55799_sd66422_sd96397 should have thrown StringIndexOutOfBoundsException");
+        } catch (StringIndexOutOfBoundsException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void tagReuseForbidden_sd55845_sd70351_sd95576() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_tagReuseForbidden_sd55845__3 = nameAllocator.newName("foo", 1);
+        Assert.assertEquals("foo", o_tagReuseForbidden_sd55845__3);
+        try {
+            int __DSPOT_arg3_43647 = -688759182;
+            int __DSPOT_arg2_43646 = -387032470;
+            String __DSPOT_arg1_43645 = "=1?^Nwi`LMU@PFRTT0J;";
+            int __DSPOT_arg0_43644 = 1740175159;
+            int __DSPOT_arg4_18992 = 1511445812;
+            int __DSPOT_arg3_18991 = 312881541;
+            String __DSPOT_arg2_18990 = "rH,?!*5_,wR`tyHWKz6x";
+            int __DSPOT_arg1_18989 = -985176544;
+            boolean __DSPOT_arg0_18988 = true;
+            String __DSPOT_invoc_6 = nameAllocator.newName("bar", 1);
+            nameAllocator.newName("bar", 1).regionMatches(true, -985176544, __DSPOT_arg2_18990, 312881541, 1511445812);
+            __DSPOT_arg2_18990.regionMatches(1740175159, "=1?^Nwi`LMU@PFRTT0J;", -387032470, -688759182);
+        } catch (IllegalArgumentException expected) {
+        }
+        Assert.assertEquals("ww___oDpf_F_wO7_UC_G", nameAllocator.newName("ww)^<oDpf#F=wO7{UC:G"));
+    }
+
+    @Test(timeout = 10000)
+    public void tagReuseForbidden_sd55845_sd70352_sd79568() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_tagReuseForbidden_sd55845__3 = nameAllocator.newName("foo", 1);
+        Assert.assertEquals("foo", o_tagReuseForbidden_sd55845__3);
+        try {
+            int __DSPOT_arg3_33610 = -803383819;
+            char[] __DSPOT_arg2_33609 = new char[]{ '#' };
+            int __DSPOT_arg1_33608 = -104814863;
+            int __DSPOT_arg0_33607 = -1113382256;
+            int __DSPOT_arg4_18992 = 1511445812;
+            int __DSPOT_arg3_18991 = 312881541;
+            String __DSPOT_arg2_18990 = "rH,?!*5_,wR`tyHWKz6x";
+            int __DSPOT_arg1_18989 = -985176544;
+            boolean __DSPOT_arg0_18988 = true;
+            String __DSPOT_invoc_6 = nameAllocator.newName("bar", 1);
+            nameAllocator.newName("bar", 1).regionMatches(true, -985176544, __DSPOT_arg2_18990, 312881541, 1511445812);
+            __DSPOT_arg2_18990.getChars(-1113382256, -104814863, new char[]{ '#' }, -803383819);
+        } catch (IllegalArgumentException expected) {
+        }
+        Assert.assertEquals("tLu__B_fMx9LmsrnMQ9_", nameAllocator.newName("tLu_:B(fMx9LmsrnMQ9[", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void tagReuseForbidden_remove55867litString94738() throws Exception {
+        try {
+            String o_tagReuseForbidden_remove55867__5 = new NameAllocator().newName("public", 1);
+            Assert.assertEquals("public_", new NameAllocator().newName("public", 1));
+        } catch (IllegalArgumentException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void tagReuseForbidden_sd55799_sd66422_sd96413() throws Exception {
+        String __DSPOT_arg0_18936 = "w9lcS9m<5qQ:]#c,-qOf";
+        NameAllocator nameAllocator = new NameAllocator();
+        try {
+            nameAllocator.newName("bar", 1);
+        } catch (IllegalArgumentException expected) {
+        }
+        String o_tagReuseForbidden_sd55799__12 = nameAllocator.newName("foo", 1).replaceFirst(__DSPOT_arg0_18936, "RgH[pc#nJs&8,c[(|XF#");
+        Assert.assertEquals("foo", o_tagReuseForbidden_sd55799__12);
+        boolean o_tagReuseForbidden_sd55799_sd66422__21 = o_tagReuseForbidden_sd55799__12.regionMatches(true, 619292335, "TR2UV5g/6ilMCWes}aoE", -1506268177, -88677006);
+        boolean o_tagReuseForbidden_sd55799_sd66422_sd96413__29 = __DSPOT_arg0_18936.regionMatches(1372439331, "WLmqT(oLcePesj$R}ZPQ", 368521391, 159323428);
+        Assert.assertFalse(o_tagReuseForbidden_sd55799_sd66422_sd96413__29);
+        Assert.assertEquals("foo", o_tagReuseForbidden_sd55799__12);
+    }
+
+    @Test(timeout = 10000)
+    public void tagReuseForbidden_sd55845_sd70352_sd79552() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_tagReuseForbidden_sd55845__3 = nameAllocator.newName("foo", 1);
+        Assert.assertEquals("foo", o_tagReuseForbidden_sd55845__3);
+        try {
+            int __DSPOT_arg4_18992 = 1511445812;
+            int __DSPOT_arg3_18991 = 312881541;
+            String __DSPOT_arg2_18990 = "rH,?!*5_,wR`tyHWKz6x";
+            int __DSPOT_arg1_18989 = -985176544;
+            boolean __DSPOT_arg0_18988 = true;
+            String __DSPOT_invoc_6 = nameAllocator.newName("bar", 1);
+            nameAllocator.newName("bar", 1).regionMatches(true, -985176544, "rH,?!*5_,wR`tyHWKz6x", 312881541, 1511445812);
+        } catch (IllegalArgumentException expected) {
+        }
+        String o_tagReuseForbidden_sd55845_sd70352__22 = nameAllocator.newName("tLu_:B(fMx9LmsrnMQ9[", new Object());
+        Assert.assertEquals("tLu__B_fMx9LmsrnMQ9_", o_tagReuseForbidden_sd55845_sd70352__22);
+        Assert.assertEquals("_Cy_aWkk_7_J__2_0ALC", nameAllocator.newName(">Cy+aWkk&7@J=+2;0ALC", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void tagReuseForbidden_remove55867litString94734() throws Exception {
+        try {
+            String o_tagReuseForbidden_remove55867__5 = new NameAllocator().newName("1ab", 1);
+            Assert.assertEquals("_1ab", new NameAllocator().newName("1ab", 1));
+        } catch (IllegalArgumentException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void tagReuseForbidden_sd55763_sd62772_sd79904_failAssert10() throws Exception {
+        try {
+            Object __DSPOT_tag_33662 = new Object();
+            Object __DSPOT_tag_23179 = new Object();
+            String __DSPOT_suggestion_23178 = "ll>*G6N>ZK7zp_UkEUjR";
+            Object __DSPOT_tag_18885 = new Object();
+            String __DSPOT_suggestion_18884 = "Ph?>aQlT]X,jXdJzE&AY";
+            NameAllocator nameAllocator = new NameAllocator();
+            String o_tagReuseForbidden_sd55763__6 = nameAllocator.newName("foo", 1);
+            try {
+                nameAllocator.newName("bar", 1);
+            } catch (IllegalArgumentException expected) {
+            }
+            String o_tagReuseForbidden_sd55763__11 = nameAllocator.newName("Ph?>aQlT]X,jXdJzE&AY", new Object());
+            String o_tagReuseForbidden_sd55763_sd62772__20 = nameAllocator.newName("ll>*G6N>ZK7zp_UkEUjR", new Object());
             nameAllocator.get(new Object());
-            org.junit.Assert.fail("tagReuseForbidden_remove55672litNum72753_sd98009 should have thrown IllegalArgumentException");
+            org.junit.Assert.fail("tagReuseForbidden_sd55763_sd62772_sd79904 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException eee) {
         }
     }
 
     @Test(timeout = 10000)
-    public void tagReuseForbidden_remove55672litNum72752litString98017() throws Exception {
-        try {
-            String o_tagReuseForbidden_remove55672__5 = new NameAllocator().newName("", 2);
-            Assert.assertEquals("", new NameAllocator().newName("", 2));
-        } catch (IllegalArgumentException expected) {
-        }
+    public void usage_sd99709() throws Exception {
+        Assert.assertEquals("oiON_ptGYtDp_z_L_Gib", new NameAllocator().newName("oiON)ptGYtDp&z#L;Gib"));
     }
 
     @Test(timeout = 10000)
-    public void tagReuseForbidden_remove55672litNum72752litString98028() throws Exception {
-        try {
-            String o_tagReuseForbidden_remove55672__5 = new NameAllocator().newName("&ab", 2);
-            Assert.assertEquals("_ab", new NameAllocator().newName("&ab", 2));
-        } catch (IllegalArgumentException expected) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void tagReuseForbidden_remove55672litNum72752litString98013() throws Exception {
-        try {
-            String o_tagReuseForbidden_remove55672__5 = new NameAllocator().newName("a-b", 2);
-            Assert.assertEquals("a_b", new NameAllocator().newName("a-b", 2));
-        } catch (IllegalArgumentException expected) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void tagReuseForbidden_remove55672litNum72752litString98023() throws Exception {
-        try {
-            String o_tagReuseForbidden_remove55672__5 = new NameAllocator().newName("1ab", 2);
-            Assert.assertEquals("_1ab", new NameAllocator().newName("1ab", 2));
-        } catch (IllegalArgumentException expected) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void usage_add99221() throws Exception {
+    public void usage_add99714() throws Exception {
         Assert.assertEquals("bar", new NameAllocator().newName("bar", 2));
     }
 
     @Test(timeout = 10000)
-    public void usage_add99225_failAssert2() throws Exception {
+    public void usage_add99716_failAssert1() throws Exception {
         try {
             NameAllocator nameAllocator = new NameAllocator();
-            new NameAllocator().get(2);
-            org.junit.Assert.fail("usage_add99225 should have thrown IllegalArgumentException");
+            new NameAllocator().get(1);
+            org.junit.Assert.fail("usage_add99716 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException eee) {
         }
     }
 
     @Test(timeout = 10000)
-    public void usage_sd99217() throws Exception {
-        Assert.assertEquals("q____IuN__VyO__e__ml", new NameAllocator().newName("q|>]|IuN!&VyO%.e[,ml", new Object()));
+    public void usage_sd99710() throws Exception {
+        Assert.assertEquals("Oux6EHu_Um0jk___a__D", new NameAllocator().newName("Oux6EHu=Um0jk (]a@|D", new Object()));
     }
 
     @Test(timeout = 10000)
-    public void usage_sd99216() throws Exception {
-        Assert.assertEquals("xQJZpt__q_r_Yz_g_Y_D", new NameAllocator().newName("xQJZpt[#q r`Yz-g[Y.D"));
-    }
-
-    @Test(timeout = 10000)
-    public void usage_sd99216litString99468() throws Exception {
-        Assert.assertEquals("", new NameAllocator().newName(""));
-    }
-
-    @Test(timeout = 10000)
-    public void usage_sd99217_sd99501_failAssert2() throws Exception {
-        try {
-            Object __DSPOT_tag_45303 = new Object();
-            Object __DSPOT_tag_45298 = new Object();
-            String __DSPOT_suggestion_45297 = "q|>]|IuN!&VyO%.e[,ml";
-            NameAllocator nameAllocator = new NameAllocator();
-            String o_usage_sd99217__6 = nameAllocator.newName("q|>]|IuN!&VyO%.e[,ml", new Object());
-            nameAllocator.get(new Object());
-            org.junit.Assert.fail("usage_sd99217_sd99501 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void usage_add99221litString99533() throws Exception {
-        Assert.assertEquals("a_b", new NameAllocator().newName("a\ud83c\udf7ab", 2));
-    }
-
-    @Test(timeout = 10000)
-    public void usage_add99221litString99534() throws Exception {
-        Assert.assertEquals("foo", new NameAllocator().newName("foo", 2));
-    }
-
-    @Test(timeout = 10000)
-    public void usage_sd99217_add99504_failAssert3() throws Exception {
-        try {
-            Object __DSPOT_tag_45298 = new Object();
-            String __DSPOT_suggestion_45297 = "q|>]|IuN!&VyO%.e[,ml";
-            NameAllocator nameAllocator = new NameAllocator();
-            nameAllocator.newName(__DSPOT_suggestion_45297, __DSPOT_tag_45298);
-            String o_usage_sd99217__6 = nameAllocator.newName(__DSPOT_suggestion_45297, __DSPOT_tag_45298);
-            org.junit.Assert.fail("usage_sd99217_add99504 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void usage_add99221litString99542() throws Exception {
-        Assert.assertEquals("_1ab", new NameAllocator().newName("1ab", 2));
-    }
-
-    @Test(timeout = 10000)
-    public void usage_add99221litString99543() throws Exception {
+    public void usage_add99714litString100034() throws Exception {
         Assert.assertEquals("_1ab", new NameAllocator().newName("_1ab", 2));
     }
 
     @Test(timeout = 10000)
-    public void usage_add99221litString99551() throws Exception {
-        Assert.assertEquals("public_", new NameAllocator().newName("public", 2));
+    public void usage_sd99709litString99967() throws Exception {
+        Assert.assertEquals("public_", new NameAllocator().newName("public"));
     }
 
     @Test(timeout = 10000)
-    public void usage_sd99217_sd99503() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_usage_sd99217__6 = nameAllocator.newName("q|>]|IuN!&VyO%.e[,ml", new Object());
-        Assert.assertEquals("q____IuN__VyO__e__ml", o_usage_sd99217__6);
-        Assert.assertEquals("_tyh_KA_XPtXLmOj__t_", nameAllocator.newName(">tyh KA(XPtXLmOj/^t%", new Object()));
-        Assert.assertEquals("q____IuN__VyO__e__ml", o_usage_sd99217__6);
+    public void usage_add99714litString100033() throws Exception {
+        Assert.assertEquals("_1ab", new NameAllocator().newName("1ab", 2));
     }
 
     @Test(timeout = 10000)
-    public void usage_sd99217_sd99502litString101863() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_usage_sd99217__6 = nameAllocator.newName("1ab", new Object());
-        Assert.assertEquals("_1ab", o_usage_sd99217__6);
-        Assert.assertEquals("tG_XvfeH__tYiZQUr_jb", nameAllocator.newName("tG)XvfeH^{tYiZQUr.jb"));
-        Assert.assertEquals("_1ab", o_usage_sd99217__6);
+    public void usage_sd99709litString99965() throws Exception {
+        Assert.assertEquals("oiON_ptYtDp_z_L_Gib", new NameAllocator().newName("oiON)ptYtDp&z#L;Gib"));
     }
 
     @Test(timeout = 10000)
-    public void usage_sd99217_sd99502litString101865() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_usage_sd99217__6 = nameAllocator.newName("public", new Object());
-        Assert.assertEquals("public_", o_usage_sd99217__6);
-        Assert.assertEquals("tG_XvfeH__tYiZQUr_jb", nameAllocator.newName("tG)XvfeH^{tYiZQUr.jb"));
-        Assert.assertEquals("public_", o_usage_sd99217__6);
+    public void usage_sd99709litString99955() throws Exception {
+        Assert.assertEquals("", new NameAllocator().newName(""));
     }
 
     @Test(timeout = 10000)
-    public void usage_sd99217_add99504_failAssert3_sd103056() throws Exception {
+    public void usage_add99714litString100036() throws Exception {
+        Assert.assertEquals("_ab", new NameAllocator().newName("&ab", 2));
+    }
+
+    @Test(timeout = 10000)
+    public void usage_sd99710_sd99994_failAssert2() throws Exception {
         try {
-            Object __DSPOT_tag_46076 = new Object();
-            String __DSPOT_suggestion_46075 = "?9%}lDFe^JbiV_Wvt]9C";
-            Object __DSPOT_tag_45298 = new Object();
-            String __DSPOT_suggestion_45297 = "q|>]|IuN!&VyO%.e[,ml";
+            Object __DSPOT_tag_45762 = new Object();
+            Object __DSPOT_tag_45757 = new Object();
+            String __DSPOT_suggestion_45756 = "Oux6EHu=Um0jk (]a@|D";
             NameAllocator nameAllocator = new NameAllocator();
-            String o_usage_sd99217_add99504_failAssert3_sd103056__11 = nameAllocator.newName(__DSPOT_suggestion_45297, __DSPOT_tag_45298);
-            Assert.assertEquals("q____IuN__VyO__e__ml", nameAllocator.newName(__DSPOT_suggestion_45297, __DSPOT_tag_45298));
-            String o_usage_sd99217__6 = nameAllocator.newName(__DSPOT_suggestion_45297, __DSPOT_tag_45298);
-            org.junit.Assert.fail("usage_sd99217_add99504 should have thrown IllegalArgumentException");
-            nameAllocator.newName("?9%}lDFe^JbiV_Wvt]9C", new Object());
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void usage_sd99217_sd99502litString101867() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_usage_sd99217__6 = nameAllocator.newName("&ab", new Object());
-        Assert.assertEquals("_ab", o_usage_sd99217__6);
-        Assert.assertEquals("tG_XvfeH__tYiZQUr_jb", nameAllocator.newName("tG)XvfeH^{tYiZQUr.jb"));
-        Assert.assertEquals("_ab", o_usage_sd99217__6);
-    }
-
-    @Test(timeout = 10000)
-    public void usage_sd99217_sd99502litString101848() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_usage_sd99217__6 = nameAllocator.newName("q|>]|IuN!&VyO%.e[,ml", new Object());
-        Assert.assertEquals("q____IuN__VyO__e__ml", o_usage_sd99217__6);
-        Assert.assertEquals("unknown_tag__1", nameAllocator.newName("unknown tag: 1"));
-        Assert.assertEquals("q____IuN__VyO__e__ml", o_usage_sd99217__6);
-    }
-
-    @Test(timeout = 10000)
-    public void usage_sd99217_sd99501_failAssert2_sd102979() throws Exception {
-        try {
-            String __DSPOT_suggestion_46005 = "1FwSC[b=O*_-)(j!#e&U";
-            Object __DSPOT_tag_45303 = new Object();
-            Object __DSPOT_tag_45298 = new Object();
-            String __DSPOT_suggestion_45297 = "q|>]|IuN!&VyO%.e[,ml";
-            NameAllocator nameAllocator = new NameAllocator();
-            String o_usage_sd99217__6 = nameAllocator.newName("q|>]|IuN!&VyO%.e[,ml", new Object());
-            Assert.assertEquals("q____IuN__VyO__e__ml", nameAllocator.newName("q|>]|IuN!&VyO%.e[,ml", new Object()));
+            String o_usage_sd99710__6 = nameAllocator.newName("Oux6EHu=Um0jk (]a@|D", new Object());
             nameAllocator.get(new Object());
-            org.junit.Assert.fail("usage_sd99217_sd99501 should have thrown IllegalArgumentException");
-            nameAllocator.newName("1FwSC[b=O*_-)(j!#e&U");
+            org.junit.Assert.fail("usage_sd99710_sd99994 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException eee) {
         }
     }
 
     @Test(timeout = 10000)
-    public void usage_sd99217_sd99502_add101874() throws Exception {
-        String __DSPOT_suggestion_45304 = "tG)XvfeH^{tYiZQUr.jb";
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_usage_sd99217__6 = nameAllocator.newName("q|>]|IuN!&VyO%.e[,ml", new Object());
-        Assert.assertEquals("q____IuN__VyO__e__ml", o_usage_sd99217__6);
-        String o_usage_sd99217_sd99502_add101874__11 = nameAllocator.newName(__DSPOT_suggestion_45304);
-        Assert.assertEquals("tG_XvfeH__tYiZQUr_jb", o_usage_sd99217_sd99502_add101874__11);
-        Assert.assertEquals("tG_XvfeH__tYiZQUr_jb_", nameAllocator.newName(__DSPOT_suggestion_45304));
-        Assert.assertEquals("tG_XvfeH__tYiZQUr_jb", o_usage_sd99217_sd99502_add101874__11);
-        Assert.assertEquals("q____IuN__VyO__e__ml", o_usage_sd99217__6);
-    }
-
-    @Test(timeout = 10000)
-    public void usage_sd99217_sd99502() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        String o_usage_sd99217__6 = nameAllocator.newName("q|>]|IuN!&VyO%.e[,ml", new Object());
-        Assert.assertEquals("q____IuN__VyO__e__ml", o_usage_sd99217__6);
-        Assert.assertEquals("tG_XvfeH__tYiZQUr_jb", nameAllocator.newName("tG)XvfeH^{tYiZQUr.jb"));
-        Assert.assertEquals("q____IuN__VyO__e__ml", o_usage_sd99217__6);
-    }
-
-    @Test(timeout = 10000)
-    public void useBeforeAllocateForbidden_sd103878() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
+    public void usage_sd99710_add99997_failAssert3() throws Exception {
         try {
-            nameAllocator.get(1);
-        } catch (IllegalArgumentException expected) {
+            Object __DSPOT_tag_45757 = new Object();
+            String __DSPOT_suggestion_45756 = "Oux6EHu=Um0jk (]a@|D";
+            NameAllocator nameAllocator = new NameAllocator();
+            nameAllocator.newName(__DSPOT_suggestion_45756, __DSPOT_tag_45757);
+            String o_usage_sd99710__6 = nameAllocator.newName(__DSPOT_suggestion_45756, __DSPOT_tag_45757);
+            org.junit.Assert.fail("usage_sd99710_add99997 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException eee) {
         }
-        Assert.assertEquals("__3ENOr_O8k$Lt_____$", nameAllocator.newName("-&3ENOr[O8k$Lt%)![,$"));
     }
 
     @Test(timeout = 10000)
-    public void useBeforeAllocateForbidden_sd103879() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
+    public void usage_sd99710_sd99994_failAssert2_sd103453() throws Exception {
         try {
-            nameAllocator.get(1);
-        } catch (IllegalArgumentException expected) {
+            String __DSPOT_arg0_46469 = "dSVjYF&45@NTvSO3gwh(";
+            Object __DSPOT_tag_45762 = new Object();
+            Object __DSPOT_tag_45757 = new Object();
+            String __DSPOT_suggestion_45756 = "Oux6EHu=Um0jk (]a@|D";
+            NameAllocator nameAllocator = new NameAllocator();
+            String o_usage_sd99710__6 = nameAllocator.newName("Oux6EHu=Um0jk (]a@|D", new Object());
+            Assert.assertEquals("Oux6EHu_Um0jk___a__D", nameAllocator.newName("Oux6EHu=Um0jk (]a@|D", new Object()));
+            String __DSPOT_invoc_14 = nameAllocator.get(new Object());
+            org.junit.Assert.fail("usage_sd99710_sd99994 should have thrown IllegalArgumentException");
+            nameAllocator.get(new Object()).compareTo("dSVjYF&45@NTvSO3gwh(");
+        } catch (IllegalArgumentException eee) {
         }
-        Assert.assertEquals("m9W_F_A_rq___HDlD_K_", nameAllocator.newName("m9W`F%A.rq{.|HDlD@K_", new Object()));
     }
 
     @Test(timeout = 10000)
-    public void useBeforeAllocateForbidden_sd103877_failAssert0() throws Exception {
+    public void usage_sd99710_sd99996_sd100857() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_usage_sd99710__6 = nameAllocator.newName("Oux6EHu=Um0jk (]a@|D", new Object());
+        Assert.assertEquals("Oux6EHu_Um0jk___a__D", o_usage_sd99710__6);
+        String o_usage_sd99710_sd99996__13 = nameAllocator.newName("kpBi >iFD?+:[f7uY& O", new Object());
+        Assert.assertEquals("kpBi__iFD____f7uY__O", o_usage_sd99710_sd99996__13);
+        Assert.assertEquals("_Y_B_QnX_46_w__X3U_0", nameAllocator.newName("<Y.B;QnX@46<w#%X3U&0"));
+    }
+
+    @Test(timeout = 10000)
+    public void usage_sd99710_sd99995_add102410_failAssert6() throws Exception {
         try {
-            Object __DSPOT_tag_46280 = new Object();
+            String __DSPOT_suggestion_45763 = "zd]&at,OfS?Q[X)d(#2O";
+            Object __DSPOT_tag_45757 = new Object();
+            String __DSPOT_suggestion_45756 = "Oux6EHu=Um0jk (]a@|D";
+            NameAllocator nameAllocator = new NameAllocator();
+            nameAllocator.newName(__DSPOT_suggestion_45756, __DSPOT_tag_45757);
+            String o_usage_sd99710__6 = nameAllocator.newName(__DSPOT_suggestion_45756, __DSPOT_tag_45757);
+            String o_usage_sd99710_sd99995__11 = nameAllocator.newName("zd]&at,OfS?Q[X)d(#2O");
+            org.junit.Assert.fail("usage_sd99710_sd99995_add102410 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void usage_sd99710_sd99996litString100830() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_usage_sd99710__6 = nameAllocator.newName("Oux6EHu=Um0jk (]a@|D", new Object());
+        Assert.assertEquals("Oux6EHu_Um0jk___a__D", o_usage_sd99710__6);
+        Assert.assertEquals("public_", nameAllocator.newName("public", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void usage_sd99709_sd99971litString102353() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_usage_sd99709__4 = nameAllocator.newName("a\ud83c\udf7ab");
+        Assert.assertEquals("a_b", o_usage_sd99709__4);
+        Assert.assertEquals("_1_8MXE8PsBs______dbd", nameAllocator.newName("1 8MXE8PsBs) })/+dbd", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void usage_sd99710_sd99995_add102411() throws Exception {
+        String __DSPOT_suggestion_45763 = "zd]&at,OfS?Q[X)d(#2O";
+        NameAllocator nameAllocator = new NameAllocator();
+        String o_usage_sd99710__6 = nameAllocator.newName("Oux6EHu=Um0jk (]a@|D", new Object());
+        Assert.assertEquals("Oux6EHu_Um0jk___a__D", o_usage_sd99710__6);
+        String o_usage_sd99710_sd99995_add102411__11 = nameAllocator.newName(__DSPOT_suggestion_45763);
+        Assert.assertEquals("zd__at_OfS_Q_X_d__2O", o_usage_sd99710_sd99995_add102411__11);
+        Assert.assertEquals("zd__at_OfS_Q_X_d__2O_", nameAllocator.newName(__DSPOT_suggestion_45763));
+    }
+
+    @Test(timeout = 10000)
+    public void useBeforeAllocateForbidden_sd104344_failAssert0() throws Exception {
+        try {
+            Object __DSPOT_tag_46735 = new Object();
             NameAllocator nameAllocator = new NameAllocator();
             try {
                 nameAllocator.get(1);
             } catch (IllegalArgumentException expected) {
             }
             nameAllocator.get(new Object());
-            org.junit.Assert.fail("useBeforeAllocateForbidden_sd103877 should have thrown IllegalArgumentException");
+            org.junit.Assert.fail("useBeforeAllocateForbidden_sd104344 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException eee) {
         }
     }
 
     @Test(timeout = 10000)
-    public void useBeforeAllocateForbidden_sd103878litString104164() throws Exception {
+    public void useBeforeAllocateForbidden_sd104346() throws Exception {
         NameAllocator nameAllocator = new NameAllocator();
         try {
             nameAllocator.get(1);
         } catch (IllegalArgumentException expected) {
         }
-        Assert.assertEquals("bar", nameAllocator.newName("bar"));
+        Assert.assertEquals("CQyyaq1_5_b_y__F3_k_", nameAllocator.newName("CQyyaq1=5[b[y%&F3<k&", new Object()));
     }
 
     @Test(timeout = 10000)
-    public void useBeforeAllocateForbidden_sd103879_sd104305() throws Exception {
+    public void useBeforeAllocateForbidden_sd104345() throws Exception {
         NameAllocator nameAllocator = new NameAllocator();
         try {
-            char __DSPOT_arg1_46469 = 'y';
-            char __DSPOT_arg0_46468 = 'V';
+            nameAllocator.get(1);
+        } catch (IllegalArgumentException expected) {
+        }
+        Assert.assertEquals("___sip_X_sr01L6nkNxM", nameAllocator.newName(".{|sip&X-sr01L6nkNxM"));
+    }
+
+    @Test(timeout = 10000)
+    public void useBeforeAllocateForbidden_sd104346litString104725() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        try {
+            nameAllocator.get(1);
+        } catch (IllegalArgumentException expected) {
+        }
+        Assert.assertEquals("_ab", nameAllocator.newName("&ab", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void useBeforeAllocateForbidden_sd104346_sd104740() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        try {
+            int __DSPOT_arg0_46877 = 111086455;
             String __DSPOT_invoc_8 = nameAllocator.get(1);
-            nameAllocator.get(1).replace('V', 'y');
+            nameAllocator.get(1).charAt(111086455);
         } catch (IllegalArgumentException expected) {
         }
-        Assert.assertEquals("m9W_F_A_rq___HDlD_K_", nameAllocator.newName("m9W`F%A.rq{.|HDlD@K_", new Object()));
+        Assert.assertEquals("CQyyaq1_5_b_y__F3_k_", nameAllocator.newName("CQyyaq1=5[b[y%&F3<k&", new Object()));
     }
 
     @Test(timeout = 10000)
-    public void useBeforeAllocateForbidden_sd103879litString104254() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        try {
-            nameAllocator.get(1);
-        } catch (IllegalArgumentException expected) {
-        }
-        Assert.assertEquals("_1ab", nameAllocator.newName("1ab", new Object()));
-    }
-
-    @Test(timeout = 10000)
-    public void useBeforeAllocateForbidden_sd103878_add104243() throws Exception {
-        String __DSPOT_suggestion_46281 = "-&3ENOr[O8k$Lt%)![,$";
-        NameAllocator nameAllocator = new NameAllocator();
-        try {
-            nameAllocator.get(1);
-        } catch (IllegalArgumentException expected) {
-        }
-        String o_useBeforeAllocateForbidden_sd103878_add104243__8 = nameAllocator.newName(__DSPOT_suggestion_46281);
-        Assert.assertEquals("__3ENOr_O8k$Lt_____$", o_useBeforeAllocateForbidden_sd103878_add104243__8);
-        Assert.assertEquals("__3ENOr_O8k$Lt_____$_", nameAllocator.newName(__DSPOT_suggestion_46281));
-        Assert.assertEquals("__3ENOr_O8k$Lt_____$", o_useBeforeAllocateForbidden_sd103878_add104243__8);
-    }
-
-    @Test(timeout = 10000)
-    public void useBeforeAllocateForbidden_sd103878litString104181() throws Exception {
-        NameAllocator nameAllocator = new NameAllocator();
-        try {
-            nameAllocator.get(1);
-        } catch (IllegalArgumentException expected) {
-        }
-        Assert.assertEquals("_ab", nameAllocator.newName("&ab"));
-    }
-
-    @Test(timeout = 10000)
-    public void useBeforeAllocateForbidden_sd103879litString104247() throws Exception {
+    public void useBeforeAllocateForbidden_sd104346litString104717() throws Exception {
         NameAllocator nameAllocator = new NameAllocator();
         try {
             nameAllocator.get(1);
@@ -2198,79 +2067,132 @@ public final class AmplNameAllocatorTest {
     }
 
     @Test(timeout = 10000)
-    public void useBeforeAllocateForbidden_sd103879_sd104271_add108202_failAssert2() throws Exception {
+    public void useBeforeAllocateForbidden_sd104346litString104721() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
         try {
-            Object __DSPOT_tag_46421 = new Object();
-            String __DSPOT_suggestion_46420 = "l){m7M9^VTekky-G-3!0";
-            Object __DSPOT_tag_46283 = new Object();
-            String __DSPOT_suggestion_46282 = "m9W`F%A.rq{.|HDlD@K_";
+            nameAllocator.get(1);
+        } catch (IllegalArgumentException expected) {
+        }
+        Assert.assertEquals("_1ab", nameAllocator.newName("1ab", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void useBeforeAllocateForbidden_sd104346_add104789() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        try {
+            nameAllocator.get(1);
+            nameAllocator.get(1);
+        } catch (IllegalArgumentException expected) {
+        }
+        Assert.assertEquals("CQyyaq1_5_b_y__F3_k_", nameAllocator.newName("CQyyaq1=5[b[y%&F3<k&", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void useBeforeAllocateForbidden_sd104345_add104710() throws Exception {
+        String __DSPOT_suggestion_46736 = ".{|sip&X-sr01L6nkNxM";
+        NameAllocator nameAllocator = new NameAllocator();
+        try {
+            nameAllocator.get(1);
+        } catch (IllegalArgumentException expected) {
+        }
+        String o_useBeforeAllocateForbidden_sd104345_add104710__8 = nameAllocator.newName(__DSPOT_suggestion_46736);
+        Assert.assertEquals("___sip_X_sr01L6nkNxM", o_useBeforeAllocateForbidden_sd104345_add104710__8);
+        Assert.assertEquals("___sip_X_sr01L6nkNxM_", nameAllocator.newName(__DSPOT_suggestion_46736));
+    }
+
+    @Test(timeout = 10000)
+    public void useBeforeAllocateForbidden_sd104345_sd104694() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        try {
+            String __DSPOT_arg1_46859 = "9H+2QZUA;lBxSYQOL3b#";
+            String __DSPOT_arg0_46858 = "9sX6][WH}sRIo]l4{?|K";
+            String __DSPOT_invoc_6 = nameAllocator.get(1);
+            nameAllocator.get(1).replaceFirst("9sX6][WH}sRIo]l4{?|K", "9H+2QZUA;lBxSYQOL3b#");
+        } catch (IllegalArgumentException expected) {
+        }
+        Assert.assertEquals("___sip_X_sr01L6nkNxM", nameAllocator.newName(".{|sip&X-sr01L6nkNxM"));
+    }
+
+    @Test(timeout = 10000)
+    public void useBeforeAllocateForbidden_sd104346litString104729() throws Exception {
+        NameAllocator nameAllocator = new NameAllocator();
+        try {
+            nameAllocator.get(1);
+        } catch (IllegalArgumentException expected) {
+        }
+        Assert.assertEquals("", nameAllocator.newName("", new Object()));
+    }
+
+    @Test(timeout = 10000)
+    public void useBeforeAllocateForbidden_sd104346_sd104738_add109082_failAssert3() throws Exception {
+        try {
+            Object __DSPOT_tag_46876 = new Object();
+            String __DSPOT_suggestion_46875 = "c9/=T#@B8({7GBG@G#/=";
+            Object __DSPOT_tag_46738 = new Object();
+            String __DSPOT_suggestion_46737 = "CQyyaq1=5[b[y%&F3<k&";
             NameAllocator nameAllocator = new NameAllocator();
             try {
                 nameAllocator.get(1);
             } catch (IllegalArgumentException expected) {
             }
-            nameAllocator.newName(__DSPOT_suggestion_46282, __DSPOT_tag_46283);
-            String o_useBeforeAllocateForbidden_sd103879__10 = nameAllocator.newName(__DSPOT_suggestion_46282, __DSPOT_tag_46283);
-            String o_useBeforeAllocateForbidden_sd103879_sd104271__17 = nameAllocator.newName("l){m7M9^VTekky-G-3!0", new Object());
-            org.junit.Assert.fail("useBeforeAllocateForbidden_sd103879_sd104271_add108202 should have thrown IllegalArgumentException");
+            nameAllocator.newName(__DSPOT_suggestion_46737, __DSPOT_tag_46738);
+            String o_useBeforeAllocateForbidden_sd104346__10 = nameAllocator.newName(__DSPOT_suggestion_46737, __DSPOT_tag_46738);
+            String o_useBeforeAllocateForbidden_sd104346_sd104738__17 = nameAllocator.newName("c9/=T#@B8({7GBG@G#/=", new Object());
+            org.junit.Assert.fail("useBeforeAllocateForbidden_sd104346_sd104738_add109082 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException eee) {
         }
     }
 
     @Test(timeout = 10000)
-    public void useBeforeAllocateForbidden_sd103879_sd104320_sd109102() throws Exception {
+    public void useBeforeAllocateForbidden_sd104346_sd104778_sd108862() throws Exception {
         NameAllocator nameAllocator = new NameAllocator();
         try {
-            int __DSPOT_arg4_49702 = -1363374264;
-            int __DSPOT_arg3_49701 = 1440868891;
-            String __DSPOT_arg2_49700 = "j=E;1tVco`aDV[g<W_$i";
-            int __DSPOT_arg1_49699 = -818196743;
-            boolean __DSPOT_arg0_49698 = true;
-            Locale __DSPOT_arg0_46486 = new Locale("%Z8_ExZg78mFHG;>otDG", "=&j(j8!G^.#_Wyh)ypaF");
+            int __DSPOT_arg4_49605 = 1153709446;
+            int __DSPOT_arg3_49604 = 395790604;
+            String __DSPOT_arg2_49603 = "WFrQUTfD XJI$uOB+gX-";
+            int __DSPOT_arg1_49602 = 1931848749;
+            boolean __DSPOT_arg0_49601 = true;
+            int __DSPOT_arg1_46934 = 537762892;
+            String __DSPOT_arg0_46933 = "A[Gb$CamtVR849sHT}dd";
             String __DSPOT_invoc_8 = nameAllocator.get(1);
-            String __DSPOT_invoc_13 = nameAllocator.get(1).toUpperCase(new Locale("%Z8_ExZg78mFHG;>otDG", "=&j(j8!G^.#_Wyh)ypaF"));
-            nameAllocator.get(1).toUpperCase(new Locale("%Z8_ExZg78mFHG;>otDG", "=&j(j8!G^.#_Wyh)ypaF")).regionMatches(true, -818196743, "j=E;1tVco`aDV[g<W_$i", 1440868891, -1363374264);
+            nameAllocator.get(1).startsWith(__DSPOT_arg0_46933, 537762892);
+            __DSPOT_arg0_46933.regionMatches(true, 1931848749, "WFrQUTfD XJI$uOB+gX-", 395790604, 1153709446);
         } catch (IllegalArgumentException expected) {
         }
-        Assert.assertEquals("m9W_F_A_rq___HDlD_K_", nameAllocator.newName("m9W`F%A.rq{.|HDlD@K_", new Object()));
+        Assert.assertEquals("CQyyaq1_5_b_y__F3_k_", nameAllocator.newName("CQyyaq1=5[b[y%&F3<k&", new Object()));
     }
 
     @Test(timeout = 10000)
-    public void useBeforeAllocateForbidden_sd103878_sd104191_sd114164() throws Exception {
+    public void useBeforeAllocateForbidden_sd104345_sd104658_sd114844() throws Exception {
         NameAllocator nameAllocator = new NameAllocator();
         try {
-            int __DSPOT_arg4_53468 = -227986694;
-            int __DSPOT_arg3_53467 = -1365913542;
-            String __DSPOT_arg2_53466 = "%]%&xfc!7;{M_Fh2{_/y";
-            int __DSPOT_arg1_53465 = 1323566709;
-            boolean __DSPOT_arg0_53464 = false;
+            int __DSPOT_arg1_54071 = 948130952;
+            int __DSPOT_arg0_54070 = -319978058;
             String __DSPOT_invoc_9 = nameAllocator.get(1);
-            nameAllocator.get(1).regionMatches(false, 1323566709, "%]%&xfc!7;{M_Fh2{_/y", -1365913542, -227986694);
+            nameAllocator.get(1).subSequence(-319978058, 948130952);
         } catch (IllegalArgumentException expected) {
         }
-        String o_useBeforeAllocateForbidden_sd103878__8 = nameAllocator.newName("-&3ENOr[O8k$Lt%)![,$");
-        Assert.assertEquals("__3ENOr_O8k$Lt_____$", o_useBeforeAllocateForbidden_sd103878__8);
-        Assert.assertEquals("__wx__akLU9_iyfdM_r2", nameAllocator.newName("?^wx};akLU9(iyfdM#r2", new Object()));
-        Assert.assertEquals("__3ENOr_O8k$Lt_____$", o_useBeforeAllocateForbidden_sd103878__8);
+        String o_useBeforeAllocateForbidden_sd104345__8 = nameAllocator.newName(".{|sip&X-sr01L6nkNxM");
+        Assert.assertEquals("___sip_X_sr01L6nkNxM", o_useBeforeAllocateForbidden_sd104345__8);
+        Assert.assertEquals("_8eZr_h_i__3_af___0S", nameAllocator.newName("-8eZr@h)i[:3?af%,!0S", new Object()));
     }
 
     @Test(timeout = 10000)
-    public void useBeforeAllocateForbidden_sd103878_add104243_sd109345() throws Exception {
-        String __DSPOT_suggestion_46281 = "-&3ENOr[O8k$Lt%)![,$";
+    public void useBeforeAllocateForbidden_sd104345_add104710_sd110191() throws Exception {
+        String __DSPOT_suggestion_46736 = ".{|sip&X-sr01L6nkNxM";
         NameAllocator nameAllocator = new NameAllocator();
         try {
-            int __DSPOT_arg3_49852 = -95061789;
-            int __DSPOT_arg2_49851 = -1540553215;
-            String __DSPOT_arg1_49850 = "kDeM6%ac_`yi)$}+ :dz";
-            int __DSPOT_arg0_49849 = 499052412;
+            int __DSPOT_arg3_50461 = 1475048519;
+            int __DSPOT_arg2_50460 = -1569010185;
+            String __DSPOT_arg1_50459 = "K|9CV/Dp_oWBv<tT]8#N";
+            int __DSPOT_arg0_50458 = 111415113;
             String __DSPOT_invoc_6 = nameAllocator.get(1);
-            nameAllocator.get(1).regionMatches(499052412, "kDeM6%ac_`yi)$}+ :dz", -1540553215, -95061789);
+            nameAllocator.get(1).regionMatches(111415113, "K|9CV/Dp_oWBv<tT]8#N", -1569010185, 1475048519);
         } catch (IllegalArgumentException expected) {
         }
-        String o_useBeforeAllocateForbidden_sd103878_add104243__8 = nameAllocator.newName(__DSPOT_suggestion_46281);
-        Assert.assertEquals("__3ENOr_O8k$Lt_____$", o_useBeforeAllocateForbidden_sd103878_add104243__8);
-        Assert.assertEquals("__3ENOr_O8k$Lt_____$_", nameAllocator.newName(__DSPOT_suggestion_46281));
-        Assert.assertEquals("__3ENOr_O8k$Lt_____$", o_useBeforeAllocateForbidden_sd103878_add104243__8);
+        String o_useBeforeAllocateForbidden_sd104345_add104710__8 = nameAllocator.newName(__DSPOT_suggestion_46736);
+        Assert.assertEquals("___sip_X_sr01L6nkNxM", o_useBeforeAllocateForbidden_sd104345_add104710__8);
+        Assert.assertEquals("___sip_X_sr01L6nkNxM_", nameAllocator.newName(__DSPOT_suggestion_46736));
     }
 }
 
