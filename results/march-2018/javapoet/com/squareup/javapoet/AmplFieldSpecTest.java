@@ -8,24 +8,12 @@ import org.junit.Test;
 
 public class AmplFieldSpecTest {
     @Test(timeout = 10000)
-    public void equalsAndHashCodelitString27_failAssert11() throws Exception {
-        try {
-            FieldSpec a = FieldSpec.builder(int.class, "foo").build();
-            FieldSpec b = FieldSpec.builder(int.class, "foo").build();
-            a = FieldSpec.builder(int.class, "VtX(r!Fs2l", Modifier.PUBLIC, Modifier.STATIC).build();
-            b = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
-            org.junit.Assert.fail("equalsAndHashCodelitString27 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException eee) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void equalsAndHashCode_sd34() throws Exception {
-        FieldSpec a = FieldSpec.builder(int.class, "foo").build();
+    public void equalsAndHashCode_sd30() throws Exception {
+        FieldSpec b = FieldSpec.builder(int.class, "foo").build();
         a = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
         b = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
-        int o_equalsAndHashCode_sd34__13 = FieldSpec.builder(int.class, "foo").build().hashCode();
-        Assert.assertEquals(-1882877815, ((int) (o_equalsAndHashCode_sd34__13)));
+        int o_equalsAndHashCode_sd30__13 = FieldSpec.builder(int.class, "foo").build().hashCode();
+        Assert.assertEquals(-1882877815, ((int) (o_equalsAndHashCode_sd30__13)));
     }
 
     @Test(timeout = 10000)
@@ -38,13 +26,13 @@ public class AmplFieldSpecTest {
     }
 
     @Test(timeout = 10000)
-    public void equalsAndHashCodelitString2_failAssert0() throws Exception {
+    public void equalsAndHashCodelitString16_failAssert6() throws Exception {
         try {
-            FieldSpec a = FieldSpec.builder(int.class, "annotationSpecs == null").build();
+            FieldSpec a = FieldSpec.builder(int.class, "foo").build();
             FieldSpec b = FieldSpec.builder(int.class, "foo").build();
-            a = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
+            a = FieldSpec.builder(int.class, "annotationSpecs == null", Modifier.PUBLIC, Modifier.STATIC).build();
             b = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
-            org.junit.Assert.fail("equalsAndHashCodelitString2 should have thrown IllegalArgumentException");
+            org.junit.Assert.fail("equalsAndHashCodelitString16 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException eee) {
         }
     }
@@ -58,16 +46,46 @@ public class AmplFieldSpecTest {
     }
 
     @Test(timeout = 10000)
-    public void equalsAndHashCode_add54litString621_failAssert16() throws Exception {
+    public void equalsAndHashCodelitString3_failAssert1() throws Exception {
+        try {
+            FieldSpec a = FieldSpec.builder(int.class, "*oo").build();
+            FieldSpec b = FieldSpec.builder(int.class, "foo").build();
+            a = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
+            b = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
+            org.junit.Assert.fail("equalsAndHashCodelitString3 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException eee) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void equalsAndHashCode_sd32_add281() throws Exception {
+        FieldSpec b = FieldSpec.builder(int.class, "foo").build();
+        FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
+        a = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
+        b = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
+        Assert.assertEquals("public static int FOO;\n", FieldSpec.builder(int.class, "foo").build().toString());
+    }
+
+    @Test(timeout = 10000)
+    public void equalsAndHashCode_sd34litString302_failAssert15() throws Exception {
         try {
             FieldSpec a = FieldSpec.builder(int.class, "foo").build();
             FieldSpec b = FieldSpec.builder(int.class, "foo").build();
-            a = FieldSpec.builder(int.class, "", Modifier.PUBLIC, Modifier.STATIC).build();
+            a = FieldSpec.builder(int.class, "#OO", Modifier.PUBLIC, Modifier.STATIC).build();
             b = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
-            int o_equalsAndHashCode_add54__13 = FieldSpec.builder(int.class, "foo").build().hashCode();
-            org.junit.Assert.fail("equalsAndHashCode_add54litString621 should have thrown IllegalArgumentException");
+            int o_equalsAndHashCode_sd34__13 = FieldSpec.builder(int.class, "foo").build().hashCode();
+            org.junit.Assert.fail("equalsAndHashCode_sd34litString302 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException eee) {
         }
+    }
+
+    @Test(timeout = 10000)
+    public void equalsAndHashCode_add51_sd542() throws Exception {
+        FieldSpec a = FieldSpec.builder(int.class, "foo").build();
+        a = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
+        b = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
+        boolean o_equalsAndHashCode_add51__13 = a.equals(FieldSpec.builder(int.class, "foo").build());
+        Assert.assertEquals("public static int FOO;\n", a.toString());
     }
 
     @Test(timeout = 10000)
@@ -92,23 +110,14 @@ public class AmplFieldSpecTest {
     }
 
     @Test(timeout = 10000)
-    public void equalsAndHashCode_sd32_add283() throws Exception {
-        FieldSpec b = FieldSpec.builder(int.class, "foo").build();
-        a = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
-        FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
-        b = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
-        Assert.assertEquals("public static int FOO;\n", FieldSpec.builder(int.class, "foo").build().toString());
-    }
-
-    @Test(timeout = 10000)
-    public void equalsAndHashCode_add51litString516_failAssert4() throws Exception {
+    public void equalsAndHashCode_add51litString521_failAssert3() throws Exception {
         try {
-            FieldSpec a = FieldSpec.builder(int.class, "A%.UJum&)<").build();
+            FieldSpec a = FieldSpec.builder(int.class, "f[oo").build();
             FieldSpec b = FieldSpec.builder(int.class, "foo").build();
             a = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
             b = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
-            boolean o_equalsAndHashCode_add51__13 = FieldSpec.builder(int.class, "A%.UJum&)<").build().equals(FieldSpec.builder(int.class, "foo").build());
-            org.junit.Assert.fail("equalsAndHashCode_add51litString516 should have thrown IllegalArgumentException");
+            boolean o_equalsAndHashCode_add51__13 = FieldSpec.builder(int.class, "f[oo").build().equals(FieldSpec.builder(int.class, "foo").build());
+            org.junit.Assert.fail("equalsAndHashCode_add51litString521 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException eee) {
         }
     }
@@ -141,25 +150,16 @@ public class AmplFieldSpecTest {
     }
 
     @Test(timeout = 10000)
-    public void equalsAndHashCode_sd32litString1776_failAssert17() throws Exception {
+    public void equalsAndHashCode_sd32litString1736_failAssert29() throws Exception {
         try {
-            FieldSpec a = FieldSpec.builder(int.class, ".+DPW(yw#7").build();
-            FieldSpec b;
+            FieldSpec a;
+            FieldSpec b = FieldSpec.builder(int.class, "annotationSpecs == null").build();
             a = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
             b = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
-            String o_equalsAndHashCode_sd32__13 = FieldSpec.builder(int.class, ".+DPW(yw#7").build().toString();
-            org.junit.Assert.fail("equalsAndHashCode_sd32litString1776 should have thrown IllegalArgumentException");
+            String o_equalsAndHashCode_sd32__13 = a.toString();
+            org.junit.Assert.fail("equalsAndHashCode_sd32litString1736 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException eee) {
         }
-    }
-
-    @Test(timeout = 10000)
-    public void equalsAndHashCode_sd32litString1745() throws Exception {
-        FieldSpec a;
-        FieldSpec b = FieldSpec.builder(int.class, "foo").build();
-        a = FieldSpec.builder(int.class, "F5OO", Modifier.PUBLIC, Modifier.STATIC).build();
-        b = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
-        Assert.assertEquals("public static int F5OO;\n", a.toString());
     }
 
     @Test(timeout = 10000)
@@ -169,19 +169,6 @@ public class AmplFieldSpecTest {
         b = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
         boolean o_equalsAndHashCode_add51__13 = FieldSpec.builder(int.class, "foo").build().equals(b);
         Assert.assertEquals("public static int FOO;\n", b.toString());
-    }
-
-    @Test(timeout = 10000)
-    public void equalsAndHashCode_sd32litString1754_failAssert24() throws Exception {
-        try {
-            FieldSpec a;
-            FieldSpec b = FieldSpec.builder(int.class, "foo").build();
-            a = FieldSpec.builder(int.class, "/AJ+_NXuz7", Modifier.PUBLIC, Modifier.STATIC).build();
-            b = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
-            String o_equalsAndHashCode_sd32__13 = a.toString();
-            org.junit.Assert.fail("equalsAndHashCode_sd32litString1754 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException eee) {
-        }
     }
 
     @Test(timeout = 10000)
@@ -202,24 +189,24 @@ public class AmplFieldSpecTest {
     }
 
     @Test(timeout = 10000)
-    public void equalsAndHashCode_sd36_sd1869() throws Exception {
-        FieldSpec a = FieldSpec.builder(int.class, "foo").build();
-        FieldSpec b;
-        a = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
-        b = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
-        String o_equalsAndHashCode_sd36__13 = b.toString();
-        Assert.assertEquals("public static int FOO;\n", o_equalsAndHashCode_sd36__13);
-        int o_equalsAndHashCode_sd36_sd1869__15 = b.hashCode();
-        Assert.assertEquals(-1882877815, ((int) (o_equalsAndHashCode_sd36_sd1869__15)));
-    }
-
-    @Test(timeout = 10000)
     public void equalsAndHashCode_sd36() throws Exception {
         FieldSpec a = FieldSpec.builder(int.class, "foo").build();
         FieldSpec b;
         a = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
         b = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
         Assert.assertEquals("U{R IF%j!9gwX1[[en#R", "U{R IF%j!9gwX1[[en#R");
+    }
+
+    @Test(timeout = 10000)
+    public void equalsAndHashCode_sd36_sd1833() throws Exception {
+        FieldSpec a;
+        FieldSpec b = FieldSpec.builder(int.class, "foo").build();
+        a = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
+        b = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
+        String o_equalsAndHashCode_sd36__13 = b.toString();
+        Assert.assertEquals("public static int FOO;\n", o_equalsAndHashCode_sd36__13);
+        int o_equalsAndHashCode_sd36_sd1833__15 = b.hashCode();
+        Assert.assertEquals(-1882877815, ((int) (o_equalsAndHashCode_sd36_sd1833__15)));
     }
 
     @Test(timeout = 10000)
@@ -244,6 +231,14 @@ public class AmplFieldSpecTest {
     }
 
     @Test(timeout = 10000)
+    public void equalsAndHashCode_sd32litString1773() throws Exception {
+        FieldSpec b;
+        a = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
+        b = FieldSpec.builder(int.class, "FOO", Modifier.PUBLIC, Modifier.STATIC).build();
+        Assert.assertEquals("public static int FOO;\n", FieldSpec.builder(int.class, "Koo").build().toString());
+    }
+
+    @Test(timeout = 10000)
     public void nullAnnotationsAddition_add4414() throws Exception {
         try {
             FieldSpec.builder(int.class, "foo").addAnnotations(null);
@@ -264,24 +259,12 @@ public class AmplFieldSpecTest {
     }
 
     @Test(timeout = 10000)
-    public void nullAnnotationsAddition_add4414litString4483() throws Exception {
+    public void nullAnnotationsAddition_add4414_sd4492() throws Exception {
         try {
-            FieldSpec.builder(int.class, "Poo").addAnnotations(null);
-        } catch (IllegalArgumentException expected) {
-            String o_nullAnnotationsAddition_add4414__6 = expected.getMessage();
-            Assert.assertEquals("annotationSpecs == null", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void nullAnnotationsAddition_add4414_sd4490_sd4704() throws Exception {
-        try {
-            Object[] __DSPOT_args_221 = new Object[]{ new Object(), new Object(), new Object() };
-            String __DSPOT_format_220 = "skRx;om6_QO0c5a.U(&b";
-            Modifier[] __DSPOT_modifiers_167 = new Modifier[]{  };
+            Object[] __DSPOT_args_169 = new Object[]{ new Object(), new Object(), new Object() };
+            String __DSPOT_format_168 = "%<0v|2J j[AsO&r7Mez&";
             FieldSpec.Builder __DSPOT_invoc_3 = FieldSpec.builder(int.class, "foo").addAnnotations(null);
-            __DSPOT_invoc_3.addModifiers(new Modifier[]{  });
-            __DSPOT_invoc_3.addJavadoc("skRx;om6_QO0c5a.U(&b", new Object[]{ new Object(), new Object(), new Object() });
+            FieldSpec.builder(int.class, "foo").addAnnotations(null).initializer("%<0v|2J j[AsO&r7Mez&", new Object[]{ new Object(), new Object(), new Object() });
         } catch (IllegalArgumentException expected) {
             String o_nullAnnotationsAddition_add4414__6 = expected.getMessage();
             Assert.assertEquals("annotationSpecs == null", expected.getMessage());
@@ -289,13 +272,32 @@ public class AmplFieldSpecTest {
     }
 
     @Test(timeout = 10000)
-    public void nullAnnotationsAddition_add4414litString4484_add4623() throws Exception {
+    public void nullAnnotationsAddition_add4414litString4485litString4630() throws Exception {
         try {
-            FieldSpec.builder(int.class, "f?oo");
-            FieldSpec.builder(int.class, "f?oo").addAnnotations(null);
+            FieldSpec.builder(int.class, "").addAnnotations(null);
         } catch (IllegalArgumentException expected) {
             String o_nullAnnotationsAddition_add4414__6 = expected.getMessage();
-            Assert.assertEquals("not a valid name: f?oo", expected.getMessage());
+            Assert.assertEquals("not a valid name: ", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void nullAnnotationsAddition_add4414litString4486litString4639() throws Exception {
+        try {
+            FieldSpec.builder(int.class, "foo").addAnnotations(null);
+        } catch (IllegalArgumentException expected) {
+            String o_nullAnnotationsAddition_add4414__6 = expected.getMessage();
+            Assert.assertEquals("annotationSpecs == null", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void nullAnnotationsAddition_add4414litString4547() throws Exception {
+        try {
+            FieldSpec.builder(int.class, "").addAnnotations(null);
+        } catch (IllegalArgumentException expected) {
+            String o_nullAnnotationsAddition_add4414__6 = "pT%vt_F}Hln6O(.TI(`V";
+            Assert.assertEquals("pT%vt_F}Hln6O(.TI(`V", "pT%vt_F}Hln6O(.TI(`V");
         }
     }
 }
