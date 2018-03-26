@@ -24,6 +24,7 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
     --iteration 3 \
     --test-criterion PitMutantScoreSelector \
     --verbose \
+    --timeOut 50000 \
     --output-path dspot-report \
     --randomSeed 23 " \
     "--amplifiers ReplacementAmplifier:AllLiteralAmplifiers:StatementAdd:MethodAdd:MethodRemove" \
