@@ -861,7 +861,7 @@
       "fullQualifiedClassName": "com.squareup.javapoet.CodeBlock$Builder",
       "methodName": "add",
       "line": 202,
-      "status": "KILLED",
+      "status": "SURVIVED",
       "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator"
     },
     {
@@ -1316,7 +1316,7 @@
       "fullQualifiedClassName": "com.squareup.javapoet.CodeBlock$Builder",
       "methodName": "add",
       "line": 202,
-      "status": "KILLED",
+      "status": "SURVIVED",
       "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE"
     },
     {
@@ -3787,7 +3787,7 @@
       "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec",
       "methodName": "builder",
       "line": 92,
-      "status": "SURVIVED",
+      "status": "KILLED",
       "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator"
     },
     {
@@ -4265,20 +4265,6 @@
       "line": 135,
       "status": "KILLED",
       "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "addJavadoc",
-      "line": 125,
-      "status": "SURVIVED",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "addJavadoc",
-      "line": 126,
-      "status": "SURVIVED",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator"
     },
     {
       "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
@@ -4900,7 +4886,7 @@
       "fullQualifiedClassName": "com.squareup.javapoet.Util",
       "methodName": "checkArgument",
       "line": 64,
-      "status": "SURVIVED",
+      "status": "KILLED",
       "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator"
     },
     {
@@ -34164,6 +34150,216 @@
       "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator"
     },
     {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "addAnnotation",
+      "line": 143,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "addAnnotation",
+      "line": 144,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "addAnnotation",
+      "line": 148,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "addAnnotation",
+      "line": 148,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "addAnnotation",
+      "line": 148,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "addAnnotation",
+      "line": 149,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "addAnnotation",
+      "line": 153,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "addAnnotation",
+      "line": 153,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "addAnnotation",
+      "line": 153,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "addAnnotations",
+      "line": 137,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "addAnnotations",
+      "line": 139,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "addJavadoc",
+      "line": 130,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "addJavadoc",
+      "line": 131,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "addJavadoc",
+      "line": 125,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "addJavadoc",
+      "line": 126,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "initializer",
+      "line": 167,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "initializer",
+      "line": 166,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "initializer",
+      "line": 166,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "initializer",
+      "line": 166,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "initializer",
+      "line": 167,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "initializer",
+      "line": 166,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "initializer",
+      "line": 167,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "initializer",
+      "line": 166,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "initializer",
+      "line": 166,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "initializer",
+      "line": 168,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "initializer",
+      "line": 166,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "initializer",
+      "line": 167,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "initializer",
+      "line": 162,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "initializer",
+      "line": 162,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator"
+    },
+    {
+      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
+      "methodName": "initializer",
+      "line": 162,
+      "status": "NO_COVERAGE",
+      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator"
+    },
+    {
       "fullQualifiedClassName": "com.squareup.javapoet.AnnotationSpec$Visitor",
       "methodName": "\u003cinit\u003e",
       "line": 258,
@@ -34356,202 +34552,6 @@
       "fullQualifiedClassName": "com.squareup.javapoet.AnnotationSpec$Visitor",
       "methodName": "visitType",
       "line": 274,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "addAnnotation",
-      "line": 143,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "addAnnotation",
-      "line": 144,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "addAnnotation",
-      "line": 148,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "addAnnotation",
-      "line": 148,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "addAnnotation",
-      "line": 148,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "addAnnotation",
-      "line": 149,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "addAnnotation",
-      "line": 153,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "addAnnotation",
-      "line": 153,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "addAnnotation",
-      "line": 153,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "addAnnotations",
-      "line": 137,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "addAnnotations",
-      "line": 139,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "addJavadoc",
-      "line": 130,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "addJavadoc",
-      "line": 131,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "initializer",
-      "line": 167,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "initializer",
-      "line": 166,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "initializer",
-      "line": 166,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "initializer",
-      "line": 166,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "initializer",
-      "line": 167,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "initializer",
-      "line": 166,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "initializer",
-      "line": 167,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "initializer",
-      "line": 166,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "initializer",
-      "line": 166,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "initializer",
-      "line": 168,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "initializer",
-      "line": 166,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "initializer",
-      "line": 167,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "initializer",
-      "line": 162,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "initializer",
-      "line": 162,
-      "status": "NO_COVERAGE",
-      "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator"
-    },
-    {
-      "fullQualifiedClassName": "com.squareup.javapoet.FieldSpec$Builder",
-      "methodName": "initializer",
-      "line": 162,
       "status": "NO_COVERAGE",
       "idMutator": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator"
     },
