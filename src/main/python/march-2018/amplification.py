@@ -19,13 +19,14 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
     prefix_dataset = "dataset/"
     #mvnHome=""
     #javaHome=""
-    amplify = javaHome + "java -Xms8G -Xmx16G -jar ../dspot/dspot/target/dspot-1.0.7-SNAPSHOT-jar-with-dependencies.jar \
+    amplify = javaHome + "java -Xms8G -Xmx16G -jar ../dspot/dspot/target/dspot-1.0.8-SNAPSHOT-jar-with-dependencies.jar \
     --path-to-properties src/main/resources/${project}.properties \
     --iteration 3 \
     --test-criterion PitMutantScoreSelector \
     --verbose \
     --timeOut 50000 \
     --output-path dspot-report \
+    --no-minimize \
     --randomSeed 23 " \
     "--amplifiers ReplacementAmplifier:AllLiteralAmplifiers:StatementAdd:MethodAdd:MethodRemove" \
     " --maven-home " + mvnHome if not mvnHome == "" else ""
