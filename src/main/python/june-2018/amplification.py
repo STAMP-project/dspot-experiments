@@ -15,7 +15,7 @@ def allsame(x):
 
 
 
-def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"):
+def run(project, mvnHome="", javaHome=""):
     prefix_dataset = "dataset/"
     #mvnHome=""
     #javaHome=""
@@ -23,15 +23,15 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
     --path-to-properties src/main/resources/${project}.properties \
     --iteration 3 \
     --test-criterion PitMutantScoreSelector \
+    --descartes \
     --verbose \
     --timeOut 50000 \
     --output-path dspot-report \
     --no-minimize \
     --randomSeed 23 " \
-    "--amplifiers ReplacementAmplifier:AllLiteralAmplifiers:StatementAdd:MethodAdd:MethodRemove" \
-    " --maven-home " + mvnHome if not mvnHome == "" else ""
+    "--amplifiers TestDataMutator:StatementAdd:MethodAdd:MethodRemove" +\
+              (" --maven-home " + mvnHome if not mvnHome == "" else "")
     opt_test = " --test "
-    opt_mutations_original= " --path-pit-result "
 
     print "#!/usr/bin/env bash"
 
@@ -44,8 +44,6 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
     print "cd dataset/${project}/"
     print mvnHome + "bin/mvn install -DskipTests"
     print "cd ${root_exp}"
-
-    prefix_original_mutation_file = "original/october-2017/" + project + "/"
 
     with open("dataset/properties_rates.json") as data_file:
         properties_rates = json.load(data_file)
@@ -60,9 +58,13 @@ def run(project, mvnHome="~/apache-maven-3.3.9/", javaHome="~/jdk1.8.0_121/bin/"
     for type in types:
         java_file = selected_classes[project][type]
         if not java_file in blacklist:
-            print amplify + opt_test + java_file + opt_mutations_original + prefix_original_mutation_file + java_file + "_mutations.csv"
-            print
-    print "cp -r dspot-report/* " + "results/june-2018/" + project
+            print amplify + opt_test + java_file + " 2>&1 | tee -a " \
+                  + project +"_" + type + ".log"
+            print "cd dataset/${project}/"
+            print "git checkout -- ."
+            print "cd ${root_exp}"
+
+print "cp -r dspot-report/* " + "results/june-2018/" + project
 
 
 
