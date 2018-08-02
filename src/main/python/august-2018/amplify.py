@@ -21,7 +21,7 @@ def run(project, classes=toolbox.keys_selected_classes):
              "-Xmx16G",
              "-jar",
              toolbox.path_to_dspot_jar,
-             "--path-to-properties", "",
+             "--path-to-properties", toolbox.prefix_resources + project + toolbox.suffix_properties,
              "--verbose",
              "--no-minimize",
              "--working-directory",
