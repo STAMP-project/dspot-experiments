@@ -41,6 +41,8 @@ def getProperties(project):
     return getJsonFile(path_properties)[project]
 
 def printAndCall(cmd, cwd=None):
+    if not cwd == None:
+        print cwd
     print " ".join(cmd) + " | " + " ".join(["tee", "-a", output_log_path])
     p1 = Popen(cmd, stdout=PIPE, cwd=cwd)
     p2 = Popen(["tee", "-a", output_log_path], stdin=p1.stdout, stdout=PIPE, cwd=cwd)
