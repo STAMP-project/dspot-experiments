@@ -14,6 +14,8 @@ path_properties = prefix_dataset + "properties_rates.json"
 prefix_current_dataset = prefix_dataset + "august-2018/"
 output_log_path = ""
 
+path_to_dspot_jar = "/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar"
+
 prefix_resources = "src/main/resources/"
 suffix_properties = ".properties"
 
@@ -68,7 +70,7 @@ def init(argv):
     global maven_home
     global java_home
     if "onClusty" in argv:
-        maven_home = getAbsolutePath("~/apache-maven-3.3.9/bin/")
-        java_home = getAbsolutePath("~/jdk1.8.0_121/bin/")
+        maven_home = "/home/spirals/danglot/apache-maven-3.3.9/bin/"
+        java_home = "/home/spirals/danglot/jdk1.8.0_121/bin/"
     else:
         maven_home = ""

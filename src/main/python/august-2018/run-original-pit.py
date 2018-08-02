@@ -8,6 +8,8 @@ def run(project, classes=toolbox.keys_selected_classes):
     filter = toolbox.load_properties(project)[toolbox.key_filter]
     module = properties[toolbox.key_subModule]
     for current_class in classes:
+        if current_class == "onClusty":
+            continue
         toolbox.output_log_path = toolbox.getAbsolutePath(toolbox.prefix_current_dataset + project + "/" + current_class + "_original_mutations.log")
         toolbox.printAndCall(
             # print (
