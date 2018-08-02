@@ -312,6 +312,69 @@ def print_line_4(t, gray):
     else:
         return  ""
 
+def print_line_5(t, gray):
+    global cpt
+    prefix_result = "results/october-2017/"
+
+    total, killed = t[0], t[1]
+    score = round(float(killed) / float(total) * 100.0, 2)
+    project = t[-1]
+    with open("dataset/selected_classes.json") as data_file:
+        classes = json.load(data_file)
+
+    test_name = t[2]
+    test_name_ampl = '.'.join(test_name.split(".")[:-1]) + '.' + \
+                     (build_rate_table.buildAmplTest(test_name.split(".")[-1]))
+    path_to_file = prefix_result + project + "/" + test_name_ampl
+    path_to_csv = path_to_file + "_mutations.csv"
+    total_ampl, killed_ampl = count_mutant.countForTestClass(path_to_csv)
+
+    covered_aampl, killed_aampl = count_mutant.countForTestClass(
+        prefix_result + project + "_aampl/" + test_name_ampl + "_mutations.csv")
+
+    delta_total = float((total_ampl - total)) / float(total) * 100.0 \
+        if total > 0 else 0.0
+    delta_killed = float((killed_ampl - killed)) / float(killed) * 100.0 \
+        if killed > 0 else 0.0
+    delta_killed_aampl = (float(killed_aampl - killed) / float(killed) * 100.0) \
+        if killed > 0 else 0.0
+
+    path_to_json = path_to_file + "_mutants_killed.json"
+    nb_test, nb_test_ampl, i_ampl_avg, a_ampl_avg = load_data_from_json(path_to_json)
+
+    with open("dataset/properties_rates.json") as data_file:
+        properties_rates = json.load(data_file)
+
+    path_to_json_fail_time = prefix_result + project + "/" + \
+                             ("/" + properties_rates[project]["subModule"] if properties_rates[project]["subModule"] else project) + \
+                             ".json"
+    time_ms = -1
+    with open(path_to_json_fail_time) as data_file:
+        json_time = json.load(data_file)
+    for time_class in json_time["classTimes"]:
+        if time_class["fullQualifiedName"] == test_name:
+            time_ms = time_class["timeInMs"]
+
+    time_str = ""
+    if time_ms < 60000:
+        time_str = str((time_ms / 1000)) + " sec"
+    else:
+        time_str = str(int(round(float(time_ms) / 1000.0 / 60.0, 1))) + " min"
+
+    time_min = "{0:.2f}".format(float(time_ms) / 1000.0 / 60.0)
+
+    # COLOR ID & testName & nbMethod & PMS & nbAmplMethod & ExpCovOri & ExpCovAmpl & KilledOri & KilledAmpl & IncreaseKilled & Arrow & AAmplKilled &
+    # Increase & Arrow & time
+
+    is_pull_request = False
+    if "pull_request" in classes[project]:
+        is_pull_request = classes[project]["pull_request"] == test_name
+
+    if delta_killed > 0:
+        return test_name.split(".")[-1].replace("_", "\\_"), killed, killed_ampl
+    else:
+        return  ""
+
 
 if __name__ == '__main__':
 
