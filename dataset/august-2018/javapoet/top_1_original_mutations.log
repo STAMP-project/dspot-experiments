@@ -1,0 +1,352 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Building JavaPoet
+[INFO]    task-segment: [clean, test, org.pitest:pitest-maven:1.4.0:mutationCoverage]
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[ERROR] BUILD ERROR
+[INFO] ------------------------------------------------------------------------
+[INFO] Error resolving version for 'org.apache.maven.plugins:maven-compiler-plugin': Plugin requires Maven version 3.0
+[INFO] ------------------------------------------------------------------------
+[INFO] For more information, run Maven with the -e switch
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: < 1 second
+[INFO] Finished at: Thu Aug 02 15:10:27 CEST 2018
+[INFO] Final Memory: 17M/1963M
+[INFO] ------------------------------------------------------------------------
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Building JavaPoet
+[INFO]    task-segment: [clean, test, org.pitest:pitest-maven:1.4.0:mutationCoverage]
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[ERROR] BUILD ERROR
+[INFO] ------------------------------------------------------------------------
+[INFO] Error resolving version for 'org.apache.maven.plugins:maven-compiler-plugin': Plugin requires Maven version 3.0
+[INFO] ------------------------------------------------------------------------
+[INFO] For more information, run Maven with the -e switch
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: < 1 second
+[INFO] Finished at: Thu Aug 02 15:13:54 CEST 2018
+[INFO] Final Memory: 17M/1963M
+[INFO] ------------------------------------------------------------------------
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building JavaPoet 1.12.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ javapoet ---
+[INFO] Deleting /tmp/dspot-experiments/dataset/javapoet/target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ javapoet ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ javapoet ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /tmp/dspot-experiments/dataset/javapoet/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ javapoet ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 17 source files to /tmp/dspot-experiments/dataset/javapoet/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ javapoet ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /tmp/dspot-experiments/dataset/javapoet/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ javapoet ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 19 source files to /tmp/dspot-experiments/dataset/javapoet/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ javapoet ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- pitest-maven:1.4.0:mutationCoverage (default-cli) @ javapoet ---
+[INFO] Found plugin : Default csv report plugin
+[INFO] Found plugin : Default xml report plugin
+[INFO] Found plugin : Default html report plugin
+[INFO] Found plugin : Static initializer code detector plugin
+[INFO] Found plugin : Static initializer filter plugin
+[INFO] Found plugin : Excluded annotations plugin
+[INFO] Found plugin : Inlined finally block filter plugin
+[INFO] Found plugin : Try with resources filter
+[INFO] Found plugin : Implicit null check filter
+[INFO] Found plugin : For each loop filter
+[INFO] Found plugin : Logging calls filter
+[INFO] Found plugin : Infinite for loop filter
+[INFO] Found plugin : Long running iterator loop filter
+[INFO] Found plugin : For loop counter filter
+[INFO] Found plugin : Kotlin junk mutations filter
+[INFO] Found plugin : Max mutations per class limit
+[INFO] Found plugin : Equals shortcut equivalent mutant filter
+[INFO] Found plugin : Trivial return vals equivalence filter
+[INFO] Found plugin : Mutant export plugin
+[INFO] Found shared classpath plugin : Default mutation engine
+[INFO] Found shared classpath plugin : JUnit plugin
+[INFO] Found shared classpath plugin : TestNG plugin
+[INFO] Adding org.pitest:pitest to SUT classpath
+[INFO] Mutating from /tmp/dspot-experiments/dataset/javapoet/target/classes
+/-\|/-\|/-\|/-\|/-stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=emit, methodDesc=(Lcom/squareup/javapoet/CodeWriter;)Lcom/squareup/javapoet/CodeWriter;], indexes=[8], mutator=orgstderr  : .pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator], filename=ClassName.java, block=63, lineNumber=235, description=removed call to com/squareup/javapoet/ClassName::enclosingClasses, testsInOrder=[com.squareup.javapoet.TypeNameTest.innerSstderr  : taticInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.isBoxedPrimitive(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNameTest), com.squareupstderr  : .javapoet.TypeNameTest.equalsAndHashCodeTypeVariableName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeParameterizedTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenestderr  : ricType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerGenericInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.genericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNamstderr  : eTest.equalsAndHashCodeWildcardTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeArrayTypeName(com.squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+3:26:33 PM PIT >> WAstderr  : RNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=emit, methodDesc=(Lcom/squareup/javapoet/CodeWriter;)Lcom/squareup/javapoet/CodeWriter;], indexes=[73], mutator=org.pitest.mutationtesstderr  : t.engine.gregor.mutators.NonVoidMethodCallMutator], filename=ClassName.java, block=69, lineNumber=247, description=removed call to com/squareup/javapoet/CodeWriter::emitAndIndent, testsInOrder=[com.squareup.javapoet.TypeNameTest.innerStaticInGenericType(costderr  : m.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.isBoxedPrimitive(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTesstderr  : t.equalsAndHashCodeTypeVariableName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeParameterizedTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenericType(com.squareup.stderr  : javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerGenericInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.genericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCostderr  : deWildcardTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeArrayTypeName(com.squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+3:26:33 PM PIT >> WARNING : Mutation Mutastderr  : tionDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=bestGuess, methodDesc=(Ljava/lang/String;)Lcom/squareup/javapoet/ClassName;], indexes=[29], mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateCostderr  : nditionalsMutator], filename=ClassName.java, block=47, lineNumber=178, description=negated conditional, testsInOrder=[com.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL]stderr  :  was not viable 
+3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=get, methodDesc=(Ljava/lang/Class;)Lcom/squareup/javapoet/ClassName;], indexes=[47], mutator=org.stderr  : pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator], filename=ClassName.java, block=37, lineNumber=145, description=Substituted 1 with 0, testsInOrder=[com.squareup.javapoet.TypeNameTest.innerStaticInGenericType(com.squareup.javapoet.TypeNamestderr  : Test), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeTypeVariableName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndstderr  : HashCodeParameterizedTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerGenericInGenericType(com.squareup.javapoet.TypeNameTestderr  : st), com.squareup.javapoet.TypeNameTest.genericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeWildcardTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeArrayTypestderr  : Name(com.squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=bestGuess, methostderr  : dDesc=(Ljava/lang/String;)Lcom/squareup/javapoet/ClassName;], indexes=[14], mutator=org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator], filename=ClassName.java, block=46, lineNumber=176, description=removed call to java/lang/String::cstderr  : odePointAt, testsInOrder=[com.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=<init>, methodDesc=(Ljava/lang/String;Lcom/squareup/javapoet/ClassName;Ljava/lang/String;Ljava/util/List;)V], indestderr  : xes=[54], mutator=org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator], filename=ClassName.java, block=5, lineNumber=59, description=removed call to java/lang/StringBuilder::append, testsInOrder=[com.squareup.javapoet.TypeNameTest.isPristderr  : mitive(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerStaticInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.isBoxedPrimitive(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.Typestderr  : NameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeTypeVariableName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeParameterizedTypeName(comstderr  : .squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerGenericInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNastderr  : meTest.genericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeWildcardTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeArrayTypeName(com.squareup.javapoet.TypeNastderr  : meTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=bestGuess, methodDesc=(Ljava/lang/String;)Lcom/squareup/javapoet/ClassName;], indexes=[50], mutator=org.pitest.mutstderr  : ationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE], filename=ClassName.java, block=50, lineNumber=180, description=removed conditional - replaced equality check with false, testsInOrder=[com.squareup.javapoet.TypeNameTest.equalsAndHashCostderr  : deClassName(com.squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=bestGuess, methodDesc=(Ljava/lang/String;)Lcom/squareup/javapoet/ClassName;], indexes=[123], mutator=org.pitest.mustderr  : tationtest.engine.gregor.mutators.ConstructorCallMutator], filename=ClassName.java, block=56, lineNumber=187, description=removed call to com/squareup/javapoet/ClassName::<init>, testsInOrder=[com.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(cstderr  : om.squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=emit, methodDesc=(Lcom/squareup/javapoet/CodeWriter;)Lcom/squareup/javapoet/CodeWriter;], indexes=[57], mutator=orstderr  : g.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator], filename=ClassName.java, block=68, lineNumber=245, description=removed call to java/lang/String::lastIndexOf, testsInOrder=[com.squareup.javapoet.TypeNameTest.innerStaticInGenericType(stderr  : com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.isBoxedPrimitive(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTstderr  : est.equalsAndHashCodeTypeVariableName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeParameterizedTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenericType(com.squareustderr  : p.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerGenericInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.genericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashstderr  : CodeWildcardTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeArrayTypeName(com.squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=get, methodDesc=(Ljava/lang/Class;)Lcom/squareup/javapoet/ClassName;], indexes=[31], mutator=org.pitest.mutationtestderr  : st.engine.gregor.mutators.InlineConstantMutator], filename=ClassName.java, block=35, lineNumber=144, description=Substituted 1 with 0, testsInOrder=[com.squareup.javapoet.TypeNameTest.innerStaticInGenericType(com.squareup.javapoet.TypeNameTest), com.squarestderr  : up.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeTypeVariableName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeParameterstderr  : izedTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerGenericInGenericType(com.squareup.javapoet.TypeNameTest), com.squareupstderr  : .javapoet.TypeNameTest.genericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeWildcardTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeArrayTypeName(com.squareupstderr  : .javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=<init>, methodDesc=(Ljava/lang/String;Lcom/squareup/javapoet/ClassName;Ljava/lang/String;Ljava/util/List;)V], indestderr  : xes=[38], mutator=org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator], filename=ClassName.java, block=2, lineNumber=58, description=removed call to java/lang/StringBuilder::toString, testsInOrder=[com.squareup.javapoet.TypeNameTest.innstderr  : erStaticInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerGenericInGenericType(com.squareup.javapoet.TypeNameTest)], isstderr  : InFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=isAnnotated, methodDesc=()Z], indexes=[12], mutator=org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionstderr  : alMutator_EQUAL_IF], filename=ClassName.java, block=14, lineNumber=76, description=removed conditional - replaced equality check with true, testsInOrder=[com.squareup.javapoet.TypeNameTest.innerStaticInGenericType(com.squareup.javapoet.TypeNameTest), com.sstderr  : quareup.javapoet.TypeNameTest.isBoxedPrimitive(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeTypeVariableName(com.stderr  : squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeParameterizedTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javstderr  : apoet.TypeNameTest.innerGenericInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.genericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeWildcardTypeName(com.squareup.javapoetstderr  : .TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeArrayTypeName(com.squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=topLevelClassName, methodDesc=()Lcom/squareup/javapoet/ClassName;], indexes=[5], mutator=org.pitest.mutationtest.estderr  : ngine.gregor.mutators.NegateConditionalsMutator], filename=ClassName.java, block=19, lineNumber=100, description=negated conditional, testsInOrder=[com.squareup.javapoet.TypeNameTest.innerStaticInGenericType(com.squareup.javapoet.TypeNameTest), com.squareustderr  : p.javapoet.TypeNameTest.isBoxedPrimitive(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeTypeVariableName(com.squarestderr  : up.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeParameterizedTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.stderr  : TypeNameTest.innerGenericInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.genericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeWildcardTypeName(com.squareup.javapoet.TypeNstderr  : ameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeArrayTypeName(com.squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=get, methodDesc=(Ljava/lang/Class;)Lcom/squareup/javapoet/ClassName;], indexes=[13], mutator=org.pitest.mutationtestderr  : st.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF], filename=ClassName.java, block=32, lineNumber=143, description=removed conditional - replaced equality check with true, testsInOrder=[com.squareup.javapoet.TypeNameTest.innerStaticInGenericType(stderr  : com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeTypeVariableName(com.squareup.javapoet.TypeNameTest), com.squareup.jstderr  : avapoet.TypeNameTest.equalsAndHashCodeParameterizedTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerGenericInGenericType(costderr  : m.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.genericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeWildcardTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTstderr  : est.equalsAndHashCodeArrayTypeName(com.squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=isAnnotated, methodDesc=()Z], indexes=[15], mutator=org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMstderr  : utator], filename=ClassName.java, block=15, lineNumber=76, description=Substituted 1 with 0, testsInOrder=[com.squareup.javapoet.TypeNameTest.innerStaticInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.isBoxedPrimitive(stderr  : com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeTypeVariableName(com.squareup.javapoet.TypeNameTest), com.squareup.jstderr  : avapoet.TypeNameTest.equalsAndHashCodeParameterizedTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerGenericInGenericType(costderr  : m.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.genericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeWildcardTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTstderr  : est.equalsAndHashCodeArrayTypeName(com.squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=<init>, methodDesc=(Ljava/lang/String;Lcom/squareup/javapoet/ClassName;Ljava/lang/String;Ljava/util/List;)V], indestderr  : xes=[58], mutator=org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator], filename=ClassName.java, block=5, lineNumber=59, description=replaced call to java/lang/StringBuilder::append with receiver, testsInOrder=[com.squareup.javstderr  : apoet.TypeNameTest.isPrimitive(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerStaticInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.isBoxedPrimitive(com.squareup.javapoet.TypeNameTest), costderr  : m.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeTypeVariableName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodePstderr  : arameterizedTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerGenericInGenericType(com.squareup.javapoet.TypeNameTest), com.stderr  : squareup.javapoet.TypeNameTest.genericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeWildcardTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeArrayTypeName(com.stderr  : squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=bestGuess, methodDesc=(Ljava/lang/String;)Lcom/squareup/javapoet/ClassName;], indexes=[72], mutator=org.pitest.mutstderr  : ationtest.engine.gregor.mutators.NonVoidMethodCallMutator], filename=ClassName.java, block=52, lineNumber=184, description=removed call to java/lang/String::substring, testsInOrder=[com.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareupstderr  : .javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=get, methodDesc=(Ljava/lang/Class;)Lcom/squareup/javapoet/ClassName;], indexes=[114], mutator=org.pitest.mutationtstderr  : est.engine.gregor.mutators.NegateConditionalsMutator], filename=ClassName.java, block=40, lineNumber=155, description=negated conditional, testsInOrder=[com.squareup.javapoet.TypeNameTest.innerStaticInGenericType(com.squareup.javapoet.TypeNameTest), com.sqstderr  : uareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeTypeVariableName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeParamstderr  : eterizedTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerGenericInGenericType(com.squareup.javapoet.TypeNameTest), com.squastderr  : reup.javapoet.TypeNameTest.genericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeWildcardTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeArrayTypeName(com.squastderr  : reup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=isAnnotated, methodDesc=()Z], indexes=[12], mutator=org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionstderr  : alMutator_EQUAL_ELSE], filename=ClassName.java, block=14, lineNumber=76, description=removed conditional - replaced equality check with false, testsInOrder=[com.squareup.javapoet.TypeNameTest.innerStaticInGenericType(com.squareup.javapoet.TypeNameTest), costderr  : m.squareup.javapoet.TypeNameTest.isBoxedPrimitive(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeTypeVariableName(cstderr  : om.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeParameterizedTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.stderr  : javapoet.TypeNameTest.innerGenericInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.genericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeWildcardTypeName(com.squareup.javapstderr  : oet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeArrayTypeName(com.squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=get, methodDesc=(Ljava/lang/Class;)Lcom/squareup/javapoet/ClassName;], indexes=[155], mutator=org.pitest.mutationtstderr  : est.engine.gregor.mutators.NonVoidMethodCallMutator], filename=ClassName.java, block=44, lineNumber=162, description=removed call to com/squareup/javapoet/ClassName::nestedClass, testsInOrder=[com.squareup.javapoet.TypeNameTest.innerStaticInGenericType(comstderr  : .squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerGenericInGenericType(com.squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poistderr  : son=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=emit, methodDesc=(Lcom/squareup/javapoet/CodeWriter;)Lcom/squareup/javapoet/CodeWriter;], indexes=[80], mutator=orstderr  : g.pitest.mutationtest.engine.gregor.mutators.MathMutator], filename=ClassName.java, block=69, lineNumber=248, description=Replaced integer addition with subtraction, testsInOrder=[com.squareup.javapoet.TypeNameTest.innerStaticInGenericType(com.squareup.javstderr  : apoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.isBoxedPrimitive(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHasstderr  : hCodeTypeVariableName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeParameterizedTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenericType(com.squareup.javapoet.TypeNstderr  : ameTest), com.squareup.javapoet.TypeNameTest.innerGenericInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.genericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeWildcardTypestderr  : Name(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeArrayTypeName(com.squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=enclosingClasses, methodDesc=()Ljava/util/List;], indexes=[5], mutator=org.pitest.mutationtest.engine.gregor.mutatstderr  : ors.ConstructorCallMutator], filename=ClassName.java, block=74, lineNumber=273, description=removed call to java/util/ArrayList::<init>, testsInOrder=[com.squareup.javapoet.TypeNameTest.innerStaticInGenericType(com.squareup.javapoet.TypeNameTest), com.squastderr  : reup.javapoet.TypeNameTest.isBoxedPrimitive(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeTypeVariableName(com.squstderr  : areup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeParameterizedTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapostderr  : et.TypeNameTest.innerGenericInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.genericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeWildcardTypeName(com.squareup.javapoet.Tystderr  : peNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeArrayTypeName(com.squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=nestedClass, methodDesc=(Ljava/lang/String;)Lcom/squareup/javapoet/ClassName;], indexes=[10], mutator=org.pitest.mstderr  : utationtest.engine.gregor.mutators.NullReturnValsMutator], filename=ClassName.java, block=30, lineNumber=133, description=replaced return value with null for com/squareup/javapoet/ClassName::nestedClass, testsInOrder=[com.squareup.javapoet.TypeNameTest.innstderr  : erStaticInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerGenericInGenericType(com.squareup.javapoet.TypeNameTest)], isstderr  : InFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=get, methodDesc=(Ljava/lang/Class;)Lcom/squareup/javapoet/ClassName;], indexes=[46], mutator=org.pitest.mutationtestderr  : st.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF], filename=ClassName.java, block=36, lineNumber=145, description=removed conditional - replaced equality check with true, testsInOrder=[com.squareup.javapoet.TypeNameTest.innerStaticInGenericType(stderr  : com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeTypeVariableName(com.squareup.javapoet.TypeNameTest), com.squareup.jstderr  : avapoet.TypeNameTest.equalsAndHashCodeParameterizedTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerGenericInGenericType(costderr  : m.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.genericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeWildcardTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTstderr  : est.equalsAndHashCodeArrayTypeName(com.squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=emit, methodDesc=(Lcom/squareup/javapoet/CodeWriter;)Lcom/squareup/javapoet/CodeWriter;], indexes=[72], mutator=orstderr  : g.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator], filename=ClassName.java, block=69, lineNumber=247, description=removed call to java/lang/String::substring, testsInOrder=[com.squareup.javapoet.TypeNameTest.innerStaticInGenericType(costderr  : m.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.isBoxedPrimitive(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTesstderr  : t.equalsAndHashCodeTypeVariableName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeParameterizedTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenericType(com.squareup.stderr  : javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerGenericInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.genericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCostderr  : deWildcardTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeArrayTypeName(com.squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=emit, methodDesc=(Lcom/squareup/javapoet/CodeWriter;)Lcom/squareup/javapoet/CodeWriter;], indexes=[79], mutator=orstderr  : g.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator], filename=ClassName.java, block=69, lineNumber=248, description=Substituted 1 with 0, testsInOrder=[com.squareup.javapoet.TypeNameTest.innerStaticInGenericType(com.squareup.javapoet.TypeNastderr  : meTest), com.squareup.javapoet.TypeNameTest.isBoxedPrimitive(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeTypeVarstderr  : iableName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeParameterizedTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenericType(com.squareup.javapoet.TypeNameTest), costderr  : m.squareup.javapoet.TypeNameTest.innerGenericInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.genericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeWildcardTypeName(com.squstderr  : areup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeArrayTypeName(com.squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=annotated, methodDesc=(Ljava/util/List;)Lcom/squareup/javapoet/ClassName;], indexes=[16], mutator=org.pitest.mutatstderr  : iontest.engine.gregor.mutators.ConstructorCallMutator], filename=ClassName.java, block=6, lineNumber=64, description=removed call to com/squareup/javapoet/ClassName::<init>, testsInOrder=[com.squareup.javapoet.TypeNameTest.equalsAndHashCodeParameterizedTypstderr  : eName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerGenericInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapostderr  : et.TypeNameTest.genericType(com.squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=get, methodDesc=(Ljava/lang/Class;)Lcom/squareup/javapoet/ClassName;], indexes=[66], mutator=org.pitest.mutationtestderr  : st.engine.gregor.mutators.NonVoidMethodCallMutator], filename=ClassName.java, block=38, lineNumber=148, description=removed call to java/lang/Class::isAnonymousClass, testsInOrder=[com.squareup.javapoet.TypeNameTest.innerStaticInGenericType(com.squareup.jastderr  : vapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeTypeVariableName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNamstderr  : eTest.equalsAndHashCodeParameterizedTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerGenericInGenericType(com.squareup.javastderr  : poet.TypeNameTest), com.squareup.javapoet.TypeNameTest.genericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeWildcardTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHastderr  : shCodeArrayTypeName(com.squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=bestGuess, methodDesc=(Ljava/lang/String;)Lcom/squareup/javapoet/ClassName;], indexes=[95], mutator=org.pitest.mutstderr  : ationtest.engine.gregor.mutators.NegateConditionalsMutator], filename=ClassName.java, block=53, lineNumber=185, description=negated conditional, testsInOrder=[com.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNameTest)stderr  : ], isInFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=bestGuess, methodDesc=(Ljava/lang/String;)Lcom/squareup/javapoet/ClassName;], indexes=[15], mutator=org.pitest.mutstderr  : ationtest.engine.gregor.mutators.NonVoidMethodCallMutator], filename=ClassName.java, block=46, lineNumber=176, description=removed call to java/lang/Character::isLowerCase, testsInOrder=[com.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squstderr  : areup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=get, methodDesc=(Ljava/lang/Class;)Lcom/squareup/javapoet/ClassName;], indexes=[131], mutator=org.pitest.mutationtstderr  : est.engine.gregor.mutators.NonVoidMethodCallMutator], filename=ClassName.java, block=42, lineNumber=158, description=removed call to java/lang/String::substring, testsInOrder=[com.squareup.javapoet.TypeNameTest.innerStaticInGenericType(com.squareup.javapoestderr  : t.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeTypeVariableName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTeststderr  : .equalsAndHashCodeParameterizedTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerGenericInGenericType(com.squareup.javapoet.stderr  : TypeNameTest), com.squareup.javapoet.TypeNameTest.genericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeWildcardTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodstderr  : eArrayTypeName(com.squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=emit, methodDesc=(Lcom/squareup/javapoet/CodeWriter;)Lcom/squareup/javapoet/CodeWriter;], indexes=[63], mutator=orstderr  : g.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator], filename=ClassName.java, block=68, lineNumber=246, description=negated conditional, testsInOrder=[com.squareup.javapoet.TypeNameTest.innerStaticInGenericType(com.squareup.javapoet.Typstderr  : eNameTest), com.squareup.javapoet.TypeNameTest.isBoxedPrimitive(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeTypestderr  : VariableName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeParameterizedTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenericType(com.squareup.javapoet.TypeNameTest),stderr  :  com.squareup.javapoet.TypeNameTest.innerGenericInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.genericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeWildcardTypeName(com.stderr  : squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeArrayTypeName(com.squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=get, methodDesc=(Ljava/lang/Class;)Lcom/squareup/javapoet/ClassName;], indexes=[30], mutator=org.pitest.mutationtestderr  : st.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF], filename=ClassName.java, block=34, lineNumber=144, description=removed conditional - replaced equality check with true, testsInOrder=[com.squareup.javapoet.TypeNameTest.innerStaticInGenericType(stderr  : com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeTypeVariableName(com.squareup.javapoet.TypeNameTest), com.squareup.jstderr  : avapoet.TypeNameTest.equalsAndHashCodeParameterizedTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerGenericInGenericType(costderr  : m.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.genericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeWildcardTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTstderr  : est.equalsAndHashCodeArrayTypeName(com.squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=packageName, methodDesc=()Ljava/lang/String;], indexes=[5], mutator=org.pitest.mutationtest.engine.gregor.mutatorsstderr  : .ReturnValsMutator], filename=ClassName.java, block=17, lineNumber=84, description=mutated return of Object value for com/squareup/javapoet/ClassName::packageName to ( if (x != null) null else throw new RuntimeException ), testsInOrder=[com.squareup.javapostderr  : et.TypeNameTest.innerStaticInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.isBoxedPrimitive(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNstderr  : ameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeTypeVariableName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeParameterizedTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNamstderr  : eTest.innerClassInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerGenericInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.genericType(com.squareup.javapoet.TypeNameTest), com.squstderr  : areup.javapoet.TypeNameTest.equalsAndHashCodeWildcardTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeArrayTypeName(com.squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viablestderr  :  
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=get, methodDesc=(Ljava/lang/Class;)Lcom/squareup/javapoet/ClassName;], indexes=[147], mutator=org.pitest.mutationtstderr  : est.engine.gregor.mutators.NullReturnValsMutator], filename=ClassName.java, block=43, lineNumber=159, description=replaced return value with null for com/squareup/javapoet/ClassName::get, testsInOrder=[com.squareup.javapoet.TypeNameTest.innerStaticInGeneristderr  : cType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeTypeVariableName(com.squareup.javapoet.TypeNameTest), com.squastderr  : reup.javapoet.TypeNameTest.equalsAndHashCodeParameterizedTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerGenericInGenericTstderr  : ype(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.genericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeWildcardTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.Typstderr  : eNameTest.equalsAndHashCodeArrayTypeName(com.squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+stderr  : 3:26:33 PM PIT >> WARNING : Mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=com.squareup.javapoet.ClassName, method=get, methodDesc=(Ljava/lang/Class;)Lcom/squareup/javapoet/ClassName;], indexes=[13], mutator=org.pitest.mutationtestderr  : st.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE], filename=ClassName.java, block=32, lineNumber=143, description=removed conditional - replaced equality check with false, testsInOrder=[com.squareup.javapoet.TypeNameTest.innerStaticInGenericTystderr  : pe(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeClassName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeTypeVariableName(com.squareup.javapoet.TypeNameTest), com.squareustderr  : p.javapoet.TypeNameTest.equalsAndHashCodeParameterizedTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerClassInGenericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.innerGenericInGenericTypestderr  : (com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.genericType(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNameTest.equalsAndHashCodeWildcardTypeName(com.squareup.javapoet.TypeNameTest), com.squareup.javapoet.TypeNastderr  : meTest.equalsAndHashCodeArrayTypeName(com.squareup.javapoet.TypeNameTest)], isInFinallyBlock=false, poison=NORMAL] was not viable 
+\|/-\|/-\|/-\|/-\|/-\|/-\================================================================================
+- Timings
+================================================================================
+> scan classpath : < 1 second
+> coverage and dependency analysis : 1 seconds
+> build mutation tests : 4 seconds
+> run mutation analysis : 1 minutes and 32 seconds
+--------------------------------------------------------------------------------
+> Total  : 1 minutes and 38 seconds
+--------------------------------------------------------------------------------
+================================================================================
+- Statistics
+================================================================================
+>> Generated 5551 mutations Killed 679 (12%)
+>> Ran 3291 tests (0.59 tests per mutation)
+================================================================================
+- Mutators
+================================================================================
+> org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator
+>> Generated 146 Killed 3 (2%)
+> KILLED 3 SURVIVED 16 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 127 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.SwitchMutator
+>> Generated 6 Killed 1 (17%)
+> KILLED 1 SURVIVED 2 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 3 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE
+>> Generated 385 Killed 56 (15%)
+> KILLED 53 SURVIVED 62 TIMED_OUT 0 NON_VIABLE 3 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 267 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF
+>> Generated 32 Killed 4 (13%)
+> KILLED 4 SURVIVED 7 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 21 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.MathMutator
+>> Generated 45 Killed 6 (13%)
+> KILLED 4 SURVIVED 5 TIMED_OUT 1 NON_VIABLE 1 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 34 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator
+>> Generated 10 Killed 0 (0%)
+> KILLED 0 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 9 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_7
+>> Generated 5 Killed 0 (0%)
+> KILLED 0 SURVIVED 3 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 2 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_6
+>> Generated 5 Killed 0 (0%)
+> KILLED 0 SURVIVED 3 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 2 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator
+>> Generated 32 Killed 5 (16%)
+> KILLED 5 SURVIVED 6 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 21 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator
+>> Generated 17 Killed 3 (18%)
+> KILLED 3 SURVIVED 2 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 12 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveIncrementsMutator
+>> Generated 13 Killed 1 (8%)
+> KILLED 1 SURVIVED 4 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 8 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_9
+>> Generated 2 Killed 0 (0%)
+> KILLED 0 SURVIVED 2 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 0 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_8
+>> Generated 3 Killed 1 (33%)
+> KILLED 1 SURVIVED 2 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 0 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.NullReturnValsMutator
+>> Generated 318 Killed 29 (9%)
+> KILLED 27 SURVIVED 29 TIMED_OUT 0 NON_VIABLE 2 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 260 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_3
+>> Generated 5 Killed 0 (0%)
+> KILLED 0 SURVIVED 3 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 2 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_2
+>> Generated 6 Killed 0 (0%)
+> KILLED 0 SURVIVED 3 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 3 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator
+>> Generated 672 Killed 76 (11%)
+> KILLED 72 SURVIVED 78 TIMED_OUT 0 NON_VIABLE 4 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 518 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_5
+>> Generated 5 Killed 0 (0%)
+> KILLED 0 SURVIVED 3 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 2 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator
+>> Generated 406 Killed 27 (7%)
+> KILLED 25 SURVIVED 18 TIMED_OUT 1 NON_VIABLE 1 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 361 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_4
+>> Generated 5 Killed 0 (0%)
+> KILLED 0 SURVIVED 3 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 2 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator
+>> Generated 426 Killed 50 (12%)
+> KILLED 49 SURVIVED 28 TIMED_OUT 0 NON_VIABLE 1 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 348 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_1
+>> Generated 6 Killed 0 (0%)
+> KILLED 0 SURVIVED 3 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 3 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator
+>> Generated 234 Killed 38 (16%)
+> KILLED 35 SURVIVED 9 TIMED_OUT 0 NON_VIABLE 3 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 187 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_0
+>> Generated 6 Killed 0 (0%)
+> KILLED 0 SURVIVED 3 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 3 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_10
+>> Generated 2 Killed 0 (0%)
+> KILLED 0 SURVIVED 2 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 0 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF
+>> Generated 393 Killed 64 (16%)
+> KILLED 60 SURVIVED 55 TIMED_OUT 0 NON_VIABLE 4 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 274 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE
+>> Generated 32 Killed 6 (19%)
+> KILLED 6 SURVIVED 5 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 21 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator
+>> Generated 191 Killed 22 (12%)
+> KILLED 22 SURVIVED 17 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 152 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator
+>> Generated 425 Killed 106 (25%)
+> KILLED 101 SURVIVED 24 TIMED_OUT 0 NON_VIABLE 5 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 295 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator
+>> Generated 40 Killed 8 (20%)
+> KILLED 8 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 32 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator
+>> Generated 48 Killed 8 (17%)
+> KILLED 8 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 39 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator
+>> Generated 140 Killed 15 (11%)
+> KILLED 15 SURVIVED 21 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 104 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.BooleanFalseReturnValsMutator
+>> Generated 30 Killed 4 (13%)
+> KILLED 4 SURVIVED 3 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 23 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator
+>> Generated 1460 Killed 146 (10%)
+> KILLED 132 SURVIVED 87 TIMED_OUT 2 NON_VIABLE 12 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 1227 
+--------------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 01:55 min
+[INFO] Finished at: 2018-08-02T15:26:58+02:00
+[INFO] Final Memory: 45M/2538M
+[INFO] ------------------------------------------------------------------------
