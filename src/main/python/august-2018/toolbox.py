@@ -68,7 +68,7 @@ def init(argv):
     global maven_home
     global java_home
     if "onClusty" in argv:
-        maven_home = "~/apache-maven-3.3.9/bin/"
-        java_home = "~/jdk1.8.0_121/bin/"
+        maven_home = getAbsolutePath("~/apache-maven-3.3.9/bin/")
+        java_home = getAbsolutePath("~/jdk1.8.0_121/bin/")
     else:
         maven_home = ""
