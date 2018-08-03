@@ -24,7 +24,7 @@ def run(project, classes=toolbox.keys_selected_classes):
              "-Dmutators=ALL",
              "-DreportsDirectory=" + toolbox.get_absolute_path(path_to_output + "/" + current_class + "_amplification"),
              "-DtargetClasses=" + filter,
-             "-DtargetTests=" + toolbox.get_amplified_name(test_class_name),
+             "-DtargetTests=" + selected_classes[current_class]+ "," + toolbox.get_amplified_name(test_class_name),
              "-DexcludedTestClasses=" + properties[toolbox.key_excludedClasses]
              ], cwd=toolbox.prefix_dataset + project + module
         )
