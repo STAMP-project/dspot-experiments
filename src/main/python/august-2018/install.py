@@ -5,7 +5,7 @@ import toolbox
 
 
 def install(project):
-    toolbox.output_log_path = toolbox.get_absolute_path(toolbox.prefix_current_dataset + project + "/install.log")
+    toolbox.set_output_log_path(toolbox.get_absolute_path(toolbox.prefix_current_dataset + project + "/install.log"))
 
     with open(toolbox.prefix_current_dataset + 'dataset.json') as data_file:
         data = json.load(data_file)

@@ -33,6 +33,13 @@ key_filter = "filter"
 key_test_source = "testSrc"
 
 
+def set_output_log_path(path):
+    global output_log_path
+    if not output_log_path == "":
+        print_and_call(["rm", "-rf", output_log_path])
+    output_log_path = path
+
+
 def get_amplified_name(test_class_name):
     splitted_name = test_class_name.split(".")
     return ".".join(splitted_name[:-1]) + "." + \
@@ -42,8 +49,11 @@ def get_amplified_name(test_class_name):
                else splitted_name[-1] + "Ampl"
            )
 
+
 def get_path_to_amplified_test_class(class_kind, test_class_name, project):
-    return prefix_result + project + "/" + class_kind + "_amplification/" + get_amplified_name(test_class_name).replace(".", "/") + ".java"
+    return prefix_result + project + "/" + class_kind + "_amplification/" + get_amplified_name(test_class_name).replace(
+        ".", "/") + ".java"
+
 
 def copy_amplified_test_class(class_kind, test_class_name, project):
     module = get_properties(project)[key_subModule]
@@ -53,6 +63,7 @@ def copy_amplified_test_class(class_kind, test_class_name, project):
     print_and_call(
         ["cp", path_to_amplified_test_class, path_to_test_src_folder]
     )
+
 
 def get_absolute_path(path_file):
     return os.path.abspath(path_file)
@@ -82,7 +93,9 @@ def print_and_call(cmd, cwd=None):
 
 path_to_script_to_run = get_absolute_path("src/main/bash/script.sh")
 
+
 def print_and_call_in_a_file(cmd, cwd=None):
+    print cmd
     with open(path_to_script_to_run, "w") as f:
         f.write(cmd + " " + " ".join(["2>&1", "|", "tee", "-a", output_log_path]))
         f.close()

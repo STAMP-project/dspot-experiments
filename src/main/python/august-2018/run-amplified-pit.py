@@ -12,7 +12,7 @@ def run(project, classes=toolbox.keys_selected_classes):
             continue
         test_class_name = selected_classes[current_class]
         toolbox.copy_amplified_test_class(current_class, test_class_name, project)
-        toolbox.output_log_path = toolbox.get_absolute_path(toolbox.prefix_result + project + "/" + current_class + "_amplified_mutations.log")
+        toolbox.set_output_log_path(toolbox.get_absolute_path(toolbox.prefix_result + project + "/" + current_class + "_amplified_mutations.log"))
         toolbox.print_and_call(
             # print (
             [toolbox.maven_home + "mvn", "clean", "test", "-DskipTests",

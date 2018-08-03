@@ -10,7 +10,7 @@ def run(project, classes=toolbox.keys_selected_classes):
     for current_class in classes:
         if current_class == "onClusty":
             continue
-        toolbox.output_log_path = toolbox.get_absolute_path(toolbox.prefix_current_dataset + project + "/" + current_class + "_original_mutations.log")
+        toolbox.set_output_log_path(toolbox.get_absolute_path(toolbox.prefix_current_dataset + project + "/" + current_class + "_original_mutations.log"))
         toolbox.print_and_call(
             # print (
             [toolbox.maven_home + "mvn", "clean", "test", "-DskipTests",
