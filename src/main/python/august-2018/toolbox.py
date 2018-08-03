@@ -43,7 +43,7 @@ def get_amplified_name(test_class_name):
            )
 
 def get_path_to_amplified_test_class(class_kind, test_class_name, project):
-    return prefix_result + project + "/" + class_kind + "/" + get_amplified_name(test_class_name).replace(".", "/") + ".java"
+    return prefix_result + project + "/" + class_kind + "_amplification/" + get_amplified_name(test_class_name).replace(".", "/") + ".java"
 
 def copy_amplified_test_class(class_kind, test_class_name, project):
     module = get_properties(project)[key_subModule]
