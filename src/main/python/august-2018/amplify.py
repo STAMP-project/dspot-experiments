@@ -10,7 +10,7 @@ def run(project, classes=toolbox.keys_selected_classes):
         if current_class == "onClusty":
             continue
         toolbox.output_log_path = toolbox.getAbsolutePath(
-            toolbox.prefix_result + project + "/" + "_amplification.log")
+            toolbox.prefix_result + project + "/" + current_class + "_amplification.log")
         path_to_original_mutation_score = toolbox.getAbsolutePath(
             path_to_output + "/" + current_class + "/" +
             os.listdir(toolbox.getAbsolutePath(path_to_output + "/" + current_class))[0] + "/mutations.csv"
