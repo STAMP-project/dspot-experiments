@@ -14,7 +14,10 @@ path_properties = prefix_dataset + "properties_rates.json"
 prefix_current_dataset = prefix_dataset + "august-2018/"
 output_log_path = ""
 
+prefix_result = "results/august-2018/"
+
 path_to_dspot_jar = "/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar"
+path_to_dspot_jar = "/home/bdanglot/workspace/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar"
 
 prefix_resources = "src/main/resources/"
 suffix_properties = ".properties"
@@ -29,26 +32,41 @@ key_excludedClasses = "excludedClasses"
 key_subModule = "subModule"
 key_filter = "filter"
 
+
 def getAbsolutePath(pathfile):
     return os.path.abspath(pathfile)
+
 
 def getJsonFile(filePath):
     with open(filePath) as data_file:
         return json.load(data_file)
 
+
 def getTestClassesToBeAmplified(project):
     return getJsonFile(path_selected_classes)[project]
 
+
 def getProperties(project):
     return getJsonFile(path_properties)[project]
+
 
 def printAndCall(cmd, cwd=None):
     if not cwd == None:
         print cwd
     print " ".join(cmd) + " | " + " ".join(["tee", "-a", output_log_path])
     p1 = Popen(cmd, stdout=PIPE, cwd=cwd)
-    p2 = Popen(["tee", "-a", output_log_path], stdin=p1.stdout, stdout=PIPE, cwd=cwd)
+    p2 = Popen(["tee", "-a", output_log_path], stdin=p1.stdout, stdout=PIPE, stderr=PIPE, cwd=cwd)
     print p2.communicate()[0]
+
+
+path_to_script_to_run = getAbsolutePath("src/main/bash/script.sh")
+
+def printAndCallInAFile(cmd, cwd=None):
+    with open(path_to_script_to_run, "w") as f:
+        f.write(cmd + " " + " ".join(["2>&1", "|", "tee", "-a", output_log_path]))
+        f.close()
+    subprocess.call(path_to_script_to_run, cwd=cwd, shell=True)
+
 
 def load_properties(filepath, sep='=', comment_char='#'):
     """
