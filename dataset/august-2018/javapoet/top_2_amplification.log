@@ -1,0 +1,56 @@
+2018-08-02 17:16:01,607 INFO eu.stamp_project.dspot.selector.PitMutantScoreSelector - The original test suite kill 98 / 5551
+2018-08-02 17:16:01,610 WARN eu.stamp_project.program.InputConfiguration - You did not specify any path for the properties file. Using only default values.
+2018-08-02 17:16:01,641 WARN eu.stamp_project.automaticbuilder.AutomaticBuilderFactory - automaticBuilderName: unknown automatic builder specified in configuration, going to default.
+2018-08-02 17:16:01,642 INFO eu.stamp_project.automaticbuilder.AutomaticBuilderFactory - Default: provided Maven automatic builder.
+2018-08-02 17:16:01,668 INFO eu.stamp_project.automaticbuilder.MavenAutomaticBuilder - run maven clean test -DskipTests dependency:build-classpath -Dmdep.outputFile=target/dspot/classpath
+[WARN] Maven will be executed in interactive mode, but no input stream has been configured for this MavenInvoker instance.
+2018-08-02 17:20:14,915 INFO eu.stamp_project.dspot.selector.PitMutantScoreSelector - The original test suite kill 98 / 5551
+2018-08-02 17:20:14,950 WARN eu.stamp_project.automaticbuilder.AutomaticBuilderFactory - automaticBuilderName: unknown automatic builder specified in configuration, going to default.
+2018-08-02 17:20:14,950 INFO eu.stamp_project.automaticbuilder.AutomaticBuilderFactory - Default: provided Maven automatic builder.
+2018-08-02 17:20:14,976 INFO eu.stamp_project.automaticbuilder.MavenAutomaticBuilder - run maven clean test -DskipTests dependency:build-classpath -Dmdep.outputFile=target/dspot/classpath
+[WARN] Maven will be executed in interactive mode, but no input stream has been configured for this MavenInvoker instance.
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building JavaPoet 1.12.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ javapoet ---
+[INFO] Deleting /tmp/dspot-experiments/dataset/javapoet/target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ javapoet ---
+[INFO] Skipping Rule Enforcement.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ javapoet ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /tmp/dspot-experiments/dataset/javapoet/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ javapoet ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 17 source files to /tmp/dspot-experiments/dataset/javapoet/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ javapoet ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /tmp/dspot-experiments/dataset/javapoet/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ javapoet ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 19 source files to /tmp/dspot-experiments/dataset/javapoet/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ javapoet ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:build-classpath (default-cli) @ javapoet ---
+[INFO] Wrote classpath file '/tmp/dspot-experiments/dataset/javapoet/target/dspot/classpath'.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 17.307 s
+[INFO] Finished at: 2018-08-02T17:20:34+02:00
+[INFO] Final Memory: 59M/2363M
+[INFO] ------------------------------------------------------------------------
+2018-08-02 17:20:40,342 INFO eu.stamp_project.dspot.Amplification - Amplification of com.squareup.javapoet.NameAllocatorTest (11 test(s))
+2018-08-02 17:20:40,343 INFO eu.stamp_project.dspot.Amplification - Assertion amplification of com.squareup.javapoet.NameAllocatorTest (11 test(s))
+2018-08-02 17:20:41,071 INFO eu.stamp_project.testrunner.EntryPoint - Run: java -classpath /tmp/dspot-experiments/dataset/javapoet/target/test-classes:/tmp/dspot-experiments/dataset/javapoet/target/classes/:/home/spirals/danglot/.m2/repository/com/google/truth/truth/0.39/truth-0.39.jar:/home/spirals/danglot/.m2/repository/com/google/guava/guava/23.4-android/guava-23.4-android.jar:/home/spirals/danglot/.m2/repository/com/google/code/findbugs/jsr305/1.3.9/jsr305-1.3.9.jar:/home/spirals/danglot/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/home/spirals/danglot/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.14/animal-sniffer-annotations-1.14.jar:/home/spirals/danglot/.m2/repository/com/google/errorprone/error_prone_annotations/2.1.3/error_prone_annotations-2.1.3.jar:/home/spirals/danglot/.m2/repository/com/google/testing/compile/compile-testing/0.15/compile-testing-0.15.jar:/home/spirals/danglot/.m2/repository/com/google/truth/extensions/truth-java8-extension/0.37/truth-java8-extension-0.37.jar:/home/spirals/danglot/.m2/repository/com/google/auto/value/auto-value/1.5.3/auto-value-1.5.3.jar:/home/spirals/danglot/.m2/repository/com/google/auto/auto-common/0.9/auto-common-0.9.jar:/home/spirals/danglot/jdk1.8.0_121/jre/../lib/tools.jar:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/google/jimfs/jimfs/1.1/jimfs-1.1.jar:/home/spirals/danglot/.m2/repository/org/mockito/mockito-core/2.13.0/mockito-core-2.13.0.jar:/home/spirals/danglot/.m2/repository/net/bytebuddy/byte-buddy/1.7.9/byte-buddy-1.7.9.jar:/home/spirals/danglot/.m2/repository/net/bytebuddy/byte-buddy-agent/1.7.9/byte-buddy-agent-1.7.9.jar:/home/spirals/danglot/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jdt/core/compiler/ecj/4.6.1/ecj-4.6.1.jar:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner com.squareup.javapoet.NameAllocatorTest characterMappingInvalidStartButValidPart:characterMappingInvalidStartIsInvalidPart:characterMappingSubstitute:characterMappingSurrogate:cloneUsage:javaKeyword:nameCollision:nameCollisionWithTag:tagReuseForbidden:usage:useBeforeAllocateForbidden
+File saved to the following path: /tmp/dspot-experiments/dataset/javapoet/target/dspot/TestListener.ser
+2018-08-02 17:20:41,842 INFO eu.stamp_project.testrunner.EntryPoint - Test has been run: characterMappingSubstitute,characterMappingInvalidStartButValidPart,useBeforeAllocateForbidden,nameCollisionWithTag,characterMappingSurrogate,usage,nameCollision,javaKeyword,tagReuseForbidden,characterMappingInvalidStartIsInvalidPart,cloneUsage
