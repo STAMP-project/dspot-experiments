@@ -11,11 +11,10 @@ def run(project, classes=toolbox.keys_selected_classes):
             continue
         toolbox.output_log_path = toolbox.getAbsolutePath(
             toolbox.prefix_result + project + "/" + "_amplification.log")
-        path_to_original_mutation_score = toolbox.getAbsolutePath(path_to_output +
-                                                                  "/" + current_class + "/" +
-                                                                  os.listdir(toolbox.getAbsolutePath(
-                                                                      path_to_output + "/" + current_class))[
-                                                                      0] + "/mutations.csv")
+        path_to_original_mutation_score = toolbox.getAbsolutePath(
+            path_to_output + "/" + current_class + "/" +
+            os.listdir(toolbox.getAbsolutePath(path_to_output + "/" + current_class))[0] + "/mutations.csv"
+        )
         path_to_output = toolbox.prefix_result + project
         # print(
         cmd = " ".join(
@@ -39,6 +38,7 @@ def run(project, classes=toolbox.keys_selected_classes):
              ]
         )
         toolbox.printAndCallInAFile(cmd)
+
 
 if __name__ == '__main__':
 

@@ -17,7 +17,6 @@ output_log_path = ""
 prefix_result = "results/august-2018/"
 
 path_to_dspot_jar = "/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar"
-path_to_dspot_jar = "/home/bdanglot/workspace/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar"
 
 prefix_resources = "src/main/resources/"
 suffix_properties = ".properties"
