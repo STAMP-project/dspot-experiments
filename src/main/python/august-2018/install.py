@@ -5,16 +5,16 @@ import toolbox
 
 
 def install(project):
-    toolbox.output_log_path = toolbox.getAbsolutePath(toolbox.prefix_current_dataset + project + "/install.log")
+    toolbox.output_log_path = toolbox.get_absolute_path(toolbox.prefix_current_dataset + project + "/install.log")
 
     with open(toolbox.prefix_current_dataset + 'dataset.json') as data_file:
         data = json.load(data_file)
 
-    toolbox.printAndCall(
+    toolbox.print_and_call(
         ["git", "clone", data[project]["url"], toolbox.prefix_dataset + project]
     )
 
-    toolbox.printAndCall(
+    toolbox.print_and_call(
         ["git", "reset", "--hard", data[project]["commitid"]], cwd=toolbox.prefix_dataset + project
     )
 
