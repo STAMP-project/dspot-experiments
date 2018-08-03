@@ -24,7 +24,7 @@ def run(project, classes=toolbox.keys_selected_classes):
              "-DtargetClasses=" + filter,
              "-DtargetTests=" + selected_classes[current_class],
              "-DexcludedTestClasses=" + properties[toolbox.key_excludedClasses]
-             ], cwd=toolbox.prefix_dataset + project + module
+             ], cwd=toolbox.prefix_dataset + project + "/" + module
         )
 
 
