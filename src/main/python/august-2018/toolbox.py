@@ -46,9 +46,8 @@ def get_path_to_amplified_test_class(class_kind, test_class_name, project):
     return prefix_result + project + "/" + class_kind + "/" + get_amplified_name(test_class_name.replace(".", "/"))
 
 def copy_amplified_test_class(class_kind, test_class_name, project):
-    properties = get_properties(project)
-    module = properties[key_subModule]
-    test_folder = properties[key_test_source]
+    module = get_properties(project)[key_subModule]
+    test_folder = load_properties(project)[key_test_source]
     path_to_amplified_test_class = get_path_to_amplified_test_class(class_kind, test_class_name, project)
     path_to_test_src_folder = prefix_dataset + project + "/" + module + test_folder + "/"
     print_and_call(
