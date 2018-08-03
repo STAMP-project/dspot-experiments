@@ -30,26 +30,49 @@ keys_selected_classes = [top_1, top_2, worst_1, worst_2]
 key_excludedClasses = "excludedClasses"
 key_subModule = "subModule"
 key_filter = "filter"
+key_test_source = "testSrc"
 
 
-def getAbsolutePath(pathfile):
-    return os.path.abspath(pathfile)
+def get_amplified_name(test_class_name):
+    splitted_name = test_class_name.split(".")
+    return ".".join(splitted_name[:-1]) + "." + \
+           (
+               "Ampl" + splitted_name[-1]
+               if splitted_name[-1].endswith("Test")
+               else splitted_name[-1] + "Ampl"
+           )
+
+def get_path_to_amplified_test_class(class_kind, test_class_name, project):
+    return prefix_result + project + "/" + class_kind + "/" + get_amplified_name(test_class_name.replace(".", "/"))
+
+def copy_amplified_test_class(class_kind, test_class_name, project):
+    properties = get_properties(project)
+    module = properties[key_subModule]
+    test_folder = properties[key_test_source]
+    path_to_amplified_test_class = get_path_to_amplified_test_class(class_kind, test_class_name, project)
+    path_to_test_src_folder = prefix_dataset + project + "/" + module + test_folder + "/"
+    print_and_call(
+        ["cp", path_to_amplified_test_class, path_to_test_src_folder]
+    )
+
+def get_absolute_path(path_file):
+    return os.path.abspath(path_file)
 
 
-def getJsonFile(filePath):
-    with open(filePath) as data_file:
+def get_json_file(file_path):
+    with open(file_path) as data_file:
         return json.load(data_file)
 
 
-def getTestClassesToBeAmplified(project):
-    return getJsonFile(path_selected_classes)[project]
+def get_test_classes_to_be_amplified(project):
+    return get_json_file(path_selected_classes)[project]
 
 
-def getProperties(project):
-    return getJsonFile(path_properties)[project]
+def get_properties(project):
+    return get_json_file(path_properties)[project]
 
 
-def printAndCall(cmd, cwd=None):
+def print_and_call(cmd, cwd=None):
     if not cwd == None:
         print cwd
     print " ".join(cmd) + " | " + " ".join(["tee", "-a", output_log_path])
@@ -58,9 +81,9 @@ def printAndCall(cmd, cwd=None):
     print p2.communicate()[0]
 
 
-path_to_script_to_run = getAbsolutePath("src/main/bash/script.sh")
+path_to_script_to_run = get_absolute_path("src/main/bash/script.sh")
 
-def printAndCallInAFile(cmd, cwd=None):
+def print_and_call_in_a_file(cmd, cwd=None):
     with open(path_to_script_to_run, "w") as f:
         f.write(cmd + " " + " ".join(["2>&1", "|", "tee", "-a", output_log_path]))
         f.close()

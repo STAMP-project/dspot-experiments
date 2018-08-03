@@ -5,15 +5,15 @@ import os
 
 def run(project, classes=toolbox.keys_selected_classes):
     path_to_output = toolbox.prefix_current_dataset + project
-    selected_classes = toolbox.getTestClassesToBeAmplified(project)
+    selected_classes = toolbox.get_test_classes_to_be_amplified(project)
     for current_class in classes:
         if current_class == "onClusty":
             continue
-        toolbox.output_log_path = toolbox.getAbsolutePath(
+        toolbox.output_log_path = toolbox.get_absolute_path(
             toolbox.prefix_result + project + "/" + current_class + "_amplification.log")
-        path_to_original_mutation_score = toolbox.getAbsolutePath(
+        path_to_original_mutation_score = toolbox.get_absolute_path(
             path_to_output + "/" + current_class + "/" +
-            os.listdir(toolbox.getAbsolutePath(path_to_output + "/" + current_class))[0] + "/mutations.csv"
+            os.listdir(toolbox.get_absolute_path(path_to_output + "/" + current_class))[0] + "/mutations.csv"
         )
         path_to_output = toolbox.prefix_result + project
         # print(
@@ -23,11 +23,11 @@ def run(project, classes=toolbox.keys_selected_classes):
              "-jar",
              toolbox.path_to_dspot_jar,
              "--path-to-properties",
-             toolbox.getAbsolutePath(toolbox.prefix_resources + project + toolbox.suffix_properties),
+             toolbox.get_absolute_path(toolbox.prefix_resources + project + toolbox.suffix_properties),
              "--verbose",
              "--no-minimize",
              "--working-directory",
-             "--output-path", toolbox.getAbsolutePath(path_to_output + "/" + current_class + "_amplification/"),
+             "--output-path", toolbox.get_absolute_path(path_to_output + "/" + current_class + "_amplification/"),
              "--iteration", "3",
              "--amplifiers",
              "StringLiteralAmplifier:NumberLiteralAmplifier:CharLiteralAmplifier:BooleanLiteralAmplifier:MethodAdd:MethodRemove:MethodGeneratorAmplifier:ReturnValueAmplifier:NullifierAmplifier",
@@ -37,7 +37,7 @@ def run(project, classes=toolbox.keys_selected_classes):
              "--maven-home", toolbox.maven_home
              ]
         )
-        toolbox.printAndCallInAFile(cmd)
+        toolbox.print_and_call_in_a_file(cmd)
 
 
 if __name__ == '__main__':

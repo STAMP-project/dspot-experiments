@@ -2,7 +2,7 @@ import toolbox
 import sys
 
 def run(project, classes=toolbox.keys_selected_classes):
-    path_to_output = toolbox.prefix_current_dataset + project
+    path_to_output = toolbox.prefix_result + project
     selected_classes = toolbox.get_test_classes_to_be_amplified(project)
     properties = toolbox.get_properties(project)
     filter = toolbox.load_properties(project)[toolbox.key_filter]
@@ -10,7 +10,9 @@ def run(project, classes=toolbox.keys_selected_classes):
     for current_class in classes:
         if current_class == "onClusty":
             continue
-        toolbox.output_log_path = toolbox.get_absolute_path(toolbox.prefix_current_dataset + project + "/" + current_class + "_original_mutations.log")
+        test_class_name = selected_classes[current_class]
+        toolbox.copy_amplified_test_class(current_class, test_class_name, project)
+        toolbox.output_log_path = toolbox.get_absolute_path(toolbox.prefix_result + project + "/" + current_class + "_amplified_mutations.log")
         toolbox.print_and_call(
             # print (
             [toolbox.maven_home + "mvn", "clean", "test", "-DskipTests",
@@ -22,9 +24,9 @@ def run(project, classes=toolbox.keys_selected_classes):
              "-Dmutators=ALL",
              "-DreportsDirectory=" + toolbox.get_absolute_path(path_to_output + "/" + current_class),
              "-DtargetClasses=" + filter,
-             "-DtargetTests=" + selected_classes[current_class],
+             "-DtargetTests=" + toolbox.get_amplified_name(test_class_name),
              "-DexcludedTestClasses=" + properties[toolbox.key_excludedClasses]
-             ], cwd=toolbox.prefix_dataset + project + "/" + module
+             ], cwd=toolbox.prefix_dataset + project + module
         )
 
 
