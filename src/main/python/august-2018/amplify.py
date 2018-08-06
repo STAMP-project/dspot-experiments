@@ -4,7 +4,7 @@ import os
 
 
 def run(project, classes=toolbox.keys_selected_classes):
-    path_to_output = toolbox.prefix_current_dataset + project
+    path_to_dataset = toolbox.prefix_current_dataset + project
     selected_classes = toolbox.get_test_classes_to_be_amplified(project)
     for current_class in classes:
         if current_class == "onClusty":
@@ -12,8 +12,8 @@ def run(project, classes=toolbox.keys_selected_classes):
         toolbox.set_output_log_path(toolbox.get_absolute_path(
             toolbox.prefix_result + project + "/" + current_class + "_amplification.log"))
         path_to_original_mutation_score = toolbox.get_absolute_path(
-            path_to_output + "/" + current_class + "/" +
-            os.listdir(toolbox.get_absolute_path(path_to_output + "/" + current_class))[0] + "/mutations.csv"
+            path_to_dataset + "/" + current_class + "/" +
+            os.listdir(toolbox.get_absolute_path(path_to_dataset + "/" + current_class))[0] + "/mutations.csv"
         )
         path_to_output = toolbox.prefix_result + project
         # print(
@@ -30,7 +30,7 @@ def run(project, classes=toolbox.keys_selected_classes):
              "--output-path", toolbox.get_absolute_path(path_to_output + "/" + current_class + "_amplification/"),
              "--iteration", "3",
              "--amplifiers",
-             "StringLiteralAmplifier:NumberLiteralAmplifier:CharLiteralAmplifier:BooleanLiteralAmplifier:MethodAdd:MethodRemove:MethodGeneratorAmplifier:ReturnValueAmplifier:NullifierAmplifier",
+             "StringLiteralAmplifier:NumberLiteralAmplifier:CharLiteralAmplifier:BooleanLiteralAmplifier:MethodAdd:MethodRemove:MethodGeneratorAmplifier:ReturnValueAmplifier",#:NullifierAmplifier",
              "--test-criterion", "PitMutantScoreSelector",
              "--path-pit-result", path_to_original_mutation_score,
              "--test", selected_classes[current_class],
