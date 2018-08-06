@@ -35,7 +35,7 @@ key_test_source = "testSrc"
 
 def set_output_log_path(path):
     global output_log_path
-    if not output_log_path == "":
+    if os.path.isfile(path):
         print_and_call(["rm", "-rf", output_log_path])
     output_log_path = path
 

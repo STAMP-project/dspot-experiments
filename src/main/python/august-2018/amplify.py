@@ -37,7 +37,8 @@ def run(project, classes=toolbox.keys_selected_classes):
              "--maven-home", toolbox.maven_home
              ]
         )
-        toolbox.print_and_call_in_a_file(cmd)
+        print cmd
+        #toolbox.print_and_call_in_a_file(cmd)
 
 
 if __name__ == '__main__':
