@@ -13,6 +13,8 @@ def run(project, classes=toolbox.keys_selected_classes):
         test_class_name = selected_classes[current_class]
         toolbox.copy_amplified_test_class(current_class, test_class_name, project)
         toolbox.set_output_log_path(toolbox.get_absolute_path(toolbox.prefix_result + project + "/" + current_class + "_amplified_mutations.log"))
+        path_to_output_to_mutations_score = toolbox.get_absolute_path(path_to_output + "/" + current_class + "_amplification")
+        toolbox.delete_if_exists(path_to_output_to_mutations_score)
         toolbox.print_and_call(
             # print (
             [toolbox.maven_home + "mvn", "clean", "test", "-DskipTests",
@@ -22,7 +24,7 @@ def run(project, classes=toolbox.keys_selected_classes):
              "-DjvmArgs=16G",
              "-DmutationEngines=gregor",
              "-Dmutators=ALL",
-             "-DreportsDirectory=" + toolbox.get_absolute_path(path_to_output + "/" + current_class + "_amplification"),
+             "-DreportsDirectory=" + path_to_output_to_mutations_score,
              "-DtargetClasses=" + filter,
              "-DtargetTests=" + selected_classes[current_class]+ "," + toolbox.get_amplified_name(test_class_name),
              "-DexcludedTestClasses=" + properties[toolbox.key_excludedClasses]

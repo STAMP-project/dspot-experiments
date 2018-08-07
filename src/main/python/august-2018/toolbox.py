@@ -2,6 +2,7 @@ from subprocess import PIPE, Popen
 import subprocess
 import json
 import os
+import shutil
 
 # env
 maven_home = ""
@@ -32,6 +33,9 @@ key_subModule = "subModule"
 key_filter = "filter"
 key_test_source = "testSrc"
 
+def delete_if_exists(path):
+    if os.path.isfile(path):
+        shutil.rmtree(path)
 
 def set_output_log_path(path):
     global output_log_path

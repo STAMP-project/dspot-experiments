@@ -6,6 +6,7 @@ import os
 def run(project, classes=toolbox.keys_selected_classes):
     path_to_dataset = toolbox.prefix_current_dataset + project
     selected_classes = toolbox.get_test_classes_to_be_amplified(project)
+    path_to_output = toolbox.prefix_result + project
     for current_class in classes:
         if current_class == "onClusty":
             continue
@@ -15,8 +16,9 @@ def run(project, classes=toolbox.keys_selected_classes):
             path_to_dataset + "/" + current_class + "/" +
             os.listdir(toolbox.get_absolute_path(path_to_dataset + "/" + current_class))[-1] + "/mutations.csv"
         )
-        path_to_output = toolbox.prefix_result + project
         # print(
+        path_to_output_for_class = toolbox.get_absolute_path(path_to_output + "/" + current_class + "_amplification/")
+        toolbox.delete_if_exists(path_to_output_for_class)
         cmd = " ".join(
             [toolbox.java_home + "java", "-XX:-UseGCOverheadLimit", "-XX:-OmitStackTraceInFastThrow", "-Xms8G",
              "-Xmx16G",
@@ -27,7 +29,7 @@ def run(project, classes=toolbox.keys_selected_classes):
              "--verbose",
              "--no-minimize",
              "--working-directory",
-             "--output-path", toolbox.get_absolute_path(path_to_output + "/" + current_class + "_amplification/"),
+             "--output-path", path_to_output_for_class,
              "--iteration", "3",
              "--amplifiers",
              "StringLiteralAmplifier:NumberLiteralAmplifier:CharLiteralAmplifier:BooleanLiteralAmplifier:MethodAdd:MethodRemove:MethodGeneratorAmplifier:ReturnValueAmplifier",#:NullifierAmplifier",
