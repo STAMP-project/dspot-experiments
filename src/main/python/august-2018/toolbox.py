@@ -34,7 +34,7 @@ key_filter = "filter"
 key_test_source = "testSrc"
 
 def delete_if_exists(path):
-    if os.path.isfile(path):
+    if os.path.isdir(path):
         shutil.rmtree(path)
 
 def set_output_log_path(path):
