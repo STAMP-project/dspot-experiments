@@ -13,7 +13,7 @@ def run(project, classes=toolbox.keys_selected_classes):
             toolbox.prefix_result + project + "/" + current_class + "_amplification.log"))
         path_to_original_mutation_score = toolbox.get_absolute_path(
             path_to_dataset + "/" + current_class + "/" +
-            os.listdir(toolbox.get_absolute_path(path_to_dataset + "/" + current_class))[0] + "/mutations.csv"
+            os.listdir(toolbox.get_absolute_path(path_to_dataset + "/" + current_class))[-1] + "/mutations.csv"
         )
         path_to_output = toolbox.prefix_result + project
         # print(
@@ -58,5 +58,7 @@ if __name__ == '__main__':
                     ]
         for project in projects:
             run(project)
-    else:
+    elif len(sys.argv) > 3:
         run(sys.argv[1], classes=sys.argv[2:])
+    else:
+        run(sys.argv[1])

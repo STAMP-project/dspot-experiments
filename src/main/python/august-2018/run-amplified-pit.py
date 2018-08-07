@@ -48,5 +48,7 @@ if __name__ == '__main__':
                     ]
         for project in projects:
             run(project)
-    else:
+    elif len(sys.argv) > 3:
         run(sys.argv[1], classes=sys.argv[2:])
+    else:
+        run(sys.argv[1])
