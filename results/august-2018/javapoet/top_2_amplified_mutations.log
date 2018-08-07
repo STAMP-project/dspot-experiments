@@ -24,261 +24,623 @@
 [INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ javapoet ---
 [INFO] Changes detected - recompiling the module!
 [INFO] Compiling 21 source files to /tmp/dspot-experiments/dataset/javapoet/target/test-classes
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ javapoet ---
-[INFO] Tests are skipped.
-[INFO] 
-[INFO] --- pitest-maven:1.4.0:mutationCoverage (default-cli) @ javapoet ---
-[INFO] Found plugin : Default csv report plugin
-[INFO] Found plugin : Default xml report plugin
-[INFO] Found plugin : Default html report plugin
-[INFO] Found plugin : Static initializer code detector plugin
-[INFO] Found plugin : Static initializer filter plugin
-[INFO] Found plugin : Excluded annotations plugin
-[INFO] Found plugin : Inlined finally block filter plugin
-[INFO] Found plugin : Try with resources filter
-[INFO] Found plugin : Implicit null check filter
-[INFO] Found plugin : For each loop filter
-[INFO] Found plugin : Logging calls filter
-[INFO] Found plugin : Infinite for loop filter
-[INFO] Found plugin : Long running iterator loop filter
-[INFO] Found plugin : For loop counter filter
-[INFO] Found plugin : Kotlin junk mutations filter
-[INFO] Found plugin : Max mutations per class limit
-[INFO] Found plugin : Equals shortcut equivalent mutant filter
-[INFO] Found plugin : Trivial return vals equivalence filter
-[INFO] Found plugin : Mutant export plugin
-[INFO] Found shared classpath plugin : Default mutation engine
-[INFO] Found shared classpath plugin : JUnit plugin
-[INFO] Found shared classpath plugin : TestNG plugin
-[INFO] Adding org.pitest:pitest to SUT classpath
-[INFO] Mutating from /tmp/dspot-experiments/dataset/javapoet/target/classes
-/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\================================================================================
-- Timings
-================================================================================
-> scan classpath : < 1 second
-> coverage and dependency analysis : 1 seconds
-> build mutation tests : 3 seconds
-> run mutation analysis : 38 seconds
---------------------------------------------------------------------------------
-> Total  : 43 seconds
---------------------------------------------------------------------------------
-================================================================================
-- Statistics
-================================================================================
->> Generated 5551 mutations Killed 106 (2%)
->> Ran 686 tests (0.12 tests per mutation)
-================================================================================
-- Mutators
-================================================================================
-> org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator
->> Generated 146 Killed 0 (0%)
-> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 146 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.experimental.SwitchMutator
->> Generated 6 Killed 0 (0%)
-> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 6 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE
->> Generated 385 Killed 8 (2%)
-> KILLED 7 SURVIVED 1 TIMED_OUT 1 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 376 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF
->> Generated 32 Killed 1 (3%)
-> KILLED 1 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 31 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.MathMutator
->> Generated 45 Killed 1 (2%)
-> KILLED 1 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 44 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator
->> Generated 10 Killed 0 (0%)
-> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 10 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_7
->> Generated 5 Killed 0 (0%)
-> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 5 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_6
->> Generated 5 Killed 0 (0%)
-> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 5 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator
->> Generated 32 Killed 1 (3%)
-> KILLED 1 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 31 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator
->> Generated 17 Killed 0 (0%)
-> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 17 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveIncrementsMutator
->> Generated 13 Killed 0 (0%)
-> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 13 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_9
->> Generated 2 Killed 0 (0%)
-> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 2 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_8
->> Generated 3 Killed 0 (0%)
-> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 3 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.NullReturnValsMutator
->> Generated 318 Killed 1 (0%)
-> KILLED 1 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 316 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_3
->> Generated 5 Killed 0 (0%)
-> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 5 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_2
->> Generated 6 Killed 0 (0%)
-> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 6 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator
->> Generated 672 Killed 2 (0%)
-> KILLED 2 SURVIVED 2 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 668 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_5
->> Generated 5 Killed 0 (0%)
-> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 5 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator
->> Generated 406 Killed 13 (3%)
-> KILLED 12 SURVIVED 0 TIMED_OUT 1 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 393 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_4
->> Generated 5 Killed 0 (0%)
-> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 5 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator
->> Generated 426 Killed 5 (1%)
-> KILLED 5 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 420 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_1
->> Generated 6 Killed 0 (0%)
-> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 6 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator
->> Generated 234 Killed 11 (5%)
-> KILLED 11 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 222 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_0
->> Generated 6 Killed 0 (0%)
-> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 6 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_10
->> Generated 2 Killed 0 (0%)
-> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 2 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF
->> Generated 393 Killed 9 (2%)
-> KILLED 8 SURVIVED 0 TIMED_OUT 1 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 384 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE
->> Generated 32 Killed 1 (3%)
-> KILLED 1 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 31 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator
->> Generated 191 Killed 2 (1%)
-> KILLED 2 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 189 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator
->> Generated 425 Killed 10 (2%)
-> KILLED 8 SURVIVED 0 TIMED_OUT 2 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 415 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator
->> Generated 40 Killed 0 (0%)
-> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 40 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator
->> Generated 48 Killed 4 (8%)
-> KILLED 4 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 44 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator
->> Generated 140 Killed 6 (4%)
-> KILLED 6 SURVIVED 4 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 130 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.BooleanFalseReturnValsMutator
->> Generated 30 Killed 0 (0%)
-> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 30 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator
->> Generated 1460 Killed 31 (2%)
-> KILLED 29 SURVIVED 4 TIMED_OUT 2 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 1425 
---------------------------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[54,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[55,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[58,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[60,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[61,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[64,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[66,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[67,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[70,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[72,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[73,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[76,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[77,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[78,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[81,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[82,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[83,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[86,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[87,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[88,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[91,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2010,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2011,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2014,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2017,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2018,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2021,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2023,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2024,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2027,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2030,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2031,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2034,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2035,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2036,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2039,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2040,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2041,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2044,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3795,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3796,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3799,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3801,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3802,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3805,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3807,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3808,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3811,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3814,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3815,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3818,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3819,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3820,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3823,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3824,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3825,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3828,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3829,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3830,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3833,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3856,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3857,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3860,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3862,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3863,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3866,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3868,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3869,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3872,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3875,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3876,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3879,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3880,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3881,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3884,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3885,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3886,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3889,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3890,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3891,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3894,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3902,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3903,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3906,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3909,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3910,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3913,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3915,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3916,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3919,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3921,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3922,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3925,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3926,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3927,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3930,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3931,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3932,28] cannot find symbol
+  symbol:   method isBoxedPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3935,28] cannot find symbol
+  symbol:   method isPrimitive()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3936,28] cannot find symbol
+  symbol:   method isAnnotated()
+  location: class com.squareup.javapoet.AmplTypeNameTest
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 01:04 min
-[INFO] Finished at: 2018-08-07T09:46:16+02:00
-[INFO] Final Memory: 47M/2426M
+[INFO] Total time: 15.954 s
+[INFO] Finished at: 2018-08-07T13:40:41+02:00
+[INFO] Final Memory: 54M/2365M
 [INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.7.0:testCompile (default-testCompile) on project javapoet: Compilation failure: Compilation failure:
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[54,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[55,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[58,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[60,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[61,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[64,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[66,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[67,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[70,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[72,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[73,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[76,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[77,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[78,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[81,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[82,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[83,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[86,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[87,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[88,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[91,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2010,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2011,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2014,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2017,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2018,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2021,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2023,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2024,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2027,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2030,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2031,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2034,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2035,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2036,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2039,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2040,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2041,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[2044,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3795,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3796,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3799,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3801,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3802,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3805,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3807,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3808,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3811,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3814,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3815,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3818,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3819,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3820,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3823,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3824,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3825,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3828,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3829,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3830,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3833,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3856,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3857,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3860,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3862,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3863,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3866,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3868,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3869,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3872,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3875,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3876,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3879,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3880,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3881,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3884,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3885,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3886,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3889,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3890,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3891,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3894,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3902,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3903,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3906,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3909,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3910,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3913,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3915,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3916,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3919,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3921,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3922,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3925,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3926,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3927,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3930,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3931,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3932,28] cannot find symbol
+[ERROR] symbol:   method isBoxedPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3935,28] cannot find symbol
+[ERROR] symbol:   method isPrimitive()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] /tmp/dspot-experiments/dataset/javapoet/src/test/java/AmplTypeNameTest.java:[3936,28] cannot find symbol
+[ERROR] symbol:   method isAnnotated()
+[ERROR] location: class com.squareup.javapoet.AmplTypeNameTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
