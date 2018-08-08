@@ -1,0 +1,162 @@
+[INFO] 2018-08-07 18:26:21 PitMutantScoreSelector - The original test suite kill 400 / 5415
+[WARN] 2018-08-07 18:26:21 AutomaticBuilderFactory - automaticBuilderName: unknown automatic builder specified in configuration, going to default.
+[INFO] 2018-08-07 18:26:21 AutomaticBuilderFactory - Default: provided Maven automatic builder.
+[INFO] 2018-08-07 18:26:21 MavenAutomaticBuilder - run maven clean test -DskipTests dependency:build-classpath -Dmdep.outputFile=target/dspot/classpath
+[WARN] Maven will be executed in interactive mode, but no input stream has been configured for this MavenInvoker instance.
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building protostuff :: core 1.6.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ protostuff-core ---
+[INFO] Deleting /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.3.1:enforce (enforce-versions) @ protostuff-core ---
+[INFO] Skipping Rule Enforcement.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ protostuff-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /tmp/dspot-experiments/dataset/protostuff/protostuff-core/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ protostuff-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 17 source files to /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ protostuff-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /tmp/dspot-experiments/dataset/protostuff/protostuff-core/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ protostuff-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 46 source files to /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/test-classes
+[WARNING] /tmp/dspot-experiments/dataset/protostuff/protostuff-core/src/test/java/io/protostuff/SerializableObjects.java: /tmp/dspot-experiments/dataset/protostuff/protostuff-core/src/test/java/io/protostuff/SerializableObjects.java uses or overrides a deprecated API.
+[WARNING] /tmp/dspot-experiments/dataset/protostuff/protostuff-core/src/test/java/io/protostuff/SerializableObjects.java: Recompile with -Xlint:deprecation for details.
+[WARNING] /tmp/dspot-experiments/dataset/protostuff/protostuff-core/src/test/java/io/protostuff/LowCopyProtobufOutputTest.java: Some input files use unchecked or unsafe operations.
+[WARNING] /tmp/dspot-experiments/dataset/protostuff/protostuff-core/src/test/java/io/protostuff/LowCopyProtobufOutputTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ protostuff-core ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:build-classpath (default-cli) @ protostuff-core ---
+[INFO] Wrote classpath file '/tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/dspot/classpath'.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 4.832 s
+[INFO] Finished at: 2018-08-07T18:26:27+02:00
+[INFO] Final Memory: 25M/309M
+[INFO] ------------------------------------------------------------------------
+[WARN] 2018-08-07 18:26:30 Launcher - You specified the directory /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2018-08-07 18:26:30 Launcher - You're trying to give source code in the classpath, this should be given to addInputSource [/tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/test-classes/io/protostuff/AbstractTest.java]
+[WARN] 2018-08-07 18:26:30 Launcher - You specified the directory /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2018-08-07 18:26:30 Launcher - You specified the directory target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[INFO] 2018-08-07 18:26:31 Amplification - Amplification of io.protostuff.TailDelimiterTest (10 test(s))
+[INFO] 2018-08-07 18:26:31 Amplification - Assertion amplification of io.protostuff.TailDelimiterTest (10 test(s))
+[INFO] 2018-08-07 18:26:31 EntryPoint - Run: java -classpath /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/test-classes:/tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/io/protostuff/protostuff-api/1.6.1-SNAPSHOT/protostuff-api-1.6.1-SNAPSHOT.jar:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner io.protostuff.TailDelimiterTest testBar:testEmptyBar:testEmptyBar2:testEmptyBarInner:testEmptyFoo:testEmptyFoo2:testEmptyFooInner:testEmptyFooInner2:testEmptyList:testFoo
+File saved to the following path: /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/dspot/TestListener.ser
+[INFO] 2018-08-07 18:26:31 EntryPoint - Test has been run: testBar,testFoo,testEmptyFooInner2,testEmptyBar2,testEmptyFoo2,testEmptyList,testEmptyFooInner,testEmptyBarInner,testEmptyBar,testEmptyFoo
+[INFO] 2018-08-07 18:26:32 AssertGenerator - Run tests. (10)
+[INFO] 2018-08-07 18:26:32 EntryPoint - Run: java -classpath /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/test-classes:/tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/io/protostuff/protostuff-api/1.6.1-SNAPSHOT/protostuff-api-1.6.1-SNAPSHOT.jar:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner io.protostuff.TailDelimiterTest testBar:testEmptyBar:testEmptyBar2:testEmptyBarInner:testEmptyFoo:testEmptyFoo2:testEmptyFooInner:testEmptyFooInner2:testEmptyList:testFoo
+File saved to the following path: /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/dspot/TestListener.ser
+[INFO] 2018-08-07 18:26:32 EntryPoint - Test has been run: testBar,testFoo,testEmptyFooInner2,testEmptyBar2,testEmptyFoo2,testEmptyList,testEmptyFooInner,testEmptyBarInner,testEmptyBar,testEmptyFoo
+[INFO] 2018-08-07 18:26:32 AssertGenerator - 10 test pass, generating assertion...
+[INFO] 2018-08-07 18:26:32 MethodsAssertGenerator - Add observations points in passing tests.
+[INFO] 2018-08-07 18:26:32 MethodsAssertGenerator - Instrumentation...
+ 10% |===== ]/ 20% |========== ]- 30% |=============== ]\ 40% |==================== ]| 50% |========================= ]/ 60% |============================== ]- 70% |=================================== ]\ 80% |======================================== ]| 90% |============================================= ]/100% |================================================== ]-
+[INFO] 2018-08-07 18:26:32 MethodsAssertGenerator - Run instrumented tests. (30)
+[INFO] 2018-08-07 18:26:32 EntryPoint - Run: java -classpath /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/test-classes:/tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/io/protostuff/protostuff-api/1.6.1-SNAPSHOT/protostuff-api-1.6.1-SNAPSHOT.jar:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner io.protostuff.TailDelimiterTest testBar_withlog0:testEmptyBar_withlog0:testEmptyBar2_withlog0:testEmptyBarInner_withlog0:testEmptyFoo_withlog0:testEmptyFoo2_withlog0:testEmptyFooInner_withlog0:testEmptyFooInner2_withlog0:testEmptyList_withlog0:testFoo_withlog0:testBar_withlog1:testEmptyBar_withlog1:testEmptyBar2_withlog1:testEmptyBarInner_withlog1:testEmptyFoo_withlog1:testEmptyFoo2_withlog1:testEmptyFooInner_withlog1:testEmptyFooInner2_withlog1:testEmptyList_withlog1:testFoo_withlog1:testBar_withlog2:testEmptyBar_withlog2:testEmptyBar2_withlog2:testEmptyBarInner_withlog2:testEmptyFoo_withlog2:testEmptyFoo2_withlog2:testEmptyFooInner_withlog2:testEmptyFooInner2_withlog2:testEmptyList_withlog2:testFoo_withlog2
+File saved to the following path: /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/dspot/observations.ser
+File saved to the following path: /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/dspot/TestListener.ser
+[INFO] 2018-08-07 18:26:33 EntryPoint - Test has been run: testFoo_withlog0,testFoo_withlog1,testFoo_withlog2,testEmptyBarInner_withlog0,testEmptyBarInner_withlog1,testEmptyBarInner_withlog2,testEmptyBar_withlog0,testEmptyBar_withlog1,testEmptyBar_withlog2,testEmptyFooInner2_withlog0,testEmptyFooInner2_withlog1,testEmptyFooInner2_withlog2,testEmptyBar2_withlog0,testEmptyBar2_withlog1,testEmptyBar2_withlog2,testEmptyList_withlog0,testEmptyList_withlog1,testEmptyList_withlog2,testEmptyFoo_withlog0,testEmptyFoo_withlog1,testEmptyFoo_withlog2,testBar_withlog0,testBar_withlog1,testBar_withlog2,testEmptyFooInner_withlog0,testEmptyFooInner_withlog1,testEmptyFooInner_withlog2,testEmptyFoo2_withlog0,testEmptyFoo2_withlog1,testEmptyFoo2_withlog2
+[INFO] 2018-08-07 18:26:33 MethodsAssertGenerator - Generating assertions...
+[INFO] 2018-08-07 18:26:35 AssertGenerator - 10 new tests with assertions generated
+[INFO] 2018-08-07 18:26:35 EntryPoint - Run: java -classpath /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/test-classes:/tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/io/protostuff/protostuff-api/1.6.1-SNAPSHOT/protostuff-api-1.6.1-SNAPSHOT.jar:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner io.protostuff.TailDelimiterTest testBar:testEmptyBar:testEmptyBar2:testEmptyBarInner:testEmptyFoo:testEmptyFoo2:testEmptyFooInner:testEmptyFooInner2:testEmptyList:testFoo
+File saved to the following path: /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/dspot/TestListener.ser
+[INFO] 2018-08-07 18:26:36 EntryPoint - Test has been run: testBar,testFoo,testEmptyFooInner2,testEmptyBar2,testEmptyFoo2,testEmptyList,testEmptyFooInner,testEmptyBarInner,testEmptyBar,testEmptyFoo
+[INFO] 2018-08-07 18:26:36 Amplification - Assertion amplification: 10 test method(s) has been successfully amplified.
+[WARN] 2018-08-07 18:26:36 Launcher - You specified the directory /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2018-08-07 18:26:36 Launcher - You're trying to give source code in the classpath, this should be given to addInputSource [/tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/test-classes/io/protostuff/AbstractTest.java]
+[WARN] 2018-08-07 18:26:36 Launcher - You specified the directory /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2018-08-07 18:26:36 Launcher - You specified the directory target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[INFO] 2018-08-07 18:26:36 MavenAutomaticBuilder - run maven org.pitest:pitest-maven:1.3.0:mutationCoverage -DwithHistory -DtargetClasses=io.protostuff* -DreportsDirectory=target/pit-reports -DoutputFormats=CSV,HTML -DtimeoutConst=10000 -DjvmArgs=16G -DtargetTests=io.protostuff.TailDelimiterTest -DadditionalClasspathElements=target/dspot/dependencies/ -DmutationEngines=gregor -Dmutators=ALL 
+[WARN] Maven will be executed in interactive mode, but no input stream has been configured for this MavenInvoker instance.
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building protostuff :: core 1.6.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- pitest-maven:1.3.0:mutationCoverage (default-cli) @ protostuff-core ---
+[INFO] Found plugin : Default csv report plugin
+[INFO] Found plugin : Default xml report plugin
+[INFO] Found plugin : Default html report plugin
+[INFO] Found plugin : Static initializer code detector plugin
+[INFO] Found plugin : Static initializer filter plugin
+[INFO] Found plugin : Excluded annotations plugin
+[INFO] Found plugin : Inlined finally block filter plugin
+[INFO] Found plugin : Try with resources filter
+[INFO] Found plugin : Implicit null check filter
+[INFO] Found plugin : For each loop filter
+[INFO] Found plugin : Logging calls filter
+[INFO] Found plugin : Infinite for loop filter
+[INFO] Found plugin : Long running iterator loop filter
+[INFO] Found plugin : For loop counter filter
+[INFO] Found plugin : Kotlin junk mutations filter
+[INFO] Found plugin : Max mutations per class limit
+[INFO] Found plugin : Equals shortcut equivalent mutant filter
+[INFO] Found plugin : Trivial return vals equivalence filter
+[INFO] Found plugin : Mutant export plugin
+[INFO] Found shared classpath plugin : Default mutation engine
+[INFO] Found shared classpath plugin : JUnit plugin
+[INFO] Found shared classpath plugin : TestNG plugin
+[INFO] Adding org.pitest:pitest to SUT classpath
+[INFO] Mutating from /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/classes
+[INFO] Will read and write history at /tmp/io.protostuff.protostuff-core.1.6.1-SNAPSHOT_pitest_history.bin
+6:26:39 PM PIT >> INFO : Verbose logging is disabled. If you encounter an problem please enable it before reporting an issue.
+6:26:40 PM PIT >> INFO : Sending 1 test classes to minion
+6:26:40 PM PIT >> INFO : Sent tests to minion
+6:26:40 PM PIT >> INFO : MINION : Security framework of XStream not initialized, XStream is probably vulnerable.
+6:26:40 PM PIT >> INFO : Checking environment
+
+6:26:40 PM PIT >> INFO : MINION : 6:26:40 PM PIT >> INFO : Found  10 tests
+
+6:26:40 PM PIT >> INFO : MINION : 6:26:40 PM PIT >> INFO : Dependency analysis reduced number of potential tests by 0
+
+6:26:40 PM PIT >> INFO : MINION : 6:26:40 PM PIT >> INFO : 10 tests received
+
+Security framework of XStream not initialized, XStream is probably vulnerable.
+6:26:41 PM PIT >> INFO : Calculated coverage in 1 seconds.
+/-\|/-\|/-[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 4.247 s
+[INFO] Finished at: 2018-08-07T18:26:42+02:00
+[INFO] Final Memory: 15M/407M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.pitest:pitest-maven:1.3.0:mutationCoverage (default-cli) on project protostuff-core: Execution default-cli of goal org.pitest:pitest-maven:1.3.0:mutationCoverage failed: ()B does not return integer type -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/PluginExecutionException
+Exception in thread "main" java.lang.RuntimeException: java.lang.RuntimeException: Maven build failed! Enable verbose mode for more information (--verbose)
+	at eu.stamp_project.automaticbuilder.MavenAutomaticBuilder.runPit(MavenAutomaticBuilder.java:182)
+	at eu.stamp_project.dspot.selector.PitMutantScoreSelector.selectToKeep(PitMutantScoreSelector.java:117)
+	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:85)
+	at eu.stamp_project.dspot.DSpot.amplifyTest(DSpot.java:179)
+	at eu.stamp_project.dspot.DSpot.amplifyTest(DSpot.java:169)
+	at eu.stamp_project.Main.lambda$run$1(Main.java:69)
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+	at java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:948)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at eu.stamp_project.Main.run(Main.java:71)
+	at eu.stamp_project.Main.main(Main.java:40)
+Caused by: java.lang.RuntimeException: Maven build failed! Enable verbose mode for more information (--verbose)
+	at eu.stamp_project.automaticbuilder.MavenAutomaticBuilder.runPit(MavenAutomaticBuilder.java:179)
+	... 14 more
