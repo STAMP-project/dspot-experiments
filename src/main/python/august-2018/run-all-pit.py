@@ -9,7 +9,7 @@ def run(project):
     module = properties[toolbox.key_subModule]
 
     # run mutations score all original test classes
-    toolbox.set_output_log_path(toolbox.get_absolute_path(toolbox.prefix_result + project + "/" +  + "all_original_mutations.log"))
+    toolbox.set_output_log_path(toolbox.get_absolute_path(toolbox.prefix_result + project + "/giall_original_mutations.log"))
     path_to_output_to_mutations_score = toolbox.get_absolute_path(path_to_output + "/all_original")
     toolbox.print_and_call(
         # print (
@@ -34,7 +34,7 @@ def run(project):
         test_class_name = selected_classes[current_class]
         toolbox.copy_amplified_test_class(current_class, test_class_name, project)
     # run mutations score all original test classes
-    toolbox.set_output_log_path(toolbox.get_absolute_path(toolbox.prefix_result + project + "/" +  + "all_amplified_mutations.log"))
+    toolbox.set_output_log_path(toolbox.get_absolute_path(toolbox.prefix_result + project + "/all_amplified_mutations.log"))
     path_to_output_to_mutations_score = toolbox.get_absolute_path(path_to_output + "/all_amplified")
     toolbox.print_and_call(
         # print (
