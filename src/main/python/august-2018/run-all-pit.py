@@ -1,7 +1,7 @@
 import toolbox
 import sys
 
-def run(project, classes=toolbox.keys_selected_classes):
+def run(project):
     path_to_output = toolbox.prefix_result + project
     selected_classes = toolbox.get_test_classes_to_be_amplified(project)
     properties = toolbox.get_properties(project)
@@ -28,7 +28,7 @@ def run(project, classes=toolbox.keys_selected_classes):
 
     # copy all the amplified test classes and re-run mutation score analysis
 
-    for current_class in classes:
+    for current_class in toolbox.keys_selected_classes:
         if current_class == "onClusty":
             continue
         test_class_name = selected_classes[current_class]
@@ -69,7 +69,5 @@ if __name__ == '__main__':
                     ]
         for project in projects:
             run(project)
-    elif len(sys.argv) > 3:
-        run(sys.argv[1], classes=sys.argv[2:])
     else:
         run(sys.argv[1])
