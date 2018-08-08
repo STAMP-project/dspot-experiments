@@ -1,0 +1,114 @@
+[INFO] 2018-08-07 18:55:07 PitMutantScoreSelector - The original test suite kill 48 / 109091
+[WARN] 2018-08-07 18:55:07 AutomaticBuilderFactory - automaticBuilderName: unknown automatic builder specified in configuration, going to default.
+[INFO] 2018-08-07 18:55:07 AutomaticBuilderFactory - Default: provided Maven automatic builder.
+[INFO] 2018-08-07 18:55:07 MavenAutomaticBuilder - run maven clean test -DskipTests dependency:build-classpath -Dmdep.outputFile=target/dspot/classpath
+[WARN] Maven will be executed in interactive mode, but no input stream has been configured for this MavenInvoker instance.
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building twilio 7.23.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ twilio ---
+[INFO] Deleting /tmp/dspot-experiments/dataset/twilio-java/target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ twilio ---
+[INFO] Skipping Rule Enforcement.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ twilio ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /tmp/dspot-experiments/dataset/twilio-java/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5:compile (default-compile) @ twilio ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1169 source files to /tmp/dspot-experiments/dataset/twilio-java/target/classes
+[INFO] /tmp/dspot-experiments/dataset/twilio-java/src/main/java/com/twilio/twiml/TwiML.java: Some input files use unchecked or unsafe operations.
+[INFO] /tmp/dspot-experiments/dataset/twilio-java/src/main/java/com/twilio/twiml/TwiML.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ twilio ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /tmp/dspot-experiments/dataset/twilio-java/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5:testCompile (default-testCompile) @ twilio ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 316 source files to /tmp/dspot-experiments/dataset/twilio-java/target/test-classes
+[INFO] /tmp/dspot-experiments/dataset/twilio-java/src/test/java/com/twilio/jwt/accesstoken/AccessTokenTest.java: /tmp/dspot-experiments/dataset/twilio-java/src/test/java/com/twilio/jwt/accesstoken/AccessTokenTest.java uses or overrides a deprecated API.
+[INFO] /tmp/dspot-experiments/dataset/twilio-java/src/test/java/com/twilio/jwt/accesstoken/AccessTokenTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] /tmp/dspot-experiments/dataset/twilio-java/src/test/java/com/twilio/jwt/taskrouter/TaskRouterCapabilityTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /tmp/dspot-experiments/dataset/twilio-java/src/test/java/com/twilio/jwt/taskrouter/TaskRouterCapabilityTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.20:test (default-test) @ twilio ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:build-classpath (default-cli) @ twilio ---
+[INFO] Wrote classpath file '/tmp/dspot-experiments/dataset/twilio-java/target/dspot/classpath'.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 15.893 s
+[INFO] Finished at: 2018-08-07T18:55:24+02:00
+[INFO] Final Memory: 37M/589M
+[INFO] ------------------------------------------------------------------------
+[INFO] 2018-08-07 18:55:41 Amplification - Amplification of com.twilio.converter.PrefixedCollapsibleMapTest (4 test(s))
+[INFO] 2018-08-07 18:55:41 Amplification - Assertion amplification of com.twilio.converter.PrefixedCollapsibleMapTest (4 test(s))
+[INFO] 2018-08-07 18:55:41 EntryPoint - Run: java -classpath /tmp/dspot-experiments/dataset/twilio-java/target/test-classes:/tmp/dspot-experiments/dataset/twilio-java/target/classes/:/home/spirals/danglot/.m2/repository/com/google/guava/guava/18.0/guava-18.0.jar:/home/spirals/danglot/.m2/repository/joda-time/joda-time/2.5/joda-time-2.5.jar:/home/spirals/danglot/.m2/repository/io/jsonwebtoken/jjwt/0.4/jjwt-0.4.jar:/home/spirals/danglot/.m2/repository/org/slf4j/slf4j-api/1.7.6/slf4j-api-1.7.6.jar:/home/spirals/danglot/.m2/repository/org/apache/httpcomponents/httpclient/4.5.2/httpclient-4.5.2.jar:/home/spirals/danglot/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/home/spirals/danglot/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar:/home/spirals/danglot/.m2/repository/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.8.11/jackson-core-2.8.11.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.8.11/jackson-annotations-2.8.11.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.8.11/jackson-databind-2.8.11.jar:/home/spirals/danglot/.m2/repository/javax/xml/bind/jaxb-api/2.2/jaxb-api-2.2.jar:/home/spirals/danglot/.m2/repository/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar:/home/spirals/danglot/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/home/spirals/danglot/.m2/repository/org/jmockit/jmockit/1.12/jmockit-1.12.jar:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner com.twilio.converter.PrefixedCollapsibleMapTest testMultipleKeys:testNestedKeys:testNull:testSingleKey
+File saved to the following path: /tmp/dspot-experiments/dataset/twilio-java/target/dspot/TestListener.ser
+[INFO] 2018-08-07 18:55:42 EntryPoint - Test has been run: testNestedKeys,testNull,testSingleKey,testMultipleKeys
+[INFO] 2018-08-07 18:55:42 AssertGenerator - Run tests. (4)
+[INFO] 2018-08-07 18:55:42 EntryPoint - Run: java -classpath /tmp/dspot-experiments/dataset/twilio-java/target/test-classes:/tmp/dspot-experiments/dataset/twilio-java/target/classes/:/home/spirals/danglot/.m2/repository/com/google/guava/guava/18.0/guava-18.0.jar:/home/spirals/danglot/.m2/repository/joda-time/joda-time/2.5/joda-time-2.5.jar:/home/spirals/danglot/.m2/repository/io/jsonwebtoken/jjwt/0.4/jjwt-0.4.jar:/home/spirals/danglot/.m2/repository/org/slf4j/slf4j-api/1.7.6/slf4j-api-1.7.6.jar:/home/spirals/danglot/.m2/repository/org/apache/httpcomponents/httpclient/4.5.2/httpclient-4.5.2.jar:/home/spirals/danglot/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/home/spirals/danglot/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar:/home/spirals/danglot/.m2/repository/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.8.11/jackson-core-2.8.11.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.8.11/jackson-annotations-2.8.11.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.8.11/jackson-databind-2.8.11.jar:/home/spirals/danglot/.m2/repository/javax/xml/bind/jaxb-api/2.2/jaxb-api-2.2.jar:/home/spirals/danglot/.m2/repository/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar:/home/spirals/danglot/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/home/spirals/danglot/.m2/repository/org/jmockit/jmockit/1.12/jmockit-1.12.jar:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner com.twilio.converter.PrefixedCollapsibleMapTest testMultipleKeys:testNestedKeys:testNull:testSingleKey
+File saved to the following path: /tmp/dspot-experiments/dataset/twilio-java/target/dspot/TestListener.ser
+[INFO] 2018-08-07 18:55:43 EntryPoint - Test has been run: testNestedKeys,testNull,testSingleKey,testMultipleKeys
+[INFO] 2018-08-07 18:55:43 AssertGenerator - 4 test pass, generating assertion...
+[INFO] 2018-08-07 18:55:43 MethodsAssertGenerator - Add observations points in passing tests.
+[INFO] 2018-08-07 18:55:43 MethodsAssertGenerator - Instrumentation...
+ 25% |============ ]/ 50% |========================= ]- 75% |===================================== ]\100% |================================================== ]|
+[INFO] 2018-08-07 18:55:43 MethodsAssertGenerator - Run instrumented tests. (12)
+[INFO] 2018-08-07 18:55:43 EntryPoint - Run: java -classpath /tmp/dspot-experiments/dataset/twilio-java/target/test-classes:/tmp/dspot-experiments/dataset/twilio-java/target/classes/:/home/spirals/danglot/.m2/repository/com/google/guava/guava/18.0/guava-18.0.jar:/home/spirals/danglot/.m2/repository/joda-time/joda-time/2.5/joda-time-2.5.jar:/home/spirals/danglot/.m2/repository/io/jsonwebtoken/jjwt/0.4/jjwt-0.4.jar:/home/spirals/danglot/.m2/repository/org/slf4j/slf4j-api/1.7.6/slf4j-api-1.7.6.jar:/home/spirals/danglot/.m2/repository/org/apache/httpcomponents/httpclient/4.5.2/httpclient-4.5.2.jar:/home/spirals/danglot/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/home/spirals/danglot/.m2/repository/commons-codec/commons-codec/1.9/commons-codec-1.9.jar:/home/spirals/danglot/.m2/repository/org/apache/httpcomponents/httpcore/4.4.4/httpcore-4.4.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.8.11/jackson-core-2.8.11.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.8.11/jackson-annotations-2.8.11.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.8.11/jackson-databind-2.8.11.jar:/home/spirals/danglot/.m2/repository/javax/xml/bind/jaxb-api/2.2/jaxb-api-2.2.jar:/home/spirals/danglot/.m2/repository/javax/xml/stream/stax-api/1.0-2/stax-api-1.0-2.jar:/home/spirals/danglot/.m2/repository/javax/activation/activation/1.1/activation-1.1.jar:/home/spirals/danglot/.m2/repository/org/jmockit/jmockit/1.12/jmockit-1.12.jar:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner com.twilio.converter.PrefixedCollapsibleMapTest testMultipleKeys_withlog0:testNestedKeys_withlog0:testNull_withlog0:testSingleKey_withlog0:testMultipleKeys_withlog1:testNestedKeys_withlog1:testNull_withlog1:testSingleKey_withlog1:testMultipleKeys_withlog2:testNestedKeys_withlog2:testNull_withlog2:testSingleKey_withlog2
+File saved to the following path: /tmp/dspot-experiments/dataset/twilio-java/target/dspot/observations.ser
+File saved to the following path: /tmp/dspot-experiments/dataset/twilio-java/target/dspot/TestListener.ser
+[INFO] 2018-08-07 18:55:44 EntryPoint - Test has been run: testNull_withlog0,testNull_withlog1,testNull_withlog2,testMultipleKeys_withlog0(com.twilio.converter.PrefixedCollapsibleMapTest): null,testMultipleKeys_withlog1(com.twilio.converter.PrefixedCollapsibleMapTest): null,testMultipleKeys_withlog2(com.twilio.converter.PrefixedCollapsibleMapTest): null,testSingleKey_withlog0(com.twilio.converter.PrefixedCollapsibleMapTest): null,testSingleKey_withlog1(com.twilio.converter.PrefixedCollapsibleMapTest): null,testSingleKey_withlog2(com.twilio.converter.PrefixedCollapsibleMapTest): null,testNestedKeys_withlog0(com.twilio.converter.PrefixedCollapsibleMapTest): null,testNestedKeys_withlog1(com.twilio.converter.PrefixedCollapsibleMapTest): null,testNestedKeys_withlog2(com.twilio.converter.PrefixedCollapsibleMapTest): null
+[WARN] 2018-08-07 18:55:44 MethodsAssertGenerator - Some instrumented test failed!
+[INFO] 2018-08-07 18:55:44 MethodsAssertGenerator - Generating assertions...
+Exception in thread "main" java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+	at java.lang.String.charAt(String.java:658)
+	at eu.stamp_project.dspot.assertgenerator.Translator.findMatchingIndex(Translator.java:137)
+	at eu.stamp_project.dspot.assertgenerator.Translator.buildInvocationFromString(Translator.java:80)
+	at eu.stamp_project.dspot.assertgenerator.Translator.buildInvocationFromString(Translator.java:59)
+	at eu.stamp_project.dspot.assertgenerator.Translator.translate(Translator.java:54)
+	at eu.stamp_project.dspot.assertgenerator.AssertBuilder.lambda$buildAssert$2(AssertBuilder.java:54)
+	at java.util.stream.ReduceOps$4ReducingSink.accept(ReduceOps.java:220)
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:175)
+	at java.util.Iterator.forEachRemaining(Iterator.java:116)
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:510)
+	at eu.stamp_project.dspot.assertgenerator.AssertBuilder.buildAssert(AssertBuilder.java:51)
+	at eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator.buildTestWithAssert(MethodsAssertGenerator.java:143)
+	at eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator.lambda$addAssertions$4(MethodsAssertGenerator.java:123)
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1374)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator.addAssertions(MethodsAssertGenerator.java:124)
+	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.innerAssertionAmplification(AssertGenerator.java:122)
+	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.assertionAmplification(AssertGenerator.java:71)
+	at eu.stamp_project.dspot.Amplification.assertionsAmplification(Amplification.java:149)
+	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:84)
+	at eu.stamp_project.dspot.DSpot.amplifyTest(DSpot.java:179)
+	at eu.stamp_project.dspot.DSpot.amplifyTest(DSpot.java:169)
+	at eu.stamp_project.Main.lambda$run$1(Main.java:69)
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+	at java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:948)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at eu.stamp_project.Main.run(Main.java:71)
+	at eu.stamp_project.Main.main(Main.java:40)
