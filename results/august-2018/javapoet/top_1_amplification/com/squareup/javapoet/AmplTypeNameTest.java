@@ -508,7 +508,7 @@ public class AmplTypeNameTest {
         Assert.assertEquals("com.squareup.javapoet.AmplTypeNameTest.TestGeneric<java.lang.Integer>.Inner", ((ParameterizedTypeName) (o_innerClassInGenericType_rv113874__14)).toString());
         Assert.assertEquals(-1471120843, ((int) (((ParameterizedTypeName) (o_innerClassInGenericType_rv113874__14)).hashCode())));
         Assert.assertFalse(((ParameterizedTypeName) (o_innerClassInGenericType_rv113874__14)).isPrimitive());
-        String String_45 = (AmplAmplTypeNameTest.TestGeneric.class.getCanonicalName()) + "<java.lang.String>.Inner";
+        String String_45 = (AmplTypeNameTest.TestGeneric.class.getCanonicalName()) + "<java.lang.String>.Inner";
         Assert.assertEquals("com.squareup.javapoet.AmplTypeNameTest.TestGeneric<java.lang.String>.Inner", String_45);
         TypeName o_innerClassInGenericType_rv113874__20 = __DSPOT_invoc_4.annotated(__DSPOT_annotations_17087);
         Assert.assertFalse(((ClassName) (o_innerClassInGenericType_rv113874__20)).isAnnotated());
@@ -556,7 +556,7 @@ public class AmplTypeNameTest {
         Assert.assertEquals("com.squareup.javapoet.AmplTypeNameTest.TestGeneric<java.lang.Integer>.Inner", ((ParameterizedTypeName) (o_innerClassInGenericType_rv113876__13)).toString());
         Assert.assertEquals(-1471120843, ((int) (((ParameterizedTypeName) (o_innerClassInGenericType_rv113876__13)).hashCode())));
         Assert.assertFalse(((ParameterizedTypeName) (o_innerClassInGenericType_rv113876__13)).isPrimitive());
-        String String_47 = (AmplAmplTypeNameTest.TestGeneric.class.getCanonicalName()) + "<java.lang.String>.Inner";
+        String String_47 = (AmplTypeNameTest.TestGeneric.class.getCanonicalName()) + "<java.lang.String>.Inner";
         Assert.assertEquals("com.squareup.javapoet.AmplTypeNameTest.TestGeneric<java.lang.String>.Inner", String_47);
         TypeName o_innerClassInGenericType_rv113876__19 = __DSPOT_invoc_4.box();
         Assert.assertFalse(((ClassName) (o_innerClassInGenericType_rv113876__19)).isAnnotated());
@@ -604,7 +604,7 @@ public class AmplTypeNameTest {
         Assert.assertEquals("com.squareup.javapoet.AmplTypeNameTest.TestGeneric<java.lang.Integer>.Inner", ((ParameterizedTypeName) (o_innerClassInGenericType_rv113884__13)).toString());
         Assert.assertEquals(-1471120843, ((int) (((ParameterizedTypeName) (o_innerClassInGenericType_rv113884__13)).hashCode())));
         Assert.assertFalse(((ParameterizedTypeName) (o_innerClassInGenericType_rv113884__13)).isPrimitive());
-        String String_55 = (AmplAmplTypeNameTest.TestGeneric.class.getCanonicalName()) + "<java.lang.String>.Inner";
+        String String_55 = (AmplTypeNameTest.TestGeneric.class.getCanonicalName()) + "<java.lang.String>.Inner";
         Assert.assertEquals("com.squareup.javapoet.AmplTypeNameTest.TestGeneric<java.lang.String>.Inner", String_55);
         TypeName o_innerClassInGenericType_rv113884__19 = __DSPOT_invoc_4.withoutAnnotations();
         Assert.assertFalse(((ClassName) (o_innerClassInGenericType_rv113884__19)).isAnnotated());
@@ -658,7 +658,7 @@ public class AmplTypeNameTest {
         Assert.assertEquals("com.squareup.javapoet.AmplTypeNameTest.TestGeneric<java.lang.Integer>.Inner", ((ParameterizedTypeName) (o_innerClassInGenericType_mg113863__13)).toString());
         Assert.assertEquals(-1471120843, ((int) (((ParameterizedTypeName) (o_innerClassInGenericType_mg113863__13)).hashCode())));
         Assert.assertFalse(((ParameterizedTypeName) (o_innerClassInGenericType_mg113863__13)).isPrimitive());
-        String String_35 = (AmplAmplTypeNameTest.TestGeneric.class.getCanonicalName()) + "<java.lang.String>.Inner";
+        String String_35 = (AmplTypeNameTest.TestGeneric.class.getCanonicalName()) + "<java.lang.String>.Inner";
         Assert.assertEquals("com.squareup.javapoet.AmplTypeNameTest.TestGeneric<java.lang.String>.Inner", String_35);
         TypeName o_innerClassInGenericType_mg113863__19 = genericTypeName.annotated(__DSPOT_annotations_17085);
         Assert.assertFalse(((ParameterizedTypeName) (o_innerClassInGenericType_mg113863__19)).isAnnotated());
