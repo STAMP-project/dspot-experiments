@@ -1,0 +1,500 @@
+2018-08-07 19:14:17,219 INFO eu.stamp_project.dspot.selector.PitMutantScoreSelector - The original test suite kill 536 / 17278
+2018-08-07 19:14:17,236 WARN eu.stamp_project.automaticbuilder.AutomaticBuilderFactory - automaticBuilderName: unknown automatic builder specified in configuration, going to default.
+2018-08-07 19:14:17,237 INFO eu.stamp_project.automaticbuilder.AutomaticBuilderFactory - Default: provided Maven automatic builder.
+2018-08-07 19:14:17,249 INFO eu.stamp_project.automaticbuilder.MavenAutomaticBuilder - run maven clean test -DskipTests dependency:build-classpath -Dmdep.outputFile=target/dspot/classpath
+[WARN] Maven will be executed in interactive mode, but no input stream has been configured for this MavenInvoker instance.
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building jsoup Java HTML Parser 1.12.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ jsoup ---
+[INFO] Deleting /tmp/dspot-experiments/dataset/jsoup/target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:resources (default-resources) @ jsoup ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 0 resource
+[INFO] Copying 3 resources to META-INF/
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ jsoup ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 68 source files to /tmp/dspot-experiments/dataset/jsoup/target/classes
+[INFO] /tmp/dspot-experiments/dataset/jsoup/src/main/java/org/jsoup/nodes/Attributes.java: /tmp/dspot-experiments/dataset/jsoup/src/main/java/org/jsoup/nodes/Attributes.java uses or overrides a deprecated API.
+[INFO] /tmp/dspot-experiments/dataset/jsoup/src/main/java/org/jsoup/nodes/Attributes.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.16:check (animal-sniffer) @ jsoup ---
+[INFO] Checking unresolved references to net.sf.androidscents.signature:android-api-level-8:2.2_r3
+[INFO] 
+[INFO] >>> maven-bundle-plugin:2.5.4:manifest (bundle-manifest) > process-classes @ jsoup >>>
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:resources (default-resources) @ jsoup ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 0 resource
+[INFO] Copying 3 resources to META-INF/
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ jsoup ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 68 source files to /tmp/dspot-experiments/dataset/jsoup/target/classes
+[INFO] /tmp/dspot-experiments/dataset/jsoup/src/main/java/org/jsoup/nodes/Attributes.java: /tmp/dspot-experiments/dataset/jsoup/src/main/java/org/jsoup/nodes/Attributes.java uses or overrides a deprecated API.
+[INFO] /tmp/dspot-experiments/dataset/jsoup/src/main/java/org/jsoup/nodes/Attributes.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.16:check (animal-sniffer) @ jsoup ---
+[INFO] Checking unresolved references to net.sf.androidscents.signature:android-api-level-8:2.2_r3
+[INFO] 
+[INFO] <<< maven-bundle-plugin:2.5.4:manifest (bundle-manifest) < process-classes @ jsoup <<<
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.4:manifest (bundle-manifest) @ jsoup ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:testResources (default-testResources) @ jsoup ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 25 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ jsoup ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 46 source files to /tmp/dspot-experiments/dataset/jsoup/target/test-classes
+[INFO] /tmp/dspot-experiments/dataset/jsoup/src/test/java/org/jsoup/parser/AttributeParseTest.java: Some input files use or override a deprecated API.
+[INFO] /tmp/dspot-experiments/dataset/jsoup/src/test/java/org/jsoup/parser/AttributeParseTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ jsoup ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:build-classpath (default-cli) @ jsoup ---
+[INFO] Wrote classpath file '/tmp/dspot-experiments/dataset/jsoup/target/dspot/classpath'.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 8.455 s
+[INFO] Finished at: 2018-08-07T19:14:27+02:00
+[INFO] Final Memory: 32M/843M
+[INFO] ------------------------------------------------------------------------
+2018-08-07 19:14:31,685 INFO eu.stamp_project.dspot.Amplification - Amplification of org.jsoup.nodes.AttributesTest (8 test(s))
+2018-08-07 19:14:31,685 INFO eu.stamp_project.dspot.Amplification - Assertion amplification of org.jsoup.nodes.AttributesTest (8 test(s))
+2018-08-07 19:14:31,928 INFO eu.stamp_project.testrunner.EntryPoint - Run: java -classpath /tmp/dspot-experiments/dataset/jsoup/target/test-classes:/tmp/dspot-experiments/dataset/jsoup/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/google/code/gson/gson/2.7/gson-2.7.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-server/9.2.22.v20170606/jetty-server-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-http/9.2.22.v20170606/jetty-http-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-util/9.2.22.v20170606/jetty-util-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-io/9.2.22.v20170606/jetty-io-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-servlet/9.2.22.v20170606/jetty-servlet-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-security/9.2.22.v20170606/jetty-security-9.2.22.v20170606.jar:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner org.jsoup.nodes.AttributesTest html:removeCaseSensitive:testIterator:testIteratorEmpty:testIteratorHasNext:testIteratorRemovable:testIteratorUpdateable:testSetKeyConsistency
+File saved to the following path: /tmp/dspot-experiments/dataset/jsoup/target/dspot/TestListener.ser
+2018-08-07 19:14:32,464 INFO eu.stamp_project.testrunner.EntryPoint - Test has been run: testIteratorRemovable,testIteratorHasNext,removeCaseSensitive,html,testSetKeyConsistency,testIteratorEmpty,testIterator,testIteratorUpdateable
+2018-08-07 19:14:32,608 INFO eu.stamp_project.dspot.assertgenerator.AssertGenerator - Run tests. (8)
+2018-08-07 19:14:32,713 INFO eu.stamp_project.testrunner.EntryPoint - Run: java -classpath /tmp/dspot-experiments/dataset/jsoup/target/test-classes:/tmp/dspot-experiments/dataset/jsoup/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/google/code/gson/gson/2.7/gson-2.7.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-server/9.2.22.v20170606/jetty-server-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-http/9.2.22.v20170606/jetty-http-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-util/9.2.22.v20170606/jetty-util-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-io/9.2.22.v20170606/jetty-io-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-servlet/9.2.22.v20170606/jetty-servlet-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-security/9.2.22.v20170606/jetty-security-9.2.22.v20170606.jar:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner org.jsoup.nodes.AttributesTest html:removeCaseSensitive:testIterator:testIteratorEmpty:testIteratorHasNext:testIteratorRemovable:testIteratorUpdateable:testSetKeyConsistency
+File saved to the following path: /tmp/dspot-experiments/dataset/jsoup/target/dspot/TestListener.ser
+2018-08-07 19:14:33,219 INFO eu.stamp_project.testrunner.EntryPoint - Test has been run: testIteratorRemovable,testIteratorHasNext,removeCaseSensitive,html,testSetKeyConsistency,testIteratorEmpty,testIterator,testIteratorUpdateable
+2018-08-07 19:14:33,220 INFO eu.stamp_project.dspot.assertgenerator.AssertGenerator - 8 test pass, generating assertion...
+2018-08-07 19:14:33,227 INFO eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator - Add observations points in passing tests.
+2018-08-07 19:14:33,227 INFO eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator - Instrumentation...
+ 12% |====== ]/ 25% |============ ]- 37% |================== ]\ 50% |========================= ]| 62% |=============================== ]/ 75% |===================================== ]- 87% |=========================================== ]\100% |================================================== ]|
+2018-08-07 19:14:33,322 INFO eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator - Run instrumented tests. (24)
+2018-08-07 19:14:33,524 INFO eu.stamp_project.testrunner.EntryPoint - Run: java -classpath /tmp/dspot-experiments/dataset/jsoup/target/test-classes:/tmp/dspot-experiments/dataset/jsoup/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/google/code/gson/gson/2.7/gson-2.7.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-server/9.2.22.v20170606/jetty-server-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-http/9.2.22.v20170606/jetty-http-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-util/9.2.22.v20170606/jetty-util-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-io/9.2.22.v20170606/jetty-io-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-servlet/9.2.22.v20170606/jetty-servlet-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-security/9.2.22.v20170606/jetty-security-9.2.22.v20170606.jar:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner org.jsoup.nodes.AttributesTest html_withlog0:removeCaseSensitive_withlog0:testIterator_withlog0:testIteratorEmpty_withlog0:testIteratorHasNext_withlog0:testIteratorRemovable_withlog0:testIteratorUpdateable_withlog0:testSetKeyConsistency_withlog0:html_withlog1:removeCaseSensitive_withlog1:testIterator_withlog1:testIteratorEmpty_withlog1:testIteratorHasNext_withlog1:testIteratorRemovable_withlog1:testIteratorUpdateable_withlog1:testSetKeyConsistency_withlog1:html_withlog2:removeCaseSensitive_withlog2:testIterator_withlog2:testIteratorEmpty_withlog2:testIteratorHasNext_withlog2:testIteratorRemovable_withlog2:testIteratorUpdateable_withlog2:testSetKeyConsistency_withlog2
+File saved to the following path: /tmp/dspot-experiments/dataset/jsoup/target/dspot/observations.ser
+File saved to the following path: /tmp/dspot-experiments/dataset/jsoup/target/dspot/TestListener.ser
+2018-08-07 19:14:34,293 INFO eu.stamp_project.testrunner.EntryPoint - Test has been run: testIteratorRemovable_withlog0,testIteratorRemovable_withlog1,testIteratorRemovable_withlog2,html_withlog0,html_withlog1,html_withlog2,testIteratorHasNext_withlog0,testIteratorHasNext_withlog1,testIteratorHasNext_withlog2,testIterator_withlog0,testIterator_withlog1,testIterator_withlog2,testIteratorUpdateable_withlog0,testIteratorUpdateable_withlog1,testIteratorUpdateable_withlog2,removeCaseSensitive_withlog0,removeCaseSensitive_withlog1,removeCaseSensitive_withlog2,testIteratorEmpty_withlog0,testIteratorEmpty_withlog1,testIteratorEmpty_withlog2,testSetKeyConsistency_withlog0,testSetKeyConsistency_withlog1,testSetKeyConsistency_withlog2
+2018-08-07 19:14:34,320 INFO eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator - Generating assertions...
+2018-08-07 19:14:36,490 INFO eu.stamp_project.dspot.assertgenerator.AssertGenerator - 8 new tests with assertions generated
+2018-08-07 19:14:36,617 INFO eu.stamp_project.testrunner.EntryPoint - Run: java -classpath /tmp/dspot-experiments/dataset/jsoup/target/test-classes:/tmp/dspot-experiments/dataset/jsoup/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/google/code/gson/gson/2.7/gson-2.7.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-server/9.2.22.v20170606/jetty-server-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-http/9.2.22.v20170606/jetty-http-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-util/9.2.22.v20170606/jetty-util-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-io/9.2.22.v20170606/jetty-io-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-servlet/9.2.22.v20170606/jetty-servlet-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-security/9.2.22.v20170606/jetty-security-9.2.22.v20170606.jar:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner org.jsoup.nodes.AttributesTest html:removeCaseSensitive:testIterator:testIteratorEmpty:testIteratorHasNext:testIteratorRemovable:testIteratorUpdateable:testSetKeyConsistency
+File saved to the following path: /tmp/dspot-experiments/dataset/jsoup/target/dspot/TestListener.ser
+2018-08-07 19:14:37,097 INFO eu.stamp_project.testrunner.EntryPoint - Test has been run: testIteratorRemovable,testIteratorHasNext,removeCaseSensitive,html,testSetKeyConsistency,testIteratorEmpty,testIterator,testIteratorUpdateable
+2018-08-07 19:14:37,097 INFO eu.stamp_project.dspot.Amplification - Assertion amplification: 8 test method(s) has been successfully amplified.
+2018-08-07 19:14:37,212 WARN spoon.Launcher - You specified the directory /tmp/dspot-experiments/dataset/jsoup/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+2018-08-07 19:14:37,216 WARN spoon.Launcher - You specified the directory /tmp/dspot-experiments/dataset/jsoup/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+2018-08-07 19:14:37,216 WARN spoon.Launcher - You specified the directory target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+2018-08-07 19:14:37,498 INFO eu.stamp_project.automaticbuilder.MavenAutomaticBuilder - run maven org.pitest:pitest-maven:1.3.0:mutationCoverage -DwithHistory -DtargetClasses=org.jsoup.* -DreportsDirectory=target/pit-reports -DoutputFormats=CSV,HTML -DtimeoutConst=10000 -DjvmArgs=16G -DtargetTests=org.jsoup.nodes.AttributesTest -DadditionalClasspathElements=target/dspot/dependencies/ -DmutationEngines=gregor -Dmutators=ALL 
+[WARN] Maven will be executed in interactive mode, but no input stream has been configured for this MavenInvoker instance.
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building jsoup Java HTML Parser 1.12.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- pitest-maven:1.3.0:mutationCoverage (default-cli) @ jsoup ---
+[INFO] Found plugin : Default csv report plugin
+[INFO] Found plugin : Default xml report plugin
+[INFO] Found plugin : Default html report plugin
+[INFO] Found plugin : Static initializer code detector plugin
+[INFO] Found plugin : Static initializer filter plugin
+[INFO] Found plugin : Excluded annotations plugin
+[INFO] Found plugin : Inlined finally block filter plugin
+[INFO] Found plugin : Try with resources filter
+[INFO] Found plugin : Implicit null check filter
+[INFO] Found plugin : For each loop filter
+[INFO] Found plugin : Logging calls filter
+[INFO] Found plugin : Infinite for loop filter
+[INFO] Found plugin : Long running iterator loop filter
+[INFO] Found plugin : For loop counter filter
+[INFO] Found plugin : Kotlin junk mutations filter
+[INFO] Found plugin : Max mutations per class limit
+[INFO] Found plugin : Equals shortcut equivalent mutant filter
+[INFO] Found plugin : Trivial return vals equivalence filter
+[INFO] Found plugin : Mutant export plugin
+[INFO] Found shared classpath plugin : Default mutation engine
+[INFO] Found shared classpath plugin : JUnit plugin
+[INFO] Found shared classpath plugin : TestNG plugin
+[INFO] Adding org.pitest:pitest to SUT classpath
+[INFO] Mutating from /tmp/dspot-experiments/dataset/jsoup/target/classes
+[INFO] Will read and write history at /tmp/org.jsoup.jsoup.1.12.1-SNAPSHOT_pitest_history.bin
+7:14:40 PM PIT >> INFO : Verbose logging is disabled. If you encounter an problem please enable it before reporting an issue.
+7:14:41 PM PIT >> INFO : Sending 1 test classes to minion
+7:14:41 PM PIT >> INFO : Sent tests to minion
+7:14:42 PM PIT >> INFO : MINION : Security framework of XStream not initialized, XStream is probably vulnerable.
+7:14:42 PM PIT >> INFO : Checking environment
+
+7:14:42 PM PIT >> INFO : MINION : 7:14:42 PM PIT >> INFO : Found  8 tests
+
+7:14:42 PM PIT >> INFO : MINION : 7:14:42 PM PIT >> INFO : Dependency analysis reduced number of potential tests by 0
+
+7:14:42 PM PIT >> INFO : MINION : 7:14:42 PM PIT >> INFO : 8 tests received
+
+Security framework of XStream not initialized, XStream is probably vulnerable.
+7:14:42 PM PIT >> INFO : Calculated coverage in 1 seconds.
+7:14:50 PM PIT >> INFO : Created  228 mutation test units
+/-\|/-\|/-\stderr  : Security framework of XStream not initialized, XStream is probably vulnerable.
+|/-stderr  : Security framework of XStream not initialized, XStream is probably vulnerable.
+\|/-\|/stderr  : Security framework of XStream not initialized, XStream is probably vulnerable.
+-\stderr  : Security framework of XStream not initialized, XStream is probably vulnerable.
+|/stderr  : Security framework of XStream not initialized, XStream is probably vulnerable.
+-stderr  : Security framework of XStream not initialized, XStream is probably vulnerable.
+\|stderr  : Security framework of XStream not initialized, XStream is probably vulnerable.
+/-\stderr  : Security framework of XStream not initialized, XStream is probably vulnerable.
+|/-\|/-\|stderr  : Security framework of XStream not initialized, XStream is probably vulnerable.
+/-\|/-\|/-\|/-\|/-\|/-\stderr  : Security framework of XStream not initialized, XStream is probably vulnerable.
+|/-\|/-\|/stderr  : Security framework of XStream not initialized, XStream is probably vulnerable.
+-\|/-\|/-\|/stderr  : Security framework of XStream not initialized, XStream is probably vulnerable.
+7:15:32 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+-\|/-\|/-\|/-\stderr  : Security framework of XStream not initialized, XStream is probably vulnerable.
+7:15:36 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+stderr  : Security framework of XStream not initialized, XStream is probably vulnerable.
+7:15:40 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+stderr  : Security framework of XStream not initialized, XStream is probably vulnerable.
+|/-\|/-\stderr  : Security framework of XStream not initialized, XStream is probably vulnerable.
+|/-\|/-\|/-\|/stderr  : Security framework of XStream not initialized, XStream is probably vulnerable.
+7:15:47 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+-\|/-\|/-\|/-\|stderr  : Security framework of XStream not initialized, XStream is probably vulnerable.
+7:15:51 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+stderr  : Security framework of XStream not initialized, XStream is probably vulnerable.
+/-\|/-\|/-\|/stderr  : Security framework of XStream not initialized, XStream is probably vulnerable.
+-\|/-\|/-stderr  : Security framework of XStream not initialized, XStream is probably vulnerable.
+7:15:58 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+\|/-\|/-\|/-\|/-\|/stderr  : Security framework of XStream not initialized, XStream is probably vulnerable.
+-\|stderr  : Security framework of XStream not initialized, XStream is probably vulnerable.
+/stderr  : Security framework of XStream not initialized, XStream is probably vulnerable.
+7:16:06 PM PIT >> INFO : Completed in 85 seconds
+-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-================================================================================
+- Timings
+================================================================================
+> scan classpath : < 1 second
+> coverage and dependency analysis : 1 seconds
+> build mutation tests : 6 seconds
+> run mutation analysis : 1 minutes and 15 seconds
+--------------------------------------------------------------------------------
+> Total  : 1 minutes and 24 seconds
+--------------------------------------------------------------------------------
+================================================================================
+- Statistics
+================================================================================
+>> Generated 17278 mutations Killed 636 (4%)
+>> Ran 1940 tests (0.11 tests per mutation)
+================================================================================
+- Mutators
+================================================================================
+> org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator
+>> Generated 1382 Killed 21 (2%)
+> KILLED 21 SURVIVED 20 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 1341 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.SwitchMutator
+>> Generated 63 Killed 1 (2%)
+> KILLED 1 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 61 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE
+>> Generated 1350 Killed 36 (3%)
+> KILLED 34 SURVIVED 23 TIMED_OUT 2 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 1291 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF
+>> Generated 234 Killed 22 (9%)
+> KILLED 22 SURVIVED 6 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 206 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.MathMutator
+>> Generated 194 Killed 27 (14%)
+> KILLED 25 SURVIVED 1 TIMED_OUT 2 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 166 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator
+>> Generated 44 Killed 9 (20%)
+> KILLED 9 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 35 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_7
+>> Generated 15 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 15 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_6
+>> Generated 21 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 21 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator
+>> Generated 78 Killed 13 (17%)
+> KILLED 12 SURVIVED 1 TIMED_OUT 1 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 64 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveIncrementsMutator
+>> Generated 56 Killed 9 (16%)
+> KILLED 7 SURVIVED 1 TIMED_OUT 2 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 46 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator
+>> Generated 234 Killed 18 (8%)
+> KILLED 18 SURVIVED 10 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 206 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_9
+>> Generated 6 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 6 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_8
+>> Generated 13 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 13 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.NullReturnValsMutator
+>> Generated 410 Killed 11 (3%)
+> KILLED 11 SURVIVED 5 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 394 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_3
+>> Generated 45 Killed 0 (0%)
+> KILLED 0 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 44 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_2
+>> Generated 54 Killed 0 (0%)
+> KILLED 0 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 53 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator
+>> Generated 1911 Killed 81 (4%)
+> KILLED 74 SURVIVED 50 TIMED_OUT 7 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 1780 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_5
+>> Generated 25 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 25 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator
+>> Generated 585 Killed 12 (2%)
+> KILLED 12 SURVIVED 4 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 569 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_4
+>> Generated 28 Killed 0 (0%)
+> KILLED 0 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 27 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator
+>> Generated 1226 Killed 54 (4%)
+> KILLED 53 SURVIVED 5 TIMED_OUT 1 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 1167 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_1
+>> Generated 62 Killed 1 (2%)
+> KILLED 1 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 60 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator
+>> Generated 410 Killed 16 (4%)
+> KILLED 16 SURVIVED 3 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 391 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_0
+>> Generated 63 Killed 0 (0%)
+> KILLED 0 SURVIVED 2 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 61 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_13
+>> Generated 2 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 2 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_12
+>> Generated 5 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 5 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_11
+>> Generated 5 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 5 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_10
+>> Generated 5 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 5 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF
+>> Generated 1355 Killed 28 (2%)
+> KILLED 26 SURVIVED 30 TIMED_OUT 2 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 1297 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE
+>> Generated 234 Killed 25 (11%)
+> KILLED 24 SURVIVED 4 TIMED_OUT 1 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 205 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator
+>> Generated 461 Killed 40 (9%)
+> KILLED 33 SURVIVED 26 TIMED_OUT 7 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 395 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator
+>> Generated 1589 Killed 73 (5%)
+> KILLED 72 SURVIVED 13 TIMED_OUT 1 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 1503 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator
+>> Generated 380 Killed 11 (3%)
+> KILLED 10 SURVIVED 1 TIMED_OUT 1 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 368 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator
+>> Generated 262 Killed 19 (7%)
+> KILLED 19 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 243 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator
+>> Generated 313 Killed 9 (3%)
+> KILLED 9 SURVIVED 14 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 290 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.BooleanFalseReturnValsMutator
+>> Generated 332 Killed 11 (3%)
+> KILLED 10 SURVIVED 2 TIMED_OUT 1 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 319 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator
+>> Generated 3826 Killed 89 (2%)
+> KILLED 86 SURVIVED 37 TIMED_OUT 3 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 3700 
+--------------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 01:27 min
+[INFO] Finished at: 2018-08-07T19:16:06+02:00
+[INFO] Final Memory: 46M/2439M
+[INFO] ------------------------------------------------------------------------
+2018-08-07 19:16:06,926 INFO eu.stamp_project.dspot.selector.PitMutantScoreSelector - 17278 mutants has been generated (17278)
+2018-08-07 19:16:06,940 INFO eu.stamp_project.dspot.selector.PitMutantScoreSelector - removeCaseSensitive kills 5 more mutants
+2018-08-07 19:16:06,940 INFO eu.stamp_project.dspot.selector.PitMutantScoreSelector - testIteratorRemovable kills 32 more mutants
+2018-08-07 19:16:06,940 INFO eu.stamp_project.dspot.selector.PitMutantScoreSelector - testSetKeyConsistency kills 8 more mutants
+2018-08-07 19:16:06,941 INFO eu.stamp_project.dspot.selector.PitMutantScoreSelector - testIteratorUpdateable kills 5 more mutants
+2018-08-07 19:16:06,941 INFO eu.stamp_project.dspot.selector.PitMutantScoreSelector - testIteratorHasNext kills 10 more mutants
+2018-08-07 19:16:06,941 INFO eu.stamp_project.dspot.selector.PitMutantScoreSelector - testIteratorEmpty kills 8 more mutants
+2018-08-07 19:16:06,941 INFO eu.stamp_project.dspot.Amplification - 6 amplified test methods has been selected to be kept. (global: 6)
+2018-08-07 19:16:06,941 INFO eu.stamp_project.dspot.Amplification - Applying Input-amplification and Assertion-amplification test by test.
+2018-08-07 19:16:06,945 INFO eu.stamp_project.dspot.Amplification - Amplification of html, (1/8)
+2018-08-07 19:16:06,945 INFO eu.stamp_project.dspot.Amplification - iteration 0 / 3
+2018-08-07 19:16:06,945 INFO eu.stamp_project.dspot.Amplification - 1 tests selected to be amplified over 1 available tests
+2018-08-07 19:16:06,945 INFO eu.stamp_project.dspot.budget.NoBudgetizer - Amplification of inputs...
+100% |================================================== ]/
+2018-08-07 19:16:07,421 INFO eu.stamp_project.dspot.budget.NoBudgetizer - 230 new tests generated
+2018-08-07 19:16:07,422 WARN eu.stamp_project.dspot.budget.NoBudgetizer - Too many tests have been generated: 230
+2018-08-07 19:16:07,567 INFO eu.stamp_project.dspot.budget.NoBudgetizer - Number of generated test reduced to 200
+2018-08-07 19:16:14,113 INFO eu.stamp_project.dspot.assertgenerator.AssertGenerator - Run tests. (200)
+2018-08-07 19:16:14,351 INFO eu.stamp_project.testrunner.EntryPoint - Run: java -classpath /tmp/dspot-experiments/dataset/jsoup/target/test-classes:/tmp/dspot-experiments/dataset/jsoup/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/google/code/gson/gson/2.7/gson-2.7.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-server/9.2.22.v20170606/jetty-server-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-http/9.2.22.v20170606/jetty-http-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-util/9.2.22.v20170606/jetty-util-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-io/9.2.22.v20170606/jetty-io-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-servlet/9.2.22.v20170606/jetty-servlet-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-security/9.2.22.v20170606/jetty-security-9.2.22.v20170606.jar:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner org.jsoup.nodes.AttributesTest html_rv208:html_rv187:html_rv229:html_rv207:html_rv228:html_rv186:html_rv185:html_rv227:html_mg166:html_rv206:html_rv214:html_rv193:html_rv172:html_rv197:html_rv189:html_rv180:html_rv222:html_rv231:html_rv201:html_rv210:html_rv199:html_rv178:html_rv220:html_mg165:html_rv209:html_rv230:html_rv188:html_rv179:html_rv176:html_rv218:html_rv200:html_rv221:html_rv177:html_rv198:html_rv219:html_mg164:html_mg151:html_remove150:html_remove149:html_mg155:html_remove148:htmllitString70:htmllitString38:htmllitString40:htmllitString72:html_mg168:html_mg159:htmllitString71:htmllitString39:htmllitString65:htmllitString46:html_add140:html_add132:html_add141:html_add133:html_add142:html_add134:html_add143:html_add135:html_add144:html_add136:html_add145:html_add137:html_add146:html_add138:html_add147:html_add139:htmllitString30:htmllitString22:htmllitString62:htmllitString94:htmllitString48:htmllitString32:htmllitString57:htmllitString24:htmllitString64:htmllitString96:html_mg157:htmllitString102:htmllitString6:htmllitString86:htmllitString78:htmllitString47:htmllitString104:htmllitString54:htmllitString31:htmllitString8:htmllitString23:htmllitString110:htmllitString63:htmllitString126:htmllitString95:htmllitString80:htmllitString88:htmllitString118:htmllitString14:htmllitString56:htmllitString112:htmllitString128:htmllitString25:htmllitString120:htmllitString16:htmllitString17:htmllitString37:htmllitString21:htmllitString103:htmllitString93:htmllitString61:htmllitString4:htmllitString7:htmllitString69:htmllitString85:htmllitString29:htmllitString87:htmllitString79:htmllitString28:htmllitString52:htmllitString44:htmllitString60:htmllitString20:htmllitString55:htmllitString84:htmllitString76:htmllitString92:htmllitString68:htmllitString111:htmllitString36:htmllitString73:htmllitString127:htmllitString45:htmllitString109:htmllitString124:htmllitString116:htmllitString108:htmllitString98:htmllitString119:htmllitString100:htmllitString77:htmllitString82:htmllitString105:htmllitString90:htmllitString15:htmllitString5:htmllitString12:htmllitString42:htmllitString101:htmllitString117:htmllitString10:htmllitString2:htmllitString41:htmllitString18:htmllitString66:htmllitString53:htmllitString49:htmllitString3:htmllitString74:htmllitString26:htmllitString34:htmllitString50:htmllitString33:htmllitString58:htmllitString121:htmllitString9:htmllitString113:htmllitString13:htmllitString125:htmllitString122:htmllitString51:htmllitString83:htmllitString75:htmllitString19:htmllitString35:htmllitString43:htmllitString106:htmllitString67:htmllitString11:htmllitString99:htmllitString91:htmllitString114:htmllitString97:htmllitString59:htmllitString27:htmllitString107:html_mg167:htmllitString1:htmllitString115:htmllitString123:html_mg161:html_mg169:html_mg153:htmllitString89:html_rv226:html_rv184:html_rv205:htmllitString81:html_mg152:html_mg158:html_rv225:html_rv183:html_rv204
+File saved to the following path: /tmp/dspot-experiments/dataset/jsoup/target/dspot/TestListener.ser
+2018-08-07 19:16:15,201 INFO eu.stamp_project.testrunner.EntryPoint - Test has been run: htmllitString100,htmllitString101,htmllitString102,htmllitString103,htmllitString104,htmllitString105,htmllitString106,htmllitString107,htmllitString108,htmllitString109,htmllitString110,htmllitString111,htmllitString112,htmllitString113,htmllitString114,htmllitString115,htmllitString116,htmllitString117,htmllitString118,htmllitString119,htmllitString120,htmllitString121,htmllitString122,htmllitString123,htmllitString124,htmllitString125,htmllitString126,htmllitString127,htmllitString128,html_mg151,html_mg152,html_mg153,html_mg155,html_mg157,html_mg158,html_mg159,html_mg161,html_mg164,html_mg165,html_mg166,html_mg167,html_mg168,html_mg169,html_rv172,html_rv176,html_rv177,html_rv178,html_rv179,html_rv180,html_rv183,html_rv184,html_rv185,html_rv186,html_rv187,html_rv188,html_rv189,html_rv193,html_rv197,html_rv198,html_rv199,html_rv200,html_rv201,html_rv204,html_rv205,html_rv206,html_rv207,html_rv208,html_rv209,html_rv210,html_rv214,html_rv218,html_rv219,html_rv220,html_rv221,html_rv222,html_rv225,html_rv226,html_rv227,html_rv228,html_rv229,html_rv230,html_rv231,htmllitString1,htmllitString2,htmllitString3,htmllitString4,htmllitString5,htmllitString7,htmllitString8,htmllitString9,html_remove148,html_remove149,html_remove150,htmllitString10,htmllitString11,htmllitString12,htmllitString13,htmllitString14,htmllitString15,htmllitString16,htmllitString17,htmllitString18,htmllitString19,htmllitString20,htmllitString21,htmllitString23,htmllitString24,htmllitString25,htmllitString26,htmllitString27,htmllitString28,htmllitString29,htmllitString30,htmllitString31,htmllitString32,htmllitString33,htmllitString34,htmllitString35,htmllitString36,htmllitString37,htmllitString39,htmllitString40,htmllitString41,htmllitString42,htmllitString43,htmllitString44,htmllitString45,htmllitString46,htmllitString47,htmllitString48,htmllitString49,htmllitString50,htmllitString51,htmllitString52,htmllitString53,htmllitString54,htmllitString55,htmllitString56,htmllitString57,htmllitString58,htmllitString59,htmllitString60,htmllitString61,htmllitString62,htmllitString63,htmllitString64,htmllitString65,htmllitString66,htmllitString67,htmllitString68,htmllitString69,htmllitString70,htmllitString71,htmllitString72,htmllitString73,htmllitString74,htmllitString75,htmllitString76,htmllitString77,htmllitString78,htmllitString79,htmllitString80,htmllitString81,htmllitString82,htmllitString83,htmllitString84,htmllitString85,htmllitString86,htmllitString87,htmllitString88,htmllitString89,htmllitString90,htmllitString91,htmllitString92,htmllitString93,htmllitString94,htmllitString95,htmllitString96,htmllitString97,htmllitString98,htmllitString99,html_add132,html_add133,html_add134,html_add135,html_add136,html_add137,html_add138,html_add139,html_add140,html_add141,html_add142,html_add143,html_add144,html_add145,html_add146,html_add147,htmllitString6(org.jsoup.nodes.AttributesTest): String must not be empty,htmllitString22(org.jsoup.nodes.AttributesTest): String must not be empty,htmllitString38(org.jsoup.nodes.AttributesTest): String must not be empty
+2018-08-07 19:16:15,201 INFO eu.stamp_project.dspot.assertgenerator.AssertGenerator - 197 test pass, generating assertion...
+2018-08-07 19:16:15,298 INFO eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator - Add observations points in passing tests.
+2018-08-07 19:16:15,298 INFO eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator - Instrumentation...
+  0% | ]/  1% | ]-  1% | ]\  2% |= ]|  2% |= ]/  3% |= ]-  3% |= ]\  4% |== ]|  4% |== ]/  5% |== ]-  5% |== ]\  6% |=== ]|  6% |=== ]/  7% |=== ]-  7% |=== ]\  8% |==== ]|  8% |==== ]/  9% |==== ]-  9% |==== ]\ 10% |===== ]| 10% |===== ]/ 11% |===== ]- 11% |===== ]\ 12% |====== ]| 12% |====== ]/ 13% |====== ]- 13% |====== ]\ 14% |======= ]| 14% |======= ]/ 15% |======= ]- 15% |======= ]\ 16% |======== ]| 16% |======== ]/ 17% |======== ]- 17% |======== ]\ 18% |========= ]| 18% |========= ]/ 19% |========= ]- 19% |========= ]\ 20% |========== ]| 20% |========== ]/ 21% |========== ]- 21% |========== ]\ 22% |=========== ]| 22% |=========== ]/ 23% |=========== ]- 23% |=========== ]\ 24% |============ ]| 24% |============ ]/ 25% |============ ]- 25% |============ ]\ 26% |============= ]| 26% |============= ]/ 27% |============= ]- 27% |============= ]\ 28% |============== ]| 28% |============== ]/ 29% |============== ]- 29% |============== ]\ 30% |=============== ]| 30% |=============== ]/ 31% |=============== ]- 31% |=============== ]\ 32% |================ ]| 32% |================ ]/ 33% |================ ]- 34% |================= ]\ 34% |================= ]| 35% |================= ]/ 35% |================= ]- 36% |================== ]\ 36% |================== ]| 37% |================== ]/ 37% |================== ]- 38% |=================== ]\ 38% |=================== ]| 39% |=================== ]/ 39% |=================== ]- 40% |==================== ]\ 40% |==================== ]| 41% |==================== ]/ 41% |==================== ]- 42% |===================== ]\ 42% |===================== ]| 43% |===================== ]/ 43% |===================== ]- 44% |====================== ]\ 44% |====================== ]| 45% |====================== ]/ 45% |====================== ]- 46% |======================= ]\ 46% |======================= ]| 47% |======================= ]/ 47% |======================= ]- 48% |======================== ]\ 48% |======================== ]| 49% |======================== ]/ 49% |======================== ]- 50% |========================= ]\ 50% |========================= ]| 51% |========================= ]/ 51% |========================= ]- 52% |========================== ]\ 52% |========================== ]| 53% |========================== ]/ 53% |========================== ]- 54% |=========================== ]\ 54% |=========================== ]| 55% |=========================== ]/ 55% |=========================== ]- 56% |============================ ]\ 56% |============================ ]| 57% |============================ ]/ 57% |============================ ]- 58% |============================= ]\ 58% |============================= ]| 59% |============================= ]/ 59% |============================= ]- 60% |============================== ]\ 60% |============================== ]| 61% |============================== ]/ 61% |============================== ]- 62% |=============================== ]\ 62% |=============================== ]| 63% |=============================== ]/ 63% |=============================== ]- 64% |================================ ]\ 64% |================================ ]| 65% |================================ ]/ 65% |================================ ]- 66% |================================= ]\ 67% |================================= ]| 67% |================================= ]/ 68% |================================== ]- 68% |================================== ]\ 69% |================================== ]| 69% |================================== ]/ 70% |=================================== ]- 70% |=================================== ]\ 71% |=================================== ]| 71% |=================================== ]/ 72% |==================================== ]- 72% |==================================== ]\ 73% |==================================== ]| 73% |==================================== ]/ 74% |===================================== ]- 74% |===================================== ]\ 75% |===================================== ]| 75% |===================================== ]/ 76% |====================================== ]- 76% |====================================== ]\ 77% |====================================== ]| 77% |====================================== ]/ 78% |======================================= ]- 78% |======================================= ]\ 79% |======================================= ]| 79% |======================================= ]/ 80% |======================================== ]- 80% |======================================== ]\ 81% |======================================== ]| 81% |======================================== ]/ 82% |========================================= ]- 82% |========================================= ]\ 83% |========================================= ]| 83% |========================================= ]/ 84% |========================================== ]- 84% |========================================== ]\ 85% |========================================== ]| 85% |========================================== ]/ 86% |=========================================== ]- 86% |=========================================== ]\ 87% |=========================================== ]| 87% |=========================================== ]/ 88% |============================================ ]- 88% |============================================ ]\ 89% |============================================ ]| 89% |============================================ ]/ 90% |============================================= ]- 90% |============================================= ]\ 91% |============================================= ]| 91% |============================================= ]/ 92% |============================================== ]- 92% |============================================== ]\ 93% |============================================== ]| 93% |============================================== ]/ 94% |=============================================== ]- 94% |=============================================== ]\ 95% |=============================================== ]| 95% |=============================================== ]/ 96% |================================================ ]- 96% |================================================ ]\ 97% |================================================ ]| 97% |================================================ ]/ 98% |================================================= ]- 98% |================================================= ]\ 99% |================================================= ]|100% |================================================== ]/
+2018-08-07 19:16:18,192 INFO eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator - Run instrumented tests. (591)
+2018-08-07 19:16:21,090 INFO eu.stamp_project.testrunner.EntryPoint - Run: java -classpath /tmp/dspot-experiments/dataset/jsoup/target/test-classes:/tmp/dspot-experiments/dataset/jsoup/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/google/code/gson/gson/2.7/gson-2.7.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-server/9.2.22.v20170606/jetty-server-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-http/9.2.22.v20170606/jetty-http-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-util/9.2.22.v20170606/jetty-util-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-io/9.2.22.v20170606/jetty-io-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-servlet/9.2.22.v20170606/jetty-servlet-9.2.22.v20170606.jar:/home/spirals/danglot/.m2/repository/org/eclipse/jetty/jetty-security/9.2.22.v20170606/jetty-security-9.2.22.v20170606.jar:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner org.jsoup.nodes.AttributesTest html_rv208_withlog0:html_rv187_withlog0:html_rv229_withlog0:html_rv207_withlog0:html_rv228_withlog0:html_rv186_withlog0:html_rv185_withlog0:html_rv227_withlog0:html_mg166_withlog0:html_rv206_withlog0:html_rv214_withlog0:html_rv193_withlog0:html_rv172_withlog0:html_rv197_withlog0:html_rv189_withlog0:html_rv180_withlog0:html_rv222_withlog0:html_rv231_withlog0:html_rv201_withlog0:html_rv210_withlog0:html_rv199_withlog0:html_rv178_withlog0:html_rv220_withlog0:html_mg165_withlog0:html_rv209_withlog0:html_rv230_withlog0:html_rv188_withlog0:html_rv179_withlog0:html_rv176_withlog0:html_rv218_withlog0:html_rv200_withlog0:html_rv221_withlog0:html_rv177_withlog0:html_rv198_withlog0:html_rv219_withlog0:html_mg164_withlog0:html_mg151_withlog0:html_remove150_withlog0:html_remove149_withlog0:html_mg155_withlog0:html_remove148_withlog0:htmllitString70_withlog0:htmllitString40_withlog0:htmllitString72_withlog0:html_mg168_withlog0:html_mg159_withlog0:htmllitString71_withlog0:htmllitString39_withlog0:htmllitString65_withlog0:htmllitString46_withlog0:html_add140_withlog0:html_add132_withlog0:html_add141_withlog0:html_add133_withlog0:html_add142_withlog0:html_add134_withlog0:html_add143_withlog0:html_add135_withlog0:html_add144_withlog0:html_add136_withlog0:html_add145_withlog0:html_add137_withlog0:html_add146_withlog0:html_add138_withlog0:html_add147_withlog0:html_add139_withlog0:htmllitString30_withlog0:htmllitString62_withlog0:htmllitString94_withlog0:htmllitString48_withlog0:htmllitString32_withlog0:htmllitString57_withlog0:htmllitString24_withlog0:htmllitString64_withlog0:htmllitString96_withlog0:html_mg157_withlog0:htmllitString102_withlog0:htmllitString86_withlog0:htmllitString78_withlog0:htmllitString47_withlog0:htmllitString104_withlog0:htmllitString54_withlog0:htmllitString31_withlog0:htmllitString8_withlog0:htmllitString23_withlog0:htmllitString110_withlog0:htmllitString63_withlog0:htmllitString126_withlog0:htmllitString95_withlog0:htmllitString80_withlog0:htmllitString88_withlog0:htmllitString118_withlog0:htmllitString14_withlog0:htmllitString56_withlog0:htmllitString112_withlog0:htmllitString128_withlog0:htmllitString25_withlog0:htmllitString120_withlog0:htmllitString16_withlog0:htmllitString17_withlog0:htmllitString37_withlog0:htmllitString21_withlog0:htmllitString103_withlog0:htmllitString93_withlog0:htmllitString61_withlog0:htmllitString4_withlog0:htmllitString7_withlog0:htmllitString69_withlog0:htmllitString85_withlog0:htmllitString29_withlog0:htmllitString87_withlog0:htmllitString79_withlog0:htmllitString28_withlog0:htmllitString52_withlog0:htmllitString44_withlog0:htmllitString60_withlog0:htmllitString20_withlog0:htmllitString55_withlog0:htmllitString84_withlog0:htmllitString76_withlog0:htmllitString92_withlog0:htmllitString68_withlog0:htmllitString111_withlog0:htmllitString36_withlog0:htmllitString73_withlog0:htmllitString127_withlog0:htmllitString45_withlog0:htmllitString109_withlog0:htmllitString124_withlog0:htmllitString116_withlog0:htmllitString108_withlog0:htmllitString98_withlog0:htmllitString119_withlog0:htmllitString100_withlog0:htmllitString77_withlog0:htmllitString82_withlog0:htmllitString105_withlog0:htmllitString90_withlog0:htmllitString15_withlog0:htmllitString5_withlog0:htmllitString12_withlog0:htmllitString42_withlog0:htmllitString101_withlog0:htmllitString117_withlog0:htmllitString10_withlog0:htmllitString2_withlog0:htmllitString41_withlog0:htmllitString18_withlog0:htmllitString66_withlog0:htmllitString53_withlog0:htmllitString49_withlog0:htmllitString3_withlog0:htmllitString74_withlog0:htmllitString26_withlog0:htmllitString34_withlog0:htmllitString50_withlog0:htmllitString33_withlog0:htmllitString58_withlog0:htmllitString121_withlog0:htmllitString9_withlog0:htmllitString113_withlog0:htmllitString13_withlog0:htmllitString125_withlog0:htmllitString122_withlog0:htmllitString51_withlog0:htmllitString83_withlog0:htmllitString75_withlog0:htmllitString19_withlog0:htmllitString35_withlog0:htmllitString43_withlog0:htmllitString106_withlog0:htmllitString67_withlog0:htmllitString11_withlog0:htmllitString99_withlog0:htmllitString91_withlog0:htmllitString114_withlog0:htmllitString97_withlog0:htmllitString59_withlog0:htmllitString27_withlog0:htmllitString107_withlog0:html_mg167_withlog0:htmllitString1_withlog0:htmllitString115_withlog0:htmllitString123_withlog0:html_mg161_withlog0:html_mg169_withlog0:html_mg153_withlog0:htmllitString89_withlog0:html_rv226_withlog0:html_rv184_withlog0:html_rv205_withlog0:htmllitString81_withlog0:html_mg152_withlog0:html_mg158_withlog0:html_rv225_withlog0:html_rv183_withlog0:html_rv204_withlog0:html_rv208_withlog1:html_rv187_withlog1:html_rv229_withlog1:html_rv207_withlog1:html_rv228_withlog1:html_rv186_withlog1:html_rv185_withlog1:html_rv227_withlog1:html_mg166_withlog1:html_rv206_withlog1:html_rv214_withlog1:html_rv193_withlog1:html_rv172_withlog1:html_rv197_withlog1:html_rv189_withlog1:html_rv180_withlog1:html_rv222_withlog1:html_rv231_withlog1:html_rv201_withlog1:html_rv210_withlog1:html_rv199_withlog1:html_rv178_withlog1:html_rv220_withlog1:html_mg165_withlog1:html_rv209_withlog1:html_rv230_withlog1:html_rv188_withlog1:html_rv179_withlog1:html_rv176_withlog1:html_rv218_withlog1:html_rv200_withlog1:html_rv221_withlog1:html_rv177_withlog1:html_rv198_withlog1:html_rv219_withlog1:html_mg164_withlog1:html_mg151_withlog1:html_remove150_withlog1:html_remove149_withlog1:html_mg155_withlog1:html_remove148_withlog1:htmllitString70_withlog1:htmllitString40_withlog1:htmllitString72_withlog1:html_mg168_withlog1:html_mg159_withlog1:htmllitString71_withlog1:htmllitString39_withlog1:htmllitString65_withlog1:htmllitString46_withlog1:html_add140_withlog1:html_add132_withlog1:html_add141_withlog1:html_add133_withlog1:html_add142_withlog1:html_add134_withlog1:html_add143_withlog1:html_add135_withlog1:html_add144_withlog1:html_add136_withlog1:html_add145_withlog1:html_add137_withlog1:html_add146_withlog1:html_add138_withlog1:html_add147_withlog1:html_add139_withlog1:htmllitString30_withlog1:htmllitString62_withlog1:htmllitString94_withlog1:htmllitString48_withlog1:htmllitString32_withlog1:htmllitString57_withlog1:htmllitString24_withlog1:htmllitString64_withlog1:htmllitString96_withlog1:html_mg157_withlog1:htmllitString102_withlog1:htmllitString86_withlog1:htmllitString78_withlog1:htmllitString47_withlog1:htmllitString104_withlog1:htmllitString54_withlog1:htmllitString31_withlog1:htmllitString8_withlog1:htmllitString23_withlog1:htmllitString110_withlog1:htmllitString63_withlog1:htmllitString126_withlog1:htmllitString95_withlog1:htmllitString80_withlog1:htmllitString88_withlog1:htmllitString118_withlog1:htmllitString14_withlog1:htmllitString56_withlog1:htmllitString112_withlog1:htmllitString128_withlog1:htmllitString25_withlog1:htmllitString120_withlog1:htmllitString16_withlog1:htmllitString17_withlog1:htmllitString37_withlog1:htmllitString21_withlog1:htmllitString103_withlog1:htmllitString93_withlog1:htmllitString61_withlog1:htmllitString4_withlog1:htmllitString7_withlog1:htmllitString69_withlog1:htmllitString85_withlog1:htmllitString29_withlog1:htmllitString87_withlog1:htmllitString79_withlog1:htmllitString28_withlog1:htmllitString52_withlog1:htmllitString44_withlog1:htmllitString60_withlog1:htmllitString20_withlog1:htmllitString55_withlog1:htmllitString84_withlog1:htmllitString76_withlog1:htmllitString92_withlog1:htmllitString68_withlog1:htmllitString111_withlog1:htmllitString36_withlog1:htmllitString73_withlog1:htmllitString127_withlog1:htmllitString45_withlog1:htmllitString109_withlog1:htmllitString124_withlog1:htmllitString116_withlog1:htmllitString108_withlog1:htmllitString98_withlog1:htmllitString119_withlog1:htmllitString100_withlog1:htmllitString77_withlog1:htmllitString82_withlog1:htmllitString105_withlog1:htmllitString90_withlog1:htmllitString15_withlog1:htmllitString5_withlog1:htmllitString12_withlog1:htmllitString42_withlog1:htmllitString101_withlog1:htmllitString117_withlog1:htmllitString10_withlog1:htmllitString2_withlog1:htmllitString41_withlog1:htmllitString18_withlog1:htmllitString66_withlog1:htmllitString53_withlog1:htmllitString49_withlog1:htmllitString3_withlog1:htmllitString74_withlog1:htmllitString26_withlog1:htmllitString34_withlog1:htmllitString50_withlog1:htmllitString33_withlog1:htmllitString58_withlog1:htmllitString121_withlog1:htmllitString9_withlog1:htmllitString113_withlog1:htmllitString13_withlog1:htmllitString125_withlog1:htmllitString122_withlog1:htmllitString51_withlog1:htmllitString83_withlog1:htmllitString75_withlog1:htmllitString19_withlog1:htmllitString35_withlog1:htmllitString43_withlog1:htmllitString106_withlog1:htmllitString67_withlog1:htmllitString11_withlog1:htmllitString99_withlog1:htmllitString91_withlog1:htmllitString114_withlog1:htmllitString97_withlog1:htmllitString59_withlog1:htmllitString27_withlog1:htmllitString107_withlog1:html_mg167_withlog1:htmllitString1_withlog1:htmllitString115_withlog1:htmllitString123_withlog1:html_mg161_withlog1:html_mg169_withlog1:html_mg153_withlog1:htmllitString89_withlog1:html_rv226_withlog1:html_rv184_withlog1:html_rv205_withlog1:htmllitString81_withlog1:html_mg152_withlog1:html_mg158_withlog1:html_rv225_withlog1:html_rv183_withlog1:html_rv204_withlog1:html_rv208_withlog2:html_rv187_withlog2:html_rv229_withlog2:html_rv207_withlog2:html_rv228_withlog2:html_rv186_withlog2:html_rv185_withlog2:html_rv227_withlog2:html_mg166_withlog2:html_rv206_withlog2:html_rv214_withlog2:html_rv193_withlog2:html_rv172_withlog2:html_rv197_withlog2:html_rv189_withlog2:html_rv180_withlog2:html_rv222_withlog2:html_rv231_withlog2:html_rv201_withlog2:html_rv210_withlog2:html_rv199_withlog2:html_rv178_withlog2:html_rv220_withlog2:html_mg165_withlog2:html_rv209_withlog2:html_rv230_withlog2:html_rv188_withlog2:html_rv179_withlog2:html_rv176_withlog2:html_rv218_withlog2:html_rv200_withlog2:html_rv221_withlog2:html_rv177_withlog2:html_rv198_withlog2:html_rv219_withlog2:html_mg164_withlog2:html_mg151_withlog2:html_remove150_withlog2:html_remove149_withlog2:html_mg155_withlog2:html_remove148_withlog2:htmllitString70_withlog2:htmllitString40_withlog2:htmllitString72_withlog2:html_mg168_withlog2:html_mg159_withlog2:htmllitString71_withlog2:htmllitString39_withlog2:htmllitString65_withlog2:htmllitString46_withlog2:html_add140_withlog2:html_add132_withlog2:html_add141_withlog2:html_add133_withlog2:html_add142_withlog2:html_add134_withlog2:html_add143_withlog2:html_add135_withlog2:html_add144_withlog2:html_add136_withlog2:html_add145_withlog2:html_add137_withlog2:html_add146_withlog2:html_add138_withlog2:html_add147_withlog2:html_add139_withlog2:htmllitString30_withlog2:htmllitString62_withlog2:htmllitString94_withlog2:htmllitString48_withlog2:htmllitString32_withlog2:htmllitString57_withlog2:htmllitString24_withlog2:htmllitString64_withlog2:htmllitString96_withlog2:html_mg157_withlog2:htmllitString102_withlog2:htmllitString86_withlog2:htmllitString78_withlog2:htmllitString47_withlog2:htmllitString104_withlog2:htmllitString54_withlog2:htmllitString31_withlog2:htmllitString8_withlog2:htmllitString23_withlog2:htmllitString110_withlog2:htmllitString63_withlog2:htmllitString126_withlog2:htmllitString95_withlog2:htmllitString80_withlog2:htmllitString88_withlog2:htmllitString118_withlog2:htmllitString14_withlog2:htmllitString56_withlog2:htmllitString112_withlog2:htmllitString128_withlog2:htmllitString25_withlog2:htmllitString120_withlog2:htmllitString16_withlog2:htmllitString17_withlog2:htmllitString37_withlog2:htmllitString21_withlog2:htmllitString103_withlog2:htmllitString93_withlog2:htmllitString61_withlog2:htmllitString4_withlog2:htmllitString7_withlog2:htmllitString69_withlog2:htmllitString85_withlog2:htmllitString29_withlog2:htmllitString87_withlog2:htmllitString79_withlog2:htmllitString28_withlog2:htmllitString52_withlog2:htmllitString44_withlog2:htmllitString60_withlog2:htmllitString20_withlog2:htmllitString55_withlog2:htmllitString84_withlog2:htmllitString76_withlog2:htmllitString92_withlog2:htmllitString68_withlog2:htmllitString111_withlog2:htmllitString36_withlog2:htmllitString73_withlog2:htmllitString127_withlog2:htmllitString45_withlog2:htmllitString109_withlog2:htmllitString124_withlog2:htmllitString116_withlog2:htmllitString108_withlog2:htmllitString98_withlog2:htmllitString119_withlog2:htmllitString100_withlog2:htmllitString77_withlog2:htmllitString82_withlog2:htmllitString105_withlog2:htmllitString90_withlog2:htmllitString15_withlog2:htmllitString5_withlog2:htmllitString12_withlog2:htmllitString42_withlog2:htmllitString101_withlog2:htmllitString117_withlog2:htmllitString10_withlog2:htmllitString2_withlog2:htmllitString41_withlog2:htmllitString18_withlog2:htmllitString66_withlog2:htmllitString53_withlog2:htmllitString49_withlog2:htmllitString3_withlog2:htmllitString74_withlog2:htmllitString26_withlog2:htmllitString34_withlog2:htmllitString50_withlog2:htmllitString33_withlog2:htmllitString58_withlog2:htmllitString121_withlog2:htmllitString9_withlog2:htmllitString113_withlog2:htmllitString13_withlog2:htmllitString125_withlog2:htmllitString122_withlog2:htmllitString51_withlog2:htmllitString83_withlog2:htmllitString75_withlog2:htmllitString19_withlog2:htmllitString35_withlog2:htmllitString43_withlog2:htmllitString106_withlog2:htmllitString67_withlog2:htmllitString11_withlog2:htmllitString99_withlog2:htmllitString91_withlog2:htmllitString114_withlog2:htmllitString97_withlog2:htmllitString59_withlog2:htmllitString27_withlog2:htmllitString107_withlog2:html_mg167_withlog2:htmllitString1_withlog2:htmllitString115_withlog2:htmllitString123_withlog2:html_mg161_withlog2:html_mg169_withlog2:html_mg153_withlog2:htmllitString89_withlog2:html_rv226_withlog2:html_rv184_withlog2:html_rv205_withlog2:htmllitString81_withlog2:html_mg152_withlog2:html_mg158_withlog2:html_rv225_withlog2:html_rv183_withlog2:html_rv204_withlog2
+File saved to the following path: /tmp/dspot-experiments/dataset/jsoup/target/dspot/observations.ser
+File saved to the following path: /tmp/dspot-experiments/dataset/jsoup/target/dspot/TestListener.ser
+2018-08-07 19:16:26,470 INFO eu.stamp_project.testrunner.EntryPoint - Test has been run: html_add139_withlog0,html_add139_withlog1,html_add139_withlog2,html_rv183_withlog0,html_rv183_withlog1,html_rv183_withlog2,htmllitString120_withlog0,htmllitString120_withlog1,htmllitString120_withlog2,htmllitString80_withlog0,htmllitString80_withlog1,htmllitString80_withlog2,htmllitString32_withlog0,htmllitString32_withlog1,htmllitString32_withlog2,htmllitString119_withlog0,htmllitString119_withlog1,htmllitString119_withlog2,htmllitString79_withlog0,htmllitString79_withlog1,htmllitString79_withlog2,htmllitString55_withlog0,htmllitString55_withlog1,htmllitString55_withlog2,html_add138_withlog0,html_add138_withlog1,html_add138_withlog2,htmllitString31_withlog0,htmllitString31_withlog1,htmllitString31_withlog2,htmllitString118_withlog0,htmllitString118_withlog1,htmllitString118_withlog2,htmllitString78_withlog0,htmllitString78_withlog1,htmllitString78_withlog2,htmllitString54_withlog0,htmllitString54_withlog1,htmllitString54_withlog2,html_add137_withlog0,html_add137_withlog1,html_add137_withlog2,htmllitString30_withlog0,htmllitString30_withlog1,htmllitString30_withlog2,html_rv210_withlog0,html_rv210_withlog1,html_rv210_withlog2,htmllitString117_withlog0,htmllitString117_withlog1,htmllitString117_withlog2,htmllitString77_withlog0,htmllitString77_withlog1,htmllitString77_withlog2,htmllitString29_withlog0,htmllitString29_withlog1,htmllitString29_withlog2,html_rv209_withlog0,html_rv209_withlog1,html_rv209_withlog2,htmllitString53_withlog0,htmllitString53_withlog1,htmllitString53_withlog2,html_add136_withlog0,html_add136_withlog1,html_add136_withlog2,html_rv180_withlog0,html_rv180_withlog1,html_rv180_withlog2,html_rv179_withlog0,html_rv179_withlog1,html_rv179_withlog2,htmllitString116_withlog0,htmllitString116_withlog1,htmllitString116_withlog2,htmllitString76_withlog0,htmllitString76_withlog1,htmllitString76_withlog2,htmllitString28_withlog0,htmllitString28_withlog1,htmllitString28_withlog2,html_rv208_withlog0,html_rv208_withlog1,html_rv208_withlog2,htmllitString52_withlog0,htmllitString52_withlog1,htmllitString52_withlog2,html_mg169_withlog0,html_mg169_withlog1,html_mg169_withlog2,html_add135_withlog0,html_add135_withlog1,html_add135_withlog2,html_rv178_withlog0,html_rv178_withlog1,html_rv178_withlog2,htmllitString115_withlog0,htmllitString115_withlog1,htmllitString115_withlog2,htmllitString75_withlog0,htmllitString75_withlog1,htmllitString75_withlog2,htmllitString27_withlog0,htmllitString27_withlog1,htmllitString27_withlog2,html_rv207_withlog0,html_rv207_withlog1,html_rv207_withlog2,htmllitString51_withlog0,htmllitString51_withlog1,htmllitString51_withlog2,html_rv231_withlog0,html_rv231_withlog1,html_rv231_withlog2,html_mg168_withlog0,html_mg168_withlog1,html_mg168_withlog2,html_add134_withlog0,html_add134_withlog1,html_add134_withlog2,html_rv177_withlog0,html_rv177_withlog1,html_rv177_withlog2,htmllitString114_withlog0,htmllitString114_withlog1,htmllitString114_withlog2,htmllitString74_withlog0,htmllitString74_withlog1,htmllitString74_withlog2,htmllitString26_withlog0,htmllitString26_withlog1,htmllitString26_withlog2,html_rv206_withlog0,html_rv206_withlog1,html_rv206_withlog2,htmllitString50_withlog0,htmllitString50_withlog1,htmllitString50_withlog2,html_rv230_withlog0,html_rv230_withlog1,html_rv230_withlog2,htmllitString49_withlog0,htmllitString49_withlog1,htmllitString49_withlog2,html_rv229_withlog0,html_rv229_withlog1,html_rv229_withlog2,html_mg167_withlog0,html_mg167_withlog1,html_mg167_withlog2,html_add133_withlog0,html_add133_withlog1,html_add133_withlog2,htmllitString9_withlog0,htmllitString9_withlog1,htmllitString9_withlog2,html_rv176_withlog0,html_rv176_withlog1,html_rv176_withlog2,htmllitString113_withlog0,htmllitString113_withlog1,htmllitString113_withlog2,htmllitString73_withlog0,htmllitString73_withlog1,htmllitString73_withlog2,htmllitString25_withlog0,htmllitString25_withlog1,htmllitString25_withlog2,html_rv205_withlog0,html_rv205_withlog1,html_rv205_withlog2,html_rv199_withlog0,html_rv199_withlog1,html_rv199_withlog2,htmllitString96_withlog0,htmllitString96_withlog1,htmllitString96_withlog2,htmllitString48_withlog0,htmllitString48_withlog1,htmllitString48_withlog2,html_rv228_withlog0,html_rv228_withlog1,html_rv228_withlog2,html_mg166_withlog0,html_mg166_withlog1,html_mg166_withlog2,html_add132_withlog0,html_add132_withlog1,html_add132_withlog2,htmllitString8_withlog0,htmllitString8_withlog1,htmllitString8_withlog2,htmllitString112_withlog0,htmllitString112_withlog1,htmllitString112_withlog2,htmllitString72_withlog0,htmllitString72_withlog1,htmllitString72_withlog2,htmllitString24_withlog0,htmllitString24_withlog1,htmllitString24_withlog2,html_rv204_withlog0,html_rv204_withlog1,html_rv204_withlog2,html_rv198_withlog0,html_rv198_withlog1,html_rv198_withlog2,htmllitString95_withlog0,htmllitString95_withlog1,htmllitString95_withlog2,htmllitString47_withlog0,htmllitString47_withlog1,htmllitString47_withlog2,html_rv227_withlog0,html_rv227_withlog1,html_rv227_withlog2,html_mg165_withlog0,html_mg165_withlog1,html_mg165_withlog2,htmllitString7_withlog0,htmllitString7_withlog1,htmllitString7_withlog2,htmllitString111_withlog0,htmllitString111_withlog1,htmllitString111_withlog2,htmllitString71_withlog0,htmllitString71_withlog1,htmllitString71_withlog2,htmllitString23_withlog0,htmllitString23_withlog1,htmllitString23_withlog2,html_rv197_withlog0,html_rv197_withlog1,html_rv197_withlog2,htmllitString94_withlog0,htmllitString94_withlog1,htmllitString94_withlog2,htmllitString46_withlog0,htmllitString46_withlog1,htmllitString46_withlog2,html_rv226_withlog0,html_rv226_withlog1,html_rv226_withlog2,html_mg164_withlog0,html_mg164_withlog1,html_mg164_withlog2,htmllitString110_withlog0,htmllitString110_withlog1,htmllitString110_withlog2,htmllitString70_withlog0,htmllitString70_withlog1,htmllitString70_withlog2,htmllitString109_withlog0,htmllitString109_withlog1,htmllitString109_withlog2,htmllitString69_withlog0,htmllitString69_withlog1,htmllitString69_withlog2,htmllitString93_withlog0,htmllitString93_withlog1,htmllitString93_withlog2,htmllitString45_withlog0,htmllitString45_withlog1,htmllitString45_withlog2,html_rv225_withlog0,html_rv225_withlog1,html_rv225_withlog2,htmllitString5_withlog0,htmllitString5_withlog1,htmllitString5_withlog2,html_rv172_withlog0,html_rv172_withlog1,html_rv172_withlog2,htmllitString21_withlog0,htmllitString21_withlog1,htmllitString21_withlog2,html_rv201_withlog0,html_rv201_withlog1,html_rv201_withlog2,htmllitString108_withlog0,htmllitString108_withlog1,htmllitString108_withlog2,htmllitString68_withlog0,htmllitString68_withlog1,htmllitString68_withlog2,html_remove149_withlog0,html_remove149_withlog1,html_remove149_withlog2,htmllitString92_withlog0,htmllitString92_withlog1,htmllitString92_withlog2,htmllitString44_withlog0,htmllitString44_withlog1,htmllitString44_withlog2,htmllitString4_withlog0,htmllitString4_withlog1,htmllitString4_withlog2,htmllitString20_withlog0,htmllitString20_withlog1,htmllitString20_withlog2,html_rv200_withlog0,html_rv200_withlog1,html_rv200_withlog2,htmllitString107_withlog0,htmllitString107_withlog1,htmllitString107_withlog2,htmllitString67_withlog0,htmllitString67_withlog1,htmllitString67_withlog2,htmllitString19_withlog0,htmllitString19_withlog1,htmllitString19_withlog2,html_remove148_withlog0,html_remove148_withlog1,html_remove148_withlog2,htmllitString91_withlog0,htmllitString91_withlog1,htmllitString91_withlog2,htmllitString43_withlog0,htmllitString43_withlog1,htmllitString43_withlog2,html_mg161_withlog0,html_mg161_withlog1,html_mg161_withlog2,htmllitString3_withlog0,htmllitString3_withlog1,htmllitString3_withlog2,htmllitString106_withlog0,htmllitString106_withlog1,htmllitString106_withlog2,htmllitString66_withlog0,htmllitString66_withlog1,htmllitString66_withlog2,htmllitString18_withlog0,htmllitString18_withlog1,htmllitString18_withlog2,html_rv193_withlog0,html_rv193_withlog1,html_rv193_withlog2,htmllitString90_withlog0,htmllitString90_withlog1,htmllitString90_withlog2,htmllitString42_withlog0,htmllitString42_withlog1,htmllitString42_withlog2,html_rv222_withlog0,html_rv222_withlog1,html_rv222_withlog2,htmllitString89_withlog0,htmllitString89_withlog1,htmllitString89_withlog2,html_mg159_withlog0,html_mg159_withlog1,html_mg159_withlog2,htmllitString2_withlog0,htmllitString2_withlog1,htmllitString2_withlog2,htmllitString105_withlog0,htmllitString105_withlog1,htmllitString105_withlog2,htmllitString65_withlog0,htmllitString65_withlog1,htmllitString65_withlog2,htmllitString17_withlog0,htmllitString17_withlog1,htmllitString17_withlog2,htmllitString41_withlog0,htmllitString41_withlog1,htmllitString41_withlog2,html_rv221_withlog0,html_rv221_withlog1,html_rv221_withlog2,htmllitString128_withlog0,htmllitString128_withlog1,htmllitString128_withlog2,htmllitString88_withlog0,htmllitString88_withlog1,htmllitString88_withlog2,html_mg158_withlog0,html_mg158_withlog1,html_mg158_withlog2,htmllitString1_withlog0,htmllitString1_withlog1,htmllitString1_withlog2,htmllitString64_withlog0,htmllitString64_withlog1,htmllitString64_withlog2,htmllitString16_withlog0,htmllitString16_withlog1,htmllitString16_withlog2,html_add147_withlog0,html_add147_withlog1,html_add147_withlog2,html_rv220_withlog0,html_rv220_withlog1,html_rv220_withlog2,htmllitString127_withlog0,htmllitString127_withlog1,htmllitString127_withlog2,htmllitString87_withlog0,htmllitString87_withlog1,htmllitString87_withlog2,html_rv219_withlog0,html_rv219_withlog1,html_rv219_withlog2,html_mg157_withlog0,html_mg157_withlog1,html_mg157_withlog2,htmllitString63_withlog0,htmllitString63_withlog1,htmllitString63_withlog2,htmllitString15_withlog0,htmllitString15_withlog1,htmllitString15_withlog2,html_add146_withlog0,html_add146_withlog1,html_add146_withlog2,html_rv189_withlog0,html_rv189_withlog1,html_rv189_withlog2,htmllitString126_withlog0,htmllitString126_withlog1,htmllitString126_withlog2,htmllitString86_withlog0,htmllitString86_withlog1,htmllitString86_withlog2,html_rv218_withlog0,html_rv218_withlog1,html_rv218_withlog2,htmllitString62_withlog0,htmllitString62_withlog1,htmllitString62_withlog2,htmllitString14_withlog0,htmllitString14_withlog1,htmllitString14_withlog2,html_add145_withlog0,html_add145_withlog1,html_add145_withlog2,html_rv188_withlog0,html_rv188_withlog1,html_rv188_withlog2,htmllitString125_withlog0,htmllitString125_withlog1,htmllitString125_withlog2,htmllitString85_withlog0,htmllitString85_withlog1,htmllitString85_withlog2,html_mg155_withlog0,html_mg155_withlog1,html_mg155_withlog2,htmllitString61_withlog0,htmllitString61_withlog1,htmllitString61_withlog2,htmllitString13_withlog0,htmllitString13_withlog1,htmllitString13_withlog2,html_add144_withlog0,html_add144_withlog1,html_add144_withlog2,html_rv187_withlog0,html_rv187_withlog1,html_rv187_withlog2,htmllitString124_withlog0,htmllitString124_withlog1,htmllitString124_withlog2,htmllitString84_withlog0,htmllitString84_withlog1,htmllitString84_withlog2,htmllitString60_withlog0,htmllitString60_withlog1,htmllitString60_withlog2,htmllitString12_withlog0,htmllitString12_withlog1,htmllitString12_withlog2,htmllitString59_withlog0,htmllitString59_withlog1,htmllitString59_withlog2,html_add143_withlog0,html_add143_withlog1,html_add143_withlog2,html_rv186_withlog0,html_rv186_withlog1,html_rv186_withlog2,htmllitString123_withlog0,htmllitString123_withlog1,htmllitString123_withlog2,htmllitString83_withlog0,htmllitString83_withlog1,htmllitString83_withlog2,html_mg153_withlog0,html_mg153_withlog1,html_mg153_withlog2,htmllitString11_withlog0,htmllitString11_withlog1,htmllitString11_withlog2,htmllitString58_withlog0,htmllitString58_withlog1,htmllitString58_withlog2,html_add142_withlog0,html_add142_withlog1,html_add142_withlog2,html_rv185_withlog0,html_rv185_withlog1,html_rv185_withlog2,htmllitString122_withlog0,htmllitString122_withlog1,htmllitString122_withlog2,htmllitString82_withlog0,htmllitString82_withlog1,htmllitString82_withlog2,html_rv214_withlog0,html_rv214_withlog1,html_rv214_withlog2,html_mg152_withlog0,html_mg152_withlog1,html_mg152_withlog2,htmllitString10_withlog0,htmllitString10_withlog1,htmllitString10_withlog2,htmllitString57_withlog0,htmllitString57_withlog1,htmllitString57_withlog2,html_add141_withlog0,html_add141_withlog1,html_add141_withlog2,html_rv184_withlog0,html_rv184_withlog1,html_rv184_withlog2,htmllitString121_withlog0,htmllitString121_withlog1,htmllitString121_withlog2,htmllitString81_withlog0,htmllitString81_withlog1,htmllitString81_withlog2,htmllitString33_withlog0,htmllitString33_withlog1,htmllitString33_withlog2,html_mg151_withlog0,html_mg151_withlog1,html_mg151_withlog2,htmllitString56_withlog0,htmllitString56_withlog1,htmllitString56_withlog2,html_add140_withlog0,html_add140_withlog1,html_add140_withlog2,htmllitString99_withlog0(org.jsoup.nodes.AttributesTest): null,htmllitString99_withlog1(org.jsoup.nodes.AttributesTest): null,htmllitString99_withlog2(org.jsoup.nodes.AttributesTest): null,htmllitString98_withlog0(org.jsoup.nodes.AttributesTest): null,htmllitString98_withlog1(org.jsoup.nodes.AttributesTest): null,htmllitString98_withlog2(org.jsoup.nodes.AttributesTest): null,htmllitString97_withlog0(org.jsoup.nodes.AttributesTest): null,htmllitString97_withlog1(org.jsoup.nodes.AttributesTest): null,htmllitString97_withlog2(org.jsoup.nodes.AttributesTest): null,html_remove150_withlog0(org.jsoup.nodes.AttributesTest): null,html_remove150_withlog1(org.jsoup.nodes.AttributesTest): null,html_remove150_withlog2(org.jsoup.nodes.AttributesTest): null,htmllitString104_withlog0(org.jsoup.nodes.AttributesTest): null,htmllitString104_withlog1(org.jsoup.nodes.AttributesTest): null,htmllitString104_withlog2(org.jsoup.nodes.AttributesTest): null,htmllitString40_withlog0(org.jsoup.nodes.AttributesTest): null,htmllitString40_withlog1(org.jsoup.nodes.AttributesTest): null,htmllitString40_withlog2(org.jsoup.nodes.AttributesTest): null,htmllitString39_withlog0(org.jsoup.nodes.AttributesTest): null,htmllitString39_withlog1(org.jsoup.nodes.AttributesTest): null,htmllitString39_withlog2(org.jsoup.nodes.AttributesTest): null,htmllitString103_withlog0(org.jsoup.nodes.AttributesTest): null,htmllitString103_withlog1(org.jsoup.nodes.AttributesTest): null,htmllitString103_withlog2(org.jsoup.nodes.AttributesTest): null,htmllitString102_withlog0(org.jsoup.nodes.AttributesTest): null,htmllitString102_withlog1(org.jsoup.nodes.AttributesTest): null,htmllitString102_withlog2(org.jsoup.nodes.AttributesTest): null,htmllitString37_withlog0(org.jsoup.nodes.AttributesTest): null,htmllitString37_withlog1(org.jsoup.nodes.AttributesTest): null,htmllitString37_withlog2(org.jsoup.nodes.AttributesTest): null,htmllitString101_withlog0(org.jsoup.nodes.AttributesTest): null,htmllitString101_withlog1(org.jsoup.nodes.AttributesTest): null,htmllitString101_withlog2(org.jsoup.nodes.AttributesTest): null,htmllitString36_withlog0(org.jsoup.nodes.AttributesTest): null,htmllitString36_withlog1(org.jsoup.nodes.AttributesTest): null,htmllitString36_withlog2(org.jsoup.nodes.AttributesTest): null,htmllitString100_withlog0(org.jsoup.nodes.AttributesTest): null,htmllitString100_withlog1(org.jsoup.nodes.AttributesTest): null,htmllitString100_withlog2(org.jsoup.nodes.AttributesTest): null,htmllitString35_withlog0(org.jsoup.nodes.AttributesTest): null,htmllitString35_withlog1(org.jsoup.nodes.AttributesTest): null,htmllitString35_withlog2(org.jsoup.nodes.AttributesTest): null,htmllitString34_withlog0(org.jsoup.nodes.AttributesTest): null,htmllitString34_withlog1(org.jsoup.nodes.AttributesTest): null,htmllitString34_withlog2(org.jsoup.nodes.AttributesTest): null
+2018-08-07 19:16:26,470 WARN eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator - Some instrumented test failed!
+2018-08-07 19:16:26,631 INFO eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator - Generating assertions...
+Exception in thread "main" java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+	at java.lang.String.charAt(String.java:658)
+	at eu.stamp_project.dspot.assertgenerator.Translator.findMatchingIndex(Translator.java:137)
+	at eu.stamp_project.dspot.assertgenerator.Translator.buildInvocationFromString(Translator.java:80)
+	at eu.stamp_project.dspot.assertgenerator.Translator.buildInvocationFromString(Translator.java:59)
+	at eu.stamp_project.dspot.assertgenerator.Translator.translate(Translator.java:54)
+	at eu.stamp_project.dspot.assertgenerator.AssertBuilder.lambda$buildAssert$2(AssertBuilder.java:54)
+	at java.util.stream.ReduceOps$4ReducingSink.accept(ReduceOps.java:220)
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:175)
+	at java.util.Iterator.forEachRemaining(Iterator.java:116)
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:510)
+	at eu.stamp_project.dspot.assertgenerator.AssertBuilder.buildAssert(AssertBuilder.java:51)
+	at eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator.buildTestWithAssert(MethodsAssertGenerator.java:143)
+	at eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator.lambda$addAssertions$4(MethodsAssertGenerator.java:123)
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1374)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator.addAssertions(MethodsAssertGenerator.java:124)
+	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.innerAssertionAmplification(AssertGenerator.java:122)
+	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.assertionAmplification(AssertGenerator.java:71)
+	at eu.stamp_project.dspot.Amplification.assertionsAmplification(Amplification.java:149)
+	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:134)
+	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:97)
+	at eu.stamp_project.dspot.DSpot.amplifyTest(DSpot.java:179)
+	at eu.stamp_project.dspot.DSpot.amplifyTest(DSpot.java:169)
+	at eu.stamp_project.Main.lambda$run$1(Main.java:69)
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+	at java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:948)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at eu.stamp_project.Main.run(Main.java:71)
+	at eu.stamp_project.Main.main(Main.java:40)

@@ -1,0 +1,84 @@
+2018-08-07 18:17:07,719 INFO eu.stamp_project.dspot.selector.PitMutantScoreSelector - The original test suite kill 7 / 17875
+2018-08-07 18:17:07,738 WARN eu.stamp_project.automaticbuilder.AutomaticBuilderFactory - automaticBuilderName: unknown automatic builder specified in configuration, going to default.
+2018-08-07 18:17:07,739 INFO eu.stamp_project.automaticbuilder.AutomaticBuilderFactory - Default: provided Maven automatic builder.
+2018-08-07 18:17:07,751 INFO eu.stamp_project.automaticbuilder.MavenAutomaticBuilder - run maven clean test -DskipTests dependency:build-classpath -Dmdep.outputFile=target/dspot/classpath
+[WARN] Maven will be executed in interactive mode, but no input stream has been configured for this MavenInvoker instance.
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Logback Core Module 1.3.0-alpha5-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.0.0:clean (default-clean) @ logback-core ---
+[INFO] Deleting /tmp/dspot-experiments/dataset/logback/logback-core/target
+[INFO] 
+[INFO] --- maven-toolchains-plugin:1.1:toolchain (toolchain) @ logback-core ---
+[INFO] Required toolchain: jdk [ version='1.8' ]
+[INFO] Found matching toolchain for type jdk: JDK[/home/spirals/danglot/jdk-9/]
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:resources (default-resources) @ logback-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /tmp/dspot-experiments/dataset/logback/logback-core/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ logback-core ---
+[INFO] Toolchain in maven-compiler-plugin: JDK[/home/spirals/danglot/jdk-9/]
+[WARNING] ********************************************************************************************************************
+[WARNING] * Required filename-based automodules detected. Please don't publish this project to a public artifact repository! *
+[WARNING] ********************************************************************************************************************
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 332 source files to /tmp/dspot-experiments/dataset/logback/logback-core/target/classes
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (base-compile) @ logback-core ---
+[INFO] Toolchain in maven-compiler-plugin: JDK[/home/spirals/danglot/jdk-9/]
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 331 source files to /tmp/dspot-experiments/dataset/logback/logback-core/target/classes
+[INFO] 
+[INFO] --- maven-bundle-plugin:3.3.0:manifest (bundle-manifest) @ logback-core ---
+[WARNING] Manifest ch.qos.logback:logback-core:jar:1.3.0-alpha5-SNAPSHOT : Exception: java.lang.ArrayIndexOutOfBoundsException: 19
+[WARNING] Manifest ch.qos.logback:logback-core:jar:1.3.0-alpha5-SNAPSHOT : Invalid class file module-info.class (java.lang.ArrayIndexOutOfBoundsException: 19)
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:testResources (default-testResources) @ logback-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 9 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ logback-core ---
+[INFO] Toolchain in maven-compiler-plugin: JDK[/home/spirals/danglot/jdk-9/]
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 227 source files to /tmp/dspot-experiments/dataset/logback/logback-core/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ logback-core ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.10:build-classpath (default-cli) @ logback-core ---
+[INFO] Wrote classpath file '/tmp/dspot-experiments/dataset/logback/logback-core/target/dspot/classpath'.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 17.944 s
+[INFO] Finished at: 2018-08-07T18:17:27+02:00
+[INFO] Final Memory: 28M/367M
+[INFO] ------------------------------------------------------------------------
+Exception in thread "main" java.lang.NullPointerException
+	at spoon.support.compiler.jdt.JDTTreeBuilderQuery.searchTypeBinding(JDTTreeBuilderQuery.java:85)
+	at spoon.support.compiler.jdt.ReferenceBuilder.getQualifiedTypeReference(ReferenceBuilder.java:282)
+	at spoon.support.compiler.jdt.JDTTreeBuilderHelper.createTypeAccess(JDTTreeBuilderHelper.java:468)
+	at spoon.support.compiler.jdt.JDTTreeBuilderHelper.createTargetFieldAccess(JDTTreeBuilderHelper.java:568)
+	at spoon.support.compiler.jdt.JDTTreeBuilderHelper.createVariableAccess(JDTTreeBuilderHelper.java:301)
+	at spoon.support.compiler.jdt.JDTTreeBuilder.visit(JDTTreeBuilder.java:1351)
+	at org.eclipse.jdt.internal.compiler.ast.QualifiedNameReference.traverse(QualifiedNameReference.java:1134)
+	at org.eclipse.jdt.internal.compiler.ast.Assignment.traverse(Assignment.java:262)
+	at org.eclipse.jdt.internal.compiler.ast.MethodDeclaration.traverse(MethodDeclaration.java:355)
+	at org.eclipse.jdt.internal.compiler.ast.TypeDeclaration.traverse(TypeDeclaration.java:1390)
+	at org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration.traverse(CompilationUnitDeclaration.java:783)
+	at org.eclipse.jdt.internal.compiler.ast.CompilationUnitDeclaration.traverse(CompilationUnitDeclaration.java:744)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.buildModel(JDTBasedSpoonCompiler.java:477)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.buildUnitsAndModel(JDTBasedSpoonCompiler.java:392)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.buildSources(JDTBasedSpoonCompiler.java:341)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:130)
+	at spoon.support.compiler.jdt.JDTBasedSpoonCompiler.build(JDTBasedSpoonCompiler.java:113)
+	at spoon.Launcher.buildModel(Launcher.java:768)
+	at eu.stamp_project.utils.compilation.DSpotCompiler.getSpoonModelOf(DSpotCompiler.java:104)
+	at eu.stamp_project.utils.compilation.DSpotCompiler.createDSpotCompiler(DSpotCompiler.java:37)
+	at eu.stamp_project.dspot.DSpot.<init>(DSpot.java:88)
+	at eu.stamp_project.Main.run(Main.java:49)
+	at eu.stamp_project.Main.main(Main.java:40)
