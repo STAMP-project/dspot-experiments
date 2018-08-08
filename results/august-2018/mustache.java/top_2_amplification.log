@@ -1,0 +1,12 @@
+Exception in thread "main" java.lang.RuntimeException: java.io.FileNotFoundException: /tmp/dspot-experiments/dataset/august-2018/mustache.java/top_2/201808071822/mutations.csv (No such file or directory)
+	at eu.stamp_project.mutant.pit.PitResultParser.parse(PitResultParser.java:76)
+	at eu.stamp_project.dspot.selector.PitMutantScoreSelector.<init>(PitMutantScoreSelector.java:51)
+	at eu.stamp_project.options.JSAPOptions.parse(JSAPOptions.java:54)
+	at eu.stamp_project.Main.main(Main.java:36)
+Caused by: java.io.FileNotFoundException: /tmp/dspot-experiments/dataset/august-2018/mustache.java/top_2/201808071822/mutations.csv (No such file or directory)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at java.io.FileReader.<init>(FileReader.java:72)
+	at eu.stamp_project.mutant.pit.PitResultParser.parse(PitResultParser.java:43)
+	... 3 more
