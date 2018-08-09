@@ -46,12 +46,15 @@ def set_output_log_path(path):
 
 def get_amplified_name(test_class_name):
     splitted_name = test_class_name.split(".")
-    return ".".join(splitted_name[:-1]) + "." + \
-           (
-               "Ampl" + splitted_name[-1]
-               if splitted_name[-1].endswith("Test")
-               else splitted_name[-1] + "Ampl"
-           )
+    if test_class_name == "com.squareup.javapoet.TypeNameTest":
+        return "com.squareup.javapoet.TypeNameTest"
+    else:
+        return ".".join(splitted_name[:-1]) + "." + \
+               (
+                   "Ampl" + splitted_name[-1]
+                   if splitted_name[-1].endswith("Test")
+                   else splitted_name[-1] + "Ampl"
+               )
 
 
 def get_path_to_amplified_test_class(class_kind, test_class_name, project):
@@ -64,6 +67,10 @@ def copy_amplified_test_class(class_kind, test_class_name, project):
     test_folder = load_properties(project)[key_test_source]
     path_to_amplified_test_class = get_path_to_amplified_test_class(class_kind, test_class_name, project)
     path_to_test_src_folder = prefix_dataset + project + "/" + module + test_folder + "/"
+    if test_class_name == "com.squareup.javapoet.TypeNameTest":
+        print_and_call(
+            ["rm", "-f", path_to_test_src_folder + test_class_name.replace(".", "/") + ".java"]
+        )    
     print_and_call(
         ["cp", path_to_amplified_test_class, path_to_test_src_folder]
     )
