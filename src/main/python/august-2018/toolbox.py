@@ -47,7 +47,7 @@ def set_output_log_path(path):
 def get_amplified_name(test_class_name):
     splitted_name = test_class_name.split(".")
     if test_class_name == "com.squareup.javapoet.TypeNameTest":
-        return com.squareup.javapoet.TypeNameTest
+        return "com.squareup.javapoet.TypeNameTest"
     else:
         return ".".join(splitted_name[:-1]) + "." + \
                (
