@@ -40,7 +40,7 @@ def delete_if_exists(path):
 def set_output_log_path(path):
     global output_log_path
     if os.path.isfile(path):
-        print_and_call(["rm", "-rf", path])
+        print_and_call(["rm", "-rf", get_absolute_path(path)])
     output_log_path = path
 
 
