@@ -67,6 +67,10 @@ def copy_amplified_test_class(class_kind, test_class_name, project):
     test_folder = load_properties(project)[key_test_source]
     path_to_amplified_test_class = get_path_to_amplified_test_class(class_kind, test_class_name, project)
     path_to_test_src_folder = prefix_dataset + project + "/" + module + test_folder + "/"
+    if test_class_name == "com.squareup.javapoet.TypeNameTest":
+        print_and_call(
+            ["rm", "-f", path_to_test_src_folder + test_class_name.replace(".", "/") + ".java"]
+        )    
     print_and_call(
         ["cp", path_to_amplified_test_class, path_to_test_src_folder]
     )
