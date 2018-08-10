@@ -1,0 +1,365 @@
+{
+  "nbMutantKilledOriginally": 57,
+  "name": "com.github.mustachejava.resolver.ClasspathResolverTest",
+  "nbOriginalTestCases": 10,
+  "testCases": [
+    {
+      "name": "getReaderWithRootAndResourceHasAbsolutePathlitString10748litString10841_failAssert159",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 59,
+          "locationMethod": "concatResourceRootAndResourceName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 59,
+          "locationMethod": "concatResourceRootAndResourceName"
+        }
+      ]
+    },
+    {
+      "name": "getReaderWithRootAndResourceHasRelativePath_mg17901_failAssert239",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 62,
+          "locationMethod": "concatResourceRootAndResourceName"
+        }
+      ]
+    },
+    {
+      "name": "getReaderWithRootAndResourceHasRelativePath_add17899litString17978_failAssert248",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 62,
+          "locationMethod": "concatResourceRootAndResourceName"
+        }
+      ]
+    },
+    {
+      "name": "getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePathlitString22590_failAssert283",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 62,
+          "locationMethod": "concatResourceRootAndResourceName"
+        }
+      ]
+    },
+    {
+      "name": "getReaderWithRootAndResourceHasDotRelativePath_mg13188_failAssert184",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 62,
+          "locationMethod": "concatResourceRootAndResourceName"
+        }
+      ]
+    },
+    {
+      "name": "getReaderWithRootAndResourceHasAbsolutePath_add10766litString10917_failAssert177",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 62,
+          "locationMethod": "concatResourceRootAndResourceName"
+        }
+      ]
+    },
+    {
+      "name": "getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePathlitString20283_failAssert259",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 59,
+          "locationMethod": "concatResourceRootAndResourceName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 59,
+          "locationMethod": "concatResourceRootAndResourceName"
+        }
+      ]
+    },
+    {
+      "name": "getReaderWithRootAndResourceHasAbsolutePathlitString10752_failAssert153",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 60,
+          "locationMethod": "concatResourceRootAndResourceName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 59,
+          "locationMethod": "concatResourceRootAndResourceName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 59,
+          "locationMethod": "concatResourceRootAndResourceName"
+        }
+      ]
+    },
+    {
+      "name": "getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePath_mg20296_failAssert263",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 60,
+          "locationMethod": "concatResourceRootAndResourceName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 59,
+          "locationMethod": "concatResourceRootAndResourceName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 59,
+          "locationMethod": "concatResourceRootAndResourceName"
+        }
+      ]
+    },
+    {
+      "name": "getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePath_add20294litString20419_failAssert275",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 60,
+          "locationMethod": "concatResourceRootAndResourceName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 59,
+          "locationMethod": "concatResourceRootAndResourceName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 59,
+          "locationMethod": "concatResourceRootAndResourceName"
+        }
+      ]
+    },
+    {
+      "name": "getReaderWithRootAndResourceHasDoubleDotRelativePathlitString15527_failAssert207",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 62,
+          "locationMethod": "concatResourceRootAndResourceName"
+        }
+      ]
+    },
+    {
+      "name": "getReaderWithRootAndResourceHasAbsolutePathlitString10760_failAssert156",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 62,
+          "locationMethod": "concatResourceRootAndResourceName"
+        }
+      ]
+    },
+    {
+      "name": "getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePath_add22602litString22701_failAssert295",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 60,
+          "locationMethod": "concatResourceRootAndResourceName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 59,
+          "locationMethod": "concatResourceRootAndResourceName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 59,
+          "locationMethod": "concatResourceRootAndResourceName"
+        }
+      ]
+    },
+    {
+      "name": "getReaderWithRootAndResourceHasDoubleDotRelativePath_add15538litString15688_failAssert221",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 62,
+          "locationMethod": "concatResourceRootAndResourceName"
+        }
+      ]
+    },
+    {
+      "name": "getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePath_mg20296_failAssert263litString20445",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 4,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 62,
+          "locationMethod": "concatResourceRootAndResourceName"
+        }
+      ]
+    },
+    {
+      "name": "getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePath_add20295litString20366_failAssert277",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 59,
+          "locationMethod": "concatResourceRootAndResourceName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 59,
+          "locationMethod": "concatResourceRootAndResourceName"
+        }
+      ]
+    },
+    {
+      "name": "getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePath_add22604litString22670_failAssert305litString23432_failAssert314",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 60,
+          "locationMethod": "concatResourceRootAndResourceName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 59,
+          "locationMethod": "concatResourceRootAndResourceName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 59,
+          "locationMethod": "concatResourceRootAndResourceName"
+        }
+      ]
+    },
+    {
+      "name": "getReaderWithRootAndResourceHasAbsolutePath_add10766litString10906_failAssert176",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 60,
+          "locationMethod": "concatResourceRootAndResourceName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 59,
+          "locationMethod": "concatResourceRootAndResourceName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 59,
+          "locationMethod": "concatResourceRootAndResourceName"
+        }
+      ]
+    },
+    {
+      "name": "getReaderWithRootAndResourceHasDotRelativePath_add13185litString13263_failAssert189",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 62,
+          "locationMethod": "concatResourceRootAndResourceName"
+        }
+      ]
+    },
+    {
+      "name": "getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePath_add22603litString22690_failAssert299",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 62,
+          "locationMethod": "concatResourceRootAndResourceName"
+        }
+      ]
+    },
+    {
+      "name": "getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePathlitString22598_failAssert286",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 60,
+          "locationMethod": "concatResourceRootAndResourceName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 59,
+          "locationMethod": "concatResourceRootAndResourceName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 59,
+          "locationMethod": "concatResourceRootAndResourceName"
+        }
+      ]
+    }
+  ]
+}
