@@ -44,7 +44,7 @@ def set_output_log_path(path):
         print_and_call(["rm", "-rf", get_absolute_path(path)])
     output_log_path = path
 
-no_amplified_name_classes = ["com.squareup.javapoet.TypeNameTest", "org.jsoup.nodes.AttributesTest"]
+no_amplified_name_classes = ["com.squareup.javapoet.TypeNameTest"]
 
 def get_amplified_name(test_class_name):
     if test_class_name in no_amplified_name_classes:
