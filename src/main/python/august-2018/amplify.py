@@ -31,7 +31,7 @@ def run(project, classes=toolbox.keys_selected_classes):
              "--working-directory",
              "--output-path", path_to_output_for_class,
              "--iteration", "3",
-	     "--budgetizer", "NoBudgetizer",
+	         "--budgetizer", "NoBudgetizer",
              "--amplifiers",
              "StringLiteralAmplifier:NumberLiteralAmplifier:CharLiteralAmplifier:BooleanLiteralAmplifier:MethodAdd:MethodRemove:MethodGeneratorAmplifier:ReturnValueAmplifier:NullifierAmplifier",
              "--test-criterion", "PitMutantScoreSelector",
@@ -39,7 +39,7 @@ def run(project, classes=toolbox.keys_selected_classes):
              "--test", selected_classes[current_class],
              "--maven-home", toolbox.maven_home
              ]
-        )
+        ) + ("" if not selected_classes[current_class] in toolbox.no_amplified_name_classes else "--generate-new-test-class")
         toolbox.print_and_call_in_a_file(cmd)
 
 
