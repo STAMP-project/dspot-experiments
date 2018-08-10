@@ -43,12 +43,13 @@ def set_output_log_path(path):
         print_and_call(["rm", "-rf", get_absolute_path(path)])
     output_log_path = path
 
+no_amplified_name_classes = ["com.squareup.javapoet.TypeNameTest", "org.jsoup.nodes.AttributesTest"]
 
 def get_amplified_name(test_class_name):
-    splitted_name = test_class_name.split(".")
-    if test_class_name == "com.squareup.javapoet.TypeNameTest":
-        return "com.squareup.javapoet.TypeNameTest"
+    if test_class_name in no_amplified_name_classes:
+        return test_class_name
     else:
+        splitted_name = test_class_name.split(".")
         return ".".join(splitted_name[:-1]) + "." + \
                (
                    "Ampl" + splitted_name[-1]
