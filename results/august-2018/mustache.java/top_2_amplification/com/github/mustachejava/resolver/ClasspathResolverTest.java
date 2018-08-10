@@ -25,28 +25,40 @@ public class ClasspathResolverTest {
     }
 
     @Test(timeout = 10000)
-    public void getReaderWithRootAndResourceHasRelativePath_mg17901_failAssert239() throws Exception {
+    public void getReaderWithRootAndResourceHasRelativePathlitString25909_failAssert256() throws Exception {
         try {
-            String __DSPOT_resourceName_1825 = "B;^9|HPsQwsV7EE+ju|P";
-            ClasspathResolver underTest = new ClasspathResolver("templates");
+            ClasspathResolver underTest = new ClasspathResolver("$[!:DItZ2");
             Reader reader = underTest.getReader("absolute_partials_template.html");
             Is.is(CoreMatchers.notNullValue());
-            underTest.getReader(__DSPOT_resourceName_1825);
-            org.junit.Assert.fail("getReaderWithRootAndResourceHasRelativePath_mg17901 should have thrown IllegalArgumentException");
+            org.junit.Assert.fail("getReaderWithRootAndResourceHasRelativePathlitString25909 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException expected) {
-            Assert.assertEquals("Illegal character in path at index 12: templates/B;^9|HPsQwsV7EE+ju|P", expected.getMessage());
+            Assert.assertEquals("Illegal character in scheme name at index 0: $[!:DItZ2/absolute_partials_template.html", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void getReaderWithRootAndResourceHasRelativePath_add17899litString17978_failAssert248() throws Exception {
+    public void getReaderWithRootAndResourceHasRelativePath_mg25924_failAssert261litString26121() throws Exception {
         try {
-            ClasspathResolver underTest = new ClasspathResolver(":");
+            String __DSPOT_resourceName_2184 = "z{@jsfXk>0ll2^YVKmK ";
+            ClasspathResolver underTest = new ClasspathResolver("templates/");
             Reader reader = underTest.getReader("absolute_partials_template.html");
-            Matcher<Object> o_getReaderWithRootAndResourceHasRelativePath_add17899__5 = Is.is(CoreMatchers.notNullValue());
-            org.junit.Assert.fail("getReaderWithRootAndResourceHasRelativePath_add17899litString17978 should have thrown IllegalArgumentException");
+            Matcher<Object> o_getReaderWithRootAndResourceHasRelativePath_mg25924_failAssert261litString26121__8 = Is.is(CoreMatchers.notNullValue());
+            Assert.assertEquals("is not null", ((Is) (o_getReaderWithRootAndResourceHasRelativePath_mg25924_failAssert261litString26121__8)).toString());
+            underTest.getReader(__DSPOT_resourceName_2184);
+            org.junit.Assert.fail("getReaderWithRootAndResourceHasRelativePath_mg25924 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException expected) {
-            Assert.assertEquals("Expected scheme name at index 0: :/absolute_partials_template.html", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void getReaderWithRootAndResourceHasRelativePathnull25930litString26044_failAssert283() throws Exception {
+        try {
+            ClasspathResolver underTest = new ClasspathResolver("templates");
+            Reader reader = underTest.getReader("\n");
+            Matcher<Object> o_getReaderWithRootAndResourceHasRelativePathnull25930__5 = Is.is(CoreMatchers.notNullValue());
+            org.junit.Assert.fail("getReaderWithRootAndResourceHasRelativePathnull25930litString26044 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException expected) {
+            Assert.assertEquals("Illegal character in path at index 10: templates/\n", expected.getMessage());
         }
     }
 
@@ -58,66 +70,72 @@ public class ClasspathResolverTest {
     }
 
     @Test(timeout = 10000)
-    public void getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePathlitString22590_failAssert283() throws Exception {
+    public void getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePathlitString32411_failAssert337() throws Exception {
         try {
-            ClasspathResolver underTest = new ClasspathResolver("TjYIC1jBY]");
+            ClasspathResolver underTest = new ClasspathResolver("{ YRgre{!1");
             Reader reader = underTest.getReader("absolute_partials_template.html");
             Is.is(CoreMatchers.notNullValue());
-            org.junit.Assert.fail("getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePathlitString22590 should have thrown IllegalArgumentException");
+            org.junit.Assert.fail("getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePathlitString32411 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException expected) {
-            Assert.assertEquals("Illegal character in path at index 9: TjYIC1jBY]/absolute_partials_template.html", expected.getMessage());
+            Assert.assertEquals("Illegal character in path at index 0: { YRgre{!1/absolute_partials_template.html", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePathlitString22598_failAssert286() throws Exception {
+    public void getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePath_mg32426_failAssert342() throws Exception {
         try {
+            String __DSPOT_resourceName_2483 = "p:>Sc^kiyW4UMe[sb5(;";
             ClasspathResolver underTest = new ClasspathResolver("templates/");
-            Reader reader = underTest.getReader("$t9IYS!0#p:d=f3ok!ywx1[? 8wik[Z");
-            Is.is(CoreMatchers.notNullValue());
-            org.junit.Assert.fail("getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePathlitString22598 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException expected) {
-            Assert.assertEquals("Illegal character in fragment at index 34: templates/$t9IYS!0#p:d=f3ok!ywx1[? 8wik[Z", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePath_add22602litString22701_failAssert295() throws Exception {
-        try {
-            ClasspathResolver underTest = new ClasspathResolver("templates/");
-            Reader reader = underTest.getReader("{(#`PF8D[-6H(+fibcev<N ?ISH[;AK");
-            Matcher<Object> o_getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePath_add22602__5 = Is.is(CoreMatchers.notNullValue());
-            org.junit.Assert.fail("getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePath_add22602litString22701 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException expected) {
-            Assert.assertEquals("Illegal character in path at index 10: templates/{(#`PF8D[-6H(+fibcev<N ?ISH[;AK", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePath_add22603litString22690_failAssert299() throws Exception {
-        try {
-            ClasspathResolver underTest = new ClasspathResolver("C]7WV0 NDf");
             Reader reader = underTest.getReader("absolute_partials_template.html");
-            Matcher<Object> o_getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePath_add22603__5 = Is.is(CoreMatchers.notNullValue());
-            org.junit.Assert.fail("getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePath_add22603litString22690 should have thrown IllegalArgumentException");
+            Is.is(CoreMatchers.notNullValue());
+            underTest.getReader(__DSPOT_resourceName_2483);
+            org.junit.Assert.fail("getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePath_mg32426 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException expected) {
-            Assert.assertEquals("Illegal character in path at index 1: C]7WV0 NDf/absolute_partials_template.html", expected.getMessage());
+            Assert.assertEquals("Illegal character in path at index 12: templates/p:>Sc^kiyW4UMe[sb5(;", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePath_add22604litString22670_failAssert305litString23432_failAssert314() throws Exception {
+    public void getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePath_mg32426_failAssert342_add32648() throws Exception {
         try {
-            try {
-                ClasspathResolver underTest = new ClasspathResolver("tem:lates/");
-                Reader reader = underTest.getReader("R3ZP(:eFe:.7CA1j*X`B^#;u_mMhfw&");
-                Matcher<Object> o_getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePath_add22604__5 = Is.is(CoreMatchers.notNullValue());
-                org.junit.Assert.fail("getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePath_add22604litString22670 should have thrown NullPointerException");
-            } catch (NullPointerException expected) {
-            }
-            org.junit.Assert.fail("getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePath_add22604litString22670_failAssert305litString23432 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException expected_1) {
-            Assert.assertEquals("Illegal character in opaque part at index 28: tem:lates/R3ZP(:eFe:.7CA1j*X`B^#;u_mMhfw&", expected_1.getMessage());
+            String __DSPOT_resourceName_2483 = "p:>Sc^kiyW4UMe[sb5(;";
+            ClasspathResolver underTest = new ClasspathResolver("templates/");
+            Reader reader = underTest.getReader("absolute_partials_template.html");
+            Matcher<Object> o_getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePath_mg32426_failAssert342_add32648__8 = Is.is(CoreMatchers.notNullValue());
+            Assert.assertEquals("is not null", ((Is) (o_getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePath_mg32426_failAssert342_add32648__8)).toString());
+            Matcher<Object> o_getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePath_mg32426_failAssert342_add32648__10 = Is.is(CoreMatchers.notNullValue());
+            Assert.assertEquals("is not null", ((Is) (o_getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePath_mg32426_failAssert342_add32648__10)).toString());
+            underTest.getReader(__DSPOT_resourceName_2483);
+            org.junit.Assert.fail("getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePath_mg32426 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePathlitString32415_mg32729_failAssert351() throws Exception {
+        try {
+            String __DSPOT_resourceName_2492 = "^v!E=&;ui45MYLi-YkPf";
+            ClasspathResolver underTest = new ClasspathResolver("templates/");
+            Reader reader = underTest.getReader("/absolute_partials_template.html");
+            Matcher<Object> o_getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePathlitString32415__5 = Is.is(CoreMatchers.notNullValue());
+            underTest.getReader(__DSPOT_resourceName_2492);
+            org.junit.Assert.fail("getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePathlitString32415_mg32729 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException expected) {
+            Assert.assertEquals("Illegal character in path at index 10: templates/^v!E=&;ui45MYLi-YkPf", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePath_mg32426_failAssert342litString32555() throws Exception {
+        try {
+            String __DSPOT_resourceName_2483 = "p:>Sc^kiyW4UMe[sb5(;";
+            ClasspathResolver underTest = new ClasspathResolver("templates");
+            Reader reader = underTest.getReader("absolute_partials_template.html");
+            Matcher<Object> o_getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePath_mg32426_failAssert342litString32555__8 = Is.is(CoreMatchers.notNullValue());
+            Assert.assertEquals("is not null", ((Is) (o_getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePath_mg32426_failAssert342litString32555__8)).toString());
+            underTest.getReader(__DSPOT_resourceName_2483);
+            org.junit.Assert.fail("getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePath_mg32426 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException expected) {
         }
     }
 
@@ -129,62 +147,38 @@ public class ClasspathResolverTest {
     }
 
     @Test(timeout = 10000)
-    public void getReaderWithRootAndResourceHasAbsolutePathlitString10760_failAssert156() throws Exception {
+    public void getReaderWithRootAndResourceHasAbsolutePathlitString15848_failAssert140() throws Exception {
         try {
-            ClasspathResolver underTest = new ClasspathResolver("templates");
-            Reader reader = underTest.getReader("m=IDd#]DEJgRN$t8KZ2_4#ctmefc (Bi");
-            Is.is(CoreMatchers.notNullValue());
-            org.junit.Assert.fail("getReaderWithRootAndResourceHasAbsolutePathlitString10760 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException expected) {
-            Assert.assertEquals("Illegal character in fragment at index 31: templates/m=IDd#]DEJgRN$t8KZ2_4#ctmefc (Bi", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void getReaderWithRootAndResourceHasAbsolutePathlitString10752_failAssert153() throws Exception {
-        try {
-            ClasspathResolver underTest = new ClasspathResolver("DQ#[^oJhj");
+            ClasspathResolver underTest = new ClasspathResolver("tem plates");
             Reader reader = underTest.getReader("/absolute_partials_template.html");
             Is.is(CoreMatchers.notNullValue());
-            org.junit.Assert.fail("getReaderWithRootAndResourceHasAbsolutePathlitString10752 should have thrown IllegalArgumentException");
+            org.junit.Assert.fail("getReaderWithRootAndResourceHasAbsolutePathlitString15848 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException expected) {
-            Assert.assertEquals("Illegal character in fragment at index 4: DQ#[^oJhj/absolute_partials_template.html", expected.getMessage());
+            Assert.assertEquals("Illegal character in path at index 3: tem plates/absolute_partials_template.html", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void getReaderWithRootAndResourceHasAbsolutePathlitString10748litString10841_failAssert159() throws Exception {
-        try {
-            ClasspathResolver underTest = new ClasspathResolver("templates/");
-            Reader reader = underTest.getReader("Z7_#({H[&h2[9f*<q`qaDpW?6[Ew:[O#");
-            Matcher<Object> o_getReaderWithRootAndResourceHasAbsolutePathlitString10748__5 = Is.is(CoreMatchers.notNullValue());
-            org.junit.Assert.fail("getReaderWithRootAndResourceHasAbsolutePathlitString10748litString10841 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException expected) {
-            Assert.assertEquals("Illegal character in fragment at index 15: templates/Z7_#({H[&h2[9f*<q`qaDpW?6[Ew:[O#", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void getReaderWithRootAndResourceHasAbsolutePath_add10766litString10917_failAssert177() throws Exception {
+    public void getReaderWithRootAndResourceHasAbsolutePathlitString15858_failAssert144() throws Exception {
         try {
             ClasspathResolver underTest = new ClasspathResolver("templates");
-            Reader reader = underTest.getReader(".T/Ag-uM;$U!(sd:kbrJl^(0o[6H4wQ*");
-            Matcher<Object> o_getReaderWithRootAndResourceHasAbsolutePath_add10766__5 = Is.is(CoreMatchers.notNullValue());
-            org.junit.Assert.fail("getReaderWithRootAndResourceHasAbsolutePath_add10766litString10917 should have thrown IllegalArgumentException");
+            Reader reader = underTest.getReader("wxqG[RqJK|<cIr! %)94(c4bz!$W7bX;");
+            Is.is(CoreMatchers.notNullValue());
+            org.junit.Assert.fail("getReaderWithRootAndResourceHasAbsolutePathlitString15858 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException expected) {
-            Assert.assertEquals("Illegal character in path at index 31: templates/.T/Ag-uM;$U!(sd:kbrJl^(0o[6H4wQ*", expected.getMessage());
+            Assert.assertEquals("Illegal character in path at index 14: templates/wxqG[RqJK|<cIr! %)94(c4bz!$W7bX;", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void getReaderWithRootAndResourceHasAbsolutePath_add10766litString10906_failAssert176() throws Exception {
+    public void getReaderWithRootAndResourceHasAbsolutePath_add15864litString16194_failAssert167() throws Exception {
         try {
-            ClasspathResolver underTest = new ClasspathResolver(":");
-            Reader reader = underTest.getReader("/absolute_partials_template.html");
-            Matcher<Object> o_getReaderWithRootAndResourceHasAbsolutePath_add10766__5 = Is.is(CoreMatchers.notNullValue());
-            org.junit.Assert.fail("getReaderWithRootAndResourceHasAbsolutePath_add10766litString10906 should have thrown IllegalArgumentException");
+            ClasspathResolver underTest = new ClasspathResolver("templates");
+            Reader reader = underTest.getReader("\n");
+            Matcher<Object> o_getReaderWithRootAndResourceHasAbsolutePath_add15864__5 = Is.is(CoreMatchers.notNullValue());
+            org.junit.Assert.fail("getReaderWithRootAndResourceHasAbsolutePath_add15864litString16194 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException expected) {
-            Assert.assertEquals("Expected scheme name at index 0: :/absolute_partials_template.html", expected.getMessage());
+            Assert.assertEquals("Illegal character in path at index 10: templates/\n", expected.getMessage());
         }
     }
 
@@ -196,66 +190,96 @@ public class ClasspathResolverTest {
     }
 
     @Test(timeout = 10000)
-    public void getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePathlitString20283_failAssert259() throws Exception {
+    public void getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePathlitString29652_failAssert294() throws Exception {
         try {
-            ClasspathResolver underTest = new ClasspathResolver("\n");
+            ClasspathResolver underTest = new ClasspathResolver("!{]{q!U;*K");
             Reader reader = underTest.getReader("/absolute_partials_template.html");
             Is.is(CoreMatchers.notNullValue());
-            org.junit.Assert.fail("getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePathlitString20283 should have thrown IllegalArgumentException");
+            org.junit.Assert.fail("getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePathlitString29652 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException expected) {
-            Assert.assertEquals("Illegal character in path at index 0: \n/absolute_partials_template.html", expected.getMessage());
+            Assert.assertEquals("Illegal character in path at index 1: !{]{q!U;*K/absolute_partials_template.html", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePath_mg20296_failAssert263() throws Exception {
+    public void getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePathlitString29658_failAssert297() throws Exception {
         try {
-            String __DSPOT_resourceName_1972 = "v}Yud=f$ott FH0>D43#";
             ClasspathResolver underTest = new ClasspathResolver("templates/");
-            Reader reader = underTest.getReader("/absolute_partials_template.html");
+            Reader reader = underTest.getReader("/absolute_pa>rtials_template.html");
             Is.is(CoreMatchers.notNullValue());
-            underTest.getReader(__DSPOT_resourceName_1972);
-            org.junit.Assert.fail("getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePath_mg20296 should have thrown IllegalArgumentException");
+            org.junit.Assert.fail("getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePathlitString29658 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException expected) {
-            Assert.assertEquals("Illegal character in path at index 11: templates/v}Yud=f$ott FH0>D43#", expected.getMessage());
+            Assert.assertEquals("Illegal character in path at index 21: templates/absolute_pa>rtials_template.html", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePath_mg20296_failAssert263litString20445() throws Exception {
-        try {
-            String __DSPOT_resourceName_1972 = "v}Yud=f$ott FH0>D43#";
-            ClasspathResolver underTest = new ClasspathResolver("templates");
-            Reader reader = underTest.getReader("/absolute_partials_template.html");
-            Matcher<Object> o_getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePath_mg20296_failAssert263litString20445__8 = Is.is(CoreMatchers.notNullValue());
-            Assert.assertEquals("is not null", ((Is) (o_getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePath_mg20296_failAssert263litString20445__8)).toString());
-            underTest.getReader(__DSPOT_resourceName_1972);
-            org.junit.Assert.fail("getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePath_mg20296 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException expected) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePath_add20295litString20366_failAssert277() throws Exception {
-        try {
-            ClasspathResolver underTest = new ClasspathResolver("FlV]o|xDn5");
-            Reader reader = underTest.getReader("/absolute_partials_template.html");
-            Matcher<Object> o_getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePath_add20295__5 = Is.is(CoreMatchers.notNullValue());
-            org.junit.Assert.fail("getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePath_add20295litString20366 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException expected) {
-            Assert.assertEquals("Illegal character in path at index 3: FlV]o|xDn5/absolute_partials_template.html", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePath_add20294litString20419_failAssert275() throws Exception {
+    public void getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePathlitString29662_failAssert299() throws Exception {
         try {
             ClasspathResolver underTest = new ClasspathResolver("templates/");
             Reader reader = underTest.getReader("\n");
-            Matcher<Object> o_getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePath_add20294__5 = Is.is(CoreMatchers.notNullValue());
-            org.junit.Assert.fail("getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePath_add20294litString20419 should have thrown IllegalArgumentException");
+            Is.is(CoreMatchers.notNullValue());
+            org.junit.Assert.fail("getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePathlitString29662 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException expected) {
             Assert.assertEquals("Illegal character in path at index 10: templates/\n", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePath_mg29667_rv29999_failAssert302() throws Exception {
+        try {
+            char[] __DSPOT_arg0_2388 = new char[]{ 'f', 'N', '2', '8' };
+            String __DSPOT_resourceName_2379 = "IOS5(cS638ZuPfM7o,qq";
+            ClasspathResolver underTest = new ClasspathResolver("templates/");
+            Reader reader = underTest.getReader("/absolute_partials_template.html");
+            Matcher<Object> o_getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePath_mg29667__6 = Is.is(CoreMatchers.notNullValue());
+            Reader __DSPOT_invoc_13 = underTest.getReader(__DSPOT_resourceName_2379);
+            __DSPOT_invoc_13.read(__DSPOT_arg0_2388);
+            org.junit.Assert.fail("getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePath_mg29667_rv29999 should have thrown NullPointerException");
+        } catch (NullPointerException expected) {
+            Assert.assertEquals(null, expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePathlitString29648_mg30140_failAssert310() throws Exception {
+        try {
+            String __DSPOT_resourceName_2396 = "!nJ)OQvx|W7(]H5<$0Fj";
+            ClasspathResolver underTest = new ClasspathResolver("templates");
+            Reader reader = underTest.getReader("/absolute_partials_template.html");
+            Matcher<Object> o_getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePathlitString29648__5 = Is.is(CoreMatchers.notNullValue());
+            underTest.getReader(__DSPOT_resourceName_2396);
+            org.junit.Assert.fail("getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePathlitString29648_mg30140 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException expected) {
+            Assert.assertEquals("Illegal character in path at index 18: templates/!nJ)OQvx|W7(]H5<$0Fj", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePath_mg29667litString29772_failAssert324() throws Exception {
+        try {
+            String __DSPOT_resourceName_2379 = "\n";
+            ClasspathResolver underTest = new ClasspathResolver("templates/");
+            Reader reader = underTest.getReader("/absolute_partials_template.html");
+            Matcher<Object> o_getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePath_mg29667__6 = Is.is(CoreMatchers.notNullValue());
+            underTest.getReader(__DSPOT_resourceName_2379);
+            org.junit.Assert.fail("getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePath_mg29667litString29772 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException expected) {
+            Assert.assertEquals("Illegal character in path at index 10: templates/\n", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePath_mg29667litString29786_failAssert311() throws Exception {
+        try {
+            String __DSPOT_resourceName_2379 = "IOS5(cS638ZuPfM7o,qq";
+            ClasspathResolver underTest = new ClasspathResolver("`s,((;u-z+");
+            Reader reader = underTest.getReader("/absolute_partials_template.html");
+            Matcher<Object> o_getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePath_mg29667__6 = Is.is(CoreMatchers.notNullValue());
+            underTest.getReader(__DSPOT_resourceName_2379);
+            org.junit.Assert.fail("getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePath_mg29667litString29786 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException expected) {
+            Assert.assertEquals("Illegal character in path at index 0: `s,((;u-z+/absolute_partials_template.html", expected.getMessage());
         }
     }
 
@@ -286,26 +310,29 @@ public class ClasspathResolverTest {
     }
 
     @Test(timeout = 10000)
-    public void getReaderWithRootAndResourceHasDoubleDotRelativePathlitString15527_failAssert207() throws Exception {
+    public void getReaderWithRootAndResourceHasDoubleDotRelativePathlitString22224_failAssert221() throws Exception {
         try {
             ClasspathResolver underTest = new ClasspathResolver("\n");
             Reader reader = underTest.getReader("absolute/../absolute_partials_template.html");
             Is.is(CoreMatchers.notNullValue());
-            org.junit.Assert.fail("getReaderWithRootAndResourceHasDoubleDotRelativePathlitString15527 should have thrown IllegalArgumentException");
+            org.junit.Assert.fail("getReaderWithRootAndResourceHasDoubleDotRelativePathlitString22224 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException expected) {
             Assert.assertEquals("Illegal character in path at index 0: \n/absolute/../absolute_partials_template.html", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void getReaderWithRootAndResourceHasDoubleDotRelativePath_add15538litString15688_failAssert221() throws Exception {
+    public void getReaderWithRootAndResourceHasDoubleDotRelativePath_mg22237_failAssert225_rv22559() throws Exception {
         try {
-            ClasspathResolver underTest = new ClasspathResolver("dsU_W`2,=");
+            String __DSPOT_resourceName_1990 = "Ek5X;&. glTk7XY]h:+#";
+            ClasspathResolver underTest = new ClasspathResolver("templates");
             Reader reader = underTest.getReader("absolute/../absolute_partials_template.html");
-            Matcher<Object> o_getReaderWithRootAndResourceHasDoubleDotRelativePath_add15538__5 = Is.is(CoreMatchers.notNullValue());
-            org.junit.Assert.fail("getReaderWithRootAndResourceHasDoubleDotRelativePath_add15538litString15688 should have thrown IllegalArgumentException");
+            Matcher<Object> o_getReaderWithRootAndResourceHasDoubleDotRelativePath_mg22237_failAssert225_rv22559__8 = Is.is(CoreMatchers.notNullValue());
+            Assert.assertEquals("is not null", ((Is) (o_getReaderWithRootAndResourceHasDoubleDotRelativePath_mg22237_failAssert225_rv22559__8)).toString());
+            Reader __DSPOT_invoc_10 = underTest.getReader(__DSPOT_resourceName_1990);
+            org.junit.Assert.fail("getReaderWithRootAndResourceHasDoubleDotRelativePath_mg22237 should have thrown IllegalArgumentException");
+            __DSPOT_invoc_10.markSupported();
         } catch (IllegalArgumentException expected) {
-            Assert.assertEquals("Illegal character in path at index 5: dsU_W`2,=/absolute/../absolute_partials_template.html", expected.getMessage());
         }
     }
 
@@ -317,28 +344,40 @@ public class ClasspathResolverTest {
     }
 
     @Test(timeout = 10000)
-    public void getReaderWithRootAndResourceHasDotRelativePath_mg13188_failAssert184() throws Exception {
+    public void getReaderWithRootAndResourceHasDotRelativePathlitString19452_failAssert176() throws Exception {
         try {
-            String __DSPOT_resourceName_1527 = "|<cIr! %)94(c4bz!$W7";
-            ClasspathResolver underTest = new ClasspathResolver("templates");
+            ClasspathResolver underTest = new ClasspathResolver("\n");
             Reader reader = underTest.getReader("absolute/./nested_partials_sub.html");
             Is.is(CoreMatchers.notNullValue());
-            underTest.getReader(__DSPOT_resourceName_1527);
-            org.junit.Assert.fail("getReaderWithRootAndResourceHasDotRelativePath_mg13188 should have thrown IllegalArgumentException");
+            org.junit.Assert.fail("getReaderWithRootAndResourceHasDotRelativePathlitString19452 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException expected) {
-            Assert.assertEquals("Illegal character in path at index 10: templates/|<cIr! %)94(c4bz!$W7", expected.getMessage());
+            Assert.assertEquals("Illegal character in path at index 0: \n/absolute/./nested_partials_sub.html", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void getReaderWithRootAndResourceHasDotRelativePath_add13185litString13263_failAssert189() throws Exception {
+    public void getReaderWithRootAndResourceHasDotRelativePath_add19463litString19796_failAssert214() throws Exception {
         try {
-            ClasspathResolver underTest = new ClasspathResolver(":");
-            Reader reader = underTest.getReader("absolute/./nested_partials_sub.html");
-            Matcher<Object> o_getReaderWithRootAndResourceHasDotRelativePath_add13185__5 = Is.is(CoreMatchers.notNullValue());
-            org.junit.Assert.fail("getReaderWithRootAndResourceHasDotRelativePath_add13185litString13263 should have thrown IllegalArgumentException");
+            ClasspathResolver underTest = new ClasspathResolver("templates");
+            Reader reader = underTest.getReader("\n");
+            Matcher<Object> o_getReaderWithRootAndResourceHasDotRelativePath_add19463__5 = Is.is(CoreMatchers.notNullValue());
+            org.junit.Assert.fail("getReaderWithRootAndResourceHasDotRelativePath_add19463litString19796 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException expected) {
-            Assert.assertEquals("Expected scheme name at index 0: :/absolute/./nested_partials_sub.html", expected.getMessage());
+            Assert.assertEquals("Illegal character in path at index 10: templates/\n", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void getReaderWithRootAndResourceHasDotRelativePath_mg19465litString19608_failAssert196() throws Exception {
+        try {
+            String __DSPOT_resourceName_1887 = "/)dZca%/?jMH6MmEQhqc";
+            ClasspathResolver underTest = new ClasspathResolver("templates");
+            Reader reader = underTest.getReader("absolute/./nested_partials_sub.html");
+            Matcher<Object> o_getReaderWithRootAndResourceHasDotRelativePath_mg19465__6 = Is.is(CoreMatchers.notNullValue());
+            underTest.getReader(__DSPOT_resourceName_1887);
+            org.junit.Assert.fail("getReaderWithRootAndResourceHasDotRelativePath_mg19465litString19608 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException expected) {
+            Assert.assertEquals("Malformed escape pair at index 15: templates/)dZca%/?jMH6MmEQhqc", expected.getMessage());
         }
     }
 }
