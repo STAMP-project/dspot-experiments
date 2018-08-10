@@ -14,8 +14,9 @@ def run(project, classes=toolbox.keys_selected_classes):
         test_cases = data["testCases"]
         ratio_per_test_case = {}
         for test_case in test_cases:
-            ratio_per_test_case[test_case["name"]] = \
-                float(test_case["nbMutantKilled"]) / float((test_case["nbAssertionAdded"] + test_case["nbInputAdded"]))
+            if not "failAssert" in test_case["name"]:
+                ratio_per_test_case[test_case["name"]] = \
+                    float(test_case["nbMutantKilled"]) / float((test_case["nbAssertionAdded"] + test_case["nbInputAdded"]))
         ratio_per_test_case_sorted = sorted(ratio_per_test_case.items(), key=lambda x: -x[1])
         print ratio_per_test_case_sorted[0]
 

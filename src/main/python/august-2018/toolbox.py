@@ -32,6 +32,7 @@ key_excludedClasses = "excludedClasses"
 key_subModule = "subModule"
 key_filter = "filter"
 key_test_source = "testSrc"
+key_additional_classpath_elements = "additionalClasspathElements"
 
 def delete_if_exists(path):
     if os.path.isdir(path):
