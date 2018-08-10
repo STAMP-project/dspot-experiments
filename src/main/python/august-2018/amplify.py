@@ -38,8 +38,8 @@ def run(project, classes=toolbox.keys_selected_classes):
              "--path-pit-result", path_to_original_mutation_score,
              "--test", selected_classes[current_class],
              "--maven-home", toolbox.maven_home
-             ] + ("" if not selected_classes[current_class] in toolbox.no_amplified_name_classes else "--generate-new-test-class")
-        )
+             ]
+        ) + ("" if not selected_classes[current_class] in toolbox.no_amplified_name_classes else "--generate-new-test-class")
         toolbox.print_and_call_in_a_file(cmd)
 
 

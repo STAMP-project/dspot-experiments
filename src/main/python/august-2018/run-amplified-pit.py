@@ -30,7 +30,7 @@ def run(project, classes=toolbox.keys_selected_classes):
              "-DtargetTests=" + selected_classes[current_class]+ "," + toolbox.get_amplified_name(test_class_name),
              "-DexcludedTestClasses=" + properties[toolbox.key_excludedClasses],
              "-DadditionalClasspathElements=" + properties[toolbox.key_additional_classpath_elements]
-             ], cwd=toolbox.prefix_dataset + project + module
+             ], cwd=toolbox.prefix_dataset + project + "/" + module
         )
 
 
