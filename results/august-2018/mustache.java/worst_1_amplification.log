@@ -1,7 +1,7 @@
-2018-08-07 21:24:51,555 INFO eu.stamp_project.dspot.selector.PitMutantScoreSelector - The original test suite kill 228 / 3753
-2018-08-07 21:24:51,615 WARN eu.stamp_project.automaticbuilder.AutomaticBuilderFactory - automaticBuilderName: unknown automatic builder specified in configuration, going to default.
-2018-08-07 21:24:51,615 INFO eu.stamp_project.automaticbuilder.AutomaticBuilderFactory - Default: provided Maven automatic builder.
-2018-08-07 21:24:51,633 INFO eu.stamp_project.automaticbuilder.MavenAutomaticBuilder - run maven clean test -DskipTests dependency:build-classpath -Dmdep.outputFile=target/dspot/classpath
+2018-08-11 18:35:45,131 INFO eu.stamp_project.dspot.selector.PitMutantScoreSelector - The original test suite kill 228 / 3753
+2018-08-11 18:35:45,152 WARN eu.stamp_project.automaticbuilder.AutomaticBuilderFactory - automaticBuilderName: unknown automatic builder specified in configuration, going to default.
+2018-08-11 18:35:45,152 INFO eu.stamp_project.automaticbuilder.AutomaticBuilderFactory - Default: provided Maven automatic builder.
+2018-08-11 18:35:45,169 INFO eu.stamp_project.automaticbuilder.MavenAutomaticBuilder - run maven clean test -DskipTests dependency:build-classpath -Dmdep.outputFile=target/dspot/classpath
 [WARN] Maven will be executed in interactive mode, but no input stream has been configured for this MavenInvoker instance.
 [INFO] Scanning for projects...
 [INFO]                                                                         
@@ -10,7 +10,6 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] 
 [INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ compiler ---
-[INFO] Deleting /tmp/dspot-experiments/dataset/mustache.java/compiler/target
 [INFO] 
 [INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ compiler ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -40,22 +39,22 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 6.159 s
-[INFO] Finished at: 2018-08-07T21:24:59+02:00
-[INFO] Final Memory: 25M/306M
+[INFO] Total time: 5.876 s
+[INFO] Finished at: 2018-08-11T18:35:52+02:00
+[INFO] Final Memory: 24M/274M
 [INFO] ------------------------------------------------------------------------
-2018-08-07 21:25:02,850 INFO eu.stamp_project.dspot.Amplification - Amplification of com.github.mustachejava.ConcurrencyTest (2 test(s))
-2018-08-07 21:25:02,850 INFO eu.stamp_project.dspot.Amplification - Assertion amplification of com.github.mustachejava.ConcurrencyTest (2 test(s))
-2018-08-07 21:25:03,301 INFO eu.stamp_project.testrunner.EntryPoint - Run: java -classpath /tmp/dspot-experiments/dataset/mustache.java/compiler/target/test-classes:/tmp/dspot-experiments/dataset/mustache.java/compiler/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.7.4/jackson-dataformat-yaml-2.7.4.jar:/home/spirals/danglot/.m2/repository/org/yaml/snakeyaml/1.15/snakeyaml-1.15.jar:/home/spirals/danglot/.m2/repository/com/google/guava/guava/20.0/guava-20.0.jar:/tmp/dspot-experiments/dataset/mustache.java/compiler/src/test/resources/templates.jar/:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner com.github.mustachejava.ConcurrencyTest testConcurrentExecution:testConcurrentExecutionWithConcurrentTemplate
-2018-08-07 21:25:24,303 WARN eu.stamp_project.testrunner.EntryPoint - Timeout when running java -classpath /tmp/dspot-experiments/dataset/mustache.java/compiler/target/test-classes:/tmp/dspot-experiments/dataset/mustache.java/compiler/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.7.4/jackson-dataformat-yaml-2.7.4.jar:/home/spirals/danglot/.m2/repository/org/yaml/snakeyaml/1.15/snakeyaml-1.15.jar:/home/spirals/danglot/.m2/repository/com/google/guava/guava/20.0/guava-20.0.jar:/tmp/dspot-experiments/dataset/mustache.java/compiler/src/test/resources/templates.jar/:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner com.github.mustachejava.ConcurrencyTest testConcurrentExecution:testConcurrentExecutionWithConcurrentTemplate
-2018-08-07 21:25:24,304 WARN eu.stamp_project.utils.compilation.TestRunner - Timeout during execution of com.github.mustachejava.ConcurrencyTest: testConcurrentExecution,testConcurrentExecutionWithConcurrentTemplate
+2018-08-11 18:35:55,724 INFO eu.stamp_project.dspot.Amplification - Amplification of com.github.mustachejava.ConcurrencyTest (2 test(s))
+2018-08-11 18:35:55,724 INFO eu.stamp_project.dspot.Amplification - Assertion amplification of com.github.mustachejava.ConcurrencyTest (2 test(s))
+2018-08-11 18:35:56,139 INFO eu.stamp_project.testrunner.EntryPoint - Run: java -classpath /tmp/dspot-experiments/dataset/mustache.java/compiler/target/test-classes:/tmp/dspot-experiments/dataset/mustache.java/compiler/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.7.4/jackson-dataformat-yaml-2.7.4.jar:/home/spirals/danglot/.m2/repository/org/yaml/snakeyaml/1.15/snakeyaml-1.15.jar:/home/spirals/danglot/.m2/repository/com/google/guava/guava/20.0/guava-20.0.jar:/tmp/dspot-experiments/dataset/mustache.java/compiler/src/test/resources/templates.jar/:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner com.github.mustachejava.ConcurrencyTest testConcurrentExecution:testConcurrentExecutionWithConcurrentTemplate
+2018-08-11 18:36:17,141 WARN eu.stamp_project.testrunner.EntryPoint - Timeout when running java -classpath /tmp/dspot-experiments/dataset/mustache.java/compiler/target/test-classes:/tmp/dspot-experiments/dataset/mustache.java/compiler/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.7.4/jackson-dataformat-yaml-2.7.4.jar:/home/spirals/danglot/.m2/repository/org/yaml/snakeyaml/1.15/snakeyaml-1.15.jar:/home/spirals/danglot/.m2/repository/com/google/guava/guava/20.0/guava-20.0.jar:/tmp/dspot-experiments/dataset/mustache.java/compiler/src/test/resources/templates.jar/:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner com.github.mustachejava.ConcurrencyTest testConcurrentExecution:testConcurrentExecutionWithConcurrentTemplate
+2018-08-11 18:36:17,143 WARN eu.stamp_project.utils.compilation.TestRunner - Timeout during execution of com.github.mustachejava.ConcurrencyTest: testConcurrentExecution,testConcurrentExecutionWithConcurrentTemplate
 eu.stamp_project.dspot.AmplificationException: java.util.concurrent.TimeoutException
 	at eu.stamp_project.utils.compilation.TestRunner.runGivenTestMethods(TestRunner.java:73)
-	at eu.stamp_project.utils.compilation.TestCompiler.compileAndRun(TestCompiler.java:98)
-	at eu.stamp_project.utils.compilation.TestCompiler.compileRunAndDiscardUncompilableAndFailingTestMethods(TestCompiler.java:54)
+	at eu.stamp_project.utils.compilation.TestCompiler.compileAndRun(TestCompiler.java:99)
+	at eu.stamp_project.utils.compilation.TestCompiler.compileRunAndDiscardUncompilableAndFailingTestMethods(TestCompiler.java:55)
 	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:82)
-	at eu.stamp_project.dspot.DSpot.amplifyTest(DSpot.java:179)
-	at eu.stamp_project.dspot.DSpot.amplifyTest(DSpot.java:169)
+	at eu.stamp_project.dspot.DSpot.amplifyTest(DSpot.java:180)
+	at eu.stamp_project.dspot.DSpot.amplifyTest(DSpot.java:170)
 	at eu.stamp_project.Main.lambda$run$1(Main.java:69)
 	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
 	at java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:948)
@@ -73,12 +72,12 @@ Caused by: java.util.concurrent.TimeoutException
 	at eu.stamp_project.testrunner.EntryPoint.runTests(EntryPoint.java:166)
 	at eu.stamp_project.utils.compilation.TestRunner.runGivenTestMethods(TestRunner.java:59)
 	... 15 more
-2018-08-07 21:25:24,306 INFO eu.stamp_project.dspot.Amplification - 0 amplified test methods has been selected to be kept. (global: 0)
-2018-08-07 21:25:24,306 INFO eu.stamp_project.dspot.Amplification - Applying Input-amplification and Assertion-amplification test by test.
-2018-08-07 21:25:24,310 INFO eu.stamp_project.dspot.Amplification - Amplification of testConcurrentExecution, (1/2)
-2018-08-07 21:25:24,310 INFO eu.stamp_project.dspot.Amplification - iteration 0 / 3
-2018-08-07 21:25:24,310 INFO eu.stamp_project.dspot.Amplification - 1 tests selected to be amplified over 1 available tests
-2018-08-07 21:25:24,310 INFO eu.stamp_project.dspot.budget.NoBudgetizer - Amplification of inputs...
+2018-08-11 18:36:17,146 INFO eu.stamp_project.dspot.Amplification - 0 amplified test methods has been selected to be kept. (global: 0)
+2018-08-11 18:36:17,146 INFO eu.stamp_project.dspot.Amplification - Applying Input-amplification and Assertion-amplification test by test.
+2018-08-11 18:36:17,151 INFO eu.stamp_project.dspot.Amplification - Amplification of testConcurrentExecution, (1/2)
+2018-08-11 18:36:17,152 INFO eu.stamp_project.dspot.Amplification - iteration 0 / 3
+2018-08-11 18:36:17,152 INFO eu.stamp_project.dspot.Amplification - 1 tests selected to be amplified over 1 available tests
+2018-08-11 18:36:17,152 INFO eu.stamp_project.dspot.budget.NoBudgetizer - Amplification of inputs...
 100% |================================================== ]/
 Exception in thread "main" java.lang.IllegalArgumentException: should not happen
 	at spoon.support.reflect.code.CtStatementImpl$InsertVisitor.visitCtIf(CtStatementImpl.java:117)
@@ -87,8 +86,8 @@ Exception in thread "main" java.lang.IllegalArgumentException: should not happen
 	at spoon.support.reflect.code.CtStatementImpl.insertBefore(CtStatementImpl.java:85)
 	at spoon.support.reflect.code.CtStatementImpl.insertBefore(CtStatementImpl.java:66)
 	at spoon.support.reflect.code.CtInvocationImpl.insertBefore(CtInvocationImpl.java:108)
-	at eu.stamp_project.dspot.amplifier.TestMethodCallAdder.apply(TestMethodCallAdder.java:39)
-	at eu.stamp_project.dspot.amplifier.TestMethodCallAdder.lambda$amplify$0(TestMethodCallAdder.java:26)
+	at eu.stamp_project.dspot.amplifier.TestMethodCallAdder.apply(TestMethodCallAdder.java:40)
+	at eu.stamp_project.dspot.amplifier.TestMethodCallAdder.lambda$amplify$0(TestMethodCallAdder.java:27)
 	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
 	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1374)
 	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
@@ -122,8 +121,8 @@ Exception in thread "main" java.lang.IllegalArgumentException: should not happen
 	at eu.stamp_project.dspot.budget.NoBudgetizer.inputAmplify(NoBudgetizer.java:54)
 	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:133)
 	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:97)
-	at eu.stamp_project.dspot.DSpot.amplifyTest(DSpot.java:179)
-	at eu.stamp_project.dspot.DSpot.amplifyTest(DSpot.java:169)
+	at eu.stamp_project.dspot.DSpot.amplifyTest(DSpot.java:180)
+	at eu.stamp_project.dspot.DSpot.amplifyTest(DSpot.java:170)
 	at eu.stamp_project.Main.lambda$run$1(Main.java:69)
 	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
 	at java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:948)
