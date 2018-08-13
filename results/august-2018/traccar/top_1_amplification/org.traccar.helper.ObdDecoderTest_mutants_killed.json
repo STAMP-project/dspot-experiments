@@ -1,0 +1,69 @@
+{
+  "nbMutantKilledOriginally": 101,
+  "name": "org.traccar.helper.ObdDecoderTest",
+  "nbOriginalTestCases": 2,
+  "testCases": [
+    {
+      "name": "testDecodelitString36_failAssert27",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 5,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 101,
+          "locationMethod": "decodeData"
+        }
+      ]
+    },
+    {
+      "name": "testDecodeCodeslitString28544_failAssert64",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator",
+          "lineNumber": 53,
+          "locationMethod": "decodeCodes"
+        }
+      ]
+    },
+    {
+      "name": "testDecodeCodeslitString28537_failAssert58",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
+          "lineNumber": 71,
+          "locationMethod": "decodeCodes"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 74,
+          "locationMethod": "decodeCodes"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator",
+          "lineNumber": 71,
+          "locationMethod": "decodeCodes"
+        }
+      ]
+    },
+    {
+      "name": "testDecodelitNum54_failAssert42",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 5,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 42,
+          "locationMethod": "decode"
+        }
+      ]
+    }
+  ]
+}
