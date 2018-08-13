@@ -90,48 +90,48 @@ public class AmplParameterSpecTest {
     }
 
     @Test(timeout = 10000)
-    public void equalsAndHashCodelitString18() throws Exception {
-        ParameterSpec a = ParameterSpec.builder(int.class, "foo").build();
-        Assert.assertEquals("int foo", ((ParameterSpec) (a)).toString());
-        Assert.assertEquals(1955995925, ((int) (((ParameterSpec) (a)).hashCode())));
+    public void equalsAndHashCodelitString6_failAssert1() throws Exception {
+        try {
+            ParameterSpec a = ParameterSpec.builder(int.class, "").build();
+            ParameterSpec b = ParameterSpec.builder(int.class, "foo").build();
+            b.hashCode();
+            a = ParameterSpec.builder(int.class, "i").addModifiers(Modifier.STATIC).build();
+            b = ParameterSpec.builder(int.class, "i").addModifiers(Modifier.STATIC).build();
+            b.hashCode();
+            org.junit.Assert.fail("equalsAndHashCodelitString6 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException expected) {
+            Assert.assertEquals("not a valid name: ", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void equalsAndHashCodelitString4() throws Exception {
+        ParameterSpec a = ParameterSpec.builder(int.class, "fo").build();
+        Assert.assertEquals("int fo", ((ParameterSpec) (a)).toString());
+        Assert.assertEquals(-1183829350, ((int) (((ParameterSpec) (a)).hashCode())));
         ParameterSpec b = ParameterSpec.builder(int.class, "foo").build();
         Assert.assertEquals("int foo", ((ParameterSpec) (b)).toString());
         Assert.assertEquals(1955995925, ((int) (((ParameterSpec) (b)).hashCode())));
         b.hashCode();
         b.hashCode();
-        a = ParameterSpec.builder(int.class, "_").addModifiers(Modifier.STATIC).build();
-        Assert.assertEquals("static int _", ((ParameterSpec) (a)).toString());
-        Assert.assertEquals(-130075588, ((int) (((ParameterSpec) (a)).hashCode())));
+        a = ParameterSpec.builder(int.class, "i").addModifiers(Modifier.STATIC).build();
+        Assert.assertEquals("static int i", ((ParameterSpec) (a)).toString());
+        Assert.assertEquals(-130075578, ((int) (((ParameterSpec) (a)).hashCode())));
         b = ParameterSpec.builder(int.class, "i").addModifiers(Modifier.STATIC).build();
         Assert.assertEquals("static int i", ((ParameterSpec) (b)).toString());
         Assert.assertEquals(-130075578, ((int) (((ParameterSpec) (b)).hashCode())));
-        Assert.assertEquals("static int _", ((ParameterSpec) (a)).toString());
-        Assert.assertEquals(-130075588, ((int) (((ParameterSpec) (a)).hashCode())));
+        Assert.assertEquals("static int i", ((ParameterSpec) (a)).toString());
+        Assert.assertEquals(-130075578, ((int) (((ParameterSpec) (a)).hashCode())));
         Assert.assertEquals("static int i", ((ParameterSpec) (b)).toString());
         Assert.assertEquals(-130075578, ((int) (((ParameterSpec) (b)).hashCode())));
-        Assert.assertEquals("static int _", ((ParameterSpec) (a)).toString());
-        Assert.assertEquals(-130075588, ((int) (((ParameterSpec) (a)).hashCode())));
+        Assert.assertEquals("static int i", ((ParameterSpec) (a)).toString());
+        Assert.assertEquals(-130075578, ((int) (((ParameterSpec) (a)).hashCode())));
         Assert.assertEquals("static int i", ((ParameterSpec) (b)).toString());
         Assert.assertEquals(-130075578, ((int) (((ParameterSpec) (b)).hashCode())));
     }
 
     @Test(timeout = 10000)
-    public void equalsAndHashCodelitString3_failAssert0() throws Exception {
-        try {
-            ParameterSpec a = ParameterSpec.builder(int.class, "f,oo").build();
-            ParameterSpec b = ParameterSpec.builder(int.class, "foo").build();
-            b.hashCode();
-            a = ParameterSpec.builder(int.class, "i").addModifiers(Modifier.STATIC).build();
-            b = ParameterSpec.builder(int.class, "i").addModifiers(Modifier.STATIC).build();
-            b.hashCode();
-            org.junit.Assert.fail("equalsAndHashCodelitString3 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException expected) {
-            Assert.assertEquals("not a valid name: f,oo", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void equalsAndHashCodelitString24_failAssert12_add710() throws Exception {
+    public void equalsAndHashCodenull82_failAssert19null2060() throws Exception {
         try {
             ParameterSpec a = ParameterSpec.builder(int.class, "foo").build();
             Assert.assertEquals("int foo", ((ParameterSpec) (a)).toString());
@@ -143,33 +143,52 @@ public class AmplParameterSpecTest {
             a = ParameterSpec.builder(int.class, "i").addModifiers(Modifier.STATIC).build();
             Assert.assertEquals("static int i", ((ParameterSpec) (a)).toString());
             Assert.assertEquals(-130075578, ((int) (((ParameterSpec) (a)).hashCode())));
-            b = ParameterSpec.builder(int.class, "").addModifiers(Modifier.STATIC).build();
+            b = ParameterSpec.builder(int.class, null).addModifiers(Modifier.STATIC).build();
             b.hashCode();
-            org.junit.Assert.fail("equalsAndHashCodelitString24 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException expected) {
+            org.junit.Assert.fail("equalsAndHashCodenull82 should have thrown NullPointerException");
+        } catch (NullPointerException expected) {
         }
     }
 
     @Test(timeout = 10000)
-    public void equalsAndHashCodelitString16_failAssert8litString242() throws Exception {
+    public void equalsAndHashCodenull56_failAssert16litString323_failAssert23() throws Exception {
+        try {
+            try {
+                ParameterSpec a = ParameterSpec.builder(int.class, "L[{").build();
+                ParameterSpec b = null;
+                b.hashCode();
+                a = ParameterSpec.builder(int.class, "i").addModifiers(Modifier.STATIC).build();
+                b = ParameterSpec.builder(int.class, "i").addModifiers(Modifier.STATIC).build();
+                b.hashCode();
+                org.junit.Assert.fail("equalsAndHashCodenull56 should have thrown NullPointerException");
+            } catch (NullPointerException expected) {
+            }
+            org.junit.Assert.fail("equalsAndHashCodenull56_failAssert16litString323 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException expected_1) {
+            Assert.assertEquals("not a valid name: L[{", expected_1.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void equalsAndHashCodenull56_failAssert16_mg1101() throws Exception {
         try {
             ParameterSpec a = ParameterSpec.builder(int.class, "foo").build();
             Assert.assertEquals("int foo", ((ParameterSpec) (a)).toString());
             Assert.assertEquals(1955995925, ((int) (((ParameterSpec) (a)).hashCode())));
-            ParameterSpec b = ParameterSpec.builder(int.class, ":").build();
+            ParameterSpec b = null;
             b.hashCode();
-            a = ParameterSpec.builder(int.class, ":").addModifiers(Modifier.STATIC).build();
+            a = ParameterSpec.builder(int.class, "i").addModifiers(Modifier.STATIC).build();
             b = ParameterSpec.builder(int.class, "i").addModifiers(Modifier.STATIC).build();
             b.hashCode();
-            org.junit.Assert.fail("equalsAndHashCodelitString16 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException expected) {
+            org.junit.Assert.fail("equalsAndHashCodenull56 should have thrown NullPointerException");
+            b.hashCode();
+        } catch (NullPointerException expected) {
         }
     }
 
     @Test(timeout = 10000)
-    public void equalsAndHashCodelitString25_failAssert13_add829_mg3939() throws Exception {
+    public void equalsAndHashCodenull82_failAssert19null2060null11422() throws Exception {
         try {
-            Object __DSPOT_o_133 = new Object();
             ParameterSpec a = ParameterSpec.builder(int.class, "foo").build();
             Assert.assertEquals("int foo", ((ParameterSpec) (a)).toString());
             Assert.assertEquals(1955995925, ((int) (((ParameterSpec) (a)).hashCode())));
@@ -180,11 +199,26 @@ public class AmplParameterSpecTest {
             a = ParameterSpec.builder(int.class, "i").addModifiers(Modifier.STATIC).build();
             Assert.assertEquals("static int i", ((ParameterSpec) (a)).toString());
             Assert.assertEquals(-130075578, ((int) (((ParameterSpec) (a)).hashCode())));
-            b = ParameterSpec.builder(int.class, "\n").addModifiers(Modifier.STATIC).build();
+            b = ParameterSpec.builder(int.class, null).addModifiers(Modifier.STATIC).build();
             b.hashCode();
-            org.junit.Assert.fail("equalsAndHashCodelitString25 should have thrown IllegalArgumentException");
-            a.equals(__DSPOT_o_133);
-        } catch (IllegalArgumentException expected) {
+            org.junit.Assert.fail("equalsAndHashCodenull82 should have thrown NullPointerException");
+        } catch (NullPointerException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void equalsAndHashCodenull82_failAssert19null2060null11370() throws Exception {
+        try {
+            ParameterSpec a = ParameterSpec.builder(int.class, "foo").build();
+            Assert.assertEquals("int foo", ((ParameterSpec) (a)).toString());
+            Assert.assertEquals(1955995925, ((int) (((ParameterSpec) (a)).hashCode())));
+            ParameterSpec b = ParameterSpec.builder(int.class, null).build();
+            b.hashCode();
+            a = ParameterSpec.builder(int.class, "i").addModifiers(Modifier.STATIC).build();
+            b = ParameterSpec.builder(int.class, null).addModifiers(Modifier.STATIC).build();
+            b.hashCode();
+            org.junit.Assert.fail("equalsAndHashCodenull82 should have thrown NullPointerException");
+        } catch (NullPointerException expected) {
         }
     }
 }
