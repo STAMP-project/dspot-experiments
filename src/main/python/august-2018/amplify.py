@@ -40,7 +40,7 @@ def run(project, classes=toolbox.keys_selected_classes):
             "--maven-home", toolbox.maven_home
         ]
 
-        if selected_classes[current_class] in toolbox.no_amplified_name_classes:
+        if not selected_classes[current_class] in toolbox.no_amplified_name_classes:
             cmd.append("--generate-new-test-class")
 
         toolbox.print_and_call_in_a_file(" ".join(cmd))
