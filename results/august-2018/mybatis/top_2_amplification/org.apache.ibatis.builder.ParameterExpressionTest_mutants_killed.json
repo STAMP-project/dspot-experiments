@@ -2,5 +2,19 @@
   "nbMutantKilledOriginally": 178,
   "name": "org.apache.ibatis.builder.ParameterExpressionTest",
   "nbOriginalTestCases": 14,
-  "testCases": []
+  "testCases": [
+    {
+      "name": "simpleProperty_add42961_add43347litString46452_failAssert363",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 53,
+          "locationMethod": "expression"
+        }
+      ]
+    }
+  ]
 }
