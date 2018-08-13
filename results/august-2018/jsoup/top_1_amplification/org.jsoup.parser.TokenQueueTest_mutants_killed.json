@@ -4,29 +4,57 @@
   "nbOriginalTestCases": 8,
   "testCases": [
     {
-      "name": "chompBalancedMatchesAsMuchAsPossiblelitString8186_failAssert14",
-      "nbAssertionAdded": 1,
-      "nbInputAdded": 0,
-      "nbMutantKilled": 2,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF",
-          "lineNumber": 292,
-          "locationMethod": "chompBalanced"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 262,
-          "locationMethod": "chompBalanced"
-        }
-      ]
-    },
-    {
-      "name": "consumeToIgnoreSecondCallTest_mg32456_failAssert42",
+      "name": "consumeToIgnoreSecondCallTestnull23483_failAssert53",
       "nbAssertionAdded": 1,
       "nbInputAdded": 1,
       "nbMutantKilled": 3,
       "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 15,
+          "locationMethod": "notNull"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 22,
+          "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 16,
+          "locationMethod": "notNull"
+        }
+      ]
+    },
+    {
+      "name": "unescape_add30413null30545_failAssert61",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 244,
+          "locationMethod": "borrowBuilder"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 244,
+          "locationMethod": "borrowBuilder"
+        }
+      ]
+    },
+    {
+      "name": "chompBalanced_mg1717_failAssert13",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 166,
+          "locationMethod": "consume"
+        },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
           "lineNumber": 166,
@@ -36,16 +64,52 @@
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
           "lineNumber": 167,
           "locationMethod": "consume"
-        },
+        }
+      ]
+    },
+    {
+      "name": "chompEscapedBalanced_mg16456_failAssert32",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
           "lineNumber": 166,
+          "locationMethod": "consume"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 166,
+          "locationMethod": "consume"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 167,
           "locationMethod": "consume"
         }
       ]
     },
     {
-      "name": "consumeToIgnoreSecondCallTest_mg32456_failAssert42litString32700_failAssert44",
+      "name": "unescapenull30415null30509null31020_failAssert71",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 244,
+          "locationMethod": "borrowBuilder"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 244,
+          "locationMethod": "borrowBuilder"
+        }
+      ]
+    },
+    {
+      "name": "consumeToIgnoreSecondCallTestlitString23441_failAssert49",
       "nbAssertionAdded": 1,
       "nbInputAdded": 1,
       "nbMutantKilled": 2,
@@ -59,102 +123,6 @@
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator",
           "lineNumber": 193,
           "locationMethod": "consumeToIgnoreCase"
-        }
-      ]
-    },
-    {
-      "name": "chompBalancedlitChar6287_failAssert5",
-      "nbAssertionAdded": 1,
-      "nbInputAdded": 0,
-      "nbMutantKilled": 8,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-          "lineNumber": 269,
-          "locationMethod": "chompBalanced"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 269,
-          "locationMethod": "chompBalanced"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
-          "lineNumber": 293,
-          "locationMethod": "chompBalanced"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
-          "lineNumber": 294,
-          "locationMethod": "chompBalanced"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 294,
-          "locationMethod": "chompBalanced"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
-          "lineNumber": 110,
-          "locationMethod": "fail"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator",
-          "lineNumber": 294,
-          "locationMethod": "chompBalanced"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
-          "lineNumber": 294,
-          "locationMethod": "chompBalanced"
-        }
-      ]
-    },
-    {
-      "name": "chompBalanced_mg6298_failAssert7litChar6594_failAssert9",
-      "nbAssertionAdded": 1,
-      "nbInputAdded": 0,
-      "nbMutantKilled": 8,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-          "lineNumber": 269,
-          "locationMethod": "chompBalanced"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 269,
-          "locationMethod": "chompBalanced"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE",
-          "lineNumber": 293,
-          "locationMethod": "chompBalanced"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
-          "lineNumber": 294,
-          "locationMethod": "chompBalanced"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 294,
-          "locationMethod": "chompBalanced"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
-          "lineNumber": 110,
-          "locationMethod": "fail"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator",
-          "lineNumber": 294,
-          "locationMethod": "chompBalanced"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
-          "lineNumber": 294,
-          "locationMethod": "chompBalanced"
         }
       ]
     },
@@ -177,60 +145,14 @@
       ]
     },
     {
-      "name": "chompToIgnoreCaselitString20950_failAssert35",
-      "nbAssertionAdded": 1,
-      "nbInputAdded": 0,
-      "nbMutantKilled": 2,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 193,
-          "locationMethod": "consumeToIgnoreCase"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator",
-          "lineNumber": 193,
-          "locationMethod": "consumeToIgnoreCase"
-        }
-      ]
-    },
-    {
-      "name": "chompBalancedMatchesAsMuchAsPossible_mg8221_failAssert20",
-      "nbAssertionAdded": 1,
-      "nbInputAdded": 0,
-      "nbMutantKilled": 3,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 166,
-          "locationMethod": "consume"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
-          "lineNumber": 167,
-          "locationMethod": "consume"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-          "lineNumber": 166,
-          "locationMethod": "consume"
-        }
-      ]
-    },
-    {
-      "name": "chompEscapedBalancedlitChar18921_failAssert23",
+      "name": "chompBalancedlitChar1704_failAssert9",
       "nbAssertionAdded": 1,
       "nbInputAdded": 0,
       "nbMutantKilled": 8,
       "mutantsKilled": [
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-          "lineNumber": 269,
-          "locationMethod": "chompBalanced"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 269,
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 294,
           "locationMethod": "chompBalanced"
         },
         {
@@ -240,18 +162,13 @@
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
-          "lineNumber": 294,
-          "locationMethod": "chompBalanced"
+          "lineNumber": 110,
+          "locationMethod": "fail"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
           "lineNumber": 294,
           "locationMethod": "chompBalanced"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
-          "lineNumber": 110,
-          "locationMethod": "fail"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator",
@@ -259,67 +176,31 @@
           "locationMethod": "chompBalanced"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
           "lineNumber": 294,
+          "locationMethod": "chompBalanced"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 269,
+          "locationMethod": "chompBalanced"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 269,
           "locationMethod": "chompBalanced"
         }
       ]
     },
     {
-      "name": "chompBalanced_mg6298_failAssert7",
-      "nbAssertionAdded": 1,
-      "nbInputAdded": 0,
-      "nbMutantKilled": 2,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 400,
-          "locationMethod": "remainder"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
-          "lineNumber": 400,
-          "locationMethod": "remainder"
-        }
-      ]
-    },
-    {
-      "name": "chompToIgnoreCase_mg20978_failAssert38",
-      "nbAssertionAdded": 1,
-      "nbInputAdded": 0,
-      "nbMutantKilled": 3,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 166,
-          "locationMethod": "consume"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
-          "lineNumber": 167,
-          "locationMethod": "consume"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-          "lineNumber": 166,
-          "locationMethod": "consume"
-        }
-      ]
-    },
-    {
-      "name": "chompBalancedMatchesAsMuchAsPossiblelitChar8207_failAssert16",
+      "name": "chompBalancedMatchesAsMuchAsPossiblelitChar3346_failAssert18",
       "nbAssertionAdded": 1,
       "nbInputAdded": 0,
       "nbMutantKilled": 8,
       "mutantsKilled": [
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-          "lineNumber": 269,
-          "locationMethod": "chompBalanced"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 269,
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 294,
           "locationMethod": "chompBalanced"
         },
         {
@@ -329,8 +210,8 @@
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
-          "lineNumber": 294,
-          "locationMethod": "chompBalanced"
+          "lineNumber": 110,
+          "locationMethod": "fail"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
@@ -338,28 +219,38 @@
           "locationMethod": "chompBalanced"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
-          "lineNumber": 110,
-          "locationMethod": "fail"
-        },
-        {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator",
           "lineNumber": 294,
           "locationMethod": "chompBalanced"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
           "lineNumber": 294,
+          "locationMethod": "chompBalanced"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 269,
+          "locationMethod": "chompBalanced"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 269,
           "locationMethod": "chompBalanced"
         }
       ]
     },
     {
-      "name": "chompBalanced_mg6299_failAssert8",
+      "name": "consumeToIgnoreSecondCallTest_mg23461_failAssert52",
       "nbAssertionAdded": 1,
-      "nbInputAdded": 0,
+      "nbInputAdded": 1,
       "nbMutantKilled": 3,
       "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 166,
+          "locationMethod": "consume"
+        },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
           "lineNumber": 166,
@@ -369,16 +260,47 @@
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
           "lineNumber": 167,
           "locationMethod": "consume"
-        },
+        }
+      ]
+    },
+    {
+      "name": "chompToIgnoreCase_mg18322_failAssert41",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 166,
+          "locationMethod": "consume"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 166,
+          "locationMethod": "consume"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 167,
+          "locationMethod": "consume"
+        }
+      ]
+    },
+    {
+      "name": "addFirst_mg29_failAssert1null395_failAssert6",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
           "lineNumber": 166,
           "locationMethod": "consume"
         }
       ]
     },
     {
-      "name": "consumeToIgnoreSecondCallTestlitString32436_failAssert39",
+      "name": "chompToIgnoreCaselitString18294_failAssert38",
       "nbAssertionAdded": 1,
       "nbInputAdded": 1,
       "nbMutantKilled": 2,
@@ -396,30 +318,7 @@
       ]
     },
     {
-      "name": "chompEscapedBalanced_mg18936_failAssert28",
-      "nbAssertionAdded": 1,
-      "nbInputAdded": 1,
-      "nbMutantKilled": 3,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 166,
-          "locationMethod": "consume"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
-          "lineNumber": 167,
-          "locationMethod": "consume"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-          "lineNumber": 166,
-          "locationMethod": "consume"
-        }
-      ]
-    },
-    {
-      "name": "chompEscapedBalanced_mg18935_failAssert27",
+      "name": "chompBalanced_mg1716_failAssert12",
       "nbAssertionAdded": 1,
       "nbInputAdded": 0,
       "nbMutantKilled": 2,
@@ -437,19 +336,83 @@
       ]
     },
     {
-      "name": "chompEscapedBalanced_mg18935_failAssert27litChar19290_failAssert32",
+      "name": "consumeToIgnoreSecondCallTestnull23492_failAssert56null23984_failAssert58",
       "nbAssertionAdded": 1,
-      "nbInputAdded": 0,
-      "nbMutantKilled": 8,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 3,
       "mutantsKilled": [
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-          "lineNumber": 269,
-          "locationMethod": "chompBalanced"
+          "lineNumber": 15,
+          "locationMethod": "notNull"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 269,
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 22,
+          "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 16,
+          "locationMethod": "notNull"
+        }
+      ]
+    },
+    {
+      "name": "chompToIgnoreCasenull18353_failAssert45null18921_failAssert46",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 15,
+          "locationMethod": "notNull"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 22,
+          "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 16,
+          "locationMethod": "notNull"
+        }
+      ]
+    },
+    {
+      "name": "chompBalancedMatchesAsMuchAsPossible_mg3360_failAssert22",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 0,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 166,
+          "locationMethod": "consume"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 166,
+          "locationMethod": "consume"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 167,
+          "locationMethod": "consume"
+        }
+      ]
+    },
+    {
+      "name": "chompEscapedBalancedlitChar16441_failAssert27",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 8,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 294,
           "locationMethod": "chompBalanced"
         },
         {
@@ -459,8 +422,8 @@
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
-          "lineNumber": 294,
-          "locationMethod": "chompBalanced"
+          "lineNumber": 110,
+          "locationMethod": "fail"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
@@ -468,19 +431,83 @@
           "locationMethod": "chompBalanced"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
-          "lineNumber": 110,
-          "locationMethod": "fail"
-        },
-        {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator",
           "lineNumber": 294,
           "locationMethod": "chompBalanced"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
           "lineNumber": 294,
           "locationMethod": "chompBalanced"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 269,
+          "locationMethod": "chompBalanced"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 269,
+          "locationMethod": "chompBalanced"
+        }
+      ]
+    },
+    {
+      "name": "chompToIgnoreCasenull18344_failAssert42",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 3,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 15,
+          "locationMethod": "notNull"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 22,
+          "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 16,
+          "locationMethod": "notNull"
+        }
+      ]
+    },
+    {
+      "name": "unescapelitString30409",
+      "nbAssertionAdded": 2,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 244,
+          "locationMethod": "borrowBuilder"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 244,
+          "locationMethod": "borrowBuilder"
+        }
+      ]
+    },
+    {
+      "name": "chompEscapedBalancednull16498_failAssert36",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 244,
+          "locationMethod": "borrowBuilder"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 244,
+          "locationMethod": "borrowBuilder"
         }
       ]
     },
@@ -491,6 +518,11 @@
       "nbMutantKilled": 3,
       "mutantsKilled": [
         {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 166,
+          "locationMethod": "consume"
+        },
+        {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
           "lineNumber": 166,
           "locationMethod": "consume"
@@ -499,11 +531,37 @@
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
           "lineNumber": 167,
           "locationMethod": "consume"
+        }
+      ]
+    },
+    {
+      "name": "chompEscapedBalanced_mg16455_failAssert31",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 400,
+          "locationMethod": "remainder"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-          "lineNumber": 166,
-          "locationMethod": "consume"
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 400,
+          "locationMethod": "remainder"
+        }
+      ]
+    },
+    {
+      "name": "unescape_add30413_add30542null31946",
+      "nbAssertionAdded": 10,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 244,
+          "locationMethod": "borrowBuilder"
         }
       ]
     }

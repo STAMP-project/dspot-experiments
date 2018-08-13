@@ -79,27 +79,27 @@
 [INFO] Found shared classpath plugin : TestNG plugin
 [INFO] Adding org.pitest:pitest to SUT classpath
 [INFO] Mutating from /tmp/dspot-experiments/dataset/jsoup/target/classes
-/-\|/-\|/-\|/-\|/-\|/-\|/-/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\================================================================================
+/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\================================================================================
 - Timings
 ================================================================================
 > scan classpath : < 1 second
 > coverage and dependency analysis : 1 seconds
 > build mutation tests : 7 seconds
-> run mutation analysis : 6 minutes and 42 seconds
+> run mutation analysis : 6 minutes and 44 seconds
 --------------------------------------------------------------------------------
-> Total  : 6 minutes and 51 seconds
+> Total  : 6 minutes and 53 seconds
 --------------------------------------------------------------------------------
 ================================================================================
 - Statistics
 ================================================================================
->> Generated 17278 mutations Killed 1482 (9%)
->> Ran 3073 tests (0.18 tests per mutation)
+>> Generated 17278 mutations Killed 1485 (9%)
+>> Ran 3037 tests (0.18 tests per mutation)
 ================================================================================
 - Mutators
 ================================================================================
 > org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator
->> Generated 1382 Killed 64 (5%)
-> KILLED 51 SURVIVED 59 TIMED_OUT 13 NON_VIABLE 0 
+>> Generated 1382 Killed 65 (5%)
+> KILLED 52 SURVIVED 58 TIMED_OUT 13 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
 > NO_COVERAGE 1259 
 --------------------------------------------------------------------------------
@@ -110,14 +110,14 @@
 > NO_COVERAGE 49 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE
->> Generated 1350 Killed 94 (7%)
-> KILLED 91 SURVIVED 141 TIMED_OUT 3 NON_VIABLE 0 
+>> Generated 1350 Killed 96 (7%)
+> KILLED 93 SURVIVED 139 TIMED_OUT 3 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
 > NO_COVERAGE 1115 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF
->> Generated 234 Killed 41 (18%)
-> KILLED 40 SURVIVED 21 TIMED_OUT 1 NON_VIABLE 0 
+>> Generated 234 Killed 40 (17%)
+> KILLED 39 SURVIVED 22 TIMED_OUT 1 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
 > NO_COVERAGE 172 
 --------------------------------------------------------------------------------
@@ -194,8 +194,8 @@
 > NO_COVERAGE 41 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator
->> Generated 1911 Killed 139 (7%)
-> KILLED 132 SURVIVED 120 TIMED_OUT 7 NON_VIABLE 0 
+>> Generated 1911 Killed 138 (7%)
+> KILLED 131 SURVIVED 121 TIMED_OUT 7 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
 > NO_COVERAGE 1652 
 --------------------------------------------------------------------------------
@@ -230,10 +230,10 @@
 > NO_COVERAGE 48 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator
->> Generated 410 Killed 41 (10%)
-> KILLED 41 SURVIVED 15 TIMED_OUT 0 NON_VIABLE 0 
+>> Generated 410 Killed 42 (10%)
+> KILLED 42 SURVIVED 15 TIMED_OUT 0 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 354 
+> NO_COVERAGE 353 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_0
 >> Generated 63 Killed 1 (2%)
@@ -266,8 +266,8 @@
 > NO_COVERAGE 1 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF
->> Generated 1355 Killed 119 (9%)
-> KILLED 117 SURVIVED 116 TIMED_OUT 2 NON_VIABLE 0 
+>> Generated 1355 Killed 118 (9%)
+> KILLED 116 SURVIVED 117 TIMED_OUT 2 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
 > NO_COVERAGE 1120 
 --------------------------------------------------------------------------------
@@ -314,15 +314,15 @@
 > NO_COVERAGE 278 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator
->> Generated 3826 Killed 261 (7%)
-> KILLED 251 SURVIVED 191 TIMED_OUT 10 NON_VIABLE 0 
+>> Generated 3826 Killed 263 (7%)
+> KILLED 253 SURVIVED 189 TIMED_OUT 10 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
 > NO_COVERAGE 3374 
 --------------------------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 07:00 min
-[INFO] Finished at: 2018-08-07T19:23:49+02:00
-[INFO] Final Memory: 37M/2215M
+[INFO] Total time: 07:02 min
+[INFO] Finished at: 2018-08-13T17:15:46+02:00
+[INFO] Final Memory: 37M/2290M
 [INFO] ------------------------------------------------------------------------

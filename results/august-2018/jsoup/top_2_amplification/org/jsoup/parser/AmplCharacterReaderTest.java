@@ -11,7 +11,7 @@ public class AmplCharacterReaderTest {
     public static final int maxBufferLen = CharacterReader.maxBufferLen;
 
     @Test(timeout = 10000)
-    public void consume_mg4291_failAssert9() throws Exception {
+    public void consume_mg13758_failAssert7() throws Exception {
         try {
             CharacterReader r = new CharacterReader("one");
             r.pos();
@@ -30,14 +30,14 @@ public class AmplCharacterReaderTest {
             r.consume();
             r.consume();
             r.toString();
-            org.junit.Assert.fail("consume_mg4291 should have thrown StringIndexOutOfBoundsException");
+            org.junit.Assert.fail("consume_mg13758 should have thrown StringIndexOutOfBoundsException");
         } catch (StringIndexOutOfBoundsException expected) {
             Assert.assertEquals("String index out of range: -3", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void unconsumelitString155472_failAssert74() throws Exception {
+    public void unconsumelitString164973_failAssert138() throws Exception {
         try {
             CharacterReader r = new CharacterReader("");
             r.consume();
@@ -62,48 +62,16 @@ public class AmplCharacterReaderTest {
             r.isEmpty();
             r.isEmpty();
             r.current();
-            org.junit.Assert.fail("unconsumelitString155472 should have thrown ArrayIndexOutOfBoundsException");
+            org.junit.Assert.fail("unconsumelitString164973 should have thrown ArrayIndexOutOfBoundsException");
         } catch (ArrayIndexOutOfBoundsException expected) {
             Assert.assertEquals("-1", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void mark_remove52811_mg53182_failAssert35() throws Exception {
+    public void rangeEqualslitString120529_failAssert111() throws Exception {
         try {
-            CharacterReader r = new CharacterReader("one");
-            r.consume();
-            r.mark();
-            r.consume();
-            r.consume();
-            r.isEmpty();
-            r.consume();
-            r.consume();
-            r.toString();
-            org.junit.Assert.fail("mark_remove52811_mg53182 should have thrown StringIndexOutOfBoundsException");
-        } catch (StringIndexOutOfBoundsException expected) {
-            Assert.assertEquals("String index out of range: -2", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void advancelitString6_mg185_failAssert1() throws Exception {
-        try {
-            CharacterReader r = new CharacterReader("");
-            r.consume();
-            r.advance();
-            r.consume();
-            r.toString();
-            org.junit.Assert.fail("advancelitString6_mg185 should have thrown StringIndexOutOfBoundsException");
-        } catch (StringIndexOutOfBoundsException expected) {
-            Assert.assertEquals("String index out of range: -1", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void rangeEqualslitString116596_failAssert66() throws Exception {
-        try {
-            CharacterReader r = new CharacterReader("blah blah");
+            CharacterReader r = new CharacterReader("\n");
             r.rangeEquals(0, 5, "Check");
             r.rangeEquals(0, 5, "CHOKE");
             r.rangeEquals(0, 5, "Chec");
@@ -113,9 +81,9 @@ public class AmplCharacterReaderTest {
             r.rangeEquals(12, 5, "Cheeky");
             r.rangeEquals(18, 5, "CHOKE");
             r.rangeEquals(18, 5, "CHIKE");
-            org.junit.Assert.fail("rangeEqualslitString116596 should have thrown ArrayIndexOutOfBoundsException");
+            org.junit.Assert.fail("rangeEqualslitString120529 should have thrown ArrayIndexOutOfBoundsException");
         } catch (ArrayIndexOutOfBoundsException expected) {
-            Assert.assertEquals("12", expected.getMessage());
+            Assert.assertEquals("6", expected.getMessage());
         }
     }
 
