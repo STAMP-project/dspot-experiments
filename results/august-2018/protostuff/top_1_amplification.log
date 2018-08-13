@@ -1,7 +1,7 @@
-[INFO] 2018-08-07 18:26:21 PitMutantScoreSelector - The original test suite kill 400 / 5415
-[WARN] 2018-08-07 18:26:21 AutomaticBuilderFactory - automaticBuilderName: unknown automatic builder specified in configuration, going to default.
-[INFO] 2018-08-07 18:26:21 AutomaticBuilderFactory - Default: provided Maven automatic builder.
-[INFO] 2018-08-07 18:26:21 MavenAutomaticBuilder - run maven clean test -DskipTests dependency:build-classpath -Dmdep.outputFile=target/dspot/classpath
+2018-08-13 15:26:17,275 INFO eu.stamp_project.dspot.selector.PitMutantScoreSelector - The original test suite kill 400 / 5415
+2018-08-13 15:26:17,293 WARN eu.stamp_project.automaticbuilder.AutomaticBuilderFactory - automaticBuilderName: unknown automatic builder specified in configuration, going to default.
+2018-08-13 15:26:17,293 INFO eu.stamp_project.automaticbuilder.AutomaticBuilderFactory - Default: provided Maven automatic builder.
+2018-08-13 15:26:17,306 INFO eu.stamp_project.automaticbuilder.MavenAutomaticBuilder - run maven clean test -DskipTests dependency:build-classpath -Dmdep.outputFile=target/dspot/classpath
 [WARN] Maven will be executed in interactive mode, but no input stream has been configured for this MavenInvoker instance.
 [INFO] Scanning for projects...
 [INFO]                                                                         
@@ -43,43 +43,43 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 4.832 s
-[INFO] Finished at: 2018-08-07T18:26:27+02:00
+[INFO] Total time: 4.816 s
+[INFO] Finished at: 2018-08-13T15:26:23+02:00
 [INFO] Final Memory: 25M/309M
 [INFO] ------------------------------------------------------------------------
-[WARN] 2018-08-07 18:26:30 Launcher - You specified the directory /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2018-08-07 18:26:30 Launcher - You're trying to give source code in the classpath, this should be given to addInputSource [/tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/test-classes/io/protostuff/AbstractTest.java]
-[WARN] 2018-08-07 18:26:30 Launcher - You specified the directory /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2018-08-07 18:26:30 Launcher - You specified the directory target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[INFO] 2018-08-07 18:26:31 Amplification - Amplification of io.protostuff.TailDelimiterTest (10 test(s))
-[INFO] 2018-08-07 18:26:31 Amplification - Assertion amplification of io.protostuff.TailDelimiterTest (10 test(s))
-[INFO] 2018-08-07 18:26:31 EntryPoint - Run: java -classpath /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/test-classes:/tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/io/protostuff/protostuff-api/1.6.1-SNAPSHOT/protostuff-api-1.6.1-SNAPSHOT.jar:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner io.protostuff.TailDelimiterTest testBar:testEmptyBar:testEmptyBar2:testEmptyBarInner:testEmptyFoo:testEmptyFoo2:testEmptyFooInner:testEmptyFooInner2:testEmptyList:testFoo
+2018-08-13 15:26:26,869 WARN spoon.Launcher - You specified the directory /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+2018-08-13 15:26:26,874 WARN spoon.Launcher - You're trying to give source code in the classpath, this should be given to addInputSource [/tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/test-classes/io/protostuff/AbstractTest.java]
+2018-08-13 15:26:26,874 WARN spoon.Launcher - You specified the directory /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+2018-08-13 15:26:26,875 WARN spoon.Launcher - You specified the directory target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+2018-08-13 15:26:27,092 INFO eu.stamp_project.dspot.Amplification - Amplification of io.protostuff.TailDelimiterTest (10 test(s))
+2018-08-13 15:26:27,092 INFO eu.stamp_project.dspot.Amplification - Assertion amplification of io.protostuff.TailDelimiterTest (10 test(s))
+2018-08-13 15:26:27,531 INFO eu.stamp_project.testrunner.EntryPoint - Run: java -classpath /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/test-classes:/tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/io/protostuff/protostuff-api/1.6.1-SNAPSHOT/protostuff-api-1.6.1-SNAPSHOT.jar:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner io.protostuff.TailDelimiterTest testBar:testEmptyBar:testEmptyBar2:testEmptyBarInner:testEmptyFoo:testEmptyFoo2:testEmptyFooInner:testEmptyFooInner2:testEmptyList:testFoo
 File saved to the following path: /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/dspot/TestListener.ser
-[INFO] 2018-08-07 18:26:31 EntryPoint - Test has been run: testBar,testFoo,testEmptyFooInner2,testEmptyBar2,testEmptyFoo2,testEmptyList,testEmptyFooInner,testEmptyBarInner,testEmptyBar,testEmptyFoo
-[INFO] 2018-08-07 18:26:32 AssertGenerator - Run tests. (10)
-[INFO] 2018-08-07 18:26:32 EntryPoint - Run: java -classpath /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/test-classes:/tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/io/protostuff/protostuff-api/1.6.1-SNAPSHOT/protostuff-api-1.6.1-SNAPSHOT.jar:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner io.protostuff.TailDelimiterTest testBar:testEmptyBar:testEmptyBar2:testEmptyBarInner:testEmptyFoo:testEmptyFoo2:testEmptyFooInner:testEmptyFooInner2:testEmptyList:testFoo
+2018-08-13 15:26:27,957 INFO eu.stamp_project.testrunner.EntryPoint - Test has been run: testBar,testFoo,testEmptyFooInner2,testEmptyBar2,testEmptyFoo2,testEmptyList,testEmptyFooInner,testEmptyBarInner,testEmptyBar,testEmptyFoo
+2018-08-13 15:26:28,048 INFO eu.stamp_project.dspot.assertgenerator.AssertGenerator - Run tests. (10)
+2018-08-13 15:26:28,172 INFO eu.stamp_project.testrunner.EntryPoint - Run: java -classpath /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/test-classes:/tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/io/protostuff/protostuff-api/1.6.1-SNAPSHOT/protostuff-api-1.6.1-SNAPSHOT.jar:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner io.protostuff.TailDelimiterTest testBar:testEmptyBar:testEmptyBar2:testEmptyBarInner:testEmptyFoo:testEmptyFoo2:testEmptyFooInner:testEmptyFooInner2:testEmptyList:testFoo
 File saved to the following path: /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/dspot/TestListener.ser
-[INFO] 2018-08-07 18:26:32 EntryPoint - Test has been run: testBar,testFoo,testEmptyFooInner2,testEmptyBar2,testEmptyFoo2,testEmptyList,testEmptyFooInner,testEmptyBarInner,testEmptyBar,testEmptyFoo
-[INFO] 2018-08-07 18:26:32 AssertGenerator - 10 test pass, generating assertion...
-[INFO] 2018-08-07 18:26:32 MethodsAssertGenerator - Add observations points in passing tests.
-[INFO] 2018-08-07 18:26:32 MethodsAssertGenerator - Instrumentation...
+2018-08-13 15:26:28,575 INFO eu.stamp_project.testrunner.EntryPoint - Test has been run: testBar,testFoo,testEmptyFooInner2,testEmptyBar2,testEmptyFoo2,testEmptyList,testEmptyFooInner,testEmptyBarInner,testEmptyBar,testEmptyFoo
+2018-08-13 15:26:28,577 INFO eu.stamp_project.dspot.assertgenerator.AssertGenerator - 10 test pass, generating assertion...
+2018-08-13 15:26:28,589 INFO eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator - Add observations points in passing tests.
+2018-08-13 15:26:28,589 INFO eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator - Instrumentation...
  10% |===== ]/ 20% |========== ]- 30% |=============== ]\ 40% |==================== ]| 50% |========================= ]/ 60% |============================== ]- 70% |=================================== ]\ 80% |======================================== ]| 90% |============================================= ]/100% |================================================== ]-
-[INFO] 2018-08-07 18:26:32 MethodsAssertGenerator - Run instrumented tests. (30)
-[INFO] 2018-08-07 18:26:32 EntryPoint - Run: java -classpath /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/test-classes:/tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/io/protostuff/protostuff-api/1.6.1-SNAPSHOT/protostuff-api-1.6.1-SNAPSHOT.jar:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner io.protostuff.TailDelimiterTest testBar_withlog0:testEmptyBar_withlog0:testEmptyBar2_withlog0:testEmptyBarInner_withlog0:testEmptyFoo_withlog0:testEmptyFoo2_withlog0:testEmptyFooInner_withlog0:testEmptyFooInner2_withlog0:testEmptyList_withlog0:testFoo_withlog0:testBar_withlog1:testEmptyBar_withlog1:testEmptyBar2_withlog1:testEmptyBarInner_withlog1:testEmptyFoo_withlog1:testEmptyFoo2_withlog1:testEmptyFooInner_withlog1:testEmptyFooInner2_withlog1:testEmptyList_withlog1:testFoo_withlog1:testBar_withlog2:testEmptyBar_withlog2:testEmptyBar2_withlog2:testEmptyBarInner_withlog2:testEmptyFoo_withlog2:testEmptyFoo2_withlog2:testEmptyFooInner_withlog2:testEmptyFooInner2_withlog2:testEmptyList_withlog2:testFoo_withlog2
+2018-08-13 15:26:28,678 INFO eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator - Run instrumented tests. (30)
+2018-08-13 15:26:28,975 INFO eu.stamp_project.testrunner.EntryPoint - Run: java -classpath /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/test-classes:/tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/io/protostuff/protostuff-api/1.6.1-SNAPSHOT/protostuff-api-1.6.1-SNAPSHOT.jar:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner io.protostuff.TailDelimiterTest testBar_withlog0:testEmptyBar_withlog0:testEmptyBar2_withlog0:testEmptyBarInner_withlog0:testEmptyFoo_withlog0:testEmptyFoo2_withlog0:testEmptyFooInner_withlog0:testEmptyFooInner2_withlog0:testEmptyList_withlog0:testFoo_withlog0:testBar_withlog1:testEmptyBar_withlog1:testEmptyBar2_withlog1:testEmptyBarInner_withlog1:testEmptyFoo_withlog1:testEmptyFoo2_withlog1:testEmptyFooInner_withlog1:testEmptyFooInner2_withlog1:testEmptyList_withlog1:testFoo_withlog1:testBar_withlog2:testEmptyBar_withlog2:testEmptyBar2_withlog2:testEmptyBarInner_withlog2:testEmptyFoo_withlog2:testEmptyFoo2_withlog2:testEmptyFooInner_withlog2:testEmptyFooInner2_withlog2:testEmptyList_withlog2:testFoo_withlog2
 File saved to the following path: /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/dspot/observations.ser
 File saved to the following path: /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/dspot/TestListener.ser
-[INFO] 2018-08-07 18:26:33 EntryPoint - Test has been run: testFoo_withlog0,testFoo_withlog1,testFoo_withlog2,testEmptyBarInner_withlog0,testEmptyBarInner_withlog1,testEmptyBarInner_withlog2,testEmptyBar_withlog0,testEmptyBar_withlog1,testEmptyBar_withlog2,testEmptyFooInner2_withlog0,testEmptyFooInner2_withlog1,testEmptyFooInner2_withlog2,testEmptyBar2_withlog0,testEmptyBar2_withlog1,testEmptyBar2_withlog2,testEmptyList_withlog0,testEmptyList_withlog1,testEmptyList_withlog2,testEmptyFoo_withlog0,testEmptyFoo_withlog1,testEmptyFoo_withlog2,testBar_withlog0,testBar_withlog1,testBar_withlog2,testEmptyFooInner_withlog0,testEmptyFooInner_withlog1,testEmptyFooInner_withlog2,testEmptyFoo2_withlog0,testEmptyFoo2_withlog1,testEmptyFoo2_withlog2
-[INFO] 2018-08-07 18:26:33 MethodsAssertGenerator - Generating assertions...
-[INFO] 2018-08-07 18:26:35 AssertGenerator - 10 new tests with assertions generated
-[INFO] 2018-08-07 18:26:35 EntryPoint - Run: java -classpath /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/test-classes:/tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/io/protostuff/protostuff-api/1.6.1-SNAPSHOT/protostuff-api-1.6.1-SNAPSHOT.jar:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner io.protostuff.TailDelimiterTest testBar:testEmptyBar:testEmptyBar2:testEmptyBarInner:testEmptyFoo:testEmptyFoo2:testEmptyFooInner:testEmptyFooInner2:testEmptyList:testFoo
+2018-08-13 15:26:29,608 INFO eu.stamp_project.testrunner.EntryPoint - Test has been run: testFoo_withlog0,testFoo_withlog1,testFoo_withlog2,testEmptyBarInner_withlog0,testEmptyBarInner_withlog1,testEmptyBarInner_withlog2,testEmptyBar_withlog0,testEmptyBar_withlog1,testEmptyBar_withlog2,testEmptyFooInner2_withlog0,testEmptyFooInner2_withlog1,testEmptyFooInner2_withlog2,testEmptyBar2_withlog0,testEmptyBar2_withlog1,testEmptyBar2_withlog2,testEmptyList_withlog0,testEmptyList_withlog1,testEmptyList_withlog2,testEmptyFoo_withlog0,testEmptyFoo_withlog1,testEmptyFoo_withlog2,testBar_withlog0,testBar_withlog1,testBar_withlog2,testEmptyFooInner_withlog0,testEmptyFooInner_withlog1,testEmptyFooInner_withlog2,testEmptyFoo2_withlog0,testEmptyFoo2_withlog1,testEmptyFoo2_withlog2
+2018-08-13 15:26:29,628 INFO eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator - Generating assertions...
+2018-08-13 15:26:31,592 INFO eu.stamp_project.dspot.assertgenerator.AssertGenerator - 10 new tests with assertions generated
+2018-08-13 15:26:31,748 INFO eu.stamp_project.testrunner.EntryPoint - Run: java -classpath /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/test-classes:/tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/io/protostuff/protostuff-api/1.6.1-SNAPSHOT/protostuff-api-1.6.1-SNAPSHOT.jar:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner io.protostuff.TailDelimiterTest testBar:testEmptyBar:testEmptyBar2:testEmptyBarInner:testEmptyFoo:testEmptyFoo2:testEmptyFooInner:testEmptyFooInner2:testEmptyList:testFoo
 File saved to the following path: /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/dspot/TestListener.ser
-[INFO] 2018-08-07 18:26:36 EntryPoint - Test has been run: testBar,testFoo,testEmptyFooInner2,testEmptyBar2,testEmptyFoo2,testEmptyList,testEmptyFooInner,testEmptyBarInner,testEmptyBar,testEmptyFoo
-[INFO] 2018-08-07 18:26:36 Amplification - Assertion amplification: 10 test method(s) has been successfully amplified.
-[WARN] 2018-08-07 18:26:36 Launcher - You specified the directory /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2018-08-07 18:26:36 Launcher - You're trying to give source code in the classpath, this should be given to addInputSource [/tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/test-classes/io/protostuff/AbstractTest.java]
-[WARN] 2018-08-07 18:26:36 Launcher - You specified the directory /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2018-08-07 18:26:36 Launcher - You specified the directory target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[INFO] 2018-08-07 18:26:36 MavenAutomaticBuilder - run maven org.pitest:pitest-maven:1.3.0:mutationCoverage -DwithHistory -DtargetClasses=io.protostuff* -DreportsDirectory=target/pit-reports -DoutputFormats=CSV,HTML -DtimeoutConst=10000 -DjvmArgs=16G -DtargetTests=io.protostuff.TailDelimiterTest -DadditionalClasspathElements=target/dspot/dependencies/ -DmutationEngines=gregor -Dmutators=ALL 
+2018-08-13 15:26:32,167 INFO eu.stamp_project.testrunner.EntryPoint - Test has been run: testBar,testFoo,testEmptyFooInner2,testEmptyBar2,testEmptyFoo2,testEmptyList,testEmptyFooInner,testEmptyBarInner,testEmptyBar,testEmptyFoo
+2018-08-13 15:26:32,167 INFO eu.stamp_project.dspot.Amplification - Assertion amplification: 10 test method(s) has been successfully amplified.
+2018-08-13 15:26:32,274 WARN spoon.Launcher - You specified the directory /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+2018-08-13 15:26:32,278 WARN spoon.Launcher - You're trying to give source code in the classpath, this should be given to addInputSource [/tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/test-classes/io/protostuff/AbstractTest.java]
+2018-08-13 15:26:32,278 WARN spoon.Launcher - You specified the directory /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+2018-08-13 15:26:32,279 WARN spoon.Launcher - You specified the directory target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+2018-08-13 15:26:32,654 INFO eu.stamp_project.automaticbuilder.MavenAutomaticBuilder - run maven org.pitest:pitest-maven:1.4.0:mutationCoverage -DwithHistory -DtargetClasses=io.protostuff* -DreportsDirectory=target/pit-reports -DoutputFormats=CSV,HTML -DtimeoutConst=10000 -DjvmArgs=16G -DtargetTests=io.protostuff.TailDelimiterTest -DadditionalClasspathElements=target/dspot/dependencies/ -DmutationEngines=gregor -Dmutators=ALL 
 [WARN] Maven will be executed in interactive mode, but no input stream has been configured for this MavenInvoker instance.
 [INFO] Scanning for projects...
 [INFO]                                                                         
@@ -87,7 +87,7 @@ File saved to the following path: /tmp/dspot-experiments/dataset/protostuff/prot
 [INFO] Building protostuff :: core 1.6.1-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] 
-[INFO] --- pitest-maven:1.3.0:mutationCoverage (default-cli) @ protostuff-core ---
+[INFO] --- pitest-maven:1.4.0:mutationCoverage (default-cli) @ protostuff-core ---
 [INFO] Found plugin : Default csv report plugin
 [INFO] Found plugin : Default xml report plugin
 [INFO] Found plugin : Default html report plugin
@@ -113,40 +113,303 @@ File saved to the following path: /tmp/dspot-experiments/dataset/protostuff/prot
 [INFO] Adding org.pitest:pitest to SUT classpath
 [INFO] Mutating from /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/classes
 [INFO] Will read and write history at /tmp/io.protostuff.protostuff-core.1.6.1-SNAPSHOT_pitest_history.bin
-6:26:39 PM PIT >> INFO : Verbose logging is disabled. If you encounter an problem please enable it before reporting an issue.
-6:26:40 PM PIT >> INFO : Sending 1 test classes to minion
-6:26:40 PM PIT >> INFO : Sent tests to minion
-6:26:40 PM PIT >> INFO : MINION : Security framework of XStream not initialized, XStream is probably vulnerable.
-6:26:40 PM PIT >> INFO : Checking environment
+3:26:35 PM PIT >> INFO : Verbose logging is disabled. If you encounter an problem please enable it before reporting an issue.
+3:26:36 PM PIT >> INFO : Sending 1 test classes to minion
+3:26:36 PM PIT >> INFO : Sent tests to minion
+3:26:36 PM PIT >> INFO : MINION : 3:26:36 PM PIT >> INFO : Checking environment
 
-6:26:40 PM PIT >> INFO : MINION : 6:26:40 PM PIT >> INFO : Found  10 tests
+3:26:36 PM PIT >> INFO : MINION : 3:26:36 PM PIT >> INFO : Found  10 tests
 
-6:26:40 PM PIT >> INFO : MINION : 6:26:40 PM PIT >> INFO : Dependency analysis reduced number of potential tests by 0
+3:26:36 PM PIT >> INFO : MINION : 3:26:36 PM PIT >> INFO : Dependency analysis reduced number of potential tests by 0
 
-6:26:40 PM PIT >> INFO : MINION : 6:26:40 PM PIT >> INFO : 10 tests received
+3:26:36 PM PIT >> INFO : MINION : 3:26:36 PM PIT >> INFO : 10 tests received
 
-Security framework of XStream not initialized, XStream is probably vulnerable.
-6:26:41 PM PIT >> INFO : Calculated coverage in 1 seconds.
-/-\|/-\|/-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
+3:26:36 PM PIT >> INFO : Calculated coverage in 0 seconds.
+3:26:38 PM PIT >> INFO : Created  22 mutation test units
+3:26:42 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+3:26:51 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+3:26:55 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+3:27:03 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+3:27:13 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+3:27:17 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+3:27:21 PM PIT >> INFO : Completed in 45 seconds
+/-\|/-\|/-/-\|/-\|/-\|/-\|/-\|/-================================================================================
+- Timings
+================================================================================
+> scan classpath : < 1 second
+> coverage and dependency analysis : < 1 second
+> build mutation tests : 2 seconds
+> run mutation analysis : 42 seconds
+--------------------------------------------------------------------------------
+> Total  : 45 seconds
+--------------------------------------------------------------------------------
+================================================================================
+- Statistics
+================================================================================
+>> Generated 5415 mutations Killed 238 (4%)
+>> Ran 1725 tests (0.32 tests per mutation)
+================================================================================
+- Mutators
+================================================================================
+> org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator
+>> Generated 224 Killed 5 (2%)
+> KILLED 5 SURVIVED 10 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 209 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.SwitchMutator
+>> Generated 4 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 4 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE
+>> Generated 227 Killed 11 (5%)
+> KILLED 11 SURVIVED 18 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 198 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF
+>> Generated 162 Killed 10 (6%)
+> KILLED 9 SURVIVED 10 TIMED_OUT 1 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 142 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.MathMutator
+>> Generated 577 Killed 7 (1%)
+> KILLED 5 SURVIVED 59 TIMED_OUT 2 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 511 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator
+>> Generated 158 Killed 4 (3%)
+> KILLED 4 SURVIVED 10 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 144 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator
+>> Generated 162 Killed 3 (2%)
+> KILLED 3 SURVIVED 17 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 142 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator
+>> Generated 89 Killed 1 (1%)
+> KILLED 0 SURVIVED 2 TIMED_OUT 1 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 86 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveIncrementsMutator
+>> Generated 84 Killed 0 (0%)
+> KILLED 0 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 83 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.NullReturnValsMutator
+>> Generated 92 Killed 0 (0%)
+> KILLED 0 SURVIVED 3 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 89 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_3
+>> Generated 4 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 4 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_2
+>> Generated 4 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 4 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator
+>> Generated 876 Killed 26 (3%)
+> KILLED 25 SURVIVED 68 TIMED_OUT 1 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 782 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_5
+>> Generated 3 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 3 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator
+>> Generated 112 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 112 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_4
+>> Generated 3 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 3 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator
+>> Generated 320 Killed 9 (3%)
+> KILLED 9 SURVIVED 18 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 293 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_1
+>> Generated 4 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 4 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator
+>> Generated 192 Killed 3 (2%)
+> KILLED 3 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 189 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_0
+>> Generated 4 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 4 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF
+>> Generated 227 Killed 10 (4%)
+> KILLED 10 SURVIVED 19 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 198 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE
+>> Generated 162 Killed 9 (6%)
+> KILLED 9 SURVIVED 11 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 142 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator
+>> Generated 242 Killed 9 (4%)
+> KILLED 8 SURVIVED 25 TIMED_OUT 1 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 208 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator
+>> Generated 389 Killed 32 (8%)
+> KILLED 32 SURVIVED 17 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 340 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator
+>> Generated 21 Killed 0 (0%)
+> KILLED 0 SURVIVED 3 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 18 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator
+>> Generated 9 Killed 0 (0%)
+> KILLED 0 SURVIVED 2 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 7 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.InvertNegsMutator
+>> Generated 9 Killed 0 (0%)
+> KILLED 0 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 8 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator
+>> Generated 233 Killed 32 (14%)
+> KILLED 32 SURVIVED 2 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 199 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.BooleanFalseReturnValsMutator
+>> Generated 38 Killed 0 (0%)
+> KILLED 0 SURVIVED 4 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 34 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator
+>> Generated 784 Killed 67 (9%)
+> KILLED 67 SURVIVED 14 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 703 
+--------------------------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 4.247 s
-[INFO] Finished at: 2018-08-07T18:26:42+02:00
-[INFO] Final Memory: 15M/407M
+[INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.pitest:pitest-maven:1.3.0:mutationCoverage (default-cli) on project protostuff-core: Execution default-cli of goal org.pitest:pitest-maven:1.3.0:mutationCoverage failed: ()B does not return integer type -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/PluginExecutionException
-Exception in thread "main" java.lang.RuntimeException: java.lang.RuntimeException: Maven build failed! Enable verbose mode for more information (--verbose)
-	at eu.stamp_project.automaticbuilder.MavenAutomaticBuilder.runPit(MavenAutomaticBuilder.java:182)
-	at eu.stamp_project.dspot.selector.PitMutantScoreSelector.selectToKeep(PitMutantScoreSelector.java:117)
-	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:85)
-	at eu.stamp_project.dspot.DSpot.amplifyTest(DSpot.java:179)
-	at eu.stamp_project.dspot.DSpot.amplifyTest(DSpot.java:169)
+[INFO] Total time: 47.371 s
+[INFO] Finished at: 2018-08-13T15:27:21+02:00
+[INFO] Final Memory: 16M/527M
+[INFO] ------------------------------------------------------------------------
+2018-08-13 15:27:21,581 INFO eu.stamp_project.dspot.selector.PitMutantScoreSelector - 5415 mutants has been generated (5415)
+2018-08-13 15:27:21,588 INFO eu.stamp_project.dspot.selector.PitMutantScoreSelector - testFoo kills 2 more mutants
+2018-08-13 15:27:21,588 INFO eu.stamp_project.dspot.selector.PitMutantScoreSelector - testEmptyBar2 kills 2 more mutants
+2018-08-13 15:27:21,588 INFO eu.stamp_project.dspot.Amplification - 2 amplified test methods has been selected to be kept. (global: 2)
+2018-08-13 15:27:21,588 INFO eu.stamp_project.dspot.Amplification - Applying Input-amplification and Assertion-amplification test by test.
+2018-08-13 15:27:21,591 INFO eu.stamp_project.dspot.Amplification - Amplification of testBar, (1/10)
+2018-08-13 15:27:21,591 INFO eu.stamp_project.dspot.Amplification - iteration 0 / 3
+2018-08-13 15:27:21,591 INFO eu.stamp_project.dspot.Amplification - 1 tests selected to be amplified over 1 available tests
+2018-08-13 15:27:21,591 INFO eu.stamp_project.dspot.budget.NoBudgetizer - Amplification of inputs...
+100% |================================================== ]/
+2018-08-13 15:27:22,456 INFO eu.stamp_project.dspot.budget.NoBudgetizer - 75 new tests generated
+2018-08-13 15:27:22,905 INFO eu.stamp_project.dspot.assertgenerator.AssertGenerator - Run tests. (75)
+2018-08-13 15:27:23,213 ERROR eu.stamp_project.utils.compilation.TestCompiler - Error(s) during compilation:
+2018-08-13 15:27:23,214 ERROR eu.stamp_project.utils.compilation.TestCompiler - Pb(114) Cannot invoke add(Bar) on the primitive type null
+2018-08-13 15:27:23,214 ERROR eu.stamp_project.utils.compilation.TestCompiler - Pb(114) Cannot invoke add(Bar) on the primitive type null
+2018-08-13 15:27:23,215 ERROR eu.stamp_project.utils.compilation.TestCompiler - Pb(114) Cannot invoke writeListTo(ByteArrayOutputStream, ArrayList<Bar>, Schema<Bar>) on the primitive type null
+2018-08-13 15:27:23,215 ERROR eu.stamp_project.utils.compilation.TestCompiler - Pb(114) Cannot invoke cachedSchema() on the primitive type null
+2018-08-13 15:27:23,215 ERROR eu.stamp_project.utils.compilation.TestCompiler - Pb(114) Cannot invoke toByteArray() on the primitive type null
+2018-08-13 15:27:23,215 ERROR eu.stamp_project.utils.compilation.TestCompiler - Pb(114) Cannot invoke parseListFrom(ByteArrayInputStream, Schema<Bar>) on the primitive type null
+2018-08-13 15:27:23,215 ERROR eu.stamp_project.utils.compilation.TestCompiler - Pb(114) Cannot invoke cachedSchema() on the primitive type null
+2018-08-13 15:27:23,215 ERROR eu.stamp_project.utils.compilation.TestCompiler - Pb(114) Cannot invoke size() on the primitive type null
+2018-08-13 15:27:23,215 ERROR eu.stamp_project.utils.compilation.TestCompiler - Pb(114) Cannot invoke size() on the primitive type null
+2018-08-13 15:27:23,215 ERROR eu.stamp_project.utils.compilation.TestCompiler - Pb(17) Type mismatch: cannot convert from null to int
+2018-08-13 15:27:23,215 ERROR eu.stamp_project.utils.compilation.TestCompiler - Pb(114) Cannot invoke get(int) on the primitive type null
+2018-08-13 15:27:23,215 ERROR eu.stamp_project.utils.compilation.TestCompiler - Pb(115) The method get(int) in the type ArrayList<Bar> is not applicable for the arguments (null)
+2018-08-13 15:27:23,795 INFO eu.stamp_project.testrunner.EntryPoint - Run: java -classpath /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/test-classes:/tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/io/protostuff/protostuff-api/1.6.1-SNAPSHOT/protostuff-api-1.6.1-SNAPSHOT.jar:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner io.protostuff.TailDelimiterTest testBarlitNum1:testBarlitNum2:testBarlitNum3:testBarlitNum4:testBarlitNum5:testBarlitNum6:testBar_add7:testBar_add8:testBar_add9:testBar_add10:testBar_add11:testBar_add12:testBar_add13:testBar_add14:testBar_add15:testBar_add16:testBar_remove17:testBar_remove18:testBar_remove19:testBar_mg20:testBar_mg21:testBar_mg22:testBar_mg23:testBar_mg24:testBar_mg25:testBar_mg26:testBar_mg27:testBar_mg28:testBar_mg29:testBar_mg30:testBar_mg31:testBar_mg32:testBar_mg33:testBar_mg34:testBar_mg35:testBar_mg36:testBar_mg37:testBar_mg38:testBar_mg39:testBar_mg40:testBar_mg41:testBar_mg42:testBar_mg43:testBar_mg44:testBar_mg45:testBar_mg46:testBarnull47:testBarnull49:testBarnull51:testBarnull52:testBarnull54:testBarnull55:testBarnull56:testBarnull58:testBarnull60:testBarnull61:testBarnull63:testBarnull64:testBarnull66:testBarnull67:testBarnull71:testBarnull72:testBarnull75
+File saved to the following path: /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/dspot/TestListener.ser
+2018-08-13 15:27:24,312 INFO eu.stamp_project.testrunner.EntryPoint - Test has been run: testBarnull66,testBarnull67,testBarnull71,testBarnull72,testBarnull75,testBar_add7,testBar_add8,testBar_add9,testBar_mg20,testBar_mg21,testBar_mg22,testBar_mg23,testBar_mg24,testBar_mg25,testBar_mg26,testBar_mg27,testBar_mg28,testBar_mg29,testBar_mg30,testBar_mg31,testBar_mg32,testBar_mg33,testBar_mg34,testBar_mg35,testBar_mg36,testBar_mg37,testBar_mg38,testBar_mg39,testBar_mg40,testBar_mg41,testBar_mg42,testBar_mg43,testBar_mg44,testBar_mg45,testBar_mg46,testBarlitNum5,testBar_remove17,testBar_remove18,testBar_remove19,testBar_add10,testBar_add11,testBar_add12,testBar_add13,testBar_add14,testBar_add15,testBarnull47(io.protostuff.TailDelimiterTest): null,testBarnull49(io.protostuff.TailDelimiterTest): null,testBarnull51(io.protostuff.TailDelimiterTest): null,testBarnull52(io.protostuff.TailDelimiterTest): null,testBarnull54(io.protostuff.TailDelimiterTest): null,testBarnull55(io.protostuff.TailDelimiterTest): null,testBarnull56(io.protostuff.TailDelimiterTest): null,testBarnull58(io.protostuff.TailDelimiterTest): null,testBarnull60(io.protostuff.TailDelimiterTest): null,testBarnull61(io.protostuff.TailDelimiterTest): null,testBarnull63(io.protostuff.TailDelimiterTest): null,testBarnull64(io.protostuff.TailDelimiterTest): null,testBarlitNum1(io.protostuff.TailDelimiterTest): Index: 2, Size: 2,testBarlitNum2(io.protostuff.TailDelimiterTest): -1,testBarlitNum3(io.protostuff.TailDelimiterTest): Index: 2147483647, Size: 2,testBarlitNum4(io.protostuff.TailDelimiterTest): -2147483648,testBarlitNum6(io.protostuff.TailDelimiterTest): -1150482841,testBar_add16(io.protostuff.TailDelimiterTest): Index: 2, Size: 2
+2018-08-13 15:27:24,312 INFO eu.stamp_project.dspot.assertgenerator.AssertGenerator - 45 test pass, generating assertion...
+2018-08-13 15:27:24,362 INFO eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator - Add observations points in passing tests.
+2018-08-13 15:27:24,362 INFO eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator - Instrumentation...
+  2% |= ]/  4% |== ]-  6% |=== ]\  8% |==== ]| 11% |===== ]/ 13% |====== ]- 15% |======= ]\ 17% |======== ]| 20% |========== ]/ 22% |=========== ]- 24% |============ ]\ 26% |============= ]| 28% |============== ]/ 31% |=============== ]- 33% |================ ]\ 35% |================= ]| 37% |================== ]/ 40% |==================== ]- 42% |===================== ]\ 44% |====================== ]| 46% |======================= ]/ 48% |======================== ]- 51% |========================= ]\ 53% |========================== ]| 55% |=========================== ]/ 57% |============================ ]- 60% |============================== ]\ 62% |=============================== ]| 64% |================================ ]/ 66% |================================= ]- 68% |================================== ]\ 71% |=================================== ]| 73% |==================================== ]/ 75% |===================================== ]- 77% |====================================== ]\ 80% |======================================== ]| 82% |========================================= ]/ 84% |========================================== ]- 86% |=========================================== ]\ 88% |============================================ ]| 91% |============================================= ]/ 93% |============================================== ]- 95% |=============================================== ]\ 97% |================================================ ]|100% |================================================== ]/
+2018-08-13 15:27:24,573 INFO eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator - Run instrumented tests. (135)
+2018-08-13 15:27:25,220 INFO eu.stamp_project.testrunner.EntryPoint - Run: java -classpath /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/test-classes:/tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/io/protostuff/protostuff-api/1.6.1-SNAPSHOT/protostuff-api-1.6.1-SNAPSHOT.jar:/tmp/dspot-experiments/target/dspot/dependencies:/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.test.TestRunner io.protostuff.TailDelimiterTest testBarlitNum5_withlog0:testBar_add7_withlog0:testBar_add8_withlog0:testBar_add9_withlog0:testBar_add10_withlog0:testBar_add11_withlog0:testBar_add12_withlog0:testBar_add13_withlog0:testBar_add14_withlog0:testBar_add15_withlog0:testBar_remove17_withlog0:testBar_remove18_withlog0:testBar_remove19_withlog0:testBar_mg20_withlog0:testBar_mg21_withlog0:testBar_mg22_withlog0:testBar_mg23_withlog0:testBar_mg24_withlog0:testBar_mg25_withlog0:testBar_mg26_withlog0:testBar_mg27_withlog0:testBar_mg28_withlog0:testBar_mg29_withlog0:testBar_mg30_withlog0:testBar_mg31_withlog0:testBar_mg32_withlog0:testBar_mg33_withlog0:testBar_mg34_withlog0:testBar_mg35_withlog0:testBar_mg36_withlog0:testBar_mg37_withlog0:testBar_mg38_withlog0:testBar_mg39_withlog0:testBar_mg40_withlog0:testBar_mg41_withlog0:testBar_mg42_withlog0:testBar_mg43_withlog0:testBar_mg44_withlog0:testBar_mg45_withlog0:testBar_mg46_withlog0:testBarnull66_withlog0:testBarnull67_withlog0:testBarnull71_withlog0:testBarnull72_withlog0:testBarnull75_withlog0:testBarlitNum5_withlog1:testBar_add7_withlog1:testBar_add8_withlog1:testBar_add9_withlog1:testBar_add10_withlog1:testBar_add11_withlog1:testBar_add12_withlog1:testBar_add13_withlog1:testBar_add14_withlog1:testBar_add15_withlog1:testBar_remove17_withlog1:testBar_remove18_withlog1:testBar_remove19_withlog1:testBar_mg20_withlog1:testBar_mg21_withlog1:testBar_mg22_withlog1:testBar_mg23_withlog1:testBar_mg24_withlog1:testBar_mg25_withlog1:testBar_mg26_withlog1:testBar_mg27_withlog1:testBar_mg28_withlog1:testBar_mg29_withlog1:testBar_mg30_withlog1:testBar_mg31_withlog1:testBar_mg32_withlog1:testBar_mg33_withlog1:testBar_mg34_withlog1:testBar_mg35_withlog1:testBar_mg36_withlog1:testBar_mg37_withlog1:testBar_mg38_withlog1:testBar_mg39_withlog1:testBar_mg40_withlog1:testBar_mg41_withlog1:testBar_mg42_withlog1:testBar_mg43_withlog1:testBar_mg44_withlog1:testBar_mg45_withlog1:testBar_mg46_withlog1:testBarnull66_withlog1:testBarnull67_withlog1:testBarnull71_withlog1:testBarnull72_withlog1:testBarnull75_withlog1:testBarlitNum5_withlog2:testBar_add7_withlog2:testBar_add8_withlog2:testBar_add9_withlog2:testBar_add10_withlog2:testBar_add11_withlog2:testBar_add12_withlog2:testBar_add13_withlog2:testBar_add14_withlog2:testBar_add15_withlog2:testBar_remove17_withlog2:testBar_remove18_withlog2:testBar_remove19_withlog2:testBar_mg20_withlog2:testBar_mg21_withlog2:testBar_mg22_withlog2:testBar_mg23_withlog2:testBar_mg24_withlog2:testBar_mg25_withlog2:testBar_mg26_withlog2:testBar_mg27_withlog2:testBar_mg28_withlog2:testBar_mg29_withlog2:testBar_mg30_withlog2:testBar_mg31_withlog2:testBar_mg32_withlog2:testBar_mg33_withlog2:testBar_mg34_withlog2:testBar_mg35_withlog2:testBar_mg36_withlog2:testBar_mg37_withlog2:testBar_mg38_withlog2:testBar_mg39_withlog2:testBar_mg40_withlog2:testBar_mg41_withlog2:testBar_mg42_withlog2:testBar_mg43_withlog2:testBar_mg44_withlog2:testBar_mg45_withlog2:testBar_mg46_withlog2:testBarnull66_withlog2:testBarnull67_withlog2:testBarnull71_withlog2:testBarnull72_withlog2:testBarnull75_withlog2
+File saved to the following path: /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/dspot/observations.ser
+File saved to the following path: /tmp/dspot-experiments/dataset/protostuff/protostuff-core/target/dspot/TestListener.ser
+2018-08-13 15:27:26,114 INFO eu.stamp_project.testrunner.EntryPoint - Test has been run: testBar_mg31_withlog0,testBar_mg31_withlog1,testBar_mg31_withlog2,testBar_mg30_withlog0,testBar_mg30_withlog1,testBar_mg30_withlog2,testBar_mg29_withlog0,testBar_mg29_withlog1,testBar_mg29_withlog2,testBar_mg28_withlog0,testBar_mg28_withlog1,testBar_mg28_withlog2,testBar_mg27_withlog0,testBar_mg27_withlog1,testBar_mg27_withlog2,testBar_mg26_withlog0,testBar_mg26_withlog1,testBar_mg26_withlog2,testBar_mg25_withlog0,testBar_mg25_withlog1,testBar_mg25_withlog2,testBar_mg24_withlog0,testBar_mg24_withlog1,testBar_mg24_withlog2,testBar_add15_withlog0,testBar_add15_withlog1,testBar_add15_withlog2,testBar_mg23_withlog0,testBar_mg23_withlog1,testBar_mg23_withlog2,testBar_mg46_withlog0,testBar_mg46_withlog1,testBar_mg46_withlog2,testBar_add14_withlog0,testBar_add14_withlog1,testBar_add14_withlog2,testBar_mg22_withlog0,testBar_mg22_withlog1,testBar_mg22_withlog2,testBar_mg45_withlog0,testBar_mg45_withlog1,testBar_mg45_withlog2,testBar_remove19_withlog0,testBar_remove19_withlog1,testBar_remove19_withlog2,testBar_add13_withlog0,testBar_add13_withlog1,testBar_add13_withlog2,testBarnull75_withlog0,testBarnull75_withlog1,testBarnull75_withlog2,testBar_mg21_withlog0,testBar_mg21_withlog1,testBar_mg21_withlog2,testBar_mg44_withlog0,testBar_mg44_withlog1,testBar_mg44_withlog2,testBar_remove18_withlog0,testBar_remove18_withlog1,testBar_remove18_withlog2,testBar_add12_withlog0,testBar_add12_withlog1,testBar_add12_withlog2,testBar_mg20_withlog0,testBar_mg20_withlog1,testBar_mg20_withlog2,testBar_mg43_withlog0,testBar_mg43_withlog1,testBar_mg43_withlog2,testBar_remove17_withlog0,testBar_remove17_withlog1,testBar_remove17_withlog2,testBar_add11_withlog0,testBar_add11_withlog1,testBar_add11_withlog2,testBarlitNum5_withlog0,testBarlitNum5_withlog1,testBarlitNum5_withlog2,testBar_mg42_withlog0,testBar_mg42_withlog1,testBar_mg42_withlog2,testBar_add10_withlog0,testBar_add10_withlog1,testBar_add10_withlog2,testBarnull72_withlog0,testBarnull72_withlog1,testBarnull72_withlog2,testBar_mg41_withlog0,testBar_mg41_withlog1,testBar_mg41_withlog2,testBarnull71_withlog0,testBarnull71_withlog1,testBarnull71_withlog2,testBar_mg40_withlog0,testBar_mg40_withlog1,testBar_mg40_withlog2,testBar_mg39_withlog0,testBar_mg39_withlog1,testBar_mg39_withlog2,testBar_mg38_withlog0,testBar_mg38_withlog1,testBar_mg38_withlog2,testBar_mg37_withlog0,testBar_mg37_withlog1,testBar_mg37_withlog2,testBarnull67_withlog0,testBarnull67_withlog1,testBarnull67_withlog2,testBar_mg36_withlog0,testBar_mg36_withlog1,testBar_mg36_withlog2,testBarnull66_withlog0,testBarnull66_withlog1,testBarnull66_withlog2,testBar_mg35_withlog0,testBar_mg35_withlog1,testBar_mg35_withlog2,testBar_add9_withlog0,testBar_add9_withlog1,testBar_add9_withlog2,testBar_mg34_withlog0,testBar_mg34_withlog1,testBar_mg34_withlog2,testBar_add8_withlog0,testBar_add8_withlog1,testBar_add8_withlog2,testBar_mg33_withlog0,testBar_mg33_withlog1,testBar_mg33_withlog2,testBar_add7_withlog0,testBar_add7_withlog1,testBar_add7_withlog2,testBar_mg32_withlog0,testBar_mg32_withlog1,testBar_mg32_withlog2
+2018-08-13 15:27:26,146 INFO eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator - Generating assertions...
+Exception in thread "main" java.lang.StringIndexOutOfBoundsException: String index out of range: -1
+	at java.lang.String.substring(String.java:1967)
+	at eu.stamp_project.dspot.assertgenerator.Translator.buildInvocationFromString(Translator.java:99)
+	at eu.stamp_project.dspot.assertgenerator.Translator.buildInvocationFromString(Translator.java:118)
+	at eu.stamp_project.dspot.assertgenerator.Translator.buildInvocationFromString(Translator.java:59)
+	at eu.stamp_project.dspot.assertgenerator.Translator.translate(Translator.java:54)
+	at eu.stamp_project.dspot.assertgenerator.AssertBuilder.lambda$buildAssert$2(AssertBuilder.java:54)
+	at java.util.stream.ReduceOps$4ReducingSink.accept(ReduceOps.java:220)
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:175)
+	at java.util.Iterator.forEachRemaining(Iterator.java:116)
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1801)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:510)
+	at eu.stamp_project.dspot.assertgenerator.AssertBuilder.buildAssert(AssertBuilder.java:51)
+	at eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator.buildTestWithAssert(MethodsAssertGenerator.java:144)
+	at eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator.lambda$addAssertions$4(MethodsAssertGenerator.java:124)
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1374)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator.addAssertions(MethodsAssertGenerator.java:125)
+	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.innerAssertionAmplification(AssertGenerator.java:122)
+	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.assertionAmplification(AssertGenerator.java:71)
+	at eu.stamp_project.dspot.Amplification.assertionsAmplification(Amplification.java:149)
+	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:134)
+	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:97)
+	at eu.stamp_project.dspot.DSpot.amplifyTest(DSpot.java:180)
+	at eu.stamp_project.dspot.DSpot.amplifyTest(DSpot.java:170)
 	at eu.stamp_project.Main.lambda$run$1(Main.java:69)
 	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
 	at java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:948)
@@ -157,6 +420,3 @@ Exception in thread "main" java.lang.RuntimeException: java.lang.RuntimeExceptio
 	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
 	at eu.stamp_project.Main.run(Main.java:71)
 	at eu.stamp_project.Main.main(Main.java:40)
-Caused by: java.lang.RuntimeException: Maven build failed! Enable verbose mode for more information (--verbose)
-	at eu.stamp_project.automaticbuilder.MavenAutomaticBuilder.runPit(MavenAutomaticBuilder.java:179)
-	... 14 more
