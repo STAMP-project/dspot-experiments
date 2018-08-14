@@ -31,7 +31,7 @@ def run(project, classes=toolbox.keys_selected_classes):
             "--working-directory",
             "--output-path", path_to_output_for_class,
             "--iteration", "3",
-            "--budgetizer", "NoBudgetizer",
+            "--budgetizer", "SimpleBudgetizer",
             "--amplifiers",
             "StringLiteralAmplifier:NumberLiteralAmplifier:CharLiteralAmplifier:BooleanLiteralAmplifier:MethodAdd:MethodRemove:MethodGeneratorAmplifier:ReturnValueAmplifier:NullifierAmplifier",
             "--test-criterion", "PitMutantScoreSelector",
