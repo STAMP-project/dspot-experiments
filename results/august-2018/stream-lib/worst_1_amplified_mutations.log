@@ -24,7 +24,7 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ stream ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 31 source files to /tmp/dspot-experiments/dataset/stream-lib/target/test-classes
+[INFO] Compiling 32 source files to /tmp/dspot-experiments/dataset/stream-lib/target/test-classes
 [WARNING] /tmp/dspot-experiments/dataset/stream-lib/src/test/java/com/clearspring/analytics/stream/cardinality/TestHyperLogLog.java:[146,29] HyperLogLog(int,com.clearspring.analytics.stream.cardinality.RegisterSet) in com.clearspring.analytics.stream.cardinality.HyperLogLog has been deprecated
 [WARNING] /tmp/dspot-experiments/dataset/stream-lib/src/test/java/com/clearspring/analytics/stream/cardinality/TestHyperLogLog.java:[147,30] HyperLogLog(int,com.clearspring.analytics.stream.cardinality.RegisterSet) in com.clearspring.analytics.stream.cardinality.HyperLogLog has been deprecated
 [WARNING] /tmp/dspot-experiments/dataset/stream-lib/src/test/java/com/clearspring/analytics/stream/cardinality/TestCountThenEstimate.java:[169,58] Builder(double) in com.clearspring.analytics.stream.cardinality.HyperLogLog.Builder has been deprecated
@@ -58,17 +58,17 @@
 [INFO] Found shared classpath plugin : TestNG plugin
 [INFO] Adding org.pitest:pitest to SUT classpath
 [INFO] Mutating from /tmp/dspot-experiments/dataset/stream-lib/target/classes
-/-/-\|/-\|/-\|/-\stderr  : 11:02:12 AM PIT >> WARNING : JUnit error for class class com.clearspring.analytics.stream.cardinality.TestICardinality : com.clearspring.analytics.stream.cardinality.TestICardinality
-11:02:12 AM PIT >> WARNING : Not able to filter com.clearspring.analyticsstderr  : .stream.cardinality.TestICardinality. Mutation may have prevented JUnit from constructing test
-stderr  : 11:02:12 AM PIT >> WARNING : JUnit error for class class com.clearspring.analytics.stream.cardinality.TestICardinality : com.clearspring.analytics.stream.cardinality.TestICardinality
-stderr  : 11:02:12 AM PIT >> WARNING : Not able to filter com.clearspring.analytics.stream.cardinality.TestICardinality. Mutation may have prevented JUnit from constructing test
+/-/-\|/-\|/-\|/-\stderr  : 9:37:15 AM PIT >> WARNING : JUnit error for class class com.clearspring.analytics.stream.cardinality.TestICardinality : com.clearspring.analytics.stream.cardinality.TestICardinality
+9:37:15 AM PIT >> WARNING : Not able to filter com.clearspring.analytics.sstderr  : tream.cardinality.TestICardinality. Mutation may have prevented JUnit from constructing test
+stderr  : 9:37:15 AM PIT >> WARNING : JUnit error for class class com.clearspring.analytics.stream.cardinality.TestICardinality : com.clearspring.analytics.stream.cardinality.TestICardinality
+stderr  : 9:37:15 AM PIT >> WARNING : Not able to filter com.clearspring.analytics.stream.cardinality.TestICardinality. Mutation may have prevented JUnit from constructing test
 |/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/================================================================================
 - Timings
 ================================================================================
 > scan classpath : < 1 second
 > coverage and dependency analysis : 1 seconds
 > build mutation tests : 3 seconds
-> run mutation analysis : 49 seconds
+> run mutation analysis : 50 seconds
 --------------------------------------------------------------------------------
 > Total  : 54 seconds
 --------------------------------------------------------------------------------
@@ -270,6 +270,6 @@ stderr  : 11:02:12 AM PIT >> WARNING : Not able to filter com.clearspring.analyt
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
 [INFO] Total time: 01:00 min
-[INFO] Finished at: 2018-08-14T11:02:21+02:00
-[INFO] Final Memory: 38M/745M
+[INFO] Finished at: 2018-08-15T09:37:24+02:00
+[INFO] Final Memory: 34M/701M
 [INFO] ------------------------------------------------------------------------

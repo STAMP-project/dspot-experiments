@@ -5,6 +5,7 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] 
 [INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ stream ---
+[INFO] Deleting /tmp/dspot-experiments/dataset/stream-lib/target
 [INFO] 
 [INFO] --- jacoco-maven-plugin:0.7.6.201602180812:prepare-agent (default) @ stream ---
 [INFO] argLine set to -javaagent:/home/spirals/danglot/.m2/repository/org/jacoco/org.jacoco.agent/0.7.6.201602180812/org.jacoco.agent-0.7.6.201602180812-runtime.jar=destfile=/tmp/dspot-experiments/dataset/stream-lib/target/jacoco.exec
@@ -23,7 +24,7 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ stream ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 30 source files to /tmp/dspot-experiments/dataset/stream-lib/target/test-classes
+[INFO] Compiling 31 source files to /tmp/dspot-experiments/dataset/stream-lib/target/test-classes
 [WARNING] /tmp/dspot-experiments/dataset/stream-lib/src/test/java/com/clearspring/analytics/stream/cardinality/TestHyperLogLog.java:[146,29] HyperLogLog(int,com.clearspring.analytics.stream.cardinality.RegisterSet) in com.clearspring.analytics.stream.cardinality.HyperLogLog has been deprecated
 [WARNING] /tmp/dspot-experiments/dataset/stream-lib/src/test/java/com/clearspring/analytics/stream/cardinality/TestHyperLogLog.java:[147,30] HyperLogLog(int,com.clearspring.analytics.stream.cardinality.RegisterSet) in com.clearspring.analytics.stream.cardinality.HyperLogLog has been deprecated
 [WARNING] /tmp/dspot-experiments/dataset/stream-lib/src/test/java/com/clearspring/analytics/stream/cardinality/TestCountThenEstimate.java:[169,58] Builder(double) in com.clearspring.analytics.stream.cardinality.HyperLogLog.Builder has been deprecated
@@ -264,7 +265,7 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 14.152 s
-[INFO] Finished at: 2018-08-14T11:01:19+02:00
-[INFO] Final Memory: 39M/816M
+[INFO] Total time: 13.805 s
+[INFO] Finished at: 2018-08-15T09:36:22+02:00
+[INFO] Final Memory: 34M/732M
 [INFO] ------------------------------------------------------------------------

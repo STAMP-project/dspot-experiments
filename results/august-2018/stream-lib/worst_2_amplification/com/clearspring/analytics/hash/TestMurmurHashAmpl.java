@@ -7,402 +7,393 @@ import org.junit.Test;
 
 public class TestMurmurHashAmpl {
     @Test(timeout = 10000)
-    public void testHashByteArrayOverloadlitString11717() throws Exception {
+    public void testHashByteArrayOverloadlitString6236() throws Exception {
         String input = "hashths";
         Assert.assertEquals("hashths", input);
         byte[] inputBytes = input.getBytes();
         int hashOfString = MurmurHash.hash(input);
         Assert.assertEquals(-1941958753, ((int) (hashOfString)));
-        int o_testHashByteArrayOverloadlitString11717__6 = MurmurHash.hash(inputBytes);
-        Assert.assertEquals(-1941958753, ((int) (o_testHashByteArrayOverloadlitString11717__6)));
+        int o_testHashByteArrayOverloadlitString6236__6 = MurmurHash.hash(inputBytes);
+        Assert.assertEquals(-1941958753, ((int) (o_testHashByteArrayOverloadlitString6236__6)));
         Object bytesAsObject = inputBytes;
-        int o_testHashByteArrayOverloadlitString11717__8 = MurmurHash.hash(bytesAsObject);
-        Assert.assertEquals(-1941958753, ((int) (o_testHashByteArrayOverloadlitString11717__8)));
+        int o_testHashByteArrayOverloadlitString6236__8 = MurmurHash.hash(bytesAsObject);
+        Assert.assertEquals(-1941958753, ((int) (o_testHashByteArrayOverloadlitString6236__8)));
         Assert.assertEquals("hashths", input);
         Assert.assertEquals(-1941958753, ((int) (hashOfString)));
-        Assert.assertEquals(-1941958753, ((int) (o_testHashByteArrayOverloadlitString11717__6)));
+        Assert.assertEquals(-1941958753, ((int) (o_testHashByteArrayOverloadlitString6236__6)));
     }
 
     @Test(timeout = 10000)
-    public void testHashByteArrayOverloadlitString11716() throws Exception {
-        String input = "hash3this";
-        Assert.assertEquals("hash3this", input);
+    public void testHashByteArrayOverloadlitString6239() throws Exception {
+        String input = "\n";
+        Assert.assertEquals("\n", input);
         byte[] inputBytes = input.getBytes();
         int hashOfString = MurmurHash.hash(input);
-        Assert.assertEquals(1719041653, ((int) (hashOfString)));
-        int o_testHashByteArrayOverloadlitString11716__6 = MurmurHash.hash(inputBytes);
-        Assert.assertEquals(1719041653, ((int) (o_testHashByteArrayOverloadlitString11716__6)));
+        Assert.assertEquals(-330957644, ((int) (hashOfString)));
+        int o_testHashByteArrayOverloadlitString6239__6 = MurmurHash.hash(inputBytes);
+        Assert.assertEquals(-330957644, ((int) (o_testHashByteArrayOverloadlitString6239__6)));
         Object bytesAsObject = inputBytes;
-        int o_testHashByteArrayOverloadlitString11716__8 = MurmurHash.hash(bytesAsObject);
-        Assert.assertEquals(1719041653, ((int) (o_testHashByteArrayOverloadlitString11716__8)));
-        Assert.assertEquals("hash3this", input);
-        Assert.assertEquals(1719041653, ((int) (hashOfString)));
-        Assert.assertEquals(1719041653, ((int) (o_testHashByteArrayOverloadlitString11716__6)));
+        int o_testHashByteArrayOverloadlitString6239__8 = MurmurHash.hash(bytesAsObject);
+        Assert.assertEquals(-330957644, ((int) (o_testHashByteArrayOverloadlitString6239__8)));
+        Assert.assertEquals("\n", input);
+        Assert.assertEquals(-330957644, ((int) (hashOfString)));
+        Assert.assertEquals(-330957644, ((int) (o_testHashByteArrayOverloadlitString6239__6)));
     }
 
     @Test(timeout = 10000)
-    public void testHashByteArrayOverloadnull11738() throws Exception {
-        String input = "hashthis";
-        Assert.assertEquals("hashthis", input);
+    public void testHashByteArrayOverloadlitString6239_add6388() throws Exception {
+        String input = "\n";
+        Assert.assertEquals("\n", input);
+        input.getBytes();
         byte[] inputBytes = input.getBytes();
         int hashOfString = MurmurHash.hash(input);
-        Assert.assertEquals(-1974946086, ((int) (hashOfString)));
-        int o_testHashByteArrayOverloadnull11738__6 = MurmurHash.hash(inputBytes);
-        Assert.assertEquals(-1974946086, ((int) (o_testHashByteArrayOverloadnull11738__6)));
-        Object bytesAsObject = null;
-        int o_testHashByteArrayOverloadnull11738__8 = MurmurHash.hash(bytesAsObject);
-        Assert.assertEquals(0, ((int) (o_testHashByteArrayOverloadnull11738__8)));
-        Assert.assertEquals("hashthis", input);
-        Assert.assertEquals(-1974946086, ((int) (hashOfString)));
-        Assert.assertEquals(-1974946086, ((int) (o_testHashByteArrayOverloadnull11738__6)));
+        int o_testHashByteArrayOverloadlitString6239__6 = MurmurHash.hash(inputBytes);
+        Object bytesAsObject = inputBytes;
+        int o_testHashByteArrayOverloadlitString6239__8 = MurmurHash.hash(bytesAsObject);
+        Assert.assertEquals("\n", input);
     }
 
     @Test(timeout = 10000)
-    public void testHashByteArrayOverloadnull11744_failAssert22litString12758() throws Exception {
-        try {
-            String input = "hashths";
-            Assert.assertEquals("hashths", input);
-            byte[] inputBytes = input.getBytes();
-            int hashOfString = MurmurHash.hash(input);
-            int o_testHashByteArrayOverloadnull11744_failAssert22litString12758__8 = MurmurHash.hash(inputBytes);
-            Assert.assertEquals(-1941958753, ((int) (o_testHashByteArrayOverloadnull11744_failAssert22litString12758__8)));
-            Object bytesAsObject = inputBytes;
-            MurmurHash.hash(null);
-            org.junit.Assert.fail("testHashByteArrayOverloadnull11744 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testHashByteArrayOverload_add11725litString11889() throws Exception {
+    public void testHashByteArrayOverloadlitString6236_add6447() throws Exception {
         String input = "hashths";
         Assert.assertEquals("hashths", input);
         byte[] inputBytes = input.getBytes();
         int hashOfString = MurmurHash.hash(input);
-        int o_testHashByteArrayOverload_add11725__6 = MurmurHash.hash(inputBytes);
+        int o_testHashByteArrayOverloadlitString6236_add6447__6 = MurmurHash.hash(inputBytes);
+        Assert.assertEquals(-1941958753, ((int) (o_testHashByteArrayOverloadlitString6236_add6447__6)));
+        int o_testHashByteArrayOverloadlitString6236__6 = MurmurHash.hash(inputBytes);
         Object bytesAsObject = inputBytes;
-        int o_testHashByteArrayOverload_add11725__8 = MurmurHash.hash(bytesAsObject);
-        int o_testHashByteArrayOverload_add11725__9 = MurmurHash.hash(bytesAsObject);
+        int o_testHashByteArrayOverloadlitString6236__8 = MurmurHash.hash(bytesAsObject);
         Assert.assertEquals("hashths", input);
+        Assert.assertEquals(-1941958753, ((int) (o_testHashByteArrayOverloadlitString6236_add6447__6)));
     }
 
     @Test(timeout = 10000)
-    public void testHashByteArrayOverloadnull11737_failAssert21litString12738() throws Exception {
-        try {
-            String input = "\n";
-            Assert.assertEquals("\n", input);
-            byte[] inputBytes = input.getBytes();
-            int hashOfString = MurmurHash.hash(input);
-            MurmurHash.hash(null);
-            Object bytesAsObject = inputBytes;
-            MurmurHash.hash(bytesAsObject);
-            org.junit.Assert.fail("testHashByteArrayOverloadnull11737 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-        }
+    public void testHashByteArrayOverloadlitString6239_add6390() throws Exception {
+        String input = "\n";
+        Assert.assertEquals("\n", input);
+        byte[] inputBytes = input.getBytes();
+        int o_testHashByteArrayOverloadlitString6239_add6390__4 = MurmurHash.hash(input);
+        Assert.assertEquals(-330957644, ((int) (o_testHashByteArrayOverloadlitString6239_add6390__4)));
+        int hashOfString = MurmurHash.hash(input);
+        int o_testHashByteArrayOverloadlitString6239__6 = MurmurHash.hash(inputBytes);
+        Object bytesAsObject = inputBytes;
+        int o_testHashByteArrayOverloadlitString6239__8 = MurmurHash.hash(bytesAsObject);
+        Assert.assertEquals("\n", input);
+        Assert.assertEquals(-330957644, ((int) (o_testHashByteArrayOverloadlitString6239_add6390__4)));
     }
 
     @Test(timeout = 10000)
-    public void testHashByteArrayOverload_add11724null12357() throws Exception {
+    public void testHashByteArrayOverload_add6241litString6303_remove8408() throws Exception {
+        String input = "hashtis";
+        Assert.assertEquals("hashtis", input);
+        byte[] inputBytes = input.getBytes();
+        int hashOfString = MurmurHash.hash(input);
+        int o_testHashByteArrayOverload_add6241__7 = MurmurHash.hash(inputBytes);
+        Object bytesAsObject = inputBytes;
+        int o_testHashByteArrayOverload_add6241__9 = MurmurHash.hash(bytesAsObject);
+        Assert.assertEquals("hashtis", input);
+    }
+
+    @Test(timeout = 10000)
+    public void testHashByteArrayOverload_add6244_add6360litString7576() throws Exception {
+        String input = "MurmurHash.hash(byte[]) did not match MurmurHash.hash(String)";
+        Assert.assertEquals("MurmurHash.hash(byte[]) did not match MurmurHash.hash(String)", input);
+        byte[] inputBytes = input.getBytes();
+        int hashOfString = MurmurHash.hash(input);
+        int o_testHashByteArrayOverload_add6244_add6360__6 = MurmurHash.hash(inputBytes);
+        int o_testHashByteArrayOverload_add6244__6 = MurmurHash.hash(inputBytes);
+        Object bytesAsObject = inputBytes;
+        int o_testHashByteArrayOverload_add6244__8 = MurmurHash.hash(bytesAsObject);
+        int o_testHashByteArrayOverload_add6244__9 = MurmurHash.hash(bytesAsObject);
+        Assert.assertEquals("MurmurHash.hash(byte[]) did not match MurmurHash.hash(String)", input);
+    }
+
+    @Test(timeout = 10000)
+    public void testHashByteArrayOverloadlitString6239_add6388_remove7615() throws Exception {
+        String input = "\n";
+        Assert.assertEquals("\n", input);
+        byte[] inputBytes = input.getBytes();
+        int hashOfString = MurmurHash.hash(input);
+        int o_testHashByteArrayOverloadlitString6239__6 = MurmurHash.hash(inputBytes);
+        Object bytesAsObject = inputBytes;
+        int o_testHashByteArrayOverloadlitString6239__8 = MurmurHash.hash(bytesAsObject);
+        Assert.assertEquals("\n", input);
+    }
+
+    @Test(timeout = 10000)
+    public void testHash64ByteArrayOverloadnull2993() throws Exception {
         String input = "hashthis";
         Assert.assertEquals("hashthis", input);
         byte[] inputBytes = input.getBytes();
-        int hashOfString = MurmurHash.hash(input);
-        int o_testHashByteArrayOverload_add11724__6 = MurmurHash.hash(inputBytes);
-        int o_testHashByteArrayOverload_add11724__7 = MurmurHash.hash(inputBytes);
-        Object bytesAsObject = null;
-        int o_testHashByteArrayOverload_add11724__9 = MurmurHash.hash(bytesAsObject);
+        long hashOfString = MurmurHash.hash64(null);
+        Assert.assertEquals(0L, ((long) (hashOfString)));
+        long o_testHash64ByteArrayOverloadnull2993__6 = MurmurHash.hash64(inputBytes);
+        Assert.assertEquals(-8896273065425798843L, ((long) (o_testHash64ByteArrayOverloadnull2993__6)));
+        Object bytesAsObject = inputBytes;
+        long o_testHash64ByteArrayOverloadnull2993__8 = MurmurHash.hash64(bytesAsObject);
+        Assert.assertEquals(-8896273065425798843L, ((long) (o_testHash64ByteArrayOverloadnull2993__8)));
         Assert.assertEquals("hashthis", input);
+        Assert.assertEquals(0L, ((long) (hashOfString)));
+        Assert.assertEquals(-8896273065425798843L, ((long) (o_testHash64ByteArrayOverloadnull2993__6)));
     }
 
     @Test(timeout = 10000)
-    public void testHashByteArrayOverloadnull11744_failAssert22litString12762() throws Exception {
-        try {
-            String input = ":";
-            Assert.assertEquals(":", input);
-            byte[] inputBytes = input.getBytes();
-            int hashOfString = MurmurHash.hash(input);
-            int o_testHashByteArrayOverloadnull11744_failAssert22litString12762__8 = MurmurHash.hash(inputBytes);
-            Assert.assertEquals(-100914771, ((int) (o_testHashByteArrayOverloadnull11744_failAssert22litString12762__8)));
-            Object bytesAsObject = inputBytes;
-            MurmurHash.hash(null);
-            org.junit.Assert.fail("testHashByteArrayOverloadnull11744 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testHashByteArrayOverload_add11725_add12181litString17331() throws Exception {
-        String input = "hashths";
-        Assert.assertEquals("hashths", input);
-        byte[] inputBytes = input.getBytes();
-        int hashOfString = MurmurHash.hash(input);
-        int o_testHashByteArrayOverload_add11725__6 = MurmurHash.hash(inputBytes);
-        Object bytesAsObject = inputBytes;
-        int o_testHashByteArrayOverload_add11725_add12181__10 = MurmurHash.hash(bytesAsObject);
-        int o_testHashByteArrayOverload_add11725__8 = MurmurHash.hash(bytesAsObject);
-        int o_testHashByteArrayOverload_add11725__9 = MurmurHash.hash(bytesAsObject);
-        Assert.assertEquals("hashths", input);
-    }
-
-    @Test(timeout = 10000)
-    public void testHashByteArrayOverload_add11725_add12181null17452() throws Exception {
-        String input = "hashthis";
-        Assert.assertEquals("hashthis", input);
-        byte[] inputBytes = input.getBytes();
-        int hashOfString = MurmurHash.hash(input);
-        int o_testHashByteArrayOverload_add11725__6 = MurmurHash.hash(inputBytes);
-        Object bytesAsObject = null;
-        int o_testHashByteArrayOverload_add11725_add12181__10 = MurmurHash.hash(bytesAsObject);
-        int o_testHashByteArrayOverload_add11725__8 = MurmurHash.hash(bytesAsObject);
-        int o_testHashByteArrayOverload_add11725__9 = MurmurHash.hash(bytesAsObject);
-        Assert.assertEquals("hashthis", input);
-    }
-
-    @Test(timeout = 10000)
-    public void testHashByteArrayOverload_add11725_add12176litString16753() throws Exception {
-        String input = ":";
-        Assert.assertEquals(":", input);
-        byte[] inputBytes = input.getBytes();
-        int hashOfString = MurmurHash.hash(input);
-        int o_testHashByteArrayOverload_add11725_add12176__6 = MurmurHash.hash(inputBytes);
-        int o_testHashByteArrayOverload_add11725__6 = MurmurHash.hash(inputBytes);
-        Object bytesAsObject = inputBytes;
-        int o_testHashByteArrayOverload_add11725__8 = MurmurHash.hash(bytesAsObject);
-        int o_testHashByteArrayOverload_add11725__9 = MurmurHash.hash(bytesAsObject);
-        Assert.assertEquals(":", input);
-    }
-
-    @Test(timeout = 10000)
-    public void testHash64ByteArrayOverloadnull4222() throws Exception {
-        String input = "hashthis";
-        Assert.assertEquals("hashthis", input);
+    public void testHash64ByteArrayOverloadlitString2982() throws Exception {
+        String input = "hashth is";
+        Assert.assertEquals("hashth is", input);
         byte[] inputBytes = input.getBytes();
         long hashOfString = MurmurHash.hash64(input);
-        Assert.assertEquals(-8896273065425798843L, ((long) (hashOfString)));
-        long o_testHash64ByteArrayOverloadnull4222__6 = MurmurHash.hash64(inputBytes);
-        Assert.assertEquals(-8896273065425798843L, ((long) (o_testHash64ByteArrayOverloadnull4222__6)));
+        Assert.assertEquals(6125313423190383303L, ((long) (hashOfString)));
+        long o_testHash64ByteArrayOverloadlitString2982__6 = MurmurHash.hash64(inputBytes);
+        Assert.assertEquals(6125313423190383303L, ((long) (o_testHash64ByteArrayOverloadlitString2982__6)));
         Object bytesAsObject = inputBytes;
-        long o_testHash64ByteArrayOverloadnull4222__8 = MurmurHash.hash64(null);
-        Assert.assertEquals(0L, ((long) (o_testHash64ByteArrayOverloadnull4222__8)));
-        Assert.assertEquals("hashthis", input);
-        Assert.assertEquals(-8896273065425798843L, ((long) (hashOfString)));
-        Assert.assertEquals(-8896273065425798843L, ((long) (o_testHash64ByteArrayOverloadnull4222__6)));
+        long o_testHash64ByteArrayOverloadlitString2982__8 = MurmurHash.hash64(bytesAsObject);
+        Assert.assertEquals(6125313423190383303L, ((long) (o_testHash64ByteArrayOverloadlitString2982__8)));
+        Assert.assertEquals("hashth is", input);
+        Assert.assertEquals(6125313423190383303L, ((long) (hashOfString)));
+        Assert.assertEquals(6125313423190383303L, ((long) (o_testHash64ByteArrayOverloadlitString2982__6)));
     }
 
     @Test(timeout = 10000)
-    public void testHash64ByteArrayOverloadlitString4195() throws Exception {
-        String input = "hashhis";
-        Assert.assertEquals("hashhis", input);
-        byte[] inputBytes = input.getBytes();
-        long hashOfString = MurmurHash.hash64(input);
-        Assert.assertEquals(-2651218987042332986L, ((long) (hashOfString)));
-        long o_testHash64ByteArrayOverloadlitString4195__6 = MurmurHash.hash64(inputBytes);
-        Assert.assertEquals(-2651218987042332986L, ((long) (o_testHash64ByteArrayOverloadlitString4195__6)));
-        Object bytesAsObject = inputBytes;
-        long o_testHash64ByteArrayOverloadlitString4195__8 = MurmurHash.hash64(bytesAsObject);
-        Assert.assertEquals(-2651218987042332986L, ((long) (o_testHash64ByteArrayOverloadlitString4195__8)));
-        Assert.assertEquals("hashhis", input);
-        Assert.assertEquals(-2651218987042332986L, ((long) (hashOfString)));
-        Assert.assertEquals(-2651218987042332986L, ((long) (o_testHash64ByteArrayOverloadlitString4195__6)));
-    }
-
-    @Test(timeout = 10000)
-    public void testHash64ByteArrayOverloadlitString4192() throws Exception {
-        String input = "MurmurHash.hash64(byte[]) did not match MurmurHash.hash64(String)";
-        Assert.assertEquals("MurmurHash.hash64(byte[]) did not match MurmurHash.hash64(String)", input);
-        byte[] inputBytes = input.getBytes();
-        long hashOfString = MurmurHash.hash64(input);
-        Assert.assertEquals(-2406613350493541354L, ((long) (hashOfString)));
-        long o_testHash64ByteArrayOverloadlitString4192__6 = MurmurHash.hash64(inputBytes);
-        Assert.assertEquals(-2406613350493541354L, ((long) (o_testHash64ByteArrayOverloadlitString4192__6)));
-        Object bytesAsObject = inputBytes;
-        long o_testHash64ByteArrayOverloadlitString4192__8 = MurmurHash.hash64(bytesAsObject);
-        Assert.assertEquals(-2406613350493541354L, ((long) (o_testHash64ByteArrayOverloadlitString4192__8)));
-        Assert.assertEquals("MurmurHash.hash64(byte[]) did not match MurmurHash.hash64(String)", input);
-        Assert.assertEquals(-2406613350493541354L, ((long) (hashOfString)));
-        Assert.assertEquals(-2406613350493541354L, ((long) (o_testHash64ByteArrayOverloadlitString4192__6)));
-    }
-
-    @Test(timeout = 10000)
-    public void testHash64ByteArrayOverload_add4203null4990() throws Exception {
-        String input = "hashthis";
-        Assert.assertEquals("hashthis", input);
-        byte[] inputBytes = null;
-        long hashOfString = MurmurHash.hash64(input);
-        long o_testHash64ByteArrayOverload_add4203__6 = MurmurHash.hash64(inputBytes);
-        Object bytesAsObject = inputBytes;
-        long o_testHash64ByteArrayOverload_add4203__8 = MurmurHash.hash64(bytesAsObject);
-        long o_testHash64ByteArrayOverload_add4203__9 = MurmurHash.hash64(bytesAsObject);
-        Assert.assertEquals("hashthis", input);
-    }
-
-    @Test(timeout = 10000)
-    public void testHash64ByteArrayOverload_add4203litString4773() throws Exception {
-        String input = "MurmurHash.hash64(byte[]) did not match MurmurHash.hash64(String)";
-        Assert.assertEquals("MurmurHash.hash64(byte[]) did not match MurmurHash.hash64(String)", input);
-        byte[] inputBytes = input.getBytes();
-        long hashOfString = MurmurHash.hash64(input);
-        long o_testHash64ByteArrayOverload_add4203__6 = MurmurHash.hash64(inputBytes);
-        Object bytesAsObject = inputBytes;
-        long o_testHash64ByteArrayOverload_add4203__8 = MurmurHash.hash64(bytesAsObject);
-        long o_testHash64ByteArrayOverload_add4203__9 = MurmurHash.hash64(bytesAsObject);
-        Assert.assertEquals("MurmurHash.hash64(byte[]) did not match MurmurHash.hash64(String)", input);
-    }
-
-    @Test(timeout = 10000)
-    public void testHash64ByteArrayOverloadlitString4192_add5039() throws Exception {
-        String input = "MurmurHash.hash64(byte[]) did not match MurmurHash.hash64(String)";
-        Assert.assertEquals("MurmurHash.hash64(byte[]) did not match MurmurHash.hash64(String)", input);
-        byte[] inputBytes = input.getBytes();
-        long hashOfString = MurmurHash.hash64(input);
-        long o_testHash64ByteArrayOverloadlitString4192_add5039__6 = MurmurHash.hash64(inputBytes);
-        Assert.assertEquals(-2406613350493541354L, ((long) (o_testHash64ByteArrayOverloadlitString4192_add5039__6)));
-        long o_testHash64ByteArrayOverloadlitString4192__6 = MurmurHash.hash64(inputBytes);
-        Object bytesAsObject = inputBytes;
-        long o_testHash64ByteArrayOverloadlitString4192__8 = MurmurHash.hash64(bytesAsObject);
-        Assert.assertEquals("MurmurHash.hash64(byte[]) did not match MurmurHash.hash64(String)", input);
-        Assert.assertEquals(-2406613350493541354L, ((long) (o_testHash64ByteArrayOverloadlitString4192_add5039__6)));
-    }
-
-    @Test(timeout = 10000)
-    public void testHash64ByteArrayOverload_add4202litString5072() throws Exception {
-        String input = "MurmurHash.hash64(String) returns wrong hash value";
-        Assert.assertEquals("MurmurHash.hash64(String) returns wrong hash value", input);
-        byte[] inputBytes = input.getBytes();
-        long hashOfString = MurmurHash.hash64(input);
-        long o_testHash64ByteArrayOverload_add4202__6 = MurmurHash.hash64(inputBytes);
-        long o_testHash64ByteArrayOverload_add4202__7 = MurmurHash.hash64(inputBytes);
-        Object bytesAsObject = inputBytes;
-        long o_testHash64ByteArrayOverload_add4202__9 = MurmurHash.hash64(bytesAsObject);
-        Assert.assertEquals("MurmurHash.hash64(String) returns wrong hash value", input);
-    }
-
-    @Test(timeout = 10000)
-    public void testHash64ByteArrayOverload_add4203litString4780() throws Exception {
-        String input = "hahthis";
-        Assert.assertEquals("hahthis", input);
-        byte[] inputBytes = input.getBytes();
-        long hashOfString = MurmurHash.hash64(input);
-        long o_testHash64ByteArrayOverload_add4203__6 = MurmurHash.hash64(inputBytes);
-        Object bytesAsObject = inputBytes;
-        long o_testHash64ByteArrayOverload_add4203__8 = MurmurHash.hash64(bytesAsObject);
-        long o_testHash64ByteArrayOverload_add4203__9 = MurmurHash.hash64(bytesAsObject);
-        Assert.assertEquals("hahthis", input);
-    }
-
-    @Test(timeout = 10000)
-    public void testHash64ByteArrayOverload_add4202litString5086() throws Exception {
-        String input = "hash%this";
-        Assert.assertEquals("hash%this", input);
-        byte[] inputBytes = input.getBytes();
-        long hashOfString = MurmurHash.hash64(input);
-        long o_testHash64ByteArrayOverload_add4202__6 = MurmurHash.hash64(inputBytes);
-        long o_testHash64ByteArrayOverload_add4202__7 = MurmurHash.hash64(inputBytes);
-        Object bytesAsObject = inputBytes;
-        long o_testHash64ByteArrayOverload_add4202__9 = MurmurHash.hash64(bytesAsObject);
-        Assert.assertEquals("hash%this", input);
-    }
-
-    @Test(timeout = 10000)
-    public void testHash64ByteArrayOverload_add4202_add5212litString10529() throws Exception {
+    public void testHash64ByteArrayOverloadlitString2983() throws Exception {
         String input = "hasthis";
         Assert.assertEquals("hasthis", input);
         byte[] inputBytes = input.getBytes();
         long hashOfString = MurmurHash.hash64(input);
-        long o_testHash64ByteArrayOverload_add4202_add5212__6 = MurmurHash.hash64(inputBytes);
-        long o_testHash64ByteArrayOverload_add4202__6 = MurmurHash.hash64(inputBytes);
-        long o_testHash64ByteArrayOverload_add4202__7 = MurmurHash.hash64(inputBytes);
+        Assert.assertEquals(3602824184977593628L, ((long) (hashOfString)));
+        long o_testHash64ByteArrayOverloadlitString2983__6 = MurmurHash.hash64(inputBytes);
+        Assert.assertEquals(3602824184977593628L, ((long) (o_testHash64ByteArrayOverloadlitString2983__6)));
         Object bytesAsObject = inputBytes;
-        long o_testHash64ByteArrayOverload_add4202__9 = MurmurHash.hash64(bytesAsObject);
+        long o_testHash64ByteArrayOverloadlitString2983__8 = MurmurHash.hash64(bytesAsObject);
+        Assert.assertEquals(3602824184977593628L, ((long) (o_testHash64ByteArrayOverloadlitString2983__8)));
         Assert.assertEquals("hasthis", input);
+        Assert.assertEquals(3602824184977593628L, ((long) (hashOfString)));
+        Assert.assertEquals(3602824184977593628L, ((long) (o_testHash64ByteArrayOverloadlitString2983__6)));
     }
 
     @Test(timeout = 10000)
-    public void testHash64ByteArrayOverload_add4203_add4950litString10905() throws Exception {
+    public void testHash64ByteArrayOverloadlitString2986() throws Exception {
+        String input = "\n";
+        Assert.assertEquals("\n", input);
+        byte[] inputBytes = input.getBytes();
+        long hashOfString = MurmurHash.hash64(input);
+        Assert.assertEquals(2044312949510316467L, ((long) (hashOfString)));
+        long o_testHash64ByteArrayOverloadlitString2986__6 = MurmurHash.hash64(inputBytes);
+        Assert.assertEquals(2044312949510316467L, ((long) (o_testHash64ByteArrayOverloadlitString2986__6)));
+        Object bytesAsObject = inputBytes;
+        long o_testHash64ByteArrayOverloadlitString2986__8 = MurmurHash.hash64(bytesAsObject);
+        Assert.assertEquals(2044312949510316467L, ((long) (o_testHash64ByteArrayOverloadlitString2986__8)));
+        Assert.assertEquals("\n", input);
+        Assert.assertEquals(2044312949510316467L, ((long) (hashOfString)));
+        Assert.assertEquals(2044312949510316467L, ((long) (o_testHash64ByteArrayOverloadlitString2986__6)));
+    }
+
+    @Test(timeout = 10000)
+    public void testHash64ByteArrayOverload_add2989litString3155() throws Exception {
+        String input = "hashhis";
+        Assert.assertEquals("hashhis", input);
+        byte[] inputBytes = input.getBytes();
+        long o_testHash64ByteArrayOverload_add2989__4 = MurmurHash.hash64(input);
+        long hashOfString = MurmurHash.hash64(input);
+        long o_testHash64ByteArrayOverload_add2989__7 = MurmurHash.hash64(inputBytes);
+        Object bytesAsObject = inputBytes;
+        long o_testHash64ByteArrayOverload_add2989__9 = MurmurHash.hash64(bytesAsObject);
+        Assert.assertEquals("hashhis", input);
+    }
+
+    @Test(timeout = 10000)
+    public void testHash64ByteArrayOverloadlitString2983_add3073() throws Exception {
+        String input = "hasthis";
+        Assert.assertEquals("hasthis", input);
+        byte[] inputBytes = input.getBytes();
+        long o_testHash64ByteArrayOverloadlitString2983_add3073__4 = MurmurHash.hash64(input);
+        Assert.assertEquals(3602824184977593628L, ((long) (o_testHash64ByteArrayOverloadlitString2983_add3073__4)));
+        long hashOfString = MurmurHash.hash64(input);
+        long o_testHash64ByteArrayOverloadlitString2983__6 = MurmurHash.hash64(inputBytes);
+        Object bytesAsObject = inputBytes;
+        long o_testHash64ByteArrayOverloadlitString2983__8 = MurmurHash.hash64(bytesAsObject);
+        Assert.assertEquals("hasthis", input);
+        Assert.assertEquals(3602824184977593628L, ((long) (o_testHash64ByteArrayOverloadlitString2983_add3073__4)));
+    }
+
+    @Test(timeout = 10000)
+    public void testHash64ByteArrayOverloadnull2994litString3117() throws Exception {
         String input = "MurmurHash.hash64(byte[]) did not match MurmurHash.hash64(String)";
         Assert.assertEquals("MurmurHash.hash64(byte[]) did not match MurmurHash.hash64(String)", input);
         byte[] inputBytes = input.getBytes();
         long hashOfString = MurmurHash.hash64(input);
-        long o_testHash64ByteArrayOverload_add4203_add4950__6 = MurmurHash.hash64(inputBytes);
-        long o_testHash64ByteArrayOverload_add4203__6 = MurmurHash.hash64(inputBytes);
+        long o_testHash64ByteArrayOverloadnull2994__6 = MurmurHash.hash64(null);
         Object bytesAsObject = inputBytes;
-        long o_testHash64ByteArrayOverload_add4203__8 = MurmurHash.hash64(bytesAsObject);
-        long o_testHash64ByteArrayOverload_add4203__9 = MurmurHash.hash64(bytesAsObject);
+        long o_testHash64ByteArrayOverloadnull2994__8 = MurmurHash.hash64(bytesAsObject);
         Assert.assertEquals("MurmurHash.hash64(byte[]) did not match MurmurHash.hash64(String)", input);
     }
 
     @Test(timeout = 10000)
-    public void testHash64ByteArrayOverload_add4202_add5210litString9943() throws Exception {
+    public void testHash64ByteArrayOverloadnull2993_add3206() throws Exception {
+        String input = "hashthis";
+        Assert.assertEquals("hashthis", input);
+        byte[] inputBytes = input.getBytes();
+        long o_testHash64ByteArrayOverloadnull2993_add3206__4 = MurmurHash.hash64(null);
+        Assert.assertEquals(0L, ((long) (o_testHash64ByteArrayOverloadnull2993_add3206__4)));
+        long hashOfString = MurmurHash.hash64(null);
+        long o_testHash64ByteArrayOverloadnull2993__6 = MurmurHash.hash64(inputBytes);
+        Object bytesAsObject = inputBytes;
+        long o_testHash64ByteArrayOverloadnull2993__8 = MurmurHash.hash64(bytesAsObject);
+        Assert.assertEquals("hashthis", input);
+        Assert.assertEquals(0L, ((long) (o_testHash64ByteArrayOverloadnull2993_add3206__4)));
+    }
+
+    @Test(timeout = 10000)
+    public void testHash64ByteArrayOverloadlitString2986null3193() throws Exception {
+        String input = "\n";
+        Assert.assertEquals("\n", input);
+        byte[] inputBytes = input.getBytes();
+        long hashOfString = MurmurHash.hash64(null);
+        long o_testHash64ByteArrayOverloadlitString2986__6 = MurmurHash.hash64(inputBytes);
+        Object bytesAsObject = inputBytes;
+        long o_testHash64ByteArrayOverloadlitString2986__8 = MurmurHash.hash64(bytesAsObject);
+        Assert.assertEquals("\n", input);
+    }
+
+    @Test(timeout = 10000)
+    public void testHash64ByteArrayOverloadlitString2982_add3069() throws Exception {
+        String input = "hashth is";
+        Assert.assertEquals("hashth is", input);
+        byte[] inputBytes = input.getBytes();
+        long o_testHash64ByteArrayOverloadlitString2982_add3069__4 = MurmurHash.hash64(input);
+        Assert.assertEquals(6125313423190383303L, ((long) (o_testHash64ByteArrayOverloadlitString2982_add3069__4)));
+        long hashOfString = MurmurHash.hash64(input);
+        long o_testHash64ByteArrayOverloadlitString2982__6 = MurmurHash.hash64(inputBytes);
+        Object bytesAsObject = inputBytes;
+        long o_testHash64ByteArrayOverloadlitString2982__8 = MurmurHash.hash64(bytesAsObject);
+        Assert.assertEquals("hashth is", input);
+        Assert.assertEquals(6125313423190383303L, ((long) (o_testHash64ByteArrayOverloadlitString2982_add3069__4)));
+    }
+
+    @Test(timeout = 10000)
+    public void testHash64ByteArrayOverloadlitString2984null3081() throws Exception {
+        String input = "&pb?56Tt";
+        Assert.assertEquals("&pb?56Tt", input);
+        byte[] inputBytes = input.getBytes();
+        long hashOfString = MurmurHash.hash64(input);
+        long o_testHash64ByteArrayOverloadlitString2984__6 = MurmurHash.hash64(inputBytes);
+        Object bytesAsObject = inputBytes;
+        long o_testHash64ByteArrayOverloadlitString2984__8 = MurmurHash.hash64(null);
+        Assert.assertEquals("&pb?56Tt", input);
+    }
+
+    @Test(timeout = 10000)
+    public void testHash64ByteArrayOverload_add2991_add3140null5309() throws Exception {
+        String input = "hashthis";
+        Assert.assertEquals("hashthis", input);
+        byte[] inputBytes = input.getBytes();
+        long hashOfString = MurmurHash.hash64(input);
+        long o_testHash64ByteArrayOverload_add2991__6 = MurmurHash.hash64(inputBytes);
+        Object bytesAsObject = inputBytes;
+        long o_testHash64ByteArrayOverload_add2991__8 = MurmurHash.hash64(bytesAsObject);
+        long o_testHash64ByteArrayOverload_add2991_add3140__13 = MurmurHash.hash64(null);
+        long o_testHash64ByteArrayOverload_add2991__9 = MurmurHash.hash64(bytesAsObject);
+        Assert.assertEquals("hashthis", input);
+    }
+
+    @Test(timeout = 10000)
+    public void testHash64ByteArrayOverload_add2990_add3063litString4981() throws Exception {
+        String input = "MurmurHash.hash64(String) returns wrong hash value";
+        Assert.assertEquals("MurmurHash.hash64(String) returns wrong hash value", input);
+        byte[] inputBytes = input.getBytes();
+        long o_testHash64ByteArrayOverload_add2990_add3063__4 = MurmurHash.hash64(input);
+        long hashOfString = MurmurHash.hash64(input);
+        long o_testHash64ByteArrayOverload_add2990__6 = MurmurHash.hash64(inputBytes);
+        long o_testHash64ByteArrayOverload_add2990__7 = MurmurHash.hash64(inputBytes);
+        Object bytesAsObject = inputBytes;
+        long o_testHash64ByteArrayOverload_add2990__9 = MurmurHash.hash64(bytesAsObject);
+        Assert.assertEquals("MurmurHash.hash64(String) returns wrong hash value", input);
+    }
+
+    @Test(timeout = 10000)
+    public void testHash64ByteArrayOverload_add2991_add3139litString5122() throws Exception {
+        String input = "hashNthis";
+        Assert.assertEquals("hashNthis", input);
+        byte[] inputBytes = input.getBytes();
+        long hashOfString = MurmurHash.hash64(input);
+        long o_testHash64ByteArrayOverload_add2991__6 = MurmurHash.hash64(inputBytes);
+        Object bytesAsObject = inputBytes;
+        long o_testHash64ByteArrayOverload_add2991_add3139__10 = MurmurHash.hash64(bytesAsObject);
+        long o_testHash64ByteArrayOverload_add2991__8 = MurmurHash.hash64(bytesAsObject);
+        long o_testHash64ByteArrayOverload_add2991__9 = MurmurHash.hash64(bytesAsObject);
+        Assert.assertEquals("hashNthis", input);
+    }
+
+    @Test(timeout = 10000)
+    public void testHash64ByteArrayOverload_add2991_add3140litString5212() throws Exception {
+        String input = "hahthis";
+        Assert.assertEquals("hahthis", input);
+        byte[] inputBytes = input.getBytes();
+        long hashOfString = MurmurHash.hash64(input);
+        long o_testHash64ByteArrayOverload_add2991__6 = MurmurHash.hash64(inputBytes);
+        Object bytesAsObject = inputBytes;
+        long o_testHash64ByteArrayOverload_add2991__8 = MurmurHash.hash64(bytesAsObject);
+        long o_testHash64ByteArrayOverload_add2991_add3140__13 = MurmurHash.hash64(bytesAsObject);
+        long o_testHash64ByteArrayOverload_add2991__9 = MurmurHash.hash64(bytesAsObject);
+        Assert.assertEquals("hahthis", input);
+    }
+
+    @Test(timeout = 10000)
+    public void testHash64ByteArrayOverload_add2989_add3183litString4714() throws Exception {
+        String input = "MurmurHash.hash(Object) given a byte[] did not match MurmurHash.hash(String)";
+        Assert.assertEquals("MurmurHash.hash(Object) given a byte[] did not match MurmurHash.hash(String)", input);
+        byte[] inputBytes = input.getBytes();
+        long o_testHash64ByteArrayOverload_add2989__4 = MurmurHash.hash64(input);
+        long hashOfString = MurmurHash.hash64(input);
+        long o_testHash64ByteArrayOverload_add2989__7 = MurmurHash.hash64(inputBytes);
+        Object bytesAsObject = inputBytes;
+        long o_testHash64ByteArrayOverload_add2989_add3183__13 = MurmurHash.hash64(bytesAsObject);
+        long o_testHash64ByteArrayOverload_add2989__9 = MurmurHash.hash64(bytesAsObject);
+        Assert.assertEquals("MurmurHash.hash(Object) given a byte[] did not match MurmurHash.hash(String)", input);
+    }
+
+    @Test(timeout = 10000)
+    public void testHash64ByteArrayOverloadlitString2982_add3071_add4395() throws Exception {
+        String input = "hashth is";
+        Assert.assertEquals("hashth is", input);
+        byte[] inputBytes = input.getBytes();
+        long hashOfString = MurmurHash.hash64(input);
+        long o_testHash64ByteArrayOverloadlitString2982__6 = MurmurHash.hash64(inputBytes);
+        Object bytesAsObject = inputBytes;
+        long o_testHash64ByteArrayOverloadlitString2982_add3071_add4395__10 = MurmurHash.hash64(bytesAsObject);
+        Assert.assertEquals(6125313423190383303L, ((long) (o_testHash64ByteArrayOverloadlitString2982_add3071_add4395__10)));
+        long o_testHash64ByteArrayOverloadlitString2982_add3071__10 = MurmurHash.hash64(bytesAsObject);
+        long o_testHash64ByteArrayOverloadlitString2982__8 = MurmurHash.hash64(bytesAsObject);
+        Assert.assertEquals("hashth is", input);
+        Assert.assertEquals(6125313423190383303L, ((long) (o_testHash64ByteArrayOverloadlitString2982_add3071_add4395__10)));
+    }
+
+    @Test(timeout = 10000)
+    public void testHash64ByteArrayOverload_add2989_add3181litString4474() throws Exception {
         String input = "MurmurHash.hash(byte[]) did not match MurmurHash.hash(String)";
         Assert.assertEquals("MurmurHash.hash(byte[]) did not match MurmurHash.hash(String)", input);
         byte[] inputBytes = input.getBytes();
-        long o_testHash64ByteArrayOverload_add4202_add5210__4 = MurmurHash.hash64(input);
+        long o_testHash64ByteArrayOverload_add2989__4 = MurmurHash.hash64(input);
+        long o_testHash64ByteArrayOverload_add2989_add3181__7 = MurmurHash.hash64(input);
         long hashOfString = MurmurHash.hash64(input);
-        long o_testHash64ByteArrayOverload_add4202__6 = MurmurHash.hash64(inputBytes);
-        long o_testHash64ByteArrayOverload_add4202__7 = MurmurHash.hash64(inputBytes);
+        long o_testHash64ByteArrayOverload_add2989__7 = MurmurHash.hash64(inputBytes);
         Object bytesAsObject = inputBytes;
-        long o_testHash64ByteArrayOverload_add4202__9 = MurmurHash.hash64(bytesAsObject);
+        long o_testHash64ByteArrayOverload_add2989__9 = MurmurHash.hash64(bytesAsObject);
         Assert.assertEquals("MurmurHash.hash(byte[]) did not match MurmurHash.hash(String)", input);
     }
 
     @Test(timeout = 10000)
-    public void testHash64ByteArrayOverloadlitString4192_add5039_add8454() throws Exception {
-        String input = "MurmurHash.hash64(byte[]) did not match MurmurHash.hash64(String)";
-        Assert.assertEquals("MurmurHash.hash64(byte[]) did not match MurmurHash.hash64(String)", input);
-        byte[] inputBytes = input.getBytes();
-        long hashOfString = MurmurHash.hash64(input);
-        long o_testHash64ByteArrayOverloadlitString4192_add5039_add8454__6 = MurmurHash.hash64(inputBytes);
-        Assert.assertEquals(-2406613350493541354L, ((long) (o_testHash64ByteArrayOverloadlitString4192_add5039_add8454__6)));
-        long o_testHash64ByteArrayOverloadlitString4192_add5039__6 = MurmurHash.hash64(inputBytes);
-        long o_testHash64ByteArrayOverloadlitString4192__6 = MurmurHash.hash64(inputBytes);
-        Object bytesAsObject = inputBytes;
-        long o_testHash64ByteArrayOverloadlitString4192__8 = MurmurHash.hash64(bytesAsObject);
-        Assert.assertEquals("MurmurHash.hash64(byte[]) did not match MurmurHash.hash64(String)", input);
-        Assert.assertEquals(-2406613350493541354L, ((long) (o_testHash64ByteArrayOverloadlitString4192_add5039_add8454__6)));
-    }
-
-    @Test(timeout = 10000)
-    public void testHash64ByteArrayOverloadlitString4192_add5039null8501() throws Exception {
-        String input = "MurmurHash.hash64(byte[]) did not match MurmurHash.hash64(String)";
-        Assert.assertEquals("MurmurHash.hash64(byte[]) did not match MurmurHash.hash64(String)", input);
-        byte[] inputBytes = input.getBytes();
-        long hashOfString = MurmurHash.hash64(input);
-        long o_testHash64ByteArrayOverloadlitString4192_add5039__6 = MurmurHash.hash64(null);
-        long o_testHash64ByteArrayOverloadlitString4192__6 = MurmurHash.hash64(inputBytes);
-        Object bytesAsObject = inputBytes;
-        long o_testHash64ByteArrayOverloadlitString4192__8 = MurmurHash.hash64(bytesAsObject);
-        Assert.assertEquals("MurmurHash.hash64(byte[]) did not match MurmurHash.hash64(String)", input);
-    }
-
-    @Test(timeout = 10000)
-    public void testHash64litString2119() throws Exception {
-        final long actualHash = MurmurHash.hash64(":");
-        Assert.assertEquals(-1293469037080459059L, ((long) (actualHash)));
+    public void testHash64litString1480() throws Exception {
+        final long actualHash = MurmurHash.hash64("\n");
+        Assert.assertEquals(2044312949510316467L, ((long) (actualHash)));
         final long expectedHash = -8896273065425798843L;
         Assert.assertEquals(-8896273065425798843L, ((long) (expectedHash)));
-        Assert.assertEquals(-1293469037080459059L, ((long) (actualHash)));
+        Assert.assertEquals(2044312949510316467L, ((long) (actualHash)));
     }
 
     @Test(timeout = 10000)
-    public void testHash64litString2112() throws Exception {
-        final long actualHash = MurmurHash.hash64("MurmurHash.hash64(String) returns wrong hash value");
-        Assert.assertEquals(-8313387402121601810L, ((long) (actualHash)));
-        final long expectedHash = -8896273065425798843L;
-        Assert.assertEquals(-8896273065425798843L, ((long) (expectedHash)));
-        Assert.assertEquals(-8313387402121601810L, ((long) (actualHash)));
-    }
-
-    @Test(timeout = 10000)
-    public void testHash64litString2115() throws Exception {
-        final long actualHash = MurmurHash.hash64("hashhis");
-        Assert.assertEquals(-2651218987042332986L, ((long) (actualHash)));
-        final long expectedHash = -8896273065425798843L;
-        Assert.assertEquals(-8896273065425798843L, ((long) (expectedHash)));
-        Assert.assertEquals(-2651218987042332986L, ((long) (actualHash)));
-    }
-
-    @Test(timeout = 10000)
-    public void testHash64null2129() throws Exception {
+    public void testHash64null1489() throws Exception {
         final long actualHash = MurmurHash.hash64(null);
         Assert.assertEquals(0L, ((long) (actualHash)));
         final long expectedHash = -8896273065425798843L;
@@ -411,60 +402,68 @@ public class TestMurmurHashAmpl {
     }
 
     @Test(timeout = 10000)
-    public void testHash64litString2112_add2538() throws Exception {
-        long o_testHash64litString2112_add2538__1 = MurmurHash.hash64("MurmurHash.hash64(String) returns wrong hash value");
-        Assert.assertEquals(-8313387402121601810L, ((long) (o_testHash64litString2112_add2538__1)));
-        final long actualHash = MurmurHash.hash64("MurmurHash.hash64(String) returns wrong hash value");
+    public void testHash64litString1477() throws Exception {
+        final long actualHash = MurmurHash.hash64("hashtis");
+        Assert.assertEquals(1425033108509731271L, ((long) (actualHash)));
         final long expectedHash = -8896273065425798843L;
-        Assert.assertEquals(-8313387402121601810L, ((long) (o_testHash64litString2112_add2538__1)));
+        Assert.assertEquals(-8896273065425798843L, ((long) (expectedHash)));
+        Assert.assertEquals(1425033108509731271L, ((long) (actualHash)));
     }
 
     @Test(timeout = 10000)
-    public void testHash64litString2115_add2595() throws Exception {
-        long o_testHash64litString2115_add2595__1 = MurmurHash.hash64("hashhis");
-        Assert.assertEquals(-2651218987042332986L, ((long) (o_testHash64litString2115_add2595__1)));
-        final long actualHash = MurmurHash.hash64("hashhis");
+    public void testHash64litString1476() throws Exception {
+        final long actualHash = MurmurHash.hash64("ha?shthis");
+        Assert.assertEquals(9152548290412618688L, ((long) (actualHash)));
         final long expectedHash = -8896273065425798843L;
-        Assert.assertEquals(-2651218987042332986L, ((long) (o_testHash64litString2115_add2595__1)));
+        Assert.assertEquals(-8896273065425798843L, ((long) (expectedHash)));
+        Assert.assertEquals(9152548290412618688L, ((long) (actualHash)));
     }
 
     @Test(timeout = 10000)
-    public void testHash64litString2114_add2379() throws Exception {
-        long o_testHash64litString2114_add2379__1 = MurmurHash.hash64("hashtDhis");
-        Assert.assertEquals(-8273957984789579749L, ((long) (o_testHash64litString2114_add2379__1)));
-        final long actualHash = MurmurHash.hash64("hashtDhis");
+    public void testHash64null1489_add1610() throws Exception {
+        long o_testHash64null1489_add1610__1 = MurmurHash.hash64(null);
+        Assert.assertEquals(0L, ((long) (o_testHash64null1489_add1610__1)));
+        final long actualHash = MurmurHash.hash64(null);
         final long expectedHash = -8896273065425798843L;
-        Assert.assertEquals(-8273957984789579749L, ((long) (o_testHash64litString2114_add2379__1)));
+        Assert.assertEquals(0L, ((long) (o_testHash64null1489_add1610__1)));
     }
 
     @Test(timeout = 10000)
-    public void testHash64litString2114_add2379_add3657() throws Exception {
-        long o_testHash64litString2114_add2379_add3657__1 = MurmurHash.hash64("hashtDhis");
-        Assert.assertEquals(-8273957984789579749L, ((long) (o_testHash64litString2114_add2379_add3657__1)));
-        long o_testHash64litString2114_add2379__1 = MurmurHash.hash64("hashtDhis");
-        final long actualHash = MurmurHash.hash64("hashtDhis");
+    public void testHash64litString1476_add1670() throws Exception {
+        long o_testHash64litString1476_add1670__1 = MurmurHash.hash64("ha?shthis");
+        Assert.assertEquals(9152548290412618688L, ((long) (o_testHash64litString1476_add1670__1)));
+        final long actualHash = MurmurHash.hash64("ha?shthis");
         final long expectedHash = -8896273065425798843L;
-        Assert.assertEquals(-8273957984789579749L, ((long) (o_testHash64litString2114_add2379_add3657__1)));
+        Assert.assertEquals(9152548290412618688L, ((long) (o_testHash64litString1476_add1670__1)));
     }
 
     @Test(timeout = 10000)
-    public void testHash64litString2115_add2595_add3538() throws Exception {
-        long o_testHash64litString2115_add2595_add3538__1 = MurmurHash.hash64("hashhis");
-        Assert.assertEquals(-2651218987042332986L, ((long) (o_testHash64litString2115_add2595_add3538__1)));
-        long o_testHash64litString2115_add2595__1 = MurmurHash.hash64("hashhis");
-        final long actualHash = MurmurHash.hash64("hashhis");
+    public void testHash64litString1477_add1684() throws Exception {
+        long o_testHash64litString1477_add1684__1 = MurmurHash.hash64("hashtis");
+        Assert.assertEquals(1425033108509731271L, ((long) (o_testHash64litString1477_add1684__1)));
+        final long actualHash = MurmurHash.hash64("hashtis");
         final long expectedHash = -8896273065425798843L;
-        Assert.assertEquals(-2651218987042332986L, ((long) (o_testHash64litString2115_add2595_add3538__1)));
+        Assert.assertEquals(1425033108509731271L, ((long) (o_testHash64litString1477_add1684__1)));
     }
 
     @Test(timeout = 10000)
-    public void testHash64litString2112_add2538_add3369() throws Exception {
-        long o_testHash64litString2112_add2538_add3369__1 = MurmurHash.hash64("MurmurHash.hash64(String) returns wrong hash value");
-        Assert.assertEquals(-8313387402121601810L, ((long) (o_testHash64litString2112_add2538_add3369__1)));
-        long o_testHash64litString2112_add2538__1 = MurmurHash.hash64("MurmurHash.hash64(String) returns wrong hash value");
-        final long actualHash = MurmurHash.hash64("MurmurHash.hash64(String) returns wrong hash value");
+    public void testHash64litString1477_add1684_add2365() throws Exception {
+        long o_testHash64litString1477_add1684__1 = MurmurHash.hash64("hashtis");
+        long o_testHash64litString1477_add1684_add2365__4 = MurmurHash.hash64("hashtis");
+        Assert.assertEquals(1425033108509731271L, ((long) (o_testHash64litString1477_add1684_add2365__4)));
+        final long actualHash = MurmurHash.hash64("hashtis");
         final long expectedHash = -8896273065425798843L;
-        Assert.assertEquals(-8313387402121601810L, ((long) (o_testHash64litString2112_add2538_add3369__1)));
+        Assert.assertEquals(1425033108509731271L, ((long) (o_testHash64litString1477_add1684_add2365__4)));
+    }
+
+    @Test(timeout = 10000)
+    public void testHash64litString1476_add1670_add2350() throws Exception {
+        long o_testHash64litString1476_add1670_add2350__1 = MurmurHash.hash64("ha?shthis");
+        Assert.assertEquals(9152548290412618688L, ((long) (o_testHash64litString1476_add1670_add2350__1)));
+        long o_testHash64litString1476_add1670__1 = MurmurHash.hash64("ha?shthis");
+        final long actualHash = MurmurHash.hash64("ha?shthis");
+        final long expectedHash = -8896273065425798843L;
+        Assert.assertEquals(9152548290412618688L, ((long) (o_testHash64litString1476_add1670_add2350__1)));
     }
 
     @Test(timeout = 10000)
@@ -495,60 +494,50 @@ public class TestMurmurHashAmpl {
     }
 
     @Test(timeout = 10000)
-    public void testHashlitString4_add204() throws Exception {
-        int o_testHashlitString4_add204__1 = MurmurHash.hash("hashhis");
-        Assert.assertEquals(-590652159, ((int) (o_testHashlitString4_add204__1)));
-        final long actualHash = MurmurHash.hash("hashhis");
-        final long expectedHash = -1974946086L;
-        Assert.assertEquals(-590652159, ((int) (o_testHashlitString4_add204__1)));
-    }
-
-    @Test(timeout = 10000)
-    public void testHashlitString1_add284() throws Exception {
-        int o_testHashlitString1_add284__1 = MurmurHash.hash("MurmurHash.hash64(String) returns wrong hash value");
-        Assert.assertEquals(-1053542750, ((int) (o_testHashlitString1_add284__1)));
-        final long actualHash = MurmurHash.hash("MurmurHash.hash64(String) returns wrong hash value");
-        final long expectedHash = -1974946086L;
-        Assert.assertEquals(-1053542750, ((int) (o_testHashlitString1_add284__1)));
-    }
-
-    @Test(timeout = 10000)
-    public void testHashlitString7_add145() throws Exception {
-        int o_testHashlitString7_add145__1 = MurmurHash.hash("\n");
-        Assert.assertEquals(-330957644, ((int) (o_testHashlitString7_add145__1)));
+    public void testHashlitString7_add126() throws Exception {
+        int o_testHashlitString7_add126__1 = MurmurHash.hash("\n");
+        Assert.assertEquals(-330957644, ((int) (o_testHashlitString7_add126__1)));
         final long actualHash = MurmurHash.hash("\n");
         final long expectedHash = -1974946086L;
-        Assert.assertEquals(-330957644, ((int) (o_testHashlitString7_add145__1)));
+        Assert.assertEquals(-330957644, ((int) (o_testHashlitString7_add126__1)));
     }
 
     @Test(timeout = 10000)
-    public void testHashlitString3_add134_add1215() throws Exception {
-        int o_testHashlitString3_add134_add1215__1 = MurmurHash.hash("hash,this");
-        Assert.assertEquals(1486645312, ((int) (o_testHashlitString3_add134_add1215__1)));
-        int o_testHashlitString3_add134__1 = MurmurHash.hash("hash,this");
-        final long actualHash = MurmurHash.hash("hash,this");
-        final long expectedHash = -1974946086L;
-        Assert.assertEquals(1486645312, ((int) (o_testHashlitString3_add134_add1215__1)));
-    }
-
-    @Test(timeout = 10000)
-    public void testHashlitString4_add204_add1447() throws Exception {
-        int o_testHashlitString4_add204_add1447__1 = MurmurHash.hash("hashhis");
-        Assert.assertEquals(-590652159, ((int) (o_testHashlitString4_add204_add1447__1)));
-        int o_testHashlitString4_add204__1 = MurmurHash.hash("hashhis");
+    public void testHashlitString4_add178() throws Exception {
+        int o_testHashlitString4_add178__1 = MurmurHash.hash("hashhis");
+        Assert.assertEquals(-590652159, ((int) (o_testHashlitString4_add178__1)));
         final long actualHash = MurmurHash.hash("hashhis");
         final long expectedHash = -1974946086L;
-        Assert.assertEquals(-590652159, ((int) (o_testHashlitString4_add204_add1447__1)));
+        Assert.assertEquals(-590652159, ((int) (o_testHashlitString4_add178__1)));
     }
 
     @Test(timeout = 10000)
-    public void testHashlitString1_add284_add1255() throws Exception {
-        int o_testHashlitString1_add284_add1255__1 = MurmurHash.hash("MurmurHash.hash64(String) returns wrong hash value");
-        Assert.assertEquals(-1053542750, ((int) (o_testHashlitString1_add284_add1255__1)));
-        int o_testHashlitString1_add284__1 = MurmurHash.hash("MurmurHash.hash64(String) returns wrong hash value");
+    public void testHashlitString1_add135() throws Exception {
+        int o_testHashlitString1_add135__1 = MurmurHash.hash("MurmurHash.hash64(String) returns wrong hash value");
+        Assert.assertEquals(-1053542750, ((int) (o_testHashlitString1_add135__1)));
         final long actualHash = MurmurHash.hash("MurmurHash.hash64(String) returns wrong hash value");
         final long expectedHash = -1974946086L;
-        Assert.assertEquals(-1053542750, ((int) (o_testHashlitString1_add284_add1255__1)));
+        Assert.assertEquals(-1053542750, ((int) (o_testHashlitString1_add135__1)));
+    }
+
+    @Test(timeout = 10000)
+    public void testHashlitString3_add182_add668() throws Exception {
+        int o_testHashlitString3_add182_add668__1 = MurmurHash.hash("hash,this");
+        Assert.assertEquals(1486645312, ((int) (o_testHashlitString3_add182_add668__1)));
+        int o_testHashlitString3_add182__1 = MurmurHash.hash("hash,this");
+        final long actualHash = MurmurHash.hash("hash,this");
+        final long expectedHash = -1974946086L;
+        Assert.assertEquals(1486645312, ((int) (o_testHashlitString3_add182_add668__1)));
+    }
+
+    @Test(timeout = 10000)
+    public void testHashlitString1_add135_add664() throws Exception {
+        int o_testHashlitString1_add135__1 = MurmurHash.hash("MurmurHash.hash64(String) returns wrong hash value");
+        int o_testHashlitString1_add135_add664__4 = MurmurHash.hash("MurmurHash.hash64(String) returns wrong hash value");
+        Assert.assertEquals(-1053542750, ((int) (o_testHashlitString1_add135_add664__4)));
+        final long actualHash = MurmurHash.hash("MurmurHash.hash64(String) returns wrong hash value");
+        final long expectedHash = -1974946086L;
+        Assert.assertEquals(-1053542750, ((int) (o_testHashlitString1_add135_add664__4)));
     }
 }
 
