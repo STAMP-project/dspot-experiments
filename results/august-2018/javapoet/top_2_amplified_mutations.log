@@ -23,7 +23,7 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ javapoet ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 21 source files to /tmp/dspot-experiments/dataset/javapoet/target/test-classes
+[INFO] Compiling 19 source files to /tmp/dspot-experiments/dataset/javapoet/target/test-classes
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ javapoet ---
 [INFO] Tests are skipped.
@@ -53,21 +53,21 @@
 [INFO] Found shared classpath plugin : TestNG plugin
 [INFO] Adding org.pitest:pitest to SUT classpath
 [INFO] Mutating from /tmp/dspot-experiments/dataset/javapoet/target/classes
-/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\================================================================================
+/-\|/-\|/-\/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\================================================================================
 - Timings
 ================================================================================
 > scan classpath : < 1 second
 > coverage and dependency analysis : 1 seconds
-> build mutation tests : 3 seconds
-> run mutation analysis : 38 seconds
+> build mutation tests : 4 seconds
+> run mutation analysis : 36 seconds
 --------------------------------------------------------------------------------
-> Total  : 43 seconds
+> Total  : 42 seconds
 --------------------------------------------------------------------------------
 ================================================================================
 - Statistics
 ================================================================================
->> Generated 5551 mutations Killed 106 (2%)
->> Ran 679 tests (0.12 tests per mutation)
+>> Generated 5551 mutations Killed 105 (2%)
+>> Ran 289 tests (0.05 tests per mutation)
 ================================================================================
 - Mutators
 ================================================================================
@@ -222,8 +222,8 @@
 > NO_COVERAGE 2 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF
->> Generated 393 Killed 9 (2%)
-> KILLED 8 SURVIVED 0 TIMED_OUT 1 NON_VIABLE 0 
+>> Generated 393 Killed 8 (2%)
+> KILLED 7 SURVIVED 1 TIMED_OUT 1 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
 > NO_COVERAGE 384 
 --------------------------------------------------------------------------------
@@ -278,7 +278,7 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 01:04 min
-[INFO] Finished at: 2018-08-07T20:13:49+02:00
-[INFO] Final Memory: 46M/2501M
+[INFO] Total time: 01:06 min
+[INFO] Finished at: 2018-08-15T15:03:29+02:00
+[INFO] Final Memory: 43M/2383M
 [INFO] ------------------------------------------------------------------------
