@@ -23,448 +23,508 @@ public class AmplMetaClassTest {
     }
 
     @Test(timeout = 10000)
-    public void shouldTestDataTypeOfGenericMethodlitString638684_failAssert810() throws Exception {
+    public void shouldTestDataTypeOfGenericMethod_mg534547_failAssert658() throws Exception {
         try {
+            String __DSPOT_name_105524 = "hC#NRuGXz4VD=pNkBo<6";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
             MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
             meta.getGetterType("id");
-            meta.getSetterType("v");
-            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethodlitString638684 should have thrown ReflectionException");
+            meta.getSetterType("id");
+            meta.getGetInvoker(__DSPOT_name_105524);
+            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_mg534547 should have thrown ReflectionException");
         } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'v\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
+            Assert.assertEquals("There is no getter for property named \'hC#NRuGXz4VD=pNkBo<6\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldTestDataTypeOfGenericMethodlitString638683_failAssert809() throws Exception {
+    public void shouldTestDataTypeOfGenericMethod_mg534549_failAssert659() throws Exception {
         try {
+            String __DSPOT_name_105526 = "GcG0*&i7BLl#DLP1x+mn";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
             MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
             meta.getGetterType("id");
-            meta.getSetterType("richType.richField");
-            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethodlitString638683 should have thrown ReflectionException");
+            meta.getSetterType("id");
+            meta.getSetInvoker(__DSPOT_name_105526);
+            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_mg534549 should have thrown ReflectionException");
         } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'richType\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
+            Assert.assertEquals("There is no setter for property named \'GcG0*&i7BLl#DLP1x+mn\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldTestDataTypeOfGenericMethodnull638708() throws Exception {
+    public void shouldTestDataTypeOfGenericMethod_mg534545() throws Exception {
+        String __DSPOT_name_105521 = "l}!U@`(!e[TW_*-Y2bB.";
         ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
         Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
         MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
         Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
         meta.getGetterType("id");
         meta.getSetterType("id");
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        meta.findProperty(__DSPOT_name_105521);
     }
 
     @Test(timeout = 10000)
-    public void shouldTestDataTypeOfGenericMethod_mg638693_failAssert814() throws Exception {
-        try {
-            String __DSPOT_name_113288 = "=o)w[1HCd!&)<BkLy[Ie";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-            meta.getGetterType("id");
-            meta.getSetterType("id");
-            meta.getGetInvoker(__DSPOT_name_113288);
-            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_mg638693 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'=o)w[1HCd!&)<BkLy[Ie\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldTestDataTypeOfGenericMethod_mg638695_failAssert815() throws Exception {
-        try {
-            String __DSPOT_name_113289 = "-.e? mAVYBCBM-a>$[xm";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-            meta.getGetterType("id");
-            meta.getSetterType("id");
-            meta.getGetterType(__DSPOT_name_113289);
-            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_mg638695 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'-\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldTestDataTypeOfGenericMethod_mg638696_failAssert816() throws Exception {
-        try {
-            String __DSPOT_name_113290 = "V+PHx9<o1Ua.PH<]r%-o";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-            meta.getGetterType("id");
-            meta.getSetterType("id");
-            meta.getSetInvoker(__DSPOT_name_113290);
-            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_mg638696 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'V+PHx9<o1Ua.PH<]r%-o\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldTestDataTypeOfGenericMethodlitString638680_failAssert806() throws Exception {
-        try {
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-            meta.getGetterType("");
-            meta.getSetterType("id");
-            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethodlitString638680 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldTestDataTypeOfGenericMethodlitString638678_failAssert804() throws Exception {
-        try {
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-            meta.getGetterType("richField");
-            meta.getSetterType("id");
-            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethodlitString638678 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'richField\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldTestDataTypeOfGenericMethodnull638704_failAssert820null639275() throws Exception {
-        try {
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-            MetaClass meta = null;
-            meta.getGetterType("id");
-            meta.getSetterType("id");
-            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethodnull638704 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldTestDataTypeOfGenericMethod_add638688_mg643362() throws Exception {
-        boolean __DSPOT_useCamelCaseMapping_114337 = true;
-        String __DSPOT_name_114336 = "xEWD$gh^ndF|QcUFzMoA";
+    public void shouldTestDataTypeOfGenericMethod_mg534546() throws Exception {
+        boolean __DSPOT_useCamelCaseMapping_105523 = true;
+        String __DSPOT_name_105522 = "8/lF)rTfH7Bp0!|x%.Rt";
         ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
         Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldTestDataTypeOfGenericMethod_add638688__3 = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldTestDataTypeOfGenericMethod_add638688__3)).hasDefaultConstructor());
         MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
         Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
         meta.getGetterType("id");
         meta.getSetterType("id");
-        meta.findProperty(__DSPOT_name_114336, __DSPOT_useCamelCaseMapping_114337);
+        meta.findProperty(__DSPOT_name_105522, __DSPOT_useCamelCaseMapping_105523);
     }
 
     @Test(timeout = 10000)
-    public void shouldTestDataTypeOfGenericMethod_add638688litString643151_failAssert854() throws Exception {
+    public void shouldTestDataTypeOfGenericMethodlitString534539_failAssert669() throws Exception {
         try {
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldTestDataTypeOfGenericMethod_add638688__3 = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
             MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
             meta.getGetterType("id");
-            meta.getSetterType("V");
-            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_add638688litString643151 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'V\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldTestDataTypeOfGenericMethod_add638688litString643143_failAssert857() throws Exception {
-        try {
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldTestDataTypeOfGenericMethod_add638688__3 = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-            meta.getGetterType("-");
-            meta.getSetterType("id");
-            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_add638688litString643143 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'-\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldTestDataTypeOfGenericMethod_add638688_mg643374_failAssert846() throws Exception {
-        try {
-            String __DSPOT_name_114344 = "S^[C:vLQbXq$iuYuKqO-";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldTestDataTypeOfGenericMethod_add638688__3 = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-            meta.getGetterType("id");
-            meta.getSetterType("id");
-            meta.getSetInvoker(__DSPOT_name_114344);
-            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_add638688_mg643374 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'S^[C:vLQbXq$iuYuKqO-\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldTestDataTypeOfGenericMethod_add638688_rv643657() throws Exception {
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldTestDataTypeOfGenericMethod_add638688__3 = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldTestDataTypeOfGenericMethod_add638688__3)).hasDefaultConstructor());
-        MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        meta.getGetterType("id");
-        Class<?> __DSPOT_invoc_18 = meta.getSetterType("id");
-        boolean o_shouldTestDataTypeOfGenericMethod_add638688_rv643657__12 = __DSPOT_invoc_18.desiredAssertionStatus();
-        Assert.assertFalse(o_shouldTestDataTypeOfGenericMethod_add638688_rv643657__12);
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        Assert.assertTrue(((MetaClass) (o_shouldTestDataTypeOfGenericMethod_add638688__3)).hasDefaultConstructor());
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-    }
-
-    @Test(timeout = 10000)
-    public void shouldTestDataTypeOfGenericMethod_add638688_mg643365_failAssert845() throws Exception {
-        try {
-            String __DSPOT_name_114338 = "K1-kxl_^{_JkMmo:BKkC";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldTestDataTypeOfGenericMethod_add638688__3 = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-            meta.getGetterType("id");
-            meta.getSetterType("id");
-            meta.getGetInvoker(__DSPOT_name_114338);
-            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_add638688_mg643365 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'K1-kxl_^{_JkMmo:BKkC\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldTestDataTypeOfGenericMethod_add638688litString643142_failAssert851() throws Exception {
-        try {
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldTestDataTypeOfGenericMethod_add638688__3 = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-            meta.getGetterType("richType.richField");
-            meta.getSetterType("id");
-            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_add638688litString643142 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'richType\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldTestDataTypeOfGenericMethod_add638688_add643282_mg673928_failAssert908() throws Exception {
-        try {
-            String __DSPOT_name_121502 = "kc8#SU^:+>*lf`IzW_^J";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldTestDataTypeOfGenericMethod_add638688__3 = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-            MetaClass o_shouldTestDataTypeOfGenericMethod_add638688_add643282__6 = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-            meta.getGetterType("id");
-            meta.getSetterType("id");
-            o_shouldTestDataTypeOfGenericMethod_add638688__3.getSetInvoker(__DSPOT_name_121502);
-            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_add638688_add643282_mg673928 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'kc8#SU^:+>*lf`IzW_^J\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldTestDataTypeOfGenericMethod_add638688_add643279_mg672989_failAssert910() throws Exception {
-        try {
-            String __DSPOT_name_121284 = "mln)b11)P$(@vOZ6XmNY";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldTestDataTypeOfGenericMethod_add638688_add643279__3 = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-            MetaClass o_shouldTestDataTypeOfGenericMethod_add638688__3 = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-            meta.getGetterType("id");
-            meta.getSetterType("id");
-            o_shouldTestDataTypeOfGenericMethod_add638688__3.getSetterType(__DSPOT_name_121284);
-            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_add638688_add643279_mg672989 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'mln)b11)P$(@vOZ6XmNY\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldTestDataTypeOfGenericMethod_add638688_add643282_mg673920_failAssert913() throws Exception {
-        try {
-            String __DSPOT_name_121499 = "]4Z(XZyo%(#PLq&S4il(";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldTestDataTypeOfGenericMethod_add638688__3 = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-            MetaClass o_shouldTestDataTypeOfGenericMethod_add638688_add643282__6 = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-            meta.getGetterType("id");
-            meta.getSetterType("id");
-            o_shouldTestDataTypeOfGenericMethod_add638688__3.getGetInvoker(__DSPOT_name_121499);
-            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_add638688_add643282_mg673920 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \']4Z(XZyo%(#PLq&S4il(\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldTestDataTypeOfGenericMethod_add638688_add643279_mg673016() throws Exception {
-        boolean __DSPOT_useCamelCaseMapping_121305 = true;
-        String __DSPOT_name_121304 = "Aw/EiNgk*|x?KrcLt3LS";
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldTestDataTypeOfGenericMethod_add638688_add643279__3 = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldTestDataTypeOfGenericMethod_add638688_add643279__3)).hasDefaultConstructor());
-        MetaClass o_shouldTestDataTypeOfGenericMethod_add638688__3 = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldTestDataTypeOfGenericMethod_add638688__3)).hasDefaultConstructor());
-        MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        meta.getGetterType("id");
-        meta.getSetterType("id");
-        meta.findProperty(__DSPOT_name_121304, __DSPOT_useCamelCaseMapping_121305);
-    }
-
-    @Test(timeout = 10000)
-    public void shouldTestDataTypeOfGenericMethod_add638688_add643279_mg673004() throws Exception {
-        String __DSPOT_name_121296 = "2i*0m.6#u9+p?SB= :hV";
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldTestDataTypeOfGenericMethod_add638688_add643279__3 = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldTestDataTypeOfGenericMethod_add638688_add643279__3)).hasDefaultConstructor());
-        MetaClass o_shouldTestDataTypeOfGenericMethod_add638688__3 = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldTestDataTypeOfGenericMethod_add638688__3)).hasDefaultConstructor());
-        MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        meta.getGetterType("id");
-        meta.getSetterType("id");
-        boolean o_shouldTestDataTypeOfGenericMethod_add638688_add643279_mg673004__14 = o_shouldTestDataTypeOfGenericMethod_add638688__3.hasSetter(__DSPOT_name_121296);
-        Assert.assertFalse(o_shouldTestDataTypeOfGenericMethod_add638688_add643279_mg673004__14);
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        Assert.assertTrue(((MetaClass) (o_shouldTestDataTypeOfGenericMethod_add638688_add643279__3)).hasDefaultConstructor());
-        Assert.assertTrue(((MetaClass) (o_shouldTestDataTypeOfGenericMethod_add638688__3)).hasDefaultConstructor());
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-    }
-
-    @Test(timeout = 10000)
-    public void shouldTestDataTypeOfGenericMethodnull638704_failAssert820null639275_add654815() throws Exception {
-        try {
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-            MetaClass meta = null;
-            meta.getGetterType("id");
-            meta.getGetterType("id");
-            meta.getSetterType("id");
-            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethodnull638704 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldTestDataTypeOfGenericMethod_add638688_add643279_mg672998() throws Exception {
-        String __DSPOT_name_121292 = "DrRj.{(ZZB42R{)3Q|u:";
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldTestDataTypeOfGenericMethod_add638688_add643279__3 = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldTestDataTypeOfGenericMethod_add638688_add643279__3)).hasDefaultConstructor());
-        MetaClass o_shouldTestDataTypeOfGenericMethod_add638688__3 = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldTestDataTypeOfGenericMethod_add638688__3)).hasDefaultConstructor());
-        MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        meta.getGetterType("id");
-        meta.getSetterType("id");
-        boolean o_shouldTestDataTypeOfGenericMethod_add638688_add643279_mg672998__14 = o_shouldTestDataTypeOfGenericMethod_add638688__3.hasGetter(__DSPOT_name_121292);
-        Assert.assertFalse(o_shouldTestDataTypeOfGenericMethod_add638688_add643279_mg672998__14);
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        Assert.assertTrue(((MetaClass) (o_shouldTestDataTypeOfGenericMethod_add638688_add643279__3)).hasDefaultConstructor());
-        Assert.assertTrue(((MetaClass) (o_shouldTestDataTypeOfGenericMethod_add638688__3)).hasDefaultConstructor());
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-    }
-
-    @Test(timeout = 10000)
-    public void shouldTestDataTypeOfGenericMethod_add638688_add643282_mg673940_failAssert911() throws Exception {
-        try {
-            String __DSPOT_name_121505 = "[>?)oc:L[wLPA]] 8[e;";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldTestDataTypeOfGenericMethod_add638688__3 = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-            MetaClass o_shouldTestDataTypeOfGenericMethod_add638688_add643282__6 = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-            meta.getGetterType("id");
-            meta.getSetterType("id");
-            o_shouldTestDataTypeOfGenericMethod_add638688__3.getSetterType(__DSPOT_name_121505);
-            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_add638688_add643282_mg673940 should have thrown ReflectionException");
+            meta.getSetterType("");
+            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethodlitString534539 should have thrown ReflectionException");
         } catch (ReflectionException expected) {
             Assert.assertEquals("There is no setter for property named \'\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldTestDataTypeOfGenericMethod_add638688_add643282_mg674011() throws Exception {
-        String __DSPOT_name_121520 = "%Vz_bId!qkj:kH3I@S`a";
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldTestDataTypeOfGenericMethod_add638688__3 = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldTestDataTypeOfGenericMethod_add638688__3)).hasDefaultConstructor());
-        MetaClass o_shouldTestDataTypeOfGenericMethod_add638688_add643282__6 = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldTestDataTypeOfGenericMethod_add638688_add643282__6)).hasDefaultConstructor());
-        MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        meta.getGetterType("id");
-        meta.getSetterType("id");
-        boolean o_shouldTestDataTypeOfGenericMethod_add638688_add643282_mg674011__14 = o_shouldTestDataTypeOfGenericMethod_add638688_add643282__6.hasSetter(__DSPOT_name_121520);
-        Assert.assertFalse(o_shouldTestDataTypeOfGenericMethod_add638688_add643282_mg674011__14);
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        Assert.assertTrue(((MetaClass) (o_shouldTestDataTypeOfGenericMethod_add638688__3)).hasDefaultConstructor());
-        Assert.assertTrue(((MetaClass) (o_shouldTestDataTypeOfGenericMethod_add638688_add643282__6)).hasDefaultConstructor());
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-    }
-
-    @Test(timeout = 10000)
-    public void shouldTestDataTypeOfGenericMethod_add638688_add643282_mg673926_failAssert912() throws Exception {
+    public void shouldTestDataTypeOfGenericMethodlitString534532_failAssert671() throws Exception {
         try {
-            String __DSPOT_name_121501 = "7e5&$WY[/<pXtz4;Aq(S";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldTestDataTypeOfGenericMethod_add638688__3 = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-            MetaClass o_shouldTestDataTypeOfGenericMethod_add638688_add643282__6 = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
             MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
-            meta.getGetterType("id");
+            meta.getGetterType("richType.richMap");
             meta.getSetterType("id");
-            o_shouldTestDataTypeOfGenericMethod_add638688__3.getGetterType(__DSPOT_name_121501);
-            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_add638688_add643282_mg673926 should have thrown ReflectionException");
+            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethodlitString534532 should have thrown ReflectionException");
         } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'7e5&$WY\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
+            Assert.assertEquals("There is no getter for property named \'richType\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckGetterExistancelitString10089() throws Exception {
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        boolean o_shouldCheckGetterExistancelitString10089__5 = meta.hasGetter("richField");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10089__5);
-        boolean o_shouldCheckGetterExistancelitString10089__6 = meta.hasGetter("richProperty");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10089__6);
-        boolean o_shouldCheckGetterExistancelitString10089__7 = meta.hasGetter("richList");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10089__7);
-        boolean o_shouldCheckGetterExistancelitString10089__8 = meta.hasGetter("richMap");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10089__8);
-        boolean o_shouldCheckGetterExistancelitString10089__9 = meta.hasGetter("richList[0]");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10089__9);
-        boolean o_shouldCheckGetterExistancelitString10089__10 = meta.hasGetter("richType");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10089__10);
-        boolean o_shouldCheckGetterExistancelitString10089__11 = meta.hasGetter("richType.richField");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10089__11);
-        boolean o_shouldCheckGetterExistancelitString10089__12 = meta.hasGetter("richType.richProperty");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10089__12);
-        boolean o_shouldCheckGetterExistancelitString10089__13 = meta.hasGetter("richType.richList");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10089__13);
-        boolean o_shouldCheckGetterExistancelitString10089__14 = meta.hasGetter("richType.richMap");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10089__14);
-        boolean o_shouldCheckGetterExistancelitString10089__15 = meta.hasGetter("richType.richList[0]");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10089__15);
-        meta.findProperty("richT`ype.richProperty", false);
-        meta.hasGetter("[0]");
+    public void shouldTestDataTypeOfGenericMethodlitString534536_failAssert670() throws Exception {
+        try {
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
+            meta.getGetterType(":");
+            meta.getSetterType("id");
+            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethodlitString534536 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \':\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
+        }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckGetterExistance_mg10120_failAssert105() throws Exception {
+    public void shouldTestDataTypeOfGenericMethodlitString534537_failAssert667() throws Exception {
         try {
-            String __DSPOT_name_2794 = "6>/v<W5:s%ezvrGEreU<";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
+            meta.getGetterType("id");
+            meta.getSetterType("richProperty");
+            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethodlitString534537 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no setter for property named \'richProperty\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldTestDataTypeOfGenericMethod_mg534551() throws Exception {
+        String __DSPOT_name_105528 = "B /6(b[3^.ra,Nzzh&HF";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        meta.getGetterType("id");
+        meta.getSetterType("id");
+        boolean o_shouldTestDataTypeOfGenericMethod_mg534551__8 = meta.hasGetter(__DSPOT_name_105528);
+        Assert.assertFalse(o_shouldTestDataTypeOfGenericMethod_mg534551__8);
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+    }
+
+    @Test(timeout = 10000)
+    public void shouldTestDataTypeOfGenericMethod_add534543() throws Exception {
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        meta.getGetterType("id");
+        meta.getGetterType("id");
+        meta.getSetterType("id");
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+    }
+
+    @Test(timeout = 10000)
+    public void shouldTestDataTypeOfGenericMethodlitString534532_failAssert671_mg535214() throws Exception {
+        try {
+            String __DSPOT_name_105764 = "^CQ[Veo+1t^$`w5h]4P}";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            meta.getGetterType("richType.richMap");
+            meta.getSetterType("id");
+            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethodlitString534532 should have thrown ReflectionException");
+            meta.getGetInvoker(__DSPOT_name_105764);
+        } catch (ReflectionException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldTestDataTypeOfGenericMethod_mg534545litString534646_failAssert685() throws Exception {
+        try {
+            String __DSPOT_name_105521 = "l}!U@`(!e[TW_*-Y2bB.";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
+            meta.getGetterType("id");
+            meta.getSetterType("u");
+            meta.findProperty(__DSPOT_name_105521);
+            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_mg534545litString534646 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no setter for property named \'u\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldTestDataTypeOfGenericMethod_mg534545litString534643_failAssert699() throws Exception {
+        try {
+            String __DSPOT_name_105521 = "l}!U@`(!e[TW_*-Y2bB.";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
+            meta.getGetterType("\n");
+            meta.getSetterType("id");
+            meta.findProperty(__DSPOT_name_105521);
+            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_mg534545litString534643 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'\n\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldTestDataTypeOfGenericMethod_mg534549_failAssert659litString534783() throws Exception {
+        try {
+            String __DSPOT_name_105526 = "GcG0*&7BLl#DLP1x+mn";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            meta.getGetterType("id");
+            meta.getSetterType("id");
+            meta.getSetInvoker(__DSPOT_name_105526);
+            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_mg534549 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldTestDataTypeOfGenericMethod_mg534551_add534859() throws Exception {
+        String __DSPOT_name_105528 = "B /6(b[3^.ra,Nzzh&HF";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        meta.getGetterType("id");
+        meta.getGetterType("id");
+        meta.getSetterType("id");
+        boolean o_shouldTestDataTypeOfGenericMethod_mg534551__8 = meta.hasGetter(__DSPOT_name_105528);
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+    }
+
+    @Test(timeout = 10000)
+    public void shouldTestDataTypeOfGenericMethodlitString534540_failAssert665_add534951() throws Exception {
+        try {
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass o_shouldTestDataTypeOfGenericMethodlitString534540_failAssert665_add534951__5 = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (o_shouldTestDataTypeOfGenericMethodlitString534540_failAssert665_add534951__5)).hasDefaultConstructor());
+            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            meta.getGetterType("id");
+            meta.getSetterType("\n");
+            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethodlitString534540 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldTestDataTypeOfGenericMethod_mg534551_mg535007_failAssert688() throws Exception {
+        try {
+            String __DSPOT_name_105534 = "&`74G#h)hOp|iA2bpF16";
+            String __DSPOT_name_105528 = "B /6(b[3^.ra,Nzzh&HF";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
+            meta.getGetterType("id");
+            meta.getSetterType("id");
+            boolean o_shouldTestDataTypeOfGenericMethod_mg534551__8 = meta.hasGetter(__DSPOT_name_105528);
+            meta.getGetInvoker(__DSPOT_name_105534);
+            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_mg534551_mg535007 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'&`74G#h)hOp|iA2bpF16\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldTestDataTypeOfGenericMethod_mg534546_remove534993() throws Exception {
+        boolean __DSPOT_useCamelCaseMapping_105523 = true;
+        String __DSPOT_name_105522 = "8/lF)rTfH7Bp0!|x%.Rt";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        meta.getGetterType("id");
+        meta.findProperty(__DSPOT_name_105522, __DSPOT_useCamelCaseMapping_105523);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldTestDataTypeOfGenericMethodnull534555_failAssert663_add534944() throws Exception {
+        try {
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            meta.getGetterType(null);
+            meta.getGetterType(null);
+            meta.getSetterType("id");
+            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethodnull534555 should have thrown NullPointerException");
+        } catch (NullPointerException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldTestDataTypeOfGenericMethodnull534554_failAssert661_mg535125() throws Exception {
+        try {
+            String __DSPOT_name_105665 = "%_H/[/$xR]<w;JweL{|[";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(GenericConcrete.class, null);
+            meta.getGetterType("id");
+            meta.getSetterType("id");
+            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethodnull534554 should have thrown NullPointerException");
+            meta.getGetterType(__DSPOT_name_105665);
+        } catch (NullPointerException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldTestDataTypeOfGenericMethod_mg534552_mg535036_failAssert674() throws Exception {
+        try {
+            String __DSPOT_name_105566 = "G^JX6-{rH+tp]Xp(@js.";
+            String __DSPOT_name_105529 = "0w T*N2f+8%Lmk]<tI{m";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
+            meta.getGetterType("id");
+            meta.getSetterType("id");
+            boolean o_shouldTestDataTypeOfGenericMethod_mg534552__8 = meta.hasSetter(__DSPOT_name_105529);
+            meta.getSetInvoker(__DSPOT_name_105566);
+            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_mg534552_mg535036 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no setter for property named \'G^JX6-{rH+tp]Xp(@js.\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldTestDataTypeOfGenericMethod_mg534551_rv535267litString539334_failAssert710() throws Exception {
+        try {
+            String __DSPOT_name_105528 = "B /6(b[3^.ra,Nzzh&HF";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
+            Class<?> __DSPOT_invoc_12 = meta.getGetterType("id");
+            meta.getSetterType("J");
+            boolean o_shouldTestDataTypeOfGenericMethod_mg534551__8 = meta.hasGetter(__DSPOT_name_105528);
+            __DSPOT_invoc_12.getGenericSuperclass();
+            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_mg534551_rv535267litString539334 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no setter for property named \'J\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldTestDataTypeOfGenericMethod_mg534553_failAssert656_mg535077litString539742() throws Exception {
+        try {
+            String __DSPOT_name_105611 = "N9{HXxd_n:19ZwJ S$%B";
+            String __DSPOT_name_105530 = "LT<);o0{!YO1%>xFt+4%";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            meta.getGetterType("id");
+            meta.getSetterType("");
+            meta.metaClassForProperty(__DSPOT_name_105530);
+            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_mg534553 should have thrown ReflectionException");
+            meta.findProperty(__DSPOT_name_105611);
+        } catch (ReflectionException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldTestDataTypeOfGenericMethod_mg534550_failAssert657null538317_failAssert680null566847() throws Exception {
+        try {
+            try {
+                String __DSPOT_name_105527 = "XB0;%>f!PgSax@g^0g%N";
+                ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+                Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+                MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
+                Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+                meta.getGetterType(null);
+                meta.getSetterType("id");
+                meta.getSetterType(null);
+                org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_mg534550 should have thrown ReflectionException");
+            } catch (ReflectionException expected) {
+            }
+            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_mg534550_failAssert657null538317 should have thrown NullPointerException");
+        } catch (NullPointerException expected_1) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldTestDataTypeOfGenericMethod_mg534552_rv535674litString539310_failAssert711() throws Exception {
+        try {
+            String __DSPOT_name_105529 = "0w T*N2f+8%Lmk]<tI{m";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
+            meta.getGetterType("richType.richProperty");
+            Class<?> __DSPOT_invoc_13 = meta.getSetterType("id");
+            boolean o_shouldTestDataTypeOfGenericMethod_mg534552__8 = meta.hasSetter(__DSPOT_name_105529);
+            __DSPOT_invoc_13.isAnnotation();
+            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_mg534552_rv535674litString539310 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'richType\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldTestDataTypeOfGenericMethod_mg534546_remove534992litBool540640() throws Exception {
+        boolean __DSPOT_useCamelCaseMapping_105523 = false;
+        String __DSPOT_name_105522 = "8/lF)rTfH7Bp0!|x%.Rt";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        meta.getSetterType("id");
+        meta.findProperty(__DSPOT_name_105522, __DSPOT_useCamelCaseMapping_105523);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldTestDataTypeOfGenericMethod_mg534551_rv535241_remove541922() throws Exception {
+        String __DSPOT_name_105528 = "B /6(b[3^.ra,Nzzh&HF";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        Class<?> __DSPOT_invoc_12 = meta.getGetterType("id");
+        boolean o_shouldTestDataTypeOfGenericMethod_mg534551__8 = meta.hasGetter(__DSPOT_name_105528);
+        boolean o_shouldTestDataTypeOfGenericMethod_mg534551_rv535241__13 = __DSPOT_invoc_12.desiredAssertionStatus();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+    }
+
+    @Test(timeout = 10000)
+    public void shouldTestDataTypeOfGenericMethodlitString534533_failAssert664_rv537241null566814() throws Exception {
+        try {
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            meta.getGetterType("`");
+            Class<?> __DSPOT_invoc_8 = meta.getSetterType(null);
+            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethodlitString534533 should have thrown ReflectionException");
+            __DSPOT_invoc_8.getInterfaces();
+        } catch (ReflectionException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldTestDataTypeOfGenericMethod_mg534546_mg535031_failAssert675litString540448() throws Exception {
+        try {
+            String __DSPOT_name_105560 = "$&YjJwpaoe(,?bO725^b";
+            boolean __DSPOT_useCamelCaseMapping_105523 = true;
+            String __DSPOT_name_105522 = "richType.richMap";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            meta.getGetterType("id");
+            meta.getSetterType("id");
+            meta.findProperty(__DSPOT_name_105522, __DSPOT_useCamelCaseMapping_105523);
+            meta.metaClassForProperty(__DSPOT_name_105560);
+            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_mg534546_mg535031 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldTestDataTypeOfGenericMethodnull534554_failAssert661_rv536865null566711() throws Exception {
+        try {
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(GenericConcrete.class, null);
+            Class<?> __DSPOT_invoc_7 = meta.getGetterType("id");
+            meta.getSetterType(null);
+            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethodnull534554 should have thrown NullPointerException");
+            __DSPOT_invoc_7.isArray();
+        } catch (NullPointerException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldTestDataTypeOfGenericMethod_mg534549_failAssert659litString534782_rv561649() throws Exception {
+        try {
+            String __DSPOT_name_105526 = "GcG0*&i7BLl#DLPg1x+mn";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            meta.getGetterType("id");
+            Class<?> __DSPOT_invoc_15 = meta.getSetterType("id");
+            meta.getSetInvoker(__DSPOT_name_105526);
+            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_mg534549 should have thrown ReflectionException");
+            __DSPOT_invoc_15.getEnclosingConstructor();
+        } catch (ReflectionException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldTestDataTypeOfGenericMethodlitString534538_failAssert668_add534966_add541104() throws Exception {
+        try {
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            meta.getGetterType("id");
+            meta.getSetterType("S");
+            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethodlitString534538 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            expected.getMessage();
+            expected.getMessage();
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldTestDataTypeOfGenericMethod_mg534551_rv535267_mg542337_failAssert712() throws Exception {
+        try {
+            String __DSPOT_name_106892 = "0mph[C1TY/KRmM)Gsy}V";
+            String __DSPOT_name_105528 = "B /6(b[3^.ra,Nzzh&HF";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(GenericConcrete.class, reflectorFactory);
+            Class<?> __DSPOT_invoc_12 = meta.getGetterType("id");
+            meta.getSetterType("id");
+            boolean o_shouldTestDataTypeOfGenericMethod_mg534551__8 = meta.hasGetter(__DSPOT_name_105528);
+            __DSPOT_invoc_12.getGenericSuperclass();
+            meta.getGetInvoker(__DSPOT_name_106892);
+            org.junit.Assert.fail("shouldTestDataTypeOfGenericMethod_mg534551_rv535267_mg542337 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'0mph[C1TY/KRmM)Gsy}V\' in \'class org.apache.ibatis.domain.misc.generics.GenericConcrete\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistance_mg9448_failAssert86() throws Exception {
+        try {
+            String __DSPOT_name_3252 = "phY7bv]]u7H,t>jQ@5]U";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
             meta.hasGetter("richField");
@@ -480,15 +540,217 @@ public class AmplMetaClassTest {
             meta.hasGetter("richType.richList[0]");
             meta.findProperty("richType.richProperty", false);
             meta.hasGetter("[0]");
-            meta.getGetInvoker(__DSPOT_name_2794);
-            org.junit.Assert.fail("shouldCheckGetterExistance_mg10120 should have thrown ReflectionException");
+            meta.getGetInvoker(__DSPOT_name_3252);
+            org.junit.Assert.fail("shouldCheckGetterExistance_mg9448 should have thrown ReflectionException");
         } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'6>/v<W5:s%ezvrGEreU<\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+            Assert.assertEquals("There is no getter for property named \'phY7bv]]u7H,t>jQ@5]U\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckGetterExistancenull10183_failAssert125() throws Exception {
+    public void shouldCheckGetterExistancelitString9418() throws Exception {
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        boolean o_shouldCheckGetterExistancelitString9418__5 = meta.hasGetter("richField");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9418__5);
+        boolean o_shouldCheckGetterExistancelitString9418__6 = meta.hasGetter("richProperty");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9418__6);
+        boolean o_shouldCheckGetterExistancelitString9418__7 = meta.hasGetter("richList");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9418__7);
+        boolean o_shouldCheckGetterExistancelitString9418__8 = meta.hasGetter("richMap");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9418__8);
+        boolean o_shouldCheckGetterExistancelitString9418__9 = meta.hasGetter("richList[0]");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9418__9);
+        boolean o_shouldCheckGetterExistancelitString9418__10 = meta.hasGetter("richType");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9418__10);
+        boolean o_shouldCheckGetterExistancelitString9418__11 = meta.hasGetter("richType.richField");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9418__11);
+        boolean o_shouldCheckGetterExistancelitString9418__12 = meta.hasGetter("richType.richProperty");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9418__12);
+        boolean o_shouldCheckGetterExistancelitString9418__13 = meta.hasGetter("richType.richList");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9418__13);
+        boolean o_shouldCheckGetterExistancelitString9418__14 = meta.hasGetter("richType.richMap");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9418__14);
+        boolean o_shouldCheckGetterExistancelitString9418__15 = meta.hasGetter("richType.richList[0]");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9418__15);
+        meta.findProperty("rihType.richProperty", false);
+        meta.hasGetter("[0]");
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistance_mg9451_failAssert87() throws Exception {
+        try {
+            String __DSPOT_name_3255 = "UBRpi8,#.!&@ZLnEmUEa";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.hasGetter("richField");
+            meta.hasGetter("richProperty");
+            meta.hasGetter("richList");
+            meta.hasGetter("richMap");
+            meta.hasGetter("richList[0]");
+            meta.hasGetter("richType");
+            meta.hasGetter("richType.richField");
+            meta.hasGetter("richType.richProperty");
+            meta.hasGetter("richType.richList");
+            meta.hasGetter("richType.richMap");
+            meta.hasGetter("richType.richList[0]");
+            meta.findProperty("richType.richProperty", false);
+            meta.hasGetter("[0]");
+            meta.getSetterType(__DSPOT_name_3255);
+            org.junit.Assert.fail("shouldCheckGetterExistance_mg9451 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'UBRpi8,#\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancelitBool9431() throws Exception {
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        boolean o_shouldCheckGetterExistancelitBool9431__5 = meta.hasGetter("richField");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitBool9431__5);
+        boolean o_shouldCheckGetterExistancelitBool9431__6 = meta.hasGetter("richProperty");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitBool9431__6);
+        boolean o_shouldCheckGetterExistancelitBool9431__7 = meta.hasGetter("richList");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitBool9431__7);
+        boolean o_shouldCheckGetterExistancelitBool9431__8 = meta.hasGetter("richMap");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitBool9431__8);
+        boolean o_shouldCheckGetterExistancelitBool9431__9 = meta.hasGetter("richList[0]");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitBool9431__9);
+        boolean o_shouldCheckGetterExistancelitBool9431__10 = meta.hasGetter("richType");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitBool9431__10);
+        boolean o_shouldCheckGetterExistancelitBool9431__11 = meta.hasGetter("richType.richField");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitBool9431__11);
+        boolean o_shouldCheckGetterExistancelitBool9431__12 = meta.hasGetter("richType.richProperty");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitBool9431__12);
+        boolean o_shouldCheckGetterExistancelitBool9431__13 = meta.hasGetter("richType.richList");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitBool9431__13);
+        boolean o_shouldCheckGetterExistancelitBool9431__14 = meta.hasGetter("richType.richMap");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitBool9431__14);
+        boolean o_shouldCheckGetterExistancelitBool9431__15 = meta.hasGetter("richType.richList[0]");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitBool9431__15);
+        String o_shouldCheckGetterExistancelitBool9431__16 = meta.findProperty("richType.richProperty", true);
+        Assert.assertEquals("richType.richProperty", o_shouldCheckGetterExistancelitBool9431__16);
+        boolean o_shouldCheckGetterExistancelitBool9431__17 = meta.hasGetter("[0]");
+        Assert.assertFalse(o_shouldCheckGetterExistancelitBool9431__17);
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        Assert.assertTrue(o_shouldCheckGetterExistancelitBool9431__5);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitBool9431__6);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitBool9431__7);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitBool9431__8);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitBool9431__9);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitBool9431__10);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitBool9431__11);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitBool9431__12);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitBool9431__13);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitBool9431__14);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitBool9431__15);
+        Assert.assertEquals("richType.richProperty", o_shouldCheckGetterExistancelitBool9431__16);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancelitString9414() throws Exception {
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        boolean o_shouldCheckGetterExistancelitString9414__5 = meta.hasGetter("richField");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9414__5);
+        boolean o_shouldCheckGetterExistancelitString9414__6 = meta.hasGetter("richProperty");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9414__6);
+        boolean o_shouldCheckGetterExistancelitString9414__7 = meta.hasGetter("richList");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9414__7);
+        boolean o_shouldCheckGetterExistancelitString9414__8 = meta.hasGetter("richMap");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9414__8);
+        boolean o_shouldCheckGetterExistancelitString9414__9 = meta.hasGetter("richList[0]");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9414__9);
+        boolean o_shouldCheckGetterExistancelitString9414__10 = meta.hasGetter("richType");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9414__10);
+        boolean o_shouldCheckGetterExistancelitString9414__11 = meta.hasGetter("richType.richField");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9414__11);
+        boolean o_shouldCheckGetterExistancelitString9414__12 = meta.hasGetter("richType.richProperty");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9414__12);
+        boolean o_shouldCheckGetterExistancelitString9414__13 = meta.hasGetter("richType.richList");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9414__13);
+        boolean o_shouldCheckGetterExistancelitString9414__14 = meta.hasGetter("richType.richMap");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9414__14);
+        boolean o_shouldCheckGetterExistancelitString9414__15 = meta.hasGetter(":");
+        Assert.assertFalse(o_shouldCheckGetterExistancelitString9414__15);
+        String o_shouldCheckGetterExistancelitString9414__16 = meta.findProperty("richType.richProperty", false);
+        Assert.assertEquals("richType.richProperty", o_shouldCheckGetterExistancelitString9414__16);
+        boolean o_shouldCheckGetterExistancelitString9414__17 = meta.hasGetter("[0]");
+        Assert.assertFalse(o_shouldCheckGetterExistancelitString9414__17);
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9414__5);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9414__6);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9414__7);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9414__8);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9414__9);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9414__10);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9414__11);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9414__12);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9414__13);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9414__14);
+        Assert.assertFalse(o_shouldCheckGetterExistancelitString9414__15);
+        Assert.assertEquals("richType.richProperty", o_shouldCheckGetterExistancelitString9414__16);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancelitString9378() throws Exception {
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        boolean o_shouldCheckGetterExistancelitString9378__5 = meta.hasGetter("richField");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9378__5);
+        boolean o_shouldCheckGetterExistancelitString9378__6 = meta.hasGetter("richProperty");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9378__6);
+        boolean o_shouldCheckGetterExistancelitString9378__7 = meta.hasGetter("richList");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9378__7);
+        boolean o_shouldCheckGetterExistancelitString9378__8 = meta.hasGetter("richMap");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9378__8);
+        boolean o_shouldCheckGetterExistancelitString9378__9 = meta.hasGetter("richList[0]");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9378__9);
+        boolean o_shouldCheckGetterExistancelitString9378__10 = meta.hasGetter("richType");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9378__10);
+        boolean o_shouldCheckGetterExistancelitString9378__11 = meta.hasGetter("rchType.richField");
+        Assert.assertFalse(o_shouldCheckGetterExistancelitString9378__11);
+        boolean o_shouldCheckGetterExistancelitString9378__12 = meta.hasGetter("richType.richProperty");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9378__12);
+        boolean o_shouldCheckGetterExistancelitString9378__13 = meta.hasGetter("richType.richList");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9378__13);
+        boolean o_shouldCheckGetterExistancelitString9378__14 = meta.hasGetter("richType.richMap");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9378__14);
+        boolean o_shouldCheckGetterExistancelitString9378__15 = meta.hasGetter("richType.richList[0]");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9378__15);
+        String o_shouldCheckGetterExistancelitString9378__16 = meta.findProperty("richType.richProperty", false);
+        Assert.assertEquals("richType.richProperty", o_shouldCheckGetterExistancelitString9378__16);
+        boolean o_shouldCheckGetterExistancelitString9378__17 = meta.hasGetter("[0]");
+        Assert.assertFalse(o_shouldCheckGetterExistancelitString9378__17);
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9378__5);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9378__6);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9378__7);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9378__8);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9378__9);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9378__10);
+        Assert.assertFalse(o_shouldCheckGetterExistancelitString9378__11);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9378__12);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9378__13);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9378__14);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9378__15);
+        Assert.assertEquals("richType.richProperty", o_shouldCheckGetterExistancelitString9378__16);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancenull9467_failAssert100() throws Exception {
         try {
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
@@ -505,16 +767,16 @@ public class AmplMetaClassTest {
             meta.hasGetter("richType.richList[0]");
             meta.findProperty(null, false);
             meta.hasGetter("[0]");
-            org.junit.Assert.fail("shouldCheckGetterExistancenull10183 should have thrown NullPointerException");
+            org.junit.Assert.fail("shouldCheckGetterExistancenull9467 should have thrown NullPointerException");
         } catch (NullPointerException expected) {
             Assert.assertEquals(null, expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckGetterExistance_mg10125_failAssert108() throws Exception {
+    public void shouldCheckGetterExistance_mg9454_failAssert89() throws Exception {
         try {
-            String __DSPOT_name_2797 = "S.N9[p6kQ}-q3#WIefj|";
+            String __DSPOT_name_3258 = "|Z9RN!8#@G.VzVZq!K-x";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
             meta.hasGetter("richField");
@@ -530,90 +792,65 @@ public class AmplMetaClassTest {
             meta.hasGetter("richType.richList[0]");
             meta.findProperty("richType.richProperty", false);
             meta.hasGetter("[0]");
-            meta.getSetterType(__DSPOT_name_2797);
-            org.junit.Assert.fail("shouldCheckGetterExistance_mg10125 should have thrown ReflectionException");
+            meta.metaClassForProperty(__DSPOT_name_3258);
+            org.junit.Assert.fail("shouldCheckGetterExistance_mg9454 should have thrown ReflectionException");
         } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'S\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+            Assert.assertEquals("There is no getter for property named \'|Z9RN!8#@G.VzVZq!K-x\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckGetterExistance_mg10123_failAssert107() throws Exception {
-        try {
-            String __DSPOT_name_2796 = "NcQG/f UxnV[bZiI%a#8";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            meta.hasGetter("richField");
-            meta.hasGetter("richProperty");
-            meta.hasGetter("richList");
-            meta.hasGetter("richMap");
-            meta.hasGetter("richList[0]");
-            meta.hasGetter("richType");
-            meta.hasGetter("richType.richField");
-            meta.hasGetter("richType.richProperty");
-            meta.hasGetter("richType.richList");
-            meta.hasGetter("richType.richMap");
-            meta.hasGetter("richType.richList[0]");
-            meta.findProperty("richType.richProperty", false);
-            meta.hasGetter("[0]");
-            meta.getSetInvoker(__DSPOT_name_2796);
-            org.junit.Assert.fail("shouldCheckGetterExistance_mg10123 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'NcQG/f UxnV[bZiI%a#8\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckGetterExistancelitString10090() throws Exception {
+    public void shouldCheckGetterExistancelitString9384() throws Exception {
         ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
         Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
         MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
         Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        boolean o_shouldCheckGetterExistancelitString10090__5 = meta.hasGetter("richField");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10090__5);
-        boolean o_shouldCheckGetterExistancelitString10090__6 = meta.hasGetter("richProperty");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10090__6);
-        boolean o_shouldCheckGetterExistancelitString10090__7 = meta.hasGetter("richList");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10090__7);
-        boolean o_shouldCheckGetterExistancelitString10090__8 = meta.hasGetter("richMap");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10090__8);
-        boolean o_shouldCheckGetterExistancelitString10090__9 = meta.hasGetter("richList[0]");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10090__9);
-        boolean o_shouldCheckGetterExistancelitString10090__10 = meta.hasGetter("richType");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10090__10);
-        boolean o_shouldCheckGetterExistancelitString10090__11 = meta.hasGetter("richType.richField");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10090__11);
-        boolean o_shouldCheckGetterExistancelitString10090__12 = meta.hasGetter("richType.richProperty");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10090__12);
-        boolean o_shouldCheckGetterExistancelitString10090__13 = meta.hasGetter("richType.richList");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10090__13);
-        boolean o_shouldCheckGetterExistancelitString10090__14 = meta.hasGetter("richType.richMap");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10090__14);
-        boolean o_shouldCheckGetterExistancelitString10090__15 = meta.hasGetter("richType.richList[0]");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10090__15);
-        String o_shouldCheckGetterExistancelitString10090__16 = meta.findProperty("richType.ricProperty", false);
-        Assert.assertEquals("richType.", o_shouldCheckGetterExistancelitString10090__16);
-        boolean o_shouldCheckGetterExistancelitString10090__17 = meta.hasGetter("[0]");
-        Assert.assertFalse(o_shouldCheckGetterExistancelitString10090__17);
+        boolean o_shouldCheckGetterExistancelitString9384__5 = meta.hasGetter("richField");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9384__5);
+        boolean o_shouldCheckGetterExistancelitString9384__6 = meta.hasGetter("richProperty");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9384__6);
+        boolean o_shouldCheckGetterExistancelitString9384__7 = meta.hasGetter("richList");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9384__7);
+        boolean o_shouldCheckGetterExistancelitString9384__8 = meta.hasGetter("richMap");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9384__8);
+        boolean o_shouldCheckGetterExistancelitString9384__9 = meta.hasGetter("richList[0]");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9384__9);
+        boolean o_shouldCheckGetterExistancelitString9384__10 = meta.hasGetter("richType");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9384__10);
+        boolean o_shouldCheckGetterExistancelitString9384__11 = meta.hasGetter("richType.richField");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9384__11);
+        boolean o_shouldCheckGetterExistancelitString9384__12 = meta.hasGetter("richType.michProperty");
+        Assert.assertFalse(o_shouldCheckGetterExistancelitString9384__12);
+        boolean o_shouldCheckGetterExistancelitString9384__13 = meta.hasGetter("richType.richList");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9384__13);
+        boolean o_shouldCheckGetterExistancelitString9384__14 = meta.hasGetter("richType.richMap");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9384__14);
+        boolean o_shouldCheckGetterExistancelitString9384__15 = meta.hasGetter("richType.richList[0]");
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9384__15);
+        String o_shouldCheckGetterExistancelitString9384__16 = meta.findProperty("richType.richProperty", false);
+        Assert.assertEquals("richType.richProperty", o_shouldCheckGetterExistancelitString9384__16);
+        boolean o_shouldCheckGetterExistancelitString9384__17 = meta.hasGetter("[0]");
+        Assert.assertFalse(o_shouldCheckGetterExistancelitString9384__17);
         Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
         Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10090__5);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10090__6);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10090__7);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10090__8);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10090__9);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10090__10);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10090__11);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10090__12);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10090__13);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10090__14);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10090__15);
-        Assert.assertEquals("richType.", o_shouldCheckGetterExistancelitString10090__16);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9384__5);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9384__6);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9384__7);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9384__8);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9384__9);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9384__10);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9384__11);
+        Assert.assertFalse(o_shouldCheckGetterExistancelitString9384__12);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9384__13);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9384__14);
+        Assert.assertTrue(o_shouldCheckGetterExistancelitString9384__15);
+        Assert.assertEquals("richType.richProperty", o_shouldCheckGetterExistancelitString9384__16);
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckGetterExistancelitString10067_failAssert104() throws Exception {
+    public void shouldCheckGetterExistance_mg9450_failAssert90() throws Exception {
         try {
+            String __DSPOT_name_3254 = "7`Vx<ANu}A:Ma9O),ED?";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
             meta.hasGetter("richField");
@@ -624,25 +861,414 @@ public class AmplMetaClassTest {
             meta.hasGetter("richType");
             meta.hasGetter("richType.richField");
             meta.hasGetter("richType.richProperty");
-            meta.hasGetter("p(9c@=iyKZI(dB?u[");
+            meta.hasGetter("richType.richList");
             meta.hasGetter("richType.richMap");
             meta.hasGetter("richType.richList[0]");
             meta.findProperty("richType.richProperty", false);
             meta.hasGetter("[0]");
-            org.junit.Assert.fail("shouldCheckGetterExistancelitString10067 should have thrown StringIndexOutOfBoundsException");
+            meta.getSetInvoker(__DSPOT_name_3254);
+            org.junit.Assert.fail("shouldCheckGetterExistance_mg9450 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no setter for property named \'7`Vx<ANu}A:Ma9O),ED?\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancelitString9407_mg22100_failAssert137() throws Exception {
+        try {
+            String __DSPOT_name_4264 = "_u#9Ly^dTbVUHO&=}w$F";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            boolean o_shouldCheckGetterExistancelitString9407__5 = meta.hasGetter("richField");
+            boolean o_shouldCheckGetterExistancelitString9407__6 = meta.hasGetter("richProperty");
+            boolean o_shouldCheckGetterExistancelitString9407__7 = meta.hasGetter("richList");
+            boolean o_shouldCheckGetterExistancelitString9407__8 = meta.hasGetter("richMap");
+            boolean o_shouldCheckGetterExistancelitString9407__9 = meta.hasGetter("richList[0]");
+            boolean o_shouldCheckGetterExistancelitString9407__10 = meta.hasGetter("richType");
+            boolean o_shouldCheckGetterExistancelitString9407__11 = meta.hasGetter("richType.richField");
+            boolean o_shouldCheckGetterExistancelitString9407__12 = meta.hasGetter("richType.richProperty");
+            boolean o_shouldCheckGetterExistancelitString9407__13 = meta.hasGetter("richType.richList");
+            boolean o_shouldCheckGetterExistancelitString9407__14 = meta.hasGetter("richType.richMap");
+            boolean o_shouldCheckGetterExistancelitString9407__15 = meta.hasGetter("richType.richMap");
+            boolean o_shouldCheckGetterExistancelitString9407__16 = meta.hasGetter("richType.richMap");
+            String o_shouldCheckGetterExistancelitString9407__17 = meta.findProperty("richType.richProperty", false);
+            boolean o_shouldCheckGetterExistancelitString9407__18 = meta.hasGetter("[0]");
+            meta.getSetInvoker(__DSPOT_name_4264);
+            org.junit.Assert.fail("shouldCheckGetterExistancelitString9407_mg22100 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no setter for property named \'_u#9Ly^dTbVUHO&=}w$F\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancelitString9419litBool18574() throws Exception {
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        boolean o_shouldCheckGetterExistancelitString9419__5 = meta.hasGetter("richField");
+        boolean o_shouldCheckGetterExistancelitString9419__6 = meta.hasGetter("richProperty");
+        boolean o_shouldCheckGetterExistancelitString9419__7 = meta.hasGetter("richList");
+        boolean o_shouldCheckGetterExistancelitString9419__8 = meta.hasGetter("richMap");
+        boolean o_shouldCheckGetterExistancelitString9419__9 = meta.hasGetter("richList[0]");
+        boolean o_shouldCheckGetterExistancelitString9419__10 = meta.hasGetter("richType");
+        boolean o_shouldCheckGetterExistancelitString9419__11 = meta.hasGetter("richType.richField");
+        boolean o_shouldCheckGetterExistancelitString9419__12 = meta.hasGetter("richType.richProperty");
+        boolean o_shouldCheckGetterExistancelitString9419__13 = meta.hasGetter("richType.richList");
+        boolean o_shouldCheckGetterExistancelitString9419__14 = meta.hasGetter("richType.richMap");
+        boolean o_shouldCheckGetterExistancelitString9419__15 = meta.hasGetter("richType.richList[0]");
+        meta.findProperty("DIjcP3}Y/Fz3^-=67+n$*", true);
+        meta.hasGetter("[0]");
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancelitString9377_mg22013() throws Exception {
+        String __DSPOT_name_4167 = "<C!}X})Xn?/a&}&.iG{:";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        boolean o_shouldCheckGetterExistancelitString9377__5 = meta.hasGetter("richField");
+        boolean o_shouldCheckGetterExistancelitString9377__6 = meta.hasGetter("richProperty");
+        boolean o_shouldCheckGetterExistancelitString9377__7 = meta.hasGetter("richList");
+        boolean o_shouldCheckGetterExistancelitString9377__8 = meta.hasGetter("richMap");
+        boolean o_shouldCheckGetterExistancelitString9377__9 = meta.hasGetter("richList[0]");
+        boolean o_shouldCheckGetterExistancelitString9377__10 = meta.hasGetter("richType");
+        boolean o_shouldCheckGetterExistancelitString9377__11 = meta.hasGetter("richT!ype.richField");
+        boolean o_shouldCheckGetterExistancelitString9377__12 = meta.hasGetter("richType.richProperty");
+        boolean o_shouldCheckGetterExistancelitString9377__13 = meta.hasGetter("richType.richList");
+        boolean o_shouldCheckGetterExistancelitString9377__14 = meta.hasGetter("richType.richMap");
+        boolean o_shouldCheckGetterExistancelitString9377__15 = meta.hasGetter("richType.richList[0]");
+        String o_shouldCheckGetterExistancelitString9377__16 = meta.findProperty("richType.richProperty", false);
+        Assert.assertEquals("richType.richProperty", o_shouldCheckGetterExistancelitString9377__16);
+        boolean o_shouldCheckGetterExistancelitString9377__17 = meta.hasGetter("[0]");
+        boolean o_shouldCheckGetterExistancelitString9377_mg22013__45 = meta.hasSetter(__DSPOT_name_4167);
+        Assert.assertFalse(o_shouldCheckGetterExistancelitString9377_mg22013__45);
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        Assert.assertEquals("richType.richProperty", o_shouldCheckGetterExistancelitString9377__16);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancelitString9409litString15046() throws Exception {
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        boolean o_shouldCheckGetterExistancelitString9409__5 = meta.hasGetter("richField");
+        boolean o_shouldCheckGetterExistancelitString9409__6 = meta.hasGetter("richProperty");
+        boolean o_shouldCheckGetterExistancelitString9409__7 = meta.hasGetter("richList");
+        boolean o_shouldCheckGetterExistancelitString9409__8 = meta.hasGetter("richMap");
+        boolean o_shouldCheckGetterExistancelitString9409__9 = meta.hasGetter("richList[0]");
+        boolean o_shouldCheckGetterExistancelitString9409__10 = meta.hasGetter("richType");
+        boolean o_shouldCheckGetterExistancelitString9409__11 = meta.hasGetter("richType.richField");
+        boolean o_shouldCheckGetterExistancelitString9409__12 = meta.hasGetter("richType.richProperty");
+        boolean o_shouldCheckGetterExistancelitString9409__13 = meta.hasGetter("richType.richList");
+        boolean o_shouldCheckGetterExistancelitString9409__14 = meta.hasGetter("richType.richMap");
+        boolean o_shouldCheckGetterExistancelitString9409__15 = meta.hasGetter("richTy}pe.richList[0]");
+        String o_shouldCheckGetterExistancelitString9409__16 = meta.findProperty("richType.richProp(erty", false);
+        Assert.assertEquals("richType.", o_shouldCheckGetterExistancelitString9409__16);
+        boolean o_shouldCheckGetterExistancelitString9409__17 = meta.hasGetter("[0]");
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        Assert.assertEquals("richType.", o_shouldCheckGetterExistancelitString9409__16);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancelitString9403_mg21792_failAssert140() throws Exception {
+        try {
+            String __DSPOT_name_3922 = "3E4#nR!g,kw.X>}m^>ms";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            boolean o_shouldCheckGetterExistancelitString9403__5 = meta.hasGetter("richField");
+            boolean o_shouldCheckGetterExistancelitString9403__6 = meta.hasGetter("richProperty");
+            boolean o_shouldCheckGetterExistancelitString9403__7 = meta.hasGetter("richList");
+            boolean o_shouldCheckGetterExistancelitString9403__8 = meta.hasGetter("richMap");
+            boolean o_shouldCheckGetterExistancelitString9403__9 = meta.hasGetter("richList[0]");
+            boolean o_shouldCheckGetterExistancelitString9403__10 = meta.hasGetter("richType");
+            boolean o_shouldCheckGetterExistancelitString9403__11 = meta.hasGetter("richType.richField");
+            boolean o_shouldCheckGetterExistancelitString9403__12 = meta.hasGetter("richType.richProperty");
+            boolean o_shouldCheckGetterExistancelitString9403__13 = meta.hasGetter("richType.richList");
+            boolean o_shouldCheckGetterExistancelitString9403__14 = meta.hasGetter("to$GYsR$+9l$dt[U");
+            boolean o_shouldCheckGetterExistancelitString9403__15 = meta.hasGetter("richType.richList[0]");
+            String o_shouldCheckGetterExistancelitString9403__16 = meta.findProperty("richType.richProperty", false);
+            boolean o_shouldCheckGetterExistancelitString9403__17 = meta.hasGetter("[0]");
+            meta.getGetInvoker(__DSPOT_name_3922);
+            org.junit.Assert.fail("shouldCheckGetterExistancelitString9403_mg21792 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'3E4#nR!g,kw.X>}m^>ms\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancelitString9408_add20202() throws Exception {
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        boolean o_shouldCheckGetterExistancelitString9408__5 = meta.hasGetter("richField");
+        boolean o_shouldCheckGetterExistancelitString9408__6 = meta.hasGetter("richProperty");
+        boolean o_shouldCheckGetterExistancelitString9408__7 = meta.hasGetter("richList");
+        boolean o_shouldCheckGetterExistancelitString9408__8 = meta.hasGetter("richMap");
+        boolean o_shouldCheckGetterExistancelitString9408__9 = meta.hasGetter("richList[0]");
+        boolean o_shouldCheckGetterExistancelitString9408__10 = meta.hasGetter("richType");
+        boolean o_shouldCheckGetterExistancelitString9408__11 = meta.hasGetter("richType.richField");
+        boolean o_shouldCheckGetterExistancelitString9408__12 = meta.hasGetter("richType.richProperty");
+        boolean o_shouldCheckGetterExistancelitString9408__13 = meta.hasGetter("richType.richList");
+        boolean o_shouldCheckGetterExistancelitString9408__14 = meta.hasGetter("richType.richMap");
+        boolean o_shouldCheckGetterExistancelitString9408_add20202__35 = meta.hasGetter("richType.richLrst[0]");
+        Assert.assertFalse(o_shouldCheckGetterExistancelitString9408_add20202__35);
+        boolean o_shouldCheckGetterExistancelitString9408__15 = meta.hasGetter("richType.richLrst[0]");
+        String o_shouldCheckGetterExistancelitString9408__16 = meta.findProperty("richType.richProperty", false);
+        Assert.assertEquals("richType.richProperty", o_shouldCheckGetterExistancelitString9408__16);
+        boolean o_shouldCheckGetterExistancelitString9408__17 = meta.hasGetter("[0]");
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        Assert.assertFalse(o_shouldCheckGetterExistancelitString9408_add20202__35);
+        Assert.assertEquals("richType.richProperty", o_shouldCheckGetterExistancelitString9408__16);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancelitString9369_mg21822_failAssert141() throws Exception {
+        try {
+            String __DSPOT_name_3955 = "lkGQQ,.;chKYX02&z!_V";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            boolean o_shouldCheckGetterExistancelitString9369__5 = meta.hasGetter("richField");
+            boolean o_shouldCheckGetterExistancelitString9369__6 = meta.hasGetter("richProperty");
+            boolean o_shouldCheckGetterExistancelitString9369__7 = meta.hasGetter("richList");
+            boolean o_shouldCheckGetterExistancelitString9369__8 = meta.hasGetter("richMap");
+            boolean o_shouldCheckGetterExistancelitString9369__9 = meta.hasGetter("richList[0]");
+            boolean o_shouldCheckGetterExistancelitString9369__10 = meta.hasGetter("ric,hType");
+            boolean o_shouldCheckGetterExistancelitString9369__11 = meta.hasGetter("richType.richField");
+            boolean o_shouldCheckGetterExistancelitString9369__12 = meta.hasGetter("richType.richProperty");
+            boolean o_shouldCheckGetterExistancelitString9369__13 = meta.hasGetter("richType.richList");
+            boolean o_shouldCheckGetterExistancelitString9369__14 = meta.hasGetter("richType.richMap");
+            boolean o_shouldCheckGetterExistancelitString9369__15 = meta.hasGetter("richType.richList[0]");
+            String o_shouldCheckGetterExistancelitString9369__16 = meta.findProperty("richType.richProperty", false);
+            boolean o_shouldCheckGetterExistancelitString9369__17 = meta.hasGetter("[0]");
+            meta.getSetterType(__DSPOT_name_3955);
+            org.junit.Assert.fail("shouldCheckGetterExistancelitString9369_mg21822 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'lkGQQ,\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancelitString9404_mg21584() throws Exception {
+        boolean __DSPOT_useCamelCaseMapping_3691 = false;
+        String __DSPOT_name_3690 = "oF^qsmt.MJEzB<r,L)k+";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        boolean o_shouldCheckGetterExistancelitString9404__5 = meta.hasGetter("richField");
+        boolean o_shouldCheckGetterExistancelitString9404__6 = meta.hasGetter("richProperty");
+        boolean o_shouldCheckGetterExistancelitString9404__7 = meta.hasGetter("richList");
+        boolean o_shouldCheckGetterExistancelitString9404__8 = meta.hasGetter("richMap");
+        boolean o_shouldCheckGetterExistancelitString9404__9 = meta.hasGetter("richList[0]");
+        boolean o_shouldCheckGetterExistancelitString9404__10 = meta.hasGetter("richType");
+        boolean o_shouldCheckGetterExistancelitString9404__11 = meta.hasGetter("richType.richField");
+        boolean o_shouldCheckGetterExistancelitString9404__12 = meta.hasGetter("richType.richProperty");
+        boolean o_shouldCheckGetterExistancelitString9404__13 = meta.hasGetter("richType.richList");
+        boolean o_shouldCheckGetterExistancelitString9404__14 = meta.hasGetter("");
+        boolean o_shouldCheckGetterExistancelitString9404__15 = meta.hasGetter("richType.richList[0]");
+        String o_shouldCheckGetterExistancelitString9404__16 = meta.findProperty("richType.richProperty", false);
+        Assert.assertEquals("richType.richProperty", o_shouldCheckGetterExistancelitString9404__16);
+        boolean o_shouldCheckGetterExistancelitString9404__17 = meta.hasGetter("[0]");
+        meta.findProperty(__DSPOT_name_3690, __DSPOT_useCamelCaseMapping_3691);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancelitString9402null23466_failAssert125() throws Exception {
+        try {
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            boolean o_shouldCheckGetterExistancelitString9402__5 = meta.hasGetter("richField");
+            boolean o_shouldCheckGetterExistancelitString9402__6 = meta.hasGetter("richProperty");
+            boolean o_shouldCheckGetterExistancelitString9402__7 = meta.hasGetter("richList");
+            boolean o_shouldCheckGetterExistancelitString9402__8 = meta.hasGetter("richMap");
+            boolean o_shouldCheckGetterExistancelitString9402__9 = meta.hasGetter("richList[0]");
+            boolean o_shouldCheckGetterExistancelitString9402__10 = meta.hasGetter("richType");
+            boolean o_shouldCheckGetterExistancelitString9402__11 = meta.hasGetter("richType.richField");
+            boolean o_shouldCheckGetterExistancelitString9402__12 = meta.hasGetter("richType.richProperty");
+            boolean o_shouldCheckGetterExistancelitString9402__13 = meta.hasGetter("richType.richList");
+            boolean o_shouldCheckGetterExistancelitString9402__14 = meta.hasGetter("richType.ricMap");
+            boolean o_shouldCheckGetterExistancelitString9402__15 = meta.hasGetter("richType.richList[0]");
+            String o_shouldCheckGetterExistancelitString9402__16 = meta.findProperty(null, false);
+            boolean o_shouldCheckGetterExistancelitString9402__17 = meta.hasGetter("[0]");
+            org.junit.Assert.fail("shouldCheckGetterExistancelitString9402null23466 should have thrown NullPointerException");
+        } catch (NullPointerException expected) {
+            Assert.assertEquals(null, expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancelitString9409_add20039() throws Exception {
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        boolean o_shouldCheckGetterExistancelitString9409__5 = meta.hasGetter("richField");
+        boolean o_shouldCheckGetterExistancelitString9409__6 = meta.hasGetter("richProperty");
+        boolean o_shouldCheckGetterExistancelitString9409__7 = meta.hasGetter("richList");
+        boolean o_shouldCheckGetterExistancelitString9409__8 = meta.hasGetter("richMap");
+        boolean o_shouldCheckGetterExistancelitString9409__9 = meta.hasGetter("richList[0]");
+        boolean o_shouldCheckGetterExistancelitString9409__10 = meta.hasGetter("richType");
+        boolean o_shouldCheckGetterExistancelitString9409__11 = meta.hasGetter("richType.richField");
+        boolean o_shouldCheckGetterExistancelitString9409__12 = meta.hasGetter("richType.richProperty");
+        boolean o_shouldCheckGetterExistancelitString9409__13 = meta.hasGetter("richType.richList");
+        boolean o_shouldCheckGetterExistancelitString9409__14 = meta.hasGetter("richType.richMap");
+        boolean o_shouldCheckGetterExistancelitString9409_add20039__35 = meta.hasGetter("richTy}pe.richList[0]");
+        Assert.assertFalse(o_shouldCheckGetterExistancelitString9409_add20039__35);
+        boolean o_shouldCheckGetterExistancelitString9409__15 = meta.hasGetter("richTy}pe.richList[0]");
+        String o_shouldCheckGetterExistancelitString9409__16 = meta.findProperty("richType.richProperty", false);
+        Assert.assertEquals("richType.richProperty", o_shouldCheckGetterExistancelitString9409__16);
+        boolean o_shouldCheckGetterExistancelitString9409__17 = meta.hasGetter("[0]");
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        Assert.assertFalse(o_shouldCheckGetterExistancelitString9409_add20039__35);
+        Assert.assertEquals("richType.richProperty", o_shouldCheckGetterExistancelitString9409__16);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancelitString9408_mg21966_failAssert105() throws Exception {
+        try {
+            String __DSPOT_name_4115 = "/A+Z77y1Ksj$6!Sc3b#=";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            boolean o_shouldCheckGetterExistancelitString9408__5 = meta.hasGetter("richField");
+            boolean o_shouldCheckGetterExistancelitString9408__6 = meta.hasGetter("richProperty");
+            boolean o_shouldCheckGetterExistancelitString9408__7 = meta.hasGetter("richList");
+            boolean o_shouldCheckGetterExistancelitString9408__8 = meta.hasGetter("richMap");
+            boolean o_shouldCheckGetterExistancelitString9408__9 = meta.hasGetter("richList[0]");
+            boolean o_shouldCheckGetterExistancelitString9408__10 = meta.hasGetter("richType");
+            boolean o_shouldCheckGetterExistancelitString9408__11 = meta.hasGetter("richType.richField");
+            boolean o_shouldCheckGetterExistancelitString9408__12 = meta.hasGetter("richType.richProperty");
+            boolean o_shouldCheckGetterExistancelitString9408__13 = meta.hasGetter("richType.richList");
+            boolean o_shouldCheckGetterExistancelitString9408__14 = meta.hasGetter("richType.richMap");
+            boolean o_shouldCheckGetterExistancelitString9408__15 = meta.hasGetter("richType.richLrst[0]");
+            String o_shouldCheckGetterExistancelitString9408__16 = meta.findProperty("richType.richProperty", false);
+            boolean o_shouldCheckGetterExistancelitString9408__17 = meta.hasGetter("[0]");
+            meta.getSetterType(__DSPOT_name_4115);
+            org.junit.Assert.fail("shouldCheckGetterExistancelitString9408_mg21966 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no setter for property named \'/A+Z77y1Ksj$6!Sc3b#=\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancelitString9405_mg22018_failAssert107() throws Exception {
+        try {
+            String __DSPOT_name_4173 = ",54O!fxD_!8gJR?L;(p)";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            boolean o_shouldCheckGetterExistancelitString9405__5 = meta.hasGetter("richField");
+            boolean o_shouldCheckGetterExistancelitString9405__6 = meta.hasGetter("richProperty");
+            boolean o_shouldCheckGetterExistancelitString9405__7 = meta.hasGetter("richList");
+            boolean o_shouldCheckGetterExistancelitString9405__8 = meta.hasGetter("richMap");
+            boolean o_shouldCheckGetterExistancelitString9405__9 = meta.hasGetter("richList[0]");
+            boolean o_shouldCheckGetterExistancelitString9405__10 = meta.hasGetter("richType");
+            boolean o_shouldCheckGetterExistancelitString9405__11 = meta.hasGetter("richType.richField");
+            boolean o_shouldCheckGetterExistancelitString9405__12 = meta.hasGetter("richType.richProperty");
+            boolean o_shouldCheckGetterExistancelitString9405__13 = meta.hasGetter("richType.richList");
+            boolean o_shouldCheckGetterExistancelitString9405__14 = meta.hasGetter("\n");
+            boolean o_shouldCheckGetterExistancelitString9405__15 = meta.hasGetter("richType.richList[0]");
+            String o_shouldCheckGetterExistancelitString9405__16 = meta.findProperty("richType.richProperty", false);
+            boolean o_shouldCheckGetterExistancelitString9405__17 = meta.hasGetter("[0]");
+            meta.getGetterType(__DSPOT_name_4173);
+            org.junit.Assert.fail("shouldCheckGetterExistancelitString9405_mg22018 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \',54O!fxD_!8gJR?L;(p)\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancenull9459_failAssert98null23731() throws Exception {
+        try {
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            boolean o_shouldCheckGetterExistancenull9459_failAssert98null23731__7 = meta.hasGetter("richField");
+            Assert.assertTrue(o_shouldCheckGetterExistancenull9459_failAssert98null23731__7);
+            boolean o_shouldCheckGetterExistancenull9459_failAssert98null23731__8 = meta.hasGetter("richProperty");
+            Assert.assertTrue(o_shouldCheckGetterExistancenull9459_failAssert98null23731__8);
+            boolean o_shouldCheckGetterExistancenull9459_failAssert98null23731__9 = meta.hasGetter("richList");
+            Assert.assertTrue(o_shouldCheckGetterExistancenull9459_failAssert98null23731__9);
+            meta.hasGetter(null);
+            meta.hasGetter("richList[0]");
+            meta.hasGetter("richType");
+            meta.hasGetter("richType.richField");
+            meta.hasGetter("richType.richProperty");
+            meta.hasGetter(null);
+            meta.hasGetter("richType.richMap");
+            meta.hasGetter("richType.richList[0]");
+            meta.findProperty("richType.richProperty", false);
+            meta.hasGetter("[0]");
+            org.junit.Assert.fail("shouldCheckGetterExistancenull9459 should have thrown NullPointerException");
+        } catch (NullPointerException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancelitString9404_mg21590_failAssert139() throws Exception {
+        try {
+            String __DSPOT_name_3697 = " t8Bg!u%5]KyQeHS7aN[";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            boolean o_shouldCheckGetterExistancelitString9404__5 = meta.hasGetter("richField");
+            boolean o_shouldCheckGetterExistancelitString9404__6 = meta.hasGetter("richProperty");
+            boolean o_shouldCheckGetterExistancelitString9404__7 = meta.hasGetter("richList");
+            boolean o_shouldCheckGetterExistancelitString9404__8 = meta.hasGetter("richMap");
+            boolean o_shouldCheckGetterExistancelitString9404__9 = meta.hasGetter("richList[0]");
+            boolean o_shouldCheckGetterExistancelitString9404__10 = meta.hasGetter("richType");
+            boolean o_shouldCheckGetterExistancelitString9404__11 = meta.hasGetter("richType.richField");
+            boolean o_shouldCheckGetterExistancelitString9404__12 = meta.hasGetter("richType.richProperty");
+            boolean o_shouldCheckGetterExistancelitString9404__13 = meta.hasGetter("richType.richList");
+            boolean o_shouldCheckGetterExistancelitString9404__14 = meta.hasGetter("");
+            boolean o_shouldCheckGetterExistancelitString9404__15 = meta.hasGetter("richType.richList[0]");
+            String o_shouldCheckGetterExistancelitString9404__16 = meta.findProperty("richType.richProperty", false);
+            boolean o_shouldCheckGetterExistancelitString9404__17 = meta.hasGetter("[0]");
+            meta.hasSetter(__DSPOT_name_3697);
+            org.junit.Assert.fail("shouldCheckGetterExistancelitString9404_mg21590 should have thrown StringIndexOutOfBoundsException");
         } catch (StringIndexOutOfBoundsException expected) {
             Assert.assertEquals("String index out of range: -1", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckGetterExistance_mg10122_failAssert106() throws Exception {
+    public void shouldCheckGetterExistancelitString9376null23352_failAssert134() throws Exception {
         try {
-            String __DSPOT_name_2795 = "<1A*((38s&}$H,n<U[]d";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            boolean o_shouldCheckGetterExistancelitString9376__5 = meta.hasGetter("richField");
+            boolean o_shouldCheckGetterExistancelitString9376__6 = meta.hasGetter("richProperty");
+            boolean o_shouldCheckGetterExistancelitString9376__7 = meta.hasGetter("richList");
+            boolean o_shouldCheckGetterExistancelitString9376__8 = meta.hasGetter("richMap");
+            boolean o_shouldCheckGetterExistancelitString9376__9 = meta.hasGetter("richList[0]");
+            boolean o_shouldCheckGetterExistancelitString9376__10 = meta.hasGetter("richType");
+            boolean o_shouldCheckGetterExistancelitString9376__11 = meta.hasGetter("MichType.richField");
+            boolean o_shouldCheckGetterExistancelitString9376__12 = meta.hasGetter(null);
+            boolean o_shouldCheckGetterExistancelitString9376__13 = meta.hasGetter("richType.richList");
+            boolean o_shouldCheckGetterExistancelitString9376__14 = meta.hasGetter("richType.richMap");
+            boolean o_shouldCheckGetterExistancelitString9376__15 = meta.hasGetter("richType.richList[0]");
+            String o_shouldCheckGetterExistancelitString9376__16 = meta.findProperty("richType.richProperty", false);
+            boolean o_shouldCheckGetterExistancelitString9376__17 = meta.hasGetter("[0]");
+            org.junit.Assert.fail("shouldCheckGetterExistancelitString9376null23352 should have thrown NullPointerException");
+        } catch (NullPointerException expected) {
+            Assert.assertEquals(null, expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancenull9455_failAssert102litString18341() throws Exception {
+        try {
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, null);
             meta.hasGetter("richField");
-            meta.hasGetter("richProperty");
+            meta.hasGetter("ricOProperty");
             meta.hasGetter("richList");
             meta.hasGetter("richMap");
             meta.hasGetter("richList[0]");
@@ -654,193 +1280,128 @@ public class AmplMetaClassTest {
             meta.hasGetter("richType.richList[0]");
             meta.findProperty("richType.richProperty", false);
             meta.hasGetter("[0]");
-            meta.getGetterType(__DSPOT_name_2795);
-            org.junit.Assert.fail("shouldCheckGetterExistance_mg10122 should have thrown ReflectionException");
+            org.junit.Assert.fail("shouldCheckGetterExistancenull9455 should have thrown NullPointerException");
+        } catch (NullPointerException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancelitString9409litBool18600_mg35477_failAssert154() throws Exception {
+        try {
+            String __DSPOT_name_5098 = "h RzejXQbCd``Z+#vyh#";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            boolean o_shouldCheckGetterExistancelitString9409__5 = meta.hasGetter("richField");
+            boolean o_shouldCheckGetterExistancelitString9409__6 = meta.hasGetter("richProperty");
+            boolean o_shouldCheckGetterExistancelitString9409__7 = meta.hasGetter("richList");
+            boolean o_shouldCheckGetterExistancelitString9409__8 = meta.hasGetter("richMap");
+            boolean o_shouldCheckGetterExistancelitString9409__9 = meta.hasGetter("richList[0]");
+            boolean o_shouldCheckGetterExistancelitString9409__10 = meta.hasGetter("richType");
+            boolean o_shouldCheckGetterExistancelitString9409__11 = meta.hasGetter("richType.richField");
+            boolean o_shouldCheckGetterExistancelitString9409__12 = meta.hasGetter("richType.richProperty");
+            boolean o_shouldCheckGetterExistancelitString9409__13 = meta.hasGetter("richType.richList");
+            boolean o_shouldCheckGetterExistancelitString9409__14 = meta.hasGetter("richType.richMap");
+            boolean o_shouldCheckGetterExistancelitString9409__15 = meta.hasGetter("richTy}pe.richList[0]");
+            String o_shouldCheckGetterExistancelitString9409__16 = meta.findProperty("richType.richProperty", true);
+            boolean o_shouldCheckGetterExistancelitString9409__17 = meta.hasGetter("[0]");
+            meta.getSetInvoker(__DSPOT_name_5098);
+            org.junit.Assert.fail("shouldCheckGetterExistancelitString9409litBool18600_mg35477 should have thrown ReflectionException");
         } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'<1A*((38s&}$H,n<U\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+            Assert.assertEquals("There is no setter for property named \'h RzejXQbCd``Z+#vyh#\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckGetterExistancelitBool10103() throws Exception {
+    public void shouldCheckGetterExistancelitString9409litBool18600litString26026() throws Exception {
         ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
         Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
         MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
         Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        boolean o_shouldCheckGetterExistancelitBool10103__5 = meta.hasGetter("richField");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitBool10103__5);
-        boolean o_shouldCheckGetterExistancelitBool10103__6 = meta.hasGetter("richProperty");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitBool10103__6);
-        boolean o_shouldCheckGetterExistancelitBool10103__7 = meta.hasGetter("richList");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitBool10103__7);
-        boolean o_shouldCheckGetterExistancelitBool10103__8 = meta.hasGetter("richMap");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitBool10103__8);
-        boolean o_shouldCheckGetterExistancelitBool10103__9 = meta.hasGetter("richList[0]");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitBool10103__9);
-        boolean o_shouldCheckGetterExistancelitBool10103__10 = meta.hasGetter("richType");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitBool10103__10);
-        boolean o_shouldCheckGetterExistancelitBool10103__11 = meta.hasGetter("richType.richField");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitBool10103__11);
-        boolean o_shouldCheckGetterExistancelitBool10103__12 = meta.hasGetter("richType.richProperty");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitBool10103__12);
-        boolean o_shouldCheckGetterExistancelitBool10103__13 = meta.hasGetter("richType.richList");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitBool10103__13);
-        boolean o_shouldCheckGetterExistancelitBool10103__14 = meta.hasGetter("richType.richMap");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitBool10103__14);
-        boolean o_shouldCheckGetterExistancelitBool10103__15 = meta.hasGetter("richType.richList[0]");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitBool10103__15);
-        String o_shouldCheckGetterExistancelitBool10103__16 = meta.findProperty("richType.richProperty", true);
-        Assert.assertEquals("richType.richProperty", o_shouldCheckGetterExistancelitBool10103__16);
-        boolean o_shouldCheckGetterExistancelitBool10103__17 = meta.hasGetter("[0]");
-        Assert.assertFalse(o_shouldCheckGetterExistancelitBool10103__17);
+        boolean o_shouldCheckGetterExistancelitString9409__5 = meta.hasGetter("richField");
+        boolean o_shouldCheckGetterExistancelitString9409__6 = meta.hasGetter("richProperty");
+        boolean o_shouldCheckGetterExistancelitString9409__7 = meta.hasGetter("richList");
+        boolean o_shouldCheckGetterExistancelitString9409__8 = meta.hasGetter("richMap");
+        boolean o_shouldCheckGetterExistancelitString9409__9 = meta.hasGetter("richList[0]");
+        boolean o_shouldCheckGetterExistancelitString9409__10 = meta.hasGetter("richType");
+        boolean o_shouldCheckGetterExistancelitString9409__11 = meta.hasGetter("richType.richField");
+        boolean o_shouldCheckGetterExistancelitString9409__12 = meta.hasGetter("richType.richProperty");
+        boolean o_shouldCheckGetterExistancelitString9409__13 = meta.hasGetter("richType.richList");
+        boolean o_shouldCheckGetterExistancelitString9409__14 = meta.hasGetter("richType.richMap");
+        boolean o_shouldCheckGetterExistancelitString9409__15 = meta.hasGetter("richTy}pe.richList[0]");
+        String o_shouldCheckGetterExistancelitString9409__16 = meta.findProperty("richType.richProerty", true);
+        Assert.assertEquals("richType.", o_shouldCheckGetterExistancelitString9409__16);
+        boolean o_shouldCheckGetterExistancelitString9409__17 = meta.hasGetter("[0]");
         Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
         Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        Assert.assertTrue(o_shouldCheckGetterExistancelitBool10103__5);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitBool10103__6);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitBool10103__7);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitBool10103__8);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitBool10103__9);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitBool10103__10);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitBool10103__11);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitBool10103__12);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitBool10103__13);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitBool10103__14);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitBool10103__15);
-        Assert.assertEquals("richType.richProperty", o_shouldCheckGetterExistancelitBool10103__16);
+        Assert.assertEquals("richType.", o_shouldCheckGetterExistancelitString9409__16);
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckGetterExistancelitString10074() throws Exception {
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        boolean o_shouldCheckGetterExistancelitString10074__5 = meta.hasGetter("richField");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10074__5);
-        boolean o_shouldCheckGetterExistancelitString10074__6 = meta.hasGetter("richProperty");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10074__6);
-        boolean o_shouldCheckGetterExistancelitString10074__7 = meta.hasGetter("richList");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10074__7);
-        boolean o_shouldCheckGetterExistancelitString10074__8 = meta.hasGetter("richMap");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10074__8);
-        boolean o_shouldCheckGetterExistancelitString10074__9 = meta.hasGetter("richList[0]");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10074__9);
-        boolean o_shouldCheckGetterExistancelitString10074__10 = meta.hasGetter("richType");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10074__10);
-        boolean o_shouldCheckGetterExistancelitString10074__11 = meta.hasGetter("richType.richField");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10074__11);
-        boolean o_shouldCheckGetterExistancelitString10074__12 = meta.hasGetter("richType.richProperty");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10074__12);
-        boolean o_shouldCheckGetterExistancelitString10074__13 = meta.hasGetter("richType.richList");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10074__13);
-        boolean o_shouldCheckGetterExistancelitString10074__14 = meta.hasGetter("richType.ichMap");
-        Assert.assertFalse(o_shouldCheckGetterExistancelitString10074__14);
-        boolean o_shouldCheckGetterExistancelitString10074__15 = meta.hasGetter("richType.richList[0]");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10074__15);
-        String o_shouldCheckGetterExistancelitString10074__16 = meta.findProperty("richType.richProperty", false);
-        Assert.assertEquals("richType.richProperty", o_shouldCheckGetterExistancelitString10074__16);
-        boolean o_shouldCheckGetterExistancelitString10074__17 = meta.hasGetter("[0]");
-        Assert.assertFalse(o_shouldCheckGetterExistancelitString10074__17);
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10074__5);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10074__6);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10074__7);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10074__8);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10074__9);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10074__10);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10074__11);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10074__12);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10074__13);
-        Assert.assertFalse(o_shouldCheckGetterExistancelitString10074__14);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10074__15);
-        Assert.assertEquals("richType.richProperty", o_shouldCheckGetterExistancelitString10074__16);
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckGetterExistancelitString10073() throws Exception {
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        boolean o_shouldCheckGetterExistancelitString10073__5 = meta.hasGetter("richField");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10073__5);
-        boolean o_shouldCheckGetterExistancelitString10073__6 = meta.hasGetter("richProperty");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10073__6);
-        boolean o_shouldCheckGetterExistancelitString10073__7 = meta.hasGetter("richList");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10073__7);
-        boolean o_shouldCheckGetterExistancelitString10073__8 = meta.hasGetter("richMap");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10073__8);
-        boolean o_shouldCheckGetterExistancelitString10073__9 = meta.hasGetter("richList[0]");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10073__9);
-        boolean o_shouldCheckGetterExistancelitString10073__10 = meta.hasGetter("richType");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10073__10);
-        boolean o_shouldCheckGetterExistancelitString10073__11 = meta.hasGetter("richType.richField");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10073__11);
-        boolean o_shouldCheckGetterExistancelitString10073__12 = meta.hasGetter("richType.richProperty");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10073__12);
-        boolean o_shouldCheckGetterExistancelitString10073__13 = meta.hasGetter("richType.richList");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10073__13);
-        boolean o_shouldCheckGetterExistancelitString10073__14 = meta.hasGetter("richTypVe.richMap");
-        Assert.assertFalse(o_shouldCheckGetterExistancelitString10073__14);
-        boolean o_shouldCheckGetterExistancelitString10073__15 = meta.hasGetter("richType.richList[0]");
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10073__15);
-        String o_shouldCheckGetterExistancelitString10073__16 = meta.findProperty("richType.richProperty", false);
-        Assert.assertEquals("richType.richProperty", o_shouldCheckGetterExistancelitString10073__16);
-        boolean o_shouldCheckGetterExistancelitString10073__17 = meta.hasGetter("[0]");
-        Assert.assertFalse(o_shouldCheckGetterExistancelitString10073__17);
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10073__5);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10073__6);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10073__7);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10073__8);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10073__9);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10073__10);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10073__11);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10073__12);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10073__13);
-        Assert.assertFalse(o_shouldCheckGetterExistancelitString10073__14);
-        Assert.assertTrue(o_shouldCheckGetterExistancelitString10073__15);
-        Assert.assertEquals("richType.richProperty", o_shouldCheckGetterExistancelitString10073__16);
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckGetterExistancenull10131_failAssert111litString15151() throws Exception {
+    public void shouldCheckGetterExistancelitString9407_add20478_mg36171_failAssert153() throws Exception {
         try {
+            String __DSPOT_name_5869 = "y+.rJbjOh/HC+&|5; !@";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-            MetaClass meta = null;
-            meta.hasGetter("richField");
-            meta.hasGetter("richProperty");
-            meta.hasGetter("richList");
-            meta.hasGetter("richMap");
-            meta.hasGetter("richList[0]");
-            meta.hasGetter("richType");
-            meta.hasGetter("richType.richField");
-            meta.hasGetter("richTpe.richProperty");
-            meta.hasGetter("richType.richList");
-            meta.hasGetter("richType.richMap");
-            meta.hasGetter("richType.richList[0]");
-            meta.findProperty("richType.richProperty", false);
-            meta.hasGetter("[0]");
-            org.junit.Assert.fail("shouldCheckGetterExistancenull10131 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            boolean o_shouldCheckGetterExistancelitString9407__5 = meta.hasGetter("richField");
+            boolean o_shouldCheckGetterExistancelitString9407__6 = meta.hasGetter("richProperty");
+            boolean o_shouldCheckGetterExistancelitString9407__7 = meta.hasGetter("richList");
+            boolean o_shouldCheckGetterExistancelitString9407__8 = meta.hasGetter("richMap");
+            boolean o_shouldCheckGetterExistancelitString9407__9 = meta.hasGetter("richList[0]");
+            boolean o_shouldCheckGetterExistancelitString9407__10 = meta.hasGetter("richType");
+            boolean o_shouldCheckGetterExistancelitString9407__11 = meta.hasGetter("richType.richField");
+            boolean o_shouldCheckGetterExistancelitString9407__12 = meta.hasGetter("richType.richProperty");
+            boolean o_shouldCheckGetterExistancelitString9407__13 = meta.hasGetter("richType.richList");
+            boolean o_shouldCheckGetterExistancelitString9407__14 = meta.hasGetter("richType.richMap");
+            boolean o_shouldCheckGetterExistancelitString9407__15 = meta.hasGetter("richType.richMap");
+            boolean o_shouldCheckGetterExistancelitString9407__16 = meta.hasGetter("richType.richMap");
+            String o_shouldCheckGetterExistancelitString9407__17 = meta.findProperty("richType.richProperty", false);
+            boolean o_shouldCheckGetterExistancelitString9407__18 = meta.hasGetter("[0]");
+            ((MetaClass) (meta)).hasDefaultConstructor();
+            meta.getSetterType(__DSPOT_name_5869);
+            org.junit.Assert.fail("shouldCheckGetterExistancelitString9407_add20478_mg36171 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'y+\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckGetterExistancenull10131_failAssert111litString15074_mg56717() throws Exception {
+    public void shouldCheckGetterExistancelitString9370_add20260_mg35394_failAssert160() throws Exception {
         try {
-            boolean __DSPOT_useCamelCaseMapping_6065 = true;
-            String __DSPOT_name_6064 = "M5CE!?@&]D6?yf<h7(q6";
+            String __DSPOT_name_5006 = "@%V:97_dqr;zcguoCk[L";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            boolean o_shouldCheckGetterExistancelitString9370__5 = meta.hasGetter("richField");
+            boolean o_shouldCheckGetterExistancelitString9370__6 = meta.hasGetter("richProperty");
+            boolean o_shouldCheckGetterExistancelitString9370__7 = meta.hasGetter("richList");
+            boolean o_shouldCheckGetterExistancelitString9370__8 = meta.hasGetter("richMap");
+            boolean o_shouldCheckGetterExistancelitString9370__9 = meta.hasGetter("richList[0]");
+            boolean o_shouldCheckGetterExistancelitString9370__10 = meta.hasGetter("richTpe");
+            boolean o_shouldCheckGetterExistancelitString9370__11 = meta.hasGetter("richType.richField");
+            boolean o_shouldCheckGetterExistancelitString9370__12 = meta.hasGetter("richType.richProperty");
+            boolean o_shouldCheckGetterExistancelitString9370__13 = meta.hasGetter("richType.richList");
+            boolean o_shouldCheckGetterExistancelitString9370__14 = meta.hasGetter("richType.richMap");
+            boolean o_shouldCheckGetterExistancelitString9370__15 = meta.hasGetter("richType.richList[0]");
+            String o_shouldCheckGetterExistancelitString9370__16 = meta.findProperty("richType.richProperty", false);
+            boolean o_shouldCheckGetterExistancelitString9370__17 = meta.hasGetter("[0]");
+            ((MetaClass) (meta)).hasDefaultConstructor();
+            meta.getGetInvoker(__DSPOT_name_5006);
+            org.junit.Assert.fail("shouldCheckGetterExistancelitString9370_add20260_mg35394 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'@%V:97_dqr;zcguoCk[L\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancenull9459_failAssert98null23725litBool31541() throws Exception {
+        try {
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
             Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-            MetaClass meta = null;
-            meta.hasGetter("rich>Field");
-            meta.hasGetter("richProperty");
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            boolean o_shouldCheckGetterExistancenull9459_failAssert98null23725__7 = meta.hasGetter("richField");
+            meta.hasGetter(null);
             meta.hasGetter("richList");
-            meta.hasGetter("richMap");
+            meta.hasGetter(null);
             meta.hasGetter("richList[0]");
             meta.hasGetter("richType");
             meta.hasGetter("richType.richField");
@@ -848,11 +1409,213 @@ public class AmplMetaClassTest {
             meta.hasGetter("richType.richList");
             meta.hasGetter("richType.richMap");
             meta.hasGetter("richType.richList[0]");
-            meta.findProperty("richType.richProperty", false);
+            meta.findProperty("richType.richProperty", true);
             meta.hasGetter("[0]");
-            org.junit.Assert.fail("shouldCheckGetterExistancenull10131 should have thrown NullPointerException");
-            meta.findProperty(__DSPOT_name_6064, __DSPOT_useCamelCaseMapping_6065);
+            org.junit.Assert.fail("shouldCheckGetterExistancenull9459 should have thrown NullPointerException");
         } catch (NullPointerException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancelitString9409_add20029null38890_failAssert199() throws Exception {
+        try {
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            boolean o_shouldCheckGetterExistancelitString9409_add20029__5 = meta.hasGetter("richField");
+            boolean o_shouldCheckGetterExistancelitString9409__5 = meta.hasGetter("richField");
+            boolean o_shouldCheckGetterExistancelitString9409__6 = meta.hasGetter("richProperty");
+            boolean o_shouldCheckGetterExistancelitString9409__7 = meta.hasGetter("richList");
+            boolean o_shouldCheckGetterExistancelitString9409__8 = meta.hasGetter("richMap");
+            boolean o_shouldCheckGetterExistancelitString9409__9 = meta.hasGetter("richList[0]");
+            boolean o_shouldCheckGetterExistancelitString9409__10 = meta.hasGetter("richType");
+            boolean o_shouldCheckGetterExistancelitString9409__11 = meta.hasGetter("richType.richField");
+            boolean o_shouldCheckGetterExistancelitString9409__12 = meta.hasGetter("richType.richProperty");
+            boolean o_shouldCheckGetterExistancelitString9409__13 = meta.hasGetter("richType.richList");
+            boolean o_shouldCheckGetterExistancelitString9409__14 = meta.hasGetter("richType.richMap");
+            boolean o_shouldCheckGetterExistancelitString9409__15 = meta.hasGetter("richTy}pe.richList[0]");
+            String o_shouldCheckGetterExistancelitString9409__16 = meta.findProperty(null, false);
+            boolean o_shouldCheckGetterExistancelitString9409__17 = meta.hasGetter("[0]");
+            org.junit.Assert.fail("shouldCheckGetterExistancelitString9409_add20029null38890 should have thrown NullPointerException");
+        } catch (NullPointerException expected) {
+            Assert.assertEquals(null, expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancelitString9408litBool18609litString26054() throws Exception {
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        boolean o_shouldCheckGetterExistancelitString9408__5 = meta.hasGetter("richField");
+        boolean o_shouldCheckGetterExistancelitString9408__6 = meta.hasGetter("richProperty");
+        boolean o_shouldCheckGetterExistancelitString9408__7 = meta.hasGetter("richList");
+        boolean o_shouldCheckGetterExistancelitString9408__8 = meta.hasGetter("richMap");
+        boolean o_shouldCheckGetterExistancelitString9408__9 = meta.hasGetter("richList[0]");
+        boolean o_shouldCheckGetterExistancelitString9408__10 = meta.hasGetter("richType");
+        boolean o_shouldCheckGetterExistancelitString9408__11 = meta.hasGetter("richType.richField");
+        boolean o_shouldCheckGetterExistancelitString9408__12 = meta.hasGetter("richType.richProperty");
+        boolean o_shouldCheckGetterExistancelitString9408__13 = meta.hasGetter("richType.richList");
+        boolean o_shouldCheckGetterExistancelitString9408__14 = meta.hasGetter("richType.richMap");
+        boolean o_shouldCheckGetterExistancelitString9408__15 = meta.hasGetter("richType.richLrst[0]");
+        String o_shouldCheckGetterExistancelitString9408__16 = meta.findProperty("richType.richProperty", true);
+        Assert.assertEquals("richType.richProperty", o_shouldCheckGetterExistancelitString9408__16);
+        boolean o_shouldCheckGetterExistancelitString9408__17 = meta.hasGetter(":");
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        Assert.assertEquals("richType.richProperty", o_shouldCheckGetterExistancelitString9408__16);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancelitString9409_add20029_mg36142_failAssert158() throws Exception {
+        try {
+            String __DSPOT_name_5837 = "15NsC(KN5573vft_<Pr ";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            boolean o_shouldCheckGetterExistancelitString9409_add20029__5 = meta.hasGetter("richField");
+            boolean o_shouldCheckGetterExistancelitString9409__5 = meta.hasGetter("richField");
+            boolean o_shouldCheckGetterExistancelitString9409__6 = meta.hasGetter("richProperty");
+            boolean o_shouldCheckGetterExistancelitString9409__7 = meta.hasGetter("richList");
+            boolean o_shouldCheckGetterExistancelitString9409__8 = meta.hasGetter("richMap");
+            boolean o_shouldCheckGetterExistancelitString9409__9 = meta.hasGetter("richList[0]");
+            boolean o_shouldCheckGetterExistancelitString9409__10 = meta.hasGetter("richType");
+            boolean o_shouldCheckGetterExistancelitString9409__11 = meta.hasGetter("richType.richField");
+            boolean o_shouldCheckGetterExistancelitString9409__12 = meta.hasGetter("richType.richProperty");
+            boolean o_shouldCheckGetterExistancelitString9409__13 = meta.hasGetter("richType.richList");
+            boolean o_shouldCheckGetterExistancelitString9409__14 = meta.hasGetter("richType.richMap");
+            boolean o_shouldCheckGetterExistancelitString9409__15 = meta.hasGetter("richTy}pe.richList[0]");
+            String o_shouldCheckGetterExistancelitString9409__16 = meta.findProperty("richType.richProperty", false);
+            boolean o_shouldCheckGetterExistancelitString9409__17 = meta.hasGetter("[0]");
+            meta.getGetterType(__DSPOT_name_5837);
+            org.junit.Assert.fail("shouldCheckGetterExistancelitString9409_add20029_mg36142 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'15NsC(KN5573vft_<Pr \' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancelitString9409_add20039_add31968() throws Exception {
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        boolean o_shouldCheckGetterExistancelitString9409__5 = meta.hasGetter("richField");
+        boolean o_shouldCheckGetterExistancelitString9409__6 = meta.hasGetter("richProperty");
+        boolean o_shouldCheckGetterExistancelitString9409__7 = meta.hasGetter("richList");
+        boolean o_shouldCheckGetterExistancelitString9409__8 = meta.hasGetter("richMap");
+        boolean o_shouldCheckGetterExistancelitString9409__9 = meta.hasGetter("richList[0]");
+        boolean o_shouldCheckGetterExistancelitString9409__10 = meta.hasGetter("richType");
+        boolean o_shouldCheckGetterExistancelitString9409__11 = meta.hasGetter("richType.richField");
+        boolean o_shouldCheckGetterExistancelitString9409__12 = meta.hasGetter("richType.richProperty");
+        boolean o_shouldCheckGetterExistancelitString9409__13 = meta.hasGetter("richType.richList");
+        boolean o_shouldCheckGetterExistancelitString9409__14 = meta.hasGetter("richType.richMap");
+        boolean o_shouldCheckGetterExistancelitString9409_add20039_add31968__35 = meta.hasGetter("richTy}pe.richList[0]");
+        Assert.assertFalse(o_shouldCheckGetterExistancelitString9409_add20039_add31968__35);
+        boolean o_shouldCheckGetterExistancelitString9409_add20039__35 = meta.hasGetter("richTy}pe.richList[0]");
+        boolean o_shouldCheckGetterExistancelitString9409__15 = meta.hasGetter("richTy}pe.richList[0]");
+        String o_shouldCheckGetterExistancelitString9409__16 = meta.findProperty("richType.richProperty", false);
+        Assert.assertEquals("richType.richProperty", o_shouldCheckGetterExistancelitString9409__16);
+        boolean o_shouldCheckGetterExistancelitString9409__17 = meta.hasGetter("[0]");
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        Assert.assertFalse(o_shouldCheckGetterExistancelitString9409_add20039_add31968__35);
+        Assert.assertEquals("richType.richProperty", o_shouldCheckGetterExistancelitString9409__16);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancelitString9409_add20039_mg35281_failAssert164() throws Exception {
+        try {
+            String __DSPOT_name_4880 = ",jJ`4/9V*nE)-[. )t`H";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            boolean o_shouldCheckGetterExistancelitString9409__5 = meta.hasGetter("richField");
+            boolean o_shouldCheckGetterExistancelitString9409__6 = meta.hasGetter("richProperty");
+            boolean o_shouldCheckGetterExistancelitString9409__7 = meta.hasGetter("richList");
+            boolean o_shouldCheckGetterExistancelitString9409__8 = meta.hasGetter("richMap");
+            boolean o_shouldCheckGetterExistancelitString9409__9 = meta.hasGetter("richList[0]");
+            boolean o_shouldCheckGetterExistancelitString9409__10 = meta.hasGetter("richType");
+            boolean o_shouldCheckGetterExistancelitString9409__11 = meta.hasGetter("richType.richField");
+            boolean o_shouldCheckGetterExistancelitString9409__12 = meta.hasGetter("richType.richProperty");
+            boolean o_shouldCheckGetterExistancelitString9409__13 = meta.hasGetter("richType.richList");
+            boolean o_shouldCheckGetterExistancelitString9409__14 = meta.hasGetter("richType.richMap");
+            boolean o_shouldCheckGetterExistancelitString9409_add20039__35 = meta.hasGetter("richTy}pe.richList[0]");
+            boolean o_shouldCheckGetterExistancelitString9409__15 = meta.hasGetter("richTy}pe.richList[0]");
+            String o_shouldCheckGetterExistancelitString9409__16 = meta.findProperty("richType.richProperty", false);
+            boolean o_shouldCheckGetterExistancelitString9409__17 = meta.hasGetter("[0]");
+            meta.hasGetter(__DSPOT_name_4880);
+            org.junit.Assert.fail("shouldCheckGetterExistancelitString9409_add20039_mg35281 should have thrown StringIndexOutOfBoundsException");
+        } catch (StringIndexOutOfBoundsException expected) {
+            Assert.assertEquals("String index out of range: -1", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancelitString9409_add20029litString29185() throws Exception {
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        boolean o_shouldCheckGetterExistancelitString9409_add20029__5 = meta.hasGetter("richField");
+        boolean o_shouldCheckGetterExistancelitString9409__5 = meta.hasGetter("richField");
+        boolean o_shouldCheckGetterExistancelitString9409__6 = meta.hasGetter("richProperty");
+        boolean o_shouldCheckGetterExistancelitString9409__7 = meta.hasGetter("richList");
+        boolean o_shouldCheckGetterExistancelitString9409__8 = meta.hasGetter("richMap");
+        boolean o_shouldCheckGetterExistancelitString9409__9 = meta.hasGetter("richList[0]");
+        boolean o_shouldCheckGetterExistancelitString9409__10 = meta.hasGetter("richType");
+        boolean o_shouldCheckGetterExistancelitString9409__11 = meta.hasGetter("richType.richField");
+        boolean o_shouldCheckGetterExistancelitString9409__12 = meta.hasGetter("richType.richProperty");
+        boolean o_shouldCheckGetterExistancelitString9409__13 = meta.hasGetter("richType.richList");
+        boolean o_shouldCheckGetterExistancelitString9409__14 = meta.hasGetter("richType.richMap");
+        boolean o_shouldCheckGetterExistancelitString9409__15 = meta.hasGetter("richTy}pe.richList[0]");
+        String o_shouldCheckGetterExistancelitString9409__16 = meta.findProperty("ri@chType.richProperty", false);
+        boolean o_shouldCheckGetterExistancelitString9409__17 = meta.hasGetter("[0]");
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancelitString9409_add20029litString29188() throws Exception {
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        boolean o_shouldCheckGetterExistancelitString9409_add20029__5 = meta.hasGetter("richField");
+        boolean o_shouldCheckGetterExistancelitString9409__5 = meta.hasGetter("richField");
+        boolean o_shouldCheckGetterExistancelitString9409__6 = meta.hasGetter("richProperty");
+        boolean o_shouldCheckGetterExistancelitString9409__7 = meta.hasGetter("richList");
+        boolean o_shouldCheckGetterExistancelitString9409__8 = meta.hasGetter("richMap");
+        boolean o_shouldCheckGetterExistancelitString9409__9 = meta.hasGetter("richList[0]");
+        boolean o_shouldCheckGetterExistancelitString9409__10 = meta.hasGetter("richType");
+        boolean o_shouldCheckGetterExistancelitString9409__11 = meta.hasGetter("richType.richField");
+        boolean o_shouldCheckGetterExistancelitString9409__12 = meta.hasGetter("richType.richProperty");
+        boolean o_shouldCheckGetterExistancelitString9409__13 = meta.hasGetter("richType.richList");
+        boolean o_shouldCheckGetterExistancelitString9409__14 = meta.hasGetter("richType.richMap");
+        boolean o_shouldCheckGetterExistancelitString9409__15 = meta.hasGetter("richTy}pe.richList[0]");
+        String o_shouldCheckGetterExistancelitString9409__16 = meta.findProperty("", false);
+        boolean o_shouldCheckGetterExistancelitString9409__17 = meta.hasGetter("[0]");
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterExistancelitString9415litBool18621_mg36342_failAssert155() throws Exception {
+        try {
+            String __DSPOT_name_6059 = "P5g f&#Rk8v=X%[Gv[h{";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            boolean o_shouldCheckGetterExistancelitString9415__5 = meta.hasGetter("richField");
+            boolean o_shouldCheckGetterExistancelitString9415__6 = meta.hasGetter("richProperty");
+            boolean o_shouldCheckGetterExistancelitString9415__7 = meta.hasGetter("richList");
+            boolean o_shouldCheckGetterExistancelitString9415__8 = meta.hasGetter("richMap");
+            boolean o_shouldCheckGetterExistancelitString9415__9 = meta.hasGetter("richList[0]");
+            boolean o_shouldCheckGetterExistancelitString9415__10 = meta.hasGetter("richType");
+            boolean o_shouldCheckGetterExistancelitString9415__11 = meta.hasGetter("richType.richField");
+            boolean o_shouldCheckGetterExistancelitString9415__12 = meta.hasGetter("richType.richProperty");
+            boolean o_shouldCheckGetterExistancelitString9415__13 = meta.hasGetter("richType.richList");
+            boolean o_shouldCheckGetterExistancelitString9415__14 = meta.hasGetter("richType.richMap");
+            boolean o_shouldCheckGetterExistancelitString9415__15 = meta.hasGetter("richType.richList[0]");
+            String o_shouldCheckGetterExistancelitString9415__16 = meta.findProperty("richType", true);
+            boolean o_shouldCheckGetterExistancelitString9415__17 = meta.hasGetter("[0]");
+            meta.getSetterType(__DSPOT_name_6059);
+            org.junit.Assert.fail("shouldCheckGetterExistancelitString9415litBool18621_mg36342 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no setter for property named \'P5g f&#Rk8v=X%\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
         }
     }
 
@@ -902,44 +1665,9 @@ public class AmplMetaClassTest {
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckSetterExistance_mg57684() throws Exception {
-        boolean __DSPOT_useCamelCaseMapping_6106 = true;
-        String __DSPOT_name_6105 = "bT?u=[S0eG#vi3LZo_*T";
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        boolean o_shouldCheckSetterExistance_mg57684__7 = meta.hasSetter("richField");
-        Assert.assertTrue(o_shouldCheckSetterExistance_mg57684__7);
-        boolean o_shouldCheckSetterExistance_mg57684__8 = meta.hasSetter("richProperty");
-        Assert.assertTrue(o_shouldCheckSetterExistance_mg57684__8);
-        boolean o_shouldCheckSetterExistance_mg57684__9 = meta.hasSetter("richList");
-        Assert.assertTrue(o_shouldCheckSetterExistance_mg57684__9);
-        boolean o_shouldCheckSetterExistance_mg57684__10 = meta.hasSetter("richMap");
-        Assert.assertTrue(o_shouldCheckSetterExistance_mg57684__10);
-        boolean o_shouldCheckSetterExistance_mg57684__11 = meta.hasSetter("richList[0]");
-        Assert.assertTrue(o_shouldCheckSetterExistance_mg57684__11);
-        boolean o_shouldCheckSetterExistance_mg57684__12 = meta.hasSetter("richType");
-        Assert.assertTrue(o_shouldCheckSetterExistance_mg57684__12);
-        boolean o_shouldCheckSetterExistance_mg57684__13 = meta.hasSetter("richType.richField");
-        Assert.assertTrue(o_shouldCheckSetterExistance_mg57684__13);
-        boolean o_shouldCheckSetterExistance_mg57684__14 = meta.hasSetter("richType.richProperty");
-        Assert.assertTrue(o_shouldCheckSetterExistance_mg57684__14);
-        boolean o_shouldCheckSetterExistance_mg57684__15 = meta.hasSetter("richType.richList");
-        Assert.assertTrue(o_shouldCheckSetterExistance_mg57684__15);
-        boolean o_shouldCheckSetterExistance_mg57684__16 = meta.hasSetter("richType.richMap");
-        Assert.assertTrue(o_shouldCheckSetterExistance_mg57684__16);
-        boolean o_shouldCheckSetterExistance_mg57684__17 = meta.hasSetter("richType.richList[0]");
-        Assert.assertTrue(o_shouldCheckSetterExistance_mg57684__17);
-        boolean o_shouldCheckSetterExistance_mg57684__18 = meta.hasSetter("[0]");
-        Assert.assertFalse(o_shouldCheckSetterExistance_mg57684__18);
-        meta.findProperty(__DSPOT_name_6105, __DSPOT_useCamelCaseMapping_6106);
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckSetterExistance_mg57690_failAssert130() throws Exception {
+    public void shouldCheckSetterExistance_mg39973_failAssert204() throws Exception {
         try {
-            String __DSPOT_name_6110 = "6mI[k(;[)nJV&kCOMMu[";
+            String __DSPOT_name_7030 = "WhY,Y&02.w0lzR+[KFs!";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
             meta.hasSetter("richField");
@@ -954,62 +1682,17 @@ public class AmplMetaClassTest {
             meta.hasSetter("richType.richMap");
             meta.hasSetter("richType.richList[0]");
             meta.hasSetter("[0]");
-            meta.getSetterType(__DSPOT_name_6110);
-            org.junit.Assert.fail("shouldCheckSetterExistance_mg57690 should have thrown ReflectionException");
+            meta.getGetterType(__DSPOT_name_7030);
+            org.junit.Assert.fail("shouldCheckSetterExistance_mg39973 should have thrown ReflectionException");
         } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'6mI\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+            Assert.assertEquals("There is no getter for property named \'WhY,Y&02\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckSetterExistancelitString57660() throws Exception {
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        boolean o_shouldCheckSetterExistancelitString57660__5 = meta.hasSetter("richField");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57660__5);
-        boolean o_shouldCheckSetterExistancelitString57660__6 = meta.hasSetter("richProperty");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57660__6);
-        boolean o_shouldCheckSetterExistancelitString57660__7 = meta.hasSetter("richList");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57660__7);
-        boolean o_shouldCheckSetterExistancelitString57660__8 = meta.hasSetter("richMap");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57660__8);
-        boolean o_shouldCheckSetterExistancelitString57660__9 = meta.hasSetter("richList[0]");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57660__9);
-        boolean o_shouldCheckSetterExistancelitString57660__10 = meta.hasSetter("richType");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57660__10);
-        boolean o_shouldCheckSetterExistancelitString57660__11 = meta.hasSetter("richType.richField");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57660__11);
-        boolean o_shouldCheckSetterExistancelitString57660__12 = meta.hasSetter("richType.richProperty");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57660__12);
-        boolean o_shouldCheckSetterExistancelitString57660__13 = meta.hasSetter("richType.richList");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57660__13);
-        boolean o_shouldCheckSetterExistancelitString57660__14 = meta.hasSetter("richType.richMap");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57660__14);
-        boolean o_shouldCheckSetterExistancelitString57660__15 = meta.hasSetter("\n");
-        Assert.assertFalse(o_shouldCheckSetterExistancelitString57660__15);
-        boolean o_shouldCheckSetterExistancelitString57660__16 = meta.hasSetter("[0]");
-        Assert.assertFalse(o_shouldCheckSetterExistancelitString57660__16);
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57660__5);
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57660__6);
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57660__7);
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57660__8);
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57660__9);
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57660__10);
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57660__11);
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57660__12);
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57660__13);
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57660__14);
-        Assert.assertFalse(o_shouldCheckSetterExistancelitString57660__15);
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckSetterExistance_mg57685_failAssert127() throws Exception {
+    public void shouldCheckSetterExistance_mg39974_failAssert206() throws Exception {
         try {
-            String __DSPOT_name_6107 = "i>$v{}4%*x-LC]a35s)h";
+            String __DSPOT_name_7031 = "_f@dIk1TIb9j[A52 {CA";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
             meta.hasSetter("richField");
@@ -1024,17 +1707,152 @@ public class AmplMetaClassTest {
             meta.hasSetter("richType.richMap");
             meta.hasSetter("richType.richList[0]");
             meta.hasSetter("[0]");
-            meta.getGetInvoker(__DSPOT_name_6107);
-            org.junit.Assert.fail("shouldCheckSetterExistance_mg57685 should have thrown ReflectionException");
+            meta.getSetInvoker(__DSPOT_name_7031);
+            org.junit.Assert.fail("shouldCheckSetterExistance_mg39974 should have thrown ReflectionException");
         } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'i>$v{}4%*x-LC]a35s)h\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+            Assert.assertEquals("There is no setter for property named \'_f@dIk1TIb9j[A52 {CA\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckSetterExistance_mg57694_failAssert131() throws Exception {
+    public void shouldCheckSetterExistancelitString39918() throws Exception {
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        boolean o_shouldCheckSetterExistancelitString39918__5 = meta.hasSetter("richField");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39918__5);
+        boolean o_shouldCheckSetterExistancelitString39918__6 = meta.hasSetter("richProperty");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39918__6);
+        boolean o_shouldCheckSetterExistancelitString39918__7 = meta.hasSetter("richList");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39918__7);
+        boolean o_shouldCheckSetterExistancelitString39918__8 = meta.hasSetter("richMap");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39918__8);
+        boolean o_shouldCheckSetterExistancelitString39918__9 = meta.hasSetter("richList[0]");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39918__9);
+        boolean o_shouldCheckSetterExistancelitString39918__10 = meta.hasSetter("richType");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39918__10);
+        boolean o_shouldCheckSetterExistancelitString39918__11 = meta.hasSetter("richType.richField");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39918__11);
+        boolean o_shouldCheckSetterExistancelitString39918__12 = meta.hasSetter("ri[hType.richProperty");
+        Assert.assertFalse(o_shouldCheckSetterExistancelitString39918__12);
+        boolean o_shouldCheckSetterExistancelitString39918__13 = meta.hasSetter("richType.richList");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39918__13);
+        boolean o_shouldCheckSetterExistancelitString39918__14 = meta.hasSetter("richType.richMap");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39918__14);
+        boolean o_shouldCheckSetterExistancelitString39918__15 = meta.hasSetter("richType.richList[0]");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39918__15);
+        boolean o_shouldCheckSetterExistancelitString39918__16 = meta.hasSetter("[0]");
+        Assert.assertFalse(o_shouldCheckSetterExistancelitString39918__16);
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39918__5);
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39918__6);
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39918__7);
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39918__8);
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39918__9);
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39918__10);
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39918__11);
+        Assert.assertFalse(o_shouldCheckSetterExistancelitString39918__12);
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39918__13);
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39918__14);
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39918__15);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckSetterExistancelitString39892() throws Exception {
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        boolean o_shouldCheckSetterExistancelitString39892__5 = meta.hasSetter("richField");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39892__5);
+        boolean o_shouldCheckSetterExistancelitString39892__6 = meta.hasSetter("richProperty");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39892__6);
+        boolean o_shouldCheckSetterExistancelitString39892__7 = meta.hasSetter("richList");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39892__7);
+        boolean o_shouldCheckSetterExistancelitString39892__8 = meta.hasSetter(":");
+        Assert.assertFalse(o_shouldCheckSetterExistancelitString39892__8);
+        boolean o_shouldCheckSetterExistancelitString39892__9 = meta.hasSetter("richList[0]");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39892__9);
+        boolean o_shouldCheckSetterExistancelitString39892__10 = meta.hasSetter("richType");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39892__10);
+        boolean o_shouldCheckSetterExistancelitString39892__11 = meta.hasSetter("richType.richField");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39892__11);
+        boolean o_shouldCheckSetterExistancelitString39892__12 = meta.hasSetter("richType.richProperty");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39892__12);
+        boolean o_shouldCheckSetterExistancelitString39892__13 = meta.hasSetter("richType.richList");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39892__13);
+        boolean o_shouldCheckSetterExistancelitString39892__14 = meta.hasSetter("richType.richMap");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39892__14);
+        boolean o_shouldCheckSetterExistancelitString39892__15 = meta.hasSetter("richType.richList[0]");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39892__15);
+        boolean o_shouldCheckSetterExistancelitString39892__16 = meta.hasSetter("[0]");
+        Assert.assertFalse(o_shouldCheckSetterExistancelitString39892__16);
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39892__5);
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39892__6);
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39892__7);
+        Assert.assertFalse(o_shouldCheckSetterExistancelitString39892__8);
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39892__9);
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39892__10);
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39892__11);
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39892__12);
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39892__13);
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39892__14);
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39892__15);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckSetterExistancelitString39919() throws Exception {
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        boolean o_shouldCheckSetterExistancelitString39919__5 = meta.hasSetter("richField");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39919__5);
+        boolean o_shouldCheckSetterExistancelitString39919__6 = meta.hasSetter("richProperty");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39919__6);
+        boolean o_shouldCheckSetterExistancelitString39919__7 = meta.hasSetter("richList");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39919__7);
+        boolean o_shouldCheckSetterExistancelitString39919__8 = meta.hasSetter("richMap");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39919__8);
+        boolean o_shouldCheckSetterExistancelitString39919__9 = meta.hasSetter("richList[0]");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39919__9);
+        boolean o_shouldCheckSetterExistancelitString39919__10 = meta.hasSetter("richType");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39919__10);
+        boolean o_shouldCheckSetterExistancelitString39919__11 = meta.hasSetter("richType.richField");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39919__11);
+        boolean o_shouldCheckSetterExistancelitString39919__12 = meta.hasSetter("richType.richPmroperty");
+        Assert.assertFalse(o_shouldCheckSetterExistancelitString39919__12);
+        boolean o_shouldCheckSetterExistancelitString39919__13 = meta.hasSetter("richType.richList");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39919__13);
+        boolean o_shouldCheckSetterExistancelitString39919__14 = meta.hasSetter("richType.richMap");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39919__14);
+        boolean o_shouldCheckSetterExistancelitString39919__15 = meta.hasSetter("richType.richList[0]");
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39919__15);
+        boolean o_shouldCheckSetterExistancelitString39919__16 = meta.hasSetter("[0]");
+        Assert.assertFalse(o_shouldCheckSetterExistancelitString39919__16);
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39919__5);
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39919__6);
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39919__7);
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39919__8);
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39919__9);
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39919__10);
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39919__11);
+        Assert.assertFalse(o_shouldCheckSetterExistancelitString39919__12);
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39919__13);
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39919__14);
+        Assert.assertTrue(o_shouldCheckSetterExistancelitString39919__15);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckSetterExistance_mg39975_failAssert207() throws Exception {
         try {
-            String __DSPOT_name_6113 = "W.S,fj0iCZ:ZUUd?P#f]";
+            String __DSPOT_name_7032 = "]uu)t5l{u,Z%nYEk0?M>";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
             meta.hasSetter("richField");
@@ -1049,107 +1867,17 @@ public class AmplMetaClassTest {
             meta.hasSetter("richType.richMap");
             meta.hasSetter("richType.richList[0]");
             meta.hasSetter("[0]");
-            meta.metaClassForProperty(__DSPOT_name_6113);
-            org.junit.Assert.fail("shouldCheckSetterExistance_mg57694 should have thrown ReflectionException");
+            meta.getSetterType(__DSPOT_name_7032);
+            org.junit.Assert.fail("shouldCheckSetterExistance_mg39975 should have thrown ReflectionException");
         } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'W.S,fj0iCZ:ZUUd?P#f]\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+            Assert.assertEquals("There is no setter for property named \']uu)t5l{u,Z%nYEk0?M>\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckSetterExistancelitString57639() throws Exception {
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        boolean o_shouldCheckSetterExistancelitString57639__5 = meta.hasSetter("richField");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57639__5);
-        boolean o_shouldCheckSetterExistancelitString57639__6 = meta.hasSetter("richProperty");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57639__6);
-        boolean o_shouldCheckSetterExistancelitString57639__7 = meta.hasSetter("richList");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57639__7);
-        boolean o_shouldCheckSetterExistancelitString57639__8 = meta.hasSetter("richMap");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57639__8);
-        boolean o_shouldCheckSetterExistancelitString57639__9 = meta.hasSetter("richList[0]");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57639__9);
-        boolean o_shouldCheckSetterExistancelitString57639__10 = meta.hasSetter("richType");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57639__10);
-        boolean o_shouldCheckSetterExistancelitString57639__11 = meta.hasSetter("richType.richField");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57639__11);
-        boolean o_shouldCheckSetterExistancelitString57639__12 = meta.hasSetter("richType.richProperty");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57639__12);
-        boolean o_shouldCheckSetterExistancelitString57639__13 = meta.hasSetter("richType.richL7st");
-        Assert.assertFalse(o_shouldCheckSetterExistancelitString57639__13);
-        boolean o_shouldCheckSetterExistancelitString57639__14 = meta.hasSetter("richType.richMap");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57639__14);
-        boolean o_shouldCheckSetterExistancelitString57639__15 = meta.hasSetter("richType.richList[0]");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57639__15);
-        boolean o_shouldCheckSetterExistancelitString57639__16 = meta.hasSetter("[0]");
-        Assert.assertFalse(o_shouldCheckSetterExistancelitString57639__16);
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57639__5);
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57639__6);
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57639__7);
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57639__8);
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57639__9);
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57639__10);
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57639__11);
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57639__12);
-        Assert.assertFalse(o_shouldCheckSetterExistancelitString57639__13);
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57639__14);
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57639__15);
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckSetterExistancelitString57623() throws Exception {
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        boolean o_shouldCheckSetterExistancelitString57623__5 = meta.hasSetter("richField");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57623__5);
-        boolean o_shouldCheckSetterExistancelitString57623__6 = meta.hasSetter("richProperty");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57623__6);
-        boolean o_shouldCheckSetterExistancelitString57623__7 = meta.hasSetter("richList");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57623__7);
-        boolean o_shouldCheckSetterExistancelitString57623__8 = meta.hasSetter("richMap");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57623__8);
-        boolean o_shouldCheckSetterExistancelitString57623__9 = meta.hasSetter("richList[0]");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57623__9);
-        boolean o_shouldCheckSetterExistancelitString57623__10 = meta.hasSetter("richType");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57623__10);
-        boolean o_shouldCheckSetterExistancelitString57623__11 = meta.hasSetter("rich8ype.richField");
-        Assert.assertFalse(o_shouldCheckSetterExistancelitString57623__11);
-        boolean o_shouldCheckSetterExistancelitString57623__12 = meta.hasSetter("richType.richProperty");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57623__12);
-        boolean o_shouldCheckSetterExistancelitString57623__13 = meta.hasSetter("richType.richList");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57623__13);
-        boolean o_shouldCheckSetterExistancelitString57623__14 = meta.hasSetter("richType.richMap");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57623__14);
-        boolean o_shouldCheckSetterExistancelitString57623__15 = meta.hasSetter("richType.richList[0]");
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57623__15);
-        boolean o_shouldCheckSetterExistancelitString57623__16 = meta.hasSetter("[0]");
-        Assert.assertFalse(o_shouldCheckSetterExistancelitString57623__16);
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57623__5);
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57623__6);
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57623__7);
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57623__8);
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57623__9);
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57623__10);
-        Assert.assertFalse(o_shouldCheckSetterExistancelitString57623__11);
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57623__12);
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57623__13);
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57623__14);
-        Assert.assertTrue(o_shouldCheckSetterExistancelitString57623__15);
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckSetterExistance_mg57688_failAssert129() throws Exception {
+    public void shouldCheckSetterExistance_mg39978_failAssert203() throws Exception {
         try {
-            String __DSPOT_name_6109 = "[!aEJ`pL!!)=<[I<O7u{";
+            String __DSPOT_name_7035 = "H>gxhcl2yd+8+cL0WB>!";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
             meta.hasSetter("richField");
@@ -1164,19 +1892,318 @@ public class AmplMetaClassTest {
             meta.hasSetter("richType.richMap");
             meta.hasSetter("richType.richList[0]");
             meta.hasSetter("[0]");
-            meta.getSetInvoker(__DSPOT_name_6109);
-            org.junit.Assert.fail("shouldCheckSetterExistance_mg57688 should have thrown ReflectionException");
+            meta.metaClassForProperty(__DSPOT_name_7035);
+            org.junit.Assert.fail("shouldCheckSetterExistance_mg39978 should have thrown ReflectionException");
         } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'[!aEJ`pL!!)=<[I<O7u{\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+            Assert.assertEquals("There is no getter for property named \'H>gxhcl2yd+8+cL0WB>!\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckSetterExistancenull57696_failAssert133litString62349() throws Exception {
+    public void shouldCheckSetterExistance_mg39972_failAssert205() throws Exception {
+        try {
+            String __DSPOT_name_7029 = "`8yM]|!1qIC8f=_bw_&)";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.hasSetter("richField");
+            meta.hasSetter("richProperty");
+            meta.hasSetter("richList");
+            meta.hasSetter("richMap");
+            meta.hasSetter("richList[0]");
+            meta.hasSetter("richType");
+            meta.hasSetter("richType.richField");
+            meta.hasSetter("richType.richProperty");
+            meta.hasSetter("richType.richList");
+            meta.hasSetter("richType.richMap");
+            meta.hasSetter("richType.richList[0]");
+            meta.hasSetter("[0]");
+            meta.getGetInvoker(__DSPOT_name_7029);
+            org.junit.Assert.fail("shouldCheckSetterExistance_mg39972 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'`8yM]|!1qIC8f=_bw_&)\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckSetterExistance_mg39971() throws Exception {
+        boolean __DSPOT_useCamelCaseMapping_7028 = true;
+        String __DSPOT_name_7027 = "1SySTS+]lp0-uxx13oWD";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        boolean o_shouldCheckSetterExistance_mg39971__7 = meta.hasSetter("richField");
+        Assert.assertTrue(o_shouldCheckSetterExistance_mg39971__7);
+        boolean o_shouldCheckSetterExistance_mg39971__8 = meta.hasSetter("richProperty");
+        Assert.assertTrue(o_shouldCheckSetterExistance_mg39971__8);
+        boolean o_shouldCheckSetterExistance_mg39971__9 = meta.hasSetter("richList");
+        Assert.assertTrue(o_shouldCheckSetterExistance_mg39971__9);
+        boolean o_shouldCheckSetterExistance_mg39971__10 = meta.hasSetter("richMap");
+        Assert.assertTrue(o_shouldCheckSetterExistance_mg39971__10);
+        boolean o_shouldCheckSetterExistance_mg39971__11 = meta.hasSetter("richList[0]");
+        Assert.assertTrue(o_shouldCheckSetterExistance_mg39971__11);
+        boolean o_shouldCheckSetterExistance_mg39971__12 = meta.hasSetter("richType");
+        Assert.assertTrue(o_shouldCheckSetterExistance_mg39971__12);
+        boolean o_shouldCheckSetterExistance_mg39971__13 = meta.hasSetter("richType.richField");
+        Assert.assertTrue(o_shouldCheckSetterExistance_mg39971__13);
+        boolean o_shouldCheckSetterExistance_mg39971__14 = meta.hasSetter("richType.richProperty");
+        Assert.assertTrue(o_shouldCheckSetterExistance_mg39971__14);
+        boolean o_shouldCheckSetterExistance_mg39971__15 = meta.hasSetter("richType.richList");
+        Assert.assertTrue(o_shouldCheckSetterExistance_mg39971__15);
+        boolean o_shouldCheckSetterExistance_mg39971__16 = meta.hasSetter("richType.richMap");
+        Assert.assertTrue(o_shouldCheckSetterExistance_mg39971__16);
+        boolean o_shouldCheckSetterExistance_mg39971__17 = meta.hasSetter("richType.richList[0]");
+        Assert.assertTrue(o_shouldCheckSetterExistance_mg39971__17);
+        boolean o_shouldCheckSetterExistance_mg39971__18 = meta.hasSetter("[0]");
+        Assert.assertFalse(o_shouldCheckSetterExistance_mg39971__18);
+        meta.findProperty(__DSPOT_name_7027, __DSPOT_useCamelCaseMapping_7028);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckSetterExistance_mg39978_failAssert203_rv51034() throws Exception {
+        try {
+            String __DSPOT_name_8359 = "l{+Mw{DSUR1d)O)#Att#";
+            String __DSPOT_name_7035 = "H>gxhcl2yd+8+cL0WB>!";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            boolean o_shouldCheckSetterExistance_mg39978_failAssert203_rv51034__9 = meta.hasSetter("richField");
+            Assert.assertTrue(o_shouldCheckSetterExistance_mg39978_failAssert203_rv51034__9);
+            boolean o_shouldCheckSetterExistance_mg39978_failAssert203_rv51034__10 = meta.hasSetter("richProperty");
+            Assert.assertTrue(o_shouldCheckSetterExistance_mg39978_failAssert203_rv51034__10);
+            boolean o_shouldCheckSetterExistance_mg39978_failAssert203_rv51034__11 = meta.hasSetter("richList");
+            Assert.assertTrue(o_shouldCheckSetterExistance_mg39978_failAssert203_rv51034__11);
+            boolean o_shouldCheckSetterExistance_mg39978_failAssert203_rv51034__12 = meta.hasSetter("richMap");
+            Assert.assertTrue(o_shouldCheckSetterExistance_mg39978_failAssert203_rv51034__12);
+            boolean o_shouldCheckSetterExistance_mg39978_failAssert203_rv51034__13 = meta.hasSetter("richList[0]");
+            Assert.assertTrue(o_shouldCheckSetterExistance_mg39978_failAssert203_rv51034__13);
+            boolean o_shouldCheckSetterExistance_mg39978_failAssert203_rv51034__14 = meta.hasSetter("richType");
+            Assert.assertTrue(o_shouldCheckSetterExistance_mg39978_failAssert203_rv51034__14);
+            boolean o_shouldCheckSetterExistance_mg39978_failAssert203_rv51034__15 = meta.hasSetter("richType.richField");
+            Assert.assertTrue(o_shouldCheckSetterExistance_mg39978_failAssert203_rv51034__15);
+            boolean o_shouldCheckSetterExistance_mg39978_failAssert203_rv51034__16 = meta.hasSetter("richType.richProperty");
+            Assert.assertTrue(o_shouldCheckSetterExistance_mg39978_failAssert203_rv51034__16);
+            boolean o_shouldCheckSetterExistance_mg39978_failAssert203_rv51034__17 = meta.hasSetter("richType.richList");
+            Assert.assertTrue(o_shouldCheckSetterExistance_mg39978_failAssert203_rv51034__17);
+            boolean o_shouldCheckSetterExistance_mg39978_failAssert203_rv51034__18 = meta.hasSetter("richType.richMap");
+            Assert.assertTrue(o_shouldCheckSetterExistance_mg39978_failAssert203_rv51034__18);
+            boolean o_shouldCheckSetterExistance_mg39978_failAssert203_rv51034__19 = meta.hasSetter("richType.richList[0]");
+            Assert.assertTrue(o_shouldCheckSetterExistance_mg39978_failAssert203_rv51034__19);
+            boolean o_shouldCheckSetterExistance_mg39978_failAssert203_rv51034__20 = meta.hasSetter("[0]");
+            Assert.assertFalse(o_shouldCheckSetterExistance_mg39978_failAssert203_rv51034__20);
+            MetaClass __DSPOT_invoc_20 = meta.metaClassForProperty(__DSPOT_name_7035);
+            org.junit.Assert.fail("shouldCheckSetterExistance_mg39978 should have thrown ReflectionException");
+            __DSPOT_invoc_20.getGetInvoker(__DSPOT_name_8359);
+        } catch (ReflectionException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckSetterExistance_mg39976litString40635() throws Exception {
+        String __DSPOT_name_7033 = "b##]WkD|]TUv)|s},qp>";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        boolean o_shouldCheckSetterExistance_mg39976__6 = meta.hasSetter("richField");
+        boolean o_shouldCheckSetterExistance_mg39976__7 = meta.hasSetter("richProperty");
+        boolean o_shouldCheckSetterExistance_mg39976__8 = meta.hasSetter("richList");
+        boolean o_shouldCheckSetterExistance_mg39976__9 = meta.hasSetter("richMap");
+        boolean o_shouldCheckSetterExistance_mg39976__10 = meta.hasSetter("richList[0]");
+        boolean o_shouldCheckSetterExistance_mg39976__11 = meta.hasSetter("richType");
+        boolean o_shouldCheckSetterExistance_mg39976__12 = meta.hasSetter("oU/}g&a.#+n%)u}(r2");
+        boolean o_shouldCheckSetterExistance_mg39976__13 = meta.hasSetter("richType.richProperty");
+        boolean o_shouldCheckSetterExistance_mg39976__14 = meta.hasSetter("richType.richList");
+        boolean o_shouldCheckSetterExistance_mg39976__15 = meta.hasSetter("richType.richMap");
+        boolean o_shouldCheckSetterExistance_mg39976__16 = meta.hasSetter("richType.richList[0]");
+        boolean o_shouldCheckSetterExistance_mg39976__17 = meta.hasSetter("[0]");
+        boolean o_shouldCheckSetterExistance_mg39976__18 = meta.hasGetter(__DSPOT_name_7033);
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckSetterExistancelitString39864_mg50688_failAssert244() throws Exception {
+        try {
+            String __DSPOT_name_7975 = "(w&pl-9DzdYi6Z(}A-+,";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            boolean o_shouldCheckSetterExistancelitString39864__5 = meta.hasSetter("richFied");
+            boolean o_shouldCheckSetterExistancelitString39864__6 = meta.hasSetter("richProperty");
+            boolean o_shouldCheckSetterExistancelitString39864__7 = meta.hasSetter("richList");
+            boolean o_shouldCheckSetterExistancelitString39864__8 = meta.hasSetter("richMap");
+            boolean o_shouldCheckSetterExistancelitString39864__9 = meta.hasSetter("richList[0]");
+            boolean o_shouldCheckSetterExistancelitString39864__10 = meta.hasSetter("richType");
+            boolean o_shouldCheckSetterExistancelitString39864__11 = meta.hasSetter("richType.richField");
+            boolean o_shouldCheckSetterExistancelitString39864__12 = meta.hasSetter("richType.richProperty");
+            boolean o_shouldCheckSetterExistancelitString39864__13 = meta.hasSetter("richType.richList");
+            boolean o_shouldCheckSetterExistancelitString39864__14 = meta.hasSetter("richType.richMap");
+            boolean o_shouldCheckSetterExistancelitString39864__15 = meta.hasSetter("richType.richList[0]");
+            boolean o_shouldCheckSetterExistancelitString39864__16 = meta.hasSetter("[0]");
+            meta.metaClassForProperty(__DSPOT_name_7975);
+            org.junit.Assert.fail("shouldCheckSetterExistancelitString39864_mg50688 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'(w&pl-9DzdYi6Z(}A-+,\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckSetterExistancelitString39865_mg50060() throws Exception {
+        boolean __DSPOT_useCamelCaseMapping_7278 = true;
+        String __DSPOT_name_7277 = "t.1Q[=nm@hU}RO)/Kkb3";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        boolean o_shouldCheckSetterExistancelitString39865__5 = meta.hasSetter("y[BFPhp]H");
+        boolean o_shouldCheckSetterExistancelitString39865__6 = meta.hasSetter("richProperty");
+        boolean o_shouldCheckSetterExistancelitString39865__7 = meta.hasSetter("richList");
+        boolean o_shouldCheckSetterExistancelitString39865__8 = meta.hasSetter("richMap");
+        boolean o_shouldCheckSetterExistancelitString39865__9 = meta.hasSetter("richList[0]");
+        boolean o_shouldCheckSetterExistancelitString39865__10 = meta.hasSetter("richType");
+        boolean o_shouldCheckSetterExistancelitString39865__11 = meta.hasSetter("richType.richField");
+        boolean o_shouldCheckSetterExistancelitString39865__12 = meta.hasSetter("richType.richProperty");
+        boolean o_shouldCheckSetterExistancelitString39865__13 = meta.hasSetter("richType.richList");
+        boolean o_shouldCheckSetterExistancelitString39865__14 = meta.hasSetter("richType.richMap");
+        boolean o_shouldCheckSetterExistancelitString39865__15 = meta.hasSetter("richType.richList[0]");
+        boolean o_shouldCheckSetterExistancelitString39865__16 = meta.hasSetter("[0]");
+        meta.findProperty(__DSPOT_name_7277, __DSPOT_useCamelCaseMapping_7278);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckSetterExistancelitString39867_mg50209() throws Exception {
+        String __DSPOT_name_7443 = "7zPnsD(g5!w-t>W[CMeV";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        boolean o_shouldCheckSetterExistancelitString39867__5 = meta.hasSetter("\n");
+        boolean o_shouldCheckSetterExistancelitString39867__6 = meta.hasSetter("richProperty");
+        boolean o_shouldCheckSetterExistancelitString39867__7 = meta.hasSetter("richList");
+        boolean o_shouldCheckSetterExistancelitString39867__8 = meta.hasSetter("richMap");
+        boolean o_shouldCheckSetterExistancelitString39867__9 = meta.hasSetter("richList[0]");
+        boolean o_shouldCheckSetterExistancelitString39867__10 = meta.hasSetter("richType");
+        boolean o_shouldCheckSetterExistancelitString39867__11 = meta.hasSetter("richType.richField");
+        boolean o_shouldCheckSetterExistancelitString39867__12 = meta.hasSetter("richType.richProperty");
+        boolean o_shouldCheckSetterExistancelitString39867__13 = meta.hasSetter("richType.richList");
+        boolean o_shouldCheckSetterExistancelitString39867__14 = meta.hasSetter("richType.richMap");
+        boolean o_shouldCheckSetterExistancelitString39867__15 = meta.hasSetter("richType.richList[0]");
+        boolean o_shouldCheckSetterExistancelitString39867__16 = meta.hasSetter("[0]");
+        boolean o_shouldCheckSetterExistancelitString39867_mg50209__42 = meta.hasGetter(__DSPOT_name_7443);
+        Assert.assertFalse(o_shouldCheckSetterExistancelitString39867_mg50209__42);
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckSetterExistancelitString39950_mg50403_failAssert249() throws Exception {
+        try {
+            String __DSPOT_name_7659 = "8l9lq9)B?<O^8j`J&[M7";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            boolean o_shouldCheckSetterExistancelitString39950__5 = meta.hasSetter("richField");
+            boolean o_shouldCheckSetterExistancelitString39950__6 = meta.hasSetter("richProperty");
+            boolean o_shouldCheckSetterExistancelitString39950__7 = meta.hasSetter("richList");
+            boolean o_shouldCheckSetterExistancelitString39950__8 = meta.hasSetter("richMap");
+            boolean o_shouldCheckSetterExistancelitString39950__9 = meta.hasSetter("richList[0]");
+            boolean o_shouldCheckSetterExistancelitString39950__10 = meta.hasSetter("richType");
+            boolean o_shouldCheckSetterExistancelitString39950__11 = meta.hasSetter("richType.richField");
+            boolean o_shouldCheckSetterExistancelitString39950__12 = meta.hasSetter("richType.richProperty");
+            boolean o_shouldCheckSetterExistancelitString39950__13 = meta.hasSetter("richType.richList");
+            boolean o_shouldCheckSetterExistancelitString39950__14 = meta.hasSetter("richType.richMap");
+            boolean o_shouldCheckSetterExistancelitString39950__15 = meta.hasSetter("richType.richList[0]");
+            boolean o_shouldCheckSetterExistancelitString39950__16 = meta.hasSetter("A0]");
+            meta.getGetInvoker(__DSPOT_name_7659);
+            org.junit.Assert.fail("shouldCheckSetterExistancelitString39950_mg50403 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'8l9lq9)B?<O^8j`J&[M7\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckSetterExistancelitString39863_mg50757_failAssert221() throws Exception {
+        try {
+            String __DSPOT_name_8052 = "lG]QlsL*J:nPPK9YO&xY";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            boolean o_shouldCheckSetterExistancelitString39863__5 = meta.hasSetter("richF`ield");
+            boolean o_shouldCheckSetterExistancelitString39863__6 = meta.hasSetter("richProperty");
+            boolean o_shouldCheckSetterExistancelitString39863__7 = meta.hasSetter("richList");
+            boolean o_shouldCheckSetterExistancelitString39863__8 = meta.hasSetter("richMap");
+            boolean o_shouldCheckSetterExistancelitString39863__9 = meta.hasSetter("richList[0]");
+            boolean o_shouldCheckSetterExistancelitString39863__10 = meta.hasSetter("richType");
+            boolean o_shouldCheckSetterExistancelitString39863__11 = meta.hasSetter("richType.richField");
+            boolean o_shouldCheckSetterExistancelitString39863__12 = meta.hasSetter("richType.richProperty");
+            boolean o_shouldCheckSetterExistancelitString39863__13 = meta.hasSetter("richType.richList");
+            boolean o_shouldCheckSetterExistancelitString39863__14 = meta.hasSetter("richType.richMap");
+            boolean o_shouldCheckSetterExistancelitString39863__15 = meta.hasSetter("richType.richList[0]");
+            boolean o_shouldCheckSetterExistancelitString39863__16 = meta.hasSetter("[0]");
+            meta.getSetterType(__DSPOT_name_8052);
+            org.junit.Assert.fail("shouldCheckSetterExistancelitString39863_mg50757 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no setter for property named \'lG]QlsL*J:nPPK9YO&xY\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckSetterExistancelitString39861_mg50704() throws Exception {
+        String __DSPOT_name_7993 = "^@|0?.|uGCS-}|RHYDB-";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        boolean o_shouldCheckSetterExistancelitString39861__5 = meta.hasSetter("richProperty");
+        boolean o_shouldCheckSetterExistancelitString39861__6 = meta.hasSetter("richProperty");
+        boolean o_shouldCheckSetterExistancelitString39861__7 = meta.hasSetter("richProperty");
+        boolean o_shouldCheckSetterExistancelitString39861__8 = meta.hasSetter("richList");
+        boolean o_shouldCheckSetterExistancelitString39861__9 = meta.hasSetter("richMap");
+        boolean o_shouldCheckSetterExistancelitString39861__10 = meta.hasSetter("richList[0]");
+        boolean o_shouldCheckSetterExistancelitString39861__11 = meta.hasSetter("richType");
+        boolean o_shouldCheckSetterExistancelitString39861__12 = meta.hasSetter("richType.richField");
+        boolean o_shouldCheckSetterExistancelitString39861__13 = meta.hasSetter("richType.richProperty");
+        boolean o_shouldCheckSetterExistancelitString39861__14 = meta.hasSetter("richType.richList");
+        boolean o_shouldCheckSetterExistancelitString39861__15 = meta.hasSetter("richType.richMap");
+        boolean o_shouldCheckSetterExistancelitString39861__16 = meta.hasSetter("richType.richList[0]");
+        boolean o_shouldCheckSetterExistancelitString39861__17 = meta.hasSetter("[0]");
+        boolean o_shouldCheckSetterExistancelitString39861_mg50704__45 = meta.hasGetter(__DSPOT_name_7993);
+        Assert.assertFalse(o_shouldCheckSetterExistancelitString39861_mg50704__45);
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckSetterExistancelitString39901_mg50782_failAssert222() throws Exception {
+        try {
+            String __DSPOT_name_8080 = "#@bt#/.;Lv=8k.SE1Ib[";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            boolean o_shouldCheckSetterExistancelitString39901__5 = meta.hasSetter("richField");
+            boolean o_shouldCheckSetterExistancelitString39901__6 = meta.hasSetter("richProperty");
+            boolean o_shouldCheckSetterExistancelitString39901__7 = meta.hasSetter("richList");
+            boolean o_shouldCheckSetterExistancelitString39901__8 = meta.hasSetter("richMap");
+            boolean o_shouldCheckSetterExistancelitString39901__9 = meta.hasSetter("richList[0]");
+            boolean o_shouldCheckSetterExistancelitString39901__10 = meta.hasSetter("richType.richList");
+            boolean o_shouldCheckSetterExistancelitString39901__11 = meta.hasSetter("richType.richField");
+            boolean o_shouldCheckSetterExistancelitString39901__12 = meta.hasSetter("richType.richProperty");
+            boolean o_shouldCheckSetterExistancelitString39901__13 = meta.hasSetter("richType.richList");
+            boolean o_shouldCheckSetterExistancelitString39901__14 = meta.hasSetter("richType.richList");
+            boolean o_shouldCheckSetterExistancelitString39901__15 = meta.hasSetter("richType.richMap");
+            boolean o_shouldCheckSetterExistancelitString39901__16 = meta.hasSetter("richType.richList[0]");
+            boolean o_shouldCheckSetterExistancelitString39901__17 = meta.hasSetter("[0]");
+            meta.getGetterType(__DSPOT_name_8080);
+            org.junit.Assert.fail("shouldCheckSetterExistancelitString39901_mg50782 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'#@bt#/\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckSetterExistancenull39979_failAssert214litString47381() throws Exception {
         try {
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
             Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-            MetaClass meta = null;
+            MetaClass meta = MetaClass.forClass(RichType.class, null);
             meta.hasSetter("richField");
             meta.hasSetter("richProperty");
             meta.hasSetter("richList");
@@ -1184,69 +2211,312 @@ public class AmplMetaClassTest {
             meta.hasSetter("richList[0]");
             meta.hasSetter("richType");
             meta.hasSetter("richType.richField");
-            meta.hasSetter("");
+            meta.hasSetter("richType.richProperty");
             meta.hasSetter("richType.richList");
             meta.hasSetter("richType.richMap");
-            meta.hasSetter("richType.richList[0]");
+            meta.hasSetter(":");
             meta.hasSetter("[0]");
-            org.junit.Assert.fail("shouldCheckSetterExistancenull57696 should have thrown NullPointerException");
+            org.junit.Assert.fail("shouldCheckSetterExistancenull39979 should have thrown NullPointerException");
         } catch (NullPointerException expected) {
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckSetterExistancenull57719_failAssert140null66386null90820() throws Exception {
+    public void shouldCheckSetterExistancelitString39868_mg50774_failAssert246() throws Exception {
         try {
+            String __DSPOT_name_8071 = "h|09($ t*KQaS}^c7u9;";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            boolean o_shouldCheckSetterExistancelitString39868__5 = meta.hasSetter(":");
+            boolean o_shouldCheckSetterExistancelitString39868__6 = meta.hasSetter("richProperty");
+            boolean o_shouldCheckSetterExistancelitString39868__7 = meta.hasSetter("richList");
+            boolean o_shouldCheckSetterExistancelitString39868__8 = meta.hasSetter("richMap");
+            boolean o_shouldCheckSetterExistancelitString39868__9 = meta.hasSetter("richList[0]");
+            boolean o_shouldCheckSetterExistancelitString39868__10 = meta.hasSetter("richType");
+            boolean o_shouldCheckSetterExistancelitString39868__11 = meta.hasSetter("richType.richField");
+            boolean o_shouldCheckSetterExistancelitString39868__12 = meta.hasSetter("richType.richProperty");
+            boolean o_shouldCheckSetterExistancelitString39868__13 = meta.hasSetter("richType.richList");
+            boolean o_shouldCheckSetterExistancelitString39868__14 = meta.hasSetter("richType.richMap");
+            boolean o_shouldCheckSetterExistancelitString39868__15 = meta.hasSetter("richType.richList[0]");
+            boolean o_shouldCheckSetterExistancelitString39868__16 = meta.hasSetter("[0]");
+            meta.getSetInvoker(__DSPOT_name_8071);
+            org.junit.Assert.fail("shouldCheckSetterExistancelitString39868_mg50774 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no setter for property named \'h|09($ t*KQaS}^c7u9;\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckSetterExistancelitString39867_add48326_mg70108_failAssert272() throws Exception {
+        try {
+            String __DSPOT_name_8703 = "Cnb.&uW+h]>x& =&{;tA";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            boolean o_shouldCheckSetterExistancelitString39867__5 = meta.hasSetter("\n");
+            boolean o_shouldCheckSetterExistancelitString39867__6 = meta.hasSetter("richProperty");
+            boolean o_shouldCheckSetterExistancelitString39867__7 = meta.hasSetter("richList");
+            boolean o_shouldCheckSetterExistancelitString39867__8 = meta.hasSetter("richMap");
+            boolean o_shouldCheckSetterExistancelitString39867__9 = meta.hasSetter("richList[0]");
+            boolean o_shouldCheckSetterExistancelitString39867__10 = meta.hasSetter("richType");
+            boolean o_shouldCheckSetterExistancelitString39867_add48326__23 = meta.hasSetter("richType.richField");
+            boolean o_shouldCheckSetterExistancelitString39867__11 = meta.hasSetter("richType.richField");
+            boolean o_shouldCheckSetterExistancelitString39867__12 = meta.hasSetter("richType.richProperty");
+            boolean o_shouldCheckSetterExistancelitString39867__13 = meta.hasSetter("richType.richList");
+            boolean o_shouldCheckSetterExistancelitString39867__14 = meta.hasSetter("richType.richMap");
+            boolean o_shouldCheckSetterExistancelitString39867__15 = meta.hasSetter("richType.richList[0]");
+            boolean o_shouldCheckSetterExistancelitString39867__16 = meta.hasSetter("[0]");
+            meta.getGetInvoker(__DSPOT_name_8703);
+            org.junit.Assert.fail("shouldCheckSetterExistancelitString39867_add48326_mg70108 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'Cnb.&uW+h]>x& =&{;tA\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckSetterExistance_mg39976_mg49865_failAssert247_add69459() throws Exception {
+        try {
+            String __DSPOT_name_7061 = "gSPH{7K};jM;>Hlt28]o";
+            String __DSPOT_name_7033 = "b##]WkD|]TUv)|s},qp>";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
             Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-            MetaClass meta = null;
-            meta.hasSetter("richField");
-            meta.hasSetter("richProperty");
-            meta.hasSetter("richList");
-            meta.hasSetter("richMap");
-            meta.hasSetter(null);
-            meta.hasSetter("richType");
-            meta.hasSetter("richType.richField");
-            meta.hasSetter("richType.richProperty");
-            meta.hasSetter("richType.richList");
-            meta.hasSetter("richType.richMap");
-            meta.hasSetter("richType.richList[0]");
-            meta.hasSetter("[0]");
-            org.junit.Assert.fail("shouldCheckSetterExistancenull57719 should have thrown NullPointerException");
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            boolean o_shouldCheckSetterExistance_mg39976__6 = meta.hasSetter("richField");
+            boolean o_shouldCheckSetterExistance_mg39976__7 = meta.hasSetter("richProperty");
+            boolean o_shouldCheckSetterExistance_mg39976__8 = meta.hasSetter("richList");
+            boolean o_shouldCheckSetterExistance_mg39976__9 = meta.hasSetter("richMap");
+            boolean o_shouldCheckSetterExistance_mg39976__10 = meta.hasSetter("richList[0]");
+            boolean o_shouldCheckSetterExistance_mg39976__11 = meta.hasSetter("richType");
+            boolean o_shouldCheckSetterExistance_mg39976__12 = meta.hasSetter("richType.richField");
+            boolean o_shouldCheckSetterExistance_mg39976_mg49865_failAssert247_add69459__30 = meta.hasSetter("richType.richProperty");
+            Assert.assertTrue(o_shouldCheckSetterExistance_mg39976_mg49865_failAssert247_add69459__30);
+            boolean o_shouldCheckSetterExistance_mg39976__13 = meta.hasSetter("richType.richProperty");
+            boolean o_shouldCheckSetterExistance_mg39976__14 = meta.hasSetter("richType.richList");
+            boolean o_shouldCheckSetterExistance_mg39976__15 = meta.hasSetter("richType.richMap");
+            boolean o_shouldCheckSetterExistance_mg39976__16 = meta.hasSetter("richType.richList[0]");
+            boolean o_shouldCheckSetterExistance_mg39976__17 = meta.hasSetter("[0]");
+            boolean o_shouldCheckSetterExistance_mg39976__18 = meta.hasGetter(__DSPOT_name_7033);
+            meta.getSetInvoker(__DSPOT_name_7061);
+            org.junit.Assert.fail("shouldCheckSetterExistance_mg39976_mg49865 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckSetterExistancelitString39866_mg50050litString53487() throws Exception {
+        String __DSPOT_name_7266 = "eV*LJBllSUb#F?kVkCM}";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        boolean o_shouldCheckSetterExistancelitString39866__5 = meta.hasSetter("");
+        boolean o_shouldCheckSetterExistancelitString39866__6 = meta.hasSetter("richProperty");
+        boolean o_shouldCheckSetterExistancelitString39866__7 = meta.hasSetter("richList");
+        boolean o_shouldCheckSetterExistancelitString39866__8 = meta.hasSetter("richMap");
+        boolean o_shouldCheckSetterExistancelitString39866__9 = meta.hasSetter("richList[0]");
+        boolean o_shouldCheckSetterExistancelitString39866__10 = meta.hasSetter("richType");
+        boolean o_shouldCheckSetterExistancelitString39866__11 = meta.hasSetter("richType.richField");
+        boolean o_shouldCheckSetterExistancelitString39866__12 = meta.hasSetter("richType.richProperty");
+        boolean o_shouldCheckSetterExistancelitString39866__13 = meta.hasSetter("`ichType.richList");
+        boolean o_shouldCheckSetterExistancelitString39866__14 = meta.hasSetter("richType.richMap");
+        boolean o_shouldCheckSetterExistancelitString39866__15 = meta.hasSetter("richType.richList[0]");
+        boolean o_shouldCheckSetterExistancelitString39866__16 = meta.hasSetter("[0]");
+        meta.findProperty(__DSPOT_name_7266);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckSetterExistance_mg39971_add47706_remove69807() throws Exception {
+        boolean __DSPOT_useCamelCaseMapping_7028 = true;
+        String __DSPOT_name_7027 = "1SySTS+]lp0-uxx13oWD";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        boolean o_shouldCheckSetterExistance_mg39971__7 = meta.hasSetter("richField");
+        boolean o_shouldCheckSetterExistance_mg39971__8 = meta.hasSetter("richProperty");
+        boolean o_shouldCheckSetterExistance_mg39971__9 = meta.hasSetter("richList");
+        boolean o_shouldCheckSetterExistance_mg39971__10 = meta.hasSetter("richMap");
+        boolean o_shouldCheckSetterExistance_mg39971__11 = meta.hasSetter("richList[0]");
+        boolean o_shouldCheckSetterExistance_mg39971__12 = meta.hasSetter("richType");
+        boolean o_shouldCheckSetterExistance_mg39971__13 = meta.hasSetter("richType.richField");
+        boolean o_shouldCheckSetterExistance_mg39971__14 = meta.hasSetter("richType.richProperty");
+        boolean o_shouldCheckSetterExistance_mg39971__15 = meta.hasSetter("richType.richList");
+        boolean o_shouldCheckSetterExistance_mg39971__16 = meta.hasSetter("richType.richMap");
+        boolean o_shouldCheckSetterExistance_mg39971__17 = meta.hasSetter("richType.richList[0]");
+        boolean o_shouldCheckSetterExistance_mg39971__18 = meta.hasSetter("[0]");
+        meta.findProperty(__DSPOT_name_7027, __DSPOT_useCamelCaseMapping_7028);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckSetterExistancelitString39865_mg50060litBool66467() throws Exception {
+        boolean __DSPOT_useCamelCaseMapping_7278 = false;
+        String __DSPOT_name_7277 = "t.1Q[=nm@hU}RO)/Kkb3";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        boolean o_shouldCheckSetterExistancelitString39865__5 = meta.hasSetter("y[BFPhp]H");
+        boolean o_shouldCheckSetterExistancelitString39865__6 = meta.hasSetter("richProperty");
+        boolean o_shouldCheckSetterExistancelitString39865__7 = meta.hasSetter("richList");
+        boolean o_shouldCheckSetterExistancelitString39865__8 = meta.hasSetter("richMap");
+        boolean o_shouldCheckSetterExistancelitString39865__9 = meta.hasSetter("richList[0]");
+        boolean o_shouldCheckSetterExistancelitString39865__10 = meta.hasSetter("richType");
+        boolean o_shouldCheckSetterExistancelitString39865__11 = meta.hasSetter("richType.richField");
+        boolean o_shouldCheckSetterExistancelitString39865__12 = meta.hasSetter("richType.richProperty");
+        boolean o_shouldCheckSetterExistancelitString39865__13 = meta.hasSetter("richType.richList");
+        boolean o_shouldCheckSetterExistancelitString39865__14 = meta.hasSetter("richType.richMap");
+        boolean o_shouldCheckSetterExistancelitString39865__15 = meta.hasSetter("richType.richList[0]");
+        boolean o_shouldCheckSetterExistancelitString39865__16 = meta.hasSetter("[0]");
+        meta.findProperty(__DSPOT_name_7277, __DSPOT_useCamelCaseMapping_7278);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckSetterExistance_mg39971null51203_failAssert266litBool66476() throws Exception {
+        try {
+            boolean __DSPOT_useCamelCaseMapping_7028 = false;
+            String __DSPOT_name_7027 = "1SySTS+]lp0-uxx13oWD";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            boolean o_shouldCheckSetterExistance_mg39971__7 = meta.hasSetter(null);
+            boolean o_shouldCheckSetterExistance_mg39971__8 = meta.hasSetter("richProperty");
+            boolean o_shouldCheckSetterExistance_mg39971__9 = meta.hasSetter("richList");
+            boolean o_shouldCheckSetterExistance_mg39971__10 = meta.hasSetter("richMap");
+            boolean o_shouldCheckSetterExistance_mg39971__11 = meta.hasSetter("richList[0]");
+            boolean o_shouldCheckSetterExistance_mg39971__12 = meta.hasSetter("richType");
+            boolean o_shouldCheckSetterExistance_mg39971__13 = meta.hasSetter("richType.richField");
+            boolean o_shouldCheckSetterExistance_mg39971__14 = meta.hasSetter("richType.richProperty");
+            boolean o_shouldCheckSetterExistance_mg39971__15 = meta.hasSetter("richType.richList");
+            boolean o_shouldCheckSetterExistance_mg39971__16 = meta.hasSetter("richType.richMap");
+            boolean o_shouldCheckSetterExistance_mg39971__17 = meta.hasSetter("richType.richList[0]");
+            boolean o_shouldCheckSetterExistance_mg39971__18 = meta.hasSetter("[0]");
+            meta.findProperty(__DSPOT_name_7027, __DSPOT_useCamelCaseMapping_7028);
+            org.junit.Assert.fail("shouldCheckSetterExistance_mg39971null51203 should have thrown NullPointerException");
         } catch (NullPointerException expected) {
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckTypeForEachGetternull98449() throws Exception {
+    public void shouldCheckSetterExistancelitString39862_mg50498_mg70462_failAssert270() throws Exception {
+        try {
+            String __DSPOT_name_9096 = "qT8_}Fd[%VWRN1s1mfG3";
+            String __DSPOT_name_7764 = "[%TA1qH/L2/6,vPT,i[6";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            boolean o_shouldCheckSetterExistancelitString39862__5 = meta.hasSetter("r6chField");
+            boolean o_shouldCheckSetterExistancelitString39862__6 = meta.hasSetter("richProperty");
+            boolean o_shouldCheckSetterExistancelitString39862__7 = meta.hasSetter("richList");
+            boolean o_shouldCheckSetterExistancelitString39862__8 = meta.hasSetter("richMap");
+            boolean o_shouldCheckSetterExistancelitString39862__9 = meta.hasSetter("richList[0]");
+            boolean o_shouldCheckSetterExistancelitString39862__10 = meta.hasSetter("richType");
+            boolean o_shouldCheckSetterExistancelitString39862__11 = meta.hasSetter("richType.richField");
+            boolean o_shouldCheckSetterExistancelitString39862__12 = meta.hasSetter("richType.richProperty");
+            boolean o_shouldCheckSetterExistancelitString39862__13 = meta.hasSetter("richType.richList");
+            boolean o_shouldCheckSetterExistancelitString39862__14 = meta.hasSetter("richType.richMap");
+            boolean o_shouldCheckSetterExistancelitString39862__15 = meta.hasSetter("richType.richList[0]");
+            boolean o_shouldCheckSetterExistancelitString39862__16 = meta.hasSetter("[0]");
+            boolean o_shouldCheckSetterExistancelitString39862_mg50498__42 = meta.hasSetter(__DSPOT_name_7764);
+            meta.getSetterType(__DSPOT_name_9096);
+            org.junit.Assert.fail("shouldCheckSetterExistancelitString39862_mg50498_mg70462 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no setter for property named \'qT8_}Fd\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckSetterExistancelitString39901_mg50782_failAssert222_rv72079() throws Exception {
+        try {
+            String __DSPOT_arg0_10626 = "o0vT7Gbl+O|+,aEN,mV+";
+            String __DSPOT_name_8080 = "#@bt#/.;Lv=8k.SE1Ib[";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            boolean o_shouldCheckSetterExistancelitString39901__5 = meta.hasSetter("richField");
+            boolean o_shouldCheckSetterExistancelitString39901__6 = meta.hasSetter("richProperty");
+            boolean o_shouldCheckSetterExistancelitString39901__7 = meta.hasSetter("richList");
+            boolean o_shouldCheckSetterExistancelitString39901__8 = meta.hasSetter("richMap");
+            boolean o_shouldCheckSetterExistancelitString39901__9 = meta.hasSetter("richList[0]");
+            boolean o_shouldCheckSetterExistancelitString39901__10 = meta.hasSetter("richType.richList");
+            boolean o_shouldCheckSetterExistancelitString39901__11 = meta.hasSetter("richType.richField");
+            boolean o_shouldCheckSetterExistancelitString39901__12 = meta.hasSetter("richType.richProperty");
+            boolean o_shouldCheckSetterExistancelitString39901__13 = meta.hasSetter("richType.richList");
+            boolean o_shouldCheckSetterExistancelitString39901__14 = meta.hasSetter("richType.richList");
+            boolean o_shouldCheckSetterExistancelitString39901__15 = meta.hasSetter("richType.richMap");
+            boolean o_shouldCheckSetterExistancelitString39901__16 = meta.hasSetter("richType.richList[0]");
+            boolean o_shouldCheckSetterExistancelitString39901__17 = meta.hasSetter("[0]");
+            Class<?> __DSPOT_invoc_47 = meta.getGetterType(__DSPOT_name_8080);
+            org.junit.Assert.fail("shouldCheckSetterExistancelitString39901_mg50782 should have thrown ReflectionException");
+            __DSPOT_invoc_47.getResourceAsStream(__DSPOT_arg0_10626);
+        } catch (ReflectionException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckSetterExistance_mg39970_add47646_mg70218_failAssert293() throws Exception {
+        try {
+            String __DSPOT_name_8825 = ":/V9^*l!ZS>*in!(;hRG";
+            String __DSPOT_name_7026 = "{/-?3v<jw>iRvBSnIN{P";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            boolean o_shouldCheckSetterExistance_mg39970__6 = meta.hasSetter("richField");
+            boolean o_shouldCheckSetterExistance_mg39970__7 = meta.hasSetter("richProperty");
+            boolean o_shouldCheckSetterExistance_mg39970__8 = meta.hasSetter("richList");
+            boolean o_shouldCheckSetterExistance_mg39970__9 = meta.hasSetter("richMap");
+            boolean o_shouldCheckSetterExistance_mg39970_add47646__18 = meta.hasSetter("richList[0]");
+            boolean o_shouldCheckSetterExistance_mg39970__10 = meta.hasSetter("richList[0]");
+            boolean o_shouldCheckSetterExistance_mg39970__11 = meta.hasSetter("richType");
+            boolean o_shouldCheckSetterExistance_mg39970__12 = meta.hasSetter("richType.richField");
+            boolean o_shouldCheckSetterExistance_mg39970__13 = meta.hasSetter("richType.richProperty");
+            boolean o_shouldCheckSetterExistance_mg39970__14 = meta.hasSetter("richType.richList");
+            boolean o_shouldCheckSetterExistance_mg39970__15 = meta.hasSetter("richType.richMap");
+            boolean o_shouldCheckSetterExistance_mg39970__16 = meta.hasSetter("richType.richList[0]");
+            boolean o_shouldCheckSetterExistance_mg39970__17 = meta.hasSetter("[0]");
+            meta.findProperty(__DSPOT_name_7026);
+            meta.getSetInvoker(__DSPOT_name_8825);
+            org.junit.Assert.fail("shouldCheckSetterExistance_mg39970_add47646_mg70218 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no setter for property named \':/V9^*l!ZS>*in!(;hRG\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckSetterExistance_add39964litString41983_add68985() throws Exception {
         ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
         Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
         MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
         Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        meta.getGetterType("richField");
-        meta.getGetterType("richProperty");
-        meta.getGetterType("richList");
-        meta.getGetterType("richMap");
-        meta.getGetterType("richList[0]");
-        meta.getGetterType("richType");
-        meta.getGetterType("richType.richField");
-        meta.getGetterType("richType.richProperty");
-        meta.getGetterType("richType.richList");
-        meta.getGetterType("richType.richMap");
-        meta.getGetterType("richType.richList[0]");
+        boolean o_shouldCheckSetterExistance_add39964__5 = meta.hasSetter("richField");
+        boolean o_shouldCheckSetterExistance_add39964__6 = meta.hasSetter("richProperty");
+        boolean o_shouldCheckSetterExistance_add39964__7 = meta.hasSetter("richList");
+        boolean o_shouldCheckSetterExistance_add39964__8 = meta.hasSetter("richMap");
+        boolean o_shouldCheckSetterExistance_add39964__9 = meta.hasSetter("richList[0]");
+        boolean o_shouldCheckSetterExistance_add39964__10 = meta.hasSetter("richType");
+        boolean o_shouldCheckSetterExistance_add39964__11 = meta.hasSetter("richType.richField");
+        boolean o_shouldCheckSetterExistance_add39964litString41983_add68985__26 = meta.hasSetter("richType.9ichField");
+        Assert.assertFalse(o_shouldCheckSetterExistance_add39964litString41983_add68985__26);
+        boolean o_shouldCheckSetterExistance_add39964__12 = meta.hasSetter("richType.9ichField");
+        boolean o_shouldCheckSetterExistance_add39964__13 = meta.hasSetter("richType.richProperty");
+        boolean o_shouldCheckSetterExistance_add39964__14 = meta.hasSetter("richType.richList");
+        boolean o_shouldCheckSetterExistance_add39964__15 = meta.hasSetter("richType.richMap");
+        boolean o_shouldCheckSetterExistance_add39964__16 = meta.hasSetter("richType.richList[0]");
+        boolean o_shouldCheckSetterExistance_add39964__17 = meta.hasSetter("[0]");
         Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
         Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        Assert.assertFalse(o_shouldCheckSetterExistance_add39964litString41983_add68985__26);
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckTypeForEachGetterlitString98339_failAssert173() throws Exception {
+    public void shouldCheckTypeForEachGetter_mg75135_failAssert308() throws Exception {
         try {
+            String __DSPOT_name_10691 = "eY;13xI5#]@fG5l]Syx>";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
             meta.getGetterType("richField");
             meta.getGetterType("richProperty");
             meta.getGetterType("richList");
-            meta.getGetterType("[itTEN8");
+            meta.getGetterType("richMap");
             meta.getGetterType("richList[0]");
             meta.getGetterType("richType");
             meta.getGetterType("richType.richField");
@@ -1254,18 +2524,112 @@ public class AmplMetaClassTest {
             meta.getGetterType("richType.richList");
             meta.getGetterType("richType.richMap");
             meta.getGetterType("richType.richList[0]");
-            org.junit.Assert.fail("shouldCheckTypeForEachGetterlitString98339 should have thrown ReflectionException");
+            meta.getSetInvoker(__DSPOT_name_10691);
+            org.junit.Assert.fail("shouldCheckTypeForEachGetter_mg75135 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no setter for property named \'eY;13xI5#]@fG5l]Syx>\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckTypeForEachGetter_mg75133_failAssert310() throws Exception {
+        try {
+            String __DSPOT_name_10689 = "YtA{Ig+1iM$S?Y]DhA8[";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.getGetterType("richField");
+            meta.getGetterType("richProperty");
+            meta.getGetterType("richList");
+            meta.getGetterType("richMap");
+            meta.getGetterType("richList[0]");
+            meta.getGetterType("richType");
+            meta.getGetterType("richType.richField");
+            meta.getGetterType("richType.richProperty");
+            meta.getGetterType("richType.richList");
+            meta.getGetterType("richType.richMap");
+            meta.getGetterType("richType.richList[0]");
+            meta.getGetInvoker(__DSPOT_name_10689);
+            org.junit.Assert.fail("shouldCheckTypeForEachGetter_mg75133 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'YtA{Ig+1iM$S?Y]DhA8[\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckTypeForEachGetterlitString75090_failAssert343() throws Exception {
+        try {
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.getGetterType("richField");
+            meta.getGetterType("richProperty");
+            meta.getGetterType("richList");
+            meta.getGetterType("richMap");
+            meta.getGetterType("richList[0]");
+            meta.getGetterType("richType");
+            meta.getGetterType("richType.richField");
+            meta.getGetterType("richTpe.richProperty");
+            meta.getGetterType("richType.richList");
+            meta.getGetterType("richType.richMap");
+            meta.getGetterType("richType.richList[0]");
+            org.junit.Assert.fail("shouldCheckTypeForEachGetterlitString75090 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'richTpe\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckTypeForEachGetter_mg75132_failAssert311() throws Exception {
+        try {
+            boolean __DSPOT_useCamelCaseMapping_10688 = false;
+            String __DSPOT_name_10687 = "2IqnLBR7}4[.AH5uZ#}W";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.getGetterType("richField");
+            meta.getGetterType("richProperty");
+            meta.getGetterType("richList");
+            meta.getGetterType("richMap");
+            meta.getGetterType("richList[0]");
+            meta.getGetterType("richType");
+            meta.getGetterType("richType.richField");
+            meta.getGetterType("richType.richProperty");
+            meta.getGetterType("richType.richList");
+            meta.getGetterType("richType.richMap");
+            meta.getGetterType("richType.richList[0]");
+            meta.findProperty(__DSPOT_name_10687, __DSPOT_useCamelCaseMapping_10688);
+            org.junit.Assert.fail("shouldCheckTypeForEachGetter_mg75132 should have thrown StringIndexOutOfBoundsException");
+        } catch (StringIndexOutOfBoundsException expected) {
+            Assert.assertEquals("String index out of range: -1", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckTypeForEachGetterlitString75036_failAssert379() throws Exception {
+        try {
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.getGetterType("");
+            meta.getGetterType("richProperty");
+            meta.getGetterType("richList");
+            meta.getGetterType("richMap");
+            meta.getGetterType("richList[0]");
+            meta.getGetterType("richType");
+            meta.getGetterType("richType.richField");
+            meta.getGetterType("richType.richProperty");
+            meta.getGetterType("richType.richList");
+            meta.getGetterType("richType.richMap");
+            meta.getGetterType("richType.richList[0]");
+            org.junit.Assert.fail("shouldCheckTypeForEachGetterlitString75036 should have thrown ReflectionException");
         } catch (ReflectionException expected) {
             Assert.assertEquals("There is no getter for property named \'\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckTypeForEachGetterlitString98313_failAssert149() throws Exception {
+    public void shouldCheckTypeForEachGetterlitString75037_failAssert380() throws Exception {
         try {
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            meta.getGetterType("ricNhField");
+            meta.getGetterType("\n");
             meta.getGetterType("richProperty");
             meta.getGetterType("richList");
             meta.getGetterType("richMap");
@@ -1276,133 +2640,38 @@ public class AmplMetaClassTest {
             meta.getGetterType("richType.richList");
             meta.getGetterType("richType.richMap");
             meta.getGetterType("richType.richList[0]");
-            org.junit.Assert.fail("shouldCheckTypeForEachGetterlitString98313 should have thrown ReflectionException");
+            org.junit.Assert.fail("shouldCheckTypeForEachGetterlitString75037 should have thrown ReflectionException");
         } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'ricNhField\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+            Assert.assertEquals("There is no getter for property named \'\n\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckTypeForEachGetter_mg98416_failAssert227() throws Exception {
-        try {
-            String __DSPOT_name_9179 = " xL89JOU.YCW?LNB(*+*";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            meta.getGetterType("richField");
-            meta.getGetterType("richProperty");
-            meta.getGetterType("richList");
-            meta.getGetterType("richMap");
-            meta.getGetterType("richList[0]");
-            meta.getGetterType("richType");
-            meta.getGetterType("richType.richField");
-            meta.getGetterType("richType.richProperty");
-            meta.getGetterType("richType.richList");
-            meta.getGetterType("richType.richMap");
-            meta.getGetterType("richType.richList[0]");
-            meta.getSetInvoker(__DSPOT_name_9179);
-            org.junit.Assert.fail("shouldCheckTypeForEachGetter_mg98416 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \' xL89JOU.YCW?LNB(*+*\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckTypeForEachGetterlitString98360_failAssert190() throws Exception {
-        try {
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            meta.getGetterType("richField");
-            meta.getGetterType("richProperty");
-            meta.getGetterType("richList");
-            meta.getGetterType("richMap");
-            meta.getGetterType("richList[0]");
-            meta.getGetterType("richType");
-            meta.getGetterType("riShType.richField");
-            meta.getGetterType("richType.richProperty");
-            meta.getGetterType("richType.richList");
-            meta.getGetterType("richType.richMap");
-            meta.getGetterType("richType.richList[0]");
-            org.junit.Assert.fail("shouldCheckTypeForEachGetterlitString98360 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'riShType\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckTypeForEachGetter_mg98418_failAssert228() throws Exception {
-        try {
-            String __DSPOT_name_9180 = ")=i_)zxDe:&<K=LiE1-t";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            meta.getGetterType("richField");
-            meta.getGetterType("richProperty");
-            meta.getGetterType("richList");
-            meta.getGetterType("richMap");
-            meta.getGetterType("richList[0]");
-            meta.getGetterType("richType");
-            meta.getGetterType("richType.richField");
-            meta.getGetterType("richType.richProperty");
-            meta.getGetterType("richType.richList");
-            meta.getGetterType("richType.richMap");
-            meta.getGetterType("richType.richList[0]");
-            meta.getSetterType(__DSPOT_name_9180);
-            org.junit.Assert.fail("shouldCheckTypeForEachGetter_mg98418 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \')=i_)zxDe:&<K=LiE1-t\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckTypeForEachGetter_mg98413_failAssert225() throws Exception {
-        try {
-            String __DSPOT_name_9177 = "37+()2Q9+##>(w}/),&v";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            meta.getGetterType("richField");
-            meta.getGetterType("richProperty");
-            meta.getGetterType("richList");
-            meta.getGetterType("richMap");
-            meta.getGetterType("richList[0]");
-            meta.getGetterType("richType");
-            meta.getGetterType("richType.richField");
-            meta.getGetterType("richType.richProperty");
-            meta.getGetterType("richType.richList");
-            meta.getGetterType("richType.richMap");
-            meta.getGetterType("richType.richList[0]");
-            meta.getGetInvoker(__DSPOT_name_9177);
-            org.junit.Assert.fail("shouldCheckTypeForEachGetter_mg98413 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'37+()2Q9+##>(w}/),&v\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckTypeForEachGetter_mg98411() throws Exception {
-        String __DSPOT_name_9174 = "!d*H0P(x `Z?4=:W.7]*";
+    public void shouldCheckTypeForEachGetterlitString75039() throws Exception {
         ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
         Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
         MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
         Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
         meta.getGetterType("richField");
-        meta.getGetterType("richProperty");
+        meta.getGetterType("richType");
+        meta.getGetterType("richType");
         meta.getGetterType("richList");
         meta.getGetterType("richMap");
         meta.getGetterType("richList[0]");
-        meta.getGetterType("richType");
         meta.getGetterType("richType.richField");
         meta.getGetterType("richType.richProperty");
         meta.getGetterType("richType.richList");
         meta.getGetterType("richType.richMap");
         meta.getGetterType("richType.richList[0]");
-        meta.findProperty(__DSPOT_name_9174);
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckTypeForEachGetter_add98399_mg164905_failAssert313() throws Exception {
+    public void shouldCheckTypeForEachGetter_mg75136_failAssert307() throws Exception {
         try {
-            String __DSPOT_name_21807 = "[V$&W8u?cdO%aI0w]D)*";
+            String __DSPOT_name_10692 = "&,o-I :y<9&ISL_pfIpo";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckTypeForEachGetter_add98399__3 = MetaClass.forClass(RichType.class, reflectorFactory);
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
             meta.getGetterType("richField");
             meta.getGetterType("richProperty");
@@ -1415,99 +2684,139 @@ public class AmplMetaClassTest {
             meta.getGetterType("richType.richList");
             meta.getGetterType("richType.richMap");
             meta.getGetterType("richType.richList[0]");
-            o_shouldCheckTypeForEachGetter_add98399__3.getGetInvoker(__DSPOT_name_21807);
-            org.junit.Assert.fail("shouldCheckTypeForEachGetter_add98399_mg164905 should have thrown ReflectionException");
+            meta.getSetterType(__DSPOT_name_10692);
+            org.junit.Assert.fail("shouldCheckTypeForEachGetter_mg75136 should have thrown ReflectionException");
         } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'[V$&W8u?cdO%aI0w]D)*\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+            Assert.assertEquals("There is no setter for property named \'&,o-I :y<9&ISL_pfIpo\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckTypeForEachGetter_add98399_mg164953() throws Exception {
-        String __DSPOT_name_21826 = "sb.$3GpXIzoP2U+#%e@#";
+    public void shouldCheckTypeForEachGetter_mg75136_failAssert307_add82109() throws Exception {
+        try {
+            String __DSPOT_name_10692 = "&,o-I :y<9&ISL_pfIpo";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            meta.getGetterType("richField");
+            meta.getGetterType("richProperty");
+            meta.getGetterType("richList");
+            meta.getGetterType("richMap");
+            meta.getGetterType("richList[0]");
+            meta.getGetterType("richList[0]");
+            meta.getGetterType("richType");
+            meta.getGetterType("richType.richField");
+            meta.getGetterType("richType.richProperty");
+            meta.getGetterType("richType.richList");
+            meta.getGetterType("richType.richMap");
+            meta.getGetterType("richType.richList[0]");
+            meta.getSetterType(__DSPOT_name_10692);
+            org.junit.Assert.fail("shouldCheckTypeForEachGetter_mg75136 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckTypeForEachGetterlitString75111_remove83572() throws Exception {
         ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
         Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldCheckTypeForEachGetter_add98399__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldCheckTypeForEachGetter_add98399__3)).hasDefaultConstructor());
         MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
         Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
         meta.getGetterType("richField");
         meta.getGetterType("richProperty");
         meta.getGetterType("richList");
         meta.getGetterType("richMap");
-        meta.getGetterType("richList[0]");
         meta.getGetterType("richType");
         meta.getGetterType("richType.richField");
-        meta.getGetterType("richType.richProperty");
-        meta.getGetterType("richType.richList");
-        meta.getGetterType("richType.richMap");
-        meta.getGetterType("richType.richList[0]");
-        boolean o_shouldCheckTypeForEachGetter_add98399_mg164953__20 = meta.hasGetter(__DSPOT_name_21826);
-        Assert.assertFalse(o_shouldCheckTypeForEachGetter_add98399_mg164953__20);
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        Assert.assertTrue(((MetaClass) (o_shouldCheckTypeForEachGetter_add98399__3)).hasDefaultConstructor());
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckTypeForEachGetter_add98399_mg164936_failAssert321() throws Exception {
-        try {
-            String __DSPOT_name_21820 = "C-fH6KD^1$L YT<@@aZ ";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckTypeForEachGetter_add98399__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            meta.getGetterType("richField");
-            meta.getGetterType("richProperty");
-            meta.getGetterType("richList");
-            meta.getGetterType("richMap");
-            meta.getGetterType("richList[0]");
-            meta.getGetterType("richType");
-            meta.getGetterType("richType.richField");
-            meta.getGetterType("richType.richProperty");
-            meta.getGetterType("richType.richList");
-            meta.getGetterType("richType.richMap");
-            meta.getGetterType("richType.richList[0]");
-            meta.getGetterType(__DSPOT_name_21820);
-            org.junit.Assert.fail("shouldCheckTypeForEachGetter_add98399_mg164936 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'C-fH6KD^1$L YT<@@aZ \' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckTypeForEachGetter_add98399_mg164957() throws Exception {
-        String __DSPOT_name_21827 = "MN>V5O)7G5pV_^CY.BAh";
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldCheckTypeForEachGetter_add98399__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldCheckTypeForEachGetter_add98399__3)).hasDefaultConstructor());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        meta.getGetterType("richField");
-        meta.getGetterType("richProperty");
-        meta.getGetterType("richList");
-        meta.getGetterType("richMap");
-        meta.getGetterType("richList[0]");
-        meta.getGetterType("richType");
         meta.getGetterType("richType.richField");
         meta.getGetterType("richType.richProperty");
         meta.getGetterType("richType.richList");
         meta.getGetterType("richType.richMap");
-        meta.getGetterType("richType.richList[0]");
-        boolean o_shouldCheckTypeForEachGetter_add98399_mg164957__20 = meta.hasSetter(__DSPOT_name_21827);
-        Assert.assertFalse(o_shouldCheckTypeForEachGetter_add98399_mg164957__20);
         Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        Assert.assertTrue(((MetaClass) (o_shouldCheckTypeForEachGetter_add98399__3)).hasDefaultConstructor());
         Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckTypeForEachGetter_add98399_mg164915_failAssert305() throws Exception {
+    public void shouldCheckTypeForEachGetterlitString75054_failAssert371litString80398() throws Exception {
         try {
-            String __DSPOT_name_21810 = "!2]!Odyz<P=QAD<!hNvG";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckTypeForEachGetter_add98399__3 = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            meta.getGetterType("richField");
+            meta.getGetterType("richProperty");
+            meta.getGetterType(":");
+            meta.getGetterType("richMap");
+            meta.getGetterType("richList[0]");
+            meta.getGetterType("richType");
+            meta.getGetterType("richType.richField");
+            meta.getGetterType("richType.richProperty");
+            meta.getGetterType("richType.richList");
+            meta.getGetterType("rich8Type.richMap");
+            meta.getGetterType("richType.richList[0]");
+            org.junit.Assert.fail("shouldCheckTypeForEachGetterlitString75054 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckTypeForEachGetterlitString75111_mg83829_failAssert402() throws Exception {
+        try {
+            String __DSPOT_name_10899 = "<kwtD)&w`hJf,^j!%0|3";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.getGetterType("richField");
+            meta.getGetterType("richProperty");
+            meta.getGetterType("richList");
+            meta.getGetterType("richMap");
+            meta.getGetterType("richList[0]");
+            meta.getGetterType("richType");
+            meta.getGetterType("richType.richField");
+            meta.getGetterType("richType.richField");
+            meta.getGetterType("richType.richProperty");
+            meta.getGetterType("richType.richList");
+            meta.getGetterType("richType.richMap");
+            meta.getGetInvoker(__DSPOT_name_10899);
+            org.junit.Assert.fail("shouldCheckTypeForEachGetterlitString75111_mg83829 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'<kwtD)&w`hJf,^j!%0|3\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckTypeForEachGetterlitString75080_failAssert341_add82554() throws Exception {
+        try {
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            meta.getGetterType("richField");
+            meta.getGetterType("richProperty");
+            meta.getGetterType("richProperty");
+            meta.getGetterType("richList");
+            meta.getGetterType("richMap");
+            meta.getGetterType("richList[0]");
+            meta.getGetterType("richType");
+            meta.getGetterType("rtchType.richField");
+            meta.getGetterType("richType.richProperty");
+            meta.getGetterType("richType.richList");
+            meta.getGetterType("richType.richMap");
+            meta.getGetterType("richType.richList[0]");
+            org.junit.Assert.fail("shouldCheckTypeForEachGetterlitString75080 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckTypeForEachGetter_mg75132_failAssert311litBool81668() throws Exception {
+        try {
+            boolean __DSPOT_useCamelCaseMapping_10688 = true;
+            String __DSPOT_name_10687 = "2IqnLBR7}4[.AH5uZ#}W";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
             meta.getGetterType("richField");
             meta.getGetterType("richProperty");
             meta.getGetterType("richList");
@@ -1519,21 +2828,45 @@ public class AmplMetaClassTest {
             meta.getGetterType("richType.richList");
             meta.getGetterType("richType.richMap");
             meta.getGetterType("richType.richList[0]");
-            o_shouldCheckTypeForEachGetter_add98399__3.getSetterType(__DSPOT_name_21810);
-            org.junit.Assert.fail("shouldCheckTypeForEachGetter_add98399_mg164915 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'!2]!Odyz<P=QAD<!hNvG\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+            meta.findProperty(__DSPOT_name_10687, __DSPOT_useCamelCaseMapping_10688);
+            org.junit.Assert.fail("shouldCheckTypeForEachGetter_mg75132 should have thrown StringIndexOutOfBoundsException");
+        } catch (StringIndexOutOfBoundsException expected) {
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckTypeForEachGetter_add98399_mg164911_failAssert294() throws Exception {
+    public void shouldCheckTypeForEachGetterlitString75079litString76979_failAssert410() throws Exception {
         try {
-            String __DSPOT_name_21809 = "Zo*ob[2Z4xNdLU&Q{R=?";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckTypeForEachGetter_add98399__3 = MetaClass.forClass(RichType.class, reflectorFactory);
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
             meta.getGetterType("richField");
+            meta.getGetterType("richProperty");
+            meta.getGetterType("richList");
+            meta.getGetterType("richMap");
+            meta.getGetterType("richList[0]");
+            meta.getGetterType("richType");
+            meta.getGetterType("richProperty");
+            meta.getGetterType("richProperty");
+            meta.getGetterType("richType.richProperty");
+            meta.getGetterType(":");
+            meta.getGetterType("richType.richMap");
+            meta.getGetterType("richType.richList[0]");
+            org.junit.Assert.fail("shouldCheckTypeForEachGetterlitString75079litString76979 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \':\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckTypeForEachGetter_mg75132_failAssert311litBool81668_rv268477() throws Exception {
+        try {
+            boolean __DSPOT_useCamelCaseMapping_10688 = true;
+            String __DSPOT_name_10687 = "2IqnLBR7}4[.AH5uZ#}W";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            Class<?> __DSPOT_invoc_15 = meta.getGetterType("richField");
             meta.getGetterType("richProperty");
             meta.getGetterType("richList");
             meta.getGetterType("richMap");
@@ -1544,73 +2877,97 @@ public class AmplMetaClassTest {
             meta.getGetterType("richType.richList");
             meta.getGetterType("richType.richMap");
             meta.getGetterType("richType.richList[0]");
-            o_shouldCheckTypeForEachGetter_add98399__3.getSetInvoker(__DSPOT_name_21809);
-            org.junit.Assert.fail("shouldCheckTypeForEachGetter_add98399_mg164911 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'Zo*ob[2Z4xNdLU&Q{R=?\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+            meta.findProperty(__DSPOT_name_10687, __DSPOT_useCamelCaseMapping_10688);
+            org.junit.Assert.fail("shouldCheckTypeForEachGetter_mg75132 should have thrown StringIndexOutOfBoundsException");
+            __DSPOT_invoc_15.getMethods();
+        } catch (StringIndexOutOfBoundsException expected) {
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckTypeForEachGetter_add98399_rv166320() throws Exception {
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldCheckTypeForEachGetter_add98399__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldCheckTypeForEachGetter_add98399__3)).hasDefaultConstructor());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        meta.getGetterType("richField");
-        meta.getGetterType("richProperty");
-        meta.getGetterType("richList");
-        meta.getGetterType("richMap");
-        meta.getGetterType("richList[0]");
-        Class<?> __DSPOT_invoc_22 = meta.getGetterType("richType");
-        meta.getGetterType("richType.richField");
-        meta.getGetterType("richType.richProperty");
-        meta.getGetterType("richType.richList");
-        meta.getGetterType("richType.richMap");
-        meta.getGetterType("richType.richList[0]");
-        __DSPOT_invoc_22.getEnclosingConstructor();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        Assert.assertTrue(((MetaClass) (o_shouldCheckTypeForEachGetter_add98399__3)).hasDefaultConstructor());
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckTypeForEachGetter_add98399_mg164927() throws Exception {
-        boolean __DSPOT_useCamelCaseMapping_21817 = true;
-        String __DSPOT_name_21816 = "Y.%y@J8tFhG:|Vl7y}6&";
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldCheckTypeForEachGetter_add98399__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldCheckTypeForEachGetter_add98399__3)).hasDefaultConstructor());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        meta.getGetterType("richField");
-        meta.getGetterType("richProperty");
-        meta.getGetterType("richList");
-        meta.getGetterType("richMap");
-        meta.getGetterType("richList[0]");
-        meta.getGetterType("richType");
-        meta.getGetterType("richType.richField");
-        meta.getGetterType("richType.richProperty");
-        meta.getGetterType("richType.richList");
-        meta.getGetterType("richType.richMap");
-        meta.getGetterType("richType.richList[0]");
-        meta.findProperty(__DSPOT_name_21816, __DSPOT_useCamelCaseMapping_21817);
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckTypeForEachGetter_add98399_add164794_mg335093_failAssert413() throws Exception {
+    public void shouldCheckTypeForEachGetter_mg75136_failAssert307_add82109_rv224737() throws Exception {
         try {
-            String __DSPOT_name_54524 = "w?.[3xYZR(rC-Mt$c]B!";
+            String __DSPOT_name_10692 = "&,o-I :y<9&ISL_pfIpo";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckTypeForEachGetter_add98399__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass o_shouldCheckTypeForEachGetter_add98399_add164794__6 = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            meta.getGetterType("richField");
+            meta.getGetterType("richProperty");
+            meta.getGetterType("richList");
+            meta.getGetterType("richMap");
+            meta.getGetterType("richList[0]");
+            meta.getGetterType("richList[0]");
+            meta.getGetterType("richType");
+            meta.getGetterType("richType.richField");
+            meta.getGetterType("richType.richProperty");
+            meta.getGetterType("richType.richList");
+            meta.getGetterType("richType.richMap");
+            meta.getGetterType("richType.richList[0]");
+            Class<?> __DSPOT_invoc_26 = meta.getSetterType(__DSPOT_name_10692);
+            org.junit.Assert.fail("shouldCheckTypeForEachGetter_mg75136 should have thrown ReflectionException");
+            __DSPOT_invoc_26.isSynthetic();
+        } catch (ReflectionException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckTypeForEachGetterlitString75069_failAssert350litString79496litString167745() throws Exception {
+        try {
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            meta.getGetterType("richField");
+            meta.getGetterType("richProperty");
+            meta.getGetterType("richList");
+            meta.getGetterType("richMap");
+            meta.getGetterType("\n");
+            meta.getGetterType("richType");
+            meta.getGetterType("richType.richField");
+            meta.getGetterType("richType.richProperty");
+            meta.getGetterType("R5!C>-uXgm[A2D1O5");
+            meta.getGetterType("riAhType.richMap");
+            meta.getGetterType("richType.richList[0]");
+            org.junit.Assert.fail("shouldCheckTypeForEachGetterlitString75069 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckTypeForEachGetterlitString75071_remove83588litString165890_failAssert429() throws Exception {
+        try {
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
             meta.getGetterType("richField");
             meta.getGetterType("richProperty");
             meta.getGetterType("richList");
+            meta.getGetterType("richMap");
+            meta.getGetterType("richMap");
+            meta.getGetterType("ricRhList[0]");
+            meta.getGetterType("richType.richField");
+            meta.getGetterType("richType.richProperty");
+            meta.getGetterType("richType.richList");
+            meta.getGetterType("richType.richList[0]");
+            org.junit.Assert.fail("shouldCheckTypeForEachGetterlitString75071_remove83588litString165890 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'ricRhList\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckTypeForEachGetter_mg75133_failAssert310_add82150_add169674() throws Exception {
+        try {
+            String __DSPOT_name_10689 = "YtA{Ig+1iM$S?Y]DhA8[";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            meta.getGetterType("richField");
+            meta.getGetterType("richProperty");
+            meta.getGetterType("richList");
+            meta.getGetterType("richList");
+            meta.getGetterType("richMap");
             meta.getGetterType("richMap");
             meta.getGetterType("richList[0]");
             meta.getGetterType("richType");
@@ -1619,197 +2976,109 @@ public class AmplMetaClassTest {
             meta.getGetterType("richType.richList");
             meta.getGetterType("richType.richMap");
             meta.getGetterType("richType.richList[0]");
-            o_shouldCheckTypeForEachGetter_add98399_add164794__6.getSetterType(__DSPOT_name_54524);
-            org.junit.Assert.fail("shouldCheckTypeForEachGetter_add98399_add164794_mg335093 should have thrown ReflectionException");
+            meta.getGetInvoker(__DSPOT_name_10689);
+            org.junit.Assert.fail("shouldCheckTypeForEachGetter_mg75133 should have thrown ReflectionException");
         } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'w?\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckTypeForEachGetter_add98399_add164794_mg335054() throws Exception {
-        boolean __DSPOT_useCamelCaseMapping_54508 = false;
-        String __DSPOT_name_54507 = "d4&g&zCyW]7#7z;z.FV{";
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldCheckTypeForEachGetter_add98399__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldCheckTypeForEachGetter_add98399__3)).hasDefaultConstructor());
-        MetaClass o_shouldCheckTypeForEachGetter_add98399_add164794__6 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldCheckTypeForEachGetter_add98399_add164794__6)).hasDefaultConstructor());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        meta.getGetterType("richField");
-        meta.getGetterType("richProperty");
-        meta.getGetterType("richList");
-        meta.getGetterType("richMap");
-        meta.getGetterType("richList[0]");
-        meta.getGetterType("richType");
-        meta.getGetterType("richType.richField");
-        meta.getGetterType("richType.richProperty");
-        meta.getGetterType("richType.richList");
-        meta.getGetterType("richType.richMap");
-        meta.getGetterType("richType.richList[0]");
-        o_shouldCheckTypeForEachGetter_add98399__3.findProperty(__DSPOT_name_54507, __DSPOT_useCamelCaseMapping_54508);
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckTypeForEachGetter_add98399_add164791_mg338465_failAssert395() throws Exception {
+    public void shouldCheckTypeForEachGetterlitString75071_remove83588_mg172919_failAssert432() throws Exception {
         try {
-            String __DSPOT_name_55168 = "5gU`S`hGCR[hb;d^w{-v";
+            String __DSPOT_name_29308 = "C2Ze_UU}{W?.zxH282;Y";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckTypeForEachGetter_add98399_add164791__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass o_shouldCheckTypeForEachGetter_add98399__3 = MetaClass.forClass(RichType.class, reflectorFactory);
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
             meta.getGetterType("richField");
             meta.getGetterType("richProperty");
             meta.getGetterType("richList");
             meta.getGetterType("richMap");
+            meta.getGetterType("richMap");
             meta.getGetterType("richList[0]");
-            meta.getGetterType("richType");
             meta.getGetterType("richType.richField");
             meta.getGetterType("richType.richProperty");
             meta.getGetterType("richType.richList");
-            meta.getGetterType("richType.richMap");
             meta.getGetterType("richType.richList[0]");
-            o_shouldCheckTypeForEachGetter_add98399_add164791__3.getSetterType(__DSPOT_name_55168);
-            org.junit.Assert.fail("shouldCheckTypeForEachGetter_add98399_add164791_mg338465 should have thrown ReflectionException");
+            meta.getSetterType(__DSPOT_name_29308);
+            org.junit.Assert.fail("shouldCheckTypeForEachGetterlitString75071_remove83588_mg172919 should have thrown ReflectionException");
         } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'5gU`S`hGCR\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+            Assert.assertEquals("There is no getter for property named \'C2Ze_UU}{W?\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckTypeForEachGetter_add98399_add164794_rv337215() throws Exception {
-        Object __DSPOT_arg0_54963 = new Object();
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldCheckTypeForEachGetter_add98399__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldCheckTypeForEachGetter_add98399__3)).hasDefaultConstructor());
-        MetaClass o_shouldCheckTypeForEachGetter_add98399_add164794__6 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldCheckTypeForEachGetter_add98399_add164794__6)).hasDefaultConstructor());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        meta.getGetterType("richField");
-        meta.getGetterType("richProperty");
-        meta.getGetterType("richList");
-        meta.getGetterType("richMap");
-        meta.getGetterType("richList[0]");
-        meta.getGetterType("richType");
-        meta.getGetterType("richType.richField");
-        meta.getGetterType("richType.richProperty");
-        meta.getGetterType("richType.richList");
-        meta.getGetterType("richType.richMap");
-        Class<?> __DSPOT_invoc_33 = meta.getGetterType("richType.richList[0]");
-        boolean o_shouldCheckTypeForEachGetter_add98399_add164794_rv337215__26 = __DSPOT_invoc_33.isInstance(__DSPOT_arg0_54963);
-        Assert.assertFalse(o_shouldCheckTypeForEachGetter_add98399_add164794_rv337215__26);
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        Assert.assertTrue(((MetaClass) (o_shouldCheckTypeForEachGetter_add98399__3)).hasDefaultConstructor());
-        Assert.assertTrue(((MetaClass) (o_shouldCheckTypeForEachGetter_add98399_add164794__6)).hasDefaultConstructor());
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckTypeForEachGetter_add98399_add164794_mg335089_failAssert418() throws Exception {
+    public void shouldCheckTypeForEachGetterlitString75080_failAssert341_mg84202_add168685() throws Exception {
         try {
-            String __DSPOT_name_54522 = "{tE3_e$R%##Yi:?SN:;l";
+            String __DSPOT_name_11313 = "mFsn!K&%Zdw9gR.=h_jW";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckTypeForEachGetter_add98399__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass o_shouldCheckTypeForEachGetter_add98399_add164794__6 = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
             meta.getGetterType("richField");
             meta.getGetterType("richProperty");
             meta.getGetterType("richList");
             meta.getGetterType("richMap");
             meta.getGetterType("richList[0]");
-            meta.getGetterType("richType");
-            meta.getGetterType("richType.richField");
-            meta.getGetterType("richType.richProperty");
-            meta.getGetterType("richType.richList");
-            meta.getGetterType("richType.richMap");
-            meta.getGetterType("richType.richList[0]");
-            o_shouldCheckTypeForEachGetter_add98399_add164794__6.getSetInvoker(__DSPOT_name_54522);
-            org.junit.Assert.fail("shouldCheckTypeForEachGetter_add98399_add164794_mg335089 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'{tE3_e$R%##Yi:?SN:;l\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckTypeForEachGetter_add98399_add164794_mg335084_failAssert410() throws Exception {
-        try {
-            String __DSPOT_name_54520 = "K;fOm7,eqe9Cq?dNg=*]";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckTypeForEachGetter_add98399__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass o_shouldCheckTypeForEachGetter_add98399_add164794__6 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            meta.getGetterType("richField");
-            meta.getGetterType("richProperty");
-            meta.getGetterType("richList");
-            meta.getGetterType("richMap");
             meta.getGetterType("richList[0]");
             meta.getGetterType("richType");
-            meta.getGetterType("richType.richField");
+            meta.getGetterType("rtchType.richField");
             meta.getGetterType("richType.richProperty");
             meta.getGetterType("richType.richList");
             meta.getGetterType("richType.richMap");
             meta.getGetterType("richType.richList[0]");
-            o_shouldCheckTypeForEachGetter_add98399_add164794__6.getGetInvoker(__DSPOT_name_54520);
-            org.junit.Assert.fail("shouldCheckTypeForEachGetter_add98399_add164794_mg335084 should have thrown ReflectionException");
+            org.junit.Assert.fail("shouldCheckTypeForEachGetterlitString75080 should have thrown ReflectionException");
+            meta.hasGetter(__DSPOT_name_11313);
         } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'K;fOm7,eqe9Cq?dNg=*]\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckTypeForEachGetter_add98399_add164794_mg335105() throws Exception {
-        boolean __DSPOT_useCamelCaseMapping_54530 = true;
-        String __DSPOT_name_54529 = "Fiuob`1|$C$4n<#t#6py";
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldCheckTypeForEachGetter_add98399__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldCheckTypeForEachGetter_add98399__3)).hasDefaultConstructor());
-        MetaClass o_shouldCheckTypeForEachGetter_add98399_add164794__6 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldCheckTypeForEachGetter_add98399_add164794__6)).hasDefaultConstructor());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        meta.getGetterType("richField");
-        meta.getGetterType("richProperty");
-        meta.getGetterType("richList");
-        meta.getGetterType("richMap");
-        meta.getGetterType("richList[0]");
-        meta.getGetterType("richType");
-        meta.getGetterType("richType.richField");
-        meta.getGetterType("richType.richProperty");
-        meta.getGetterType("richType.richList");
-        meta.getGetterType("richType.richMap");
-        meta.getGetterType("richType.richList[0]");
-        meta.findProperty(__DSPOT_name_54529, __DSPOT_useCamelCaseMapping_54530);
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckTypeForEachSetternull362423() throws Exception {
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        meta.getSetterType("richField");
-        meta.getSetterType("richProperty");
-        meta.getSetterType("richList");
-        meta.getSetterType("richList[0]");
-        meta.getSetterType("richType");
-        meta.getSetterType("richType.richField");
-        meta.getSetterType("richType.richProperty");
-        meta.getSetterType("richType.richList");
-        meta.getSetterType("richType.richMap");
-        meta.getSetterType("richType.richList[0]");
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckTypeForEachSetter_mg362394_failAssert506() throws Exception {
+    public void shouldCheckTypeForEachSetterlitString296590_failAssert514() throws Exception {
         try {
-            String __DSPOT_name_59743 = "|=_!:bf[cAyO{.SY )9l";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.getSetterType("richField");
+            meta.getSetterType("richProperty");
+            meta.getSetterType("richList");
+            meta.getSetterType("richMap");
+            meta.getSetterType("richList[0]");
+            meta.getSetterType("richType");
+            meta.getSetterType("richType.richField");
+            meta.getSetterType("richType.richProperty");
+            meta.getSetterType("rchType.richList");
+            meta.getSetterType("richType.richMap");
+            meta.getSetterType("richType.richList[0]");
+            org.junit.Assert.fail("shouldCheckTypeForEachSetterlitString296590 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'rchType\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckTypeForEachSetterlitString296527_failAssert482() throws Exception {
+        try {
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.getSetterType(":Mbps!2_[");
+            meta.getSetterType("richProperty");
+            meta.getSetterType("richList");
+            meta.getSetterType("richMap");
+            meta.getSetterType("richList[0]");
+            meta.getSetterType("richType");
+            meta.getSetterType("richType.richField");
+            meta.getSetterType("richType.richProperty");
+            meta.getSetterType("richType.richList");
+            meta.getSetterType("richType.richMap");
+            meta.getSetterType("richType.richList[0]");
+            org.junit.Assert.fail("shouldCheckTypeForEachSetterlitString296527 should have thrown StringIndexOutOfBoundsException");
+        } catch (StringIndexOutOfBoundsException expected) {
+            Assert.assertEquals("String index out of range: -1", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckTypeForEachSetter_mg296627_failAssert439() throws Exception {
+        try {
+            String __DSPOT_name_56103 = "{p>8kc!.fXF/?`VnL6J/";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
             meta.getSetterType("richField");
@@ -1823,17 +3092,110 @@ public class AmplMetaClassTest {
             meta.getSetterType("richType.richList");
             meta.getSetterType("richType.richMap");
             meta.getSetterType("richType.richList[0]");
-            meta.getSetInvoker(__DSPOT_name_59743);
-            org.junit.Assert.fail("shouldCheckTypeForEachSetter_mg362394 should have thrown ReflectionException");
+            meta.getSetInvoker(__DSPOT_name_56103);
+            org.junit.Assert.fail("shouldCheckTypeForEachSetter_mg296627 should have thrown ReflectionException");
         } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'|=_!:bf[cAyO{.SY )9l\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+            Assert.assertEquals("There is no setter for property named \'{p>8kc!.fXF/?`VnL6J/\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckTypeForEachSetter_mg362390() throws Exception {
-        boolean __DSPOT_useCamelCaseMapping_59740 = true;
-        String __DSPOT_name_59739 = "QMnz?stqt`?U.}go+5H2";
+    public void shouldCheckTypeForEachSetter_mg296625_failAssert443() throws Exception {
+        try {
+            String __DSPOT_name_56101 = "}4W2]T(#:^}>$5g%&dDv";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.getSetterType("richField");
+            meta.getSetterType("richProperty");
+            meta.getSetterType("richList");
+            meta.getSetterType("richMap");
+            meta.getSetterType("richList[0]");
+            meta.getSetterType("richType");
+            meta.getSetterType("richType.richField");
+            meta.getSetterType("richType.richProperty");
+            meta.getSetterType("richType.richList");
+            meta.getSetterType("richType.richMap");
+            meta.getSetterType("richType.richList[0]");
+            meta.getGetInvoker(__DSPOT_name_56101);
+            org.junit.Assert.fail("shouldCheckTypeForEachSetter_mg296625 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'}4W2]T(#:^}>$5g%&dDv\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckTypeForEachSetterlitString296539() throws Exception {
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        meta.getSetterType("richField");
+        meta.getSetterType("richProperty");
+        meta.getSetterType("richType.richList");
+        meta.getSetterType("richType.richList");
+        meta.getSetterType("richType.richList");
+        meta.getSetterType("richMap");
+        meta.getSetterType("richList[0]");
+        meta.getSetterType("richType");
+        meta.getSetterType("richType.richField");
+        meta.getSetterType("richType.richProperty");
+        meta.getSetterType("richType.richMap");
+        meta.getSetterType("richType.richList[0]");
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckTypeForEachSetterlitString296533_failAssert522() throws Exception {
+        try {
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.getSetterType("richField");
+            meta.getSetterType("richPropqerty");
+            meta.getSetterType("richList");
+            meta.getSetterType("richMap");
+            meta.getSetterType("richList[0]");
+            meta.getSetterType("richType");
+            meta.getSetterType("richType.richField");
+            meta.getSetterType("richType.richProperty");
+            meta.getSetterType("richType.richList");
+            meta.getSetterType("richType.richMap");
+            meta.getSetterType("richType.richList[0]");
+            org.junit.Assert.fail("shouldCheckTypeForEachSetterlitString296533 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no setter for property named \'richPropqerty\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckTypeForEachSetterlitString296531_mg305280_failAssert532() throws Exception {
+        try {
+            String __DSPOT_name_56284 = "zhVuw8An(z(>}VlY}+7.";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.getSetterType("richField");
+            meta.getSetterType("richField");
+            meta.getSetterType("richField");
+            meta.getSetterType("richList");
+            meta.getSetterType("richMap");
+            meta.getSetterType("richList[0]");
+            meta.getSetterType("richType");
+            meta.getSetterType("richType.richField");
+            meta.getSetterType("richType.richProperty");
+            meta.getSetterType("richType.richList");
+            meta.getSetterType("richType.richMap");
+            meta.getSetterType("richType.richList[0]");
+            meta.getSetterType(__DSPOT_name_56284);
+            org.junit.Assert.fail("shouldCheckTypeForEachSetterlitString296531_mg305280 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'zhVuw8An(z(>}VlY}+7\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckTypeForEachSetter_mg296624litBool303114() throws Exception {
+        boolean __DSPOT_useCamelCaseMapping_56100 = true;
+        String __DSPOT_name_56099 = "wkL]g*3pR3H49>vKzt}b";
         ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
         Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
         MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
@@ -1849,40 +3211,18 @@ public class AmplMetaClassTest {
         meta.getSetterType("richType.richList");
         meta.getSetterType("richType.richMap");
         meta.getSetterType("richType.richList[0]");
-        meta.findProperty(__DSPOT_name_59739, __DSPOT_useCamelCaseMapping_59740);
+        meta.findProperty(__DSPOT_name_56099, __DSPOT_useCamelCaseMapping_56100);
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckTypeForEachSetterlitString362327_failAssert460() throws Exception {
+    public void shouldCheckTypeForEachSetterlitString296540litString298611_failAssert546() throws Exception {
         try {
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
             meta.getSetterType("richField");
             meta.getSetterType("richProperty");
             meta.getSetterType("richList");
-            meta.getSetterType("richMap");
-            meta.getSetterType("\n");
-            meta.getSetterType("richType");
-            meta.getSetterType("richType.richField");
-            meta.getSetterType("richType.richProperty");
-            meta.getSetterType("richType.richList");
-            meta.getSetterType("richType.richMap");
-            meta.getSetterType("richType.richList[0]");
-            org.junit.Assert.fail("shouldCheckTypeForEachSetterlitString362327 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'\n\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckTypeForEachSetterlitString362289_failAssert426() throws Exception {
-        try {
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            meta.getSetterType("[0]");
-            meta.getSetterType("richProperty");
-            meta.getSetterType("richList");
-            meta.getSetterType("richMap");
+            meta.getSetterType("rich1ap");
             meta.getSetterType("richList[0]");
             meta.getSetterType("richType");
             meta.getSetterType("richType.richField");
@@ -1890,22 +3230,23 @@ public class AmplMetaClassTest {
             meta.getSetterType("richType.richList");
             meta.getSetterType("richType.richMap");
             meta.getSetterType("richType.richList[0]");
-            org.junit.Assert.fail("shouldCheckTypeForEachSetterlitString362289 should have thrown ReflectionException");
+            org.junit.Assert.fail("shouldCheckTypeForEachSetterlitString296540litString298611 should have thrown ReflectionException");
         } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+            Assert.assertEquals("There is no setter for property named \'rich1ap\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckTypeForEachSetter_mg362391_failAssert504() throws Exception {
+    public void shouldCheckTypeForEachSetterlitString296527_failAssert482litString301140() throws Exception {
         try {
-            String __DSPOT_name_59741 = "!v!{f*oAMbkd01MXr[&A";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            meta.getSetterType("richField");
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            meta.getSetterType(":Mbps!2_[");
             meta.getSetterType("richProperty");
             meta.getSetterType("richList");
-            meta.getSetterType("richMap");
+            meta.getSetterType("richM1ap");
             meta.getSetterType("richList[0]");
             meta.getSetterType("richType");
             meta.getSetterType("richType.richField");
@@ -1913,41 +3254,94 @@ public class AmplMetaClassTest {
             meta.getSetterType("richType.richList");
             meta.getSetterType("richType.richMap");
             meta.getSetterType("richType.richList[0]");
-            meta.getGetInvoker(__DSPOT_name_59741);
-            org.junit.Assert.fail("shouldCheckTypeForEachSetter_mg362391 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'!v!{f*oAMbkd01MXr[&A\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+            org.junit.Assert.fail("shouldCheckTypeForEachSetterlitString296527 should have thrown StringIndexOutOfBoundsException");
+        } catch (StringIndexOutOfBoundsException expected) {
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckTypeForEachSetterlitString362362_failAssert490() throws Exception {
+    public void shouldCheckTypeForEachSetterlitString296539_mg305322_failAssert548() throws Exception {
         try {
+            String __DSPOT_name_56331 = "FF&sld|na[CBCQumydjv";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
             meta.getSetterType("richField");
             meta.getSetterType("richProperty");
-            meta.getSetterType("richList");
+            meta.getSetterType("richType.richList");
+            meta.getSetterType("richType.richList");
+            meta.getSetterType("richType.richList");
             meta.getSetterType("richMap");
             meta.getSetterType("richList[0]");
             meta.getSetterType("richType");
             meta.getSetterType("richType.richField");
             meta.getSetterType("richType.richProperty");
-            meta.getSetterType("richType.richList");
-            meta.getSetterType("r.chType.richMap");
+            meta.getSetterType("richType.richMap");
             meta.getSetterType("richType.richList[0]");
-            org.junit.Assert.fail("shouldCheckTypeForEachSetterlitString362362 should have thrown ReflectionException");
+            meta.getGetInvoker(__DSPOT_name_56331);
+            org.junit.Assert.fail("shouldCheckTypeForEachSetterlitString296539_mg305322 should have thrown ReflectionException");
         } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'r\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+            Assert.assertEquals("There is no getter for property named \'FF&sld|na[CBCQumydjv\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckTypeForEachSetter_add362377_rv423239() throws Exception {
+    public void shouldCheckTypeForEachSetterlitString296539_add303477_mg396436_failAssert557() throws Exception {
+        try {
+            String __DSPOT_name_74171 = "F./Gz#y}xGi9#qhf.d%<";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.getSetterType("richField");
+            meta.getSetterType("richProperty");
+            meta.getSetterType("richType.richList");
+            meta.getSetterType("richType.richList");
+            meta.getSetterType("richType.richList");
+            meta.getSetterType("richMap");
+            meta.getSetterType("richList[0]");
+            meta.getSetterType("richType");
+            meta.getSetterType("richType.richField");
+            meta.getSetterType("richType.richProperty");
+            meta.getSetterType("richType.richProperty");
+            meta.getSetterType("richType.richMap");
+            meta.getSetterType("richType.richList[0]");
+            meta.getSetInvoker(__DSPOT_name_74171);
+            org.junit.Assert.fail("shouldCheckTypeForEachSetterlitString296539_add303477_mg396436 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no setter for property named \'F./Gz#y}xGi9#qhf.d%<\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckTypeForEachSetterlitString296539_add303472_mg397155_failAssert567() throws Exception {
+        try {
+            String __DSPOT_name_74970 = "1Va+ cv5A7ZT!FNRjb`+";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.getSetterType("richField");
+            meta.getSetterType("richProperty");
+            meta.getSetterType("richType.richList");
+            meta.getSetterType("richType.richList");
+            meta.getSetterType("richType.richList");
+            meta.getSetterType("richType.richList");
+            meta.getSetterType("richMap");
+            meta.getSetterType("richList[0]");
+            meta.getSetterType("richType");
+            meta.getSetterType("richType.richField");
+            meta.getSetterType("richType.richProperty");
+            meta.getSetterType("richType.richMap");
+            meta.getSetterType("richType.richList[0]");
+            meta.getGetterType(__DSPOT_name_74970);
+            org.junit.Assert.fail("shouldCheckTypeForEachSetterlitString296539_add303472_mg397155 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'1Va+ cv5A7ZT!FNRjb`+\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckTypeForEachSetter_mg296624_remove304837litBool392406() throws Exception {
+        boolean __DSPOT_useCamelCaseMapping_56100 = true;
+        String __DSPOT_name_56099 = "wkL]g*3pR3H49>vKzt}b";
         ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
         Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldCheckTypeForEachSetter_add362377__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldCheckTypeForEachSetter_add362377__3)).hasDefaultConstructor());
         MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
         Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
         meta.getSetterType("richField");
@@ -1957,148 +3351,66 @@ public class AmplMetaClassTest {
         meta.getSetterType("richList[0]");
         meta.getSetterType("richType");
         meta.getSetterType("richType.richField");
-        Class<?> __DSPOT_invoc_24 = meta.getSetterType("richType.richProperty");
         meta.getSetterType("richType.richList");
         meta.getSetterType("richType.richMap");
         meta.getSetterType("richType.richList[0]");
-        __DSPOT_invoc_24.getAnnotatedInterfaces();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        Assert.assertTrue(((MetaClass) (o_shouldCheckTypeForEachSetter_add362377__3)).hasDefaultConstructor());
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        meta.findProperty(__DSPOT_name_56099, __DSPOT_useCamelCaseMapping_56100);
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckTypeForEachSetter_add362377_mg421738_failAssert597() throws Exception {
+    public void shouldCheckTypeForEachSetternull296638_failAssert455_add303796_add394546() throws Exception {
         try {
-            String __DSPOT_name_70929 = "2_1m|wSLu[`sR.^7Ix}z";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckTypeForEachSetter_add362377__3 = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            meta.getSetterType("richField");
             meta.getSetterType("richField");
             meta.getSetterType("richProperty");
             meta.getSetterType("richList");
             meta.getSetterType("richMap");
             meta.getSetterType("richList[0]");
-            meta.getSetterType("richType");
+            meta.getSetterType(null);
+            meta.getSetterType(null);
             meta.getSetterType("richType.richField");
             meta.getSetterType("richType.richProperty");
             meta.getSetterType("richType.richList");
             meta.getSetterType("richType.richMap");
             meta.getSetterType("richType.richList[0]");
-            meta.getSetterType(__DSPOT_name_70929);
-            org.junit.Assert.fail("shouldCheckTypeForEachSetter_add362377_mg421738 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'2_1m|wSLu\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+            org.junit.Assert.fail("shouldCheckTypeForEachSetternull296638 should have thrown NullPointerException");
+        } catch (NullPointerException expected) {
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckTypeForEachSetter_add362377_mg421698_failAssert569() throws Exception {
+    public void shouldCheckTypeForEachSetternull296638_failAssert455_add303796null523574() throws Exception {
         try {
-            String __DSPOT_name_70920 = "+]>_N1&LD:H+mW9-F#Ut";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckTypeForEachSetter_add362377__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, null);
+            meta.getSetterType("richField");
             meta.getSetterType("richField");
             meta.getSetterType("richProperty");
             meta.getSetterType("richList");
             meta.getSetterType("richMap");
             meta.getSetterType("richList[0]");
-            meta.getSetterType("richType");
+            meta.getSetterType(null);
             meta.getSetterType("richType.richField");
             meta.getSetterType("richType.richProperty");
             meta.getSetterType("richType.richList");
             meta.getSetterType("richType.richMap");
             meta.getSetterType("richType.richList[0]");
-            o_shouldCheckTypeForEachSetter_add362377__3.metaClassForProperty(__DSPOT_name_70920);
-            org.junit.Assert.fail("shouldCheckTypeForEachSetter_add362377_mg421698 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'+]>_N1&LD:H+mW9-F#Ut\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+            org.junit.Assert.fail("shouldCheckTypeForEachSetternull296638 should have thrown NullPointerException");
+        } catch (NullPointerException expected) {
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckTypeForEachSetter_add362377_mg421658_failAssert580() throws Exception {
-        try {
-            String __DSPOT_name_70913 = "yB$6h,h5Yv-Dna/NrE-=";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckTypeForEachSetter_add362377__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            meta.getSetterType("richField");
-            meta.getSetterType("richProperty");
-            meta.getSetterType("richList");
-            meta.getSetterType("richMap");
-            meta.getSetterType("richList[0]");
-            meta.getSetterType("richType");
-            meta.getSetterType("richType.richField");
-            meta.getSetterType("richType.richProperty");
-            meta.getSetterType("richType.richList");
-            meta.getSetterType("richType.richMap");
-            meta.getSetterType("richType.richList[0]");
-            o_shouldCheckTypeForEachSetter_add362377__3.getGetInvoker(__DSPOT_name_70913);
-            org.junit.Assert.fail("shouldCheckTypeForEachSetter_add362377_mg421658 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'yB$6h,h5Yv-Dna/NrE-=\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckTypeForEachSetter_add362377_mg421723_failAssert599() throws Exception {
-        try {
-            String __DSPOT_name_70927 = "A(&.flPCT F}|p|I7ZaD";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckTypeForEachSetter_add362377__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            meta.getSetterType("richField");
-            meta.getSetterType("richProperty");
-            meta.getSetterType("richList");
-            meta.getSetterType("richMap");
-            meta.getSetterType("richList[0]");
-            meta.getSetterType("richType");
-            meta.getSetterType("richType.richField");
-            meta.getSetterType("richType.richProperty");
-            meta.getSetterType("richType.richList");
-            meta.getSetterType("richType.richMap");
-            meta.getSetterType("richType.richList[0]");
-            meta.getGetterType(__DSPOT_name_70927);
-            org.junit.Assert.fail("shouldCheckTypeForEachSetter_add362377_mg421723 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'A(&\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckTypeForEachSetter_add362377_mg421670_failAssert594() throws Exception {
-        try {
-            String __DSPOT_name_70916 = "wf!=w9$F,U<?65!r*5dA";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckTypeForEachSetter_add362377__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            meta.getSetterType("richField");
-            meta.getSetterType("richProperty");
-            meta.getSetterType("richList");
-            meta.getSetterType("richMap");
-            meta.getSetterType("richList[0]");
-            meta.getSetterType("richType");
-            meta.getSetterType("richType.richField");
-            meta.getSetterType("richType.richProperty");
-            meta.getSetterType("richType.richList");
-            meta.getSetterType("richType.richMap");
-            meta.getSetterType("richType.richList[0]");
-            o_shouldCheckTypeForEachSetter_add362377__3.getSetInvoker(__DSPOT_name_70916);
-            org.junit.Assert.fail("shouldCheckTypeForEachSetter_add362377_mg421670 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'wf!=w9$F,U<?65!r*5dA\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckTypeForEachSetter_add362377_mg421694() throws Exception {
-        String __DSPOT_name_70919 = "/d_bF#&05,0 .5&Sh_/o";
+    public void shouldCheckTypeForEachSetter_add296620_mg305182_mg395989() throws Exception {
+        String __DSPOT_name_73674 = "rSHbCl.Yx<r)n`Dmb;6r";
+        String __DSPOT_name_56175 = "mIDbV(JJ5:DsH$LN3+i ";
         ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
         Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldCheckTypeForEachSetter_add362377__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldCheckTypeForEachSetter_add362377__3)).hasDefaultConstructor());
         MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
         Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
         meta.getSetterType("richField");
@@ -2110,264 +3422,460 @@ public class AmplMetaClassTest {
         meta.getSetterType("richType.richField");
         meta.getSetterType("richType.richProperty");
         meta.getSetterType("richType.richList");
-        meta.getSetterType("richType.richMap");
-        meta.getSetterType("richType.richList[0]");
-        boolean o_shouldCheckTypeForEachSetter_add362377_mg421694__20 = o_shouldCheckTypeForEachSetter_add362377__3.hasSetter(__DSPOT_name_70919);
-        Assert.assertFalse(o_shouldCheckTypeForEachSetter_add362377_mg421694__20);
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        Assert.assertTrue(((MetaClass) (o_shouldCheckTypeForEachSetter_add362377__3)).hasDefaultConstructor());
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckTypeForEachSetter_add362377_add421554_mg596904_failAssert669() throws Exception {
-        try {
-            String __DSPOT_name_104840 = "*o/zkc#8 %d)`SY%L8X;";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckTypeForEachSetter_add362377__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass o_shouldCheckTypeForEachSetter_add362377_add421554__6 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            meta.getSetterType("richField");
-            meta.getSetterType("richProperty");
-            meta.getSetterType("richList");
-            meta.getSetterType("richMap");
-            meta.getSetterType("richList[0]");
-            meta.getSetterType("richType");
-            meta.getSetterType("richType.richField");
-            meta.getSetterType("richType.richProperty");
-            meta.getSetterType("richType.richList");
-            meta.getSetterType("richType.richMap");
-            meta.getSetterType("richType.richList[0]");
-            o_shouldCheckTypeForEachSetter_add362377_add421554__6.metaClassForProperty(__DSPOT_name_104840);
-            org.junit.Assert.fail("shouldCheckTypeForEachSetter_add362377_add421554_mg596904 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'*o/zkc#8 %d)`SY%L8X;\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckTypeForEachSetter_add362377_add421554_mg596903() throws Exception {
-        String __DSPOT_name_104839 = "O^-X}-(9Wb@n7U< SQ{*";
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldCheckTypeForEachSetter_add362377__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldCheckTypeForEachSetter_add362377__3)).hasDefaultConstructor());
-        MetaClass o_shouldCheckTypeForEachSetter_add362377_add421554__6 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldCheckTypeForEachSetter_add362377_add421554__6)).hasDefaultConstructor());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        meta.getSetterType("richField");
-        meta.getSetterType("richProperty");
-        meta.getSetterType("richList");
-        meta.getSetterType("richMap");
-        meta.getSetterType("richList[0]");
-        meta.getSetterType("richType");
-        meta.getSetterType("richType.richField");
-        meta.getSetterType("richType.richProperty");
         meta.getSetterType("richType.richList");
         meta.getSetterType("richType.richMap");
         meta.getSetterType("richType.richList[0]");
-        boolean o_shouldCheckTypeForEachSetter_add362377_add421554_mg596903__23 = o_shouldCheckTypeForEachSetter_add362377_add421554__6.hasSetter(__DSPOT_name_104839);
-        Assert.assertFalse(o_shouldCheckTypeForEachSetter_add362377_add421554_mg596903__23);
+        boolean o_shouldCheckTypeForEachSetter_add296620_mg305182__18 = meta.hasGetter(__DSPOT_name_56175);
+        boolean o_shouldCheckTypeForEachSetter_add296620_mg305182_mg395989__22 = meta.hasSetter(__DSPOT_name_73674);
+        Assert.assertFalse(o_shouldCheckTypeForEachSetter_add296620_mg305182_mg395989__22);
         Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        Assert.assertTrue(((MetaClass) (o_shouldCheckTypeForEachSetter_add362377__3)).hasDefaultConstructor());
-        Assert.assertTrue(((MetaClass) (o_shouldCheckTypeForEachSetter_add362377_add421554__6)).hasDefaultConstructor());
         Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckTypeForEachSetter_add362377_add421554_mg596866_failAssert704() throws Exception {
+    public void shouldCheckTypeForEachSetterlitString296539_add303472litString389894_failAssert565() throws Exception {
         try {
-            String __DSPOT_name_104825 = "gqUe6CvAmVuwEbf!u1{!";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckTypeForEachSetter_add362377__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass o_shouldCheckTypeForEachSetter_add362377_add421554__6 = MetaClass.forClass(RichType.class, reflectorFactory);
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
             meta.getSetterType("richField");
+            meta.getSetterType("richProperty");
+            meta.getSetterType("richType.richList");
+            meta.getSetterType("richType.richList");
+            meta.getSetterType("richMap");
+            meta.getSetterType("richList[0]");
+            meta.getSetterType("richType");
+            meta.getSetterType("richType.richField");
+            meta.getSetterType("richType.rBchProperty");
+            meta.getSetterType("richType.richList");
+            meta.getSetterType("richType.richList");
+            meta.getSetterType("richType.richMap");
+            meta.getSetterType("richType.richList[0]");
+            org.junit.Assert.fail("shouldCheckTypeForEachSetterlitString296539_add303472litString389894 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no setter for property named \'rBchProperty\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckTypeForEachSetterlitString296527_failAssert482_add304153litString390862() throws Exception {
+        try {
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            meta.getSetterType(":Mbps!2_[");
             meta.getSetterType("richProperty");
             meta.getSetterType("richList");
             meta.getSetterType("richMap");
             meta.getSetterType("richList[0]");
             meta.getSetterType("richType");
+            meta.getSetterType("richType.richFsield");
             meta.getSetterType("richType.richField");
             meta.getSetterType("richType.richProperty");
             meta.getSetterType("richType.richList");
             meta.getSetterType("richType.richMap");
             meta.getSetterType("richType.richList[0]");
-            o_shouldCheckTypeForEachSetter_add362377__3.getSetterType(__DSPOT_name_104825);
-            org.junit.Assert.fail("shouldCheckTypeForEachSetter_add362377_add421554_mg596866 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'gqUe6CvAmVuwEbf!u1{!\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+            org.junit.Assert.fail("shouldCheckTypeForEachSetterlitString296527 should have thrown StringIndexOutOfBoundsException");
+        } catch (StringIndexOutOfBoundsException expected) {
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckTypeForEachSetter_add362377_add421554_mg596861_failAssert705() throws Exception {
+    public void shouldCheckGetterAndSetterNames_mg12_failAssert0() throws Exception {
         try {
-            String __DSPOT_name_104823 = "d^W`pdcUSgO=7kE^Yja=";
+            String __DSPOT_name_9 = "wu]&8(Dgh`l V!3a(!.#";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckTypeForEachSetter_add362377__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass o_shouldCheckTypeForEachSetter_add362377_add421554__6 = MetaClass.forClass(RichType.class, reflectorFactory);
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            meta.getSetterType("richField");
-            meta.getSetterType("richProperty");
-            meta.getSetterType("richList");
-            meta.getSetterType("richMap");
-            meta.getSetterType("richList[0]");
-            meta.getSetterType("richType");
-            meta.getSetterType("richType.richField");
-            meta.getSetterType("richType.richProperty");
-            meta.getSetterType("richType.richList");
-            meta.getSetterType("richType.richMap");
-            meta.getSetterType("richType.richList[0]");
-            o_shouldCheckTypeForEachSetter_add362377__3.getSetInvoker(__DSPOT_name_104823);
-            org.junit.Assert.fail("shouldCheckTypeForEachSetter_add362377_add421554_mg596861 should have thrown ReflectionException");
+            meta.metaClassForProperty(__DSPOT_name_9);
+            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_mg12 should have thrown ReflectionException");
         } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'d^W`pdcUSgO=7kE^Yja=\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+            Assert.assertEquals("There is no getter for property named \'wu]&8(Dgh`l V!3a(!.#\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckTypeForEachSetter_add362377_add421554_mg596880() throws Exception {
-        boolean __DSPOT_useCamelCaseMapping_104832 = true;
-        String __DSPOT_name_104831 = "o@8!,&J;%][-#?q$q`sK";
+    public void shouldCheckGetterAndSetterNames_add3() throws Exception {
         ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
         Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldCheckTypeForEachSetter_add362377__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldCheckTypeForEachSetter_add362377__3)).hasDefaultConstructor());
-        MetaClass o_shouldCheckTypeForEachSetter_add362377_add421554__6 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldCheckTypeForEachSetter_add362377_add421554__6)).hasDefaultConstructor());
         MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
         Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        meta.getSetterType("richField");
-        meta.getSetterType("richProperty");
-        meta.getSetterType("richList");
-        meta.getSetterType("richMap");
-        meta.getSetterType("richList[0]");
-        meta.getSetterType("richType");
-        meta.getSetterType("richType.richField");
-        meta.getSetterType("richType.richProperty");
-        meta.getSetterType("richType.richList");
-        meta.getSetterType("richType.richMap");
-        meta.getSetterType("richType.richList[0]");
-        o_shouldCheckTypeForEachSetter_add362377_add421554__6.findProperty(__DSPOT_name_104831, __DSPOT_useCamelCaseMapping_104832);
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckTypeForEachSetter_add362377_add421554_mg596883_failAssert697() throws Exception {
-        try {
-            String __DSPOT_name_104833 = "#`F_6V];7Epnht5QI2H5";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckTypeForEachSetter_add362377__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass o_shouldCheckTypeForEachSetter_add362377_add421554__6 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            meta.getSetterType("richField");
-            meta.getSetterType("richProperty");
-            meta.getSetterType("richList");
-            meta.getSetterType("richMap");
-            meta.getSetterType("richList[0]");
-            meta.getSetterType("richType");
-            meta.getSetterType("richType.richField");
-            meta.getSetterType("richType.richProperty");
-            meta.getSetterType("richType.richList");
-            meta.getSetterType("richType.richMap");
-            meta.getSetterType("richType.richList[0]");
-            o_shouldCheckTypeForEachSetter_add362377_add421554__6.getGetInvoker(__DSPOT_name_104833);
-            org.junit.Assert.fail("shouldCheckTypeForEachSetter_add362377_add421554_mg596883 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'#`F_6V];7Epnht5QI2H5\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckTypeForEachSetter_add362377_add421554_mg596887_failAssert679() throws Exception {
-        try {
-            String __DSPOT_name_104834 = "zbw-W5<z=MT]kk:c.@`U";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckTypeForEachSetter_add362377__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass o_shouldCheckTypeForEachSetter_add362377_add421554__6 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            meta.getSetterType("richField");
-            meta.getSetterType("richProperty");
-            meta.getSetterType("richList");
-            meta.getSetterType("richMap");
-            meta.getSetterType("richList[0]");
-            meta.getSetterType("richType");
-            meta.getSetterType("richType.richField");
-            meta.getSetterType("richType.richProperty");
-            meta.getSetterType("richType.richList");
-            meta.getSetterType("richType.richMap");
-            meta.getSetterType("richType.richList[0]");
-            o_shouldCheckTypeForEachSetter_add362377_add421554__6.getGetterType(__DSPOT_name_104834);
-            org.junit.Assert.fail("shouldCheckTypeForEachSetter_add362377_add421554_mg596887 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'zbw-W5<z=MT]kk:c\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNamesnull17() throws Exception {
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        meta.getSetterNames();
         Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass meta = null;
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNames_mg8_failAssert1() throws Exception {
+    public void shouldCheckGetterAndSetterNames_mg8_failAssert2() throws Exception {
         try {
-            String __DSPOT_name_4 = "UgIvC=TU&zgYc TM1`_8";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            meta.getGetterType(__DSPOT_name_4);
-            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_mg8 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'UgIvC=TU&zgYc TM1`_8\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNames_mg9_failAssert2() throws Exception {
-        try {
-            String __DSPOT_name_5 = ";0L`A=SO/woO!OKS@Rl&";
+            String __DSPOT_name_5 = "L`A=SO/woO!OKS@Rl&{h";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
             meta.getSetInvoker(__DSPOT_name_5);
-            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_mg9 should have thrown ReflectionException");
+            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_mg8 should have thrown ReflectionException");
         } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \';0L`A=SO/woO!OKS@Rl&\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+            Assert.assertEquals("There is no setter for property named \'L`A=SO/woO!OKS@Rl&{h\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNames_mg11_failAssert3() throws Exception {
+    public void shouldCheckGetterAndSetterNames_mg9_failAssert3() throws Exception {
         try {
-            String __DSPOT_name_6 = "{ha!&Bcvg[?i!rb0/|]6";
+            String __DSPOT_name_6 = "a!&Bcvg[?i!rb0/|]6^F";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
             meta.getSetterType(__DSPOT_name_6);
-            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_mg11 should have thrown ReflectionException");
+            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_mg9 should have thrown ReflectionException");
         } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'{ha!&Bcvg\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+            Assert.assertEquals("There is no setter for property named \'a!&Bcvg\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNames_mg6_failAssert0() throws Exception {
+    public void shouldCheckGetterAndSetterNames_mg6_failAssert1() throws Exception {
         try {
-            String __DSPOT_name_3 = "2[|+mr6#-VtX(r!Fs2l>";
+            String __DSPOT_name_3 = "|+mr6#-VtX(r!Fs2l>Ug";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
             meta.getGetInvoker(__DSPOT_name_3);
             org.junit.Assert.fail("shouldCheckGetterAndSetterNames_mg6 should have thrown ReflectionException");
         } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'2[|+mr6#-VtX(r!Fs2l>\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+            Assert.assertEquals("There is no getter for property named \'|+mr6#-VtX(r!Fs2l>Ug\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNames_mg5() throws Exception {
+    public void shouldCheckGetterAndSetterNames_mg5_remove177() throws Exception {
+        boolean __DSPOT_useCamelCaseMapping_2 = false;
+        String __DSPOT_name_1 = "(q2 5[gpbL[{$QV5:Wz2";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterAndSetterNames_mg12_failAssert0_rv307() throws Exception {
+        try {
+            String __DSPOT_name_150 = "O0)nD+/OS38cC[Ga?A(>";
+            String __DSPOT_name_9 = "wu]&8(Dgh`l V!3a(!.#";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            MetaClass __DSPOT_invoc_8 = meta.metaClassForProperty(__DSPOT_name_9);
+            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_mg12 should have thrown ReflectionException");
+            __DSPOT_invoc_8.findProperty(__DSPOT_name_150);
+        } catch (ReflectionException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterAndSetterNames_add3_mg221_failAssert22() throws Exception {
+        try {
+            String __DSPOT_name_56 = "ZQzekGw)WtZA0i9NP1<z";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.getSetterNames();
+            meta.getSetterType(__DSPOT_name_56);
+            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_add3_mg221 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no setter for property named \'ZQzekGw)WtZA0i9NP1<z\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterAndSetterNames_mg10_mg195() throws Exception {
+        String __DSPOT_name_27 = "?56TtKz.F5M(E@of6;bU";
+        String __DSPOT_name_7 = "T)-ef&bk*201yCi*Odwp";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        boolean o_shouldCheckGetterAndSetterNames_mg10__6 = meta.hasGetter(__DSPOT_name_7);
+        boolean o_shouldCheckGetterAndSetterNames_mg10_mg195__10 = meta.hasGetter(__DSPOT_name_27);
+        Assert.assertFalse(o_shouldCheckGetterAndSetterNames_mg10_mg195__10);
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterAndSetterNames_mg6_failAssert1_add163() throws Exception {
+        try {
+            String __DSPOT_name_3 = "|+mr6#-VtX(r!Fs2l>Ug";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            meta.getGetInvoker(__DSPOT_name_3);
+            meta.getGetInvoker(__DSPOT_name_3);
+            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_mg6 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterAndSetterNames_add2_mg243() throws Exception {
+        String __DSPOT_name_80 = "H,Hzr;m#.W9*#qYoA($d";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        meta.getGetterNames();
+        meta.findProperty(__DSPOT_name_80);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterAndSetterNames_add3_mg224_failAssert7() throws Exception {
+        try {
+            String __DSPOT_name_59 = "{_@e,R]r3_{}VLc{;bMa";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.getSetterNames();
+            meta.metaClassForProperty(__DSPOT_name_59);
+            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_add3_mg224 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'{_@e,R]r3_{}VLc{;bMa\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterAndSetterNames_mg5_mg199() throws Exception {
+        boolean __DSPOT_useCamelCaseMapping_32 = true;
+        String __DSPOT_name_31 = "&5+;N4Sb)kE+#PmjF|_k";
+        boolean __DSPOT_useCamelCaseMapping_2 = false;
+        String __DSPOT_name_1 = "(q2 5[gpbL[{$QV5:Wz2";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        meta.findProperty(__DSPOT_name_1, __DSPOT_useCamelCaseMapping_2);
+        meta.findProperty(__DSPOT_name_31, __DSPOT_useCamelCaseMapping_32);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterAndSetterNames_mg8_failAssert2litString99() throws Exception {
+        try {
+            String __DSPOT_name_5 = ",y4JV)d4}^w[&oDAIOw?";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            meta.getSetInvoker(__DSPOT_name_5);
+            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_mg8 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterAndSetterNames_mg9_failAssert3litString107() throws Exception {
+        try {
+            String __DSPOT_name_6 = "%uE_&Ml%;sG#Ahw*&z*$";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            meta.getSetterType(__DSPOT_name_6);
+            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_mg9 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterAndSetterNamesnull13_failAssert5_add175() throws Exception {
+        try {
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, null);
+            org.junit.Assert.fail("shouldCheckGetterAndSetterNamesnull13 should have thrown NullPointerException");
+        } catch (NullPointerException expected) {
+            expected.getMessage();
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterAndSetterNames_mg5_mg202_failAssert27() throws Exception {
+        try {
+            String __DSPOT_name_35 = "nJW,ftS}%g/mS6TE0=.J";
+            boolean __DSPOT_useCamelCaseMapping_2 = false;
+            String __DSPOT_name_1 = "(q2 5[gpbL[{$QV5:Wz2";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.findProperty(__DSPOT_name_1, __DSPOT_useCamelCaseMapping_2);
+            meta.getSetInvoker(__DSPOT_name_35);
+            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_mg5_mg202 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no setter for property named \'nJW,ftS}%g/mS6TE0=.J\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterAndSetterNames_add2_mg245_failAssert25() throws Exception {
+        try {
+            String __DSPOT_name_83 = ")=3&}%hbH%0kY^9)l,IK";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.getGetterNames();
+            meta.getGetInvoker(__DSPOT_name_83);
+            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_add2_mg245 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \')=3&}%hbH%0kY^9)l,IK\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterAndSetterNames_mg5null437_failAssert18() throws Exception {
+        try {
+            boolean __DSPOT_useCamelCaseMapping_2 = false;
+            String __DSPOT_name_1 = null;
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.findProperty(__DSPOT_name_1, __DSPOT_useCamelCaseMapping_2);
+            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_mg5null437 should have thrown NullPointerException");
+        } catch (NullPointerException expected) {
+            Assert.assertEquals(null, expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterAndSetterNames_mg10litString60_mg4696_failAssert51() throws Exception {
+        try {
+            String __DSPOT_name_1703 = "APxrfV&tp^&$#+>(G5:+";
+            String __DSPOT_name_7 = "";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            boolean o_shouldCheckGetterAndSetterNames_mg10__6 = meta.hasGetter(__DSPOT_name_7);
+            meta.metaClassForProperty(__DSPOT_name_1703);
+            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_mg10litString60_mg4696 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'APxrfV&tp^&$#+>(G5:+\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterAndSetterNames_add2_mg243_remove3283() throws Exception {
+        String __DSPOT_name_80 = "H,Hzr;m#.W9*#qYoA($d";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        meta.findProperty(__DSPOT_name_80);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterAndSetterNames_mg12_failAssert0_rv308litBool2309() throws Exception {
+        try {
+            boolean __DSPOT_useCamelCaseMapping_152 = false;
+            String __DSPOT_name_151 = "iJy:v}SV5HR!Y({UBa;x";
+            String __DSPOT_name_9 = "wu]&8(Dgh`l V!3a(!.#";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            MetaClass __DSPOT_invoc_8 = meta.metaClassForProperty(__DSPOT_name_9);
+            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_mg12 should have thrown ReflectionException");
+            __DSPOT_invoc_8.findProperty(__DSPOT_name_151, __DSPOT_useCamelCaseMapping_152);
+        } catch (ReflectionException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterAndSetterNames_mg5_remove177litBool2303() throws Exception {
         boolean __DSPOT_useCamelCaseMapping_2 = true;
-        String __DSPOT_name_1 = ",y(q2 5[gpbL[{$QV5:W";
+        String __DSPOT_name_1 = "(q2 5[gpbL[{$QV5:Wz2";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterAndSetterNames_mg5null437_failAssert18_mg5146() throws Exception {
+        try {
+            String __DSPOT_name_2203 = "sdOHJ8RZ#j4br1mmMsq<";
+            boolean __DSPOT_useCamelCaseMapping_2 = false;
+            String __DSPOT_name_1 = null;
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            meta.findProperty(__DSPOT_name_1, __DSPOT_useCamelCaseMapping_2);
+            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_mg5null437 should have thrown NullPointerException");
+            meta.metaClassForProperty(__DSPOT_name_2203);
+        } catch (NullPointerException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterAndSetterNames_mg8_failAssert2null454_failAssert33_add3248() throws Exception {
+        try {
+            try {
+                String __DSPOT_name_5 = "L`A=SO/woO!OKS@Rl&{h";
+                ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+                Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+                MetaClass meta = MetaClass.forClass(RichType.class, null);
+                meta.getSetInvoker(__DSPOT_name_5);
+                meta.getSetInvoker(__DSPOT_name_5);
+                org.junit.Assert.fail("shouldCheckGetterAndSetterNames_mg8 should have thrown ReflectionException");
+            } catch (ReflectionException expected) {
+            }
+            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_mg8_failAssert2null454 should have thrown NullPointerException");
+        } catch (NullPointerException expected_1) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterAndSetterNames_mg11litString78_mg3694_failAssert45() throws Exception {
+        try {
+            String __DSPOT_name_590 = " <?$.>[U!g6(Ir]hkK]R";
+            String __DSPOT_name_8 = ":";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            boolean o_shouldCheckGetterAndSetterNames_mg11__6 = meta.hasSetter(__DSPOT_name_8);
+            meta.getSetterType(__DSPOT_name_590);
+            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_mg11litString78_mg3694 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \' <?$\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterAndSetterNames_mg6_failAssert1litString93_mg4770() throws Exception {
+        try {
+            boolean __DSPOT_useCamelCaseMapping_1786 = true;
+            String __DSPOT_name_1785 = "-@^SC wj[laX)Rfs=(Z ";
+            String __DSPOT_name_3 = "\n";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            meta.getGetInvoker(__DSPOT_name_3);
+            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_mg6 should have thrown ReflectionException");
+            meta.findProperty(__DSPOT_name_1785, __DSPOT_useCamelCaseMapping_1786);
+        } catch (ReflectionException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterAndSetterNames_mg10litString59_mg3718_failAssert47() throws Exception {
+        try {
+            String __DSPOT_name_617 = "272,Cl6JEg{EH$YvU}*C";
+            String __DSPOT_name_7 = "p[$XdYQ7-#sa<}t>?]?7";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            boolean o_shouldCheckGetterAndSetterNames_mg10__6 = meta.hasGetter(__DSPOT_name_7);
+            meta.getGetInvoker(__DSPOT_name_617);
+            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_mg10litString59_mg3718 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'272,Cl6JEg{EH$YvU}*C\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterAndSetterNames_mg5litBool119litString1258() throws Exception {
+        boolean __DSPOT_useCamelCaseMapping_2 = true;
+        String __DSPOT_name_1 = "(q2 5gpbL[{$QV5:Wz2";
         ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
         Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
         MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
@@ -2376,7 +3884,190 @@ public class AmplMetaClassTest {
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNamesnull23() throws Exception {
+    public void shouldCheckGetterAndSetterNames_mg10litString61_mg4980_failAssert49() throws Exception {
+        try {
+            String __DSPOT_name_2019 = "kx)]$|iC`/{}}(4bz; 8";
+            String __DSPOT_name_7 = "\n";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            boolean o_shouldCheckGetterAndSetterNames_mg10__6 = meta.hasGetter(__DSPOT_name_7);
+            meta.getSetInvoker(__DSPOT_name_2019);
+            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_mg10litString61_mg4980 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no setter for property named \'kx)]$|iC`/{}}(4bz; 8\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterAndSetterNames_mg9_failAssert3_mg279_add2559() throws Exception {
+        try {
+            String __DSPOT_name_120 = "I4De0drHp,* B!1!0nSv";
+            String __DSPOT_name_6 = "a!&Bcvg[?i!rb0/|]6^F";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            meta.getSetterType(__DSPOT_name_6);
+            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_mg9 should have thrown ReflectionException");
+            meta.findProperty(__DSPOT_name_120);
+            meta.findProperty(__DSPOT_name_120);
+        } catch (ReflectionException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldCheckGetterAndSetterNames_mg8_failAssert2litString101_mg4633() throws Exception {
+        try {
+            String __DSPOT_name_1633 = "+T,&]oL_*u[C[K8+}gnq";
+            String __DSPOT_name_5 = "\n";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            meta.getSetInvoker(__DSPOT_name_5);
+            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_mg8 should have thrown ReflectionException");
+            meta.metaClassForProperty(__DSPOT_name_1633);
+        } catch (ReflectionException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyName_mg524595_failAssert579() throws Exception {
+        try {
+            String __DSPOT_name_102326 = "R{b6GNz6_kX9%^&v:7J?";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.findProperty("RICHfield");
+            meta.getGetInvoker(__DSPOT_name_102326);
+            org.junit.Assert.fail("shouldFindPropertyName_mg524595 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'R{b6GNz6_kX9%^&v:7J?\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyName_mg524598_failAssert577() throws Exception {
+        try {
+            String __DSPOT_name_102329 = "=]HzO@O)IL]/O-MCZ%8l";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.findProperty("RICHfield");
+            meta.getSetterType(__DSPOT_name_102329);
+            org.junit.Assert.fail("shouldFindPropertyName_mg524598 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no setter for property named \'=]HzO@O)IL]/O-MCZ%8l\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyNamelitString524589() throws Exception {
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        meta.findProperty("\n");
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyName_mg524594() throws Exception {
+        boolean __DSPOT_useCamelCaseMapping_102325 = false;
+        String __DSPOT_name_102324 = "!Q9&.#qb;9`wq0pO`0LU";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        String o_shouldFindPropertyName_mg524594__7 = meta.findProperty("RICHfield");
+        Assert.assertEquals("richField", o_shouldFindPropertyName_mg524594__7);
+        meta.findProperty(__DSPOT_name_102324, __DSPOT_useCamelCaseMapping_102325);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyName_mg524597_failAssert580() throws Exception {
+        try {
+            String __DSPOT_name_102328 = "ad%Sl!L#Xn;,^O14bV3f";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.findProperty("RICHfield");
+            meta.getSetInvoker(__DSPOT_name_102328);
+            org.junit.Assert.fail("shouldFindPropertyName_mg524597 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no setter for property named \'ad%Sl!L#Xn;,^O14bV3f\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyName_mg524601_failAssert578() throws Exception {
+        try {
+            String __DSPOT_name_102332 = "WuXl|o`nZ^MK[VX{SoLc";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.findProperty("RICHfield");
+            meta.metaClassForProperty(__DSPOT_name_102332);
+            org.junit.Assert.fail("shouldFindPropertyName_mg524601 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'WuXl|o`nZ^MK[VX{SoLc\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyNamelitString524583() throws Exception {
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        String o_shouldFindPropertyNamelitString524583__5 = meta.findProperty("richType.richList[0]");
+        Assert.assertEquals("richType.", o_shouldFindPropertyNamelitString524583__5);
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyName_mg524596_failAssert581() throws Exception {
+        try {
+            String __DSPOT_name_102327 = "[^s^;x]N(&MG]EJ@xoZ=";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.findProperty("RICHfield");
+            meta.getGetterType(__DSPOT_name_102327);
+            org.junit.Assert.fail("shouldFindPropertyName_mg524596 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyName_mg524600() throws Exception {
+        String __DSPOT_name_102331 = "{q9o:#<[xp$wNL7U[._H";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        String o_shouldFindPropertyName_mg524600__6 = meta.findProperty("RICHfield");
+        Assert.assertEquals("richField", o_shouldFindPropertyName_mg524600__6);
+        boolean o_shouldFindPropertyName_mg524600__7 = meta.hasSetter(__DSPOT_name_102331);
+        Assert.assertFalse(o_shouldFindPropertyName_mg524600__7);
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        Assert.assertEquals("richField", o_shouldFindPropertyName_mg524600__6);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyName_add524592_mg525003_failAssert584() throws Exception {
+        try {
+            String __DSPOT_name_102397 = ".FE6q6_lEgkaQ`cH5aGx";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            String o_shouldFindPropertyName_add524592__5 = meta.findProperty("RICHfield");
+            String o_shouldFindPropertyName_add524592__6 = meta.findProperty("RICHfield");
+            meta.getGetterType(__DSPOT_name_102397);
+            org.junit.Assert.fail("shouldFindPropertyName_add524592_mg525003 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyNamelitString524588_remove524939() throws Exception {
         ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
         Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
         MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
@@ -2385,776 +4076,400 @@ public class AmplMetaClassTest {
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNames_mg14_mg949_failAssert40() throws Exception {
-        try {
-            String __DSPOT_name_275 = "j57v[dc=WO=QzF5*<#D<";
-            String __DSPOT_name_8 = "wpauR%h1,xavU[1Rvnj|";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            boolean o_shouldCheckGetterAndSetterNames_mg14__6 = meta.hasSetter(__DSPOT_name_8);
-            meta.getGetInvoker(__DSPOT_name_275);
-            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_mg14_mg949 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'j57v[dc=WO=QzF5*<#D<\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNames_mg13_mg360_failAssert43() throws Exception {
-        try {
-            String __DSPOT_name_94 = "jN$:t]rwVX^,i9Clv-<D";
-            String __DSPOT_name_7 = "^FT)-ef&bk*201yCi*Od";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            boolean o_shouldCheckGetterAndSetterNames_mg13__6 = meta.hasGetter(__DSPOT_name_7);
-            meta.getSetterType(__DSPOT_name_94);
-            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_mg13_mg360 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'jN$:t]rwVX^,i9Clv-<D\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNames_add1_mg1096_failAssert14() throws Exception {
-        try {
-            String __DSPOT_name_317 = "@OskRx;om6_QO0c5a.U(";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckGetterAndSetterNames_add1__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            meta.getGetterType(__DSPOT_name_317);
-            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_add1_mg1096 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'@OskRx;om6_QO0c5a\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNames_mg13_mg321() throws Exception {
-        boolean __DSPOT_useCamelCaseMapping_73 = true;
-        String __DSPOT_name_72 = "(!P:(01(Vo/][%sGMuXX";
-        String __DSPOT_name_7 = "^FT)-ef&bk*201yCi*Od";
+    public void shouldFindPropertyName_mg524594_add524859() throws Exception {
+        boolean __DSPOT_useCamelCaseMapping_102325 = false;
+        String __DSPOT_name_102324 = "!Q9&.#qb;9`wq0pO`0LU";
         ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
         Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
         MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
         Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        boolean o_shouldCheckGetterAndSetterNames_mg13__6 = meta.hasGetter(__DSPOT_name_7);
-        meta.findProperty(__DSPOT_name_72, __DSPOT_useCamelCaseMapping_73);
+        String o_shouldFindPropertyName_mg524594_add524859__7 = meta.findProperty("RICHfield");
+        Assert.assertEquals("richField", o_shouldFindPropertyName_mg524594_add524859__7);
+        String o_shouldFindPropertyName_mg524594__7 = meta.findProperty("RICHfield");
+        Assert.assertEquals("richField", o_shouldFindPropertyName_mg524594__7);
+        meta.findProperty(__DSPOT_name_102324, __DSPOT_useCamelCaseMapping_102325);
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNames_add1_mg1111_failAssert13() throws Exception {
+    public void shouldFindPropertyNamelitString524587_mg525055() throws Exception {
+        boolean __DSPOT_useCamelCaseMapping_102455 = true;
+        String __DSPOT_name_102454 = "EB`!Uh6IT-p-zW2^{1D&";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        meta.findProperty("X]A!TS7E9");
+        meta.findProperty(__DSPOT_name_102454, __DSPOT_useCamelCaseMapping_102455);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyNamelitString524583_add524890() throws Exception {
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass o_shouldFindPropertyNamelitString524583_add524890__3 = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (o_shouldFindPropertyNamelitString524583_add524890__3)).hasDefaultConstructor());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        String o_shouldFindPropertyNamelitString524583__5 = meta.findProperty("richType.richList[0]");
+        Assert.assertEquals("richType.", o_shouldFindPropertyNamelitString524583__5);
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        Assert.assertTrue(((MetaClass) (o_shouldFindPropertyNamelitString524583_add524890__3)).hasDefaultConstructor());
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyName_mg524593_mg524968_failAssert627() throws Exception {
         try {
-            String __DSPOT_name_322 = "[ `8U^L|U2^w&]RipC8T";
+            String __DSPOT_name_102358 = "=:#!z[2Hy]&vfw^{P4OH";
+            String __DSPOT_name_102323 = "|![P:+NspJLSg(0>1L<U";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckGetterAndSetterNames_add1__3 = MetaClass.forClass(RichType.class, reflectorFactory);
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            meta.metaClassForProperty(__DSPOT_name_322);
-            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_add1_mg1111 should have thrown ReflectionException");
+            String o_shouldFindPropertyName_mg524593__6 = meta.findProperty("RICHfield");
+            meta.findProperty(__DSPOT_name_102323);
+            meta.getSetInvoker(__DSPOT_name_102358);
+            org.junit.Assert.fail("shouldFindPropertyName_mg524593_mg524968 should have thrown ReflectionException");
         } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'[ `8U^L|U2^w&]RipC8T\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+            Assert.assertEquals("There is no setter for property named \'=:#!z[2Hy]&vfw^{P4OH\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNamesnull17_add1063() throws Exception {
+    public void shouldFindPropertyName_mg524597_failAssert580_add524924() throws Exception {
+        try {
+            String __DSPOT_name_102328 = "ad%Sl!L#Xn;,^O14bV3f";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            String o_shouldFindPropertyName_mg524597_failAssert580_add524924__8 = meta.findProperty("RICHfield");
+            Assert.assertEquals("richField", o_shouldFindPropertyName_mg524597_failAssert580_add524924__8);
+            String o_shouldFindPropertyName_mg524597_failAssert580_add524924__9 = meta.findProperty("RICHfield");
+            Assert.assertEquals("richField", o_shouldFindPropertyName_mg524597_failAssert580_add524924__9);
+            meta.getSetInvoker(__DSPOT_name_102328);
+            org.junit.Assert.fail("shouldFindPropertyName_mg524597 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyNamelitString524588_mg525014_failAssert585() throws Exception {
+        try {
+            String __DSPOT_name_102409 = "D]K3R)U-Sc >#7_8F&Kp";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.findProperty("");
+            meta.getSetterType(__DSPOT_name_102409);
+            org.junit.Assert.fail("shouldFindPropertyNamelitString524588_mg525014 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no setter for property named \'D]K3R)U-Sc >#7_8F&Kp\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyNamelitString524587_mg525056_failAssert603() throws Exception {
+        try {
+            String __DSPOT_name_102456 = "MRh.mz_6s)D_GiQX6.YQ";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.findProperty("X]A!TS7E9");
+            meta.getGetInvoker(__DSPOT_name_102456);
+            org.junit.Assert.fail("shouldFindPropertyNamelitString524587_mg525056 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'MRh.mz_6s)D_GiQX6.YQ\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyName_mg524594null525281_failAssert620() throws Exception {
+        try {
+            boolean __DSPOT_useCamelCaseMapping_102325 = false;
+            String __DSPOT_name_102324 = null;
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            String o_shouldFindPropertyName_mg524594__7 = meta.findProperty("RICHfield");
+            meta.findProperty(__DSPOT_name_102324, __DSPOT_useCamelCaseMapping_102325);
+            org.junit.Assert.fail("shouldFindPropertyName_mg524594null525281 should have thrown NullPointerException");
+        } catch (NullPointerException expected) {
+            Assert.assertEquals(null, expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyName_mg524600litString524690() throws Exception {
+        String __DSPOT_name_102331 = "{q9o:#<[xp$wNL7U[._H";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        String o_shouldFindPropertyName_mg524600__6 = meta.findProperty("\n");
+        boolean o_shouldFindPropertyName_mg524600__7 = meta.hasSetter(__DSPOT_name_102331);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyName_mg524601_failAssert578_add524915() throws Exception {
+        try {
+            String __DSPOT_name_102332 = "WuXl|o`nZ^MK[VX{SoLc";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass o_shouldFindPropertyName_mg524601_failAssert578_add524915__6 = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (o_shouldFindPropertyName_mg524601_failAssert578_add524915__6)).hasDefaultConstructor());
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            String o_shouldFindPropertyName_mg524601_failAssert578_add524915__9 = meta.findProperty("RICHfield");
+            Assert.assertEquals("richField", o_shouldFindPropertyName_mg524601_failAssert578_add524915__9);
+            meta.metaClassForProperty(__DSPOT_name_102332);
+            org.junit.Assert.fail("shouldFindPropertyName_mg524601 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyNamenull524602_failAssert583null525312() throws Exception {
+        try {
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, null);
+            meta.findProperty(null);
+            org.junit.Assert.fail("shouldFindPropertyNamenull524602 should have thrown NullPointerException");
+        } catch (NullPointerException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyNamelitString524585_mg525066_failAssert604() throws Exception {
+        try {
+            String __DSPOT_name_102467 = "U`sY%!SNC:p}jOyUS!OL";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.findProperty("RICHfie/ld");
+            meta.getGetterType(__DSPOT_name_102467);
+            org.junit.Assert.fail("shouldFindPropertyNamelitString524585_mg525066 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'U`sY%!SNC:p}jOyUS!OL\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyNamelitString524589_add524895_mg530155_failAssert629() throws Exception {
+        try {
+            String __DSPOT_name_103912 = "h^YM[&6>0[I!Z)>[ 1QS";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            ((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.findProperty("\n");
+            meta.getSetInvoker(__DSPOT_name_103912);
+            org.junit.Assert.fail("shouldFindPropertyNamelitString524589_add524895_mg530155 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no setter for property named \'h^YM[&6>0[I!Z)>[ 1QS\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyName_mg524600_mg524961_mg529091_failAssert630() throws Exception {
+        try {
+            String __DSPOT_name_102730 = "r5#XTv9FihR?B>hkG1&|";
+            String __DSPOT_name_102350 = "HPVv(^|@@Z}zhVxP{!l}";
+            String __DSPOT_name_102331 = "{q9o:#<[xp$wNL7U[._H";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            String o_shouldFindPropertyName_mg524600__6 = meta.findProperty("RICHfield");
+            boolean o_shouldFindPropertyName_mg524600__7 = meta.hasSetter(__DSPOT_name_102331);
+            boolean o_shouldFindPropertyName_mg524600_mg524961__13 = meta.hasGetter(__DSPOT_name_102350);
+            meta.getGetInvoker(__DSPOT_name_102730);
+            org.junit.Assert.fail("shouldFindPropertyName_mg524600_mg524961_mg529091 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'r5#XTv9FihR?B>hkG1&|\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyName_mg524598_failAssert577litString524760_rv531559() throws Exception {
+        try {
+            String __DSPOT_arg0_105004 = "/+JA1w8RsD3By!|QpU/w";
+            String __DSPOT_name_102329 = "=]HzO@O)IL]/O-MCZ%8l";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            meta.findProperty("%ci*!a9>!");
+            Class<?> __DSPOT_invoc_15 = meta.getSetterType(__DSPOT_name_102329);
+            org.junit.Assert.fail("shouldFindPropertyName_mg524598 should have thrown ReflectionException");
+            __DSPOT_invoc_15.getResource(__DSPOT_arg0_105004);
+        } catch (ReflectionException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyNamelitString524583_mg525037_add527891() throws Exception {
+        boolean __DSPOT_useCamelCaseMapping_102435 = false;
+        String __DSPOT_name_102434 = "?,=#iz[b,]dfW5j){JS.";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        String o_shouldFindPropertyNamelitString524583__5 = meta.findProperty("richType.richList[0]");
+        Assert.assertEquals("richType.", o_shouldFindPropertyNamelitString524583__5);
+        meta.findProperty(__DSPOT_name_102434, __DSPOT_useCamelCaseMapping_102435);
+        meta.findProperty(__DSPOT_name_102434, __DSPOT_useCamelCaseMapping_102435);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyName_mg524598_failAssert577null525292_failAssert615litString527702() throws Exception {
+        try {
+            try {
+                String __DSPOT_name_102329 = "=]HzP@O)IL]/O-MCZ%8l";
+                ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+                Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+                MetaClass meta = MetaClass.forClass(RichType.class, null);
+                meta.findProperty("RICHfield");
+                meta.getSetterType(__DSPOT_name_102329);
+                org.junit.Assert.fail("shouldFindPropertyName_mg524598 should have thrown ReflectionException");
+            } catch (ReflectionException expected) {
+            }
+            org.junit.Assert.fail("shouldFindPropertyName_mg524598_failAssert577null525292 should have thrown NullPointerException");
+        } catch (NullPointerException expected_1) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyNamelitString524588_remove524939_mg529146_failAssert628() throws Exception {
+        try {
+            String __DSPOT_name_102791 = "M{U`j(Fc>,]xZBu,8SUJ";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.getGetterType(__DSPOT_name_102791);
+            org.junit.Assert.fail("shouldFindPropertyNamelitString524588_remove524939_mg529146 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'M{U`j(Fc>,]xZBu,8SUJ\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyName_mg524600_mg524961_add527907() throws Exception {
+        String __DSPOT_name_102350 = "HPVv(^|@@Z}zhVxP{!l}";
+        String __DSPOT_name_102331 = "{q9o:#<[xp$wNL7U[._H";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        String o_shouldFindPropertyName_mg524600__6 = meta.findProperty("RICHfield");
+        Assert.assertEquals("richField", o_shouldFindPropertyName_mg524600__6);
+        boolean o_shouldFindPropertyName_mg524600_mg524961_add527907__10 = meta.hasSetter(__DSPOT_name_102331);
+        Assert.assertFalse(o_shouldFindPropertyName_mg524600_mg524961_add527907__10);
+        boolean o_shouldFindPropertyName_mg524600__7 = meta.hasSetter(__DSPOT_name_102331);
+        boolean o_shouldFindPropertyName_mg524600_mg524961__13 = meta.hasGetter(__DSPOT_name_102350);
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        Assert.assertEquals("richField", o_shouldFindPropertyName_mg524600__6);
+        Assert.assertFalse(o_shouldFindPropertyName_mg524600_mg524961_add527907__10);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyNamelitString524588_remove524939_mg529143() throws Exception {
+        String __DSPOT_name_102787 = "pT}4=lWSZbh`S2.&ng(w";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        meta.findProperty(__DSPOT_name_102787);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyNamelitString524588_add524877_mg529355_failAssert646() throws Exception {
+        try {
+            String __DSPOT_name_103023 = "?xK.$cOa9M&Yw}b);,&8";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            ((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled();
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            meta.findProperty("");
+            meta.getSetterType(__DSPOT_name_103023);
+            org.junit.Assert.fail("shouldFindPropertyNamelitString524588_add524877_mg529355 should have thrown ReflectionException");
+        } catch (ReflectionException expected) {
+            Assert.assertEquals("There is no getter for property named \'?xK\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyNamelitString524589_add524896_mg529329() throws Exception {
+        String __DSPOT_name_102994 = "F8^PjM1h.7Zt_6)25Y&Y";
+        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        MetaClass o_shouldFindPropertyNamelitString524589_add524896__3 = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (o_shouldFindPropertyNamelitString524589_add524896__3)).hasDefaultConstructor());
+        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+        meta.findProperty("\n");
+        o_shouldFindPropertyNamelitString524589_add524896__3.hasGetter(__DSPOT_name_102994);
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyNamelitString524588_add524877_remove528915() throws Exception {
         ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
         Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
         ((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled();
-        MetaClass meta = null;
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNamesnull28null302() throws Exception {
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
         MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
         Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
         Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
     }
 
     @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNames_add1_mg1040_failAssert12() throws Exception {
-        try {
-            String __DSPOT_name_296 = "!Lb^R/Cg|3RC!0fPw#b@";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckGetterAndSetterNames_add1__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            o_shouldCheckGetterAndSetterNames_add1__3.getSetInvoker(__DSPOT_name_296);
-            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_add1_mg1040 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'!Lb^R/Cg|3RC!0fPw#b@\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNames_add1_mg1059_mg8052() throws Exception {
-        boolean __DSPOT_useCamelCaseMapping_2323 = false;
-        String __DSPOT_name_2322 = "iB37nt^W7C$ke.`p(S-7";
-        String __DSPOT_name_311 = "R@z<e}*1gCLA [,68H-;";
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldCheckGetterAndSetterNames_add1__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldCheckGetterAndSetterNames_add1__3)).hasDefaultConstructor());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        boolean o_shouldCheckGetterAndSetterNames_add1_mg1059__9 = o_shouldCheckGetterAndSetterNames_add1__3.hasSetter(__DSPOT_name_311);
-        meta.findProperty(__DSPOT_name_2322, __DSPOT_useCamelCaseMapping_2323);
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNames_add1_add993_mg8535_failAssert54() throws Exception {
-        try {
-            String __DSPOT_name_2485 = "P{(}2((`;Ot`.U2{`rpI";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckGetterAndSetterNames_add1__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass o_shouldCheckGetterAndSetterNames_add1_add993__6 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            o_shouldCheckGetterAndSetterNames_add1_add993__6.getGetterType(__DSPOT_name_2485);
-            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_add1_add993_mg8535 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'P{(}2((`;Ot`\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNames_add1_add990_mg8900_failAssert61() throws Exception {
-        try {
-            String __DSPOT_name_2610 = "[{tx#QNA47V6kyJppngg";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckGetterAndSetterNames_add1_add990__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass o_shouldCheckGetterAndSetterNames_add1__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            o_shouldCheckGetterAndSetterNames_add1__3.getGetterType(__DSPOT_name_2610);
-            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_add1_add990_mg8900 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNames_add1_add993null8715() throws Exception {
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldCheckGetterAndSetterNames_add1__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldCheckGetterAndSetterNames_add1__3)).hasDefaultConstructor());
-        MetaClass o_shouldCheckGetterAndSetterNames_add1_add993__6 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldCheckGetterAndSetterNames_add1_add993__6)).hasDefaultConstructor());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        Assert.assertTrue(((MetaClass) (o_shouldCheckGetterAndSetterNames_add1__3)).hasDefaultConstructor());
-        Assert.assertTrue(((MetaClass) (o_shouldCheckGetterAndSetterNames_add1_add993__6)).hasDefaultConstructor());
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNames_add1_add993_mg8565() throws Exception {
-        String __DSPOT_name_2493 = "T.qhVC;5OOmgcF,+yW!m";
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldCheckGetterAndSetterNames_add1__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldCheckGetterAndSetterNames_add1__3)).hasDefaultConstructor());
-        MetaClass o_shouldCheckGetterAndSetterNames_add1_add993__6 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldCheckGetterAndSetterNames_add1_add993__6)).hasDefaultConstructor());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        boolean o_shouldCheckGetterAndSetterNames_add1_add993_mg8565__12 = o_shouldCheckGetterAndSetterNames_add1_add993__6.hasSetter(__DSPOT_name_2493);
-        Assert.assertFalse(o_shouldCheckGetterAndSetterNames_add1_add993_mg8565__12);
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        Assert.assertTrue(((MetaClass) (o_shouldCheckGetterAndSetterNames_add1__3)).hasDefaultConstructor());
-        Assert.assertTrue(((MetaClass) (o_shouldCheckGetterAndSetterNames_add1_add993__6)).hasDefaultConstructor());
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNames_add1_add993_mg8390_failAssert67() throws Exception {
-        try {
-            String __DSPOT_name_2434 = "V_^)G<E=/}?2G^}2<85)";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckGetterAndSetterNames_add1__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass o_shouldCheckGetterAndSetterNames_add1_add993__6 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            o_shouldCheckGetterAndSetterNames_add1__3.getGetInvoker(__DSPOT_name_2434);
-            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_add1_add993_mg8390 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'V_^)G<E=/}?2G^}2<85)\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNames_add1_add990_mg8929_failAssert73() throws Exception {
-        try {
-            String __DSPOT_name_2627 = "D:]|a>pkfp&yfH)B>I5k";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckGetterAndSetterNames_add1_add990__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass o_shouldCheckGetterAndSetterNames_add1__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            meta.getSetInvoker(__DSPOT_name_2627);
-            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_add1_add990_mg8929 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'D:]|a>pkfp&yfH)B>I5k\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNamesnull23null671null4952() throws Exception {
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass meta = null;
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNames_add1_add990_mg8906_failAssert63() throws Exception {
-        try {
-            String __DSPOT_name_2613 = ".A%r{8[eyCgeumu4>mG0";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckGetterAndSetterNames_add1_add990__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass o_shouldCheckGetterAndSetterNames_add1__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            o_shouldCheckGetterAndSetterNames_add1__3.getSetterType(__DSPOT_name_2613);
-            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_add1_add990_mg8906 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNames_add1_add993_mg8571_failAssert50() throws Exception {
-        try {
-            String __DSPOT_name_2497 = "m(5Ht;27qSf0X7%YEO9.";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckGetterAndSetterNames_add1__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass o_shouldCheckGetterAndSetterNames_add1_add993__6 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            o_shouldCheckGetterAndSetterNames_add1_add993__6.metaClassForProperty(__DSPOT_name_2497);
-            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_add1_add993_mg8571 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'m(5Ht;27qSf0X7%YEO9.\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNames_add1_mg1059_mg8016_failAssert83() throws Exception {
-        try {
-            String __DSPOT_name_2306 = "}J+jYAtV,@OFp:}EGHm}";
-            String __DSPOT_name_311 = "R@z<e}*1gCLA [,68H-;";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckGetterAndSetterNames_add1__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            boolean o_shouldCheckGetterAndSetterNames_add1_mg1059__9 = o_shouldCheckGetterAndSetterNames_add1__3.hasSetter(__DSPOT_name_311);
-            o_shouldCheckGetterAndSetterNames_add1__3.getSetterType(__DSPOT_name_2306);
-            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_add1_mg1059_mg8016 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'}J+jYAtV,@OFp:}EGHm}\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNames_add1_add990_mg8882_failAssert53() throws Exception {
-        try {
-            String __DSPOT_name_2601 = "y5;n*jni{0XQN|PGQ&.o";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckGetterAndSetterNames_add1_add990__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass o_shouldCheckGetterAndSetterNames_add1__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            o_shouldCheckGetterAndSetterNames_add1_add990__3.getSetterType(__DSPOT_name_2601);
-            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_add1_add990_mg8882 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'y5;n*jni{0XQN|PGQ&\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNames_add1_add993_mg8580() throws Exception {
-        boolean __DSPOT_useCamelCaseMapping_2503 = true;
-        String __DSPOT_name_2502 = "IgOML>%M?QCq3_YV^]f`";
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldCheckGetterAndSetterNames_add1__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldCheckGetterAndSetterNames_add1__3)).hasDefaultConstructor());
-        MetaClass o_shouldCheckGetterAndSetterNames_add1_add993__6 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldCheckGetterAndSetterNames_add1_add993__6)).hasDefaultConstructor());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        meta.findProperty(__DSPOT_name_2502, __DSPOT_useCamelCaseMapping_2503);
-    }
-
-    @Test(timeout = 10000)
-    public void shouldCheckGetterAndSetterNames_add1_add993_mg8458_failAssert66() throws Exception {
-        try {
-            String __DSPOT_name_2452 = "8mGW8Fi#CuB_A3$u]u|[";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldCheckGetterAndSetterNames_add1__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass o_shouldCheckGetterAndSetterNames_add1_add993__6 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            o_shouldCheckGetterAndSetterNames_add1__3.getSetterType(__DSPOT_name_2452);
-            org.junit.Assert.fail("shouldCheckGetterAndSetterNames_add1_add993_mg8458 should have thrown StringIndexOutOfBoundsException");
-        } catch (StringIndexOutOfBoundsException expected) {
-            Assert.assertEquals("String index out of range: -1", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyName_mg626553_failAssert709() throws Exception {
-        try {
-            String __DSPOT_name_110344 = "]G,:!<*U%u&;Q%cQ:uf5";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            meta.findProperty("RICHfield");
-            meta.getGetInvoker(__DSPOT_name_110344);
-            org.junit.Assert.fail("shouldFindPropertyName_mg626553 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \']G,:!<*U%u&;Q%cQ:uf5\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyName_mg626562_failAssert713() throws Exception {
-        try {
-            String __DSPOT_name_110350 = "@R_)o4[vH!()6x+(`)8C";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            meta.findProperty("RICHfield");
-            meta.metaClassForProperty(__DSPOT_name_110350);
-            org.junit.Assert.fail("shouldFindPropertyName_mg626562 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'@R_)o4[vH!()6x+(`)8C\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyNamenull626570() throws Exception {
+    public void shouldFindPropertyNamelitString524586_mg525073litBool527821() throws Exception {
+        boolean __DSPOT_useCamelCaseMapping_102475 = true;
+        String __DSPOT_name_102474 = "A>5ZS;yiX{<90U]h E>S";
         ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
         Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
         MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
         Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+        meta.findProperty("RIHfield");
+        meta.findProperty(__DSPOT_name_102474, __DSPOT_useCamelCaseMapping_102475);
     }
 
     @Test(timeout = 10000)
-    public void shouldFindPropertyName_mg626556_failAssert711() throws Exception {
+    public void shouldFindPropertyNamelitString524583_mg525037null533425_failAssert639() throws Exception {
         try {
-            String __DSPOT_name_110346 = "s)]Fn[%5gR12cC}9-XmB";
+            boolean __DSPOT_useCamelCaseMapping_102435 = false;
+            String __DSPOT_name_102434 = "?,=#iz[b,]dfW5j){JS.";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            meta.findProperty("RICHfield");
-            meta.getSetInvoker(__DSPOT_name_110346);
-            org.junit.Assert.fail("shouldFindPropertyName_mg626556 should have thrown ReflectionException");
+            String o_shouldFindPropertyNamelitString524583__5 = meta.findProperty("richType.richList[0]");
+            meta.findProperty(null, __DSPOT_useCamelCaseMapping_102435);
+            org.junit.Assert.fail("shouldFindPropertyNamelitString524583_mg525037null533425 should have thrown NullPointerException");
+        } catch (NullPointerException expected) {
+            Assert.assertEquals(null, expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void shouldFindPropertyNamelitString524590_mg525029_failAssert606_mg530803() throws Exception {
+        try {
+            String __DSPOT_name_104632 = "+5&,sjXZj0k a42%K&=@";
+            String __DSPOT_name_102426 = "+ZEX2k*=tkw&+#L^d(S@";
+            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
+            Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
+            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
+            Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
+            meta.findProperty(":");
+            meta.getGetInvoker(__DSPOT_name_102426);
+            org.junit.Assert.fail("shouldFindPropertyNamelitString524590_mg525029 should have thrown ReflectionException");
+            meta.getSetInvoker(__DSPOT_name_104632);
         } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'s)]Fn[%5gR12cC}9-XmB\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void shouldFindPropertyName_mg626552_failAssert708() throws Exception {
+    public void shouldFindPropertyName_mg524600_mg524961null533433_failAssert638() throws Exception {
         try {
-            boolean __DSPOT_useCamelCaseMapping_110343 = true;
-            String __DSPOT_name_110342 = "Qp5?NM(e@?| 5LS37t/[";
+            String __DSPOT_name_102350 = null;
+            String __DSPOT_name_102331 = "{q9o:#<[xp$wNL7U[._H";
             ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
             MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            meta.findProperty("RICHfield");
-            meta.findProperty(__DSPOT_name_110342, __DSPOT_useCamelCaseMapping_110343);
-            org.junit.Assert.fail("shouldFindPropertyName_mg626552 should have thrown StringIndexOutOfBoundsException");
-        } catch (StringIndexOutOfBoundsException expected) {
-            Assert.assertEquals("String index out of range: -1", expected.getMessage());
+            String o_shouldFindPropertyName_mg524600__6 = meta.findProperty("RICHfield");
+            boolean o_shouldFindPropertyName_mg524600__7 = meta.hasSetter(__DSPOT_name_102331);
+            boolean o_shouldFindPropertyName_mg524600_mg524961__13 = meta.hasGetter(__DSPOT_name_102350);
+            org.junit.Assert.fail("shouldFindPropertyName_mg524600_mg524961null533433 should have thrown NullPointerException");
+        } catch (NullPointerException expected) {
+            Assert.assertEquals(null, expected.getMessage());
         }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyName_mg626558_failAssert712() throws Exception {
-        try {
-            String __DSPOT_name_110347 = "1.SGpe$r_:;Aw3O@I>tZ";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            meta.findProperty("RICHfield");
-            meta.getSetterType(__DSPOT_name_110347);
-            org.junit.Assert.fail("shouldFindPropertyName_mg626558 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'1\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyName_add626550_mg626858_failAssert749() throws Exception {
-        try {
-            String __DSPOT_name_110407 = "}4lyC):W-*GN9FyJgKS6";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            String o_shouldFindPropertyName_add626550__5 = meta.findProperty("RICHfield");
-            String o_shouldFindPropertyName_add626550__6 = meta.findProperty("RICHfield");
-            meta.getSetterType(__DSPOT_name_110407);
-            org.junit.Assert.fail("shouldFindPropertyName_add626550_mg626858 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'}4lyC):W-*GN9FyJgKS6\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyName_add626549null627470() throws Exception {
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldFindPropertyName_add626549__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldFindPropertyName_add626549__3)).hasDefaultConstructor());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        String o_shouldFindPropertyName_add626549__6 = null;
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyName_add626550_mg626845_failAssert748() throws Exception {
-        try {
-            String __DSPOT_name_110405 = "?.mt0H6%nr^(}[G0eIr!";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            String o_shouldFindPropertyName_add626550__5 = meta.findProperty("RICHfield");
-            String o_shouldFindPropertyName_add626550__6 = meta.findProperty("RICHfield");
-            meta.getGetterType(__DSPOT_name_110405);
-            org.junit.Assert.fail("shouldFindPropertyName_add626550_mg626845 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'?\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyName_mg626561_mg627862_failAssert740() throws Exception {
-        try {
-            String __DSPOT_name_110670 = "(l5tqVh3;A(9A)s<}*Ul";
-            String __DSPOT_name_110349 = "YCFt}zF Tj;YzA[p9|sO";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            String o_shouldFindPropertyName_mg626561__6 = meta.findProperty("RICHfield");
-            boolean o_shouldFindPropertyName_mg626561__7 = meta.hasSetter(__DSPOT_name_110349);
-            meta.getSetInvoker(__DSPOT_name_110670);
-            org.junit.Assert.fail("shouldFindPropertyName_mg626561_mg627862 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'(l5tqVh3;A(9A)s<}*Ul\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyName_add626550_mg626836() throws Exception {
-        boolean __DSPOT_useCamelCaseMapping_110403 = false;
-        String __DSPOT_name_110402 = "jC9N#6=ooD}9! .@bT`H";
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        String o_shouldFindPropertyName_add626550__5 = meta.findProperty("RICHfield");
-        Assert.assertEquals("richField", o_shouldFindPropertyName_add626550__5);
-        String o_shouldFindPropertyName_add626550__6 = meta.findProperty("RICHfield");
-        Assert.assertEquals("richField", o_shouldFindPropertyName_add626550__6);
-        meta.findProperty(__DSPOT_name_110402, __DSPOT_useCamelCaseMapping_110403);
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyName_add626550_mg626871_failAssert751() throws Exception {
-        try {
-            String __DSPOT_name_110409 = "v5F_GFa3&+YAke#gTam[";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            String o_shouldFindPropertyName_add626550__5 = meta.findProperty("RICHfield");
-            String o_shouldFindPropertyName_add626550__6 = meta.findProperty("RICHfield");
-            meta.hasGetter(__DSPOT_name_110409);
-            org.junit.Assert.fail("shouldFindPropertyName_add626550_mg626871 should have thrown StringIndexOutOfBoundsException");
-        } catch (StringIndexOutOfBoundsException expected) {
-            Assert.assertEquals("String index out of range: -1", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyName_add626550_mg626877_failAssert746() throws Exception {
-        try {
-            String __DSPOT_name_110414 = "Bropw]fg#_Hi_@^jlh;!";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            String o_shouldFindPropertyName_add626550__5 = meta.findProperty("RICHfield");
-            String o_shouldFindPropertyName_add626550__6 = meta.findProperty("RICHfield");
-            meta.metaClassForProperty(__DSPOT_name_110414);
-            org.junit.Assert.fail("shouldFindPropertyName_add626550_mg626877 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'Bropw]fg#_Hi_@^jlh;!\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyNamenull626570null626686() throws Exception {
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass meta = null;
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyName_mg626561_mg627843() throws Exception {
-        boolean __DSPOT_useCamelCaseMapping_110666 = true;
-        String __DSPOT_name_110665 = ",ANN^K|-T}.1F,K#nHWy";
-        String __DSPOT_name_110349 = "YCFt}zF Tj;YzA[p9|sO";
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        String o_shouldFindPropertyName_mg626561__6 = meta.findProperty("RICHfield");
-        Assert.assertEquals("richField", o_shouldFindPropertyName_mg626561__6);
-        boolean o_shouldFindPropertyName_mg626561__7 = meta.hasSetter(__DSPOT_name_110349);
-        meta.findProperty(__DSPOT_name_110665, __DSPOT_useCamelCaseMapping_110666);
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyName_mg626561_mg627876() throws Exception {
-        String __DSPOT_name_110672 = "A,U<N8ycZz#B_^.iq.hB";
-        String __DSPOT_name_110349 = "YCFt}zF Tj;YzA[p9|sO";
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        String o_shouldFindPropertyName_mg626561__6 = meta.findProperty("RICHfield");
-        Assert.assertEquals("richField", o_shouldFindPropertyName_mg626561__6);
-        boolean o_shouldFindPropertyName_mg626561__7 = meta.hasSetter(__DSPOT_name_110349);
-        boolean o_shouldFindPropertyName_mg626561_mg627876__13 = meta.hasGetter(__DSPOT_name_110672);
-        Assert.assertFalse(o_shouldFindPropertyName_mg626561_mg627876__13);
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        Assert.assertEquals("richField", o_shouldFindPropertyName_mg626561__6);
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyName_add626549_mg627379() throws Exception {
-        String __DSPOT_name_110548 = "0)OJ^B3b,J.]Ckhy N(G";
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldFindPropertyName_add626549__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldFindPropertyName_add626549__3)).hasDefaultConstructor());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        String o_shouldFindPropertyName_add626549__6 = meta.findProperty("RICHfield");
-        Assert.assertEquals("richField", o_shouldFindPropertyName_add626549__6);
-        boolean o_shouldFindPropertyName_add626549_mg627379__12 = o_shouldFindPropertyName_add626549__3.hasSetter(__DSPOT_name_110548);
-        Assert.assertFalse(o_shouldFindPropertyName_add626549_mg627379__12);
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        Assert.assertTrue(((MetaClass) (o_shouldFindPropertyName_add626549__3)).hasDefaultConstructor());
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        Assert.assertEquals("richField", o_shouldFindPropertyName_add626549__6);
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyName_add626549_mg627372_failAssert721() throws Exception {
-        try {
-            String __DSPOT_name_110546 = "PuWN6^Eo ].[(G:)(;^|";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldFindPropertyName_add626549__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            String o_shouldFindPropertyName_add626549__6 = meta.findProperty("RICHfield");
-            o_shouldFindPropertyName_add626549__3.getSetterType(__DSPOT_name_110546);
-            org.junit.Assert.fail("shouldFindPropertyName_add626549_mg627372 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'PuWN6^Eo ]\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyName_add626550_mg626838_failAssert747() throws Exception {
-        try {
-            String __DSPOT_name_110404 = "awBid;xM!DTQXd:[lo5|";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            String o_shouldFindPropertyName_add626550__5 = meta.findProperty("RICHfield");
-            String o_shouldFindPropertyName_add626550__6 = meta.findProperty("RICHfield");
-            meta.getGetInvoker(__DSPOT_name_110404);
-            org.junit.Assert.fail("shouldFindPropertyName_add626550_mg626838 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'awBid;xM!DTQXd:[lo5|\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyName_add626549_add627329_mg633385_failAssert758() throws Exception {
-        try {
-            String __DSPOT_name_112117 = "V]-%{vyc#rKE&}_WK$t:";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldFindPropertyName_add626549__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass o_shouldFindPropertyName_add626549_add627329__6 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            String o_shouldFindPropertyName_add626549__6 = meta.findProperty("RICHfield");
-            o_shouldFindPropertyName_add626549_add627329__6.getGetterType(__DSPOT_name_112117);
-            org.junit.Assert.fail("shouldFindPropertyName_add626549_add627329_mg633385 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'V]-%{vyc#rKE&}_WK$t:\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyName_add626549_add627329_mg633425_failAssert752() throws Exception {
-        try {
-            boolean __DSPOT_useCamelCaseMapping_112133 = true;
-            String __DSPOT_name_112132 = "4=l#5JwXK(%:uJ=*6(,[";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldFindPropertyName_add626549__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass o_shouldFindPropertyName_add626549_add627329__6 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            String o_shouldFindPropertyName_add626549__6 = meta.findProperty("RICHfield");
-            meta.findProperty(__DSPOT_name_112132, __DSPOT_useCamelCaseMapping_112133);
-            org.junit.Assert.fail("shouldFindPropertyName_add626549_add627329_mg633425 should have thrown StringIndexOutOfBoundsException");
-        } catch (StringIndexOutOfBoundsException expected) {
-            Assert.assertEquals("String index out of range: -1", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyName_add626549_mg627379_mg633016() throws Exception {
-        boolean __DSPOT_useCamelCaseMapping_112011 = true;
-        String __DSPOT_name_112010 = "j8#y:>p|`{w87LLw3VJ0";
-        String __DSPOT_name_110548 = "0)OJ^B3b,J.]Ckhy N(G";
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldFindPropertyName_add626549__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldFindPropertyName_add626549__3)).hasDefaultConstructor());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        String o_shouldFindPropertyName_add626549__6 = meta.findProperty("RICHfield");
-        Assert.assertEquals("richField", o_shouldFindPropertyName_add626549__6);
-        boolean o_shouldFindPropertyName_add626549_mg627379__12 = o_shouldFindPropertyName_add626549__3.hasSetter(__DSPOT_name_110548);
-        o_shouldFindPropertyName_add626549__3.findProperty(__DSPOT_name_112010, __DSPOT_useCamelCaseMapping_112011);
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyName_add626549_add627329_mg633363_failAssert775() throws Exception {
-        try {
-            String __DSPOT_name_112101 = "NxP8(7,:J[;*=<6uR|/W";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldFindPropertyName_add626549__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass o_shouldFindPropertyName_add626549_add627329__6 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            String o_shouldFindPropertyName_add626549__6 = meta.findProperty("RICHfield");
-            o_shouldFindPropertyName_add626549__3.getSetterType(__DSPOT_name_112101);
-            org.junit.Assert.fail("shouldFindPropertyName_add626549_add627329_mg633363 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'NxP8(7,:J\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyName_add626549_add627325_mg633819() throws Exception {
-        boolean __DSPOT_useCamelCaseMapping_112247 = true;
-        String __DSPOT_name_112246 = "Xkft1am${stDa8/7$NcL";
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldFindPropertyName_add626549_add627325__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldFindPropertyName_add626549_add627325__3)).hasDefaultConstructor());
-        MetaClass o_shouldFindPropertyName_add626549__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldFindPropertyName_add626549__3)).hasDefaultConstructor());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        String o_shouldFindPropertyName_add626549__6 = meta.findProperty("RICHfield");
-        Assert.assertEquals("richField", o_shouldFindPropertyName_add626549__6);
-        meta.findProperty(__DSPOT_name_112246, __DSPOT_useCamelCaseMapping_112247);
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyName_add626549_add627325litString633720() throws Exception {
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldFindPropertyName_add626549_add627325__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldFindPropertyName_add626549_add627325__3)).hasDefaultConstructor());
-        MetaClass o_shouldFindPropertyName_add626549__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldFindPropertyName_add626549__3)).hasDefaultConstructor());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        String o_shouldFindPropertyName_add626549__6 = meta.findProperty("9.,}wdPl0");
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyName_add626549_add627329_mg633431_failAssert785() throws Exception {
-        try {
-            String __DSPOT_name_112138 = "(<o#u$Yc5&OG?2BZ)LK&";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldFindPropertyName_add626549__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass o_shouldFindPropertyName_add626549_add627329__6 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            String o_shouldFindPropertyName_add626549__6 = meta.findProperty("RICHfield");
-            meta.getGetInvoker(__DSPOT_name_112138);
-            org.junit.Assert.fail("shouldFindPropertyName_add626549_add627329_mg633431 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'(<o#u$Yc5&OG?2BZ)LK&\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyName_add626549_add627329_mg633406() throws Exception {
-        String __DSPOT_name_112122 = "$Rw.fG].adAIH/+f(a?c";
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldFindPropertyName_add626549__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldFindPropertyName_add626549__3)).hasDefaultConstructor());
-        MetaClass o_shouldFindPropertyName_add626549_add627329__6 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldFindPropertyName_add626549_add627329__6)).hasDefaultConstructor());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        String o_shouldFindPropertyName_add626549__6 = meta.findProperty("RICHfield");
-        Assert.assertEquals("richField", o_shouldFindPropertyName_add626549__6);
-        boolean o_shouldFindPropertyName_add626549_add627329_mg633406__15 = o_shouldFindPropertyName_add626549_add627329__6.hasGetter(__DSPOT_name_112122);
-        Assert.assertFalse(o_shouldFindPropertyName_add626549_add627329_mg633406__15);
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        Assert.assertTrue(((MetaClass) (o_shouldFindPropertyName_add626549__3)).hasDefaultConstructor());
-        Assert.assertTrue(((MetaClass) (o_shouldFindPropertyName_add626549_add627329__6)).hasDefaultConstructor());
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        Assert.assertEquals("richField", o_shouldFindPropertyName_add626549__6);
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyName_add626549_add627325_mg633821() throws Exception {
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass o_shouldFindPropertyName_add626549_add627325__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldFindPropertyName_add626549_add627325__3)).hasDefaultConstructor());
-        MetaClass o_shouldFindPropertyName_add626549__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (o_shouldFindPropertyName_add626549__3)).hasDefaultConstructor());
-        MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        String o_shouldFindPropertyName_add626549__6 = meta.findProperty("RICHfield");
-        Assert.assertEquals("richField", o_shouldFindPropertyName_add626549__6);
-        meta.getGetterNames();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        Assert.assertTrue(((MetaClass) (o_shouldFindPropertyName_add626549_add627325__3)).hasDefaultConstructor());
-        Assert.assertTrue(((MetaClass) (o_shouldFindPropertyName_add626549__3)).hasDefaultConstructor());
-        Assert.assertTrue(((MetaClass) (meta)).hasDefaultConstructor());
-        Assert.assertEquals("richField", o_shouldFindPropertyName_add626549__6);
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyName_add626549_add627325_mg633822_failAssert778() throws Exception {
-        try {
-            String __DSPOT_name_112249 = "[}q;WNCokAK=_LU=pqV;";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldFindPropertyName_add626549_add627325__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass o_shouldFindPropertyName_add626549__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            String o_shouldFindPropertyName_add626549__6 = meta.findProperty("RICHfield");
-            meta.getGetterType(__DSPOT_name_112249);
-            org.junit.Assert.fail("shouldFindPropertyName_add626549_add627325_mg633822 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no getter for property named \'\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyName_add626549_add627329_mg633355_failAssert772() throws Exception {
-        try {
-            String __DSPOT_name_112100 = "G8Y{g0[zMWk!8w*67/}T";
-            ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-            MetaClass o_shouldFindPropertyName_add626549__3 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass o_shouldFindPropertyName_add626549_add627329__6 = MetaClass.forClass(RichType.class, reflectorFactory);
-            MetaClass meta = MetaClass.forClass(RichType.class, reflectorFactory);
-            String o_shouldFindPropertyName_add626549__6 = meta.findProperty("RICHfield");
-            o_shouldFindPropertyName_add626549__3.getSetInvoker(__DSPOT_name_112100);
-            org.junit.Assert.fail("shouldFindPropertyName_add626549_add627329_mg633355 should have thrown ReflectionException");
-        } catch (ReflectionException expected) {
-            Assert.assertEquals("There is no setter for property named \'G8Y{g0[zMWk!8w*67/}T\' in \'class org.apache.ibatis.domain.misc.RichType\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void shouldFindPropertyNamenull626570null626686null634385() throws Exception {
-        ReflectorFactory reflectorFactory = new DefaultReflectorFactory();
-        Assert.assertTrue(((DefaultReflectorFactory) (reflectorFactory)).isClassCacheEnabled());
-        MetaClass meta = null;
     }
 }
 
