@@ -4,28 +4,13 @@
   "nbOriginalTestCases": 1,
   "testCases": [
     {
-      "name": "testDecodelitString5_add101",
-      "nbAssertionAdded": 4,
-      "nbInputAdded": 1,
+      "name": "testDecode_add8litString41",
+      "nbAssertionAdded": 8,
+      "nbInputAdded": 2,
       "nbMutantKilled": 7,
       "mutantsKilled": [
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 67,
-          "locationMethod": "getProtocolName"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
-          "lineNumber": 193,
-          "locationMethod": "\u003cinit\u003e"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 67,
-          "locationMethod": "getProtocolName"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
           "lineNumber": 67,
           "locationMethod": "getProtocolName"
         },
@@ -40,29 +25,31 @@
           "locationMethod": "getName"
         },
         {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 67,
+          "locationMethod": "getProtocolName"
+        },
+        {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
           "lineNumber": 42,
           "locationMethod": "getName"
-        }
-      ]
-    },
-    {
-      "name": "testDecode_add8_add145_add2508",
-      "nbAssertionAdded": 40,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 1,
-      "mutantsKilled": [
+        },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
           "lineNumber": 193,
           "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 67,
+          "locationMethod": "getProtocolName"
         }
       ]
     },
     {
-      "name": "testDecode_add8litString38_failAssert8",
+      "name": "testDecodelitString4_failAssert1",
       "nbAssertionAdded": 1,
-      "nbInputAdded": 1,
+      "nbInputAdded": 2,
       "nbMutantKilled": 1,
       "mutantsKilled": [
         {
@@ -73,40 +60,15 @@
       ]
     },
     {
-      "name": "testDecodenull9_failAssert6_add124_add1656",
-      "nbAssertionAdded": 4,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 6,
+      "name": "testDecode_add8_add77litString564_failAssert27",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
       "mutantsKilled": [
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 67,
-          "locationMethod": "getProtocolName"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 67,
-          "locationMethod": "getProtocolName"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
-          "lineNumber": 67,
-          "locationMethod": "getProtocolName"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
-          "lineNumber": 37,
-          "locationMethod": "\u003cinit\u003e"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
-          "lineNumber": 42,
-          "locationMethod": "getName"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 42,
-          "locationMethod": "getName"
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 31,
+          "locationMethod": "parseHex"
         }
       ]
     },
@@ -123,21 +85,6 @@
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
-          "lineNumber": 193,
-          "locationMethod": "\u003cinit\u003e"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 67,
-          "locationMethod": "getProtocolName"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
-          "lineNumber": 67,
-          "locationMethod": "getProtocolName"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
           "lineNumber": 37,
           "locationMethod": "\u003cinit\u003e"
         },
@@ -147,16 +94,31 @@
           "locationMethod": "getName"
         },
         {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 67,
+          "locationMethod": "getProtocolName"
+        },
+        {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
           "lineNumber": 42,
           "locationMethod": "getName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 193,
+          "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 67,
+          "locationMethod": "getProtocolName"
         }
       ]
     },
     {
       "name": "testDecodelitString5",
-      "nbAssertionAdded": 12,
-      "nbInputAdded": 1,
+      "nbAssertionAdded": 24,
+      "nbInputAdded": 2,
       "nbMutantKilled": 7,
       "mutantsKilled": [
         {
@@ -166,6 +128,26 @@
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 37,
+          "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 42,
+          "locationMethod": "getName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 67,
+          "locationMethod": "getProtocolName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 42,
+          "locationMethod": "getName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
           "lineNumber": 193,
           "locationMethod": "\u003cinit\u003e"
         },
@@ -173,9 +155,17 @@
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
           "lineNumber": 67,
           "locationMethod": "getProtocolName"
-        },
+        }
+      ]
+    },
+    {
+      "name": "testDecode_add8_add77_add1821",
+      "nbAssertionAdded": 8,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 7,
+      "mutantsKilled": [
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
           "lineNumber": 67,
           "locationMethod": "getProtocolName"
         },
@@ -190,29 +180,31 @@
           "locationMethod": "getName"
         },
         {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 67,
+          "locationMethod": "getProtocolName"
+        },
+        {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
           "lineNumber": 42,
           "locationMethod": "getName"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 193,
+          "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 67,
+          "locationMethod": "getProtocolName"
         }
       ]
     },
     {
-      "name": "testDecode_add8_add145litString2462_failAssert31",
+      "name": "testDecode_add8litString40_failAssert16",
       "nbAssertionAdded": 1,
       "nbInputAdded": 1,
-      "nbMutantKilled": 1,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
-          "lineNumber": 31,
-          "locationMethod": "parseHex"
-        }
-      ]
-    },
-    {
-      "name": "testDecodelitString6_failAssert4",
-      "nbAssertionAdded": 1,
-      "nbInputAdded": 2,
       "nbMutantKilled": 1,
       "mutantsKilled": [
         {

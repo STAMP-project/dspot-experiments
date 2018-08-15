@@ -3,24 +3,12 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] Building traccar 4.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
-Downloading: https://repo.maven.apache.org/maven2/org/jxls/jxls/maven-metadata.xml
-939/939 B               Downloaded: https://repo.maven.apache.org/maven2/org/jxls/jxls/maven-metadata.xml (939 B at 1.6 KB/sec)
-Downloading: https://repo.maven.apache.org/maven2/joda-time/joda-time/maven-metadata.xml
-2/2 KB               Downloaded: https://repo.maven.apache.org/maven2/joda-time/joda-time/maven-metadata.xml (2 KB at 5.1 KB/sec)
-Downloading: https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/maven-metadata.xml
-3/3 KB   3/3 KB            Downloaded: https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/maven-metadata.xml (3 KB at 13.8 KB/sec)
-Downloading: https://repo.maven.apache.org/maven2/com/cloudhopper/ch-commons-util/maven-metadata.xml
-461/461 B               Downloaded: https://repo.maven.apache.org/maven2/com/cloudhopper/ch-commons-util/maven-metadata.xml (461 B at 2.3 KB/sec)
 [INFO] 
 [INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ traccar ---
 [INFO] 
 [INFO] --- maven-checkstyle-plugin:3.0.0:check (checkstyle) @ traccar ---
 [INFO] 
 [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-bytecode-version) @ traccar ---
-[INFO] artifact org.jxls:jxls: checking for updates from central
-[INFO] artifact joda-time:joda-time: checking for updates from central
-[INFO] artifact org.slf4j:slf4j-api: checking for updates from central
-[INFO] artifact com.cloudhopper:ch-commons-util: checking for updates from central
 [INFO] Adding ignore: *JDBC42*
 [INFO] 
 [INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ traccar ---
@@ -126,10 +114,10 @@ Downloading: https://repo.maven.apache.org/maven2/com/cloudhopper/ch-commons-uti
 ================================================================================
 > scan classpath : < 1 second
 > coverage and dependency analysis : < 1 second
-> build mutation tests : 22 seconds
+> build mutation tests : 21 seconds
 > run mutation analysis : 4 seconds
 --------------------------------------------------------------------------------
-> Total  : 27 seconds
+> Total  : 26 seconds
 --------------------------------------------------------------------------------
 ================================================================================
 - Statistics
@@ -886,7 +874,7 @@ Downloading: https://repo.maven.apache.org/maven2/com/cloudhopper/ch-commons-uti
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 52.654 s
-[INFO] Finished at: 2018-08-15T09:14:34+02:00
-[INFO] Final Memory: 61M/1547M
+[INFO] Total time: 49.182 s
+[INFO] Finished at: 2018-08-15T11:21:19+02:00
+[INFO] Final Memory: 60M/1597M
 [INFO] ------------------------------------------------------------------------
