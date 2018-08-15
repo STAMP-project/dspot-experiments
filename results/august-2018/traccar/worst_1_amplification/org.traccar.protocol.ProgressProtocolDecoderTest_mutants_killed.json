@@ -4,21 +4,8 @@
   "nbOriginalTestCases": 1,
   "testCases": [
     {
-      "name": "testDecodelitString7_failAssert5",
-      "nbAssertionAdded": 1,
-      "nbInputAdded": 1,
-      "nbMutantKilled": 1,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
-          "lineNumber": 31,
-          "locationMethod": "parseHex"
-        }
-      ]
-    },
-    {
-      "name": "testDecodenull11",
-      "nbAssertionAdded": 12,
+      "name": "testDecodelitString5_add101",
+      "nbAssertionAdded": 4,
       "nbInputAdded": 1,
       "nbMutantKilled": 7,
       "mutantsKilled": [
@@ -60,20 +47,41 @@
       ]
     },
     {
-      "name": "testDecode_add8_add194null6631",
-      "nbAssertionAdded": 8,
+      "name": "testDecode_add8_add145_add2508",
+      "nbAssertionAdded": 40,
       "nbInputAdded": 2,
-      "nbMutantKilled": 7,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 193,
+          "locationMethod": "\u003cinit\u003e"
+        }
+      ]
+    },
+    {
+      "name": "testDecode_add8litString38_failAssert8",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 31,
+          "locationMethod": "parseHex"
+        }
+      ]
+    },
+    {
+      "name": "testDecodenull9_failAssert6_add124_add1656",
+      "nbAssertionAdded": 4,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 6,
       "mutantsKilled": [
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
           "lineNumber": 67,
           "locationMethod": "getProtocolName"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
-          "lineNumber": 193,
-          "locationMethod": "\u003cinit\u003e"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
@@ -99,19 +107,6 @@
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
           "lineNumber": 42,
           "locationMethod": "getName"
-        }
-      ]
-    },
-    {
-      "name": "testDecode_add8_add194litString6333_failAssert45",
-      "nbAssertionAdded": 1,
-      "nbInputAdded": 1,
-      "nbMutantKilled": 1,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
-          "lineNumber": 31,
-          "locationMethod": "parseHex"
         }
       ]
     },
@@ -159,8 +154,8 @@
       ]
     },
     {
-      "name": "testDecode_add8null306",
-      "nbAssertionAdded": 4,
+      "name": "testDecodelitString5",
+      "nbAssertionAdded": 12,
       "nbInputAdded": 1,
       "nbMutantKilled": 7,
       "mutantsKilled": [
@@ -202,9 +197,22 @@
       ]
     },
     {
-      "name": "testDecode_add8litString72_failAssert13",
+      "name": "testDecode_add8_add145litString2462_failAssert31",
       "nbAssertionAdded": 1,
-      "nbInputAdded": 0,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 31,
+          "locationMethod": "parseHex"
+        }
+      ]
+    },
+    {
+      "name": "testDecodelitString6_failAssert4",
+      "nbAssertionAdded": 1,
+      "nbInputAdded": 2,
       "nbMutantKilled": 1,
       "mutantsKilled": [
         {

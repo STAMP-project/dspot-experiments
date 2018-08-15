@@ -3,24 +3,13 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] Building traccar 4.0-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
-Downloading: https://repo.maven.apache.org/maven2/org/jxls/jxls/maven-metadata.xml
-939/939 B               Downloaded: https://repo.maven.apache.org/maven2/org/jxls/jxls/maven-metadata.xml (939 B at 1.6 KB/sec)
-Downloading: https://repo.maven.apache.org/maven2/joda-time/joda-time/maven-metadata.xml
-2/2 KB               Downloaded: https://repo.maven.apache.org/maven2/joda-time/joda-time/maven-metadata.xml (2 KB at 5.8 KB/sec)
-Downloading: https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/maven-metadata.xml
-3/3 KB   3/3 KB            Downloaded: https://repo.maven.apache.org/maven2/org/slf4j/slf4j-api/maven-metadata.xml (3 KB at 12.5 KB/sec)
-Downloading: https://repo.maven.apache.org/maven2/com/cloudhopper/ch-commons-util/maven-metadata.xml
-461/461 B               Downloaded: https://repo.maven.apache.org/maven2/com/cloudhopper/ch-commons-util/maven-metadata.xml (461 B at 2.0 KB/sec)
 [INFO] 
 [INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ traccar ---
+[INFO] Deleting /tmp/dspot-experiments/dataset/traccar/target
 [INFO] 
 [INFO] --- maven-checkstyle-plugin:3.0.0:check (checkstyle) @ traccar ---
 [INFO] 
 [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-bytecode-version) @ traccar ---
-[INFO] artifact org.jxls:jxls: checking for updates from central
-[INFO] artifact joda-time:joda-time: checking for updates from central
-[INFO] artifact org.slf4j:slf4j-api: checking for updates from central
-[INFO] artifact com.cloudhopper:ch-commons-util: checking for updates from central
 [INFO] Adding ignore: *JDBC42*
 [INFO] 
 [INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ traccar ---
@@ -91,7 +80,7 @@ Downloading: https://repo.maven.apache.org/maven2/com/cloudhopper/ch-commons-uti
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ traccar ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 273 source files to /tmp/dspot-experiments/dataset/traccar/target/test-classes
+[INFO] Compiling 272 source files to /tmp/dspot-experiments/dataset/traccar/target/test-classes
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ traccar ---
 [INFO] Tests are skipped.
@@ -121,21 +110,21 @@ Downloading: https://repo.maven.apache.org/maven2/com/cloudhopper/ch-commons-uti
 [INFO] Found shared classpath plugin : TestNG plugin
 [INFO] Adding org.pitest:pitest to SUT classpath
 [INFO] Mutating from /tmp/dspot-experiments/dataset/traccar/target/classes
-/-\|/-/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|================================================================================
+/-/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|================================================================================
 - Timings
 ================================================================================
 > scan classpath : < 1 second
 > coverage and dependency analysis : < 1 second
-> build mutation tests : 21 seconds
+> build mutation tests : 22 seconds
 > run mutation analysis : 4 seconds
 --------------------------------------------------------------------------------
-> Total  : 26 seconds
+> Total  : 27 seconds
 --------------------------------------------------------------------------------
 ================================================================================
 - Statistics
 ================================================================================
->> Generated 64680 mutations Killed 107 (0%)
->> Ran 160 tests (0 tests per mutation)
+>> Generated 64680 mutations Killed 101 (0%)
+>> Ran 125 tests (0 tests per mutation)
 ================================================================================
 - Mutators
 ================================================================================
@@ -170,8 +159,8 @@ Downloading: https://repo.maven.apache.org/maven2/com/cloudhopper/ch-commons-uti
 > NO_COVERAGE 1 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator
->> Generated 568 Killed 2 (0%)
-> KILLED 2 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+>> Generated 568 Killed 1 (0%)
+> KILLED 1 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
 > NO_COVERAGE 566 
 --------------------------------------------------------------------------------
@@ -356,8 +345,8 @@ Downloading: https://repo.maven.apache.org/maven2/com/cloudhopper/ch-commons-uti
 > NO_COVERAGE 19 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF
->> Generated 568 Killed 2 (0%)
-> KILLED 2 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+>> Generated 568 Killed 1 (0%)
+> KILLED 1 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
 > NO_COVERAGE 566 
 --------------------------------------------------------------------------------
@@ -410,16 +399,16 @@ Downloading: https://repo.maven.apache.org/maven2/com/cloudhopper/ch-commons-uti
 > NO_COVERAGE 1 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiverMutator
->> Generated 2555 Killed 6 (0%)
-> KILLED 6 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
+>> Generated 2555 Killed 5 (0%)
+> KILLED 5 SURVIVED 2 TIMED_OUT 0 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
 > NO_COVERAGE 2548 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator
->> Generated 2574 Killed 11 (0%)
-> KILLED 11 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+>> Generated 2574 Killed 8 (0%)
+> KILLED 8 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 2563 
+> NO_COVERAGE 2566 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_16
 >> Generated 22 Killed 0 (0%)
@@ -886,7 +875,7 @@ Downloading: https://repo.maven.apache.org/maven2/com/cloudhopper/ch-commons-uti
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 51.329 s
-[INFO] Finished at: 2018-08-14T11:18:51+02:00
-[INFO] Final Memory: 61M/1565M
+[INFO] Total time: 51.078 s
+[INFO] Finished at: 2018-08-15T09:37:08+02:00
+[INFO] Final Memory: 60M/1591M
 [INFO] ------------------------------------------------------------------------

@@ -4,194 +4,7 @@
   "nbOriginalTestCases": 1,
   "testCases": [
     {
-      "name": "testToString_mg64",
-      "nbAssertionAdded": 41,
-      "nbInputAdded": 1,
-      "nbMutantKilled": 1,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
-          "lineNumber": 157,
-          "locationMethod": "setProtocol"
-        }
-      ]
-    },
-    {
-      "name": "testToString_mg54",
-      "nbAssertionAdded": 41,
-      "nbInputAdded": 1,
-      "nbMutantKilled": 2,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
-          "lineNumber": 279,
-          "locationMethod": "getAccuracy"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
-          "lineNumber": 283,
-          "locationMethod": "setAccuracy"
-        }
-      ]
-    },
-    {
-      "name": "testToString_mg65",
-      "nbAssertionAdded": 51,
-      "nbInputAdded": 1,
-      "nbMutantKilled": 2,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NullReturnValsMutator",
-          "lineNumber": 163,
-          "locationMethod": "getServerTime"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
-          "lineNumber": 167,
-          "locationMethod": "setServerTime"
-        }
-      ]
-    },
-    {
-      "name": "testToString_mg62",
-      "nbAssertionAdded": 47,
-      "nbInputAdded": 1,
-      "nbMutantKilled": 26,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
-          "lineNumber": 86,
-          "locationMethod": "getCellTowers"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 86,
-          "locationMethod": "getCellTowers"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
-          "lineNumber": 73,
-          "locationMethod": "\u003cinit\u003e"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 46,
-          "locationMethod": "getHomeMobileNetworkCode"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
-          "lineNumber": 94,
-          "locationMethod": "addCellTower"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NullReturnValsMutator",
-          "lineNumber": 289,
-          "locationMethod": "getNetwork"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 103,
-          "locationMethod": "getWifiAccessPoints"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
-          "lineNumber": 73,
-          "locationMethod": "\u003cinit\u003e"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
-          "lineNumber": 66,
-          "locationMethod": "getCarrier"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
-          "lineNumber": 36,
-          "locationMethod": "getHomeMobileCountryCode"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
-          "lineNumber": 95,
-          "locationMethod": "addCellTower"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
-          "lineNumber": 56,
-          "locationMethod": "getRadioType"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
-          "lineNumber": 95,
-          "locationMethod": "addCellTower"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
-          "lineNumber": 94,
-          "locationMethod": "addCellTower"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
-          "lineNumber": 53,
-          "locationMethod": "\u003cinit\u003e"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 73,
-          "locationMethod": "\u003cinit\u003e"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 56,
-          "locationMethod": "getRadioType"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
-          "lineNumber": 293,
-          "locationMethod": "setNetwork"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
-          "lineNumber": 30,
-          "locationMethod": "\u003cinit\u003e"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 66,
-          "locationMethod": "getCarrier"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 36,
-          "locationMethod": "getHomeMobileCountryCode"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
-          "lineNumber": 97,
-          "locationMethod": "addCellTower"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 76,
-          "locationMethod": "getConsiderIp"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
-          "lineNumber": 46,
-          "locationMethod": "getHomeMobileNetworkCode"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
-          "lineNumber": 103,
-          "locationMethod": "getWifiAccessPoints"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
-          "lineNumber": 76,
-          "locationMethod": "getConsiderIp"
-        }
-      ]
-    },
-    {
-      "name": "testToString_mg68",
+      "name": "testToString_mg53",
       "nbAssertionAdded": 41,
       "nbInputAdded": 1,
       "nbMutantKilled": 2,
@@ -209,46 +22,38 @@
       ]
     },
     {
-      "name": "testToString_mg55",
-      "nbAssertionAdded": 41,
-      "nbInputAdded": 1,
-      "nbMutantKilled": 1,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
-          "lineNumber": 273,
-          "locationMethod": "setAddress"
-        }
-      ]
-    },
-    {
-      "name": "testToString_mg56",
+      "name": "testToString_mg51",
       "nbAssertionAdded": 41,
       "nbInputAdded": 1,
       "nbMutantKilled": 2,
       "mutantsKilled": [
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
-          "lineNumber": 243,
-          "locationMethod": "setAltitude"
+          "lineNumber": 253,
+          "locationMethod": "setSpeed"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
-          "lineNumber": 239,
-          "locationMethod": "getAltitude"
+          "lineNumber": 249,
+          "locationMethod": "getSpeed"
         }
       ]
     },
     {
-      "name": "testToString_mg67",
+      "name": "testToString_mg52",
       "nbAssertionAdded": 61,
       "nbInputAdded": 1,
       "nbMutantKilled": 6,
       "mutantsKilled": [
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
-          "lineNumber": 192,
-          "locationMethod": "setTime"
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 177,
+          "locationMethod": "setDeviceTime"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NullReturnValsMutator",
+          "lineNumber": 183,
+          "locationMethod": "getFixTime"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.NullReturnValsMutator",
@@ -261,7 +66,581 @@
           "locationMethod": "setFixTime"
         },
         {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 191,
+          "locationMethod": "setTime"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 192,
+          "locationMethod": "setTime"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_mg4196_mg9671",
+      "nbAssertionAdded": 134,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
+          "lineNumber": 239,
+          "locationMethod": "getAltitude"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 243,
+          "locationMethod": "setAltitude"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_mg4196_mg9691",
+      "nbAssertionAdded": 134,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
+          "lineNumber": 229,
+          "locationMethod": "getLongitude"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 233,
+          "locationMethod": "setLongitude"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_mg4196_mg9697",
+      "nbAssertionAdded": 134,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 10,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 73,
+          "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "addCellTower"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 53,
+          "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 95,
+          "locationMethod": "addCellTower"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 97,
+          "locationMethod": "addCellTower"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 94,
+          "locationMethod": "addCellTower"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 94,
+          "locationMethod": "addCellTower"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 73,
+          "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 30,
+          "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 73,
+          "locationMethod": "\u003cinit\u003e"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_mg4196_mg9676",
+      "nbAssertionAdded": 134,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
+          "lineNumber": 259,
+          "locationMethod": "getCourse"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 263,
+          "locationMethod": "setCourse"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_mg4193",
+      "nbAssertionAdded": 122,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
+          "lineNumber": 229,
+          "locationMethod": "getLongitude"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 233,
+          "locationMethod": "setLongitude"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg50",
+      "nbAssertionAdded": 51,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.NullReturnValsMutator",
+          "lineNumber": 163,
+          "locationMethod": "getServerTime"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 167,
+          "locationMethod": "setServerTime"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_mg4196",
+      "nbAssertionAdded": 134,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 20,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 73,
+          "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 36,
+          "locationMethod": "getHomeMobileCountryCode"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 66,
+          "locationMethod": "getCarrier"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 46,
+          "locationMethod": "getHomeMobileNetworkCode"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 46,
+          "locationMethod": "getHomeMobileNetworkCode"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 76,
+          "locationMethod": "getConsiderIp"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NullReturnValsMutator",
+          "lineNumber": 289,
+          "locationMethod": "getNetwork"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 56,
+          "locationMethod": "getRadioType"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 86,
+          "locationMethod": "getCellTowers"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 66,
+          "locationMethod": "getCarrier"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 103,
+          "locationMethod": "getWifiAccessPoints"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 293,
+          "locationMethod": "setNetwork"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 73,
+          "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 53,
+          "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
+          "lineNumber": 76,
+          "locationMethod": "getConsiderIp"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 86,
+          "locationMethod": "getCellTowers"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 56,
+          "locationMethod": "getRadioType"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 36,
+          "locationMethod": "getHomeMobileCountryCode"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 73,
+          "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 103,
+          "locationMethod": "getWifiAccessPoints"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_mg4230",
+      "nbAssertionAdded": 122,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 253,
+          "locationMethod": "setSpeed"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
+          "lineNumber": 249,
+          "locationMethod": "getSpeed"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_mg4169",
+      "nbAssertionAdded": 122,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 223,
+          "locationMethod": "setLatitude"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
+          "lineNumber": 219,
+          "locationMethod": "getLatitude"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_mg4196_mg9629",
+      "nbAssertionAdded": 134,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 50,
+          "locationMethod": "setHomeMobileNetworkCode"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_mg4196_mg9703",
+      "nbAssertionAdded": 134,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 203,
+          "locationMethod": "setOutdated"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanFalseReturnValsMutator",
+          "lineNumber": 199,
+          "locationMethod": "getOutdated"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_mg4196_mg9604",
+      "nbAssertionAdded": 134,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 5,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 111,
+          "locationMethod": "addWifiAccessPoint"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 114,
+          "locationMethod": "addWifiAccessPoint"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 112,
+          "locationMethod": "addWifiAccessPoint"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 111,
+          "locationMethod": "addWifiAccessPoint"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 112,
+          "locationMethod": "addWifiAccessPoint"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_mg4196_mg9626",
+      "nbAssertionAdded": 134,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 40,
+          "locationMethod": "setHomeMobileCountryCode"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_mg4124",
+      "nbAssertionAdded": 122,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 273,
+          "locationMethod": "setAddress"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_mg4201",
+      "nbAssertionAdded": 122,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 157,
+          "locationMethod": "setProtocol"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_mg4196_mg9709",
+      "nbAssertionAdded": 134,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 157,
+          "locationMethod": "setProtocol"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_mg4127",
+      "nbAssertionAdded": 122,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
+          "lineNumber": 239,
+          "locationMethod": "getAltitude"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 243,
+          "locationMethod": "setAltitude"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_add3836",
+      "nbAssertionAdded": 122,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 30,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 209,
+          "locationMethod": "getValid"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 239,
+          "locationMethod": "getAltitude"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 289,
+          "locationMethod": "getNetwork"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 259,
+          "locationMethod": "getCourse"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 163,
+          "locationMethod": "getServerTime"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 249,
+          "locationMethod": "getSpeed"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 23,
+          "locationMethod": "getDeviceId"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 187,
+          "locationMethod": "setFixTime"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 192,
+          "locationMethod": "setTime"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 24,
+          "locationMethod": "getId"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 299,
+          "locationMethod": "getType"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 199,
+          "locationMethod": "getOutdated"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 229,
+          "locationMethod": "getLongitude"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 219,
+          "locationMethod": "getLatitude"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
+          "lineNumber": 199,
+          "locationMethod": "getOutdated"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 299,
+          "locationMethod": "getType"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 279,
+          "locationMethod": "getAccuracy"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 173,
+          "locationMethod": "getDeviceTime"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 153,
+          "locationMethod": "getProtocol"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 33,
+          "locationMethod": "getType"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 269,
+          "locationMethod": "getAddress"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
+          "lineNumber": 209,
+          "locationMethod": "getValid"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 177,
+          "locationMethod": "setDeviceTime"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NullReturnValsMutator",
+          "lineNumber": 183,
+          "locationMethod": "getFixTime"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 153,
+          "locationMethod": "getProtocol"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NullReturnValsMutator",
+          "lineNumber": 173,
+          "locationMethod": "getDeviceTime"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
           "lineNumber": 183,
           "locationMethod": "getFixTime"
         },
@@ -271,14 +650,347 @@
           "locationMethod": "setTime"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
-          "lineNumber": 177,
-          "locationMethod": "setDeviceTime"
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 269,
+          "locationMethod": "getAddress"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 33,
+          "locationMethod": "getType"
         }
       ]
     },
     {
-      "name": "testToString_mg60",
+      "name": "testToString_mg49",
+      "nbAssertionAdded": 41,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 157,
+          "locationMethod": "setProtocol"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg42",
+      "nbAssertionAdded": 41,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 24,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 219,
+          "locationMethod": "getLatitude"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
+          "lineNumber": 199,
+          "locationMethod": "getOutdated"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 299,
+          "locationMethod": "getType"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 279,
+          "locationMethod": "getAccuracy"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 173,
+          "locationMethod": "getDeviceTime"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 209,
+          "locationMethod": "getValid"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 239,
+          "locationMethod": "getAltitude"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 153,
+          "locationMethod": "getProtocol"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 289,
+          "locationMethod": "getNetwork"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 33,
+          "locationMethod": "getType"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 269,
+          "locationMethod": "getAddress"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 259,
+          "locationMethod": "getCourse"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
+          "lineNumber": 209,
+          "locationMethod": "getValid"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 163,
+          "locationMethod": "getServerTime"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 249,
+          "locationMethod": "getSpeed"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 153,
+          "locationMethod": "getProtocol"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 23,
+          "locationMethod": "getDeviceId"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 183,
+          "locationMethod": "getFixTime"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 24,
+          "locationMethod": "getId"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 299,
+          "locationMethod": "getType"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 269,
+          "locationMethod": "getAddress"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 199,
+          "locationMethod": "getOutdated"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 33,
+          "locationMethod": "getType"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 229,
+          "locationMethod": "getLongitude"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg40",
+      "nbAssertionAdded": 41,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 273,
+          "locationMethod": "setAddress"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg41",
+      "nbAssertionAdded": 41,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
+          "lineNumber": 239,
+          "locationMethod": "getAltitude"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 243,
+          "locationMethod": "setAltitude"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg46",
+      "nbAssertionAdded": 41,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
+          "lineNumber": 229,
+          "locationMethod": "getLongitude"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 233,
+          "locationMethod": "setLongitude"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg47",
+      "nbAssertionAdded": 47,
+      "nbInputAdded": 1,
+      "nbMutantKilled": 26,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 97,
+          "locationMethod": "addCellTower"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 36,
+          "locationMethod": "getHomeMobileCountryCode"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 46,
+          "locationMethod": "getHomeMobileNetworkCode"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 46,
+          "locationMethod": "getHomeMobileNetworkCode"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 76,
+          "locationMethod": "getConsiderIp"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NullReturnValsMutator",
+          "lineNumber": 289,
+          "locationMethod": "getNetwork"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 56,
+          "locationMethod": "getRadioType"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 86,
+          "locationMethod": "getCellTowers"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 73,
+          "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
+          "lineNumber": 76,
+          "locationMethod": "getConsiderIp"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 86,
+          "locationMethod": "getCellTowers"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 103,
+          "locationMethod": "getWifiAccessPoints"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 73,
+          "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 95,
+          "locationMethod": "addCellTower"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator",
+          "lineNumber": 95,
+          "locationMethod": "addCellTower"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 66,
+          "locationMethod": "getCarrier"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE",
+          "lineNumber": 94,
+          "locationMethod": "addCellTower"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 66,
+          "locationMethod": "getCarrier"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 30,
+          "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 103,
+          "locationMethod": "getWifiAccessPoints"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 293,
+          "locationMethod": "setNetwork"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 53,
+          "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 56,
+          "locationMethod": "getRadioType"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator",
+          "lineNumber": 94,
+          "locationMethod": "addCellTower"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 36,
+          "locationMethod": "getHomeMobileCountryCode"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 73,
+          "locationMethod": "\u003cinit\u003e"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg45",
       "nbAssertionAdded": 41,
       "nbInputAdded": 1,
       "nbMutantKilled": 2,
@@ -296,20 +1008,193 @@
       ]
     },
     {
-      "name": "testToString_mg61",
-      "nbAssertionAdded": 41,
-      "nbInputAdded": 1,
+      "name": "testToString_mg52_mg4196_mg9620",
+      "nbAssertionAdded": 134,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 90,
+          "locationMethod": "setCellTowers"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_mg4196_mg9642",
+      "nbAssertionAdded": 134,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 60,
+          "locationMethod": "setRadioType"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_mg4196litString8905",
+      "nbAssertionAdded": 130,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF",
+          "lineNumber": 76,
+          "locationMethod": "set"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 76,
+          "locationMethod": "set"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_mg4196_mg9687",
+      "nbAssertionAdded": 134,
+      "nbInputAdded": 2,
       "nbMutantKilled": 2,
       "mutantsKilled": [
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
-          "lineNumber": 233,
-          "locationMethod": "setLongitude"
+          "lineNumber": 223,
+          "locationMethod": "setLatitude"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
-          "lineNumber": 229,
-          "locationMethod": "getLongitude"
+          "lineNumber": 219,
+          "locationMethod": "getLatitude"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_mg4196_mg9662",
+      "nbAssertionAdded": 134,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 283,
+          "locationMethod": "setAccuracy"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
+          "lineNumber": 279,
+          "locationMethod": "getAccuracy"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_mg4121",
+      "nbAssertionAdded": 122,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 283,
+          "locationMethod": "setAccuracy"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
+          "lineNumber": 279,
+          "locationMethod": "getAccuracy"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_mg4196_mg9721",
+      "nbAssertionAdded": 134,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 253,
+          "locationMethod": "setSpeed"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
+          "lineNumber": 249,
+          "locationMethod": "getSpeed"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_mg4196_mg9666",
+      "nbAssertionAdded": 134,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 273,
+          "locationMethod": "setAddress"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_mg4196_mg9645",
+      "nbAssertionAdded": 134,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 107,
+          "locationMethod": "setWifiAccessPoints"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_mg4196_mg9617",
+      "nbAssertionAdded": 134,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 1,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 70,
+          "locationMethod": "setCarrier"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_mg4159",
+      "nbAssertionAdded": 122,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
+          "lineNumber": 259,
+          "locationMethod": "getCourse"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 263,
+          "locationMethod": "setCourse"
+        }
+      ]
+    },
+    {
+      "name": "testToString_mg52_mg4196_mg9715",
+      "nbAssertionAdded": 154,
+      "nbInputAdded": 2,
+      "nbMutantKilled": 2,
+      "mutantsKilled": [
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NullReturnValsMutator",
+          "lineNumber": 163,
+          "locationMethod": "getServerTime"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 167,
+          "locationMethod": "setServerTime"
         }
       ]
     },
@@ -321,18 +1206,23 @@
       "mutantsKilled": [
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 163,
-          "locationMethod": "getServerTime"
+          "lineNumber": 219,
+          "locationMethod": "getLatitude"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
+          "lineNumber": 199,
+          "locationMethod": "getOutdated"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 23,
-          "locationMethod": "getDeviceId"
+          "lineNumber": 299,
+          "locationMethod": "getType"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 229,
-          "locationMethod": "getLongitude"
+          "lineNumber": 279,
+          "locationMethod": "getAccuracy"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
@@ -341,33 +1231,8 @@
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 249,
-          "locationMethod": "getSpeed"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 183,
-          "locationMethod": "getFixTime"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
           "lineNumber": 209,
           "locationMethod": "getValid"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
-          "lineNumber": 153,
-          "locationMethod": "getProtocol"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 299,
-          "locationMethod": "getType"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
-          "lineNumber": 269,
-          "locationMethod": "getAddress"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
@@ -375,14 +1240,9 @@
           "locationMethod": "getAltitude"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 259,
-          "locationMethod": "getCourse"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 279,
-          "locationMethod": "getAccuracy"
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 153,
+          "locationMethod": "getProtocol"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
@@ -395,29 +1255,49 @@
           "locationMethod": "getType"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
-          "lineNumber": 199,
-          "locationMethod": "getOutdated"
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 269,
+          "locationMethod": "getAddress"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 259,
+          "locationMethod": "getCourse"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
           "lineNumber": 209,
           "locationMethod": "getValid"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 219,
-          "locationMethod": "getLatitude"
+          "lineNumber": 163,
+          "locationMethod": "getServerTime"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 199,
-          "locationMethod": "getOutdated"
+          "lineNumber": 249,
+          "locationMethod": "getSpeed"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
           "lineNumber": 153,
           "locationMethod": "getProtocol"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 23,
+          "locationMethod": "getDeviceId"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 183,
+          "locationMethod": "getFixTime"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 24,
+          "locationMethod": "getId"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
@@ -431,13 +1311,18 @@
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 24,
-          "locationMethod": "getId"
+          "lineNumber": 199,
+          "locationMethod": "getOutdated"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
           "lineNumber": 33,
           "locationMethod": "getType"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 229,
+          "locationMethod": "getLongitude"
         }
       ]
     },
@@ -460,65 +1345,35 @@
       ]
     },
     {
-      "name": "testToStringnull83_failAssert3_mg17684_mg24048",
-      "nbAssertionAdded": 36,
+      "name": "testToString_mg52_mg4196litString8984",
+      "nbAssertionAdded": 134,
       "nbInputAdded": 2,
-      "nbMutantKilled": 24,
+      "nbMutantKilled": 50,
       "mutantsKilled": [
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 163,
-          "locationMethod": "getServerTime"
+          "lineNumber": 36,
+          "locationMethod": "getHomeMobileCountryCode"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 23,
-          "locationMethod": "getDeviceId"
+          "lineNumber": 46,
+          "locationMethod": "getHomeMobileNetworkCode"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 229,
-          "locationMethod": "getLongitude"
+          "lineNumber": 76,
+          "locationMethod": "getConsiderIp"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NullReturnValsMutator",
+          "lineNumber": 289,
+          "locationMethod": "getNetwork"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 173,
-          "locationMethod": "getDeviceTime"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 249,
-          "locationMethod": "getSpeed"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 183,
-          "locationMethod": "getFixTime"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
-          "lineNumber": 209,
-          "locationMethod": "getValid"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
-          "lineNumber": 153,
-          "locationMethod": "getProtocol"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 299,
-          "locationMethod": "getType"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
-          "lineNumber": 269,
-          "locationMethod": "getAddress"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 239,
-          "locationMethod": "getAltitude"
+          "lineNumber": 86,
+          "locationMethod": "getCellTowers"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
@@ -527,43 +1382,28 @@
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 279,
-          "locationMethod": "getAccuracy"
+          "lineNumber": 163,
+          "locationMethod": "getServerTime"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 289,
-          "locationMethod": "getNetwork"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
-          "lineNumber": 33,
-          "locationMethod": "getType"
+          "lineNumber": 249,
+          "locationMethod": "getSpeed"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
-          "lineNumber": 199,
-          "locationMethod": "getOutdated"
+          "lineNumber": 76,
+          "locationMethod": "getConsiderIp"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 192,
+          "locationMethod": "setTime"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 209,
-          "locationMethod": "getValid"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 219,
-          "locationMethod": "getLatitude"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 199,
-          "locationMethod": "getOutdated"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 153,
-          "locationMethod": "getProtocol"
+          "lineNumber": 24,
+          "locationMethod": "getId"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
@@ -572,36 +1412,8 @@
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 269,
-          "locationMethod": "getAddress"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 24,
-          "locationMethod": "getId"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 33,
-          "locationMethod": "getType"
-        }
-      ]
-    },
-    {
-      "name": "testToStringnull83_failAssert3_mg17667",
-      "nbAssertionAdded": 36,
-      "nbInputAdded": 2,
-      "nbMutantKilled": 24,
-      "mutantsKilled": [
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 163,
-          "locationMethod": "getServerTime"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 23,
-          "locationMethod": "getDeviceId"
+          "lineNumber": 199,
+          "locationMethod": "getOutdated"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
@@ -610,23 +1422,8 @@
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 173,
-          "locationMethod": "getDeviceTime"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 249,
-          "locationMethod": "getSpeed"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 183,
-          "locationMethod": "getFixTime"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
-          "lineNumber": 209,
-          "locationMethod": "getValid"
+          "lineNumber": 66,
+          "locationMethod": "getCarrier"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
@@ -634,14 +1431,69 @@
           "locationMethod": "getProtocol"
         },
         {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 66,
+          "locationMethod": "getCarrier"
+        },
+        {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 299,
-          "locationMethod": "getType"
+          "lineNumber": 103,
+          "locationMethod": "getWifiAccessPoints"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 293,
+          "locationMethod": "setNetwork"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NullReturnValsMutator",
+          "lineNumber": 183,
+          "locationMethod": "getFixTime"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NullReturnValsMutator",
+          "lineNumber": 173,
+          "locationMethod": "getDeviceTime"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator",
+          "lineNumber": 191,
+          "locationMethod": "setTime"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 56,
+          "locationMethod": "getRadioType"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
           "lineNumber": 269,
           "locationMethod": "getAddress"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 33,
+          "locationMethod": "getType"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator",
+          "lineNumber": 73,
+          "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 46,
+          "locationMethod": "getHomeMobileNetworkCode"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 56,
+          "locationMethod": "getRadioType"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 209,
+          "locationMethod": "getValid"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
@@ -650,23 +1502,43 @@
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 259,
-          "locationMethod": "getCourse"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 279,
-          "locationMethod": "getAccuracy"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
           "lineNumber": 289,
           "locationMethod": "getNetwork"
         },
         {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 73,
+          "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 23,
+          "locationMethod": "getDeviceId"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 187,
+          "locationMethod": "setFixTime"
+        },
+        {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
-          "lineNumber": 33,
-          "locationMethod": "getType"
+          "lineNumber": 86,
+          "locationMethod": "getCellTowers"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 103,
+          "locationMethod": "getWifiAccessPoints"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator",
+          "lineNumber": 73,
+          "locationMethod": "\u003cinit\u003e"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 219,
+          "locationMethod": "getLatitude"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
@@ -675,18 +1547,43 @@
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 299,
+          "locationMethod": "getType"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 279,
+          "locationMethod": "getAccuracy"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 173,
+          "locationMethod": "getDeviceTime"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 33,
+          "locationMethod": "getType"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
+          "lineNumber": 269,
+          "locationMethod": "getAddress"
+        },
+        {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
           "lineNumber": 209,
           "locationMethod": "getValid"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 219,
-          "locationMethod": "getLatitude"
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 177,
+          "locationMethod": "setDeviceTime"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 199,
-          "locationMethod": "getOutdated"
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 53,
+          "locationMethod": "\u003cinit\u003e"
         },
         {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
@@ -694,152 +1591,32 @@
           "locationMethod": "getProtocol"
         },
         {
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "lineNumber": 183,
+          "locationMethod": "getFixTime"
+        },
+        {
           "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
-          "lineNumber": 299,
-          "locationMethod": "getType"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 269,
-          "locationMethod": "getAddress"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 24,
-          "locationMethod": "getId"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 33,
-          "locationMethod": "getType"
+          "lineNumber": 36,
+          "locationMethod": "getHomeMobileCountryCode"
         }
       ]
     },
     {
-      "name": "testToStringnull81",
-      "nbAssertionAdded": 39,
+      "name": "testToString_mg39",
+      "nbAssertionAdded": 41,
       "nbInputAdded": 1,
-      "nbMutantKilled": 24,
+      "nbMutantKilled": 2,
       "mutantsKilled": [
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 163,
-          "locationMethod": "getServerTime"
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator",
+          "lineNumber": 283,
+          "locationMethod": "setAccuracy"
         },
         {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 23,
-          "locationMethod": "getDeviceId"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 229,
-          "locationMethod": "getLongitude"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 173,
-          "locationMethod": "getDeviceTime"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 249,
-          "locationMethod": "getSpeed"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 183,
-          "locationMethod": "getFixTime"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
-          "lineNumber": 209,
-          "locationMethod": "getValid"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
-          "lineNumber": 153,
-          "locationMethod": "getProtocol"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 299,
-          "locationMethod": "getType"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
-          "lineNumber": 269,
-          "locationMethod": "getAddress"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 239,
-          "locationMethod": "getAltitude"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 259,
-          "locationMethod": "getCourse"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
+          "ID": "org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator",
           "lineNumber": 279,
           "locationMethod": "getAccuracy"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 289,
-          "locationMethod": "getNetwork"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
-          "lineNumber": 33,
-          "locationMethod": "getType"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.BooleanTrueReturnValsMutator",
-          "lineNumber": 199,
-          "locationMethod": "getOutdated"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 209,
-          "locationMethod": "getValid"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 219,
-          "locationMethod": "getLatitude"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 199,
-          "locationMethod": "getOutdated"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 153,
-          "locationMethod": "getProtocol"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator",
-          "lineNumber": 299,
-          "locationMethod": "getType"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 269,
-          "locationMethod": "getAddress"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 24,
-          "locationMethod": "getId"
-        },
-        {
-          "ID": "org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator",
-          "lineNumber": 33,
-          "locationMethod": "getType"
         }
       ]
     }
