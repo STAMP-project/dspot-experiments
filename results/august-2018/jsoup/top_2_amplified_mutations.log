@@ -5,6 +5,7 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] 
 [INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ jsoup ---
+[INFO] Deleting /tmp/dspot-experiments/dataset/jsoup/target
 [INFO] 
 [INFO] --- maven-resources-plugin:3.0.1:resources (default-resources) @ jsoup ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -78,21 +79,21 @@
 [INFO] Found shared classpath plugin : TestNG plugin
 [INFO] Adding org.pitest:pitest to SUT classpath
 [INFO] Mutating from /tmp/dspot-experiments/dataset/jsoup/target/classes
-/-\|/-\|/-\|/-\|/-\|/-\|/-/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\================================================================================
+/-\|/-\|/-\|/-\|/-\|/-/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\================================================================================
 - Timings
 ================================================================================
 > scan classpath : < 1 second
 > coverage and dependency analysis : < 1 second
-> build mutation tests : 7 seconds
-> run mutation analysis : 57 seconds
+> build mutation tests : 10 seconds
+> run mutation analysis : 1 minutes and 1 seconds
 --------------------------------------------------------------------------------
-> Total  : 1 minutes and 5 seconds
+> Total  : 1 minutes and 13 seconds
 --------------------------------------------------------------------------------
 ================================================================================
 - Statistics
 ================================================================================
->> Generated 17278 mutations Killed 398 (2%)
->> Ran 1414 tests (0.08 tests per mutation)
+>> Generated 17278 mutations Killed 390 (2%)
+>> Ran 1344 tests (0.08 tests per mutation)
 ================================================================================
 - Mutators
 ================================================================================
@@ -115,16 +116,16 @@
 > NO_COVERAGE 1322 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF
->> Generated 234 Killed 26 (11%)
-> KILLED 26 SURVIVED 9 TIMED_OUT 0 NON_VIABLE 0 
+>> Generated 234 Killed 24 (10%)
+> KILLED 24 SURVIVED 11 TIMED_OUT 0 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
 > NO_COVERAGE 199 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.MathMutator
->> Generated 194 Killed 27 (14%)
-> KILLED 27 SURVIVED 2 TIMED_OUT 0 NON_VIABLE 0 
+>> Generated 194 Killed 26 (13%)
+> KILLED 26 SURVIVED 2 TIMED_OUT 0 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 165 
+> NO_COVERAGE 166 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.PrimitiveReturnsMutator
 >> Generated 44 Killed 7 (16%)
@@ -157,10 +158,10 @@
 > NO_COVERAGE 64 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveIncrementsMutator
->> Generated 56 Killed 9 (16%)
-> KILLED 5 SURVIVED 1 TIMED_OUT 4 NON_VIABLE 0 
+>> Generated 56 Killed 8 (14%)
+> KILLED 4 SURVIVED 1 TIMED_OUT 4 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 46 
+> NO_COVERAGE 47 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_9
 >> Generated 6 Killed 0 (0%)
@@ -218,9 +219,9 @@
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.ReturnValsMutator
 >> Generated 1226 Killed 36 (3%)
-> KILLED 36 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
+> KILLED 36 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 1189 
+> NO_COVERAGE 1190 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_1
 >> Generated 62 Killed 0 (0%)
@@ -229,10 +230,10 @@
 > NO_COVERAGE 62 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.ConstructorCallMutator
->> Generated 410 Killed 4 (1%)
-> KILLED 4 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+>> Generated 410 Killed 3 (1%)
+> KILLED 3 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 406 
+> NO_COVERAGE 407 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator_0
 >> Generated 63 Killed 0 (0%)
@@ -277,14 +278,14 @@
 > NO_COVERAGE 199 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.experimental.MemberVariableMutator
->> Generated 461 Killed 19 (4%)
-> KILLED 16 SURVIVED 2 TIMED_OUT 3 NON_VIABLE 0 
+>> Generated 461 Killed 18 (4%)
+> KILLED 15 SURVIVED 3 TIMED_OUT 3 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
 > NO_COVERAGE 440 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator
->> Generated 1589 Killed 58 (4%)
-> KILLED 58 SURVIVED 5 TIMED_OUT 0 NON_VIABLE 0 
+>> Generated 1589 Killed 56 (4%)
+> KILLED 56 SURVIVED 7 TIMED_OUT 0 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
 > NO_COVERAGE 1526 
 --------------------------------------------------------------------------------
@@ -296,9 +297,9 @@
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.EmptyObjectReturnValsMutator
 >> Generated 262 Killed 11 (4%)
-> KILLED 11 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
+> KILLED 11 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 250 
+> NO_COVERAGE 251 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.ArgumentPropagationMutator
 >> Generated 313 Killed 3 (1%)
@@ -321,7 +322,7 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 01:14 min
-[INFO] Finished at: 2018-08-13T18:32:28+02:00
-[INFO] Final Memory: 45M/2045M
+[INFO] Total time: 01:24 min
+[INFO] Finished at: 2018-08-17T09:54:11+02:00
+[INFO] Final Memory: 44M/1907M
 [INFO] ------------------------------------------------------------------------

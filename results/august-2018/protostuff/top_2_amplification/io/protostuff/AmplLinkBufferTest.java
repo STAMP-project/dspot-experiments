@@ -1,6 +1,7 @@
 package io.protostuff;
 
 
+import java.nio.Buffer;
 import java.nio.BufferOverflowException;
 import java.nio.BufferUnderflowException;
 import java.nio.ByteBuffer;
@@ -11,7 +12,184 @@ import org.junit.Test;
 
 public class AmplLinkBufferTest {
     @Test(timeout = 10000)
-    public void testBasicslitNum61_failAssert107() throws Exception {
+    public void testBasics_rv181_failAssert58() throws Exception {
+        try {
+            int __DSPOT_value_45 = 465063425;
+            LinkBuffer buf = new LinkBuffer(8);
+            ByteBuffer bigBuf = ByteBuffer.allocate(100);
+            bigBuf.limit(100);
+            buf.writeByteBuffer(bigBuf);
+            LinkBuffer __DSPOT_invoc_10 = buf.writeByteArray(new byte[100]);
+            buf.writeByteArray(new byte[2]);
+            buf.writeByteArray(new byte[8]);
+            buf.writeInt64(1);
+            buf.writeInt64(2);
+            buf.writeInt64(3);
+            buf.writeInt64(4);
+            List<ByteBuffer> lbb = buf.finish();
+            lbb.size();
+            lbb.get(0).remaining();
+            lbb.get(1).remaining();
+            lbb.get(2).remaining();
+            lbb.get(3).remaining();
+            for (int i = 3; i < (lbb.size()); i++) {
+                lbb.get(i).remaining();
+            }
+            __DSPOT_invoc_10.writeVarInt32(__DSPOT_value_45);
+            org.junit.Assert.fail("testBasics_rv181 should have thrown NullPointerException");
+        } catch (NullPointerException expected) {
+            Assert.assertEquals(null, expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testBasics_rv199_failAssert91() throws Exception {
+        try {
+            long __DSPOT_value_61 = 1200772553L;
+            LinkBuffer buf = new LinkBuffer(8);
+            ByteBuffer bigBuf = ByteBuffer.allocate(100);
+            bigBuf.limit(100);
+            buf.writeByteBuffer(bigBuf);
+            buf.writeByteArray(new byte[100]);
+            LinkBuffer __DSPOT_invoc_12 = buf.writeByteArray(new byte[2]);
+            buf.writeByteArray(new byte[8]);
+            buf.writeInt64(1);
+            buf.writeInt64(2);
+            buf.writeInt64(3);
+            buf.writeInt64(4);
+            List<ByteBuffer> lbb = buf.finish();
+            lbb.size();
+            lbb.get(0).remaining();
+            lbb.get(1).remaining();
+            lbb.get(2).remaining();
+            lbb.get(3).remaining();
+            for (int i = 3; i < (lbb.size()); i++) {
+                lbb.get(i).remaining();
+            }
+            __DSPOT_invoc_12.writeVarInt64(__DSPOT_value_61);
+            org.junit.Assert.fail("testBasics_rv199 should have thrown NullPointerException");
+        } catch (NullPointerException expected) {
+            Assert.assertEquals(null, expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testBasics_rv140() throws Exception {
+        LinkBuffer buf = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (buf)).getBuffers().isEmpty());
+        ByteBuffer bigBuf = ByteBuffer.allocate(100);
+        Buffer __DSPOT_invoc_6 = bigBuf.limit(100);
+        LinkBuffer o_testBasics_rv140__9 = buf.writeByteBuffer(bigBuf);
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__9)).getBuffers().isEmpty());
+        LinkBuffer o_testBasics_rv140__12 = buf.writeByteArray(new byte[100]);
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__12)).getBuffers().isEmpty());
+        LinkBuffer o_testBasics_rv140__14 = buf.writeByteArray(new byte[2]);
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__14)).getBuffers().isEmpty());
+        LinkBuffer o_testBasics_rv140__16 = buf.writeByteArray(new byte[8]);
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__16)).getBuffers().isEmpty());
+        LinkBuffer o_testBasics_rv140__18 = buf.writeInt64(1);
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__18)).getBuffers().isEmpty());
+        LinkBuffer o_testBasics_rv140__19 = buf.writeInt64(2);
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__19)).getBuffers().isEmpty());
+        LinkBuffer o_testBasics_rv140__20 = buf.writeInt64(3);
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__20)).getBuffers().isEmpty());
+        LinkBuffer o_testBasics_rv140__21 = buf.writeInt64(4);
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__21)).getBuffers().isEmpty());
+        List<ByteBuffer> lbb = buf.finish();
+        int o_testBasics_rv140__24 = lbb.size();
+        Assert.assertEquals(8, ((int) (o_testBasics_rv140__24)));
+        int o_testBasics_rv140__25 = lbb.get(0).remaining();
+        Assert.assertEquals(100, ((int) (o_testBasics_rv140__25)));
+        int o_testBasics_rv140__27 = lbb.get(1).remaining();
+        Assert.assertEquals(100, ((int) (o_testBasics_rv140__27)));
+        int o_testBasics_rv140__29 = lbb.get(2).remaining();
+        Assert.assertEquals(2, ((int) (o_testBasics_rv140__29)));
+        int o_testBasics_rv140__31 = lbb.get(3).remaining();
+        Assert.assertEquals(8, ((int) (o_testBasics_rv140__31)));
+        for (int i = 3; i < (lbb.size()); i++) {
+            lbb.get(i).remaining();
+        }
+        __DSPOT_invoc_6.hasRemaining();
+        Assert.assertFalse(((LinkBuffer) (buf)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__9)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__12)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__14)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__16)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__18)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__19)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__20)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__21)).getBuffers().isEmpty());
+        Assert.assertEquals(8, ((int) (o_testBasics_rv140__24)));
+        Assert.assertEquals(100, ((int) (o_testBasics_rv140__25)));
+        Assert.assertEquals(100, ((int) (o_testBasics_rv140__27)));
+        Assert.assertEquals(2, ((int) (o_testBasics_rv140__29)));
+        Assert.assertEquals(8, ((int) (o_testBasics_rv140__31)));
+    }
+
+    @Test(timeout = 10000)
+    public void testBasics_rv157_failAssert65() throws Exception {
+        try {
+            float __DSPOT_value_23 = 0.21930291F;
+            LinkBuffer buf = new LinkBuffer(8);
+            ByteBuffer bigBuf = ByteBuffer.allocate(100);
+            bigBuf.limit(100);
+            LinkBuffer __DSPOT_invoc_7 = buf.writeByteBuffer(bigBuf);
+            buf.writeByteArray(new byte[100]);
+            buf.writeByteArray(new byte[2]);
+            buf.writeByteArray(new byte[8]);
+            buf.writeInt64(1);
+            buf.writeInt64(2);
+            buf.writeInt64(3);
+            buf.writeInt64(4);
+            List<ByteBuffer> lbb = buf.finish();
+            lbb.size();
+            lbb.get(0).remaining();
+            lbb.get(1).remaining();
+            lbb.get(2).remaining();
+            lbb.get(3).remaining();
+            for (int i = 3; i < (lbb.size()); i++) {
+                lbb.get(i).remaining();
+            }
+            __DSPOT_invoc_7.writeFloat(__DSPOT_value_23);
+            org.junit.Assert.fail("testBasics_rv157 should have thrown NullPointerException");
+        } catch (NullPointerException expected) {
+            Assert.assertEquals(null, expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testBasics_rv165_failAssert79() throws Exception {
+        try {
+            long __DSPOT_value_31 = -888898802L;
+            LinkBuffer buf = new LinkBuffer(8);
+            ByteBuffer bigBuf = ByteBuffer.allocate(100);
+            bigBuf.limit(100);
+            LinkBuffer __DSPOT_invoc_7 = buf.writeByteBuffer(bigBuf);
+            buf.writeByteArray(new byte[100]);
+            buf.writeByteArray(new byte[2]);
+            buf.writeByteArray(new byte[8]);
+            buf.writeInt64(1);
+            buf.writeInt64(2);
+            buf.writeInt64(3);
+            buf.writeInt64(4);
+            List<ByteBuffer> lbb = buf.finish();
+            lbb.size();
+            lbb.get(0).remaining();
+            lbb.get(1).remaining();
+            lbb.get(2).remaining();
+            lbb.get(3).remaining();
+            for (int i = 3; i < (lbb.size()); i++) {
+                lbb.get(i).remaining();
+            }
+            __DSPOT_invoc_7.writeVarInt64(__DSPOT_value_31);
+            org.junit.Assert.fail("testBasics_rv165 should have thrown NullPointerException");
+        } catch (NullPointerException expected) {
+            Assert.assertEquals(null, expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testBasicslitNum61_failAssert52() throws Exception {
         try {
             LinkBuffer buf = new LinkBuffer(8);
             ByteBuffer bigBuf = ByteBuffer.allocate(100);
@@ -40,109 +218,16 @@ public class AmplLinkBufferTest {
     }
 
     @Test(timeout = 10000)
-    public void testBasics_rv225_failAssert24() throws Exception {
+    public void testBasics_rv190_failAssert57() throws Exception {
         try {
-            double __DSPOT_value_82 = 0.9945218482102348;
+            double __DSPOT_value_52 = 0.1808641531121432;
             LinkBuffer buf = new LinkBuffer(8);
             ByteBuffer bigBuf = ByteBuffer.allocate(100);
             bigBuf.limit(100);
             buf.writeByteBuffer(bigBuf);
             buf.writeByteArray(new byte[100]);
-            buf.writeByteArray(new byte[2]);
+            LinkBuffer __DSPOT_invoc_12 = buf.writeByteArray(new byte[2]);
             buf.writeByteArray(new byte[8]);
-            LinkBuffer __DSPOT_invoc_16 = buf.writeInt64(1);
-            buf.writeInt64(2);
-            buf.writeInt64(3);
-            buf.writeInt64(4);
-            List<ByteBuffer> lbb = buf.finish();
-            lbb.size();
-            lbb.get(0).remaining();
-            lbb.get(1).remaining();
-            lbb.get(2).remaining();
-            lbb.get(3).remaining();
-            for (int i = 3; i < (lbb.size()); i++) {
-                lbb.get(i).remaining();
-            }
-            __DSPOT_invoc_16.writeDouble(__DSPOT_value_82);
-            org.junit.Assert.fail("testBasics_rv225 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            Assert.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testBasics_rv233_failAssert62() throws Exception {
-        try {
-            int __DSPOT_value_90 = 898617287;
-            LinkBuffer buf = new LinkBuffer(8);
-            ByteBuffer bigBuf = ByteBuffer.allocate(100);
-            bigBuf.limit(100);
-            buf.writeByteBuffer(bigBuf);
-            buf.writeByteArray(new byte[100]);
-            buf.writeByteArray(new byte[2]);
-            buf.writeByteArray(new byte[8]);
-            LinkBuffer __DSPOT_invoc_16 = buf.writeInt64(1);
-            buf.writeInt64(2);
-            buf.writeInt64(3);
-            buf.writeInt64(4);
-            List<ByteBuffer> lbb = buf.finish();
-            lbb.size();
-            lbb.get(0).remaining();
-            lbb.get(1).remaining();
-            lbb.get(2).remaining();
-            lbb.get(3).remaining();
-            for (int i = 3; i < (lbb.size()); i++) {
-                lbb.get(i).remaining();
-            }
-            __DSPOT_invoc_16.writeVarInt32(__DSPOT_value_90);
-            org.junit.Assert.fail("testBasics_rv233 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            Assert.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testBasics_rv226_failAssert56() throws Exception {
-        try {
-            float __DSPOT_value_83 = 0.8210152F;
-            LinkBuffer buf = new LinkBuffer(8);
-            ByteBuffer bigBuf = ByteBuffer.allocate(100);
-            bigBuf.limit(100);
-            buf.writeByteBuffer(bigBuf);
-            buf.writeByteArray(new byte[100]);
-            buf.writeByteArray(new byte[2]);
-            buf.writeByteArray(new byte[8]);
-            LinkBuffer __DSPOT_invoc_16 = buf.writeInt64(1);
-            buf.writeInt64(2);
-            buf.writeInt64(3);
-            buf.writeInt64(4);
-            List<ByteBuffer> lbb = buf.finish();
-            lbb.size();
-            lbb.get(0).remaining();
-            lbb.get(1).remaining();
-            lbb.get(2).remaining();
-            lbb.get(3).remaining();
-            for (int i = 3; i < (lbb.size()); i++) {
-                lbb.get(i).remaining();
-            }
-            __DSPOT_invoc_16.writeFloat(__DSPOT_value_83);
-            org.junit.Assert.fail("testBasics_rv226 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            Assert.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testBasics_rv217_failAssert34() throws Exception {
-        try {
-            long __DSPOT_value_76 = 1065588677L;
-            LinkBuffer buf = new LinkBuffer(8);
-            ByteBuffer bigBuf = ByteBuffer.allocate(100);
-            bigBuf.limit(100);
-            buf.writeByteBuffer(bigBuf);
-            buf.writeByteArray(new byte[100]);
-            buf.writeByteArray(new byte[2]);
-            LinkBuffer __DSPOT_invoc_14 = buf.writeByteArray(new byte[8]);
             buf.writeInt64(1);
             buf.writeInt64(2);
             buf.writeInt64(3);
@@ -156,881 +241,531 @@ public class AmplLinkBufferTest {
             for (int i = 3; i < (lbb.size()); i++) {
                 lbb.get(i).remaining();
             }
-            __DSPOT_invoc_14.writeVarInt64(__DSPOT_value_76);
-            org.junit.Assert.fail("testBasics_rv217 should have thrown NullPointerException");
+            __DSPOT_invoc_12.writeDouble(__DSPOT_value_52);
+            org.junit.Assert.fail("testBasics_rv190 should have thrown NullPointerException");
         } catch (NullPointerException expected) {
             Assert.assertEquals(null, expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testBasics_remove112() throws Exception {
+    public void testBasics_rv141_remove12993() throws Exception {
         LinkBuffer buf = new LinkBuffer(8);
         Assert.assertFalse(((LinkBuffer) (buf)).getBuffers().isEmpty());
         ByteBuffer bigBuf = ByteBuffer.allocate(100);
-        LinkBuffer o_testBasics_remove112__6 = buf.writeByteBuffer(bigBuf);
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__6)).getBuffers().isEmpty());
-        LinkBuffer o_testBasics_remove112__9 = buf.writeByteArray(new byte[100]);
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__9)).getBuffers().isEmpty());
-        LinkBuffer o_testBasics_remove112__11 = buf.writeByteArray(new byte[2]);
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__11)).getBuffers().isEmpty());
-        LinkBuffer o_testBasics_remove112__13 = buf.writeByteArray(new byte[8]);
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__13)).getBuffers().isEmpty());
-        LinkBuffer o_testBasics_remove112__15 = buf.writeInt64(1);
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__15)).getBuffers().isEmpty());
-        LinkBuffer o_testBasics_remove112__16 = buf.writeInt64(2);
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__16)).getBuffers().isEmpty());
-        LinkBuffer o_testBasics_remove112__17 = buf.writeInt64(3);
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__17)).getBuffers().isEmpty());
-        LinkBuffer o_testBasics_remove112__18 = buf.writeInt64(4);
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__18)).getBuffers().isEmpty());
+        Buffer __DSPOT_invoc_6 = bigBuf.limit(100);
+        LinkBuffer o_testBasics_rv141__9 = buf.writeByteBuffer(bigBuf);
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv141__9)).getBuffers().isEmpty());
+        LinkBuffer o_testBasics_rv141__12 = buf.writeByteArray(new byte[100]);
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv141__12)).getBuffers().isEmpty());
+        LinkBuffer o_testBasics_rv141__14 = buf.writeByteArray(new byte[2]);
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv141__14)).getBuffers().isEmpty());
+        LinkBuffer o_testBasics_rv141__16 = buf.writeByteArray(new byte[8]);
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv141__16)).getBuffers().isEmpty());
+        LinkBuffer o_testBasics_rv141__18 = buf.writeInt64(1);
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv141__18)).getBuffers().isEmpty());
+        LinkBuffer o_testBasics_rv141__19 = buf.writeInt64(2);
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv141__19)).getBuffers().isEmpty());
+        LinkBuffer o_testBasics_rv141__20 = buf.writeInt64(3);
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv141__20)).getBuffers().isEmpty());
+        LinkBuffer o_testBasics_rv141__21 = buf.writeInt64(4);
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv141__21)).getBuffers().isEmpty());
         List<ByteBuffer> lbb = buf.finish();
-        int o_testBasics_remove112__21 = lbb.size();
-        Assert.assertEquals(8, ((int) (o_testBasics_remove112__21)));
-        int o_testBasics_remove112__22 = lbb.get(0).remaining();
-        Assert.assertEquals(100, ((int) (o_testBasics_remove112__22)));
-        int o_testBasics_remove112__24 = lbb.get(1).remaining();
-        Assert.assertEquals(100, ((int) (o_testBasics_remove112__24)));
-        int o_testBasics_remove112__26 = lbb.get(2).remaining();
-        Assert.assertEquals(2, ((int) (o_testBasics_remove112__26)));
-        int o_testBasics_remove112__28 = lbb.get(3).remaining();
-        Assert.assertEquals(8, ((int) (o_testBasics_remove112__28)));
+        int o_testBasics_rv141__24 = lbb.size();
+        int o_testBasics_rv141__25 = lbb.get(0).remaining();
+        int o_testBasics_rv141__27 = lbb.get(1).remaining();
+        int o_testBasics_rv141__29 = lbb.get(2).remaining();
+        int o_testBasics_rv141__31 = lbb.get(3).remaining();
         for (int i = 3; i < (lbb.size()); i++) {
-            lbb.get(i).remaining();
         }
+        int o_testBasics_rv141__40 = __DSPOT_invoc_6.limit();
         Assert.assertFalse(((LinkBuffer) (buf)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__6)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__9)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__11)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__13)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__15)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__16)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__17)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__18)).getBuffers().isEmpty());
-        Assert.assertEquals(8, ((int) (o_testBasics_remove112__21)));
-        Assert.assertEquals(100, ((int) (o_testBasics_remove112__22)));
-        Assert.assertEquals(100, ((int) (o_testBasics_remove112__24)));
-        Assert.assertEquals(2, ((int) (o_testBasics_remove112__26)));
-        Assert.assertEquals(8, ((int) (o_testBasics_remove112__28)));
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv141__9)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv141__12)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv141__14)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv141__16)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv141__18)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv141__19)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv141__20)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv141__21)).getBuffers().isEmpty());
     }
 
     @Test(timeout = 10000)
-    public void testBasics_rv285_failAssert31() throws Exception {
+    public void testBasics_rv167_failAssert77litNum7929_failAssert104() throws Exception {
         try {
-            long __DSPOT_value_136 = -2093952021L;
+            try {
+                LinkBuffer buf = new LinkBuffer(8);
+                ByteBuffer bigBuf = ByteBuffer.allocate(100);
+                bigBuf.limit(100);
+                buf.writeByteBuffer(bigBuf);
+                LinkBuffer __DSPOT_invoc_10 = buf.writeByteArray(new byte[100]);
+                buf.writeByteArray(new byte[2]);
+                buf.writeByteArray(new byte[8]);
+                buf.writeInt64(1);
+                buf.writeInt64(2);
+                buf.writeInt64(3);
+                buf.writeInt64(4);
+                List<ByteBuffer> lbb = buf.finish();
+                lbb.size();
+                lbb.get(0).remaining();
+                lbb.get(1).remaining();
+                lbb.get(2).remaining();
+                lbb.get(3).remaining();
+                for (int i = Integer.MIN_VALUE; i < (lbb.size()); i++) {
+                    lbb.get(i).remaining();
+                }
+                __DSPOT_invoc_10.finish();
+                org.junit.Assert.fail("testBasics_rv167 should have thrown NullPointerException");
+            } catch (NullPointerException expected) {
+            }
+            org.junit.Assert.fail("testBasics_rv167_failAssert77litNum7929 should have thrown ArrayIndexOutOfBoundsException");
+        } catch (ArrayIndexOutOfBoundsException expected_1) {
+            Assert.assertEquals("-2147483648", expected_1.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testBasics_rv283_failAssert66_rv26094() throws Exception {
+        try {
+            int __DSPOT_value_135 = 1534595620;
             LinkBuffer buf = new LinkBuffer(8);
+            Assert.assertFalse(((LinkBuffer) (buf)).getBuffers().isEmpty());
             ByteBuffer bigBuf = ByteBuffer.allocate(100);
-            bigBuf.limit(100);
-            buf.writeByteBuffer(bigBuf);
-            buf.writeByteArray(new byte[100]);
-            buf.writeByteArray(new byte[2]);
-            buf.writeByteArray(new byte[8]);
-            buf.writeInt64(1);
-            buf.writeInt64(2);
-            buf.writeInt64(3);
+            Buffer __DSPOT_invoc_9 = bigBuf.limit(100);
+            LinkBuffer o_testBasics_rv283_failAssert66_rv26094__12 = buf.writeByteBuffer(bigBuf);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_rv283_failAssert66_rv26094__12)).getBuffers().isEmpty());
+            LinkBuffer o_testBasics_rv283_failAssert66_rv26094__15 = buf.writeByteArray(new byte[100]);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_rv283_failAssert66_rv26094__15)).getBuffers().isEmpty());
+            LinkBuffer o_testBasics_rv283_failAssert66_rv26094__17 = buf.writeByteArray(new byte[2]);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_rv283_failAssert66_rv26094__17)).getBuffers().isEmpty());
+            LinkBuffer o_testBasics_rv283_failAssert66_rv26094__19 = buf.writeByteArray(new byte[8]);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_rv283_failAssert66_rv26094__19)).getBuffers().isEmpty());
+            LinkBuffer o_testBasics_rv283_failAssert66_rv26094__21 = buf.writeInt64(1);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_rv283_failAssert66_rv26094__21)).getBuffers().isEmpty());
+            LinkBuffer o_testBasics_rv283_failAssert66_rv26094__22 = buf.writeInt64(2);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_rv283_failAssert66_rv26094__22)).getBuffers().isEmpty());
+            LinkBuffer o_testBasics_rv283_failAssert66_rv26094__23 = buf.writeInt64(3);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_rv283_failAssert66_rv26094__23)).getBuffers().isEmpty());
             LinkBuffer __DSPOT_invoc_19 = buf.writeInt64(4);
             List<ByteBuffer> lbb = buf.finish();
-            lbb.size();
-            lbb.get(0).remaining();
-            lbb.get(1).remaining();
-            lbb.get(2).remaining();
-            lbb.get(3).remaining();
+            int o_testBasics_rv283_failAssert66_rv26094__29 = lbb.size();
+            Assert.assertEquals(8, ((int) (o_testBasics_rv283_failAssert66_rv26094__29)));
+            int o_testBasics_rv283_failAssert66_rv26094__30 = lbb.get(0).remaining();
+            Assert.assertEquals(100, ((int) (o_testBasics_rv283_failAssert66_rv26094__30)));
+            int o_testBasics_rv283_failAssert66_rv26094__32 = lbb.get(1).remaining();
+            Assert.assertEquals(100, ((int) (o_testBasics_rv283_failAssert66_rv26094__32)));
+            int o_testBasics_rv283_failAssert66_rv26094__34 = lbb.get(2).remaining();
+            Assert.assertEquals(2, ((int) (o_testBasics_rv283_failAssert66_rv26094__34)));
+            int o_testBasics_rv283_failAssert66_rv26094__36 = lbb.get(3).remaining();
+            Assert.assertEquals(8, ((int) (o_testBasics_rv283_failAssert66_rv26094__36)));
             for (int i = 3; i < (lbb.size()); i++) {
                 lbb.get(i).remaining();
             }
-            __DSPOT_invoc_19.writeVarInt64(__DSPOT_value_136);
-            org.junit.Assert.fail("testBasics_rv285 should have thrown NullPointerException");
+            __DSPOT_invoc_19.writeVarInt32(__DSPOT_value_135);
+            org.junit.Assert.fail("testBasics_rv283 should have thrown NullPointerException");
+            __DSPOT_invoc_9.hasRemaining();
         } catch (NullPointerException expected) {
-            Assert.assertEquals(null, expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testBasics_remove112_mg36179_failAssert158() throws Exception {
+    public void testBasics_mg135_failAssert9_rv17433() throws Exception {
         try {
-            int __DSPOT_value_15422 = 1136491662;
+            int __DSPOT_arg0_4325 = 5390829;
+            long __DSPOT_value_14 = -549348225L;
+            LinkBuffer buf = new LinkBuffer(8);
+            Assert.assertFalse(((LinkBuffer) (buf)).getBuffers().isEmpty());
+            ByteBuffer bigBuf = ByteBuffer.allocate(100);
+            Buffer __DSPOT_invoc_9 = bigBuf.limit(100);
+            LinkBuffer o_testBasics_mg135_failAssert9_rv17433__13 = buf.writeByteBuffer(bigBuf);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_mg135_failAssert9_rv17433__13)).getBuffers().isEmpty());
+            LinkBuffer o_testBasics_mg135_failAssert9_rv17433__16 = buf.writeByteArray(new byte[100]);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_mg135_failAssert9_rv17433__16)).getBuffers().isEmpty());
+            LinkBuffer o_testBasics_mg135_failAssert9_rv17433__18 = buf.writeByteArray(new byte[2]);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_mg135_failAssert9_rv17433__18)).getBuffers().isEmpty());
+            LinkBuffer o_testBasics_mg135_failAssert9_rv17433__20 = buf.writeByteArray(new byte[8]);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_mg135_failAssert9_rv17433__20)).getBuffers().isEmpty());
+            LinkBuffer o_testBasics_mg135_failAssert9_rv17433__22 = buf.writeInt64(1);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_mg135_failAssert9_rv17433__22)).getBuffers().isEmpty());
+            LinkBuffer o_testBasics_mg135_failAssert9_rv17433__23 = buf.writeInt64(2);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_mg135_failAssert9_rv17433__23)).getBuffers().isEmpty());
+            LinkBuffer o_testBasics_mg135_failAssert9_rv17433__24 = buf.writeInt64(3);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_mg135_failAssert9_rv17433__24)).getBuffers().isEmpty());
+            LinkBuffer o_testBasics_mg135_failAssert9_rv17433__25 = buf.writeInt64(4);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_mg135_failAssert9_rv17433__25)).getBuffers().isEmpty());
+            List<ByteBuffer> lbb = buf.finish();
+            int o_testBasics_mg135_failAssert9_rv17433__28 = lbb.size();
+            Assert.assertEquals(8, ((int) (o_testBasics_mg135_failAssert9_rv17433__28)));
+            int o_testBasics_mg135_failAssert9_rv17433__29 = lbb.get(0).remaining();
+            Assert.assertEquals(100, ((int) (o_testBasics_mg135_failAssert9_rv17433__29)));
+            int o_testBasics_mg135_failAssert9_rv17433__31 = lbb.get(1).remaining();
+            Assert.assertEquals(100, ((int) (o_testBasics_mg135_failAssert9_rv17433__31)));
+            int o_testBasics_mg135_failAssert9_rv17433__33 = lbb.get(2).remaining();
+            Assert.assertEquals(2, ((int) (o_testBasics_mg135_failAssert9_rv17433__33)));
+            int o_testBasics_mg135_failAssert9_rv17433__35 = lbb.get(3).remaining();
+            Assert.assertEquals(8, ((int) (o_testBasics_mg135_failAssert9_rv17433__35)));
+            for (int i = 3; i < (lbb.size()); i++) {
+                lbb.get(i).remaining();
+            }
+            buf.writeVarInt64(__DSPOT_value_14);
+            org.junit.Assert.fail("testBasics_mg135 should have thrown NullPointerException");
+            __DSPOT_invoc_9.limit(__DSPOT_arg0_4325);
+        } catch (NullPointerException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testBasics_rv146_remove12994_mg36725_failAssert125() throws Exception {
+        try {
+            float __DSPOT_value_16772 = 0.821562F;
             LinkBuffer buf = new LinkBuffer(8);
             ByteBuffer bigBuf = ByteBuffer.allocate(100);
-            LinkBuffer o_testBasics_remove112__6 = buf.writeByteBuffer(bigBuf);
-            LinkBuffer o_testBasics_remove112__9 = buf.writeByteArray(new byte[100]);
-            LinkBuffer o_testBasics_remove112__11 = buf.writeByteArray(new byte[2]);
-            LinkBuffer o_testBasics_remove112__13 = buf.writeByteArray(new byte[8]);
-            LinkBuffer o_testBasics_remove112__15 = buf.writeInt64(1);
-            LinkBuffer o_testBasics_remove112__16 = buf.writeInt64(2);
-            LinkBuffer o_testBasics_remove112__17 = buf.writeInt64(3);
-            LinkBuffer o_testBasics_remove112__18 = buf.writeInt64(4);
+            Buffer __DSPOT_invoc_6 = bigBuf.limit(100);
+            LinkBuffer o_testBasics_rv146__9 = buf.writeByteBuffer(bigBuf);
+            LinkBuffer o_testBasics_rv146__12 = buf.writeByteArray(new byte[100]);
+            LinkBuffer o_testBasics_rv146__14 = buf.writeByteArray(new byte[2]);
+            LinkBuffer o_testBasics_rv146__16 = buf.writeByteArray(new byte[8]);
+            LinkBuffer o_testBasics_rv146__18 = buf.writeInt64(1);
+            LinkBuffer o_testBasics_rv146__19 = buf.writeInt64(2);
+            LinkBuffer o_testBasics_rv146__20 = buf.writeInt64(3);
+            LinkBuffer o_testBasics_rv146__21 = buf.writeInt64(4);
             List<ByteBuffer> lbb = buf.finish();
-            int o_testBasics_remove112__21 = lbb.size();
-            int o_testBasics_remove112__22 = lbb.get(0).remaining();
-            int o_testBasics_remove112__24 = lbb.get(1).remaining();
-            int o_testBasics_remove112__26 = lbb.get(2).remaining();
-            int o_testBasics_remove112__28 = lbb.get(3).remaining();
+            int o_testBasics_rv146__24 = lbb.size();
+            int o_testBasics_rv146__25 = lbb.get(0).remaining();
+            int o_testBasics_rv146__27 = lbb.get(1).remaining();
+            int o_testBasics_rv146__29 = lbb.get(2).remaining();
+            int o_testBasics_rv146__31 = lbb.get(3).remaining();
             for (int i = 3; i < (lbb.size()); i++) {
-                lbb.get(i).remaining();
             }
-            o_testBasics_remove112__18.writeVarInt32(__DSPOT_value_15422);
-            org.junit.Assert.fail("testBasics_remove112_mg36179 should have thrown NullPointerException");
+            int o_testBasics_rv146__40 = __DSPOT_invoc_6.remaining();
+            o_testBasics_rv146__9.writeFloat(__DSPOT_value_16772);
+            org.junit.Assert.fail("testBasics_rv146_remove12994_mg36725 should have thrown NullPointerException");
         } catch (NullPointerException expected) {
             Assert.assertEquals(null, expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testBasics_remove112_mg35872_failAssert139() throws Exception {
+    public void testBasics_rv140_remove12992_mg36673_failAssert122() throws Exception {
         try {
-            long __DSPOT_value_15207 = -835616649L;
+            long __DSPOT_value_16720 = 552609633L;
             LinkBuffer buf = new LinkBuffer(8);
             ByteBuffer bigBuf = ByteBuffer.allocate(100);
-            LinkBuffer o_testBasics_remove112__6 = buf.writeByteBuffer(bigBuf);
-            LinkBuffer o_testBasics_remove112__9 = buf.writeByteArray(new byte[100]);
-            LinkBuffer o_testBasics_remove112__11 = buf.writeByteArray(new byte[2]);
-            LinkBuffer o_testBasics_remove112__13 = buf.writeByteArray(new byte[8]);
-            LinkBuffer o_testBasics_remove112__15 = buf.writeInt64(1);
-            LinkBuffer o_testBasics_remove112__16 = buf.writeInt64(2);
-            LinkBuffer o_testBasics_remove112__17 = buf.writeInt64(3);
-            LinkBuffer o_testBasics_remove112__18 = buf.writeInt64(4);
+            Buffer __DSPOT_invoc_6 = bigBuf.limit(100);
+            LinkBuffer o_testBasics_rv140__9 = buf.writeByteBuffer(bigBuf);
+            LinkBuffer o_testBasics_rv140__12 = buf.writeByteArray(new byte[100]);
+            LinkBuffer o_testBasics_rv140__14 = buf.writeByteArray(new byte[2]);
+            LinkBuffer o_testBasics_rv140__16 = buf.writeByteArray(new byte[8]);
+            LinkBuffer o_testBasics_rv140__18 = buf.writeInt64(1);
+            LinkBuffer o_testBasics_rv140__19 = buf.writeInt64(2);
+            LinkBuffer o_testBasics_rv140__20 = buf.writeInt64(3);
+            LinkBuffer o_testBasics_rv140__21 = buf.writeInt64(4);
             List<ByteBuffer> lbb = buf.finish();
-            int o_testBasics_remove112__21 = lbb.size();
-            int o_testBasics_remove112__22 = lbb.get(0).remaining();
-            int o_testBasics_remove112__24 = lbb.get(1).remaining();
-            int o_testBasics_remove112__26 = lbb.get(2).remaining();
-            int o_testBasics_remove112__28 = lbb.get(3).remaining();
+            int o_testBasics_rv140__24 = lbb.size();
+            int o_testBasics_rv140__25 = lbb.get(0).remaining();
+            int o_testBasics_rv140__27 = lbb.get(1).remaining();
+            int o_testBasics_rv140__29 = lbb.get(2).remaining();
+            int o_testBasics_rv140__31 = lbb.get(3).remaining();
             for (int i = 3; i < (lbb.size()); i++) {
                 lbb.get(i).remaining();
             }
-            o_testBasics_remove112__17.writeVarInt64(__DSPOT_value_15207);
-            org.junit.Assert.fail("testBasics_remove112_mg35872 should have thrown NullPointerException");
+            o_testBasics_rv140__19.writeVarInt64(__DSPOT_value_16720);
+            org.junit.Assert.fail("testBasics_rv140_remove12992_mg36673 should have thrown NullPointerException");
         } catch (NullPointerException expected) {
             Assert.assertEquals(null, expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testBasics_remove112_mg35680_failAssert113() throws Exception {
+    public void testBasics_rv140_add10287_mg37339_failAssert121() throws Exception {
         try {
-            int __DSPOT_length_15091 = 360913744;
-            int __DSPOT_offset_15090 = -1499832070;
-            byte[] __DSPOT_value_15089 = new byte[]{ 106, 82 };
+            double __DSPOT_value_17386 = 0.2755180076432572;
             LinkBuffer buf = new LinkBuffer(8);
             ByteBuffer bigBuf = ByteBuffer.allocate(100);
-            LinkBuffer o_testBasics_remove112__6 = buf.writeByteBuffer(bigBuf);
-            LinkBuffer o_testBasics_remove112__9 = buf.writeByteArray(new byte[100]);
-            LinkBuffer o_testBasics_remove112__11 = buf.writeByteArray(new byte[2]);
-            LinkBuffer o_testBasics_remove112__13 = buf.writeByteArray(new byte[8]);
-            LinkBuffer o_testBasics_remove112__15 = buf.writeInt64(1);
-            LinkBuffer o_testBasics_remove112__16 = buf.writeInt64(2);
-            LinkBuffer o_testBasics_remove112__17 = buf.writeInt64(3);
-            LinkBuffer o_testBasics_remove112__18 = buf.writeInt64(4);
+            Buffer __DSPOT_invoc_6 = bigBuf.limit(100);
+            LinkBuffer o_testBasics_rv140__9 = buf.writeByteBuffer(bigBuf);
+            LinkBuffer o_testBasics_rv140__12 = buf.writeByteArray(new byte[100]);
+            LinkBuffer o_testBasics_rv140__14 = buf.writeByteArray(new byte[2]);
+            LinkBuffer o_testBasics_rv140__16 = buf.writeByteArray(new byte[8]);
+            LinkBuffer o_testBasics_rv140__18 = buf.writeInt64(1);
+            LinkBuffer o_testBasics_rv140__19 = buf.writeInt64(2);
+            LinkBuffer o_testBasics_rv140__20 = buf.writeInt64(3);
+            LinkBuffer o_testBasics_rv140__21 = buf.writeInt64(4);
             List<ByteBuffer> lbb = buf.finish();
-            int o_testBasics_remove112__21 = lbb.size();
-            int o_testBasics_remove112__22 = lbb.get(0).remaining();
-            int o_testBasics_remove112__24 = lbb.get(1).remaining();
-            int o_testBasics_remove112__26 = lbb.get(2).remaining();
-            int o_testBasics_remove112__28 = lbb.get(3).remaining();
+            int o_testBasics_rv140__24 = lbb.size();
+            int o_testBasics_rv140__25 = lbb.get(0).remaining();
+            int o_testBasics_rv140__27 = lbb.get(1).remaining();
+            int o_testBasics_rv140__29 = lbb.get(2).remaining();
+            int o_testBasics_rv140__31 = lbb.get(3).remaining();
             for (int i = 3; i < (lbb.size()); i++) {
                 lbb.get(i).remaining();
             }
-            o_testBasics_remove112__17.writeByteArray(__DSPOT_value_15089, __DSPOT_offset_15090, __DSPOT_length_15091);
-            org.junit.Assert.fail("testBasics_remove112_mg35680 should have thrown NullPointerException");
+            __DSPOT_invoc_6.hasRemaining();
+            ((LinkBuffer) (o_testBasics_rv140__21)).getBuffers();
+            o_testBasics_rv140__19.writeDouble(__DSPOT_value_17386);
+            org.junit.Assert.fail("testBasics_rv140_add10287_mg37339 should have thrown NullPointerException");
         } catch (NullPointerException expected) {
             Assert.assertEquals(null, expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testBasics_remove112_mg34607_failAssert159() throws Exception {
+    public void testBasics_rv283_failAssert66_rv26094_add35133() throws Exception {
         try {
-            float __DSPOT_value_14711 = 0.2166005F;
+            int __DSPOT_value_135 = 1534595620;
             LinkBuffer buf = new LinkBuffer(8);
+            Assert.assertFalse(((LinkBuffer) (buf)).getBuffers().isEmpty());
             ByteBuffer bigBuf = ByteBuffer.allocate(100);
-            LinkBuffer o_testBasics_remove112__6 = buf.writeByteBuffer(bigBuf);
-            LinkBuffer o_testBasics_remove112__9 = buf.writeByteArray(new byte[100]);
-            LinkBuffer o_testBasics_remove112__11 = buf.writeByteArray(new byte[2]);
-            LinkBuffer o_testBasics_remove112__13 = buf.writeByteArray(new byte[8]);
-            LinkBuffer o_testBasics_remove112__15 = buf.writeInt64(1);
-            LinkBuffer o_testBasics_remove112__16 = buf.writeInt64(2);
-            LinkBuffer o_testBasics_remove112__17 = buf.writeInt64(3);
-            LinkBuffer o_testBasics_remove112__18 = buf.writeInt64(4);
+            Buffer __DSPOT_invoc_9 = bigBuf.limit(100);
+            LinkBuffer o_testBasics_rv283_failAssert66_rv26094__12 = buf.writeByteBuffer(bigBuf);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_rv283_failAssert66_rv26094__12)).getBuffers().isEmpty());
+            LinkBuffer o_testBasics_rv283_failAssert66_rv26094__15 = buf.writeByteArray(new byte[100]);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_rv283_failAssert66_rv26094__15)).getBuffers().isEmpty());
+            ((LinkBuffer) (o_testBasics_rv283_failAssert66_rv26094__15)).getBuffers();
+            LinkBuffer o_testBasics_rv283_failAssert66_rv26094__17 = buf.writeByteArray(new byte[2]);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_rv283_failAssert66_rv26094__17)).getBuffers().isEmpty());
+            LinkBuffer o_testBasics_rv283_failAssert66_rv26094__19 = buf.writeByteArray(new byte[8]);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_rv283_failAssert66_rv26094__19)).getBuffers().isEmpty());
+            LinkBuffer o_testBasics_rv283_failAssert66_rv26094__21 = buf.writeInt64(1);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_rv283_failAssert66_rv26094__21)).getBuffers().isEmpty());
+            LinkBuffer o_testBasics_rv283_failAssert66_rv26094__22 = buf.writeInt64(2);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_rv283_failAssert66_rv26094__22)).getBuffers().isEmpty());
+            LinkBuffer o_testBasics_rv283_failAssert66_rv26094__23 = buf.writeInt64(3);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_rv283_failAssert66_rv26094__23)).getBuffers().isEmpty());
+            LinkBuffer __DSPOT_invoc_19 = buf.writeInt64(4);
             List<ByteBuffer> lbb = buf.finish();
-            int o_testBasics_remove112__21 = lbb.size();
-            int o_testBasics_remove112__22 = lbb.get(0).remaining();
-            int o_testBasics_remove112__24 = lbb.get(1).remaining();
-            int o_testBasics_remove112__26 = lbb.get(2).remaining();
-            int o_testBasics_remove112__28 = lbb.get(3).remaining();
+            int o_testBasics_rv283_failAssert66_rv26094__29 = lbb.size();
+            int o_testBasics_rv283_failAssert66_rv26094__30 = lbb.get(0).remaining();
+            int o_testBasics_rv283_failAssert66_rv26094__32 = lbb.get(1).remaining();
+            int o_testBasics_rv283_failAssert66_rv26094__34 = lbb.get(2).remaining();
+            int o_testBasics_rv283_failAssert66_rv26094__36 = lbb.get(3).remaining();
             for (int i = 3; i < (lbb.size()); i++) {
                 lbb.get(i).remaining();
             }
-            o_testBasics_remove112__13.writeFloat(__DSPOT_value_14711);
-            org.junit.Assert.fail("testBasics_remove112_mg34607 should have thrown NullPointerException");
+            __DSPOT_invoc_19.writeVarInt32(__DSPOT_value_135);
+            org.junit.Assert.fail("testBasics_rv283 should have thrown NullPointerException");
+            __DSPOT_invoc_9.hasRemaining();
         } catch (NullPointerException expected) {
-            Assert.assertEquals(null, expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testBasics_remove112_mg34127_failAssert164() throws Exception {
+    public void testBasics_rv283_failAssert66_rv26094litNum33239_failAssert137() throws Exception {
         try {
-            int __DSPOT_value_14536 = 1497373168;
-            LinkBuffer buf = new LinkBuffer(8);
-            ByteBuffer bigBuf = ByteBuffer.allocate(100);
-            LinkBuffer o_testBasics_remove112__6 = buf.writeByteBuffer(bigBuf);
-            LinkBuffer o_testBasics_remove112__9 = buf.writeByteArray(new byte[100]);
-            LinkBuffer o_testBasics_remove112__11 = buf.writeByteArray(new byte[2]);
-            LinkBuffer o_testBasics_remove112__13 = buf.writeByteArray(new byte[8]);
-            LinkBuffer o_testBasics_remove112__15 = buf.writeInt64(1);
-            LinkBuffer o_testBasics_remove112__16 = buf.writeInt64(2);
-            LinkBuffer o_testBasics_remove112__17 = buf.writeInt64(3);
-            LinkBuffer o_testBasics_remove112__18 = buf.writeInt64(4);
-            List<ByteBuffer> lbb = buf.finish();
-            int o_testBasics_remove112__21 = lbb.size();
-            int o_testBasics_remove112__22 = lbb.get(0).remaining();
-            int o_testBasics_remove112__24 = lbb.get(1).remaining();
-            int o_testBasics_remove112__26 = lbb.get(2).remaining();
-            int o_testBasics_remove112__28 = lbb.get(3).remaining();
-            for (int i = 3; i < (lbb.size()); i++) {
-                lbb.get(i).remaining();
+            try {
+                int __DSPOT_value_135 = 1534595620;
+                LinkBuffer buf = new LinkBuffer(8);
+                ByteBuffer bigBuf = ByteBuffer.allocate(100);
+                Buffer __DSPOT_invoc_9 = bigBuf.limit(100);
+                LinkBuffer o_testBasics_rv283_failAssert66_rv26094__12 = buf.writeByteBuffer(bigBuf);
+                LinkBuffer o_testBasics_rv283_failAssert66_rv26094__15 = buf.writeByteArray(new byte[100]);
+                LinkBuffer o_testBasics_rv283_failAssert66_rv26094__17 = buf.writeByteArray(new byte[2]);
+                LinkBuffer o_testBasics_rv283_failAssert66_rv26094__19 = buf.writeByteArray(new byte[8]);
+                LinkBuffer o_testBasics_rv283_failAssert66_rv26094__21 = buf.writeInt64(1);
+                LinkBuffer o_testBasics_rv283_failAssert66_rv26094__22 = buf.writeInt64(2);
+                LinkBuffer o_testBasics_rv283_failAssert66_rv26094__23 = buf.writeInt64(3);
+                LinkBuffer __DSPOT_invoc_19 = buf.writeInt64(4);
+                List<ByteBuffer> lbb = buf.finish();
+                int o_testBasics_rv283_failAssert66_rv26094__29 = lbb.size();
+                int o_testBasics_rv283_failAssert66_rv26094__30 = lbb.get(0).remaining();
+                int o_testBasics_rv283_failAssert66_rv26094__32 = lbb.get(-806924486).remaining();
+                int o_testBasics_rv283_failAssert66_rv26094__34 = lbb.get(2).remaining();
+                int o_testBasics_rv283_failAssert66_rv26094__36 = lbb.get(3).remaining();
+                for (int i = 3; i < (lbb.size()); i++) {
+                    lbb.get(i).remaining();
+                }
+                __DSPOT_invoc_19.writeVarInt32(__DSPOT_value_135);
+                org.junit.Assert.fail("testBasics_rv283 should have thrown NullPointerException");
+                __DSPOT_invoc_9.hasRemaining();
+            } catch (NullPointerException expected) {
             }
-            o_testBasics_remove112__9.writeVarInt32(__DSPOT_value_14536);
-            org.junit.Assert.fail("testBasics_remove112_mg34127 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            Assert.assertEquals(null, expected.getMessage());
+            org.junit.Assert.fail("testBasics_rv283_failAssert66_rv26094litNum33239 should have thrown ArrayIndexOutOfBoundsException");
+        } catch (ArrayIndexOutOfBoundsException expected_1) {
+            Assert.assertEquals("-806924486", expected_1.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testBasics_remove112_mg35270() throws Exception {
+    public void testBasics_rv245_failAssert68_rv26397null40654() throws Exception {
+        try {
+            int __DSPOT_arg0_11674 = 1496858167;
+            int __DSPOT_value_101 = -992876362;
+            LinkBuffer buf = new LinkBuffer(8);
+            Assert.assertFalse(((LinkBuffer) (buf)).getBuffers().isEmpty());
+            ByteBuffer bigBuf = ByteBuffer.allocate(100);
+            Buffer __DSPOT_invoc_9 = bigBuf.limit(100);
+            LinkBuffer o_testBasics_rv245_failAssert68_rv26397__13 = buf.writeByteBuffer(null);
+            LinkBuffer o_testBasics_rv245_failAssert68_rv26397__16 = buf.writeByteArray(new byte[100]);
+            LinkBuffer o_testBasics_rv245_failAssert68_rv26397__18 = buf.writeByteArray(new byte[2]);
+            LinkBuffer o_testBasics_rv245_failAssert68_rv26397__20 = buf.writeByteArray(new byte[8]);
+            LinkBuffer o_testBasics_rv245_failAssert68_rv26397__22 = buf.writeInt64(1);
+            LinkBuffer __DSPOT_invoc_17 = buf.writeInt64(2);
+            LinkBuffer o_testBasics_rv245_failAssert68_rv26397__26 = buf.writeInt64(3);
+            LinkBuffer o_testBasics_rv245_failAssert68_rv26397__27 = buf.writeInt64(4);
+            List<ByteBuffer> lbb = buf.finish();
+            int o_testBasics_rv245_failAssert68_rv26397__30 = lbb.size();
+            int o_testBasics_rv245_failAssert68_rv26397__31 = lbb.get(0).remaining();
+            int o_testBasics_rv245_failAssert68_rv26397__33 = lbb.get(1).remaining();
+            int o_testBasics_rv245_failAssert68_rv26397__35 = lbb.get(2).remaining();
+            int o_testBasics_rv245_failAssert68_rv26397__37 = lbb.get(3).remaining();
+            for (int i = 3; i < (lbb.size()); i++) {
+                lbb.get(i).remaining();
+            }
+            __DSPOT_invoc_17.writeInt32(__DSPOT_value_101);
+            org.junit.Assert.fail("testBasics_rv245 should have thrown NullPointerException");
+            __DSPOT_invoc_9.position(__DSPOT_arg0_11674);
+        } catch (NullPointerException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testBasics_rv140_add10287_remove35758() throws Exception {
         LinkBuffer buf = new LinkBuffer(8);
         Assert.assertFalse(((LinkBuffer) (buf)).getBuffers().isEmpty());
         ByteBuffer bigBuf = ByteBuffer.allocate(100);
-        LinkBuffer o_testBasics_remove112__6 = buf.writeByteBuffer(bigBuf);
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__6)).getBuffers().isEmpty());
-        LinkBuffer o_testBasics_remove112__9 = buf.writeByteArray(new byte[100]);
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__9)).getBuffers().isEmpty());
-        LinkBuffer o_testBasics_remove112__11 = buf.writeByteArray(new byte[2]);
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__11)).getBuffers().isEmpty());
-        LinkBuffer o_testBasics_remove112__13 = buf.writeByteArray(new byte[8]);
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__13)).getBuffers().isEmpty());
-        LinkBuffer o_testBasics_remove112__15 = buf.writeInt64(1);
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__15)).getBuffers().isEmpty());
-        LinkBuffer o_testBasics_remove112__16 = buf.writeInt64(2);
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__16)).getBuffers().isEmpty());
-        LinkBuffer o_testBasics_remove112__17 = buf.writeInt64(3);
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__17)).getBuffers().isEmpty());
-        LinkBuffer o_testBasics_remove112__18 = buf.writeInt64(4);
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__18)).getBuffers().isEmpty());
+        Buffer __DSPOT_invoc_6 = bigBuf.limit(100);
+        LinkBuffer o_testBasics_rv140__9 = buf.writeByteBuffer(bigBuf);
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__9)).getBuffers().isEmpty());
+        LinkBuffer o_testBasics_rv140__12 = buf.writeByteArray(new byte[100]);
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__12)).getBuffers().isEmpty());
+        LinkBuffer o_testBasics_rv140__14 = buf.writeByteArray(new byte[2]);
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__14)).getBuffers().isEmpty());
+        LinkBuffer o_testBasics_rv140__16 = buf.writeByteArray(new byte[8]);
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__16)).getBuffers().isEmpty());
+        LinkBuffer o_testBasics_rv140__18 = buf.writeInt64(1);
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__18)).getBuffers().isEmpty());
+        LinkBuffer o_testBasics_rv140__19 = buf.writeInt64(2);
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__19)).getBuffers().isEmpty());
+        LinkBuffer o_testBasics_rv140__20 = buf.writeInt64(3);
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__20)).getBuffers().isEmpty());
+        LinkBuffer o_testBasics_rv140__21 = buf.writeInt64(4);
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__21)).getBuffers().isEmpty());
         List<ByteBuffer> lbb = buf.finish();
-        int o_testBasics_remove112__21 = lbb.size();
-        int o_testBasics_remove112__22 = lbb.get(0).remaining();
-        int o_testBasics_remove112__24 = lbb.get(1).remaining();
-        int o_testBasics_remove112__26 = lbb.get(2).remaining();
-        int o_testBasics_remove112__28 = lbb.get(3).remaining();
+        int o_testBasics_rv140__24 = lbb.size();
+        int o_testBasics_rv140__25 = lbb.get(0).remaining();
+        int o_testBasics_rv140__27 = lbb.get(1).remaining();
+        int o_testBasics_rv140__29 = lbb.get(2).remaining();
+        int o_testBasics_rv140__31 = lbb.get(3).remaining();
         for (int i = 3; i < (lbb.size()); i++) {
             lbb.get(i).remaining();
         }
-        o_testBasics_remove112__16.getBuffers();
+        __DSPOT_invoc_6.hasRemaining();
         Assert.assertFalse(((LinkBuffer) (buf)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__6)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__9)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__11)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__13)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__15)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__16)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__17)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__18)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__9)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__12)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__14)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__16)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__18)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__19)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__20)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testBasics_rv140__21)).getBuffers().isEmpty());
     }
 
     @Test(timeout = 10000)
-    public void testBasics_remove112litNum32904_failAssert242() throws Exception {
+    public void testBasics_mg135_failAssert9_rv17433_mg35876() throws Exception {
         try {
+            long __DSPOT_value_15923 = -2127768015L;
+            int __DSPOT_arg0_4325 = 5390829;
+            long __DSPOT_value_14 = -549348225L;
             LinkBuffer buf = new LinkBuffer(8);
+            Assert.assertFalse(((LinkBuffer) (buf)).getBuffers().isEmpty());
             ByteBuffer bigBuf = ByteBuffer.allocate(100);
-            LinkBuffer o_testBasics_remove112__6 = buf.writeByteBuffer(bigBuf);
-            LinkBuffer o_testBasics_remove112__9 = buf.writeByteArray(new byte[100]);
-            LinkBuffer o_testBasics_remove112__11 = buf.writeByteArray(new byte[2]);
-            LinkBuffer o_testBasics_remove112__13 = buf.writeByteArray(new byte[8]);
-            LinkBuffer o_testBasics_remove112__15 = buf.writeInt64(1);
-            LinkBuffer o_testBasics_remove112__16 = buf.writeInt64(2);
-            LinkBuffer o_testBasics_remove112__17 = buf.writeInt64(3);
-            LinkBuffer o_testBasics_remove112__18 = buf.writeInt64(4);
+            Buffer __DSPOT_invoc_9 = bigBuf.limit(100);
+            LinkBuffer o_testBasics_mg135_failAssert9_rv17433__13 = buf.writeByteBuffer(bigBuf);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_mg135_failAssert9_rv17433__13)).getBuffers().isEmpty());
+            LinkBuffer o_testBasics_mg135_failAssert9_rv17433__16 = buf.writeByteArray(new byte[100]);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_mg135_failAssert9_rv17433__16)).getBuffers().isEmpty());
+            LinkBuffer o_testBasics_mg135_failAssert9_rv17433__18 = buf.writeByteArray(new byte[2]);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_mg135_failAssert9_rv17433__18)).getBuffers().isEmpty());
+            LinkBuffer o_testBasics_mg135_failAssert9_rv17433__20 = buf.writeByteArray(new byte[8]);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_mg135_failAssert9_rv17433__20)).getBuffers().isEmpty());
+            LinkBuffer o_testBasics_mg135_failAssert9_rv17433__22 = buf.writeInt64(1);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_mg135_failAssert9_rv17433__22)).getBuffers().isEmpty());
+            LinkBuffer o_testBasics_mg135_failAssert9_rv17433__23 = buf.writeInt64(2);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_mg135_failAssert9_rv17433__23)).getBuffers().isEmpty());
+            LinkBuffer o_testBasics_mg135_failAssert9_rv17433__24 = buf.writeInt64(3);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_mg135_failAssert9_rv17433__24)).getBuffers().isEmpty());
+            LinkBuffer o_testBasics_mg135_failAssert9_rv17433__25 = buf.writeInt64(4);
+            Assert.assertFalse(((LinkBuffer) (o_testBasics_mg135_failAssert9_rv17433__25)).getBuffers().isEmpty());
             List<ByteBuffer> lbb = buf.finish();
-            int o_testBasics_remove112__21 = lbb.size();
-            int o_testBasics_remove112__22 = lbb.get(Integer.MIN_VALUE).remaining();
-            int o_testBasics_remove112__24 = lbb.get(1).remaining();
-            int o_testBasics_remove112__26 = lbb.get(2).remaining();
-            int o_testBasics_remove112__28 = lbb.get(3).remaining();
+            int o_testBasics_mg135_failAssert9_rv17433__28 = lbb.size();
+            int o_testBasics_mg135_failAssert9_rv17433__29 = lbb.get(0).remaining();
+            int o_testBasics_mg135_failAssert9_rv17433__31 = lbb.get(1).remaining();
+            int o_testBasics_mg135_failAssert9_rv17433__33 = lbb.get(2).remaining();
+            int o_testBasics_mg135_failAssert9_rv17433__35 = lbb.get(3).remaining();
             for (int i = 3; i < (lbb.size()); i++) {
                 lbb.get(i).remaining();
             }
-            org.junit.Assert.fail("testBasics_remove112litNum32904 should have thrown ArrayIndexOutOfBoundsException");
-        } catch (ArrayIndexOutOfBoundsException expected) {
-            Assert.assertEquals("-2147483648", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testBasics_remove112_mg35293() throws Exception {
-        LinkBuffer buf = new LinkBuffer(8);
-        Assert.assertFalse(((LinkBuffer) (buf)).getBuffers().isEmpty());
-        ByteBuffer bigBuf = ByteBuffer.allocate(100);
-        LinkBuffer o_testBasics_remove112__6 = buf.writeByteBuffer(bigBuf);
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__6)).getBuffers().isEmpty());
-        LinkBuffer o_testBasics_remove112__9 = buf.writeByteArray(new byte[100]);
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__9)).getBuffers().isEmpty());
-        LinkBuffer o_testBasics_remove112__11 = buf.writeByteArray(new byte[2]);
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__11)).getBuffers().isEmpty());
-        LinkBuffer o_testBasics_remove112__13 = buf.writeByteArray(new byte[8]);
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__13)).getBuffers().isEmpty());
-        LinkBuffer o_testBasics_remove112__15 = buf.writeInt64(1);
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__15)).getBuffers().isEmpty());
-        LinkBuffer o_testBasics_remove112__16 = buf.writeInt64(2);
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__16)).getBuffers().isEmpty());
-        LinkBuffer o_testBasics_remove112__17 = buf.writeInt64(3);
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__17)).getBuffers().isEmpty());
-        LinkBuffer o_testBasics_remove112__18 = buf.writeInt64(4);
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__18)).getBuffers().isEmpty());
-        List<ByteBuffer> lbb = buf.finish();
-        int o_testBasics_remove112__21 = lbb.size();
-        int o_testBasics_remove112__22 = lbb.get(0).remaining();
-        int o_testBasics_remove112__24 = lbb.get(1).remaining();
-        int o_testBasics_remove112__26 = lbb.get(2).remaining();
-        int o_testBasics_remove112__28 = lbb.get(3).remaining();
-        for (int i = 3; i < (lbb.size()); i++) {
-            lbb.get(i).remaining();
-        }
-        long o_testBasics_remove112_mg35293__63 = o_testBasics_remove112__16.size();
-        Assert.assertEquals(242L, ((long) (o_testBasics_remove112_mg35293__63)));
-        Assert.assertFalse(((LinkBuffer) (buf)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__6)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__9)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__11)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__13)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__15)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__16)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__17)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testBasics_remove112__18)).getBuffers().isEmpty());
-    }
-
-    @Test(timeout = 10000)
-    public void testBasics_remove112_mg34729_failAssert171() throws Exception {
-        try {
-            int __DSPOT_value_14737 = 38308776;
-            LinkBuffer buf = new LinkBuffer(8);
-            ByteBuffer bigBuf = ByteBuffer.allocate(100);
-            LinkBuffer o_testBasics_remove112__6 = buf.writeByteBuffer(bigBuf);
-            LinkBuffer o_testBasics_remove112__9 = buf.writeByteArray(new byte[100]);
-            LinkBuffer o_testBasics_remove112__11 = buf.writeByteArray(new byte[2]);
-            LinkBuffer o_testBasics_remove112__13 = buf.writeByteArray(new byte[8]);
-            LinkBuffer o_testBasics_remove112__15 = buf.writeInt64(1);
-            LinkBuffer o_testBasics_remove112__16 = buf.writeInt64(2);
-            LinkBuffer o_testBasics_remove112__17 = buf.writeInt64(3);
-            LinkBuffer o_testBasics_remove112__18 = buf.writeInt64(4);
-            List<ByteBuffer> lbb = buf.finish();
-            int o_testBasics_remove112__21 = lbb.size();
-            int o_testBasics_remove112__22 = lbb.get(0).remaining();
-            int o_testBasics_remove112__24 = lbb.get(1).remaining();
-            int o_testBasics_remove112__26 = lbb.get(2).remaining();
-            int o_testBasics_remove112__28 = lbb.get(3).remaining();
-            for (int i = 3; i < (lbb.size()); i++) {
-                lbb.get(i).remaining();
-            }
-            o_testBasics_remove112__13.writeVarInt32(__DSPOT_value_14737);
-            org.junit.Assert.fail("testBasics_remove112_mg34729 should have thrown NullPointerException");
+            buf.writeVarInt64(__DSPOT_value_14);
+            org.junit.Assert.fail("testBasics_mg135 should have thrown NullPointerException");
+            __DSPOT_invoc_9.limit(__DSPOT_arg0_4325);
+            o_testBasics_mg135_failAssert9_rv17433__24.writeInt64LE(__DSPOT_value_15923);
         } catch (NullPointerException expected) {
-            Assert.assertEquals(null, expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testBasics_remove112_mg34987_failAssert129() throws Exception {
-        try {
-            double __DSPOT_value_14798 = 0.45000080165516554;
-            LinkBuffer buf = new LinkBuffer(8);
-            ByteBuffer bigBuf = ByteBuffer.allocate(100);
-            LinkBuffer o_testBasics_remove112__6 = buf.writeByteBuffer(bigBuf);
-            LinkBuffer o_testBasics_remove112__9 = buf.writeByteArray(new byte[100]);
-            LinkBuffer o_testBasics_remove112__11 = buf.writeByteArray(new byte[2]);
-            LinkBuffer o_testBasics_remove112__13 = buf.writeByteArray(new byte[8]);
-            LinkBuffer o_testBasics_remove112__15 = buf.writeInt64(1);
-            LinkBuffer o_testBasics_remove112__16 = buf.writeInt64(2);
-            LinkBuffer o_testBasics_remove112__17 = buf.writeInt64(3);
-            LinkBuffer o_testBasics_remove112__18 = buf.writeInt64(4);
-            List<ByteBuffer> lbb = buf.finish();
-            int o_testBasics_remove112__21 = lbb.size();
-            int o_testBasics_remove112__22 = lbb.get(0).remaining();
-            int o_testBasics_remove112__24 = lbb.get(1).remaining();
-            int o_testBasics_remove112__26 = lbb.get(2).remaining();
-            int o_testBasics_remove112__28 = lbb.get(3).remaining();
-            for (int i = 3; i < (lbb.size()); i++) {
-                lbb.get(i).remaining();
-            }
-            o_testBasics_remove112__15.writeDouble(__DSPOT_value_14798);
-            org.junit.Assert.fail("testBasics_remove112_mg34987 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            Assert.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testBasics_remove112_mg34742_failAssert142() throws Exception {
-        try {
-            long __DSPOT_value_14742 = -925013246L;
-            LinkBuffer buf = new LinkBuffer(8);
-            ByteBuffer bigBuf = ByteBuffer.allocate(100);
-            LinkBuffer o_testBasics_remove112__6 = buf.writeByteBuffer(bigBuf);
-            LinkBuffer o_testBasics_remove112__9 = buf.writeByteArray(new byte[100]);
-            LinkBuffer o_testBasics_remove112__11 = buf.writeByteArray(new byte[2]);
-            LinkBuffer o_testBasics_remove112__13 = buf.writeByteArray(new byte[8]);
-            LinkBuffer o_testBasics_remove112__15 = buf.writeInt64(1);
-            LinkBuffer o_testBasics_remove112__16 = buf.writeInt64(2);
-            LinkBuffer o_testBasics_remove112__17 = buf.writeInt64(3);
-            LinkBuffer o_testBasics_remove112__18 = buf.writeInt64(4);
-            List<ByteBuffer> lbb = buf.finish();
-            int o_testBasics_remove112__21 = lbb.size();
-            int o_testBasics_remove112__22 = lbb.get(0).remaining();
-            int o_testBasics_remove112__24 = lbb.get(1).remaining();
-            int o_testBasics_remove112__26 = lbb.get(2).remaining();
-            int o_testBasics_remove112__28 = lbb.get(3).remaining();
-            for (int i = 3; i < (lbb.size()); i++) {
-                lbb.get(i).remaining();
-            }
-            o_testBasics_remove112__13.writeVarInt64(__DSPOT_value_14742);
-            org.junit.Assert.fail("testBasics_remove112_mg34742 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            Assert.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testBasics_remove112_add33252_mg85857_failAssert378() throws Exception {
-        try {
-            int __DSPOT_value_37009 = -1166119360;
-            LinkBuffer buf = new LinkBuffer(8);
-            ByteBuffer bigBuf = ByteBuffer.allocate(100);
-            LinkBuffer o_testBasics_remove112__6 = buf.writeByteBuffer(bigBuf);
-            LinkBuffer o_testBasics_remove112__9 = buf.writeByteArray(new byte[100]);
-            LinkBuffer o_testBasics_remove112__11 = buf.writeByteArray(new byte[2]);
-            LinkBuffer o_testBasics_remove112_add33252__19 = buf.writeByteArray(new byte[8]);
-            LinkBuffer o_testBasics_remove112__13 = buf.writeByteArray(new byte[8]);
-            LinkBuffer o_testBasics_remove112__15 = buf.writeInt64(1);
-            LinkBuffer o_testBasics_remove112__16 = buf.writeInt64(2);
-            LinkBuffer o_testBasics_remove112__17 = buf.writeInt64(3);
-            LinkBuffer o_testBasics_remove112__18 = buf.writeInt64(4);
-            List<ByteBuffer> lbb = buf.finish();
-            int o_testBasics_remove112__21 = lbb.size();
-            int o_testBasics_remove112__22 = lbb.get(0).remaining();
-            int o_testBasics_remove112__24 = lbb.get(1).remaining();
-            int o_testBasics_remove112__26 = lbb.get(2).remaining();
-            int o_testBasics_remove112__28 = lbb.get(3).remaining();
-            for (int i = 3; i < (lbb.size()); i++) {
-                lbb.get(i).remaining();
-            }
-            o_testBasics_remove112_add33252__19.writeVarInt32(__DSPOT_value_37009);
-            org.junit.Assert.fail("testBasics_remove112_add33252_mg85857 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            Assert.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testBasics_remove112_add33238_mg91748_failAssert374() throws Exception {
-        try {
-            double __DSPOT_value_39458 = 0.18969856839689758;
-            LinkBuffer buf = new LinkBuffer(8);
-            ByteBuffer bigBuf = ByteBuffer.allocate(100);
-            LinkBuffer o_testBasics_remove112__6 = buf.writeByteBuffer(bigBuf);
-            LinkBuffer o_testBasics_remove112__9 = buf.writeByteArray(new byte[100]);
-            LinkBuffer o_testBasics_remove112_add33238__15 = buf.writeByteArray(new byte[2]);
-            LinkBuffer o_testBasics_remove112__11 = buf.writeByteArray(new byte[2]);
-            LinkBuffer o_testBasics_remove112__13 = buf.writeByteArray(new byte[8]);
-            LinkBuffer o_testBasics_remove112__15 = buf.writeInt64(1);
-            LinkBuffer o_testBasics_remove112__16 = buf.writeInt64(2);
-            LinkBuffer o_testBasics_remove112__17 = buf.writeInt64(3);
-            LinkBuffer o_testBasics_remove112__18 = buf.writeInt64(4);
-            List<ByteBuffer> lbb = buf.finish();
-            int o_testBasics_remove112__21 = lbb.size();
-            int o_testBasics_remove112__22 = lbb.get(0).remaining();
-            int o_testBasics_remove112__24 = lbb.get(1).remaining();
-            int o_testBasics_remove112__26 = lbb.get(2).remaining();
-            int o_testBasics_remove112__28 = lbb.get(3).remaining();
-            for (int i = 3; i < (lbb.size()); i++) {
-                lbb.get(i).remaining();
-            }
-            o_testBasics_remove112__18.writeDouble(__DSPOT_value_39458);
-            org.junit.Assert.fail("testBasics_remove112_add33238_mg91748 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            Assert.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testBasics_remove112_add33225_mg81158_failAssert441() throws Exception {
-        try {
-            long __DSPOT_value_35016 = 1077625519L;
-            LinkBuffer buf = new LinkBuffer(8);
-            ByteBuffer bigBuf = ByteBuffer.allocate(100);
-            LinkBuffer o_testBasics_remove112__6 = buf.writeByteBuffer(bigBuf);
-            LinkBuffer o_testBasics_remove112_add33225__11 = buf.writeByteArray(new byte[100]);
-            LinkBuffer o_testBasics_remove112__9 = buf.writeByteArray(new byte[100]);
-            LinkBuffer o_testBasics_remove112__11 = buf.writeByteArray(new byte[2]);
-            LinkBuffer o_testBasics_remove112__13 = buf.writeByteArray(new byte[8]);
-            LinkBuffer o_testBasics_remove112__15 = buf.writeInt64(1);
-            LinkBuffer o_testBasics_remove112__16 = buf.writeInt64(2);
-            LinkBuffer o_testBasics_remove112__17 = buf.writeInt64(3);
-            LinkBuffer o_testBasics_remove112__18 = buf.writeInt64(4);
-            List<ByteBuffer> lbb = buf.finish();
-            int o_testBasics_remove112__21 = lbb.size();
-            int o_testBasics_remove112__22 = lbb.get(0).remaining();
-            int o_testBasics_remove112__24 = lbb.get(1).remaining();
-            int o_testBasics_remove112__26 = lbb.get(2).remaining();
-            int o_testBasics_remove112__28 = lbb.get(3).remaining();
-            for (int i = 3; i < (lbb.size()); i++) {
-                lbb.get(i).remaining();
-            }
-            o_testBasics_remove112__15.writeVarInt64(__DSPOT_value_35016);
-            org.junit.Assert.fail("testBasics_remove112_add33225_mg81158 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            Assert.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testBasics_remove112_add33238_mg91899_failAssert443() throws Exception {
-        try {
-            long __DSPOT_value_39526 = -792407774L;
-            LinkBuffer buf = new LinkBuffer(8);
-            ByteBuffer bigBuf = ByteBuffer.allocate(100);
-            LinkBuffer o_testBasics_remove112__6 = buf.writeByteBuffer(bigBuf);
-            LinkBuffer o_testBasics_remove112__9 = buf.writeByteArray(new byte[100]);
-            LinkBuffer o_testBasics_remove112_add33238__15 = buf.writeByteArray(new byte[2]);
-            LinkBuffer o_testBasics_remove112__11 = buf.writeByteArray(new byte[2]);
-            LinkBuffer o_testBasics_remove112__13 = buf.writeByteArray(new byte[8]);
-            LinkBuffer o_testBasics_remove112__15 = buf.writeInt64(1);
-            LinkBuffer o_testBasics_remove112__16 = buf.writeInt64(2);
-            LinkBuffer o_testBasics_remove112__17 = buf.writeInt64(3);
-            LinkBuffer o_testBasics_remove112__18 = buf.writeInt64(4);
-            List<ByteBuffer> lbb = buf.finish();
-            int o_testBasics_remove112__21 = lbb.size();
-            int o_testBasics_remove112__22 = lbb.get(0).remaining();
-            int o_testBasics_remove112__24 = lbb.get(1).remaining();
-            int o_testBasics_remove112__26 = lbb.get(2).remaining();
-            int o_testBasics_remove112__28 = lbb.get(3).remaining();
-            for (int i = 3; i < (lbb.size()); i++) {
-                lbb.get(i).remaining();
-            }
-            o_testBasics_remove112__18.writeVarInt64(__DSPOT_value_39526);
-            org.junit.Assert.fail("testBasics_remove112_add33238_mg91899 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            Assert.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testBasics_remove112_add33275_mg94441_failAssert300() throws Exception {
-        try {
-            int __DSPOT_length_40274 = 1566186546;
-            int __DSPOT_offset_40273 = 3753485;
-            byte[] __DSPOT_value_40272 = new byte[]{ -56, 100, -115 };
-            LinkBuffer buf = new LinkBuffer(8);
-            ByteBuffer bigBuf = ByteBuffer.allocate(100);
-            LinkBuffer o_testBasics_remove112__6 = buf.writeByteBuffer(bigBuf);
-            LinkBuffer o_testBasics_remove112__9 = buf.writeByteArray(new byte[100]);
-            LinkBuffer o_testBasics_remove112__11 = buf.writeByteArray(new byte[2]);
-            LinkBuffer o_testBasics_remove112__13 = buf.writeByteArray(new byte[8]);
-            LinkBuffer o_testBasics_remove112_add33275__23 = buf.writeInt64(1);
-            LinkBuffer o_testBasics_remove112__15 = buf.writeInt64(1);
-            LinkBuffer o_testBasics_remove112__16 = buf.writeInt64(2);
-            LinkBuffer o_testBasics_remove112__17 = buf.writeInt64(3);
-            LinkBuffer o_testBasics_remove112__18 = buf.writeInt64(4);
-            List<ByteBuffer> lbb = buf.finish();
-            int o_testBasics_remove112__21 = lbb.size();
-            int o_testBasics_remove112__22 = lbb.get(0).remaining();
-            int o_testBasics_remove112__24 = lbb.get(1).remaining();
-            int o_testBasics_remove112__26 = lbb.get(2).remaining();
-            int o_testBasics_remove112__28 = lbb.get(3).remaining();
-            for (int i = 3; i < (lbb.size()); i++) {
-                lbb.get(i).remaining();
-            }
-            o_testBasics_remove112__13.writeByteArray(__DSPOT_value_40272, __DSPOT_offset_40273, __DSPOT_length_40274);
-            org.junit.Assert.fail("testBasics_remove112_add33275_mg94441 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            Assert.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testBasics_remove112_add33225_mg80210_failAssert376() throws Exception {
-        try {
-            int __DSPOT_value_34442 = 1522799588;
-            LinkBuffer buf = new LinkBuffer(8);
-            ByteBuffer bigBuf = ByteBuffer.allocate(100);
-            LinkBuffer o_testBasics_remove112__6 = buf.writeByteBuffer(bigBuf);
-            LinkBuffer o_testBasics_remove112_add33225__11 = buf.writeByteArray(new byte[100]);
-            LinkBuffer o_testBasics_remove112__9 = buf.writeByteArray(new byte[100]);
-            LinkBuffer o_testBasics_remove112__11 = buf.writeByteArray(new byte[2]);
-            LinkBuffer o_testBasics_remove112__13 = buf.writeByteArray(new byte[8]);
-            LinkBuffer o_testBasics_remove112__15 = buf.writeInt64(1);
-            LinkBuffer o_testBasics_remove112__16 = buf.writeInt64(2);
-            LinkBuffer o_testBasics_remove112__17 = buf.writeInt64(3);
-            LinkBuffer o_testBasics_remove112__18 = buf.writeInt64(4);
-            List<ByteBuffer> lbb = buf.finish();
-            int o_testBasics_remove112__21 = lbb.size();
-            int o_testBasics_remove112__22 = lbb.get(0).remaining();
-            int o_testBasics_remove112__24 = lbb.get(1).remaining();
-            int o_testBasics_remove112__26 = lbb.get(2).remaining();
-            int o_testBasics_remove112__28 = lbb.get(3).remaining();
-            for (int i = 3; i < (lbb.size()); i++) {
-                lbb.get(i).remaining();
-            }
-            o_testBasics_remove112_add33225__11.writeVarInt32(__DSPOT_value_34442);
-            org.junit.Assert.fail("testBasics_remove112_add33225_mg80210 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            Assert.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testBasics_remove112_add33238_mg90452_failAssert370() throws Exception {
-        try {
-            float __DSPOT_value_38775 = 9.248973E-4F;
-            LinkBuffer buf = new LinkBuffer(8);
-            ByteBuffer bigBuf = ByteBuffer.allocate(100);
-            LinkBuffer o_testBasics_remove112__6 = buf.writeByteBuffer(bigBuf);
-            LinkBuffer o_testBasics_remove112__9 = buf.writeByteArray(new byte[100]);
-            LinkBuffer o_testBasics_remove112_add33238__15 = buf.writeByteArray(new byte[2]);
-            LinkBuffer o_testBasics_remove112__11 = buf.writeByteArray(new byte[2]);
-            LinkBuffer o_testBasics_remove112__13 = buf.writeByteArray(new byte[8]);
-            LinkBuffer o_testBasics_remove112__15 = buf.writeInt64(1);
-            LinkBuffer o_testBasics_remove112__16 = buf.writeInt64(2);
-            LinkBuffer o_testBasics_remove112__17 = buf.writeInt64(3);
-            LinkBuffer o_testBasics_remove112__18 = buf.writeInt64(4);
-            List<ByteBuffer> lbb = buf.finish();
-            int o_testBasics_remove112__21 = lbb.size();
-            int o_testBasics_remove112__22 = lbb.get(0).remaining();
-            int o_testBasics_remove112__24 = lbb.get(1).remaining();
-            int o_testBasics_remove112__26 = lbb.get(2).remaining();
-            int o_testBasics_remove112__28 = lbb.get(3).remaining();
-            for (int i = 3; i < (lbb.size()); i++) {
-                lbb.get(i).remaining();
-            }
-            o_testBasics_remove112_add33238__15.writeFloat(__DSPOT_value_38775);
-            org.junit.Assert.fail("testBasics_remove112_add33238_mg90452 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            Assert.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testGetBuffers_rv110290() throws Exception {
-        int __DSPOT_value_45842 = -1554386131;
+    public void testGetBuffers_rv41407() throws Exception {
+        long __DSPOT_value_20169 = 1874481689L;
         LinkBuffer b = new LinkBuffer(8);
         Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        LinkBuffer __DSPOT_invoc_3 = b.writeInt32(42);
-        LinkBuffer o_testGetBuffers_rv110290__7 = b.writeInt32(43);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110290__7)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffers_rv110290__8 = b.writeInt32(44);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110290__8)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_rv41407__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41407__4)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffers_rv41407__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41407__8)).getBuffers().isEmpty());
         List<ByteBuffer> buffers = b.getBuffers();
-        int o_testGetBuffers_rv110290__11 = buffers.size();
-        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv110290__11)));
-        int o_testGetBuffers_rv110290__12 = buffers.get(0).remaining();
-        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv110290__12)));
-        int o_testGetBuffers_rv110290__14 = buffers.get(1).remaining();
-        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv110290__14)));
+        int o_testGetBuffers_rv41407__11 = buffers.size();
+        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv41407__11)));
+        int o_testGetBuffers_rv41407__12 = buffers.get(0).remaining();
+        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv41407__12)));
+        int o_testGetBuffers_rv41407__14 = buffers.get(1).remaining();
+        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv41407__14)));
         buffers.get(0).getInt();
         buffers.get(0).getInt();
         buffers.get(1).getInt();
-        LinkBuffer o_testGetBuffers_rv110290__22 = __DSPOT_invoc_3.writeInt32LE(__DSPOT_value_45842);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110290__22)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_rv41407__22 = __DSPOT_invoc_4.writeVarInt64(__DSPOT_value_20169);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41407__22)).getBuffers().isEmpty());
         Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110290__7)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110290__8)).getBuffers().isEmpty());
-        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv110290__11)));
-        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv110290__12)));
-        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv110290__14)));
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41407__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41407__8)).getBuffers().isEmpty());
+        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv41407__11)));
+        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv41407__12)));
+        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv41407__14)));
     }
 
     @Test(timeout = 10000)
-    public void testGetBuffers_rv110282() throws Exception {
-        byte __DSPOT_value_45832 = -11;
+    public void testGetBuffers_rv41406() throws Exception {
+        int __DSPOT_value_20168 = 816415622;
         LinkBuffer b = new LinkBuffer(8);
         Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        LinkBuffer __DSPOT_invoc_3 = b.writeInt32(42);
-        LinkBuffer o_testGetBuffers_rv110282__7 = b.writeInt32(43);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110282__7)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffers_rv110282__8 = b.writeInt32(44);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110282__8)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_rv41406__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41406__4)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffers_rv41406__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41406__8)).getBuffers().isEmpty());
         List<ByteBuffer> buffers = b.getBuffers();
-        int o_testGetBuffers_rv110282__11 = buffers.size();
-        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv110282__11)));
-        int o_testGetBuffers_rv110282__12 = buffers.get(0).remaining();
-        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv110282__12)));
-        int o_testGetBuffers_rv110282__14 = buffers.get(1).remaining();
-        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv110282__14)));
+        int o_testGetBuffers_rv41406__11 = buffers.size();
+        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv41406__11)));
+        int o_testGetBuffers_rv41406__12 = buffers.get(0).remaining();
+        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv41406__12)));
+        int o_testGetBuffers_rv41406__14 = buffers.get(1).remaining();
+        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv41406__14)));
         buffers.get(0).getInt();
         buffers.get(0).getInt();
         buffers.get(1).getInt();
-        LinkBuffer o_testGetBuffers_rv110282__22 = __DSPOT_invoc_3.writeByte(__DSPOT_value_45832);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110282__22)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_rv41406__22 = __DSPOT_invoc_4.writeVarInt32(__DSPOT_value_20168);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41406__22)).getBuffers().isEmpty());
         Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110282__7)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110282__8)).getBuffers().isEmpty());
-        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv110282__11)));
-        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv110282__12)));
-        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv110282__14)));
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41406__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41406__8)).getBuffers().isEmpty());
+        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv41406__11)));
+        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv41406__12)));
+        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv41406__14)));
     }
 
     @Test(timeout = 10000)
-    public void testGetBuffers_rv110293() throws Exception {
-        int __DSPOT_value_45845 = 84414492;
-        LinkBuffer b = new LinkBuffer(8);
-        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        LinkBuffer __DSPOT_invoc_3 = b.writeInt32(42);
-        LinkBuffer o_testGetBuffers_rv110293__7 = b.writeInt32(43);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110293__7)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffers_rv110293__8 = b.writeInt32(44);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110293__8)).getBuffers().isEmpty());
-        List<ByteBuffer> buffers = b.getBuffers();
-        int o_testGetBuffers_rv110293__11 = buffers.size();
-        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv110293__11)));
-        int o_testGetBuffers_rv110293__12 = buffers.get(0).remaining();
-        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv110293__12)));
-        int o_testGetBuffers_rv110293__14 = buffers.get(1).remaining();
-        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv110293__14)));
-        buffers.get(0).getInt();
-        buffers.get(0).getInt();
-        buffers.get(1).getInt();
-        LinkBuffer o_testGetBuffers_rv110293__22 = __DSPOT_invoc_3.writeVarInt32(__DSPOT_value_45845);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110293__22)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110293__7)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110293__8)).getBuffers().isEmpty());
-        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv110293__11)));
-        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv110293__12)));
-        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv110293__14)));
-    }
-
-    @Test(timeout = 10000)
-    public void testGetBuffers_rv110292() throws Exception {
-        long __DSPOT_value_45844 = -1868589055L;
-        LinkBuffer b = new LinkBuffer(8);
-        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        LinkBuffer __DSPOT_invoc_3 = b.writeInt32(42);
-        LinkBuffer o_testGetBuffers_rv110292__7 = b.writeInt32(43);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110292__7)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffers_rv110292__8 = b.writeInt32(44);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110292__8)).getBuffers().isEmpty());
-        List<ByteBuffer> buffers = b.getBuffers();
-        int o_testGetBuffers_rv110292__11 = buffers.size();
-        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv110292__11)));
-        int o_testGetBuffers_rv110292__12 = buffers.get(0).remaining();
-        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv110292__12)));
-        int o_testGetBuffers_rv110292__14 = buffers.get(1).remaining();
-        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv110292__14)));
-        buffers.get(0).getInt();
-        buffers.get(0).getInt();
-        buffers.get(1).getInt();
-        LinkBuffer o_testGetBuffers_rv110292__22 = __DSPOT_invoc_3.writeInt64LE(__DSPOT_value_45844);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110292__22)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110292__7)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110292__8)).getBuffers().isEmpty());
-        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv110292__11)));
-        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv110292__12)));
-        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv110292__14)));
-    }
-
-    @Test(timeout = 10000)
-    public void testGetBuffers_rv110283() throws Exception {
-        byte[] __DSPOT_value_45833 = new byte[0];
-        LinkBuffer b = new LinkBuffer(8);
-        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        LinkBuffer __DSPOT_invoc_3 = b.writeInt32(42);
-        LinkBuffer o_testGetBuffers_rv110283__7 = b.writeInt32(43);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110283__7)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffers_rv110283__8 = b.writeInt32(44);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110283__8)).getBuffers().isEmpty());
-        List<ByteBuffer> buffers = b.getBuffers();
-        int o_testGetBuffers_rv110283__11 = buffers.size();
-        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv110283__11)));
-        int o_testGetBuffers_rv110283__12 = buffers.get(0).remaining();
-        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv110283__12)));
-        int o_testGetBuffers_rv110283__14 = buffers.get(1).remaining();
-        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv110283__14)));
-        buffers.get(0).getInt();
-        buffers.get(0).getInt();
-        buffers.get(1).getInt();
-        LinkBuffer o_testGetBuffers_rv110283__22 = __DSPOT_invoc_3.writeByteArray(__DSPOT_value_45833);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110283__22)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110283__7)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110283__8)).getBuffers().isEmpty());
-        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv110283__11)));
-        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv110283__12)));
-        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv110283__14)));
-    }
-
-    @Test(timeout = 10000)
-    public void testGetBuffers_rv110285() throws Exception {
-        double __DSPOT_value_45837 = 0.9830916640607557;
-        LinkBuffer b = new LinkBuffer(8);
-        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        LinkBuffer __DSPOT_invoc_3 = b.writeInt32(42);
-        LinkBuffer o_testGetBuffers_rv110285__7 = b.writeInt32(43);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110285__7)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffers_rv110285__8 = b.writeInt32(44);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110285__8)).getBuffers().isEmpty());
-        List<ByteBuffer> buffers = b.getBuffers();
-        int o_testGetBuffers_rv110285__11 = buffers.size();
-        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv110285__11)));
-        int o_testGetBuffers_rv110285__12 = buffers.get(0).remaining();
-        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv110285__12)));
-        int o_testGetBuffers_rv110285__14 = buffers.get(1).remaining();
-        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv110285__14)));
-        buffers.get(0).getInt();
-        buffers.get(0).getInt();
-        buffers.get(1).getInt();
-        LinkBuffer o_testGetBuffers_rv110285__22 = __DSPOT_invoc_3.writeDouble(__DSPOT_value_45837);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110285__22)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110285__7)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110285__8)).getBuffers().isEmpty());
-        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv110285__11)));
-        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv110285__12)));
-        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv110285__14)));
-    }
-
-    @Test(timeout = 10000)
-    public void testGetBuffers_rv110288() throws Exception {
-        int __DSPOT_value_45840 = -1783816855;
-        LinkBuffer b = new LinkBuffer(8);
-        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        LinkBuffer __DSPOT_invoc_3 = b.writeInt32(42);
-        LinkBuffer o_testGetBuffers_rv110288__7 = b.writeInt32(43);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110288__7)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffers_rv110288__8 = b.writeInt32(44);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110288__8)).getBuffers().isEmpty());
-        List<ByteBuffer> buffers = b.getBuffers();
-        int o_testGetBuffers_rv110288__11 = buffers.size();
-        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv110288__11)));
-        int o_testGetBuffers_rv110288__12 = buffers.get(0).remaining();
-        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv110288__12)));
-        int o_testGetBuffers_rv110288__14 = buffers.get(1).remaining();
-        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv110288__14)));
-        buffers.get(0).getInt();
-        buffers.get(0).getInt();
-        buffers.get(1).getInt();
-        LinkBuffer o_testGetBuffers_rv110288__22 = __DSPOT_invoc_3.writeInt16LE(__DSPOT_value_45840);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110288__22)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110288__7)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110288__8)).getBuffers().isEmpty());
-        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv110288__11)));
-        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv110288__12)));
-        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv110288__14)));
-    }
-
-    @Test(timeout = 10000)
-    public void testGetBufferslitNum110219_failAssert463() throws Exception {
+    public void testGetBufferslitNum41314_failAssert175() throws Exception {
         try {
             LinkBuffer b = new LinkBuffer(8);
             b.writeInt32(42);
@@ -1038,142 +773,203 @@ public class AmplLinkBufferTest {
             b.writeInt32(44);
             List<ByteBuffer> buffers = b.getBuffers();
             buffers.size();
-            buffers.get(Integer.MIN_VALUE).remaining();
+            buffers.get(-1).remaining();
             buffers.get(1).remaining();
             buffers.get(0).getInt();
             buffers.get(0).getInt();
             buffers.get(1).getInt();
-            org.junit.Assert.fail("testGetBufferslitNum110219 should have thrown ArrayIndexOutOfBoundsException");
+            org.junit.Assert.fail("testGetBufferslitNum41314 should have thrown ArrayIndexOutOfBoundsException");
         } catch (ArrayIndexOutOfBoundsException expected) {
-            Assert.assertEquals("-2147483648", expected.getMessage());
+            Assert.assertEquals("-1", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testGetBuffers_rv110298() throws Exception {
+    public void testGetBuffers_rv41388() throws Exception {
+        long __DSPOT_value_20152 = -450735773L;
         LinkBuffer b = new LinkBuffer(8);
         Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffers_rv110298__3 = b.writeInt32(42);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110298__3)).getBuffers().isEmpty());
-        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
-        LinkBuffer o_testGetBuffers_rv110298__7 = b.writeInt32(44);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110298__7)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_3 = b.writeInt32(42);
+        LinkBuffer o_testGetBuffers_rv41388__7 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41388__7)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_rv41388__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41388__8)).getBuffers().isEmpty());
         List<ByteBuffer> buffers = b.getBuffers();
-        int o_testGetBuffers_rv110298__10 = buffers.size();
-        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv110298__10)));
-        int o_testGetBuffers_rv110298__11 = buffers.get(0).remaining();
-        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv110298__11)));
-        int o_testGetBuffers_rv110298__13 = buffers.get(1).remaining();
-        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv110298__13)));
+        int o_testGetBuffers_rv41388__11 = buffers.size();
+        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv41388__11)));
+        int o_testGetBuffers_rv41388__12 = buffers.get(0).remaining();
+        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv41388__12)));
+        int o_testGetBuffers_rv41388__14 = buffers.get(1).remaining();
+        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv41388__14)));
         buffers.get(0).getInt();
         buffers.get(0).getInt();
         buffers.get(1).getInt();
-        long o_testGetBuffers_rv110298__21 = __DSPOT_invoc_4.size();
-        Assert.assertEquals(12L, ((long) (o_testGetBuffers_rv110298__21)));
+        LinkBuffer o_testGetBuffers_rv41388__22 = __DSPOT_invoc_3.writeInt64LE(__DSPOT_value_20152);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41388__22)).getBuffers().isEmpty());
         Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110298__3)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110298__7)).getBuffers().isEmpty());
-        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv110298__10)));
-        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv110298__11)));
-        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv110298__13)));
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41388__7)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41388__8)).getBuffers().isEmpty());
+        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv41388__11)));
+        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv41388__12)));
+        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv41388__14)));
     }
 
     @Test(timeout = 10000)
-    public void testGetBuffers_rv110320() throws Exception {
-        float __DSPOT_value_45868 = 0.51465684F;
+    public void testGetBuffers_rv41420() throws Exception {
+        int __DSPOT_value_20180 = -898192495;
         LinkBuffer b = new LinkBuffer(8);
         Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffers_rv110320__4 = b.writeInt32(42);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110320__4)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffers_rv110320__5 = b.writeInt32(43);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110320__5)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_rv41420__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41420__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_rv41420__5 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41420__5)).getBuffers().isEmpty());
         LinkBuffer __DSPOT_invoc_5 = b.writeInt32(44);
         List<ByteBuffer> buffers = b.getBuffers();
-        int o_testGetBuffers_rv110320__11 = buffers.size();
-        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv110320__11)));
-        int o_testGetBuffers_rv110320__12 = buffers.get(0).remaining();
-        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv110320__12)));
-        int o_testGetBuffers_rv110320__14 = buffers.get(1).remaining();
-        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv110320__14)));
+        int o_testGetBuffers_rv41420__11 = buffers.size();
+        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv41420__11)));
+        int o_testGetBuffers_rv41420__12 = buffers.get(0).remaining();
+        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv41420__12)));
+        int o_testGetBuffers_rv41420__14 = buffers.get(1).remaining();
+        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv41420__14)));
         buffers.get(0).getInt();
         buffers.get(0).getInt();
         buffers.get(1).getInt();
-        LinkBuffer o_testGetBuffers_rv110320__22 = __DSPOT_invoc_5.writeFloat(__DSPOT_value_45868);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110320__22)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_rv41420__22 = __DSPOT_invoc_5.writeInt32LE(__DSPOT_value_20180);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41420__22)).getBuffers().isEmpty());
         Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110320__4)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110320__5)).getBuffers().isEmpty());
-        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv110320__11)));
-        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv110320__12)));
-        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv110320__14)));
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41420__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41420__5)).getBuffers().isEmpty());
+        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv41420__11)));
+        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv41420__12)));
+        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv41420__14)));
     }
 
     @Test(timeout = 10000)
-    public void testGetBuffers_rv110311() throws Exception {
-        long __DSPOT_value_45861 = 329323493L;
+    public void testGetBuffers_rv41387() throws Exception {
+        long __DSPOT_value_20151 = -258466022L;
         LinkBuffer b = new LinkBuffer(8);
         Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffers_rv110311__4 = b.writeInt32(42);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110311__4)).getBuffers().isEmpty());
-        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
-        LinkBuffer o_testGetBuffers_rv110311__8 = b.writeInt32(44);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110311__8)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_3 = b.writeInt32(42);
+        LinkBuffer o_testGetBuffers_rv41387__7 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41387__7)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_rv41387__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41387__8)).getBuffers().isEmpty());
         List<ByteBuffer> buffers = b.getBuffers();
-        int o_testGetBuffers_rv110311__11 = buffers.size();
-        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv110311__11)));
-        int o_testGetBuffers_rv110311__12 = buffers.get(0).remaining();
-        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv110311__12)));
-        int o_testGetBuffers_rv110311__14 = buffers.get(1).remaining();
-        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv110311__14)));
+        int o_testGetBuffers_rv41387__11 = buffers.size();
+        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv41387__11)));
+        int o_testGetBuffers_rv41387__12 = buffers.get(0).remaining();
+        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv41387__12)));
+        int o_testGetBuffers_rv41387__14 = buffers.get(1).remaining();
+        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv41387__14)));
         buffers.get(0).getInt();
         buffers.get(0).getInt();
         buffers.get(1).getInt();
-        LinkBuffer o_testGetBuffers_rv110311__22 = __DSPOT_invoc_4.writeVarInt64(__DSPOT_value_45861);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110311__22)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_rv41387__22 = __DSPOT_invoc_3.writeInt64(__DSPOT_value_20151);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41387__22)).getBuffers().isEmpty());
         Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110311__4)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110311__8)).getBuffers().isEmpty());
-        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv110311__11)));
-        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv110311__12)));
-        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv110311__14)));
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41387__7)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41387__8)).getBuffers().isEmpty());
+        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv41387__11)));
+        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv41387__12)));
+        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv41387__14)));
     }
 
     @Test(timeout = 10000)
-    public void testGetBuffers_rv110327() throws Exception {
-        int __DSPOT_value_45875 = -123531421;
+    public void testGetBuffers_rv41400() throws Exception {
+        int __DSPOT_value_20162 = -1202519113;
         LinkBuffer b = new LinkBuffer(8);
         Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffers_rv110327__4 = b.writeInt32(42);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110327__4)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffers_rv110327__5 = b.writeInt32(43);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110327__5)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_rv41400__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41400__4)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffers_rv41400__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41400__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        int o_testGetBuffers_rv41400__11 = buffers.size();
+        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv41400__11)));
+        int o_testGetBuffers_rv41400__12 = buffers.get(0).remaining();
+        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv41400__12)));
+        int o_testGetBuffers_rv41400__14 = buffers.get(1).remaining();
+        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv41400__14)));
+        buffers.get(0).getInt();
+        buffers.get(0).getInt();
+        buffers.get(1).getInt();
+        LinkBuffer o_testGetBuffers_rv41400__22 = __DSPOT_invoc_4.writeInt16(__DSPOT_value_20162);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41400__22)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41400__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41400__8)).getBuffers().isEmpty());
+        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv41400__11)));
+        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv41400__12)));
+        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv41400__14)));
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffers_rv41389() throws Exception {
+        int __DSPOT_value_20153 = -2054864701;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_3 = b.writeInt32(42);
+        LinkBuffer o_testGetBuffers_rv41389__7 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41389__7)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_rv41389__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41389__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        int o_testGetBuffers_rv41389__11 = buffers.size();
+        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv41389__11)));
+        int o_testGetBuffers_rv41389__12 = buffers.get(0).remaining();
+        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv41389__12)));
+        int o_testGetBuffers_rv41389__14 = buffers.get(1).remaining();
+        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv41389__14)));
+        buffers.get(0).getInt();
+        buffers.get(0).getInt();
+        buffers.get(1).getInt();
+        LinkBuffer o_testGetBuffers_rv41389__22 = __DSPOT_invoc_3.writeVarInt32(__DSPOT_value_20153);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41389__22)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41389__7)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41389__8)).getBuffers().isEmpty());
+        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv41389__11)));
+        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv41389__12)));
+        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv41389__14)));
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffers_rv41413() throws Exception {
+        byte[] __DSPOT_value_20171 = new byte[0];
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_rv41413__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41413__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_rv41413__5 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41413__5)).getBuffers().isEmpty());
         LinkBuffer __DSPOT_invoc_5 = b.writeInt32(44);
         List<ByteBuffer> buffers = b.getBuffers();
-        int o_testGetBuffers_rv110327__11 = buffers.size();
-        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv110327__11)));
-        int o_testGetBuffers_rv110327__12 = buffers.get(0).remaining();
-        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv110327__12)));
-        int o_testGetBuffers_rv110327__14 = buffers.get(1).remaining();
-        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv110327__14)));
+        int o_testGetBuffers_rv41413__11 = buffers.size();
+        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv41413__11)));
+        int o_testGetBuffers_rv41413__12 = buffers.get(0).remaining();
+        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv41413__12)));
+        int o_testGetBuffers_rv41413__14 = buffers.get(1).remaining();
+        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv41413__14)));
         buffers.get(0).getInt();
         buffers.get(0).getInt();
         buffers.get(1).getInt();
-        LinkBuffer o_testGetBuffers_rv110327__22 = __DSPOT_invoc_5.writeVarInt32(__DSPOT_value_45875);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110327__22)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_rv41413__22 = __DSPOT_invoc_5.writeByteArray(__DSPOT_value_20171);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41413__22)).getBuffers().isEmpty());
         Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110327__4)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110327__5)).getBuffers().isEmpty());
-        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv110327__11)));
-        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv110327__12)));
-        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv110327__14)));
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41413__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41413__5)).getBuffers().isEmpty());
+        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv41413__11)));
+        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv41413__12)));
+        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv41413__14)));
     }
 
     @Test(timeout = 10000)
-    public void testGetBuffers_mg110277_failAssert491() throws Exception {
+    public void testGetBuffers_rv41390_failAssert184() throws Exception {
         try {
-            long __DSPOT_value_45831 = -739888638L;
+            long __DSPOT_value_20154 = -776717627L;
             LinkBuffer b = new LinkBuffer(8);
-            b.writeInt32(42);
+            LinkBuffer __DSPOT_invoc_3 = b.writeInt32(42);
             b.writeInt32(43);
             b.writeInt32(44);
             List<ByteBuffer> buffers = b.getBuffers();
@@ -1183,143 +979,887 @@ public class AmplLinkBufferTest {
             buffers.get(0).getInt();
             buffers.get(0).getInt();
             buffers.get(1).getInt();
-            b.writeVarInt64(__DSPOT_value_45831);
-            org.junit.Assert.fail("testGetBuffers_mg110277 should have thrown BufferOverflowException");
+            __DSPOT_invoc_3.writeVarInt64(__DSPOT_value_20154);
+            org.junit.Assert.fail("testGetBuffers_rv41390 should have thrown BufferOverflowException");
         } catch (BufferOverflowException expected) {
             Assert.assertEquals(null, expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testGetBuffersnull110348() throws Exception {
+    public void testGetBuffers_rv41382() throws Exception {
+        float __DSPOT_value_20146 = 0.727737F;
         LinkBuffer b = new LinkBuffer(8);
         Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffersnull110348__3 = b.writeInt32(42);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersnull110348__3)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffersnull110348__4 = b.writeInt32(43);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersnull110348__4)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffersnull110348__5 = b.writeInt32(44);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersnull110348__5)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_3 = b.writeInt32(42);
+        LinkBuffer o_testGetBuffers_rv41382__7 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41382__7)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_rv41382__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41382__8)).getBuffers().isEmpty());
         List<ByteBuffer> buffers = b.getBuffers();
-        int o_testGetBuffersnull110348__8 = buffers.size();
-        Assert.assertEquals(2, ((int) (o_testGetBuffersnull110348__8)));
-        int o_testGetBuffersnull110348__9 = buffers.get(0).remaining();
-        Assert.assertEquals(8, ((int) (o_testGetBuffersnull110348__9)));
-        int o_testGetBuffersnull110348__11 = buffers.get(1).remaining();
-        Assert.assertEquals(4, ((int) (o_testGetBuffersnull110348__11)));
+        int o_testGetBuffers_rv41382__11 = buffers.size();
+        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv41382__11)));
+        int o_testGetBuffers_rv41382__12 = buffers.get(0).remaining();
+        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv41382__12)));
+        int o_testGetBuffers_rv41382__14 = buffers.get(1).remaining();
+        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv41382__14)));
         buffers.get(0).getInt();
         buffers.get(0).getInt();
         buffers.get(1).getInt();
+        LinkBuffer o_testGetBuffers_rv41382__22 = __DSPOT_invoc_3.writeFloat(__DSPOT_value_20146);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41382__22)).getBuffers().isEmpty());
         Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersnull110348__3)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersnull110348__4)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersnull110348__5)).getBuffers().isEmpty());
-        Assert.assertEquals(2, ((int) (o_testGetBuffersnull110348__8)));
-        Assert.assertEquals(8, ((int) (o_testGetBuffersnull110348__9)));
-        Assert.assertEquals(4, ((int) (o_testGetBuffersnull110348__11)));
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41382__7)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41382__8)).getBuffers().isEmpty());
+        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv41382__11)));
+        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv41382__12)));
+        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv41382__14)));
     }
 
     @Test(timeout = 10000)
-    public void testGetBuffers_rv110304() throws Exception {
-        int __DSPOT_value_45854 = 573098051;
+    public void testGetBuffers_rv41381() throws Exception {
+        double __DSPOT_value_20145 = 0.035338008558628675;
         LinkBuffer b = new LinkBuffer(8);
         Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffers_rv110304__4 = b.writeInt32(42);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110304__4)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_3 = b.writeInt32(42);
+        LinkBuffer o_testGetBuffers_rv41381__7 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41381__7)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_rv41381__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41381__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        int o_testGetBuffers_rv41381__11 = buffers.size();
+        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv41381__11)));
+        int o_testGetBuffers_rv41381__12 = buffers.get(0).remaining();
+        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv41381__12)));
+        int o_testGetBuffers_rv41381__14 = buffers.get(1).remaining();
+        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv41381__14)));
+        buffers.get(0).getInt();
+        buffers.get(0).getInt();
+        buffers.get(1).getInt();
+        LinkBuffer o_testGetBuffers_rv41381__22 = __DSPOT_invoc_3.writeDouble(__DSPOT_value_20145);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41381__22)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41381__7)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41381__8)).getBuffers().isEmpty());
+        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv41381__11)));
+        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv41381__12)));
+        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv41381__14)));
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffers_rv41384() throws Exception {
+        int __DSPOT_value_20148 = -1325159903;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_3 = b.writeInt32(42);
+        LinkBuffer o_testGetBuffers_rv41384__7 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41384__7)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_rv41384__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41384__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        int o_testGetBuffers_rv41384__11 = buffers.size();
+        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv41384__11)));
+        int o_testGetBuffers_rv41384__12 = buffers.get(0).remaining();
+        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv41384__12)));
+        int o_testGetBuffers_rv41384__14 = buffers.get(1).remaining();
+        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv41384__14)));
+        buffers.get(0).getInt();
+        buffers.get(0).getInt();
+        buffers.get(1).getInt();
+        LinkBuffer o_testGetBuffers_rv41384__22 = __DSPOT_invoc_3.writeInt16LE(__DSPOT_value_20148);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41384__22)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41384__7)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41384__8)).getBuffers().isEmpty());
+        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv41384__11)));
+        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv41384__12)));
+        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv41384__14)));
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffers_rv41394() throws Exception {
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_rv41394__3 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41394__3)).getBuffers().isEmpty());
         LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
-        LinkBuffer o_testGetBuffers_rv110304__8 = b.writeInt32(44);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110304__8)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_rv41394__7 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41394__7)).getBuffers().isEmpty());
         List<ByteBuffer> buffers = b.getBuffers();
-        int o_testGetBuffers_rv110304__11 = buffers.size();
-        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv110304__11)));
-        int o_testGetBuffers_rv110304__12 = buffers.get(0).remaining();
-        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv110304__12)));
-        int o_testGetBuffers_rv110304__14 = buffers.get(1).remaining();
-        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv110304__14)));
+        int o_testGetBuffers_rv41394__10 = buffers.size();
+        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv41394__10)));
+        int o_testGetBuffers_rv41394__11 = buffers.get(0).remaining();
+        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv41394__11)));
+        int o_testGetBuffers_rv41394__13 = buffers.get(1).remaining();
+        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv41394__13)));
         buffers.get(0).getInt();
         buffers.get(0).getInt();
         buffers.get(1).getInt();
-        LinkBuffer o_testGetBuffers_rv110304__22 = __DSPOT_invoc_4.writeInt16(__DSPOT_value_45854);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110304__22)).getBuffers().isEmpty());
+        long o_testGetBuffers_rv41394__21 = __DSPOT_invoc_4.size();
+        Assert.assertEquals(12L, ((long) (o_testGetBuffers_rv41394__21)));
         Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110304__4)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv110304__8)).getBuffers().isEmpty());
-        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv110304__11)));
-        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv110304__12)));
-        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv110304__14)));
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41394__3)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41394__7)).getBuffers().isEmpty());
+        Assert.assertEquals(2, ((int) (o_testGetBuffers_rv41394__10)));
+        Assert.assertEquals(8, ((int) (o_testGetBuffers_rv41394__11)));
+        Assert.assertEquals(4, ((int) (o_testGetBuffers_rv41394__13)));
     }
 
     @Test(timeout = 10000)
-    public void testGetBufferslitNum110193_failAssert456null131644() throws Exception {
+    public void testGetBuffers_mg41361() throws Exception {
+        byte __DSPOT_value_20125 = -11;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41361__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41361__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41361__5 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41361__5)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41361__6 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41361__6)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        int o_testGetBuffers_mg41361__9 = buffers.size();
+        Assert.assertEquals(2, ((int) (o_testGetBuffers_mg41361__9)));
+        int o_testGetBuffers_mg41361__10 = buffers.get(0).remaining();
+        Assert.assertEquals(8, ((int) (o_testGetBuffers_mg41361__10)));
+        int o_testGetBuffers_mg41361__12 = buffers.get(1).remaining();
+        Assert.assertEquals(4, ((int) (o_testGetBuffers_mg41361__12)));
+        buffers.get(0).getInt();
+        buffers.get(0).getInt();
+        buffers.get(1).getInt();
+        LinkBuffer o_testGetBuffers_mg41361__20 = b.writeByte(__DSPOT_value_20125);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41361__20)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41361__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41361__5)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41361__6)).getBuffers().isEmpty());
+        Assert.assertEquals(2, ((int) (o_testGetBuffers_mg41361__9)));
+        Assert.assertEquals(8, ((int) (o_testGetBuffers_mg41361__10)));
+        Assert.assertEquals(4, ((int) (o_testGetBuffers_mg41361__12)));
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffers_rv41399_remove51297() throws Exception {
+        float __DSPOT_value_20161 = 0.05927225F;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_rv41399__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41399__4)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffers_rv41399__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41399__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        int o_testGetBuffers_rv41399__11 = buffers.size();
+        int o_testGetBuffers_rv41399__12 = buffers.get(0).remaining();
+        int o_testGetBuffers_rv41399__14 = buffers.get(1).remaining();
+        buffers.get(0).getInt();
+        buffers.get(1).getInt();
+        LinkBuffer o_testGetBuffers_rv41399__22 = __DSPOT_invoc_4.writeFloat(__DSPOT_value_20161);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41399__22)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41399__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41399__8)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffers_rv41424_failAssert185_rv60072() throws Exception {
         try {
-            LinkBuffer b = new LinkBuffer(7);
+            byte __DSPOT_value_28570 = 18;
+            long __DSPOT_value_20184 = -352035504L;
+            LinkBuffer b = new LinkBuffer(8);
             Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-            LinkBuffer o_testGetBufferslitNum110193_failAssert456null131644__5 = b.writeInt32(42);
-            Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum110193_failAssert456null131644__5)).getBuffers().isEmpty());
-            LinkBuffer o_testGetBufferslitNum110193_failAssert456null131644__6 = b.writeInt32(43);
-            Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum110193_failAssert456null131644__6)).getBuffers().isEmpty());
-            LinkBuffer o_testGetBufferslitNum110193_failAssert456null131644__7 = b.writeInt32(44);
-            Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum110193_failAssert456null131644__7)).getBuffers().isEmpty());
+            LinkBuffer o_testGetBuffers_rv41424_failAssert185_rv60072__7 = b.writeInt32(42);
+            Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41424_failAssert185_rv60072__7)).getBuffers().isEmpty());
+            LinkBuffer o_testGetBuffers_rv41424_failAssert185_rv60072__8 = b.writeInt32(43);
+            Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41424_failAssert185_rv60072__8)).getBuffers().isEmpty());
+            LinkBuffer __DSPOT_invoc_5 = b.writeInt32(44);
             List<ByteBuffer> buffers = b.getBuffers();
-            int o_testGetBufferslitNum110193_failAssert456null131644__10 = buffers.size();
-            Assert.assertEquals(3, ((int) (o_testGetBufferslitNum110193_failAssert456null131644__10)));
-            int o_testGetBufferslitNum110193_failAssert456null131644__11 = buffers.get(0).remaining();
-            Assert.assertEquals(4, ((int) (o_testGetBufferslitNum110193_failAssert456null131644__11)));
-            int o_testGetBufferslitNum110193_failAssert456null131644__13 = buffers.get(1).remaining();
-            Assert.assertEquals(4, ((int) (o_testGetBufferslitNum110193_failAssert456null131644__13)));
+            int o_testGetBuffers_rv41424_failAssert185_rv60072__14 = buffers.size();
+            Assert.assertEquals(2, ((int) (o_testGetBuffers_rv41424_failAssert185_rv60072__14)));
+            int o_testGetBuffers_rv41424_failAssert185_rv60072__15 = buffers.get(0).remaining();
+            Assert.assertEquals(8, ((int) (o_testGetBuffers_rv41424_failAssert185_rv60072__15)));
+            int o_testGetBuffers_rv41424_failAssert185_rv60072__17 = buffers.get(1).remaining();
+            Assert.assertEquals(4, ((int) (o_testGetBuffers_rv41424_failAssert185_rv60072__17)));
             buffers.get(0).getInt();
             buffers.get(0).getInt();
             buffers.get(1).getInt();
-            org.junit.Assert.fail("testGetBufferslitNum110193 should have thrown BufferUnderflowException");
-        } catch (BufferUnderflowException expected) {
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testGetBufferslitNum110196_failAssert459null135978litNum147861() throws Exception {
-        try {
-            LinkBuffer b = new LinkBuffer(0);
-            Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-            b.writeInt32(42);
-            b.writeInt32(43);
-            b.writeInt32(44);
-            List<ByteBuffer> buffers = null;
-            buffers.size();
-            buffers.get(0).remaining();
-            buffers.get(1).remaining();
-            buffers.get(0).getInt();
-            buffers.get(1).getInt();
-            buffers.get(1).getInt();
-            org.junit.Assert.fail("testGetBufferslitNum110196 should have thrown BufferOverflowException");
+            LinkBuffer __DSPOT_invoc_24 = __DSPOT_invoc_5.writeVarInt64(__DSPOT_value_20184);
+            org.junit.Assert.fail("testGetBuffers_rv41424 should have thrown BufferOverflowException");
+            __DSPOT_invoc_24.writeByte(__DSPOT_value_28570);
         } catch (BufferOverflowException expected) {
         }
     }
 
     @Test(timeout = 10000)
-    public void testGetBufferslitNum110227_failAssert469null129462_mg152442() throws Exception {
+    public void testGetBufferslitNum41299_mg51957() throws Exception {
+        int __DSPOT_value_20687 = 1206914024;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBufferslitNum41299__3 = b.writeInt32(0);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41299__3)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBufferslitNum41299__4 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41299__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBufferslitNum41299__5 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41299__5)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        int o_testGetBufferslitNum41299__8 = buffers.size();
+        int o_testGetBufferslitNum41299__9 = buffers.get(0).remaining();
+        int o_testGetBufferslitNum41299__11 = buffers.get(1).remaining();
+        buffers.get(0).getInt();
+        buffers.get(0).getInt();
+        buffers.get(1).getInt();
+        LinkBuffer o_testGetBufferslitNum41299_mg51957__32 = o_testGetBufferslitNum41299__3.writeInt16(__DSPOT_value_20687);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41299_mg51957__32)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41299__3)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41299__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41299__5)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffers_mg41370_add48849() throws Exception {
+        long __DSPOT_value_20136 = -25993298L;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41370__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41370__5 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__5)).getBuffers().isEmpty());
+        ((LinkBuffer) (o_testGetBuffers_mg41370__5)).getBuffers();
+        LinkBuffer o_testGetBuffers_mg41370__6 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__6)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        int o_testGetBuffers_mg41370__9 = buffers.size();
+        int o_testGetBuffers_mg41370__10 = buffers.get(0).remaining();
+        int o_testGetBuffers_mg41370__12 = buffers.get(1).remaining();
+        buffers.get(0).getInt();
+        buffers.get(0).getInt();
+        buffers.get(1).getInt();
+        LinkBuffer o_testGetBuffers_mg41370__20 = b.writeInt64(__DSPOT_value_20136);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__20)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__5)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__6)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffers_mg41370_mg53541() throws Exception {
+        long __DSPOT_value_20136 = -25993298L;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41370__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41370__5 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__5)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41370__6 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__6)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        int o_testGetBuffers_mg41370__9 = buffers.size();
+        int o_testGetBuffers_mg41370__10 = buffers.get(0).remaining();
+        int o_testGetBuffers_mg41370__12 = buffers.get(1).remaining();
+        buffers.get(0).getInt();
+        buffers.get(0).getInt();
+        buffers.get(1).getInt();
+        LinkBuffer o_testGetBuffers_mg41370__20 = b.writeInt64(__DSPOT_value_20136);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__20)).getBuffers().isEmpty());
+        long o_testGetBuffers_mg41370_mg53541__35 = o_testGetBuffers_mg41370__4.size();
+        Assert.assertEquals(20L, ((long) (o_testGetBuffers_mg41370_mg53541__35)));
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__5)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__6)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__20)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffers_mg41370_mg53562() throws Exception {
+        int __DSPOT_value_22292 = -1700639052;
+        long __DSPOT_value_20136 = -25993298L;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41370__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41370__5 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__5)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41370__6 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__6)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        int o_testGetBuffers_mg41370__9 = buffers.size();
+        int o_testGetBuffers_mg41370__10 = buffers.get(0).remaining();
+        int o_testGetBuffers_mg41370__12 = buffers.get(1).remaining();
+        buffers.get(0).getInt();
+        buffers.get(0).getInt();
+        buffers.get(1).getInt();
+        LinkBuffer o_testGetBuffers_mg41370__20 = b.writeInt64(__DSPOT_value_20136);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__20)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41370_mg53562__36 = o_testGetBuffers_mg41370__5.writeInt16(__DSPOT_value_22292);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370_mg53562__36)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__5)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__6)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__20)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffers_rv41388_remove51318() throws Exception {
+        long __DSPOT_value_20152 = -450735773L;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_3 = b.writeInt32(42);
+        LinkBuffer o_testGetBuffers_rv41388__7 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41388__7)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_rv41388__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41388__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        int o_testGetBuffers_rv41388__11 = buffers.size();
+        int o_testGetBuffers_rv41388__12 = buffers.get(0).remaining();
+        int o_testGetBuffers_rv41388__14 = buffers.get(1).remaining();
+        buffers.get(0).getInt();
+        buffers.get(1).getInt();
+        LinkBuffer o_testGetBuffers_rv41388__22 = __DSPOT_invoc_3.writeInt64LE(__DSPOT_value_20152);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41388__22)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41388__7)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41388__8)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBufferslitNum41330_failAssert178litNum47387_failAssert210() throws Exception {
         try {
-            int __DSPOT_length_59520 = -1437981740;
-            int __DSPOT_offset_59519 = -2077722057;
-            byte[] __DSPOT_value_59518 = new byte[]{ -66, -126, 99, -23 };
+            try {
+                LinkBuffer b = new LinkBuffer(8);
+                b.writeInt32(42);
+                b.writeInt32(43);
+                b.writeInt32(44);
+                List<ByteBuffer> buffers = b.getBuffers();
+                buffers.size();
+                buffers.get(0).remaining();
+                buffers.get(1).remaining();
+                buffers.get(-81245561).getInt();
+                buffers.get(1).getInt();
+                buffers.get(1).getInt();
+                org.junit.Assert.fail("testGetBufferslitNum41330 should have thrown BufferUnderflowException");
+            } catch (BufferUnderflowException expected) {
+            }
+            org.junit.Assert.fail("testGetBufferslitNum41330_failAssert178litNum47387 should have thrown ArrayIndexOutOfBoundsException");
+        } catch (ArrayIndexOutOfBoundsException expected_1) {
+            Assert.assertEquals("-81245561", expected_1.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffers_mg41373litNum42779() throws Exception {
+        long __DSPOT_value_20139 = 666685078L;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41373__4 = b.writeInt32(Integer.MAX_VALUE);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41373__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41373__5 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41373__5)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41373__6 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41373__6)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        int o_testGetBuffers_mg41373__9 = buffers.size();
+        int o_testGetBuffers_mg41373__10 = buffers.get(0).remaining();
+        int o_testGetBuffers_mg41373__12 = buffers.get(1).remaining();
+        buffers.get(0).getInt();
+        buffers.get(0).getInt();
+        buffers.get(1).getInt();
+        LinkBuffer o_testGetBuffers_mg41373__20 = b.writeVarInt64(__DSPOT_value_20139);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41373__20)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41373__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41373__5)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41373__6)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffers_remove41358_failAssert163_mg57720() throws Exception {
+        try {
+            int __DSPOT_value_26450 = -1196433476;
             LinkBuffer b = new LinkBuffer(8);
             Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-            LinkBuffer o_testGetBufferslitNum110227_failAssert469null129462__5 = b.writeInt32(42);
-            Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum110227_failAssert469null129462__5)).getBuffers().isEmpty());
-            LinkBuffer o_testGetBufferslitNum110227_failAssert469null129462__6 = b.writeInt32(43);
-            Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum110227_failAssert469null129462__6)).getBuffers().isEmpty());
-            LinkBuffer o_testGetBufferslitNum110227_failAssert469null129462__7 = b.writeInt32(44);
-            Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum110227_failAssert469null129462__7)).getBuffers().isEmpty());
+            LinkBuffer o_testGetBuffers_remove41358_failAssert163_mg57720__6 = b.writeInt32(42);
+            Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_remove41358_failAssert163_mg57720__6)).getBuffers().isEmpty());
+            LinkBuffer o_testGetBuffers_remove41358_failAssert163_mg57720__7 = b.writeInt32(43);
+            Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_remove41358_failAssert163_mg57720__7)).getBuffers().isEmpty());
             List<ByteBuffer> buffers = b.getBuffers();
-            int o_testGetBufferslitNum110227_failAssert469null129462__10 = buffers.size();
-            int o_testGetBufferslitNum110227_failAssert469null129462__11 = buffers.get(0).remaining();
-            int o_testGetBufferslitNum110227_failAssert469null129462__13 = buffers.get(1).remaining();
-            buffers.get(1).getInt();
+            int o_testGetBuffers_remove41358_failAssert163_mg57720__10 = buffers.size();
+            Assert.assertEquals(1, ((int) (o_testGetBuffers_remove41358_failAssert163_mg57720__10)));
+            int o_testGetBuffers_remove41358_failAssert163_mg57720__11 = buffers.get(0).remaining();
+            Assert.assertEquals(8, ((int) (o_testGetBuffers_remove41358_failAssert163_mg57720__11)));
+            buffers.get(1).remaining();
+            buffers.get(0).getInt();
             buffers.get(0).getInt();
             buffers.get(1).getInt();
-            org.junit.Assert.fail("testGetBufferslitNum110227 should have thrown BufferUnderflowException");
-            b.writeByteArray(__DSPOT_value_59518, __DSPOT_offset_59519, __DSPOT_length_59520);
-        } catch (BufferUnderflowException expected) {
+            org.junit.Assert.fail("testGetBuffers_remove41358 should have thrown IndexOutOfBoundsException");
+            b.writeInt32LE(__DSPOT_value_26450);
+        } catch (IndexOutOfBoundsException expected) {
         }
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBufferslitNum41295litNum41934_failAssert187() throws Exception {
+        try {
+            LinkBuffer b = new LinkBuffer(8);
+            LinkBuffer o_testGetBufferslitNum41295__3 = b.writeInt32(43);
+            LinkBuffer o_testGetBufferslitNum41295__4 = b.writeInt32(43);
+            LinkBuffer o_testGetBufferslitNum41295__5 = b.writeInt32(44);
+            List<ByteBuffer> buffers = b.getBuffers();
+            int o_testGetBufferslitNum41295__8 = buffers.size();
+            int o_testGetBufferslitNum41295__9 = buffers.get(0).remaining();
+            int o_testGetBufferslitNum41295__11 = buffers.get(1).remaining();
+            buffers.get(-2074030734).getInt();
+            buffers.get(0).getInt();
+            buffers.get(1).getInt();
+            org.junit.Assert.fail("testGetBufferslitNum41295litNum41934 should have thrown ArrayIndexOutOfBoundsException");
+        } catch (ArrayIndexOutOfBoundsException expected) {
+            Assert.assertEquals("-2074030734", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBufferslitNum41295_mg51803() throws Exception {
+        byte[] __DSPOT_value_20531 = new byte[]{ -79, -95, 68 };
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBufferslitNum41295__3 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41295__3)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBufferslitNum41295__4 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41295__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBufferslitNum41295__5 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41295__5)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        int o_testGetBufferslitNum41295__8 = buffers.size();
+        int o_testGetBufferslitNum41295__9 = buffers.get(0).remaining();
+        int o_testGetBufferslitNum41295__11 = buffers.get(1).remaining();
+        buffers.get(0).getInt();
+        buffers.get(0).getInt();
+        buffers.get(1).getInt();
+        LinkBuffer o_testGetBufferslitNum41295_mg51803__32 = o_testGetBufferslitNum41295__5.writeByteArray(__DSPOT_value_20531);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41295_mg51803__32)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41295__3)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41295__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41295__5)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffers_mg41371_mg52645() throws Exception {
+        double __DSPOT_value_21375 = 0.5097347015749012;
+        long __DSPOT_value_20137 = 665755277L;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41371__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41371__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41371__5 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41371__5)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41371__6 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41371__6)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        int o_testGetBuffers_mg41371__9 = buffers.size();
+        int o_testGetBuffers_mg41371__10 = buffers.get(0).remaining();
+        int o_testGetBuffers_mg41371__12 = buffers.get(1).remaining();
+        buffers.get(0).getInt();
+        buffers.get(0).getInt();
+        buffers.get(1).getInt();
+        LinkBuffer o_testGetBuffers_mg41371__20 = b.writeInt64LE(__DSPOT_value_20137);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41371__20)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41371_mg52645__36 = o_testGetBuffers_mg41371__20.writeDouble(__DSPOT_value_21375);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41371_mg52645__36)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41371__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41371__5)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41371__6)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41371__20)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBufferslitNum41296_mg51643() throws Exception {
+        int __DSPOT_value_20373 = -964486927;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBufferslitNum41296__3 = b.writeInt32(41);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41296__3)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBufferslitNum41296__4 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41296__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBufferslitNum41296__5 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41296__5)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        int o_testGetBufferslitNum41296__8 = buffers.size();
+        int o_testGetBufferslitNum41296__9 = buffers.get(0).remaining();
+        int o_testGetBufferslitNum41296__11 = buffers.get(1).remaining();
+        buffers.get(0).getInt();
+        buffers.get(0).getInt();
+        buffers.get(1).getInt();
+        LinkBuffer o_testGetBufferslitNum41296_mg51643__32 = b.writeInt16LE(__DSPOT_value_20373);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41296_mg51643__32)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41296__3)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41296__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41296__5)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffers_rv41386_remove51334() throws Exception {
+        int __DSPOT_value_20150 = -1924841541;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_3 = b.writeInt32(42);
+        LinkBuffer o_testGetBuffers_rv41386__7 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41386__7)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_rv41386__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41386__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        int o_testGetBuffers_rv41386__11 = buffers.size();
+        int o_testGetBuffers_rv41386__12 = buffers.get(0).remaining();
+        int o_testGetBuffers_rv41386__14 = buffers.get(1).remaining();
+        buffers.get(0).getInt();
+        buffers.get(1).getInt();
+        LinkBuffer o_testGetBuffers_rv41386__22 = __DSPOT_invoc_3.writeInt32LE(__DSPOT_value_20150);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41386__22)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41386__7)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_rv41386__8)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffers_mg41372_mg53488() throws Exception {
+        int __DSPOT_value_22218 = 1290649952;
+        int __DSPOT_value_20138 = -203790514;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41372__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41372__5 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__5)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41372__6 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__6)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        int o_testGetBuffers_mg41372__9 = buffers.size();
+        int o_testGetBuffers_mg41372__10 = buffers.get(0).remaining();
+        int o_testGetBuffers_mg41372__12 = buffers.get(1).remaining();
+        buffers.get(0).getInt();
+        buffers.get(0).getInt();
+        buffers.get(1).getInt();
+        LinkBuffer o_testGetBuffers_mg41372__20 = b.writeVarInt32(__DSPOT_value_20138);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__20)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41372_mg53488__36 = o_testGetBuffers_mg41372__5.writeInt16LE(__DSPOT_value_22218);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372_mg53488__36)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__5)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__6)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__20)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffers_mg41373_mg52909litNum62380_failAssert221() throws Exception {
+        try {
+            long __DSPOT_value_21639 = 2043379896L;
+            long __DSPOT_value_20139 = 666685078L;
+            LinkBuffer b = new LinkBuffer(8);
+            LinkBuffer o_testGetBuffers_mg41373__4 = b.writeInt32(42);
+            LinkBuffer o_testGetBuffers_mg41373__5 = b.writeInt32(43);
+            LinkBuffer o_testGetBuffers_mg41373__6 = b.writeInt32(44);
+            List<ByteBuffer> buffers = b.getBuffers();
+            int o_testGetBuffers_mg41373__9 = buffers.size();
+            int o_testGetBuffers_mg41373__10 = buffers.get(0).remaining();
+            int o_testGetBuffers_mg41373__12 = buffers.get(1).remaining();
+            buffers.get(Integer.MIN_VALUE).getInt();
+            buffers.get(0).getInt();
+            buffers.get(1).getInt();
+            LinkBuffer o_testGetBuffers_mg41373__20 = b.writeVarInt64(__DSPOT_value_20139);
+            LinkBuffer o_testGetBuffers_mg41373_mg52909__36 = o_testGetBuffers_mg41373__5.writeVarInt64(__DSPOT_value_21639);
+            org.junit.Assert.fail("testGetBuffers_mg41373_mg52909litNum62380 should have thrown ArrayIndexOutOfBoundsException");
+        } catch (ArrayIndexOutOfBoundsException expected) {
+            Assert.assertEquals("-2147483648", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffers_mg41372_mg53488_remove72771() throws Exception {
+        int __DSPOT_value_22218 = 1290649952;
+        int __DSPOT_value_20138 = -203790514;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41372__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41372__5 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__5)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41372__6 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__6)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        int o_testGetBuffers_mg41372__9 = buffers.size();
+        int o_testGetBuffers_mg41372__10 = buffers.get(0).remaining();
+        int o_testGetBuffers_mg41372__12 = buffers.get(1).remaining();
+        buffers.get(0).getInt();
+        buffers.get(0).getInt();
+        LinkBuffer o_testGetBuffers_mg41372__20 = b.writeVarInt32(__DSPOT_value_20138);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__20)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41372_mg53488__36 = o_testGetBuffers_mg41372__5.writeInt16LE(__DSPOT_value_22218);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372_mg53488__36)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__5)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__6)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__20)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffers_remove41356_failAssert161_mg57684null85335() throws Exception {
+        try {
+            int __DSPOT_length_26414 = 204367667;
+            int __DSPOT_offset_26413 = 2109404633;
+            byte[] __DSPOT_value_26412 = new byte[]{ -106, 77, -61, 28 };
+            LinkBuffer b = new LinkBuffer(8);
+            Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+            LinkBuffer o_testGetBuffers_remove41356_failAssert161_mg57684__8 = b.writeInt32(43);
+            Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_remove41356_failAssert161_mg57684__8)).getBuffers().isEmpty());
+            LinkBuffer o_testGetBuffers_remove41356_failAssert161_mg57684__9 = b.writeInt32(44);
+            Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_remove41356_failAssert161_mg57684__9)).getBuffers().isEmpty());
+            List<ByteBuffer> buffers = b.getBuffers();
+            int o_testGetBuffers_remove41356_failAssert161_mg57684__12 = buffers.size();
+            int o_testGetBuffers_remove41356_failAssert161_mg57684__13 = buffers.get(0).remaining();
+            buffers.get(1).remaining();
+            buffers.get(0).getInt();
+            buffers.get(0).getInt();
+            buffers.get(1).getInt();
+            org.junit.Assert.fail("testGetBuffers_remove41356 should have thrown IndexOutOfBoundsException");
+            b.writeByteArray(null, __DSPOT_offset_26413, __DSPOT_length_26414);
+        } catch (IndexOutOfBoundsException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffers_mg41372_remove51279_mg74957() throws Exception {
+        int __DSPOT_value_30755 = -557127258;
+        int __DSPOT_value_20138 = -203790514;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41372__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41372__5 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__5)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41372__6 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__6)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        int o_testGetBuffers_mg41372__9 = buffers.size();
+        int o_testGetBuffers_mg41372__10 = buffers.get(0).remaining();
+        int o_testGetBuffers_mg41372__12 = buffers.get(1).remaining();
+        buffers.get(0).getInt();
+        buffers.get(1).getInt();
+        LinkBuffer o_testGetBuffers_mg41372__20 = b.writeVarInt32(__DSPOT_value_20138);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__20)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41372_remove51279_mg74957__34 = o_testGetBuffers_mg41372__4.writeInt32LE(__DSPOT_value_30755);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372_remove51279_mg74957__34)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__5)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__6)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__20)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffers_mg41371_remove51243_remove72648() throws Exception {
+        long __DSPOT_value_20137 = 665755277L;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41371__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41371__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41371__5 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41371__5)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41371__6 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41371__6)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        int o_testGetBuffers_mg41371__9 = buffers.size();
+        int o_testGetBuffers_mg41371__10 = buffers.get(0).remaining();
+        int o_testGetBuffers_mg41371__12 = buffers.get(1).remaining();
+        buffers.get(0).getInt();
+        LinkBuffer o_testGetBuffers_mg41371__20 = b.writeInt64LE(__DSPOT_value_20137);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41371__20)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41371__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41371__5)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41371__6)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffers_mg41370_mg53562_remove72668() throws Exception {
+        int __DSPOT_value_22292 = -1700639052;
+        long __DSPOT_value_20136 = -25993298L;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41370__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41370__5 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__5)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41370__6 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__6)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        int o_testGetBuffers_mg41370__9 = buffers.size();
+        int o_testGetBuffers_mg41370__10 = buffers.get(0).remaining();
+        int o_testGetBuffers_mg41370__12 = buffers.get(1).remaining();
+        buffers.get(0).getInt();
+        buffers.get(1).getInt();
+        LinkBuffer o_testGetBuffers_mg41370__20 = b.writeInt64(__DSPOT_value_20136);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__20)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41370_mg53562__36 = o_testGetBuffers_mg41370__5.writeInt16(__DSPOT_value_22292);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370_mg53562__36)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__5)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__6)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41370__20)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffers_mg41372_add48838_mg74071() throws Exception {
+        int __DSPOT_value_29869 = -2043890760;
+        int __DSPOT_value_20138 = -203790514;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41372__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41372__5 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__5)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41372__6 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__6)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        int o_testGetBuffers_mg41372__9 = buffers.size();
+        int o_testGetBuffers_mg41372__10 = buffers.get(0).remaining();
+        int o_testGetBuffers_mg41372__12 = buffers.get(1).remaining();
+        buffers.get(0).getInt();
+        buffers.get(0).getInt();
+        buffers.get(1).getInt();
+        LinkBuffer o_testGetBuffers_mg41372__20 = b.writeVarInt32(__DSPOT_value_20138);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__20)).getBuffers().isEmpty());
+        ((LinkBuffer) (o_testGetBuffers_mg41372__5)).getBuffers().isEmpty();
+        LinkBuffer o_testGetBuffers_mg41372_add48838_mg74071__38 = o_testGetBuffers_mg41372__5.writeInt32(__DSPOT_value_29869);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372_add48838_mg74071__38)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__5)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__6)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41372__20)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBufferslitNum41296_add47942_mg74349() throws Exception {
+        byte __DSPOT_value_30145 = 43;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBufferslitNum41296__3 = b.writeInt32(41);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41296__3)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBufferslitNum41296__4 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41296__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBufferslitNum41296__5 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41296__5)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        int o_testGetBufferslitNum41296__8 = buffers.size();
+        int o_testGetBufferslitNum41296__9 = buffers.get(0).remaining();
+        int o_testGetBufferslitNum41296__11 = buffers.get(1).remaining();
+        buffers.get(0).getInt();
+        buffers.get(0).getInt();
+        buffers.get(1).getInt();
+        ((LinkBuffer) (o_testGetBufferslitNum41296__3)).getBuffers().isEmpty();
+        LinkBuffer o_testGetBufferslitNum41296_add47942_mg74349__34 = o_testGetBufferslitNum41296__3.writeByte(__DSPOT_value_30145);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41296_add47942_mg74349__34)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41296__3)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41296__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41296__5)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffers_mg41373_mg52909_mg75775() throws Exception {
+        byte[] __DSPOT_value_31571 = new byte[]{ -17, -68, 17, -121 };
+        long __DSPOT_value_21639 = 2043379896L;
+        long __DSPOT_value_20139 = 666685078L;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41373__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41373__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41373__5 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41373__5)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41373__6 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41373__6)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        int o_testGetBuffers_mg41373__9 = buffers.size();
+        int o_testGetBuffers_mg41373__10 = buffers.get(0).remaining();
+        int o_testGetBuffers_mg41373__12 = buffers.get(1).remaining();
+        buffers.get(0).getInt();
+        buffers.get(0).getInt();
+        buffers.get(1).getInt();
+        LinkBuffer o_testGetBuffers_mg41373__20 = b.writeVarInt64(__DSPOT_value_20139);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41373__20)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41373_mg52909__36 = o_testGetBuffers_mg41373__5.writeVarInt64(__DSPOT_value_21639);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41373_mg52909__36)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffers_mg41373_mg52909_mg75775__40 = b.writeByteArray(__DSPOT_value_31571);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41373_mg52909_mg75775__40)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41373__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41373__5)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41373__6)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41373__20)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffers_mg41373_mg52909__36)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBufferslitNum41298_add48144_mg78838() throws Exception {
+        float __DSPOT_value_34636 = 0.81444323F;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBufferslitNum41298__3 = b.writeInt32(Integer.MIN_VALUE);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41298__3)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBufferslitNum41298__4 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41298__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBufferslitNum41298__5 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41298__5)).getBuffers().isEmpty());
+        ((LinkBuffer) (o_testGetBufferslitNum41298__5)).getBuffers();
+        List<ByteBuffer> buffers = b.getBuffers();
+        int o_testGetBufferslitNum41298__8 = buffers.size();
+        int o_testGetBufferslitNum41298__9 = buffers.get(0).remaining();
+        int o_testGetBufferslitNum41298__11 = buffers.get(1).remaining();
+        buffers.get(0).getInt();
+        buffers.get(0).getInt();
+        buffers.get(1).getInt();
+        LinkBuffer o_testGetBufferslitNum41298_add48144_mg78838__33 = o_testGetBufferslitNum41298__4.writeFloat(__DSPOT_value_34636);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41298_add48144_mg78838__33)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41298__3)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41298__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41298__5)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBufferslitNum41295_mg51803_mg76133() throws Exception {
+        byte[] __DSPOT_value_20531 = new byte[]{ -79, -95, 68 };
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBufferslitNum41295__3 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41295__3)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBufferslitNum41295__4 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41295__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBufferslitNum41295__5 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41295__5)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        int o_testGetBufferslitNum41295__8 = buffers.size();
+        int o_testGetBufferslitNum41295__9 = buffers.get(0).remaining();
+        int o_testGetBufferslitNum41295__11 = buffers.get(1).remaining();
+        buffers.get(0).getInt();
+        buffers.get(0).getInt();
+        buffers.get(1).getInt();
+        LinkBuffer o_testGetBufferslitNum41295_mg51803__32 = o_testGetBufferslitNum41295__5.writeByteArray(__DSPOT_value_20531);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41295_mg51803__32)).getBuffers().isEmpty());
+        long o_testGetBufferslitNum41295_mg51803_mg76133__35 = b.size();
+        Assert.assertEquals(15L, ((long) (o_testGetBufferslitNum41295_mg51803_mg76133__35)));
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41295__3)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41295__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41295__5)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBufferslitNum41295_mg51803__32)).getBuffers().isEmpty());
     }
 
     @Test(timeout = 10000)
@@ -1351,329 +1891,236 @@ public class AmplLinkBufferTest {
     }
 
     @Test(timeout = 10000)
-    public void testGetBuffersAndAppendData_rv153518_failAssert533() throws Exception {
+    public void testGetBuffersAndAppendData_rv86014_failAssert255() throws Exception {
         try {
-            long __DSPOT_value_59806 = -2000881584L;
+            long __DSPOT_value_41007 = -2055353175L;
             LinkBuffer b = new LinkBuffer(8);
-            b.writeInt32(42);
+            LinkBuffer __DSPOT_invoc_3 = b.writeInt32(42);
             b.writeInt32(43);
-            LinkBuffer __DSPOT_invoc_5 = b.writeInt32(44);
+            b.writeInt32(44);
             List<ByteBuffer> buffers = b.getBuffers();
             b.writeInt32(45);
             buffers.size();
             buffers.get(0).remaining();
             buffers.get(1).remaining();
-            __DSPOT_invoc_5.writeVarInt64(__DSPOT_value_59806);
-            org.junit.Assert.fail("testGetBuffersAndAppendData_rv153518 should have thrown BufferOverflowException");
+            __DSPOT_invoc_3.writeVarInt64(__DSPOT_value_41007);
+            org.junit.Assert.fail("testGetBuffersAndAppendData_rv86014 should have thrown BufferOverflowException");
         } catch (BufferOverflowException expected) {
             Assert.assertEquals(null, expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testGetBuffersAndAppendData_mg153466() throws Exception {
-        int __DSPOT_value_59760 = 503036885;
+    public void testGetBuffersAndAppendData_rv86027() throws Exception {
+        int __DSPOT_value_41018 = -2072536864;
         LinkBuffer b = new LinkBuffer(8);
         Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffersAndAppendData_mg153466__4 = b.writeInt32(42);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_mg153466__4)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffersAndAppendData_mg153466__5 = b.writeInt32(43);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_mg153466__5)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffersAndAppendData_mg153466__6 = b.writeInt32(44);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_mg153466__6)).getBuffers().isEmpty());
-        List<ByteBuffer> buffers = b.getBuffers();
-        LinkBuffer o_testGetBuffersAndAppendData_mg153466__9 = b.writeInt32(45);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_mg153466__9)).getBuffers().isEmpty());
-        int o_testGetBuffersAndAppendData_mg153466__11 = buffers.size();
-        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_mg153466__11)));
-        int o_testGetBuffersAndAppendData_mg153466__12 = buffers.get(0).remaining();
-        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_mg153466__12)));
-        int o_testGetBuffersAndAppendData_mg153466__14 = buffers.get(1).remaining();
-        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_mg153466__14)));
-        LinkBuffer o_testGetBuffersAndAppendData_mg153466__16 = b.writeVarInt32(__DSPOT_value_59760);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_mg153466__16)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_mg153466__4)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_mg153466__5)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_mg153466__6)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_mg153466__9)).getBuffers().isEmpty());
-        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_mg153466__11)));
-        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_mg153466__12)));
-        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_mg153466__14)));
-    }
-
-    @Test(timeout = 10000)
-    public void testGetBuffersAndAppendData_rv153493() throws Exception {
-        float __DSPOT_value_59783 = 0.8942217F;
-        LinkBuffer b = new LinkBuffer(8);
-        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffersAndAppendData_rv153493__4 = b.writeInt32(42);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153493__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86027__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__4)).getBuffers().isEmpty());
         LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
-        LinkBuffer o_testGetBuffersAndAppendData_rv153493__8 = b.writeInt32(44);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153493__8)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86027__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__8)).getBuffers().isEmpty());
         List<ByteBuffer> buffers = b.getBuffers();
-        LinkBuffer o_testGetBuffersAndAppendData_rv153493__11 = b.writeInt32(45);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153493__11)).getBuffers().isEmpty());
-        int o_testGetBuffersAndAppendData_rv153493__13 = buffers.size();
-        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv153493__13)));
-        int o_testGetBuffersAndAppendData_rv153493__14 = buffers.get(0).remaining();
-        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv153493__14)));
-        int o_testGetBuffersAndAppendData_rv153493__16 = buffers.get(1).remaining();
-        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv153493__16)));
-        LinkBuffer o_testGetBuffersAndAppendData_rv153493__18 = __DSPOT_invoc_4.writeFloat(__DSPOT_value_59783);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153493__18)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86027__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__11)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86027__13 = buffers.size();
+        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv86027__13)));
+        int o_testGetBuffersAndAppendData_rv86027__14 = buffers.get(0).remaining();
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86027__14)));
+        int o_testGetBuffersAndAppendData_rv86027__16 = buffers.get(1).remaining();
+        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv86027__16)));
+        LinkBuffer o_testGetBuffersAndAppendData_rv86027__18 = __DSPOT_invoc_4.writeInt32LE(__DSPOT_value_41018);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__18)).getBuffers().isEmpty());
         Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153493__4)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153493__8)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153493__11)).getBuffers().isEmpty());
-        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv153493__13)));
-        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv153493__14)));
-        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv153493__16)));
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__8)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__11)).getBuffers().isEmpty());
+        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv86027__13)));
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86027__14)));
+        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv86027__16)));
     }
 
     @Test(timeout = 10000)
-    public void testGetBuffersAndAppendData_rv153482() throws Exception {
-        long __DSPOT_value_59774 = -1758965955L;
+    public void testGetBuffersAndAppendData_rv86048() throws Exception {
+        long __DSPOT_value_41037 = 1316015978L;
         LinkBuffer b = new LinkBuffer(8);
         Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        LinkBuffer __DSPOT_invoc_3 = b.writeInt32(42);
-        LinkBuffer o_testGetBuffersAndAppendData_rv153482__7 = b.writeInt32(43);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153482__7)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffersAndAppendData_rv153482__8 = b.writeInt32(44);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153482__8)).getBuffers().isEmpty());
-        List<ByteBuffer> buffers = b.getBuffers();
-        LinkBuffer o_testGetBuffersAndAppendData_rv153482__11 = b.writeInt32(45);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153482__11)).getBuffers().isEmpty());
-        int o_testGetBuffersAndAppendData_rv153482__13 = buffers.size();
-        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv153482__13)));
-        int o_testGetBuffersAndAppendData_rv153482__14 = buffers.get(0).remaining();
-        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv153482__14)));
-        int o_testGetBuffersAndAppendData_rv153482__16 = buffers.get(1).remaining();
-        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv153482__16)));
-        LinkBuffer o_testGetBuffersAndAppendData_rv153482__18 = __DSPOT_invoc_3.writeInt64LE(__DSPOT_value_59774);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153482__18)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153482__7)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153482__8)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153482__11)).getBuffers().isEmpty());
-        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv153482__13)));
-        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv153482__14)));
-        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv153482__16)));
-    }
-
-    @Test(timeout = 10000)
-    public void testGetBuffersAndAppendData_rv153492() throws Exception {
-        double __DSPOT_value_59782 = 0.0505967653002386;
-        LinkBuffer b = new LinkBuffer(8);
-        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffersAndAppendData_rv153492__4 = b.writeInt32(42);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153492__4)).getBuffers().isEmpty());
-        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
-        LinkBuffer o_testGetBuffersAndAppendData_rv153492__8 = b.writeInt32(44);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153492__8)).getBuffers().isEmpty());
-        List<ByteBuffer> buffers = b.getBuffers();
-        LinkBuffer o_testGetBuffersAndAppendData_rv153492__11 = b.writeInt32(45);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153492__11)).getBuffers().isEmpty());
-        int o_testGetBuffersAndAppendData_rv153492__13 = buffers.size();
-        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv153492__13)));
-        int o_testGetBuffersAndAppendData_rv153492__14 = buffers.get(0).remaining();
-        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv153492__14)));
-        int o_testGetBuffersAndAppendData_rv153492__16 = buffers.get(1).remaining();
-        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv153492__16)));
-        LinkBuffer o_testGetBuffersAndAppendData_rv153492__18 = __DSPOT_invoc_4.writeDouble(__DSPOT_value_59782);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153492__18)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153492__4)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153492__8)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153492__11)).getBuffers().isEmpty());
-        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv153492__13)));
-        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv153492__14)));
-        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv153492__16)));
-    }
-
-    @Test(timeout = 10000)
-    public void testGetBuffersAndAppendData_rv153480() throws Exception {
-        int __DSPOT_value_59772 = -849605470;
-        LinkBuffer b = new LinkBuffer(8);
-        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        LinkBuffer __DSPOT_invoc_3 = b.writeInt32(42);
-        LinkBuffer o_testGetBuffersAndAppendData_rv153480__7 = b.writeInt32(43);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153480__7)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffersAndAppendData_rv153480__8 = b.writeInt32(44);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153480__8)).getBuffers().isEmpty());
-        List<ByteBuffer> buffers = b.getBuffers();
-        LinkBuffer o_testGetBuffersAndAppendData_rv153480__11 = b.writeInt32(45);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153480__11)).getBuffers().isEmpty());
-        int o_testGetBuffersAndAppendData_rv153480__13 = buffers.size();
-        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv153480__13)));
-        int o_testGetBuffersAndAppendData_rv153480__14 = buffers.get(0).remaining();
-        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv153480__14)));
-        int o_testGetBuffersAndAppendData_rv153480__16 = buffers.get(1).remaining();
-        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv153480__16)));
-        LinkBuffer o_testGetBuffersAndAppendData_rv153480__18 = __DSPOT_invoc_3.writeInt32LE(__DSPOT_value_59772);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153480__18)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153480__7)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153480__8)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153480__11)).getBuffers().isEmpty());
-        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv153480__13)));
-        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv153480__14)));
-        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv153480__16)));
-    }
-
-    @Test(timeout = 10000)
-    public void testGetBuffersAndAppendData_rv153490() throws Exception {
-        byte[] __DSPOT_value_59778 = new byte[]{ 15 };
-        LinkBuffer b = new LinkBuffer(8);
-        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffersAndAppendData_rv153490__4 = b.writeInt32(42);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153490__4)).getBuffers().isEmpty());
-        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
-        LinkBuffer o_testGetBuffersAndAppendData_rv153490__8 = b.writeInt32(44);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153490__8)).getBuffers().isEmpty());
-        List<ByteBuffer> buffers = b.getBuffers();
-        LinkBuffer o_testGetBuffersAndAppendData_rv153490__11 = b.writeInt32(45);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153490__11)).getBuffers().isEmpty());
-        int o_testGetBuffersAndAppendData_rv153490__13 = buffers.size();
-        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv153490__13)));
-        int o_testGetBuffersAndAppendData_rv153490__14 = buffers.get(0).remaining();
-        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv153490__14)));
-        int o_testGetBuffersAndAppendData_rv153490__16 = buffers.get(1).remaining();
-        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv153490__16)));
-        LinkBuffer o_testGetBuffersAndAppendData_rv153490__18 = __DSPOT_invoc_4.writeByteArray(__DSPOT_value_59778);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153490__18)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153490__4)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153490__8)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153490__11)).getBuffers().isEmpty());
-        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv153490__13)));
-        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv153490__14)));
-        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv153490__16)));
-    }
-
-    @Test(timeout = 10000)
-    public void testGetBuffersAndAppendData_rv153484() throws Exception {
-        long __DSPOT_value_59776 = 430593450L;
-        LinkBuffer b = new LinkBuffer(8);
-        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        LinkBuffer __DSPOT_invoc_3 = b.writeInt32(42);
-        LinkBuffer o_testGetBuffersAndAppendData_rv153484__7 = b.writeInt32(43);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153484__7)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffersAndAppendData_rv153484__8 = b.writeInt32(44);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153484__8)).getBuffers().isEmpty());
-        List<ByteBuffer> buffers = b.getBuffers();
-        LinkBuffer o_testGetBuffersAndAppendData_rv153484__11 = b.writeInt32(45);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153484__11)).getBuffers().isEmpty());
-        int o_testGetBuffersAndAppendData_rv153484__13 = buffers.size();
-        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv153484__13)));
-        int o_testGetBuffersAndAppendData_rv153484__14 = buffers.get(0).remaining();
-        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv153484__14)));
-        int o_testGetBuffersAndAppendData_rv153484__16 = buffers.get(1).remaining();
-        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv153484__16)));
-        LinkBuffer o_testGetBuffersAndAppendData_rv153484__18 = __DSPOT_invoc_3.writeVarInt64(__DSPOT_value_59776);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153484__18)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153484__7)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153484__8)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153484__11)).getBuffers().isEmpty());
-        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv153484__13)));
-        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv153484__14)));
-        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv153484__16)));
-    }
-
-    @Test(timeout = 10000)
-    public void testGetBuffersAndAppendData_rv153512() throws Exception {
-        int __DSPOT_value_59800 = -1971624448;
-        LinkBuffer b = new LinkBuffer(8);
-        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffersAndAppendData_rv153512__4 = b.writeInt32(42);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153512__4)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffersAndAppendData_rv153512__5 = b.writeInt32(43);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153512__5)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86048__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86048__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86048__5 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86048__5)).getBuffers().isEmpty());
         LinkBuffer __DSPOT_invoc_5 = b.writeInt32(44);
         List<ByteBuffer> buffers = b.getBuffers();
-        LinkBuffer o_testGetBuffersAndAppendData_rv153512__11 = b.writeInt32(45);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153512__11)).getBuffers().isEmpty());
-        int o_testGetBuffersAndAppendData_rv153512__13 = buffers.size();
-        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv153512__13)));
-        int o_testGetBuffersAndAppendData_rv153512__14 = buffers.get(0).remaining();
-        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv153512__14)));
-        int o_testGetBuffersAndAppendData_rv153512__16 = buffers.get(1).remaining();
-        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv153512__16)));
-        LinkBuffer o_testGetBuffersAndAppendData_rv153512__18 = __DSPOT_invoc_5.writeInt16LE(__DSPOT_value_59800);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153512__18)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86048__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86048__11)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86048__13 = buffers.size();
+        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv86048__13)));
+        int o_testGetBuffersAndAppendData_rv86048__14 = buffers.get(0).remaining();
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86048__14)));
+        int o_testGetBuffersAndAppendData_rv86048__16 = buffers.get(1).remaining();
+        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv86048__16)));
+        LinkBuffer o_testGetBuffersAndAppendData_rv86048__18 = __DSPOT_invoc_5.writeVarInt64(__DSPOT_value_41037);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86048__18)).getBuffers().isEmpty());
         Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153512__4)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153512__5)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153512__11)).getBuffers().isEmpty());
-        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv153512__13)));
-        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv153512__14)));
-        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv153512__16)));
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86048__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86048__5)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86048__11)).getBuffers().isEmpty());
+        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv86048__13)));
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86048__14)));
+        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv86048__16)));
     }
 
     @Test(timeout = 10000)
-    public void testGetBuffersAndAppendData_rv153534() throws Exception {
-        int __DSPOT_value_59820 = -1360348581;
+    public void testGetBuffersAndAppendData_rv86018() throws Exception {
         LinkBuffer b = new LinkBuffer(8);
         Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffersAndAppendData_rv153534__4 = b.writeInt32(42);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153534__4)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffersAndAppendData_rv153534__5 = b.writeInt32(43);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153534__5)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffersAndAppendData_rv153534__6 = b.writeInt32(44);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153534__6)).getBuffers().isEmpty());
-        List<ByteBuffer> buffers = b.getBuffers();
-        LinkBuffer __DSPOT_invoc_8 = b.writeInt32(45);
-        int o_testGetBuffersAndAppendData_rv153534__13 = buffers.size();
-        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv153534__13)));
-        int o_testGetBuffersAndAppendData_rv153534__14 = buffers.get(0).remaining();
-        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv153534__14)));
-        int o_testGetBuffersAndAppendData_rv153534__16 = buffers.get(1).remaining();
-        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv153534__16)));
-        LinkBuffer o_testGetBuffersAndAppendData_rv153534__18 = __DSPOT_invoc_8.writeVarInt32(__DSPOT_value_59820);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153534__18)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153534__4)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153534__5)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153534__6)).getBuffers().isEmpty());
-        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv153534__13)));
-        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv153534__14)));
-        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv153534__16)));
-    }
-
-    @Test(timeout = 10000)
-    public void testGetBuffersAndAppendData_rv153489() throws Exception {
-        byte __DSPOT_value_59777 = -35;
-        LinkBuffer b = new LinkBuffer(8);
-        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffersAndAppendData_rv153489__4 = b.writeInt32(42);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153489__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86018__3 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86018__3)).getBuffers().isEmpty());
         LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
-        LinkBuffer o_testGetBuffersAndAppendData_rv153489__8 = b.writeInt32(44);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153489__8)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86018__7 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86018__7)).getBuffers().isEmpty());
         List<ByteBuffer> buffers = b.getBuffers();
-        LinkBuffer o_testGetBuffersAndAppendData_rv153489__11 = b.writeInt32(45);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153489__11)).getBuffers().isEmpty());
-        int o_testGetBuffersAndAppendData_rv153489__13 = buffers.size();
-        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv153489__13)));
-        int o_testGetBuffersAndAppendData_rv153489__14 = buffers.get(0).remaining();
-        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv153489__14)));
-        int o_testGetBuffersAndAppendData_rv153489__16 = buffers.get(1).remaining();
-        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv153489__16)));
-        LinkBuffer o_testGetBuffersAndAppendData_rv153489__18 = __DSPOT_invoc_4.writeByte(__DSPOT_value_59777);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153489__18)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86018__10 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86018__10)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86018__12 = buffers.size();
+        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv86018__12)));
+        int o_testGetBuffersAndAppendData_rv86018__13 = buffers.get(0).remaining();
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86018__13)));
+        int o_testGetBuffersAndAppendData_rv86018__15 = buffers.get(1).remaining();
+        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv86018__15)));
+        long o_testGetBuffersAndAppendData_rv86018__17 = __DSPOT_invoc_4.size();
+        Assert.assertEquals(16L, ((long) (o_testGetBuffersAndAppendData_rv86018__17)));
         Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153489__4)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153489__8)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153489__11)).getBuffers().isEmpty());
-        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv153489__13)));
-        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv153489__14)));
-        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv153489__16)));
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86018__3)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86018__7)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86018__10)).getBuffers().isEmpty());
+        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv86018__12)));
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86018__13)));
+        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv86018__15)));
     }
 
     @Test(timeout = 10000)
-    public void testGetBuffersAndAppendDatalitNum153428_failAssert517() throws Exception {
+    public void testGetBuffersAndAppendData_rv86008() throws Exception {
+        int __DSPOT_value_41001 = -1475983619;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_3 = b.writeInt32(42);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86008__7 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86008__7)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86008__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86008__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86008__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86008__11)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86008__13 = buffers.size();
+        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv86008__13)));
+        int o_testGetBuffersAndAppendData_rv86008__14 = buffers.get(0).remaining();
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86008__14)));
+        int o_testGetBuffersAndAppendData_rv86008__16 = buffers.get(1).remaining();
+        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv86008__16)));
+        LinkBuffer o_testGetBuffersAndAppendData_rv86008__18 = __DSPOT_invoc_3.writeInt16LE(__DSPOT_value_41001);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86008__18)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86008__7)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86008__8)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86008__11)).getBuffers().isEmpty());
+        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv86008__13)));
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86008__14)));
+        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv86008__16)));
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86019() throws Exception {
+        byte __DSPOT_value_41008 = -59;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86019__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86019__4)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86019__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86019__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86019__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86019__11)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86019__13 = buffers.size();
+        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv86019__13)));
+        int o_testGetBuffersAndAppendData_rv86019__14 = buffers.get(0).remaining();
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86019__14)));
+        int o_testGetBuffersAndAppendData_rv86019__16 = buffers.get(1).remaining();
+        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv86019__16)));
+        LinkBuffer o_testGetBuffersAndAppendData_rv86019__18 = __DSPOT_invoc_4.writeByte(__DSPOT_value_41008);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86019__18)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86019__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86019__8)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86019__11)).getBuffers().isEmpty());
+        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv86019__13)));
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86019__14)));
+        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv86019__16)));
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86041() throws Exception {
+        int __DSPOT_value_41030 = 1690168204;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86041__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86041__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86041__5 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86041__5)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_5 = b.writeInt32(44);
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86041__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86041__11)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86041__13 = buffers.size();
+        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv86041__13)));
+        int o_testGetBuffersAndAppendData_rv86041__14 = buffers.get(0).remaining();
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86041__14)));
+        int o_testGetBuffersAndAppendData_rv86041__16 = buffers.get(1).remaining();
+        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv86041__16)));
+        LinkBuffer o_testGetBuffersAndAppendData_rv86041__18 = __DSPOT_invoc_5.writeInt16(__DSPOT_value_41030);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86041__18)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86041__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86041__5)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86041__11)).getBuffers().isEmpty());
+        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv86041__13)));
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86041__14)));
+        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv86041__16)));
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86030() throws Exception {
+        int __DSPOT_value_41021 = 559060885;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86030__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86030__4)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86030__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86030__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86030__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86030__11)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86030__13 = buffers.size();
+        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv86030__13)));
+        int o_testGetBuffersAndAppendData_rv86030__14 = buffers.get(0).remaining();
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86030__14)));
+        int o_testGetBuffersAndAppendData_rv86030__16 = buffers.get(1).remaining();
+        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv86030__16)));
+        LinkBuffer o_testGetBuffersAndAppendData_rv86030__18 = __DSPOT_invoc_4.writeVarInt32(__DSPOT_value_41021);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86030__18)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86030__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86030__8)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86030__11)).getBuffers().isEmpty());
+        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv86030__13)));
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86030__14)));
+        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv86030__16)));
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendDatalitNum85959_failAssert237() throws Exception {
         try {
             LinkBuffer b = new LinkBuffer(8);
             b.writeInt32(42);
@@ -1684,180 +2131,1075 @@ public class AmplLinkBufferTest {
             buffers.size();
             buffers.get(-1).remaining();
             buffers.get(1).remaining();
-            org.junit.Assert.fail("testGetBuffersAndAppendDatalitNum153428 should have thrown ArrayIndexOutOfBoundsException");
+            org.junit.Assert.fail("testGetBuffersAndAppendDatalitNum85959 should have thrown ArrayIndexOutOfBoundsException");
         } catch (ArrayIndexOutOfBoundsException expected) {
             Assert.assertEquals("-1", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testGetBuffersAndAppendData_rv153488() throws Exception {
+    public void testGetBuffersAndAppendData_rv86020() throws Exception {
+        byte[] __DSPOT_value_41009 = new byte[]{ -28, -127 };
         LinkBuffer b = new LinkBuffer(8);
         Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffersAndAppendData_rv153488__3 = b.writeInt32(42);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153488__3)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86020__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86020__4)).getBuffers().isEmpty());
         LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
-        LinkBuffer o_testGetBuffersAndAppendData_rv153488__7 = b.writeInt32(44);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153488__7)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86020__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86020__8)).getBuffers().isEmpty());
         List<ByteBuffer> buffers = b.getBuffers();
-        LinkBuffer o_testGetBuffersAndAppendData_rv153488__10 = b.writeInt32(45);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153488__10)).getBuffers().isEmpty());
-        int o_testGetBuffersAndAppendData_rv153488__12 = buffers.size();
-        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv153488__12)));
-        int o_testGetBuffersAndAppendData_rv153488__13 = buffers.get(0).remaining();
-        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv153488__13)));
-        int o_testGetBuffersAndAppendData_rv153488__15 = buffers.get(1).remaining();
-        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv153488__15)));
-        long o_testGetBuffersAndAppendData_rv153488__17 = __DSPOT_invoc_4.size();
-        Assert.assertEquals(16L, ((long) (o_testGetBuffersAndAppendData_rv153488__17)));
+        LinkBuffer o_testGetBuffersAndAppendData_rv86020__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86020__11)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86020__13 = buffers.size();
+        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv86020__13)));
+        int o_testGetBuffersAndAppendData_rv86020__14 = buffers.get(0).remaining();
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86020__14)));
+        int o_testGetBuffersAndAppendData_rv86020__16 = buffers.get(1).remaining();
+        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv86020__16)));
+        LinkBuffer o_testGetBuffersAndAppendData_rv86020__18 = __DSPOT_invoc_4.writeByteArray(__DSPOT_value_41009);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86020__18)).getBuffers().isEmpty());
         Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153488__3)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153488__7)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153488__10)).getBuffers().isEmpty());
-        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv153488__12)));
-        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv153488__13)));
-        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv153488__15)));
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86020__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86020__8)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86020__11)).getBuffers().isEmpty());
+        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv86020__13)));
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86020__14)));
+        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv86020__16)));
     }
 
     @Test(timeout = 10000)
-    public void testGetBuffersAndAppendDatalitNum153404() throws Exception {
+    public void testGetBuffersAndAppendData_rv86064() throws Exception {
+        int __DSPOT_value_41051 = -1774515017;
         LinkBuffer b = new LinkBuffer(8);
         Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffersAndAppendDatalitNum153404__3 = b.writeInt32(41);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum153404__3)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffersAndAppendDatalitNum153404__4 = b.writeInt32(43);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum153404__4)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffersAndAppendDatalitNum153404__5 = b.writeInt32(44);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum153404__5)).getBuffers().isEmpty());
-        List<ByteBuffer> buffers = b.getBuffers();
-        LinkBuffer o_testGetBuffersAndAppendDatalitNum153404__8 = b.writeInt32(45);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum153404__8)).getBuffers().isEmpty());
-        int o_testGetBuffersAndAppendDatalitNum153404__10 = buffers.size();
-        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendDatalitNum153404__10)));
-        int o_testGetBuffersAndAppendDatalitNum153404__11 = buffers.get(0).remaining();
-        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendDatalitNum153404__11)));
-        int o_testGetBuffersAndAppendDatalitNum153404__13 = buffers.get(1).remaining();
-        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendDatalitNum153404__13)));
-        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum153404__3)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum153404__4)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum153404__5)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum153404__8)).getBuffers().isEmpty());
-        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendDatalitNum153404__10)));
-        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendDatalitNum153404__11)));
-    }
-
-    @Test(timeout = 10000)
-    public void testGetBuffersAndAppendData_rv153528() throws Exception {
-        int __DSPOT_value_59814 = -929326846;
-        LinkBuffer b = new LinkBuffer(8);
-        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffersAndAppendData_rv153528__4 = b.writeInt32(42);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153528__4)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffersAndAppendData_rv153528__5 = b.writeInt32(43);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153528__5)).getBuffers().isEmpty());
-        LinkBuffer o_testGetBuffersAndAppendData_rv153528__6 = b.writeInt32(44);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153528__6)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86064__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86064__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86064__5 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86064__5)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86064__6 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86064__6)).getBuffers().isEmpty());
         List<ByteBuffer> buffers = b.getBuffers();
         LinkBuffer __DSPOT_invoc_8 = b.writeInt32(45);
-        int o_testGetBuffersAndAppendData_rv153528__13 = buffers.size();
-        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv153528__13)));
-        int o_testGetBuffersAndAppendData_rv153528__14 = buffers.get(0).remaining();
-        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv153528__14)));
-        int o_testGetBuffersAndAppendData_rv153528__16 = buffers.get(1).remaining();
-        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv153528__16)));
-        LinkBuffer o_testGetBuffersAndAppendData_rv153528__18 = __DSPOT_invoc_8.writeInt16(__DSPOT_value_59814);
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153528__18)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86064__13 = buffers.size();
+        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv86064__13)));
+        int o_testGetBuffersAndAppendData_rv86064__14 = buffers.get(0).remaining();
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86064__14)));
+        int o_testGetBuffersAndAppendData_rv86064__16 = buffers.get(1).remaining();
+        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv86064__16)));
+        LinkBuffer o_testGetBuffersAndAppendData_rv86064__18 = __DSPOT_invoc_8.writeVarInt32(__DSPOT_value_41051);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86064__18)).getBuffers().isEmpty());
         Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153528__4)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153528__5)).getBuffers().isEmpty());
-        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv153528__6)).getBuffers().isEmpty());
-        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv153528__13)));
-        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv153528__14)));
-        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv153528__16)));
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86064__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86064__5)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86064__6)).getBuffers().isEmpty());
+        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv86064__13)));
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86064__14)));
+        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv86064__16)));
     }
 
     @Test(timeout = 10000)
-    public void testGetBuffersAndAppendData_mg153467_failAssert529() throws Exception {
+    public void testGetBuffersAndAppendData_rv86023() throws Exception {
+        float __DSPOT_value_41014 = 0.8850829F;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86023__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86023__4)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86023__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86023__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86023__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86023__11)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86023__13 = buffers.size();
+        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv86023__13)));
+        int o_testGetBuffersAndAppendData_rv86023__14 = buffers.get(0).remaining();
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86023__14)));
+        int o_testGetBuffersAndAppendData_rv86023__16 = buffers.get(1).remaining();
+        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv86023__16)));
+        LinkBuffer o_testGetBuffersAndAppendData_rv86023__18 = __DSPOT_invoc_4.writeFloat(__DSPOT_value_41014);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86023__18)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86023__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86023__8)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86023__11)).getBuffers().isEmpty());
+        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv86023__13)));
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86023__14)));
+        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv86023__16)));
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86012() throws Exception {
+        long __DSPOT_value_41005 = 256673006L;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_3 = b.writeInt32(42);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86012__7 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86012__7)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86012__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86012__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86012__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86012__11)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86012__13 = buffers.size();
+        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv86012__13)));
+        int o_testGetBuffersAndAppendData_rv86012__14 = buffers.get(0).remaining();
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86012__14)));
+        int o_testGetBuffersAndAppendData_rv86012__16 = buffers.get(1).remaining();
+        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv86012__16)));
+        LinkBuffer o_testGetBuffersAndAppendData_rv86012__18 = __DSPOT_invoc_3.writeInt64LE(__DSPOT_value_41005);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86012__18)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86012__7)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86012__8)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86012__11)).getBuffers().isEmpty());
+        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv86012__13)));
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86012__14)));
+        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv86012__16)));
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86022() throws Exception {
+        double __DSPOT_value_41013 = 0.4796736320508129;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86022__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86022__4)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86022__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86022__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86022__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86022__11)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86022__13 = buffers.size();
+        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv86022__13)));
+        int o_testGetBuffersAndAppendData_rv86022__14 = buffers.get(0).remaining();
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86022__14)));
+        int o_testGetBuffersAndAppendData_rv86022__16 = buffers.get(1).remaining();
+        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv86022__16)));
+        LinkBuffer o_testGetBuffersAndAppendData_rv86022__18 = __DSPOT_invoc_4.writeDouble(__DSPOT_value_41013);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86022__18)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86022__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86022__8)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86022__11)).getBuffers().isEmpty());
+        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv86022__13)));
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86022__14)));
+        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv86022__16)));
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86011() throws Exception {
+        long __DSPOT_value_41004 = 1180000867L;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_3 = b.writeInt32(42);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86011__7 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86011__7)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86011__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86011__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86011__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86011__11)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86011__13 = buffers.size();
+        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv86011__13)));
+        int o_testGetBuffersAndAppendData_rv86011__14 = buffers.get(0).remaining();
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86011__14)));
+        int o_testGetBuffersAndAppendData_rv86011__16 = buffers.get(1).remaining();
+        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv86011__16)));
+        LinkBuffer o_testGetBuffersAndAppendData_rv86011__18 = __DSPOT_invoc_3.writeInt64(__DSPOT_value_41004);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86011__18)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86011__7)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86011__8)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86011__11)).getBuffers().isEmpty());
+        Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv86011__13)));
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86011__14)));
+        Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv86011__16)));
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86028_mg102656() throws Exception {
+        int __DSPOT_value_48506 = 1083810308;
+        long __DSPOT_value_41019 = -1653935535L;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86028__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86028__4)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86028__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86028__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86028__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86028__11)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86028__13 = buffers.size();
+        int o_testGetBuffersAndAppendData_rv86028__14 = buffers.get(0).remaining();
+        int o_testGetBuffersAndAppendData_rv86028__16 = buffers.get(1).remaining();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86028__18 = __DSPOT_invoc_4.writeInt64(__DSPOT_value_41019);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86028__18)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86028_mg102656__34 = o_testGetBuffersAndAppendData_rv86028__8.writeVarInt32(__DSPOT_value_48506);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86028_mg102656__34)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86028__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86028__8)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86028__11)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86028__18)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86018_mg101296() throws Exception {
+        byte[] __DSPOT_value_47144 = new byte[]{ -35, -90 };
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86018__3 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86018__3)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86018__7 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86018__7)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86018__10 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86018__10)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86018__12 = buffers.size();
+        int o_testGetBuffersAndAppendData_rv86018__13 = buffers.get(0).remaining();
+        int o_testGetBuffersAndAppendData_rv86018__15 = buffers.get(1).remaining();
+        long o_testGetBuffersAndAppendData_rv86018__17 = __DSPOT_invoc_4.size();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86018_mg101296__33 = o_testGetBuffersAndAppendData_rv86018__7.writeByteArray(__DSPOT_value_47144);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86018_mg101296__33)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86018__3)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86018__7)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86018__10)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendDatalitNum85958_mg100496() throws Exception {
+        int __DSPOT_value_46346 = 1068017927;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85958__3 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85958__3)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85958__4 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85958__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85958__5 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85958__5)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85958__8 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85958__8)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendDatalitNum85958__10 = buffers.size();
+        int o_testGetBuffersAndAppendDatalitNum85958__11 = buffers.get(1).remaining();
+        int o_testGetBuffersAndAppendDatalitNum85958__13 = buffers.get(1).remaining();
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85958_mg100496__30 = o_testGetBuffersAndAppendDatalitNum85958__5.writeVarInt32(__DSPOT_value_46346);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85958_mg100496__30)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85958__3)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85958__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85958__5)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85958__8)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendDatalitNum85962_mg100799() throws Exception {
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85962__3 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85962__3)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85962__4 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85962__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85962__5 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85962__5)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85962__8 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85962__8)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendDatalitNum85962__10 = buffers.size();
+        int o_testGetBuffersAndAppendDatalitNum85962__11 = buffers.get(0).remaining();
+        int o_testGetBuffersAndAppendDatalitNum85962__13 = buffers.get(1).remaining();
+        long o_testGetBuffersAndAppendDatalitNum85962_mg100799__29 = o_testGetBuffersAndAppendDatalitNum85962__8.size();
+        Assert.assertEquals(16L, ((long) (o_testGetBuffersAndAppendDatalitNum85962_mg100799__29)));
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85962__3)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85962__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85962__5)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85962__8)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86029_add93391() throws Exception {
+        long __DSPOT_value_41020 = 600018797L;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86029__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86029__4)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86029_add93391__10 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86029_add93391__10)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86029__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86029__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86029__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86029__11)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86029__13 = buffers.size();
+        int o_testGetBuffersAndAppendData_rv86029__14 = buffers.get(0).remaining();
+        int o_testGetBuffersAndAppendData_rv86029__16 = buffers.get(1).remaining();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86029__18 = __DSPOT_invoc_4.writeInt64LE(__DSPOT_value_41020);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86029__18)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86029__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86029_add93391__10)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86029__8)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86029__11)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86029_mg99809() throws Exception {
+        long __DSPOT_value_41020 = 600018797L;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86029__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86029__4)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86029__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86029__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86029__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86029__11)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86029__13 = buffers.size();
+        int o_testGetBuffersAndAppendData_rv86029__14 = buffers.get(0).remaining();
+        int o_testGetBuffersAndAppendData_rv86029__16 = buffers.get(1).remaining();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86029__18 = __DSPOT_invoc_4.writeInt64LE(__DSPOT_value_41020);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86029__18)).getBuffers().isEmpty());
+        long o_testGetBuffersAndAppendData_rv86029_mg99809__33 = o_testGetBuffersAndAppendData_rv86029__11.size();
+        Assert.assertEquals(24L, ((long) (o_testGetBuffersAndAppendData_rv86029_mg99809__33)));
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86029__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86029__8)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86029__11)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86029__18)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86031_failAssert249_add95098() throws Exception {
         try {
-            long __DSPOT_value_59761 = -1829882079L;
+            long __DSPOT_value_41022 = -1781879943L;
             LinkBuffer b = new LinkBuffer(8);
-            b.writeInt32(42);
-            b.writeInt32(43);
-            b.writeInt32(44);
+            Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+            LinkBuffer o_testGetBuffersAndAppendData_rv86031_failAssert249_add95098__6 = b.writeInt32(42);
+            Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86031_failAssert249_add95098__6)).getBuffers().isEmpty());
+            LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+            LinkBuffer o_testGetBuffersAndAppendData_rv86031_failAssert249_add95098__10 = b.writeInt32(44);
+            Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86031_failAssert249_add95098__10)).getBuffers().isEmpty());
+            b.getBuffers();
             List<ByteBuffer> buffers = b.getBuffers();
-            b.writeInt32(45);
-            buffers.size();
-            buffers.get(0).remaining();
-            buffers.get(1).remaining();
-            b.writeVarInt64(__DSPOT_value_59761);
-            org.junit.Assert.fail("testGetBuffersAndAppendData_mg153467 should have thrown BufferOverflowException");
+            LinkBuffer o_testGetBuffersAndAppendData_rv86031_failAssert249_add95098__14 = b.writeInt32(45);
+            Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86031_failAssert249_add95098__14)).getBuffers().isEmpty());
+            int o_testGetBuffersAndAppendData_rv86031_failAssert249_add95098__16 = buffers.size();
+            Assert.assertEquals(2, ((int) (o_testGetBuffersAndAppendData_rv86031_failAssert249_add95098__16)));
+            int o_testGetBuffersAndAppendData_rv86031_failAssert249_add95098__17 = buffers.get(0).remaining();
+            Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86031_failAssert249_add95098__17)));
+            int o_testGetBuffersAndAppendData_rv86031_failAssert249_add95098__19 = buffers.get(1).remaining();
+            Assert.assertEquals(4, ((int) (o_testGetBuffersAndAppendData_rv86031_failAssert249_add95098__19)));
+            __DSPOT_invoc_4.writeVarInt64(__DSPOT_value_41022);
+            org.junit.Assert.fail("testGetBuffersAndAppendData_rv86031 should have thrown BufferOverflowException");
         } catch (BufferOverflowException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86024_add94030() throws Exception {
+        int __DSPOT_value_41015 = -1523806561;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86024__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86024__4)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86024__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86024__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86024__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86024__11)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86024__13 = buffers.size();
+        int o_testGetBuffersAndAppendData_rv86024__14 = buffers.get(0).remaining();
+        int o_testGetBuffersAndAppendData_rv86024__16 = buffers.get(1).remaining();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86024__18 = __DSPOT_invoc_4.writeInt16(__DSPOT_value_41015);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86024__18)).getBuffers().isEmpty());
+        ((LinkBuffer) (o_testGetBuffersAndAppendData_rv86024__4)).getBuffers();
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86024__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86024__8)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86024__11)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86024__18)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86025litNum88330() throws Exception {
+        int __DSPOT_value_41016 = Integer.MAX_VALUE;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86025__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86025__4)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86025__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86025__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86025__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86025__11)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86025__13 = buffers.size();
+        int o_testGetBuffersAndAppendData_rv86025__14 = buffers.get(0).remaining();
+        int o_testGetBuffersAndAppendData_rv86025__16 = buffers.get(1).remaining();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86025__18 = __DSPOT_invoc_4.writeInt16LE(__DSPOT_value_41016);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86025__18)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86025__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86025__8)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86025__11)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86017litNum90339() throws Exception {
+        LinkBuffer b = new LinkBuffer(9);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86017__3 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86017__3)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86017__7 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86017__7)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86017__10 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86017__10)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86017__12 = buffers.size();
+        int o_testGetBuffersAndAppendData_rv86017__13 = buffers.get(0).remaining();
+        int o_testGetBuffersAndAppendData_rv86017__15 = buffers.get(1).remaining();
+        __DSPOT_invoc_4.getBuffers();
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86017__3)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86017__7)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86017__10)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86027_add94188() throws Exception {
+        int __DSPOT_value_41018 = -2072536864;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86027__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__4)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86027__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86027__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__11)).getBuffers().isEmpty());
+        ((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__11)).getBuffers().isEmpty();
+        int o_testGetBuffersAndAppendData_rv86027__13 = buffers.size();
+        int o_testGetBuffersAndAppendData_rv86027__14 = buffers.get(0).remaining();
+        int o_testGetBuffersAndAppendData_rv86027__16 = buffers.get(1).remaining();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86027__18 = __DSPOT_invoc_4.writeInt32LE(__DSPOT_value_41018);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__18)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__8)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__11)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86018_mg101322() throws Exception {
+        long __DSPOT_value_47172 = 1943823927L;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86018__3 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86018__3)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86018__7 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86018__7)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86018__10 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86018__10)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86018__12 = buffers.size();
+        int o_testGetBuffersAndAppendData_rv86018__13 = buffers.get(0).remaining();
+        int o_testGetBuffersAndAppendData_rv86018__15 = buffers.get(1).remaining();
+        long o_testGetBuffersAndAppendData_rv86018__17 = __DSPOT_invoc_4.size();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86018_mg101322__33 = o_testGetBuffersAndAppendData_rv86018__10.writeVarInt64(__DSPOT_value_47172);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86018_mg101322__33)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86018__3)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86018__7)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86018__10)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86023_mg103950() throws Exception {
+        byte __DSPOT_value_49798 = -90;
+        float __DSPOT_value_41014 = 0.8850829F;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86023__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86023__4)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86023__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86023__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86023__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86023__11)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86023__13 = buffers.size();
+        int o_testGetBuffersAndAppendData_rv86023__14 = buffers.get(0).remaining();
+        int o_testGetBuffersAndAppendData_rv86023__16 = buffers.get(1).remaining();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86023__18 = __DSPOT_invoc_4.writeFloat(__DSPOT_value_41014);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86023__18)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86023_mg103950__34 = __DSPOT_invoc_4.writeByte(__DSPOT_value_49798);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86023_mg103950__34)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86023__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86023__8)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86023__11)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86023__18)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendDatalitNum85954_mg96168() throws Exception {
+        double __DSPOT_value_42018 = 0.8542685152875807;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85954__3 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85954__3)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85954__4 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85954__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85954__5 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85954__5)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85954__8 = b.writeInt32(Integer.MAX_VALUE);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85954__8)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendDatalitNum85954__10 = buffers.size();
+        int o_testGetBuffersAndAppendDatalitNum85954__11 = buffers.get(0).remaining();
+        int o_testGetBuffersAndAppendDatalitNum85954__13 = buffers.get(1).remaining();
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85954_mg96168__30 = o_testGetBuffersAndAppendDatalitNum85954__8.writeDouble(__DSPOT_value_42018);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85954_mg96168__30)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85954__3)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85954__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85954__5)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85954__8)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86023_mg103970() throws Exception {
+        int __DSPOT_value_49820 = 572708602;
+        float __DSPOT_value_41014 = 0.8850829F;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86023__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86023__4)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86023__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86023__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86023__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86023__11)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86023__13 = buffers.size();
+        int o_testGetBuffersAndAppendData_rv86023__14 = buffers.get(0).remaining();
+        int o_testGetBuffersAndAppendData_rv86023__16 = buffers.get(1).remaining();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86023__18 = __DSPOT_invoc_4.writeFloat(__DSPOT_value_41014);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86023__18)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86023_mg103970__34 = o_testGetBuffersAndAppendData_rv86023__8.writeInt16(__DSPOT_value_49820);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86023_mg103970__34)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86023__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86023__8)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86023__11)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86023__18)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86019_add93332() throws Exception {
+        byte __DSPOT_value_41008 = -59;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86019__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86019__4)).getBuffers().isEmpty());
+        ((LinkBuffer) (o_testGetBuffersAndAppendData_rv86019__4)).getBuffers();
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86019__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86019__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86019__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86019__11)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86019__13 = buffers.size();
+        int o_testGetBuffersAndAppendData_rv86019__14 = buffers.get(0).remaining();
+        int o_testGetBuffersAndAppendData_rv86019__16 = buffers.get(1).remaining();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86019__18 = __DSPOT_invoc_4.writeByte(__DSPOT_value_41008);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86019__18)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86019__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86019__8)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86019__11)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendDatalitNum85953litNum86641_failAssert269() throws Exception {
+        try {
+            LinkBuffer b = new LinkBuffer(8);
+            LinkBuffer o_testGetBuffersAndAppendDatalitNum85953__3 = b.writeInt32(42);
+            LinkBuffer o_testGetBuffersAndAppendDatalitNum85953__4 = b.writeInt32(43);
+            LinkBuffer o_testGetBuffersAndAppendDatalitNum85953__5 = b.writeInt32(44);
+            List<ByteBuffer> buffers = b.getBuffers();
+            LinkBuffer o_testGetBuffersAndAppendDatalitNum85953__8 = b.writeInt32(44);
+            int o_testGetBuffersAndAppendDatalitNum85953__10 = buffers.size();
+            int o_testGetBuffersAndAppendDatalitNum85953__11 = buffers.get(-1).remaining();
+            int o_testGetBuffersAndAppendDatalitNum85953__13 = buffers.get(1).remaining();
+            org.junit.Assert.fail("testGetBuffersAndAppendDatalitNum85953litNum86641 should have thrown ArrayIndexOutOfBoundsException");
+        } catch (ArrayIndexOutOfBoundsException expected) {
+            Assert.assertEquals("-1", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86028_add94412() throws Exception {
+        long __DSPOT_value_41019 = -1653935535L;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86028__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86028__4)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86028__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86028__8)).getBuffers().isEmpty());
+        ((LinkBuffer) (o_testGetBuffersAndAppendData_rv86028__8)).getBuffers();
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86028__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86028__11)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86028__13 = buffers.size();
+        int o_testGetBuffersAndAppendData_rv86028__14 = buffers.get(0).remaining();
+        int o_testGetBuffersAndAppendData_rv86028__16 = buffers.get(1).remaining();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86028__18 = __DSPOT_invoc_4.writeInt64(__DSPOT_value_41019);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86028__18)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86028__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86028__8)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86028__11)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendDatalitNum85956litNum86446_failAssert262() throws Exception {
+        try {
+            LinkBuffer b = new LinkBuffer(8);
+            LinkBuffer o_testGetBuffersAndAppendDatalitNum85956__3 = b.writeInt32(42);
+            LinkBuffer o_testGetBuffersAndAppendDatalitNum85956__4 = b.writeInt32(43);
+            LinkBuffer o_testGetBuffersAndAppendDatalitNum85956__5 = b.writeInt32(44);
+            List<ByteBuffer> buffers = b.getBuffers();
+            LinkBuffer o_testGetBuffersAndAppendDatalitNum85956__8 = b.writeInt32(0);
+            int o_testGetBuffersAndAppendDatalitNum85956__10 = buffers.size();
+            int o_testGetBuffersAndAppendDatalitNum85956__11 = buffers.get(-1).remaining();
+            int o_testGetBuffersAndAppendDatalitNum85956__13 = buffers.get(1).remaining();
+            org.junit.Assert.fail("testGetBuffersAndAppendDatalitNum85956litNum86446 should have thrown ArrayIndexOutOfBoundsException");
+        } catch (ArrayIndexOutOfBoundsException expected) {
+            Assert.assertEquals("-1", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86031_failAssert249_add95095_rv134047() throws Exception {
+        try {
+            int __DSPOT_value_67371 = 1027072237;
+            long __DSPOT_value_41022 = -1781879943L;
+            LinkBuffer b = new LinkBuffer(8);
+            Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+            LinkBuffer o_testGetBuffersAndAppendData_rv86031_failAssert249_add95095__6 = b.writeInt32(42);
+            Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86031_failAssert249_add95095__6)).getBuffers().isEmpty());
+            LinkBuffer o_testGetBuffersAndAppendData_rv86031_failAssert249_add95095__7 = b.writeInt32(42);
+            Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86031_failAssert249_add95095__7)).getBuffers().isEmpty());
+            LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+            LinkBuffer o_testGetBuffersAndAppendData_rv86031_failAssert249_add95095__11 = b.writeInt32(44);
+            Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86031_failAssert249_add95095__11)).getBuffers().isEmpty());
+            List<ByteBuffer> buffers = b.getBuffers();
+            LinkBuffer o_testGetBuffersAndAppendData_rv86031_failAssert249_add95095__14 = b.writeInt32(45);
+            Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86031_failAssert249_add95095__14)).getBuffers().isEmpty());
+            int o_testGetBuffersAndAppendData_rv86031_failAssert249_add95095__16 = buffers.size();
+            int o_testGetBuffersAndAppendData_rv86031_failAssert249_add95095__17 = buffers.get(0).remaining();
+            int o_testGetBuffersAndAppendData_rv86031_failAssert249_add95095__19 = buffers.get(1).remaining();
+            LinkBuffer __DSPOT_invoc_61 = __DSPOT_invoc_4.writeVarInt64(__DSPOT_value_41022);
+            org.junit.Assert.fail("testGetBuffersAndAppendData_rv86031 should have thrown BufferOverflowException");
+            __DSPOT_invoc_61.writeInt16LE(__DSPOT_value_67371);
+        } catch (BufferOverflowException expected) {
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86027_mg101946_mg128049() throws Exception {
+        long __DSPOT_value_61377 = 1603621944L;
+        int __DSPOT_value_47796 = -1627197309;
+        int __DSPOT_value_41018 = -2072536864;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86027__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__4)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86027__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86027__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__11)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86027__13 = buffers.size();
+        int o_testGetBuffersAndAppendData_rv86027__14 = buffers.get(0).remaining();
+        int o_testGetBuffersAndAppendData_rv86027__16 = buffers.get(1).remaining();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86027__18 = __DSPOT_invoc_4.writeInt32LE(__DSPOT_value_41018);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__18)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86027_mg101946__34 = o_testGetBuffersAndAppendData_rv86027__4.writeInt16LE(__DSPOT_value_47796);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027_mg101946__34)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86027_mg101946_mg128049__38 = o_testGetBuffersAndAppendData_rv86027__8.writeVarInt64(__DSPOT_value_61377);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027_mg101946_mg128049__38)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__8)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__11)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__18)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027_mg101946__34)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86016_add94304_mg124770_failAssert308() throws Exception {
+        try {
+            double __DSPOT_value_58098 = 0.8103897379830595;
+            LinkBuffer b = new LinkBuffer(8);
+            LinkBuffer o_testGetBuffersAndAppendData_rv86016__3 = b.writeInt32(42);
+            LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+            LinkBuffer o_testGetBuffersAndAppendData_rv86016__7 = b.writeInt32(44);
+            List<ByteBuffer> buffers = b.getBuffers();
+            LinkBuffer o_testGetBuffersAndAppendData_rv86016__10 = b.writeInt32(45);
+            int o_testGetBuffersAndAppendData_rv86016_add94304__18 = buffers.size();
+            int o_testGetBuffersAndAppendData_rv86016__12 = buffers.size();
+            int o_testGetBuffersAndAppendData_rv86016__13 = buffers.get(0).remaining();
+            int o_testGetBuffersAndAppendData_rv86016__15 = buffers.get(1).remaining();
+            List<ByteBuffer> o_testGetBuffersAndAppendData_rv86016__17 = __DSPOT_invoc_4.finish();
+            o_testGetBuffersAndAppendData_rv86016__7.writeDouble(__DSPOT_value_58098);
+            org.junit.Assert.fail("testGetBuffersAndAppendData_rv86016_add94304_mg124770 should have thrown NullPointerException");
+        } catch (NullPointerException expected) {
             Assert.assertEquals(null, expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testGetBuffersAndAppendData_remove153450_failAssert527null157014() throws Exception {
+    public void testGetBuffersAndAppendData_rv86017_mg103324_add114912() throws Exception {
+        float __DSPOT_value_49174 = 0.84040284F;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86017__3 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86017__3)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86017__7 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86017__7)).getBuffers().isEmpty());
+        ((LinkBuffer) (o_testGetBuffersAndAppendData_rv86017__7)).getBuffers();
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86017__10 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86017__10)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86017__12 = buffers.size();
+        int o_testGetBuffersAndAppendData_rv86017__13 = buffers.get(0).remaining();
+        int o_testGetBuffersAndAppendData_rv86017__15 = buffers.get(1).remaining();
+        __DSPOT_invoc_4.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86017_mg103324__31 = b.writeFloat(__DSPOT_value_49174);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86017_mg103324__31)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86017__3)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86017__7)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86017__10)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86020_add94553_remove118491() throws Exception {
+        byte[] __DSPOT_value_41009 = new byte[]{ -28, -127 };
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86020__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86020__4)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86020__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86020__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86020__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86020__11)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86020__13 = buffers.size();
+        int o_testGetBuffersAndAppendData_rv86020__14 = buffers.get(0).remaining();
+        int o_testGetBuffersAndAppendData_rv86020__16 = buffers.get(1).remaining();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86020__18 = __DSPOT_invoc_4.writeByteArray(__DSPOT_value_41009);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86020__18)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86020__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86020__8)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86020__11)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86024_add94015_remove118497() throws Exception {
+        int __DSPOT_value_41015 = -1523806561;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86024__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86024__4)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86024__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86024__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86024__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86024__11)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86024__13 = buffers.size();
+        int o_testGetBuffersAndAppendData_rv86024__14 = buffers.get(0).remaining();
+        int o_testGetBuffersAndAppendData_rv86024__16 = buffers.get(1).remaining();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86024__18 = __DSPOT_invoc_4.writeInt16(__DSPOT_value_41015);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86024__18)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86024__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86024__8)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86024__11)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86028_mg102656_add115487() throws Exception {
+        int __DSPOT_value_48506 = 1083810308;
+        long __DSPOT_value_41019 = -1653935535L;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86028__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86028__4)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86028__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86028__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86028__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86028__11)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86028__13 = buffers.size();
+        int o_testGetBuffersAndAppendData_rv86028_mg102656_add115487__23 = buffers.get(0).remaining();
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86028_mg102656_add115487__23)));
+        int o_testGetBuffersAndAppendData_rv86028__14 = buffers.get(0).remaining();
+        int o_testGetBuffersAndAppendData_rv86028__16 = buffers.get(1).remaining();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86028__18 = __DSPOT_invoc_4.writeInt64(__DSPOT_value_41019);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86028__18)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86028_mg102656__34 = o_testGetBuffersAndAppendData_rv86028__8.writeVarInt32(__DSPOT_value_48506);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86028_mg102656__34)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86028__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86028__8)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86028__11)).getBuffers().isEmpty());
+        Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_rv86028_mg102656_add115487__23)));
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86028__18)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86028_mg102656litNum108881_failAssert291() throws Exception {
         try {
+            int __DSPOT_value_48506 = 1083810308;
+            long __DSPOT_value_41019 = -1653935535L;
             LinkBuffer b = new LinkBuffer(8);
-            Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-            LinkBuffer o_testGetBuffersAndAppendData_remove153450_failAssert527null157014__5 = b.writeInt32(42);
-            Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_remove153450_failAssert527null157014__5)).getBuffers().isEmpty());
-            LinkBuffer o_testGetBuffersAndAppendData_remove153450_failAssert527null157014__6 = b.writeInt32(43);
-            Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_remove153450_failAssert527null157014__6)).getBuffers().isEmpty());
+            LinkBuffer o_testGetBuffersAndAppendData_rv86028__4 = b.writeInt32(42);
+            LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+            LinkBuffer o_testGetBuffersAndAppendData_rv86028__8 = b.writeInt32(44);
             List<ByteBuffer> buffers = b.getBuffers();
-            LinkBuffer o_testGetBuffersAndAppendData_remove153450_failAssert527null157014__9 = b.writeInt32(45);
-            Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_remove153450_failAssert527null157014__9)).getBuffers().isEmpty());
-            int o_testGetBuffersAndAppendData_remove153450_failAssert527null157014__11 = buffers.size();
-            Assert.assertEquals(1, ((int) (o_testGetBuffersAndAppendData_remove153450_failAssert527null157014__11)));
-            int o_testGetBuffersAndAppendData_remove153450_failAssert527null157014__12 = buffers.get(0).remaining();
-            Assert.assertEquals(8, ((int) (o_testGetBuffersAndAppendData_remove153450_failAssert527null157014__12)));
-            buffers.get(1).remaining();
-            org.junit.Assert.fail("testGetBuffersAndAppendData_remove153450 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
+            LinkBuffer o_testGetBuffersAndAppendData_rv86028__11 = b.writeInt32(45);
+            int o_testGetBuffersAndAppendData_rv86028__13 = buffers.size();
+            int o_testGetBuffersAndAppendData_rv86028__14 = buffers.get(-618311679).remaining();
+            int o_testGetBuffersAndAppendData_rv86028__16 = buffers.get(1).remaining();
+            LinkBuffer o_testGetBuffersAndAppendData_rv86028__18 = __DSPOT_invoc_4.writeInt64(__DSPOT_value_41019);
+            LinkBuffer o_testGetBuffersAndAppendData_rv86028_mg102656__34 = o_testGetBuffersAndAppendData_rv86028__8.writeVarInt32(__DSPOT_value_48506);
+            org.junit.Assert.fail("testGetBuffersAndAppendData_rv86028_mg102656litNum108881 should have thrown ArrayIndexOutOfBoundsException");
+        } catch (ArrayIndexOutOfBoundsException expected) {
+            Assert.assertEquals("-618311679", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testGetBuffersAndAppendDatanull153543_failAssert537litNum163287() throws Exception {
+    public void testGetBuffersAndAppendDatalitNum85954_add92071_mg120840() throws Exception {
+        double __DSPOT_value_54168 = 0.9369128737766491;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85954__3 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85954__3)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85954__4 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85954__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85954__5 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85954__5)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85954__8 = b.writeInt32(Integer.MAX_VALUE);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85954__8)).getBuffers().isEmpty());
+        ((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85954__8)).getBuffers().isEmpty();
+        int o_testGetBuffersAndAppendDatalitNum85954__10 = buffers.size();
+        int o_testGetBuffersAndAppendDatalitNum85954__11 = buffers.get(0).remaining();
+        int o_testGetBuffersAndAppendDatalitNum85954__13 = buffers.get(1).remaining();
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85954_add92071_mg120840__32 = o_testGetBuffersAndAppendDatalitNum85954__8.writeDouble(__DSPOT_value_54168);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85954_add92071_mg120840__32)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85954__3)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85954__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85954__5)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85954__8)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86019_add93351_remove118489() throws Exception {
+        byte __DSPOT_value_41008 = -59;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86019__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86019__4)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86019__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86019__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86019__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86019__11)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86019__13 = buffers.size();
+        int o_testGetBuffersAndAppendData_rv86019__14 = buffers.get(0).remaining();
+        int o_testGetBuffersAndAppendData_rv86019__16 = buffers.get(1).remaining();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86019__18 = __DSPOT_invoc_4.writeByte(__DSPOT_value_41008);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86019__18)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86019__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86019__8)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86019__11)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86016_add94305litNum111912_failAssert296() throws Exception {
         try {
             LinkBuffer b = new LinkBuffer(8);
-            Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-            LinkBuffer o_testGetBuffersAndAppendDatanull153543_failAssert537litNum163287__5 = b.writeInt32(42);
-            Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatanull153543_failAssert537litNum163287__5)).getBuffers().isEmpty());
-            LinkBuffer o_testGetBuffersAndAppendDatanull153543_failAssert537litNum163287__6 = b.writeInt32(43);
-            Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatanull153543_failAssert537litNum163287__6)).getBuffers().isEmpty());
-            LinkBuffer o_testGetBuffersAndAppendDatanull153543_failAssert537litNum163287__7 = b.writeInt32(43);
-            Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatanull153543_failAssert537litNum163287__7)).getBuffers().isEmpty());
-            List<ByteBuffer> buffers = null;
-            LinkBuffer o_testGetBuffersAndAppendDatanull153543_failAssert537litNum163287__9 = b.writeInt32(45);
-            Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatanull153543_failAssert537litNum163287__9)).getBuffers().isEmpty());
-            buffers.size();
-            buffers.get(0).remaining();
-            buffers.get(1).remaining();
-            org.junit.Assert.fail("testGetBuffersAndAppendDatanull153543 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
+            LinkBuffer o_testGetBuffersAndAppendData_rv86016__3 = b.writeInt32(42);
+            LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+            LinkBuffer o_testGetBuffersAndAppendData_rv86016__7 = b.writeInt32(44);
+            List<ByteBuffer> buffers = b.getBuffers();
+            LinkBuffer o_testGetBuffersAndAppendData_rv86016__10 = b.writeInt32(45);
+            int o_testGetBuffersAndAppendData_rv86016__12 = buffers.size();
+            int o_testGetBuffersAndAppendData_rv86016_add94305__21 = buffers.get(-1).remaining();
+            int o_testGetBuffersAndAppendData_rv86016__13 = buffers.get(0).remaining();
+            int o_testGetBuffersAndAppendData_rv86016__15 = buffers.get(1).remaining();
+            List<ByteBuffer> o_testGetBuffersAndAppendData_rv86016__17 = __DSPOT_invoc_4.finish();
+            org.junit.Assert.fail("testGetBuffersAndAppendData_rv86016_add94305litNum111912 should have thrown ArrayIndexOutOfBoundsException");
+        } catch (ArrayIndexOutOfBoundsException expected) {
+            Assert.assertEquals("-1", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testGetBuffersAndAppendDatalitNum153401_failAssert515null176225_mg195414() throws Exception {
-        try {
-            LinkBuffer b = new LinkBuffer(0);
-            Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
-            b.writeInt32(42);
-            b.writeInt32(43);
-            b.writeInt32(44);
-            List<ByteBuffer> buffers = null;
-            b.writeInt32(45);
-            buffers.size();
-            buffers.get(0).remaining();
-            buffers.get(1).remaining();
-            org.junit.Assert.fail("testGetBuffersAndAppendDatalitNum153401 should have thrown BufferOverflowException");
-            b.finish();
-        } catch (BufferOverflowException expected) {
-        }
+    public void testGetBuffersAndAppendDatalitNum85957_add91988_mg120296() throws Exception {
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85957__3 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957__3)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85957__4 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85957__5 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957__5)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85957__8 = b.writeInt32(1535967772);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957__8)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendDatalitNum85957__10 = buffers.size();
+        int o_testGetBuffersAndAppendDatalitNum85957__11 = buffers.get(0).remaining();
+        int o_testGetBuffersAndAppendDatalitNum85957__13 = buffers.get(1).remaining();
+        ((LinkBuffer) (b)).getBuffers().isEmpty();
+        long o_testGetBuffersAndAppendDatalitNum85957_add91988_mg120296__31 = o_testGetBuffersAndAppendDatalitNum85957__3.size();
+        Assert.assertEquals(16L, ((long) (o_testGetBuffersAndAppendDatalitNum85957_add91988_mg120296__31)));
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957__3)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957__5)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957__8)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86027_add94202_remove118514() throws Exception {
+        int __DSPOT_value_41018 = -2072536864;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86027__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__4)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86027__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86027__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__11)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86027__13 = buffers.size();
+        int o_testGetBuffersAndAppendData_rv86027__14 = buffers.get(0).remaining();
+        int o_testGetBuffersAndAppendData_rv86027__16 = buffers.get(1).remaining();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86027__18 = __DSPOT_invoc_4.writeInt32LE(__DSPOT_value_41018);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__18)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__8)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86027__11)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendDatalitNum85957_add91994_mg130327() throws Exception {
+        long __DSPOT_value_63655 = 497670808L;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85957__3 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957__3)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85957__4 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85957__5 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957__5)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85957__8 = b.writeInt32(1535967772);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957__8)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendDatalitNum85957__10 = buffers.size();
+        int o_testGetBuffersAndAppendDatalitNum85957__11 = buffers.get(0).remaining();
+        int o_testGetBuffersAndAppendDatalitNum85957__13 = buffers.get(1).remaining();
+        ((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957__5)).getBuffers().isEmpty();
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85957_add91994_mg130327__32 = b.writeInt64LE(__DSPOT_value_63655);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957_add91994_mg130327__32)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957__3)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957__5)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957__8)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendDatalitNum85957_mg95945_mg126983() throws Exception {
+        int __DSPOT_value_60311 = 965362018;
+        int __DSPOT_value_41795 = -4823995;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85957__3 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957__3)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85957__4 = b.writeInt32(43);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957__4)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85957__5 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957__5)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85957__8 = b.writeInt32(1535967772);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957__8)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendDatalitNum85957__10 = buffers.size();
+        int o_testGetBuffersAndAppendDatalitNum85957__11 = buffers.get(0).remaining();
+        int o_testGetBuffersAndAppendDatalitNum85957__13 = buffers.get(1).remaining();
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85957_mg95945__30 = o_testGetBuffersAndAppendDatalitNum85957__8.writeInt16(__DSPOT_value_41795);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957_mg95945__30)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendDatalitNum85957_mg95945_mg126983__34 = b.writeVarInt32(__DSPOT_value_60311);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957_mg95945_mg126983__34)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957__3)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957__5)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957__8)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendDatalitNum85957_mg95945__30)).getBuffers().isEmpty());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetBuffersAndAppendData_rv86025_add93215_remove118512() throws Exception {
+        int __DSPOT_value_41016 = -2092563778;
+        LinkBuffer b = new LinkBuffer(8);
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        LinkBuffer o_testGetBuffersAndAppendData_rv86025__4 = b.writeInt32(42);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86025__4)).getBuffers().isEmpty());
+        LinkBuffer __DSPOT_invoc_4 = b.writeInt32(43);
+        LinkBuffer o_testGetBuffersAndAppendData_rv86025__8 = b.writeInt32(44);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86025__8)).getBuffers().isEmpty());
+        List<ByteBuffer> buffers = b.getBuffers();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86025__11 = b.writeInt32(45);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86025__11)).getBuffers().isEmpty());
+        int o_testGetBuffersAndAppendData_rv86025__13 = buffers.size();
+        int o_testGetBuffersAndAppendData_rv86025__14 = buffers.get(0).remaining();
+        int o_testGetBuffersAndAppendData_rv86025__16 = buffers.get(1).remaining();
+        LinkBuffer o_testGetBuffersAndAppendData_rv86025__18 = __DSPOT_invoc_4.writeInt16LE(__DSPOT_value_41016);
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86025__18)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (b)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86025__4)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86025__8)).getBuffers().isEmpty());
+        Assert.assertFalse(((LinkBuffer) (o_testGetBuffersAndAppendData_rv86025__11)).getBuffers().isEmpty());
     }
 }
 
