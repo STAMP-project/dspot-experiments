@@ -5,6 +5,7 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] 
 [INFO] --- maven-clean-plugin:3.0.0:clean (default-clean) @ logback-core ---
+[INFO] Deleting /tmp/dspot-experiments/dataset/logback/logback-core/target
 [INFO] 
 [INFO] --- maven-resources-plugin:3.0.1:resources (default-resources) @ logback-core ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -75,11 +76,11 @@
 - Timings
 ================================================================================
 > scan classpath : < 1 second
-> coverage and dependency analysis : < 1 second
-> build mutation tests : 3 seconds
-> run mutation analysis : 4 seconds
+> coverage and dependency analysis : 1 seconds
+> build mutation tests : 4 seconds
+> run mutation analysis : 5 seconds
 --------------------------------------------------------------------------------
-> Total  : 9 seconds
+> Total  : 11 seconds
 --------------------------------------------------------------------------------
 ================================================================================
 - Statistics
@@ -740,7 +741,7 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 18.062 s
-[INFO] Finished at: 2018-08-14T10:21:41+02:00
-[INFO] Final Memory: 35M/840M
+[INFO] Total time: 25.941 s
+[INFO] Finished at: 2018-08-17T09:47:54+02:00
+[INFO] Final Memory: 38M/969M
 [INFO] ------------------------------------------------------------------------
