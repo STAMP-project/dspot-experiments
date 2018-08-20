@@ -8,6 +8,19 @@ import org.junit.Test;
 
 public class AmplTokenQueueTest {
     @Test(timeout = 10000)
+    public void chompBalancedlitChar972_failAssert11() throws Exception {
+        try {
+            TokenQueue tq = new TokenQueue(":contains(one (two) three) four");
+            String pre = tq.consumeTo("(");
+            String guts = tq.chompBalanced('(', '*');
+            String remainder = tq.remainder();
+            org.junit.Assert.fail("chompBalancedlitChar972 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException expected) {
+            Assert.assertEquals("Did not find balanced marker at \'one (two) three) four\'", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
     public void chompBalanced_mg985_failAssert7() throws Exception {
         try {
             String __DSPOT_seq_81 = "&sg2R8>3aX.)v8-E+,N[";
@@ -37,19 +50,6 @@ public class AmplTokenQueueTest {
     }
 
     @Test(timeout = 10000)
-    public void chompBalancedlitChar969_failAssert8() throws Exception {
-        try {
-            TokenQueue tq = new TokenQueue(":contains(one (two) three) four");
-            String pre = tq.consumeTo("(");
-            String guts = tq.chompBalanced('(', '\u0000');
-            String remainder = tq.remainder();
-            org.junit.Assert.fail("chompBalancedlitChar969 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException expected) {
-            Assert.assertEquals("Did not find balanced marker at \'one (two) three) four\'", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
     public void chompBalanced_mg985_failAssert7null1600_failAssert16() throws Exception {
         try {
             try {
@@ -69,19 +69,18 @@ public class AmplTokenQueueTest {
     }
 
     @Test(timeout = 10000)
-    public void chompBalanced_mg985_failAssert7litChar1311_failAssert32() throws Exception {
+    public void chompBalanced_mg984_failAssert6litChar1303_failAssert23() throws Exception {
         try {
             try {
-                String __DSPOT_seq_81 = "&sg2R8>3aX.)v8-E+,N[";
                 TokenQueue tq = new TokenQueue(":contains(one (two) three) four");
                 String pre = tq.consumeTo("(");
-                String guts = tq.chompBalanced('(', '|');
+                String guts = tq.chompBalanced('(', '\n');
                 String remainder = tq.remainder();
-                tq.consume(__DSPOT_seq_81);
-                org.junit.Assert.fail("chompBalanced_mg985 should have thrown IllegalStateException");
-            } catch (IllegalStateException expected) {
+                tq.consume();
+                org.junit.Assert.fail("chompBalanced_mg984 should have thrown StringIndexOutOfBoundsException");
+            } catch (StringIndexOutOfBoundsException expected) {
             }
-            org.junit.Assert.fail("chompBalanced_mg985_failAssert7litChar1311 should have thrown IllegalArgumentException");
+            org.junit.Assert.fail("chompBalanced_mg984_failAssert6litChar1303 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException expected_1) {
             Assert.assertEquals("Did not find balanced marker at \'one (two) three) four\'", expected_1.getMessage());
         }
@@ -111,14 +110,14 @@ public class AmplTokenQueueTest {
     }
 
     @Test(timeout = 10000)
-    public void chompEscapedBalancedlitChar5874_failAssert90() throws Exception {
+    public void chompEscapedBalancedlitChar5872_failAssert92() throws Exception {
         try {
             TokenQueue tq = new TokenQueue(":contains(one (two) \\( \\) \\) three) four");
             String pre = tq.consumeTo("(");
-            String guts = tq.chompBalanced('(', 'h');
+            String guts = tq.chompBalanced('(', '\u0000');
             String remainder = tq.remainder();
             TokenQueue.unescape(guts);
-            org.junit.Assert.fail("chompEscapedBalancedlitChar5874 should have thrown IllegalArgumentException");
+            org.junit.Assert.fail("chompEscapedBalancedlitChar5872 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException expected) {
             Assert.assertEquals("Did not find balanced marker at \'one (two) \\( \\) \\) three) four\'", expected.getMessage());
         }
@@ -152,6 +151,24 @@ public class AmplTokenQueueTest {
             org.junit.Assert.fail("chompEscapedBalanced_mg5888 should have thrown StringIndexOutOfBoundsException");
         } catch (StringIndexOutOfBoundsException expected) {
             Assert.assertEquals("String index out of range: 40", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void chompEscapedBalancednull5910_failAssert84litChar6199_failAssert104() throws Exception {
+        try {
+            try {
+                TokenQueue tq = new TokenQueue(":contains(one (two) \\( \\) \\) three) four");
+                String pre = tq.consumeTo("(");
+                String guts = tq.chompBalanced('(', '*');
+                String remainder = tq.remainder();
+                TokenQueue.unescape(null);
+                org.junit.Assert.fail("chompEscapedBalancednull5910 should have thrown NullPointerException");
+            } catch (NullPointerException expected) {
+            }
+            org.junit.Assert.fail("chompEscapedBalancednull5910_failAssert84litChar6199 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException expected_1) {
+            Assert.assertEquals("Did not find balanced marker at \'one (two) \\( \\) \\) three) four\'", expected_1.getMessage());
         }
     }
 
@@ -196,44 +213,24 @@ public class AmplTokenQueueTest {
     }
 
     @Test(timeout = 10000)
-    public void chompEscapedBalanced_mg5889_failAssert86litChar6223_failAssert113() throws Exception {
-        try {
-            try {
-                String __DSPOT_seq_846 = "fQO)drdP!oCN,sn2Zk@A";
-                TokenQueue tq = new TokenQueue(":contains(one (two) \\( \\) \\) three) four");
-                String pre = tq.consumeTo("(");
-                String guts = tq.chompBalanced('(', '*');
-                String remainder = tq.remainder();
-                TokenQueue.unescape(guts);
-                tq.consume(__DSPOT_seq_846);
-                org.junit.Assert.fail("chompEscapedBalanced_mg5889 should have thrown IllegalStateException");
-            } catch (IllegalStateException expected) {
-            }
-            org.junit.Assert.fail("chompEscapedBalanced_mg5889_failAssert86litChar6223 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException expected_1) {
-            Assert.assertEquals("Did not find balanced marker at \'one (two) \\( \\) \\) three) four\'", expected_1.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void chompEscapedBalanced_mg5889_failAssert86null6564_failAssert98litChar7276_failAssert119() throws Exception {
+    public void chompEscapedBalanced_mg5889_failAssert86null6566_failAssert97litChar7265_failAssert125() throws Exception {
         try {
             try {
                 try {
-                    String __DSPOT_seq_846 = null;
+                    String __DSPOT_seq_846 = "fQO)drdP!oCN,sn2Zk@A";
                     TokenQueue tq = new TokenQueue(":contains(one (two) \\( \\) \\) three) four");
                     String pre = tq.consumeTo("(");
-                    String guts = tq.chompBalanced('(', '*');
+                    String guts = tq.chompBalanced('(', '(');
                     String remainder = tq.remainder();
-                    TokenQueue.unescape(guts);
+                    TokenQueue.unescape(null);
                     tq.consume(__DSPOT_seq_846);
                     org.junit.Assert.fail("chompEscapedBalanced_mg5889 should have thrown IllegalStateException");
                 } catch (IllegalStateException expected) {
                 }
-                org.junit.Assert.fail("chompEscapedBalanced_mg5889_failAssert86null6564 should have thrown NullPointerException");
+                org.junit.Assert.fail("chompEscapedBalanced_mg5889_failAssert86null6566 should have thrown NullPointerException");
             } catch (NullPointerException expected_1) {
             }
-            org.junit.Assert.fail("chompEscapedBalanced_mg5889_failAssert86null6564_failAssert98litChar7276 should have thrown IllegalArgumentException");
+            org.junit.Assert.fail("chompEscapedBalanced_mg5889_failAssert86null6566_failAssert97litChar7265 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException expected_2) {
             Assert.assertEquals("Did not find balanced marker at \'one (two) \\( \\) \\) three) four\'", expected_2.getMessage());
         }
@@ -324,9 +321,9 @@ public class AmplTokenQueueTest {
     }
 
     @Test(timeout = 10000)
-    public void unescapelitString13178() throws Exception {
-        String o_unescapelitString13178__1 = TokenQueue.unescape(" third ");
-        Assert.assertEquals(" third ", o_unescapelitString13178__1);
+    public void unescapelitString13183() throws Exception {
+        String o_unescapelitString13183__1 = TokenQueue.unescape("");
+        Assert.assertEquals("", o_unescapelitString13183__1);
     }
 
     @Test(timeout = 10000)
@@ -339,24 +336,24 @@ public class AmplTokenQueueTest {
     }
 
     @Test(timeout = 10000)
-    public void unescape_add13186_add13242null13519_failAssert188() throws Exception {
-        try {
-            String o_unescape_add13186__1 = TokenQueue.unescape(null);
-            String o_unescape_add13186_add13242__4 = TokenQueue.unescape("one \\( \\) \\\\");
-            String o_unescape_add13186__2 = TokenQueue.unescape("one \\( \\) \\\\");
-            org.junit.Assert.fail("unescape_add13186_add13242null13519 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            Assert.assertEquals(null, expected.getMessage());
-        }
+    public void unescape_add13186litString13221_add13495() throws Exception {
+        String o_unescape_add13186litString13221_add13495__1 = TokenQueue.unescape("J=f1_[-!n}n8");
+        Assert.assertEquals("J=f1_[-!n}n8", o_unescape_add13186litString13221_add13495__1);
+        String o_unescape_add13186__1 = TokenQueue.unescape("J=f1_[-!n}n8");
+        Assert.assertEquals("J=f1_[-!n}n8", o_unescape_add13186__1);
+        String o_unescape_add13186__2 = TokenQueue.unescape("one \\( \\) \\\\");
+        Assert.assertEquals("one ( ) \\", o_unescape_add13186__2);
+        Assert.assertEquals("J=f1_[-!n}n8", o_unescape_add13186litString13221_add13495__1);
+        Assert.assertEquals("J=f1_[-!n}n8", o_unescape_add13186__1);
     }
 
     @Test(timeout = 10000)
-    public void unescape_add13186litString13218litString13410() throws Exception {
-        String o_unescape_add13186__1 = TokenQueue.unescape("oneG\\( \\) \\\\");
-        Assert.assertEquals("oneG( ) \\", o_unescape_add13186__1);
-        String o_unescape_add13186__2 = TokenQueue.unescape("oe \\( \\) \\\\");
-        Assert.assertEquals("oe ( ) \\", o_unescape_add13186__2);
-        Assert.assertEquals("oneG( ) \\", o_unescape_add13186__1);
+    public void unescape_add13186litString13221litString13419() throws Exception {
+        String o_unescape_add13186__1 = TokenQueue.unescape("J=f1_[-!n}n8");
+        Assert.assertEquals("J=f1_[-!n}n8", o_unescape_add13186__1);
+        String o_unescape_add13186__2 = TokenQueue.unescape("a.&ZxhHz#G[W");
+        Assert.assertEquals("a.&ZxhHz#G[W", o_unescape_add13186__2);
+        Assert.assertEquals("J=f1_[-!n}n8", o_unescape_add13186__1);
     }
 
     @Test(timeout = 10000)
@@ -404,24 +401,6 @@ public class AmplTokenQueueTest {
     }
 
     @Test(timeout = 10000)
-    public void chompToIgnoreCasenull8714_failAssert130null9245_failAssert136() throws Exception {
-        try {
-            try {
-                String t = null;
-                TokenQueue tq = new TokenQueue(t);
-                String data = tq.chompToIgnoreCase(null);
-                tq = new TokenQueue("<textarea> one two < three </oops>");
-                data = tq.chompToIgnoreCase("</textarea");
-                org.junit.Assert.fail("chompToIgnoreCasenull8714 should have thrown NullPointerException");
-            } catch (NullPointerException expected) {
-            }
-            org.junit.Assert.fail("chompToIgnoreCasenull8714_failAssert130null9245 should have thrown IllegalArgumentException");
-        } catch (IllegalArgumentException expected_1) {
-            Assert.assertEquals("Object must not be null", expected_1.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
     public void chompToIgnoreCase_mg8693_failAssert131null9247_failAssert144() throws Exception {
         try {
             try {
@@ -438,6 +417,26 @@ public class AmplTokenQueueTest {
             org.junit.Assert.fail("chompToIgnoreCase_mg8693_failAssert131null9247 should have thrown NullPointerException");
         } catch (NullPointerException expected_1) {
             Assert.assertEquals(null, expected_1.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void chompToIgnoreCase_mg8693_failAssert131null9248_failAssert142() throws Exception {
+        try {
+            try {
+                String __DSPOT_seq_1341 = ">MI>cwz#1JS:qqix@V|q";
+                String t = null;
+                TokenQueue tq = new TokenQueue(t);
+                String data = tq.chompToIgnoreCase("</textarea");
+                tq = new TokenQueue("<textarea> one two < three </oops>");
+                data = tq.chompToIgnoreCase("</textarea");
+                tq.consume(__DSPOT_seq_1341);
+                org.junit.Assert.fail("chompToIgnoreCase_mg8693 should have thrown IllegalStateException");
+            } catch (IllegalStateException expected) {
+            }
+            org.junit.Assert.fail("chompToIgnoreCase_mg8693_failAssert131null9248 should have thrown IllegalArgumentException");
+        } catch (IllegalArgumentException expected_1) {
+            Assert.assertEquals("Object must not be null", expected_1.getMessage());
         }
     }
 
@@ -462,23 +461,24 @@ public class AmplTokenQueueTest {
     }
 
     @Test(timeout = 10000)
-    public void chompToIgnoreCase_mg8692_failAssert134null9255_failAssert139null10350_failAssert149() throws Exception {
+    public void chompToIgnoreCase_mg8693_failAssert131null9251_failAssert141null10357_failAssert150() throws Exception {
         try {
             try {
                 try {
+                    String __DSPOT_seq_1341 = ">MI>cwz#1JS:qqix@V|q";
                     String t = null;
                     TokenQueue tq = new TokenQueue(t);
                     String data = tq.chompToIgnoreCase("</textarea");
                     tq = new TokenQueue("<textarea> one two < three </oops>");
-                    data = tq.chompToIgnoreCase(null);
-                    tq.consume();
-                    org.junit.Assert.fail("chompToIgnoreCase_mg8692 should have thrown StringIndexOutOfBoundsException");
-                } catch (StringIndexOutOfBoundsException expected) {
+                    data = tq.chompToIgnoreCase("</textarea");
+                    tq.consume(null);
+                    org.junit.Assert.fail("chompToIgnoreCase_mg8693 should have thrown IllegalStateException");
+                } catch (IllegalStateException expected) {
                 }
-                org.junit.Assert.fail("chompToIgnoreCase_mg8692_failAssert134null9255 should have thrown NullPointerException");
+                org.junit.Assert.fail("chompToIgnoreCase_mg8693_failAssert131null9251 should have thrown NullPointerException");
             } catch (NullPointerException expected_1) {
             }
-            org.junit.Assert.fail("chompToIgnoreCase_mg8692_failAssert134null9255_failAssert139null10350 should have thrown IllegalArgumentException");
+            org.junit.Assert.fail("chompToIgnoreCase_mg8693_failAssert131null9251_failAssert141null10357 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException expected_2) {
             Assert.assertEquals("Object must not be null", expected_2.getMessage());
         }
@@ -629,23 +629,22 @@ public class AmplTokenQueueTest {
     }
 
     @Test(timeout = 10000)
-    public void consumeToIgnoreSecondCallTest_mg11001_failAssert157null11494_failAssert163null12561_failAssert175() throws Exception {
+    public void consumeToIgnoreSecondCallTest_mg11000_failAssert158null11499_failAssert160null12554_failAssert171() throws Exception {
         try {
             try {
                 try {
-                    String __DSPOT_seq_1626 = "B$IFUa[)%uJ #8w(_t[L";
                     String t = null;
                     TokenQueue tq = new TokenQueue(t);
-                    String data = tq.chompToIgnoreCase(null);
-                    data = tq.chompToIgnoreCase("</textarea>");
-                    tq.consume(__DSPOT_seq_1626);
-                    org.junit.Assert.fail("consumeToIgnoreSecondCallTest_mg11001 should have thrown IllegalStateException");
-                } catch (IllegalStateException expected) {
+                    String data = tq.chompToIgnoreCase("</textarea>");
+                    data = tq.chompToIgnoreCase(null);
+                    tq.consume();
+                    org.junit.Assert.fail("consumeToIgnoreSecondCallTest_mg11000 should have thrown StringIndexOutOfBoundsException");
+                } catch (StringIndexOutOfBoundsException expected) {
                 }
-                org.junit.Assert.fail("consumeToIgnoreSecondCallTest_mg11001_failAssert157null11494 should have thrown NullPointerException");
+                org.junit.Assert.fail("consumeToIgnoreSecondCallTest_mg11000_failAssert158null11499 should have thrown NullPointerException");
             } catch (NullPointerException expected_1) {
             }
-            org.junit.Assert.fail("consumeToIgnoreSecondCallTest_mg11001_failAssert157null11494_failAssert163null12561 should have thrown IllegalArgumentException");
+            org.junit.Assert.fail("consumeToIgnoreSecondCallTest_mg11000_failAssert158null11499_failAssert160null12554 should have thrown IllegalArgumentException");
         } catch (IllegalArgumentException expected_2) {
             Assert.assertEquals("Object must not be null", expected_2.getMessage());
         }
