@@ -1,4 +1,4 @@
-# Dspot-experiments [![Build Status](https://travis-ci.org/STAMP-project/dspot-experiments.svg?branch=master)](https://travis-ci.org/STAMP-project/dspot-experiments)
+# Dspot-experiments
 
 This repository contains the open-science experimental results of the evaluation of the [Dspot test amplification system](http://github.com/STAMP-project/dspot).
 
