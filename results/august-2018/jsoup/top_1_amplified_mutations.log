@@ -5,7 +5,6 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] 
 [INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ jsoup ---
-[INFO] Deleting /tmp/dspot-experiments/dataset/jsoup/target
 [INFO] 
 [INFO] --- maven-resources-plugin:3.0.1:resources (default-resources) @ jsoup ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -83,17 +82,17 @@
 - Timings
 ================================================================================
 > scan classpath : < 1 second
-> coverage and dependency analysis : 2 seconds
-> build mutation tests : 9 seconds
-> run mutation analysis : 7 minutes and 44 seconds
+> coverage and dependency analysis : 1 seconds
+> build mutation tests : 7 seconds
+> run mutation analysis : 6 minutes and 38 seconds
 --------------------------------------------------------------------------------
-> Total  : 7 minutes and 56 seconds
+> Total  : 6 minutes and 47 seconds
 --------------------------------------------------------------------------------
 ================================================================================
 - Statistics
 ================================================================================
 >> Generated 17278 mutations Killed 1485 (9%)
->> Ran 3597 tests (0.21 tests per mutation)
+>> Ran 3257 tests (0.19 tests per mutation)
 ================================================================================
 - Mutators
 ================================================================================
@@ -322,7 +321,7 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 08:08 min
-[INFO] Finished at: 2018-08-17T09:52:44+02:00
-[INFO] Final Memory: 33M/1956M
+[INFO] Total time: 06:55 min
+[INFO] Finished at: 2018-08-23T11:11:53+02:00
+[INFO] Final Memory: 33M/2016M
 [INFO] ------------------------------------------------------------------------
