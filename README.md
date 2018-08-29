@@ -22,3 +22,10 @@ The folder `results` contains the results of the amplification of each project, 
 * install.py: will clone and checkout on the specific commit ID the given repositories (look into dataset/dataset.json)
 * best_fitness.py: will compute from json file test cases per class with the best fitness. We call best fitness the ratio nbMutantKilled / (NbInputAdded + nbAssertionAdded)
 * top_killer.py: will compute from json file test cases per class with the highest mutation score.
+
+
+dspot commit used:
+
+```
+13e1cf6c8fdada5439a9960971cf789778b69ec6
+```

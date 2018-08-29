@@ -16,6 +16,7 @@ prefix_current_dataset = prefix_dataset + "august-2018/"
 output_log_path = ""
 
 prefix_result = "results/august-2018/"
+prefix_result_october = "results/october-2017/"
 
 path_to_dspot_jar = "/tmp/dspot/dspot/target/dspot-1.1.1-SNAPSHOT-jar-with-dependencies.jar"
 
@@ -33,6 +34,27 @@ key_subModule = "subModule"
 key_filter = "filter"
 key_test_source = "testSrc"
 key_additional_classpath_elements = "additionalClasspathElements"
+
+def get_total_number_mutants_october(path):
+    counter = 0
+    with open(path, "r") as file:
+        current_line = file.readline()
+        while current_line:
+            if current_line.split(",")[-2] == "KILLED" or current_line.split(",")[-2] == "SURVIVED":
+                counter = counter + 1
+            current_line = file.readline()
+    return counter
+
+
+def get_number_killed_mutants_october(path):
+    counter = 0
+    with open(path, "r") as file:
+        current_line = file.readline()
+        while current_line:
+            if current_line.split(",")[-2] == "KILLED":
+                counter = counter + 1
+            current_line = file.readline()
+    return counter
 
 def delete_if_exists(path):
     if os.path.isdir(path):
@@ -57,6 +79,15 @@ def get_amplified_name(test_class_name):
                    if splitted_name[-1].endswith("Test")
                    else splitted_name[-1] + "Ampl"
                )
+
+def get_amplified_name_october(test_class_name):
+    splitted_name = test_class_name.split(".")
+    return ".".join(splitted_name[:-1]) + "." + \
+            (
+                splitted_name[-1] + "Ampl"
+                if splitted_name[-1].startswith("Test")
+                else "Ampl" + splitted_name[-1]
+            )
 
 
 def get_path_to_amplified_test_class(class_kind, test_class_name, project):
@@ -105,7 +136,6 @@ def print_and_call(cmd, cwd=None):
 
 
 path_to_script_to_run = get_absolute_path("src/main/bash/script.sh")
-
 
 def print_and_call_in_a_file(cmd, cwd=None):
     print cmd
