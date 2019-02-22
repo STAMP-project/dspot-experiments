@@ -18,7 +18,7 @@ public class Main {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
 
-    public static final String ROOT_PATH_DATA = "data/files/";
+    public static final String ROOT_PATH_DATA = "dataset/march-2019/files/";
 
     public static void main(String[] args) {
         // init values
