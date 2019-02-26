@@ -17,7 +17,7 @@ test_data=${data_dir}/${dataset_name}.val.c2v
 model_dir=models/${type}
 
 # already trained model java14m
-trained_model=models/java14_model/saved_model_iter8
+trained_model=
 
 mkdir -p models/${model_dir}
 set -e
