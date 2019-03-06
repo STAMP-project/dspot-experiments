@@ -29,7 +29,7 @@ if __name__ == '__main__':
             "--test-criterion","PitMutantScoreSelector",
             "--path-to-code2vec", path_code2vec,
             "--path-to-code2vec-model", path_code2vec_model,
-            "--path-to-amplified-test-class", path
+            "--path-to-amplified-test-class", path,
         ])
         toolbox.print_and_call_in_a_file(cmd)
 
