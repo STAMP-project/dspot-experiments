@@ -1,18 +1,27 @@
 {
-  "globalMinimization": {
+  "generalMinimizationJSON": {
     "inlineLocalVariables": {
-      "medianNumberOfLocalVariablesBefore": 6.0,
-      "medianNumberOfLocalVariablesAfter": 6.0,
-      "medianTimeInlineLocalVariablesInMillis": 2.0
+      "medianNumberOfLocalVariablesBefore": 2.5,
+      "medianNumberOfLocalVariablesAfter": 2.5,
+      "medianTimeInlineLocalVariablesInMillis": 10.5
     },
     "removeRedundantAssertions": {
-      "medianNumberOfAssertionsBefore": 35.0,
-      "medianNumberOfAssertionsAfter": 21.0,
-      "medianTimeRemoveRedundantAssertionsInMillis": 15.0
+      "medianTimeMinimizationInMillis": 72.5,
+      "medianNumberOfAssertionsBefore": 23.5,
+      "medianNumberOfAssertionsAfter": 13.5
     },
-    "medianTimeMinimizationInMillis": 22.0
+    "medianTimeMinimizationInMillis": 126.5
   },
-  "nbTestMethods": 215,
-  "medianNbStatementBefore": 90.0,
-  "medianNbStatementAfter": 61.0
+  "pitMinimizationJSON": {
+    "medianTimeMinimizationOfStatementsAfterLastAssertionsInMillis": 0.0,
+    "medianNumberOfNonAssertionBefore": 2.5,
+    "medianNumberOfNonAssertionAfter": 0.5,
+    "medianTimePitMinimization": 136689.0,
+    "medianTimeMinimizationInMillis": 136689.0,
+    "medianNumberOfAssertionsBefore": 13.5,
+    "medianNumberOfAssertionsAfter": 2.0
+  },
+  "nbTestMethods": 2,
+  "medianNbStatementBefore": 54.0,
+  "medianNbStatementAfter": 6.5
 }
