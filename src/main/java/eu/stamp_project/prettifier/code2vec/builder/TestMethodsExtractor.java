@@ -7,11 +7,13 @@ import spoon.Launcher;
 import spoon.reflect.declaration.CtMethod;
 import spoon.reflect.declaration.CtType;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.FileVisitOption;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
@@ -31,6 +33,34 @@ public class TestMethodsExtractor {
      * The project is given as the path to its root directory.
      * Then, if the project is multi module, this method will recursively explore each sub modules.
      * <p>
+     *
+     * @param rootDirectory the path to the root directory of the project.
+     * @return the list of all test classes with only test methods according to {@link eu.stamp_project.test_framework.TestFramework#isTest(CtMethod)}.
+     * @throws IOException forward the exception thrown by {@link Files#walk(Path, FileVisitOption...)}
+     */
+    public static List<CtType<?>> extractAllTestMethodsForGivenProject(String rootDirectory) throws IOException {
+        return Files.walk(Paths.get(rootDirectory))
+                .map(Path::toString)
+                .filter(path -> path.endsWith("src/test/java"))
+                .filter(path -> !(path.contains("src/test/resources")))
+                .filter(path -> !(path.contains("src/main/resources")))
+                // here we keep only folder that contains directly src/test/java/, i.e. src/test/java is a direct child of the considered folder
+                .filter(path -> new File(path).isDirectory())
+                .map(path -> path.substring(0, path.length() - "src/test/java".length()))
+                .flatMap(path -> {
+                    try {
+                        return TestMethodsExtractor.extractAllTestMethodsForGivenPath(path).stream();
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                }).collect(Collectors.toList());
+    }
+
+    /**
+     * This method returns the entire list of test methods of the given project.
+     * The project is given as the path to its root directory.
+     * Then, if the project is multi module, this method will recursively explore each sub modules.
+     * <p>
      * The rules are as follow:
      * - it takes path that endsWith .java
      * - it takes path that contains src/test/java
@@ -43,15 +73,20 @@ public class TestMethodsExtractor {
      * @return the list of all test classes with only test methods according to {@link eu.stamp_project.test_framework.TestFramework#isTest(CtMethod)}.
      * @throws IOException forward the exception thrown by {@link Files#walk(Path, FileVisitOption...)}
      */
-    public static List<CtType<?>> extractAllTestMethodsForGivenProject(String rootDirectory) throws IOException {
+    public static List<CtType<?>> extractAllTestMethodsForGivenPath(String rootDirectory) {
         Launcher launcher = new Launcher();
         launcher.getEnvironment().setNoClasspath(true);
         final List<String> javaTestClasses;
-        javaTestClasses = Files.walk(Paths.get(rootDirectory))
-                .map(Path::toString)
-                .filter(path -> path.endsWith(".java"))
-                .filter(path -> path.contains("src/test/java/"))
-                .collect(Collectors.toList());
+        try {
+            javaTestClasses = Files.walk(Paths.get(rootDirectory))
+                    .map(Path::toString)
+                    .filter(path -> path.endsWith(".java"))
+                    .filter(path -> path.contains("src/test/java/"))
+                    .collect(Collectors.toList());
+        } catch (Exception ignored) {
+            LOGGER.warn("Something wrong happened when walking in {}", rootDirectory);
+            return Collections.emptyList();
+        }
         final Set<String> seen = ConcurrentHashMap.newKeySet();
         javaTestClasses.forEach(
                 javaTestClass -> {
@@ -61,8 +96,13 @@ public class TestMethodsExtractor {
                     }
                 }
         );
-        LOGGER.info("Building Spoon model...");
-        launcher.buildModel();
+        LOGGER.info("Building Spoon model for {}", rootDirectory);
+        try {
+            launcher.buildModel();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Collections.emptyList();
+        }
         final List<CtType<?>> testClasses = launcher.getFactory().Class().getAll()
                 .stream()
                 .filter(ctType -> ctType.getMethods().stream().anyMatch(TestFramework.get()::isTest))
@@ -74,6 +114,10 @@ public class TestMethodsExtractor {
                         .forEach(ctType::removeMethod)
         );
         return testClasses;
+    }
+
+    public static void main(String[] args) throws IOException {
+        extractAllTestMethodsForGivenProject("/tmp/tmp_post_dspot4055370204386006124/");
     }
 
 }

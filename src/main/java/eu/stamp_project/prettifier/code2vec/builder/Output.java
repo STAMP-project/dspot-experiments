@@ -76,16 +76,20 @@ public class Output {
                                         List<CtType<?>> testClasses,
                                         Factory factory) {
         for (; indexTestClass < testClasses.size(); indexTestClass++) {
-            Environment env = factory.getEnvironment();
-            env.setAutoImports(true);
-            env.setNoClasspath(true);
-            env.setCommentEnabled(true);
-            JavaOutputProcessor processor = new JavaOutputProcessor(new DefaultJavaPrettyPrinter(env));
-            processor.setFactory(factory);
-            processor.getEnvironment().setSourceOutputDirectory(currentOutput);
-            processor.createJavaFile(testClasses.get(indexTestClass));
-            env.setAutoImports(false);
-            numberOfTestMethodGoal -= testClasses.get(indexTestClass).getMethods().size();
+            try {
+                Environment env = factory.getEnvironment();
+                env.setAutoImports(true);
+                env.setNoClasspath(true);
+                env.setCommentEnabled(true);
+                JavaOutputProcessor processor = new JavaOutputProcessor(new DefaultJavaPrettyPrinter(env));
+                processor.setFactory(factory);
+                processor.getEnvironment().setSourceOutputDirectory(currentOutput);
+                processor.createJavaFile(testClasses.get(indexTestClass));
+                env.setAutoImports(false);
+                numberOfTestMethodGoal -= testClasses.get(indexTestClass).getMethods().size();
+            } catch (Exception e) {
+                continue;
+            }
             if (numberOfTestMethodGoal <= 0) {
                 return indexTestClass;
             }

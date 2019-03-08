@@ -79,7 +79,7 @@ public class Cloner {
      */
     public Path clone(String userAndProject) throws Exception {
         this.currentPath = Files.createTempDirectory(PREFIX);
-        LOGGER.info("Cloning {} in ", userAndProject, this.currentPath.toString());
+        LOGGER.info("Cloning {} in {}", userAndProject, this.currentPath.toString());
         Git.cloneRepository()
                 .setURI(URL_GH + userAndProject)
                 .setDirectory(currentPath.toFile())
