@@ -1,0 +1,118 @@
+/**
+ * Copyright (c) 2017, 2018 Oracle and/or its affiliates. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.helidon.config.internal;
+
+
+import OverrideSource.OverrideData;
+import io.helidon.common.reactive.Flow;
+import io.helidon.config.ConfigException;
+import io.helidon.config.OverrideSources;
+import io.helidon.config.internal.FileOverrideSource.FileBuilder;
+import io.helidon.config.spi.OverrideSource;
+import io.helidon.config.spi.PollingStrategy;
+import io.helidon.config.test.infra.TemporaryFolderExt;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.time.Instant;
+import java.util.Optional;
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.Matchers;
+import org.hamcrest.core.Is;
+import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.RegisterExtension;
+
+
+/**
+ * Tests {@link FileOverrideSource}.
+ */
+public class FileOverrideSourceTest {
+    private static final String RELATIVE_PATH_TO_RESOURCE = "/src/test/resources/";
+
+    @RegisterExtension
+    static TemporaryFolderExt folder = TemporaryFolderExt.build();
+
+    @Test
+    public void testDescriptionMandatory() {
+        OverrideSource overrideSource = OverrideSources.file("overrides.properties").build();
+        Assert.assertThat(overrideSource.description(), Is.is("FileOverride[overrides.properties]"));
+    }
+
+    @Test
+    public void testDescriptionOptional() {
+        OverrideSource overrideSource = OverrideSources.file("overrides.properties").optional().build();
+        Assert.assertThat(overrideSource.description(), Is.is("FileOverride[overrides.properties]?"));
+    }
+
+    @Test
+    public void testLoadNotExists() {
+        FileOverrideSource overrideSource = ((FileOverrideSource) (OverrideSources.file("overrides.properties").changesExecutor(Runnable::run).changesMaxBuffer(1).build()));
+        ConfigException ex = Assertions.assertThrows(ConfigException.class, overrideSource::load);
+        Assert.assertThat(ex.getCause(), Matchers.instanceOf(ConfigException.class));
+        Assert.assertThat(ex.getMessage(), CoreMatchers.startsWith("Cannot load data from mandatory source"));
+    }
+
+    @Test
+    public void testLoadExists() {
+        OverrideSource overrideSource = OverrideSources.file(((FileOverrideSourceTest.getDir()) + "io/helidon/config/overrides.properties")).build();
+        Optional<OverrideSource.OverrideData> configNode = overrideSource.load();
+        Assert.assertThat(configNode, CoreMatchers.notNullValue());
+        Assert.assertThat(configNode.isPresent(), Is.is(true));
+    }
+
+    @Test
+    public void testBuilder() {
+        OverrideSource overrideSource = OverrideSources.file("overrides.properties").build();
+        Assert.assertThat(overrideSource, CoreMatchers.notNullValue());
+    }
+
+    @Test
+    public void testDataTimestamp() throws IOException {
+        final String filename = "new-file";
+        File file = FileOverrideSourceTest.folder.newFile(filename);
+        FileOverrideSource fcs = new FileOverrideSource(new FileBuilder(Paths.get(filename)), file.toPath());
+        Assert.assertThat(fcs.dataStamp(), Is.is(CoreMatchers.not(Instant.now())));
+    }
+
+    @Test
+    public void testBuilderPollingStrategy() {
+        FileBuilder builder = ((FileBuilder) (OverrideSources.file("overrides.properties").pollingStrategy(FileOverrideSourceTest.TestingPathPollingStrategy::new)));
+        Assert.assertThat(builder.pollingStrategyInternal(), Matchers.instanceOf(FileOverrideSourceTest.TestingPathPollingStrategy.class));
+        Assert.assertThat(((FileOverrideSourceTest.TestingPathPollingStrategy) (builder.pollingStrategyInternal())).getPath(), Is.is(Paths.get("overrides.properties")));
+    }
+
+    private static class TestingPathPollingStrategy implements PollingStrategy {
+        private final Path path;
+
+        public TestingPathPollingStrategy(Path path) {
+            this.path = path;
+            Assert.assertThat(path, CoreMatchers.notNullValue());
+        }
+
+        @Override
+        public Flow.Publisher<PollingEvent> ticks() {
+            return Flow.Subscriber::onComplete;
+        }
+
+        public Path getPath() {
+            return path;
+        }
+    }
+}
+

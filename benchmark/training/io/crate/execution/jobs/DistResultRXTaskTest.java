@@ -1,0 +1,238 @@
+/**
+ * Licensed to CRATE Technology GmbH ("Crate") under one or more contributor
+ * license agreements.  See the NOTICE file distributed with this work for
+ * additional information regarding copyright ownership.  Crate licenses
+ * this file to you under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.  You may
+ * obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * However, if you have executed another commercial license agreement
+ * with Crate these terms will supersede the license and you may use the
+ * software solely pursuant to the terms of the relevant commercial agreement.
+ */
+package io.crate.execution.jobs;
+
+
+import Bucket.EMPTY;
+import com.google.common.collect.ForwardingIterator;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Iterators;
+import io.crate.breaker.RamAccountingContext;
+import io.crate.data.ArrayBucket;
+import io.crate.data.Bucket;
+import io.crate.data.CollectionBucket;
+import io.crate.execution.engine.distribution.merge.KeyIterable;
+import io.crate.execution.engine.distribution.merge.PagingIterator;
+import io.crate.execution.engine.distribution.merge.PassThroughPagingIterator;
+import io.crate.test.integration.CrateUnitTest;
+import io.crate.testing.TestingHelpers;
+import io.crate.testing.TestingRowConsumer;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
+import org.elasticsearch.common.breaker.CircuitBreaker;
+import org.hamcrest.Matchers;
+import org.junit.Test;
+import org.mockito.Mockito;
+
+
+public class DistResultRXTaskTest extends CrateUnitTest {
+    private static final RamAccountingContext RAM_ACCOUNTING_CONTEXT = new RamAccountingContext("dummy", new org.elasticsearch.common.breaker.NoopCircuitBreaker(CircuitBreaker.FIELDDATA));
+
+    @Test
+    public void testCantSetSameBucketTwiceWithoutReceivingFullPage() throws Throwable {
+        TestingRowConsumer batchConsumer = new TestingRowConsumer();
+        DistResultRXTask ctx = getPageDownstreamContext(batchConsumer, PassThroughPagingIterator.oneShot(), 3);
+        PageResultListener pageResultListener = Mockito.mock(PageResultListener.class);
+        Bucket bucket = new CollectionBucket(Collections.singletonList(new Object[]{ "foo" }));
+        PageBucketReceiver bucketReceiver = ctx.getBucketReceiver(((byte) (0)));
+        assertThat(bucketReceiver, Matchers.notNullValue());
+        bucketReceiver.setBucket(1, bucket, false, pageResultListener);
+        bucketReceiver.setBucket(1, bucket, false, pageResultListener);
+        expectedException.expect(IllegalStateException.class);
+        expectedException.expectMessage("Same bucket of a page set more than once. node=n1 method=setBucket phaseId=1 bucket=1");
+        batchConsumer.getResult();
+    }
+
+    @Test
+    public void testKillCallsDownstream() throws Throwable {
+        TestingRowConsumer batchConsumer = new TestingRowConsumer();
+        DistResultRXTask ctx = getPageDownstreamContext(batchConsumer, PassThroughPagingIterator.oneShot(), 3);
+        final AtomicReference<Throwable> throwable = new AtomicReference<>();
+        ctx.completionFuture().whenComplete(( r, t) -> {
+            if (t != null) {
+                assertTrue(throwable.compareAndSet(null, t));
+            } else {
+                fail("Expected exception");
+            }
+        });
+        ctx.kill(new InterruptedException());
+        assertThat(throwable.get(), Matchers.instanceOf(CompletionException.class));
+        expectedException.expect(InterruptedException.class);
+        batchConsumer.getResult();
+    }
+
+    @Test
+    public void testPagingWithSortedPagingIterator() throws Throwable {
+        TestingRowConsumer batchConsumer = new TestingRowConsumer();
+        DistResultRXTask ctx = getPageDownstreamContext(batchConsumer, new io.crate.execution.engine.distribution.merge.SortedPagingIterator(Comparator.comparingInt(( r) -> ((int) (r.get(0)))), false), 2);
+        Bucket b1 = new ArrayBucket(new Object[][]{ new Object[]{ 1 }, new Object[]{ 1 } });
+        Bucket b11 = new ArrayBucket(new Object[][]{ new Object[]{ 2 }, new Object[]{ 2 } });
+        PageBucketReceiver bucketReceiver = ctx.getBucketReceiver(((byte) (0)));
+        assertThat(bucketReceiver, Matchers.notNullValue());
+        bucketReceiver.setBucket(0, b1, false, ( needMore) -> {
+            if (needMore) {
+                bucketReceiver.setBucket(0, b11, true, mock(.class));
+            }
+        });
+        Bucket b2 = new ArrayBucket(new Object[][]{ new Object[]{ 4 } });
+        bucketReceiver.setBucket(1, b2, true, Mockito.mock(PageResultListener.class));
+        List<Object[]> result = batchConsumer.getResult();
+        assertThat(TestingHelpers.printedTable(new CollectionBucket(result)), Matchers.is(("1\n" + ((("1\n" + "2\n") + "2\n") + "4\n"))));
+    }
+
+    @Test
+    public void testListenersCalledWhenOtherUpstreamIsFailing() throws Exception {
+        TestingRowConsumer consumer = new TestingRowConsumer();
+        DistResultRXTask ctx = getPageDownstreamContext(consumer, PassThroughPagingIterator.oneShot(), 2);
+        PageResultListener listener = Mockito.mock(PageResultListener.class);
+        PageBucketReceiver bucketReceiver = ctx.getBucketReceiver(((byte) (0)));
+        assertThat(bucketReceiver, Matchers.notNullValue());
+        bucketReceiver.setBucket(0, EMPTY, false, listener);
+        bucketReceiver.kill(new Exception("dummy"));
+        Mockito.verify(listener, Mockito.times(1)).needMore(false);
+    }
+
+    @Test
+    public void testListenerCalledAfterOthersHasFailed() throws Exception {
+        TestingRowConsumer consumer = new TestingRowConsumer();
+        DistResultRXTask ctx = getPageDownstreamContext(consumer, PassThroughPagingIterator.oneShot(), 2);
+        PageBucketReceiver bucketReceiver = ctx.getBucketReceiver(((byte) (0)));
+        assertThat(bucketReceiver, Matchers.notNullValue());
+        bucketReceiver.kill(new Exception("dummy"));
+        PageResultListener listener = Mockito.mock(PageResultListener.class);
+        bucketReceiver.setBucket(1, EMPTY, true, listener);
+        Mockito.verify(listener, Mockito.times(1)).needMore(false);
+    }
+
+    @Test
+    public void testSetBucketOnAKilledCtxReleasesListener() throws Exception {
+        TestingRowConsumer consumer = new TestingRowConsumer();
+        DistResultRXTask ctx = getPageDownstreamContext(consumer, PassThroughPagingIterator.oneShot(), 2);
+        PageBucketReceiver bucketReceiver = ctx.getBucketReceiver(((byte) (0)));
+        assertThat(bucketReceiver, Matchers.notNullValue());
+        ctx.kill(new InterruptedException("killed"));
+        CompletableFuture<Void> listenerReleased = new CompletableFuture<>();
+        bucketReceiver.setBucket(0, EMPTY, false, ( needMore) -> listenerReleased.complete(null));
+        // Must not timeout
+        listenerReleased.get(1, TimeUnit.SECONDS);
+    }
+
+    @Test
+    public void testNonSequentialBucketIds() throws Exception {
+        TestingRowConsumer batchConsumer = new TestingRowConsumer();
+        DistResultRXTask ctx = getPageDownstreamContext(batchConsumer, PassThroughPagingIterator.oneShot(), 3);
+        PageBucketReceiver bucketReceiver = ctx.getBucketReceiver(((byte) (0)));
+        assertThat(bucketReceiver, Matchers.notNullValue());
+        final PageResultListener mockListener = Mockito.mock(PageResultListener.class);
+        Bucket b1 = new CollectionBucket(Collections.singletonList(new Object[]{ "foo" }));
+        bucketReceiver.setBucket(0, b1, true, mockListener);
+        Bucket b2 = new CollectionBucket(Collections.singletonList(new Object[]{ "bar" }));
+        bucketReceiver.setBucket(3, b2, true, mockListener);
+        Bucket b3 = new CollectionBucket(Collections.singletonList(new Object[]{ "universe" }));
+        DistResultRXTaskTest.CheckPageResultListener checkPageResultListener = new DistResultRXTaskTest.CheckPageResultListener();
+        bucketReceiver.setBucket(42, b3, false, checkPageResultListener);
+        assertThat(checkPageResultListener.needMoreResult, Matchers.is(true));
+        bucketReceiver.setBucket(42, b3, true, checkPageResultListener);
+        assertThat(checkPageResultListener.needMoreResult, Matchers.is(false));
+        List<Object[]> result = batchConsumer.getResult();
+        assertThat(result.toArray(), Matchers.arrayContainingInAnyOrder(new Object[]{ "foo" }, new Object[]{ "bar" }, new Object[]{ "universe" }, new Object[]{ "universe" }));
+    }
+
+    @Test
+    public void testBatchIteratorIsCompletedExceptionallyIfMergeBucketFails() throws Exception {
+        TestingRowConsumer batchConsumer = new TestingRowConsumer();
+        DistResultRXTask ctx = getPageDownstreamContext(batchConsumer, new DistResultRXTaskTest.FailOnMergePagingIterator(2), 2);
+        PageBucketReceiver bucketReceiver = ctx.getBucketReceiver(((byte) (0)));
+        assertThat(bucketReceiver, Matchers.notNullValue());
+        PageResultListener pageResultListener = Mockito.mock(PageResultListener.class);
+        Bucket bucket = new CollectionBucket(Collections.singletonList(new Object[]{ "foo" }));
+        bucketReceiver.setBucket(0, bucket, false, pageResultListener);
+        bucketReceiver.setBucket(1, bucket, false, pageResultListener);
+        bucketReceiver.setBucket(0, bucket, true, pageResultListener);
+        bucketReceiver.setBucket(1, bucket, true, pageResultListener);
+        expectedException.expect(RuntimeException.class);
+        expectedException.expectMessage("raised on merge");
+        batchConsumer.getResult();
+    }
+
+    private static class CheckPageResultListener implements PageResultListener {
+        private boolean needMoreResult;
+
+        @Override
+        public void needMore(boolean needMore) {
+            needMoreResult = needMore;
+        }
+    }
+
+    private static class FailOnMergePagingIterator<TKey, TRow> extends ForwardingIterator<TRow> implements PagingIterator<TKey, TRow> {
+        private Iterator<TRow> iterator = Collections.emptyIterator();
+
+        private final ImmutableList.Builder<KeyIterable<TKey, TRow>> iterables = ImmutableList.builder();
+
+        private final int mergesCallCountUntilError;
+
+        private int mergesCallCount = 0;
+
+        public FailOnMergePagingIterator(int mergesCallCountUntilError) {
+            this.mergesCallCountUntilError = mergesCallCountUntilError;
+        }
+
+        @Override
+        protected Iterator<TRow> delegate() {
+            return iterator;
+        }
+
+        @Override
+        public void merge(Iterable<? extends KeyIterable<TKey, TRow>> iterables) {
+            if ((++(mergesCallCount)) == (mergesCallCountUntilError)) {
+                throw new RuntimeException("raised on merge");
+            }
+            Iterable<TRow> concat = Iterables.concat(iterables);
+            if (iterator.hasNext()) {
+                iterator = Iterators.concat(iterator, concat.iterator());
+            } else {
+                iterator = concat.iterator();
+            }
+        }
+
+        @Override
+        public void finish() {
+        }
+
+        @Override
+        public TKey exhaustedIterable() {
+            return null;
+        }
+
+        @Override
+        public Iterable<TRow> repeat() {
+            return null;
+        }
+    }
+}
+

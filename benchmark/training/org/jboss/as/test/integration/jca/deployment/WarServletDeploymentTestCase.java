@@ -1,0 +1,67 @@
+/**
+ * JBoss, Home of Professional Open Source.
+ * Copyright 2010, Red Hat, Inc., and individual contributors
+ * as indicated by the @author tags. See the copyright.txt file in the
+ * distribution for a full listing of individual contributors.
+ *
+ * This is free software; you can redistribute it and/or modify it
+ * under the terms of the GNU Lesser General Public License as
+ * published by the Free Software Foundation; either version 2.1 of
+ * the License, or (at your option) any later version.
+ *
+ * This software is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this software; if not, write to the Free
+ * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
+ * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
+ */
+package org.jboss.as.test.integration.jca.deployment;
+
+
+import java.net.URL;
+import java.util.concurrent.TimeUnit;
+import org.jboss.arquillian.container.test.api.OperateOnDeployment;
+import org.jboss.arquillian.container.test.api.RunAsClient;
+import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.arquillian.test.api.ArquillianResource;
+import org.jboss.as.test.integration.common.HttpRequest;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+
+
+/**
+ * Test case for servlet activations
+ *
+ * @author <a href="jpederse@redhat.com">Jesper Pedersen</a>
+ */
+@RunWith(Arquillian.class)
+@RunAsClient
+public class WarServletDeploymentTestCase {
+    static final String deploymentName = "raractivation.ear";
+
+    static final String rarDeploymentName = "eis.rar";
+
+    static final String webDeploymentName = "web.war";
+
+    @ArquillianResource
+    @OperateOnDeployment("web")
+    private URL webUrl;
+
+    /**
+     * Test web
+     *
+     * @throws Throwable
+     * 		Thrown if case of an error
+     */
+    @Test
+    public void testWeb() throws Exception {
+        String res = HttpRequest.get(((webUrl.toExternalForm()) + "RARServlet"), 4, TimeUnit.SECONDS);
+        Assert.assertEquals("RARServlet OK", res);
+    }
+}
+

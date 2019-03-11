@@ -1,0 +1,116 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ * <p>
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * <p>
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.zeppelin.pig;
+
+
+import InterpreterResult.Code.ERROR;
+import InterpreterResult.Code.SUCCESS;
+import InterpreterResult.Type.TABLE;
+import InterpreterResult.Type.TEXT;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import org.apache.commons.io.IOUtils;
+import org.apache.zeppelin.interpreter.Interpreter;
+import org.apache.zeppelin.interpreter.InterpreterContext;
+import org.apache.zeppelin.interpreter.InterpreterException;
+import org.apache.zeppelin.interpreter.InterpreterResult;
+import org.junit.Assert;
+import org.junit.Test;
+
+
+/**
+ *
+ */
+public class PigQueryInterpreterTest {
+    private Interpreter pigInterpreter;
+
+    private Interpreter pigQueryInterpreter;
+
+    private InterpreterContext context;
+
+    @Test
+    public void testBasics() throws IOException, InterpreterException {
+        String content = "andy\tmale\t10\n" + ("peter\tmale\t20\n" + "amy\tfemale\t14\n");
+        File tmpFile = File.createTempFile("zeppelin", "test");
+        FileWriter writer = new FileWriter(tmpFile);
+        IOUtils.write(content, writer);
+        writer.close();
+        // run script in PigInterpreter
+        String pigscript = ((("a = load '" + (tmpFile.getAbsolutePath())) + "\' as (name, gender, age);\n") + "a2 = load \'invalid_path\' as (name, gender, age);\n") + "dump a;";
+        InterpreterResult result = pigInterpreter.interpret(pigscript, context);
+        Assert.assertEquals(TEXT, result.message().get(0).getType());
+        Assert.assertEquals(SUCCESS, result.code());
+        Assert.assertTrue(result.message().get(0).getData().contains("(andy,male,10)\n(peter,male,20)\n(amy,female,14)"));
+        // run single line query in PigQueryInterpreter
+        String query = "foreach a generate name, age;";
+        result = pigQueryInterpreter.interpret(query, context);
+        Assert.assertEquals(TABLE, result.message().get(0).getType());
+        Assert.assertEquals(SUCCESS, result.code());
+        Assert.assertEquals("name\tage\nandy\t10\npeter\t20\namy\t14\n", result.message().get(0).getData());
+        // run multiple line query in PigQueryInterpreter
+        query = "b = group a by gender;\nforeach b generate group as gender, COUNT($1) as count;";
+        result = pigQueryInterpreter.interpret(query, context);
+        Assert.assertEquals(TABLE, result.message().get(0).getType());
+        Assert.assertEquals(SUCCESS, result.code());
+        Assert.assertEquals("gender\tcount\nmale\t2\nfemale\t1\n", result.message().get(0).getData());
+        // generate alias with unknown schema
+        query = "b = group a by gender;\nforeach b generate group, COUNT($1);";
+        result = pigQueryInterpreter.interpret(query, context);
+        Assert.assertEquals(TABLE, result.message().get(0).getType());
+        Assert.assertEquals(SUCCESS, result.code());
+        Assert.assertEquals("group\tcol_1\nmale\t2\nfemale\t1\n", result.message().get(0).getData());
+        // syntax error in PigQueryInterpereter
+        query = "b = group a by invalid_column;\nforeach b generate group as gender, " + "COUNT($1) as count;";
+        result = pigQueryInterpreter.interpret(query, context);
+        Assert.assertEquals(TEXT, result.message().get(0).getType());
+        Assert.assertEquals(ERROR, result.code());
+        Assert.assertTrue(result.message().get(0).getData().contains("Projected field [invalid_column] does not exist in schema"));
+        // execution error in PigQueryInterpreter
+        query = "foreach a2 generate name, age;";
+        result = pigQueryInterpreter.interpret(query, context);
+        Assert.assertEquals(TEXT, result.message().get(0).getType());
+        Assert.assertEquals(ERROR, result.code());
+        Assert.assertTrue(result.message().get(0).getData().contains("Input path does not exist"));
+    }
+
+    @Test
+    public void testMaxResult() throws IOException, InterpreterException {
+        StringBuilder content = new StringBuilder();
+        for (int i = 0; i < 30; ++i) {
+            content.append((((i + "\tname_") + i) + "\n"));
+        }
+        File tmpFile = File.createTempFile("zeppelin", "test");
+        FileWriter writer = new FileWriter(tmpFile);
+        IOUtils.write(content, writer);
+        writer.close();
+        // run script in PigInterpreter
+        String pigscript = ("a = load '" + (tmpFile.getAbsolutePath())) + "' as (id, name);";
+        InterpreterResult result = pigInterpreter.interpret(pigscript, context);
+        Assert.assertEquals(0, result.message().size());
+        Assert.assertEquals(SUCCESS, result.code());
+        // run single line query in PigQueryInterpreter
+        String query = "foreach a generate id;";
+        result = pigQueryInterpreter.interpret(query, context);
+        Assert.assertEquals(TABLE, result.message().get(0).getType());
+        Assert.assertEquals(SUCCESS, result.code());
+        Assert.assertTrue(result.message().get(0).getData().contains("id\n0\n1\n2"));
+        Assert.assertTrue(result.message().get(1).getData().contains("alert-warning"));
+    }
+}
+

@@ -1,0 +1,138 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.drill.exec.expr.fn.impl;
+
+
+import PlannerSettings.ENABLE_DECIMAL_DATA_TYPE_KEY;
+import org.apache.drill.exec.rpc.RpcException;
+import org.apache.drill.test.ClusterTest;
+import org.junit.Assert;
+import org.junit.Test;
+
+
+public class TestTypeFns extends ClusterTest {
+    @Test
+    public void testTypeOf() throws RpcException {
+        // SMALLINT not supported in CAST
+        // doTypeOfTest("SMALLINT");
+        doTypeOfTest("INT");
+        doTypeOfTest("BIGINT");
+        doTypeOfTest("VARCHAR");
+        doTypeOfTest("FLOAT", "FLOAT4");
+        doTypeOfTest("DOUBLE", "FLOAT8");
+        doTypeOfTestSpecial("a", "true", "BIT");
+        doTypeOfTestSpecial("a", "CURRENT_DATE", "DATE");
+        doTypeOfTestSpecial("a", "CURRENT_TIME", "TIME");
+        doTypeOfTestSpecial("a", "CURRENT_TIMESTAMP", "TIMESTAMP");
+        doTypeOfTestSpecial("a", "AGE(CURRENT_TIMESTAMP)", "INTERVAL");
+        doTypeOfTestSpecial("BINARY_STRING(a)", "\'\\xde\\xad\\xbe\\xef\'", "VARBINARY");
+        try {
+            ClusterTest.client.alterSession(ENABLE_DECIMAL_DATA_TYPE_KEY, true);
+            doTypeOfTestSpecial("CAST(a AS DECIMAL)", "1", "VARDECIMAL");
+            doTypeOfTestSpecial("CAST(a AS DECIMAL(6, 3))", "1", "VARDECIMAL");
+        } finally {
+            ClusterTest.client.resetSession(ENABLE_DECIMAL_DATA_TYPE_KEY);
+        }
+    }
+
+    @Test
+    public void testSqlTypeOf() throws RpcException {
+        // SMALLINT not supported in CAST
+        // doSqlTypeOfTest("SMALLINT");
+        doSqlTypeOfTest("INTEGER");
+        doSqlTypeOfTest("BIGINT");
+        doSqlTypeOfTest("CHARACTER VARYING");
+        doSqlTypeOfTest("FLOAT");
+        doSqlTypeOfTest("DOUBLE");
+        doSqlTypeOfTestSpecial("a", "true", "BOOLEAN");
+        doSqlTypeOfTestSpecial("a", "CURRENT_DATE", "DATE");
+        doSqlTypeOfTestSpecial("a", "CURRENT_TIME", "TIME");
+        doSqlTypeOfTestSpecial("a", "CURRENT_TIMESTAMP", "TIMESTAMP");
+        doSqlTypeOfTestSpecial("a", "AGE(CURRENT_TIMESTAMP)", "INTERVAL");
+        doSqlTypeOfTestSpecial("BINARY_STRING(a)", "\'\\xde\\xad\\xbe\\xef\'", "BINARY VARYING");
+        try {
+            ClusterTest.client.alterSession(ENABLE_DECIMAL_DATA_TYPE_KEY, true);
+            // These should include precision and scale: DECIMAL(p, s)
+            // But, see DRILL-6378
+            doSqlTypeOfTestSpecial("CAST(a AS DECIMAL)", "1", "DECIMAL(38, 0)");
+            doSqlTypeOfTestSpecial("CAST(a AS DECIMAL(6, 3))", "1", "DECIMAL(6, 3)");
+        } finally {
+            ClusterTest.client.resetSession(ENABLE_DECIMAL_DATA_TYPE_KEY);
+        }
+    }
+
+    @Test
+    public void testDrillTypeOf() throws RpcException {
+        // SMALLINT not supported in CAST
+        // doDrillTypeOfTest("SMALLINT");
+        doDrillTypeOfTest("INTEGER", "INT");
+        doDrillTypeOfTest("BIGINT");
+        doDrillTypeOfTest("CHARACTER VARYING", "VARCHAR");
+        doDrillTypeOfTest("FLOAT", "FLOAT4");
+        doDrillTypeOfTest("DOUBLE", "FLOAT8");
+        // Omitting the other types. Internal code is identical to
+        // typeof() except for null handling.
+    }
+
+    @Test
+    public void testModeOf() throws RpcException {
+        // CSV files with headers use REQUIRED mode
+        String sql = "SELECT modeOf(`name`) FROM cp.`store/text/data/cars.csvh`";
+        String result = queryBuilder().sql(sql).singletonString();
+        Assert.assertEquals("NOT NULL", result);
+        // CSV files without headers use REPEATED mode
+        sql = "SELECT modeOf(`columns`) FROM cp.`textinput/input2.csv`";
+        result = queryBuilder().sql(sql).singletonString();
+        Assert.assertEquals("ARRAY", result);
+        // JSON files use OPTIONAL mode
+        sql = "SELECT modeOf(`name`) FROM cp.`jsoninput/specialchar.json`";
+        result = queryBuilder().sql(sql).singletonString();
+        Assert.assertEquals("NULLABLE", result);
+    }
+
+    @Test
+    public void testTypeOfLiteral() throws Exception {
+        String sql = "SELECT typeOf(1) c1," + ((((((("typeOf('a') c2," + "typeOf(date '2018-01-22') c3,") + "typeOf(time '01:00:20.123') c4,") + "typeOf(timestamp '2018-01-22 01:00:20.123') c5,") + "typeOf(false) c6,") + "typeOf(12.3) c7,") + "typeOf(1>2) c8,") + "typeOf(cast(null as int)) c9");
+        testBuilder().sqlQuery(sql).unOrdered().baselineColumns("c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9").baselineValues("INT", "VARCHAR", "DATE", "TIME", "TIMESTAMP", "BIT", "VARDECIMAL", "BIT", "NULL").go();
+    }
+
+    @Test
+    public void testSqlTypeOfLiteral() throws Exception {
+        String sql = "SELECT sqlTypeOf(1) c1," + ((((((("sqlTypeOf('a') c2," + "sqlTypeOf(date '2018-01-22') c3,") + "sqlTypeOf(time '01:00:20.123') c4,") + "sqlTypeOf(timestamp '2018-01-22 01:00:20.123') c5,") + "sqlTypeOf(false) c6,") + "sqlTypeOf(12.3) c7,") + "sqlTypeOf(1>2) c8,") + "sqlTypeOf(cast(null as int)) c9");
+        testBuilder().sqlQuery(sql).unOrdered().baselineColumns("c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9").baselineValues("INTEGER", "CHARACTER VARYING", "DATE", "TIME", "TIMESTAMP", "BOOLEAN", "DECIMAL(3, 1)", "BOOLEAN", "INTEGER").go();
+    }
+
+    @Test
+    public void testDrillTypeOfLiteral() throws Exception {
+        String sql = "SELECT drillTypeOf(1) c1," + ((((((("drillTypeOf('a') c2," + "drillTypeOf(date '2018-01-22') c3,") + "drillTypeOf(time '01:00:20.123') c4,") + "drillTypeOf(timestamp '2018-01-22 01:00:20.123') c5,") + "drillTypeOf(false) c6,") + "drillTypeOf(12.3) c7,") + "drillTypeOf(1>2) c8,") + "drillTypeOf(cast(null as int)) c9");
+        testBuilder().sqlQuery(sql).unOrdered().baselineColumns("c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8", "c9").baselineValues("INT", "VARCHAR", "DATE", "TIME", "TIMESTAMP", "BIT", "VARDECIMAL", "BIT", "INT").go();
+    }
+
+    @Test
+    public void testModeOfLiteral() throws Exception {
+        String sql = "SELECT modeOf(1) c1," + ((("modeOf('a') c2," + "modeOf(cast(null as int)) c3,") + "modeOf(case when true then null else 'a' end) c4,") + "modeOf(case when false then null else 'a' end) c5");
+        testBuilder().sqlQuery(sql).unOrdered().baselineColumns("c1", "c2", "c3", "c4", "c5").baselineValues("NOT NULL", "NOT NULL", "NULLABLE", "NULLABLE", "NULLABLE").go();
+    }
+
+    @Test
+    public void testCompareTypeLiteral() throws Exception {
+        String sql = "SELECT compareType(1, 2) c1," + ((((("compareType('a', 1) c2," + "compareType(1, 'a') c3,") + "compareType(a, '01:00:20.123') c4,") + "compareType(3, t.a) c5,") + "compareType(t.a, 3) c6\n") + "from (values(1)) t(a)");
+        testBuilder().sqlQuery(sql).unOrdered().baselineColumns("c1", "c2", "c3", "c4", "c5", "c6").baselineValues(0, 1, (-1), (-1), 0, 0).go();
+    }
+}
+

@@ -1,0 +1,69 @@
+/**
+ * Copyright 2014-present Facebook, Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.facebook.litho.specmodels.generator;
+
+
+import com.facebook.litho.Component;
+import com.facebook.litho.annotations.LayoutSpec;
+import com.facebook.litho.annotations.OnCreateLayout;
+import com.facebook.litho.annotations.Prop;
+import com.facebook.litho.specmodels.processor.LayoutSpecModelFactory;
+import com.google.testing.compile.CompilationRule;
+import org.junit.Rule;
+import org.junit.Test;
+
+
+/**
+ * Tests {@link SimpleNameDelegateGenerator}
+ */
+public class SimpleNameDelegateGeneratorTest {
+    @Rule
+    public CompilationRule mCompilationRule = new CompilationRule();
+
+    private final LayoutSpecModelFactory mLayoutSpecModelFactory = new LayoutSpecModelFactory();
+
+    @LayoutSpec
+    private static class TestWithoutDelegateSpec {
+        @OnCreateLayout
+        public void onCreateLayout(@Prop
+        boolean arg0, @Prop
+        Component delegate) {
+        }
+    }
+
+    @LayoutSpec(simpleNameDelegate = "delegate")
+    private static class TestWithDelegateSpec {
+        @OnCreateLayout
+        public void onCreateLayout(@Prop
+        boolean arg0, @Prop
+        Component delegate) {
+        }
+    }
+
+    @Test
+    public void testGenerateWithoutDelegate() {
+        TypeSpecDataHolder dataHolder = SimpleNameDelegateGenerator.generate(getSpecModel(SimpleNameDelegateGeneratorTest.TestWithoutDelegateSpec.class));
+        assertThat(dataHolder.getMethodSpecs()).hasSize(0);
+    }
+
+    @Test
+    public void testGenerateWithDelegate() {
+        TypeSpecDataHolder dataHolder = SimpleNameDelegateGenerator.generate(getSpecModel(SimpleNameDelegateGeneratorTest.TestWithDelegateSpec.class));
+        assertThat(dataHolder.getMethodSpecs()).hasSize(1);
+        assertThat(dataHolder.getMethodSpecs().get(0).toString()).isEqualTo(("@java.lang.Override\n" + (("protected com.facebook.litho.Component getSimpleNameDelegate() {\n" + "  return delegate;\n") + "}\n")));
+    }
+}
+

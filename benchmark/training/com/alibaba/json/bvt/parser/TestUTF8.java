@@ -1,0 +1,62 @@
+package com.alibaba.json.bvt.parser;
+
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import junit.framework.TestCase;
+import org.junit.Assert;
+
+
+public class TestUTF8 extends TestCase {
+    public void test_utf() throws Exception {
+        JSONObject obj = ((JSONObject) (JSON.parse("{'name':'??'}".getBytes("UTF-8"))));
+        Assert.assertEquals(1, obj.size());
+        Assert.assertEquals("??", obj.get("name"));
+    }
+
+    public void test_utf_cn() throws Exception {
+        String content = "???????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????36???????????";
+        JSONObject json = new JSONObject();
+        json.put("content", content);
+        JSONObject obj = ((JSONObject) (JSON.parse(json.toJSONString().getBytes("UTF-8"))));
+        Assert.assertEquals(1, obj.size());
+        Assert.assertEquals(content, obj.get("content"));
+    }
+
+    public void test_utf_de() throws Exception {
+        String content = "Beim Griechenland-Gipfel gibt es viele Gewinner. Kanzlerin Merkel bekommt die Bankenbeteiligung, Frankreichs Pr\u00e4sident Sarkozy den Aufkauf von Staatsanleihen. \\nEinzig EZB-Pr\u00e4sident Jean-Claude Trichet gilt als Verlierer. Er zog im Machtkampf den K\u00fcrzeren";
+        JSONObject json = new JSONObject();
+        json.put("content", content);
+        JSONObject obj = ((JSONObject) (JSON.parse(json.toJSONString().getBytes("UTF-8"))));
+        Assert.assertEquals(1, obj.size());
+        Assert.assertEquals(content, obj.get("content"));
+    }
+
+    public void test_utf_jp() throws Exception {
+        String content = "?????????????";
+        JSONObject json = new JSONObject();
+        json.put("content", content);
+        JSONObject obj = ((JSONObject) (JSON.parse(json.toJSONString().getBytes("UTF-8"))));
+        Assert.assertEquals(1, obj.size());
+        Assert.assertEquals(content, obj.get("content"));
+    }
+
+    public void test_utf_() throws Exception {
+        String content = "Viel Spa? mit Java 7 und Eclipse!";
+        JSONObject json = new JSONObject();
+        json.put("content", content);
+        JSONObject obj = ((JSONObject) (JSON.parse(json.toJSONString().getBytes("UTF-8"))));
+        Assert.assertEquals(1, obj.size());
+        Assert.assertEquals(content, obj.get("content"));
+    }
+
+    public void test_utf_7() throws Exception {
+        String content = "????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????????";
+        JSONObject json = new JSONObject();
+        json.put("content", content);
+        JSONObject obj = ((JSONObject) (JSON.parse(json.toJSONString().getBytes("UTF-8"))));
+        Assert.assertEquals(1, obj.size());
+        Assert.assertEquals(content, obj.get("content"));
+    }
+}
+

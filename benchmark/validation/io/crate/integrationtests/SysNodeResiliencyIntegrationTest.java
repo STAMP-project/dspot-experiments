@@ -1,0 +1,61 @@
+/**
+ * Licensed to Crate under one or more contributor license agreements.
+ * See the NOTICE file distributed with this work for additional
+ * information regarding copyright ownership.  Crate licenses this file
+ * to you under the Apache License, Version 2.0 (the "License"); you may
+ * not use this file except in compliance with the License.  You may
+ * obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ * implied.  See the License for the specific language governing
+ * permissions and limitations under the License.
+ *
+ * However, if you have executed another commercial license agreement
+ * with Crate these terms will supersede the license and you may use the
+ * software solely pursuant to the terms of the relevant commercial
+ * agreement.
+ */
+package io.crate.integrationtests;
+
+
+import ESIntegTestCase.ClusterScope;
+import org.elasticsearch.test.disruption.NetworkDisruption;
+import org.hamcrest.Matchers;
+import org.junit.Test;
+
+
+@ClusterScope(minNumDataNodes = 2)
+public class SysNodeResiliencyIntegrationTest extends SQLTransportIntegrationTest {
+    /**
+     * Test that basic information from cluster state is used if a sys node
+     * request is timing out
+     */
+    @Test
+    public void testTimingOutNode() throws Exception {
+        // wait until no master cluster state tasks are pending, otherwise this test may fail due to master task timeouts
+        waitNoPendingTasksOnAll();
+        String[] nodeNames = internalCluster().getNodeNames();
+        String n1 = nodeNames[0];
+        String n2 = nodeNames[1];
+        NetworkDisruption partition = new NetworkDisruption(new NetworkDisruption.TwoPartitions(n1, n2), new NetworkDisruption.NetworkUnresponsive());
+        setDisruptionScheme(partition);
+        partition.startDisrupting();
+        try {
+            execute("select version, hostname, id, name from sys.nodes where name = ?", new Object[]{ n2 }, createSessionOnNode(n1));
+            assertThat(response.rowCount(), Matchers.is(1L));
+            assertThat(response.rows()[0][0], Matchers.is(Matchers.nullValue()));
+            assertThat(response.rows()[0][1], Matchers.is(Matchers.nullValue()));
+            assertThat(response.rows()[0][2], Matchers.is(Matchers.notNullValue()));
+            assertThat(response.rows()[0][3], Matchers.is(n2));
+        } finally {
+            partition.stopDisrupting();
+            internalCluster().clearDisruptionScheme(true);
+            waitNoPendingTasksOnAll();
+        }
+    }
+}
+

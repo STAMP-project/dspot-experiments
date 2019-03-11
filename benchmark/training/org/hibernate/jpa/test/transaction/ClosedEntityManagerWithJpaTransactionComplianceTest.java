@@ -1,0 +1,121 @@
+/**
+ * Hibernate, Relational Persistence for Idiomatic Java
+ *
+ * License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+ * See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+ */
+package org.hibernate.jpa.test.transaction;
+
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import org.hamcrest.CoreMatchers;
+import org.hibernate.jpa.test.BaseEntityManagerFunctionalTestCase;
+import org.junit.Assert;
+import org.junit.Test;
+
+
+/**
+ *
+ *
+ * @author Andrea Boriero
+ */
+public class ClosedEntityManagerWithJpaTransactionComplianceTest extends BaseEntityManagerFunctionalTestCase {
+    @Test
+    public void shouldReturnNotNullValueTest() {
+        EntityManager em = createEntityManager();
+        em.close();
+        Assert.assertThat(em.getTransaction(), CoreMatchers.notNullValue());
+    }
+
+    @Test
+    public void testCallTransactionIsActive() {
+        EntityManager em = createEntityManager();
+        em.close();
+        Assert.assertFalse(em.getTransaction().isActive());
+    }
+
+    @Test
+    public void testCallTransactionIsActive2() {
+        EntityManager em = createEntityManager();
+        EntityTransaction transaction = em.getTransaction();
+        em.close();
+        Assert.assertFalse(transaction.isActive());
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void testCallCommit() {
+        EntityManager em = createEntityManager();
+        em.close();
+        em.getTransaction().commit();
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void testCallCommit2() {
+        EntityManager em = createEntityManager();
+        EntityTransaction transaction = em.getTransaction();
+        em.close();
+        transaction.commit();
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void testCallBegin() {
+        EntityManager em = createEntityManager();
+        em.close();
+        em.getTransaction().begin();
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void testCallBegin2() {
+        EntityManager em = createEntityManager();
+        EntityTransaction transaction = em.getTransaction();
+        em.close();
+        transaction.begin();
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void testCallSetRollBackOnly() {
+        EntityManager em = createEntityManager();
+        em.close();
+        em.getTransaction().setRollbackOnly();
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void testCallSetRollBackOnly2() {
+        EntityManager em = createEntityManager();
+        EntityTransaction transaction = em.getTransaction();
+        em.close();
+        transaction.setRollbackOnly();
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void testCallRollBack() {
+        EntityManager em = createEntityManager();
+        em.close();
+        em.getTransaction().rollback();
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void testCallRollBack2() {
+        EntityManager em = createEntityManager();
+        EntityTransaction transaction = em.getTransaction();
+        em.close();
+        transaction.rollback();
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void testCallGetRollBackOnly() {
+        EntityManager em = createEntityManager();
+        em.close();
+        em.getTransaction().getRollbackOnly();
+    }
+
+    @Test(expected = IllegalStateException.class)
+    public void testCallGetRollBackOnly2() {
+        EntityManager em = createEntityManager();
+        EntityTransaction transaction = em.getTransaction();
+        em.close();
+        transaction.getRollbackOnly();
+    }
+}
+

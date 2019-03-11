@@ -1,0 +1,115 @@
+/**
+ * Copyright (c) 2000-present Liferay, Inc. All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
+package com.liferay.adaptive.media.image.internal.util;
+
+
+import AMImageAttribute.AM_IMAGE_ATTRIBUTE_HEIGHT;
+import AMImageAttribute.AM_IMAGE_ATTRIBUTE_WIDTH;
+import StringPool.BLANK;
+import com.liferay.adaptive.media.AMAttribute;
+import com.liferay.adaptive.media.AdaptiveMedia;
+import com.liferay.adaptive.media.exception.AMRuntimeException;
+import com.liferay.adaptive.media.image.internal.configuration.AMImageAttributeMapping;
+import com.liferay.adaptive.media.image.processor.AMImageProcessor;
+import com.liferay.adaptive.media.image.util.AMImageSerializer;
+import com.liferay.portal.kernel.json.JSONFactoryUtil;
+import com.liferay.portal.kernel.json.JSONObject;
+import com.liferay.portal.kernel.test.util.RandomTestUtil;
+import java.io.InputStream;
+import java.net.URI;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+import org.junit.Assert;
+import org.junit.Test;
+import org.mockito.Mockito;
+
+
+/**
+ *
+ *
+ * @author Sergio Gonz?lez
+ */
+public class AMImageSerializerImplTest {
+    @Test
+    public void testDeserialize() throws Exception {
+        JSONObject jsonObject = JSONFactoryUtil.createJSONObject();
+        jsonObject.put("uri", "http://localhost");
+        JSONObject attributesJSONObject = JSONFactoryUtil.createJSONObject();
+        attributesJSONObject.put(AM_IMAGE_ATTRIBUTE_HEIGHT.getName(), "200");
+        attributesJSONObject.put(AM_IMAGE_ATTRIBUTE_WIDTH.getName(), "300");
+        jsonObject.put("attributes", attributesJSONObject);
+        AMImageSerializer amImageSerializer = new AMImageSerializerImpl();
+        InputStream inputStream = Mockito.mock(InputStream.class);
+        AdaptiveMedia<AMImageProcessor> adaptiveMedia = amImageSerializer.deserialize(jsonObject.toString(), () -> inputStream);
+        Assert.assertEquals(new URI("http://localhost"), adaptiveMedia.getURI());
+        Optional<Integer> heightValueOptional = adaptiveMedia.getValueOptional(AM_IMAGE_ATTRIBUTE_HEIGHT);
+        Assert.assertEquals("200", String.valueOf(heightValueOptional.get()));
+        Optional<Integer> widthValueOptional = adaptiveMedia.getValueOptional(AM_IMAGE_ATTRIBUTE_WIDTH);
+        Assert.assertEquals("300", String.valueOf(widthValueOptional.get()));
+    }
+
+    @Test(expected = AMRuntimeException.class)
+    public void testDeserializeInvalidString() throws Exception {
+        String invalidString = RandomTestUtil.randomString();
+        AMImageSerializer amImageSerializer = new AMImageSerializerImpl();
+        InputStream inputStream = Mockito.mock(InputStream.class);
+        amImageSerializer.deserialize(invalidString, () -> inputStream);
+    }
+
+    @Test
+    public void testDeserializeWithEmptyAttributes() throws Exception {
+        JSONObject jsonObject = JSONFactoryUtil.createJSONObject();
+        jsonObject.put("uri", "http://localhost");
+        JSONObject attributesJSONObject = JSONFactoryUtil.createJSONObject();
+        jsonObject.put("attributes", attributesJSONObject);
+        AMImageSerializer amImageSerializer = new AMImageSerializerImpl();
+        InputStream inputStream = Mockito.mock(InputStream.class);
+        AdaptiveMedia<AMImageProcessor> adaptiveMedia = amImageSerializer.deserialize(jsonObject.toString(), () -> inputStream);
+        Assert.assertEquals(new URI("http://localhost"), adaptiveMedia.getURI());
+        Optional<Integer> heightValueOptional = adaptiveMedia.getValueOptional(AM_IMAGE_ATTRIBUTE_HEIGHT);
+        Assert.assertFalse(heightValueOptional.isPresent());
+        Optional<Integer> widthValueOptional = adaptiveMedia.getValueOptional(AM_IMAGE_ATTRIBUTE_WIDTH);
+        Assert.assertFalse(widthValueOptional.isPresent());
+    }
+
+    @Test
+    public void testSerialize() throws Exception {
+        Map<String, String> properties = new HashMap<>();
+        properties.put(AM_IMAGE_ATTRIBUTE_HEIGHT.getName(), "200");
+        properties.put(AM_IMAGE_ATTRIBUTE_WIDTH.getName(), "300");
+        AdaptiveMedia<AMImageProcessor> adaptiveMedia = new com.liferay.adaptive.media.image.internal.processor.AMImage(() -> null, AMImageAttributeMapping.fromProperties(properties), new URI("http://localhost"));
+        AMImageSerializer amImageSerializer = new AMImageSerializerImpl();
+        String serialize = amImageSerializer.serialize(adaptiveMedia);
+        JSONObject jsonObject = JSONFactoryUtil.createJSONObject(serialize);
+        Assert.assertEquals("http://localhost", jsonObject.getString("uri"));
+        JSONObject attributesJSONObject = jsonObject.getJSONObject("attributes");
+        Assert.assertEquals("200", attributesJSONObject.getString(AM_IMAGE_ATTRIBUTE_HEIGHT.getName()));
+        Assert.assertEquals("300", attributesJSONObject.getString(AM_IMAGE_ATTRIBUTE_WIDTH.getName()));
+        AMAttribute<?, Long> contentLengthAMAttribute = AMAttribute.getContentLengthAMAttribute();
+        Assert.assertEquals(BLANK, attributesJSONObject.getString(contentLengthAMAttribute.getName()));
+    }
+
+    @Test
+    public void testSerializeAdaptiveMediaWithEmptyAttributes() throws Exception {
+        Map<String, String> properties = new HashMap<>();
+        AdaptiveMedia<AMImageProcessor> adaptiveMedia = new com.liferay.adaptive.media.image.internal.processor.AMImage(() -> null, AMImageAttributeMapping.fromProperties(properties), new URI("http://localhost"));
+        AMImageSerializer amImageSerializer = new AMImageSerializerImpl();
+        String serialize = amImageSerializer.serialize(adaptiveMedia);
+        JSONObject jsonObject = JSONFactoryUtil.createJSONObject(serialize);
+        JSONObject attributesJSONObject = jsonObject.getJSONObject("attributes");
+        Assert.assertEquals(0, attributesJSONObject.length());
+    }
+}
+

@@ -1,0 +1,256 @@
+/**
+ * This file is part of Graylog.
+ *
+ * Graylog is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Graylog is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Graylog.  If not, see <http://www.gnu.org/licenses/>.
+ */
+package org.graylog2.inputs.extractors;
+
+
+import Extractor.ConditionType;
+import Extractor.CursorStrategy;
+import org.graylog2.ConfigurationException;
+import org.graylog2.plugin.Message;
+import org.graylog2.plugin.Tools;
+import org.junit.Assert;
+import org.junit.Test;
+
+
+public class SplitAndIndexExtractorTest extends AbstractExtractorTest {
+    @Test
+    public void testBasicExtraction() throws Exception {
+        Message msg = new Message("The short message", "TestUnit", Tools.nowUTC());
+        msg.addField("somefield", "<10> 07 Aug 2013 somesubsystem: this is my message for username9001 id:9001");
+        SplitAndIndexExtractor x = new SplitAndIndexExtractor(metricRegistry, "foo", "foo", 0, CursorStrategy.COPY, "somefield", "our_result", SplitAndIndexExtractorTest.config(" ", 4), "foo", AbstractExtractorTest.noConverters(), ConditionType.NONE, null);
+        x.runExtractor(msg);
+        Assert.assertNotNull(msg.getField("our_result"));
+        Assert.assertEquals("<10> 07 Aug 2013 somesubsystem: this is my message for username9001 id:9001", msg.getField("somefield"));
+        Assert.assertEquals("2013", msg.getField("our_result"));
+    }
+
+    @Test
+    public void testBasicExtractionWithSpecialRegexChar() throws Exception {
+        Message msg = new Message("The short message", "TestUnit", Tools.nowUTC());
+        msg.addField("somefield", "foo.bar.baz");
+        SplitAndIndexExtractor x = new SplitAndIndexExtractor(metricRegistry, "foo", "foo", 0, CursorStrategy.COPY, "somefield", "our_result", SplitAndIndexExtractorTest.config(".", 2), "foo", AbstractExtractorTest.noConverters(), ConditionType.NONE, null);
+        x.runExtractor(msg);
+        Assert.assertNotNull(msg.getField("our_result"));
+        Assert.assertEquals("foo.bar.baz", msg.getField("somefield"));
+        Assert.assertEquals("bar", msg.getField("our_result"));
+    }
+
+    @Test
+    public void testBasicExtractionWithCutStrategy() throws Exception {
+        Message msg = new Message("The short message", "TestUnit", Tools.nowUTC());
+        msg.addField("somefield", "<10> 07 Aug 2013 somesubsystem: this is my message for username9001 id:9001");
+        SplitAndIndexExtractor x = new SplitAndIndexExtractor(metricRegistry, "foo", "foo", 0, CursorStrategy.CUT, "somefield", "our_result", SplitAndIndexExtractorTest.config(" ", 4), "foo", AbstractExtractorTest.noConverters(), ConditionType.NONE, null);
+        x.runExtractor(msg);
+        Assert.assertNotNull(msg.getField("our_result"));
+        Assert.assertEquals("<10> 07 Aug  somesubsystem: this is my message for username9001 id:9001", msg.getField("somefield"));
+        Assert.assertEquals("2013", msg.getField("our_result"));
+    }
+
+    @Test
+    public void testBasicExtractionWithCutStrategyCanOverwriteSameField() throws Exception {
+        Message msg = new Message("The short message", "TestUnit", Tools.nowUTC());
+        SplitAndIndexExtractor x = new SplitAndIndexExtractor(metricRegistry, "foo", "foo", 0, CursorStrategy.CUT, "message", "message", SplitAndIndexExtractorTest.config(" ", 2), "foo", AbstractExtractorTest.noConverters(), ConditionType.NONE, null);
+        x.runExtractor(msg);
+        Assert.assertEquals("short", msg.getField("message"));
+    }
+
+    @Test
+    public void testBasicExtractionWithCutStrategyAtEndOfString() throws Exception {
+        Message msg = new Message("The short message", "TestUnit", Tools.nowUTC());
+        msg.addField("somefield", "<10> 07 Aug 2013 somesubsystem: this is my message for username9001 id:9001");
+        SplitAndIndexExtractor x = new SplitAndIndexExtractor(metricRegistry, "foo", "foo", 0, CursorStrategy.CUT, "somefield", "our_result", SplitAndIndexExtractorTest.config(" ", 12), "foo", AbstractExtractorTest.noConverters(), ConditionType.NONE, null);
+        x.runExtractor(msg);
+        Assert.assertNotNull(msg.getField("our_result"));
+        Assert.assertEquals("<10> 07 Aug 2013 somesubsystem: this is my message for username9001", msg.getField("somefield"));
+        Assert.assertEquals("id:9001", msg.getField("our_result"));
+    }
+
+    @Test
+    public void testBasicExtractionDoesNotFailOnTooHighIndex() throws Exception {
+        Message msg = new Message("The short message", "TestUnit", Tools.nowUTC());
+        msg.addField("somefield", "<10> 07 Aug 2013 somesubsystem: this is my message for username9001 id:9001");
+        SplitAndIndexExtractor x = new SplitAndIndexExtractor(metricRegistry, "foo", "foo", 0, CursorStrategy.COPY, "somefield", "our_result", SplitAndIndexExtractorTest.config(" ", 9001), "foo", AbstractExtractorTest.noConverters(), ConditionType.NONE, null);
+        x.runExtractor(msg);
+        Assert.assertNull(msg.getField("our_result"));
+        Assert.assertEquals("<10> 07 Aug 2013 somesubsystem: this is my message for username9001 id:9001", msg.getField("somefield"));
+    }
+
+    @Test
+    public void testBasicExtractionDoesNotFailOnNonExistentSplitChar() throws Exception {
+        Message msg = new Message("The short message", "TestUnit", Tools.nowUTC());
+        msg.addField("somefield", "<10> 07 Aug 2013 somesubsystem: this is my message for username9001 id:9001");
+        SplitAndIndexExtractor x = new SplitAndIndexExtractor(metricRegistry, "foo", "foo", 0, CursorStrategy.COPY, "somefield", "our_result", SplitAndIndexExtractorTest.config("_", 9001), "foo", AbstractExtractorTest.noConverters(), ConditionType.NONE, null);
+        x.runExtractor(msg);
+        Assert.assertNull(msg.getField("our_result"));
+        Assert.assertEquals("<10> 07 Aug 2013 somesubsystem: this is my message for username9001 id:9001", msg.getField("somefield"));
+    }
+
+    @Test
+    public void testBasicExtractionDoesNotFailOnTooHighIndexWithCutStrategy() throws Exception {
+        Message msg = new Message("The short message", "TestUnit", Tools.nowUTC());
+        msg.addField("somefield", "<10> 07 Aug 2013 somesubsystem: this is my message for username9001 id:9001");
+        SplitAndIndexExtractor x = new SplitAndIndexExtractor(metricRegistry, "foo", "foo", 0, CursorStrategy.CUT, "somefield", "our_result", SplitAndIndexExtractorTest.config(" ", 9001), "foo", AbstractExtractorTest.noConverters(), ConditionType.NONE, null);
+        x.runExtractor(msg);
+        Assert.assertNull(msg.getField("our_result"));
+        Assert.assertEquals("<10> 07 Aug 2013 somesubsystem: this is my message for username9001 id:9001", msg.getField("somefield"));
+    }
+
+    @Test
+    public void testBasicExtractionDoesNotFailOnNonExistentSplitCharWithCutStrategy() throws Exception {
+        Message msg = new Message("The short message", "TestUnit", Tools.nowUTC());
+        msg.addField("somefield", "<10> 07 Aug 2013 somesubsystem: this is my message for username9001 id:9001");
+        SplitAndIndexExtractor x = new SplitAndIndexExtractor(metricRegistry, "foo", "foo", 0, CursorStrategy.CUT, "somefield", "our_result", SplitAndIndexExtractorTest.config("_", 9001), "foo", AbstractExtractorTest.noConverters(), ConditionType.NONE, null);
+        x.runExtractor(msg);
+        Assert.assertNull(msg.getField("our_result"));
+        Assert.assertEquals("<10> 07 Aug 2013 somesubsystem: this is my message for username9001 id:9001", msg.getField("somefield"));
+    }
+
+    @Test
+    public void testBasicExtractionWorksWithMultipleSplitChars() throws Exception {
+        Message msg = new Message("The short message", "TestUnit", Tools.nowUTC());
+        msg.addField("somefield", "<10>__07__Aug__2013__somesubsystem:__this__is__my__message__for__username9001__id:9001");
+        SplitAndIndexExtractor x = new SplitAndIndexExtractor(metricRegistry, "foo", "foo", 0, CursorStrategy.COPY, "somefield", "our_result", SplitAndIndexExtractorTest.config("__", 4), "foo", AbstractExtractorTest.noConverters(), ConditionType.NONE, null);
+        x.runExtractor(msg);
+        Assert.assertNotNull(msg.getField("our_result"));
+        Assert.assertEquals("<10>__07__Aug__2013__somesubsystem:__this__is__my__message__for__username9001__id:9001", msg.getField("somefield"));
+        Assert.assertEquals("2013", msg.getField("our_result"));
+    }
+
+    @Test
+    public void testDoesNotFailOnNonExistentSourceField() throws Exception {
+        Message msg = new Message("The short message", "TestUnit", Tools.nowUTC());
+        SplitAndIndexExtractor x = new SplitAndIndexExtractor(metricRegistry, "foo", "foo", 0, CursorStrategy.CUT, "LOLIDONTEXIST", "our_result", SplitAndIndexExtractorTest.config(" ", 4), "foo", AbstractExtractorTest.noConverters(), ConditionType.NONE, null);
+        x.runExtractor(msg);
+    }
+
+    @Test
+    public void testDoesNotFailOnSourceFieldThatIsNotOfTypeString() throws Exception {
+        Message msg = new Message("The short message", "TestUnit", Tools.nowUTC());
+        msg.addField("somefield", 9001);
+        SplitAndIndexExtractor x = new SplitAndIndexExtractor(metricRegistry, "foo", "foo", 0, CursorStrategy.CUT, "somefield", "our_result", SplitAndIndexExtractorTest.config(" ", 4), "foo", AbstractExtractorTest.noConverters(), ConditionType.NONE, null);
+        x.runExtractor(msg);
+    }
+
+    @Test(expected = ConfigurationException.class)
+    public void testDoesNotInitializeOnNullConfigMap() throws Exception {
+        new SplitAndIndexExtractor(metricRegistry, "foo", "foo", 0, CursorStrategy.CUT, "somefield", "somefield", null, "foo", AbstractExtractorTest.noConverters(), ConditionType.NONE, null);
+    }
+
+    @Test(expected = ConfigurationException.class)
+    public void testDoesNotInitializeOnNullSplitChar() throws Exception {
+        new SplitAndIndexExtractor(metricRegistry, "foo", "foo", 0, CursorStrategy.CUT, "somefield", "somefield", SplitAndIndexExtractorTest.config(null, 1), "foo", AbstractExtractorTest.noConverters(), ConditionType.NONE, null);
+    }
+
+    @Test(expected = ConfigurationException.class)
+    public void testDoesNotInitializeOnNullTargetIndex() throws Exception {
+        new SplitAndIndexExtractor(metricRegistry, "foo", "foo", 0, CursorStrategy.CUT, "somefield", "somefield", SplitAndIndexExtractorTest.config("x", null), "foo", AbstractExtractorTest.noConverters(), ConditionType.NONE, null);
+    }
+
+    @Test(expected = ConfigurationException.class)
+    public void testDoesNotInitializeOnNullNullNullNullSupernull() throws Exception {
+        new SplitAndIndexExtractor(metricRegistry, "foo", "foo", 0, CursorStrategy.CUT, "somefield", "somefield", SplitAndIndexExtractorTest.config(null, null), "foo", AbstractExtractorTest.noConverters(), ConditionType.NONE, null);
+    }
+
+    @Test(expected = ConfigurationException.class)
+    public void testDoesNotInitializeOnWrongSplitCharType() throws Exception {
+        new SplitAndIndexExtractor(metricRegistry, "foo", "foo", 0, CursorStrategy.CUT, "somefield", "somefield", SplitAndIndexExtractorTest.config(1, 1), "foo", AbstractExtractorTest.noConverters(), ConditionType.NONE, null);
+    }
+
+    @Test(expected = ConfigurationException.class)
+    public void testDoesNotInitializeOnWrongTargetIndex() throws Exception {
+        new SplitAndIndexExtractor(metricRegistry, "foo", "foo", 0, CursorStrategy.CUT, "somefield", "somefield", SplitAndIndexExtractorTest.config("x", "foo"), "foo", AbstractExtractorTest.noConverters(), ConditionType.NONE, null);
+    }
+
+    @Test
+    public void testCutIndices() throws Exception {
+        int[] result = SplitAndIndexExtractor.getCutIndices("<10> 07 Aug 2013 somesubsystem: this is my message for username9001 id:9001", " ", 3);
+        Assert.assertEquals(12, result[0]);
+        Assert.assertEquals(16, result[1]);
+    }
+
+    @Test
+    public void testCutIndicesWithLastToken() throws Exception {
+        String s = "<10> 07 Aug 2013 somesubsystem";
+        int[] result = SplitAndIndexExtractor.getCutIndices(s, " ", 4);
+        Assert.assertEquals(17, result[0]);
+        Assert.assertEquals(s.length(), result[1]);
+    }
+
+    @Test
+    public void testCutIndicesWithFirstToken() throws Exception {
+        String s = "<10> 07 Aug 2013 somesubsystem";
+        int[] result = SplitAndIndexExtractor.getCutIndices(s, " ", 0);
+        Assert.assertEquals(0, result[0]);
+        Assert.assertEquals(4, result[1]);
+    }
+
+    @Test
+    public void testCutIndicesReturnsZeroesOnInvalidBoundaries() throws Exception {
+        int[] result = SplitAndIndexExtractor.getCutIndices("<10> 07 Aug 2013 somesubsystem: this is my message for username9001 id:9001", " ", 9001);
+        Assert.assertEquals(0, result[0]);
+        Assert.assertEquals(0, result[1]);
+    }
+
+    @Test
+    public void testDoesNotRunWhenRegexConditionFails() throws Exception {
+        Message msg = new Message("The short message", "TestUnit", Tools.nowUTC());
+        msg.addField("somefield", "<10> 07 Aug 2013 somesubsystem: this is my message for username9001 id:9001");
+        SplitAndIndexExtractor x = new SplitAndIndexExtractor(metricRegistry, "foo", "foo", 0, CursorStrategy.COPY, "somefield", "our_result", SplitAndIndexExtractorTest.config(" ", 3), "foo", AbstractExtractorTest.noConverters(), ConditionType.REGEX, "^XXX");
+        x.runExtractor(msg);
+        Assert.assertNull(msg.getField("our_result"));
+        Assert.assertEquals("<10> 07 Aug 2013 somesubsystem: this is my message for username9001 id:9001", msg.getField("somefield"));
+    }
+
+    @Test
+    public void testDoesNotRunWhenStringConditionFails() throws Exception {
+        Message msg = new Message("The short message", "TestUnit", Tools.nowUTC());
+        msg.addField("somefield", "<10> 07 Aug 2013 somesubsystem: this is my message for username9001 id:9001");
+        SplitAndIndexExtractor x = new SplitAndIndexExtractor(metricRegistry, "foo", "foo", 0, CursorStrategy.COPY, "somefield", "our_result", SplitAndIndexExtractorTest.config(" ", 3), "foo", AbstractExtractorTest.noConverters(), ConditionType.STRING, "FOOBAR");
+        x.runExtractor(msg);
+        Assert.assertNull(msg.getField("our_result"));
+        Assert.assertEquals("<10> 07 Aug 2013 somesubsystem: this is my message for username9001 id:9001", msg.getField("somefield"));
+    }
+
+    @Test
+    public void testDoesNotCutFromStandardFields() throws Exception {
+        Message msg = new Message("The short message", "TestUnit", Tools.nowUTC());
+        SplitAndIndexExtractor x = new SplitAndIndexExtractor(metricRegistry, "foo", "foo", 0, CursorStrategy.CUT, "message", "our_result", SplitAndIndexExtractorTest.config(" ", 1), "foo", AbstractExtractorTest.noConverters(), ConditionType.NONE, null);
+        x.runExtractor(msg);
+        // Would be cut to "short message" if cutting from standard field was allowed.
+        Assert.assertEquals("The short message", msg.getField("message"));
+    }
+
+    @Test
+    public void testCutChecksBounds() throws Exception {
+        String result = SplitAndIndexExtractor.cut("foobar", " ", 1);
+        Assert.assertNull(result);
+    }
+
+    @Test
+    public void testCutWorksWithNull() throws Exception {
+        Assert.assertNull(SplitAndIndexExtractor.cut(null, " ", 1));
+        Assert.assertNull(SplitAndIndexExtractor.cut("foobar", null, 1));
+        Assert.assertNull(SplitAndIndexExtractor.cut("foobar", " ", (-1)));
+    }
+
+    @Test
+    public void testCutReturnsCorrectPart() throws Exception {
+        String result = SplitAndIndexExtractor.cut("foobar foobaz quux", " ", 2);
+        Assert.assertEquals("quux", result);
+    }
+}
+

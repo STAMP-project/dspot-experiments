@@ -1,0 +1,73 @@
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+package com.facebook.imagepipeline.memory;
+
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
+
+
+/**
+ * Basic tests for GenericByteArrayPool
+ */
+@RunWith(RobolectricTestRunner.class)
+public class GenericByteArrayPoolTest {
+    private GenericByteArrayPool mPool;
+
+    // Test out the alloc method
+    @Test
+    public void testAlloc() throws Exception {
+        Assert.assertEquals(1, mPool.alloc(1).length);
+        Assert.assertEquals(33, mPool.alloc(33).length);
+        Assert.assertEquals(32, mPool.alloc(32).length);
+    }
+
+    // tests out the getBucketedSize method
+    @Test
+    public void testGetBucketedSize() throws Exception {
+        Assert.assertEquals(32, mPool.getBucketedSize(1));
+        Assert.assertEquals(32, mPool.getBucketedSize(32));
+        Assert.assertEquals(64, mPool.getBucketedSize(33));
+        Assert.assertEquals(64, mPool.getBucketedSize(64));
+        Assert.assertEquals(128, mPool.getBucketedSize(69));
+        // value larger than max bucket
+        Assert.assertEquals(129, mPool.getBucketedSize(129));
+        int[] invalidSizes = new int[]{ -1, 0 };
+        for (int size : invalidSizes) {
+            try {
+                mPool.getBucketedSize(size);
+                Assert.fail();
+            } catch (BasePool e) {
+                // do nothing
+            }
+        }
+    }
+
+    // tests out the getBucketedSizeForValue method
+    @Test
+    public void testGetBucketedSizeForValue() throws Exception {
+        Assert.assertEquals(32, mPool.getBucketedSizeForValue(new byte[32]));
+        Assert.assertEquals(64, mPool.getBucketedSizeForValue(new byte[64]));
+        Assert.assertEquals(128, mPool.getBucketedSizeForValue(new byte[128]));
+        // test with non-bucket values
+        Assert.assertEquals(1, mPool.getBucketedSizeForValue(new byte[1]));
+        Assert.assertEquals(129, mPool.getBucketedSizeForValue(new byte[129]));
+        Assert.assertEquals(31, mPool.getBucketedSizeForValue(new byte[31]));
+    }
+
+    @Test
+    public void testGetSizeInBytes() throws Exception {
+        Assert.assertEquals(1, mPool.getSizeInBytes(1));
+        Assert.assertEquals(32, mPool.getSizeInBytes(32));
+        Assert.assertEquals(33, mPool.getSizeInBytes(33));
+        Assert.assertEquals(64, mPool.getSizeInBytes(64));
+        Assert.assertEquals(69, mPool.getSizeInBytes(69));
+    }
+}
+

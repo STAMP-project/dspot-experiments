@@ -1,0 +1,162 @@
+package com.baeldung.protonpack;
+
+
+import com.codepoetics.protonpack.Indexed;
+import com.codepoetics.protonpack.StreamUtils;
+import com.codepoetics.protonpack.collectors.CollectorUtils;
+import com.codepoetics.protonpack.collectors.NonUniqueValueException;
+import com.codepoetics.protonpack.selectors.Selectors;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+import java.util.function.UnaryOperator;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import org.junit.Test;
+
+
+public class ProtonpackUnitTest {
+    @Test
+    public void whenTakeWhile_thenTakenWhile() {
+        Stream<Integer> streamOfInt = Stream.iterate(1, ( i) -> i + 1);
+        List<Integer> result = StreamUtils.takeWhile(streamOfInt, ( i) -> i < 5).collect(Collectors.toList());
+        assertThat(result).contains(1, 2, 3, 4);
+    }
+
+    @Test
+    public void whenTakeUntil_thenTakenUntil() {
+        Stream<Integer> streamOfInt = Stream.iterate(1, ( i) -> i + 1);
+        List<Integer> result = StreamUtils.takeUntil(streamOfInt, ( i) -> i > 50).collect(Collectors.toList());
+        assertThat(result).contains(10, 20, 30, 40);
+    }
+
+    @Test
+    public void givenMultipleStream_whenZipped_thenZipped() {
+        String[] clubs = new String[]{ "Juventus", "Barcelona", "Liverpool", "PSG" };
+        String[] players = new String[]{ "Ronaldo", "Messi", "Salah" };
+        Set<String> zippedFrom2Sources = StreamUtils.zip(Arrays.stream(clubs), Arrays.stream(players), ( club, player) -> (club + " ") + player).collect(Collectors.toSet());
+        assertThat(zippedFrom2Sources).contains("Juventus Ronaldo", "Barcelona Messi", "Liverpool Salah");
+        String[] leagues = new String[]{ "Serie A", "La Liga", "Premier League" };
+        Set<String> zippedFrom3Sources = StreamUtils.zip(Arrays.stream(clubs), Arrays.stream(players), Arrays.stream(leagues), ( club, player, league) -> (((club + " ") + player) + " ") + league).collect(Collectors.toSet());
+        assertThat(zippedFrom3Sources).contains("Juventus Ronaldo Serie A", "Barcelona Messi La Liga", "Liverpool Salah Premier League");
+    }
+
+    @Test
+    public void whenZippedWithIndex_thenZippedWithIndex() {
+        Stream<String> streamOfClubs = Stream.of("Juventus", "Barcelona", "Liverpool");
+        Set<Indexed<String>> zipsWithIndex = StreamUtils.zipWithIndex(streamOfClubs).collect(Collectors.toSet());
+        assertThat(zipsWithIndex).contains(Indexed.index(0, "Juventus"), Indexed.index(1, "Barcelona"), Indexed.index(2, "Liverpool"));
+    }
+
+    @Test
+    public void givenMultipleStream_whenMerged_thenMerged() {
+        Stream<String> streamOfClubs = Stream.of("Juventus", "Barcelona", "Liverpool", "PSG");
+        Stream<String> streamOfPlayers = Stream.of("Ronaldo", "Messi", "Salah");
+        Stream<String> streamOfLeagues = Stream.of("Serie A", "La Liga", "Premier League");
+        Set<String> merged = StreamUtils.merge(() -> "", ( valOne, valTwo) -> (valOne + " ") + valTwo, streamOfClubs, streamOfPlayers, streamOfLeagues).collect(Collectors.toSet());
+        assertThat(merged).contains(" Juventus Ronaldo Serie A", " Barcelona Messi La Liga", " Liverpool Salah Premier League", " PSG");
+    }
+
+    @Test
+    public void givenMultipleStream_whenMergedToList_thenMergedToList() {
+        Stream<String> streamOfClubs = Stream.of("Juventus", "Barcelona", "PSG");
+        Stream<String> streamOfPlayers = Stream.of("Ronaldo", "Messi");
+        List<List<String>> mergedListOfList = StreamUtils.mergeToList(streamOfClubs, streamOfPlayers).collect(Collectors.toList());
+        assertThat(mergedListOfList.get(0)).isInstanceOf(List.class);
+        assertThat(mergedListOfList.get(0)).containsExactly("Juventus", "Ronaldo");
+        assertThat(mergedListOfList.get(1)).containsExactly("Barcelona", "Messi");
+        assertThat(mergedListOfList.get(2)).containsExactly("PSG");
+    }
+
+    @Test
+    public void givenMultipleStream_whenInterleaved_thenInterleaved() {
+        Stream<String> streamOfClubs = Stream.of("Juventus", "Barcelona", "Liverpool");
+        Stream<String> streamOfPlayers = Stream.of("Ronaldo", "Messi");
+        Stream<String> streamOfLeagues = Stream.of("Serie A", "La Liga");
+        List<String> interleavedList = StreamUtils.interleave(Selectors.roundRobin(), streamOfClubs, streamOfPlayers, streamOfLeagues).collect(Collectors.toList());
+        assertThat(interleavedList).hasSize(7).containsExactly("Juventus", "Ronaldo", "Serie A", "Barcelona", "Messi", "La Liga", "Liverpool");
+    }
+
+    @Test
+    public void whenSkippedUntil_thenSkippedUntil() {
+        Integer[] numbers = new Integer[]{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        List<Integer> skippedUntilGreaterThan5 = StreamUtils.skipUntil(Arrays.stream(numbers), ( i) -> i > 5).collect(Collectors.toList());
+        assertThat(skippedUntilGreaterThan5).containsExactly(6, 7, 8, 9, 10);
+        List<Integer> skippedUntilLessThanEquals5 = StreamUtils.skipUntil(Arrays.stream(numbers), ( i) -> i <= 5).collect(Collectors.toList());
+        assertThat(skippedUntilLessThanEquals5).containsExactly(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+    }
+
+    @Test
+    public void whenSkippedWhile_thenSkippedWhile() {
+        Integer[] numbers = new Integer[]{ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        List<Integer> skippedWhileLessThanEquals5 = StreamUtils.skipWhile(Arrays.stream(numbers), ( i) -> i <= 5).collect(Collectors.toList());
+        assertThat(skippedWhileLessThanEquals5).containsExactly(6, 7, 8, 9, 10);
+        List<Integer> skippedWhileGreaterThan5 = StreamUtils.skipWhile(Arrays.stream(numbers), ( i) -> i > 5).collect(Collectors.toList());
+        assertThat(skippedWhileGreaterThan5).containsExactly(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+    }
+
+    @Test
+    public void givenFibonacciGenerator_whenUnfolded_thenUnfolded() {
+        Stream<Integer> unfolded = StreamUtils.unfold(2, ( i) -> i < 100 ? Optional.of((i * i)) : Optional.empty());
+        assertThat(unfolded.collect(Collectors.toList())).containsExactly(2, 4, 16, 256);
+    }
+
+    @Test
+    public void whenWindowed_thenWindowed() {
+        Integer[] numbers = new Integer[]{ 1, 2, 3, 4, 5, 6, 7 };
+        List<List<Integer>> windowedWithSkip1 = StreamUtils.windowed(Arrays.stream(numbers), 3, 1).collect(Collectors.toList());
+        assertThat(windowedWithSkip1).containsExactly(Arrays.asList(1, 2, 3), Arrays.asList(2, 3, 4), Arrays.asList(3, 4, 5), Arrays.asList(4, 5, 6), Arrays.asList(5, 6, 7));
+        List<List<Integer>> windowedWithSkip2 = StreamUtils.windowed(Arrays.stream(numbers), 3, 2).collect(Collectors.toList());
+        assertThat(windowedWithSkip2).containsExactly(Arrays.asList(1, 2, 3), Arrays.asList(3, 4, 5), Arrays.asList(5, 6, 7));
+    }
+
+    @Test
+    public void whenAggregated_thenAggregated() {
+        Integer[] numbers = new Integer[]{ 1, 2, 2, 3, 4, 4, 4, 5 };
+        List<List<Integer>> aggregated = StreamUtils.aggregate(Arrays.stream(numbers), ( int1, int2) -> (int1.compareTo(int2)) == 0).collect(Collectors.toList());
+        assertThat(aggregated).containsExactly(Arrays.asList(1), Arrays.asList(2, 2), Arrays.asList(3), Arrays.asList(4, 4, 4), Arrays.asList(5));
+        List<List<Integer>> aggregatedFixSize = StreamUtils.aggregate(Arrays.stream(numbers), 5).collect(Collectors.toList());
+        assertThat(aggregatedFixSize).containsExactly(Arrays.asList(1, 2, 2, 3, 4), Arrays.asList(4, 4, 5));
+    }
+
+    @Test
+    public void whenGroupedRun_thenGroupedRun() {
+        Integer[] numbers = new Integer[]{ 1, 1, 2, 3, 4, 4, 5 };
+        List<List<Integer>> grouped = StreamUtils.groupRuns(Arrays.stream(numbers)).collect(Collectors.toList());
+        assertThat(grouped).containsExactly(Arrays.asList(1, 1), Arrays.asList(2), Arrays.asList(3), Arrays.asList(4, 4), Arrays.asList(5));
+        Integer[] numbers2 = new Integer[]{ 1, 2, 3, 1 };
+        List<List<Integer>> grouped2 = StreamUtils.groupRuns(Arrays.stream(numbers2)).collect(Collectors.toList());
+        assertThat(grouped2).containsExactly(Arrays.asList(1), Arrays.asList(2), Arrays.asList(3), Arrays.asList(1));
+    }
+
+    @Test
+    public void whenAggregatedOnListCondition_thenAggregatedOnListCondition() {
+        Integer[] numbers = new Integer[]{ 1, 1, 2, 3, 4, 4, 5 };
+        Stream<List<Integer>> aggregated = StreamUtils.aggregateOnListCondition(Arrays.stream(numbers), ( currentList, nextInt) -> ((currentList.stream().mapToInt(Integer::intValue).sum()) + nextInt) <= 5);
+        assertThat(aggregated).containsExactly(Arrays.asList(1, 1, 2), Arrays.asList(3), Arrays.asList(4), Arrays.asList(4), Arrays.asList(5));
+    }
+
+    @Test
+    public void givenProjectionFunction_whenMaxedBy_thenMaxedBy() {
+        Stream<String> clubs = Stream.of("Juventus", "Barcelona", "PSG");
+        Optional<String> longestName = clubs.collect(CollectorUtils.maxBy(String::length));
+        assertThat(longestName).contains("Barcelona");
+    }
+
+    @Test
+    public void givenStreamOfMultipleElem_whenUniqueCollector_thenValueReturned() {
+        Stream<Integer> singleElement = Stream.of(1);
+        Optional<Integer> unique = singleElement.collect(CollectorUtils.unique());
+        assertThat(unique).contains(1);
+    }
+
+    @Test
+    public void givenStreamOfMultipleElem_whenUniqueCollector_thenExceptionThrown() {
+        Stream<Integer> multipleElement = Stream.of(1, 2, 3);
+        assertThatExceptionOfType(NonUniqueValueException.class).isThrownBy(() -> {
+            multipleElement.collect(CollectorUtils.unique());
+        });
+    }
+}
+

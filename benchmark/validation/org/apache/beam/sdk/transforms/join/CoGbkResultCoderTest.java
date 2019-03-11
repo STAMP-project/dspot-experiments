@@ -1,0 +1,74 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.beam.sdk.transforms.join;
+
+
+import GlobalWindow.Coder.INSTANCE;
+import org.apache.beam.sdk.coders.BigEndianIntegerCoder;
+import org.apache.beam.sdk.coders.DoubleCoder;
+import org.apache.beam.sdk.coders.StringUtf8Coder;
+import org.apache.beam.sdk.coders.VarIntCoder;
+import org.apache.beam.sdk.testing.CoderProperties;
+import org.apache.beam.sdk.transforms.join.CoGbkResult.CoGbkResultCoder;
+import org.apache.beam.sdk.values.TupleTagList;
+import org.apache.beam.vendor.guava.v20_0.com.google.common.collect.ImmutableList;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
+
+
+/**
+ * Tests the CoGbkResult.CoGbkResultCoder.
+ */
+@RunWith(JUnit4.class)
+public class CoGbkResultCoderTest {
+    private static final CoGbkResultSchema TEST_SCHEMA = new CoGbkResultSchema(TupleTagList.of(new org.apache.beam.sdk.values.TupleTag<String>()).and(new org.apache.beam.sdk.values.TupleTag<Integer>()));
+
+    private static final UnionCoder TEST_UNION_CODER = UnionCoder.of(ImmutableList.of(StringUtf8Coder.of(), VarIntCoder.of()));
+
+    private static final UnionCoder COMPATIBLE_UNION_CODER = UnionCoder.of(ImmutableList.of(StringUtf8Coder.of(), BigEndianIntegerCoder.of()));
+
+    private static final CoGbkResultSchema INCOMPATIBLE_SCHEMA = new CoGbkResultSchema(TupleTagList.of(new org.apache.beam.sdk.values.TupleTag<String>()).and(new org.apache.beam.sdk.values.TupleTag<Double>()));
+
+    private static final UnionCoder INCOMPATIBLE_UNION_CODER = UnionCoder.of(ImmutableList.of(StringUtf8Coder.of(), DoubleCoder.of()));
+
+    private static final CoGbkResultCoder TEST_CODER = CoGbkResultCoder.of(CoGbkResultCoderTest.TEST_SCHEMA, CoGbkResultCoderTest.TEST_UNION_CODER);
+
+    private static final CoGbkResultCoder COMPATIBLE_TEST_CODER = CoGbkResultCoder.of(CoGbkResultCoderTest.TEST_SCHEMA, CoGbkResultCoderTest.COMPATIBLE_UNION_CODER);
+
+    private static final CoGbkResultCoder INCOMPATIBLE_TEST_CODER = CoGbkResultCoder.of(CoGbkResultCoderTest.INCOMPATIBLE_SCHEMA, CoGbkResultCoderTest.INCOMPATIBLE_UNION_CODER);
+
+    @Test
+    public void testEquals() {
+        Assert.assertFalse(CoGbkResultCoderTest.TEST_CODER.equals(new Object()));
+        Assert.assertFalse(CoGbkResultCoderTest.TEST_CODER.equals(CoGbkResultCoderTest.COMPATIBLE_TEST_CODER));
+        Assert.assertFalse(CoGbkResultCoderTest.TEST_CODER.equals(CoGbkResultCoderTest.INCOMPATIBLE_TEST_CODER));
+    }
+
+    @Test
+    public void testCoderIsSerialiable() {
+        CoderProperties.coderSerializable(CoGbkResultCoderTest.TEST_CODER);
+    }
+
+    @Test
+    public void testCoderIsSerializableWithWellKnownCoderType() {
+        CoderProperties.coderSerializable(CoGbkResultCoder.of(CoGbkResultSchema.of(ImmutableList.of(new org.apache.beam.sdk.values.TupleTag<org.apache.beam.sdk.transforms.windowing.GlobalWindow>())), UnionCoder.of(ImmutableList.of(INSTANCE))));
+    }
+}
+

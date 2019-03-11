@@ -1,0 +1,131 @@
+/**
+ * Licensed to CRATE Technology GmbH ("Crate") under one or more contributor
+ * license agreements.  See the NOTICE file distributed with this work for
+ * additional information regarding copyright ownership.  Crate licenses
+ * this file to you under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.  You may
+ * obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * However, if you have executed another commercial license agreement
+ * with Crate these terms will supersede the license and you may use the
+ * software solely pursuant to the terms of the relevant commercial agreement.
+ */
+package io.crate.breaker;
+
+
+import CrateCircuitBreakerService.BREAKING_EXCEPTION_MESSAGE;
+import CrateCircuitBreakerService.JOBS_LOG;
+import CrateCircuitBreakerService.JOBS_LOG_CIRCUIT_BREAKER_LIMIT_SETTING;
+import CrateCircuitBreakerService.OPERATIONS_LOG;
+import CrateCircuitBreakerService.OPERATIONS_LOG_CIRCUIT_BREAKER_LIMIT_SETTING;
+import CrateCircuitBreakerService.QUERY;
+import CrateCircuitBreakerService.QUERY_CIRCUIT_BREAKER_LIMIT_SETTING;
+import CrateCircuitBreakerService.QUERY_CIRCUIT_BREAKER_OVERHEAD_SETTING;
+import io.crate.test.integration.CrateUnitTest;
+import java.util.Locale;
+import org.elasticsearch.common.breaker.CircuitBreaker;
+import org.elasticsearch.common.settings.ClusterSettings;
+import org.elasticsearch.common.settings.Settings;
+import org.elasticsearch.common.unit.ByteSizeValue;
+import org.elasticsearch.indices.breaker.CircuitBreakerService;
+import org.elasticsearch.indices.breaker.CircuitBreakerStats;
+import org.hamcrest.Matchers;
+import org.junit.Test;
+import org.mockito.ArgumentMatchers;
+import org.mockito.Mockito;
+
+
+public class CrateCircuitBreakerServiceTest extends CrateUnitTest {
+    private ClusterSettings clusterSettings;
+
+    @Test
+    public void testQueryCircuitBreakerRegistration() throws Exception {
+        CircuitBreakerService esBreakerService = new org.elasticsearch.indices.breaker.HierarchyCircuitBreakerService(Settings.EMPTY, clusterSettings);
+        CrateCircuitBreakerService breakerService = new CrateCircuitBreakerService(Settings.EMPTY, clusterSettings, esBreakerService);
+        CircuitBreaker breaker = breakerService.getBreaker(QUERY);
+        assertThat(breaker, Matchers.notNullValue());
+        assertThat(breaker, Matchers.instanceOf(CircuitBreaker.class));
+        assertThat(breaker.getName(), Matchers.is(QUERY));
+    }
+
+    @Test
+    public void testQueryCircuitBreakerDynamicSettings() throws Exception {
+        CircuitBreakerService esBreakerService = new org.elasticsearch.indices.breaker.HierarchyCircuitBreakerService(Settings.EMPTY, clusterSettings);
+        CrateCircuitBreakerService breakerService = new CrateCircuitBreakerService(Settings.EMPTY, clusterSettings, esBreakerService);
+        Settings newSettings = Settings.builder().put(QUERY_CIRCUIT_BREAKER_OVERHEAD_SETTING.getKey(), 2.0).build();
+        clusterSettings.applySettings(newSettings);
+        CircuitBreaker breaker = breakerService.getBreaker(QUERY);
+        assertThat(breaker, Matchers.notNullValue());
+        assertThat(breaker, Matchers.instanceOf(CircuitBreaker.class));
+        assertThat(breaker.getOverhead(), Matchers.is(2.0));
+    }
+
+    @Test
+    public void testQueryBreakerAssignment() throws Exception {
+        Settings settings = Settings.builder().put(QUERY_CIRCUIT_BREAKER_LIMIT_SETTING.getKey(), "10m").put(QUERY_CIRCUIT_BREAKER_OVERHEAD_SETTING.getKey(), 1.0).build();
+        CircuitBreakerService esBreakerService = Mockito.spy(new org.elasticsearch.indices.breaker.HierarchyCircuitBreakerService(Settings.EMPTY, clusterSettings));
+        CrateCircuitBreakerService breakerService = new CrateCircuitBreakerService(settings, clusterSettings, esBreakerService);
+        CircuitBreaker breaker = breakerService.getBreaker(QUERY);
+        assertThat(breaker.getLimit(), Matchers.is(10485760L));
+        assertThat(breaker.getOverhead(), Matchers.is(1.0));
+        Settings newSettings = Settings.builder().put(QUERY_CIRCUIT_BREAKER_LIMIT_SETTING.getKey(), "100m").put(QUERY_CIRCUIT_BREAKER_OVERHEAD_SETTING.getKey(), 2.0).build();
+        clusterSettings.applySettings(newSettings);
+        // expecting 4 times because registerBreaker() is also called from constructor of CrateCircuitBreakerService 3 times
+        Mockito.verify(esBreakerService, Mockito.times(4)).registerBreaker(org.mockito.Matchers.any());
+        breaker = breakerService.getBreaker(QUERY);
+        assertThat(breaker.getLimit(), Matchers.is(104857600L));
+        assertThat(breaker.getOverhead(), Matchers.is(2.0));
+        // updating with same settings should not register a new breaker
+        clusterSettings.applySettings(newSettings);
+        Mockito.verify(esBreakerService, Mockito.times(4)).registerBreaker(org.mockito.Matchers.any());
+    }
+
+    @Test
+    public void testStatsBreakerAssignment() throws Exception {
+        Settings settings = Settings.builder().put(JOBS_LOG_CIRCUIT_BREAKER_LIMIT_SETTING.getKey(), "10m").put(OPERATIONS_LOG_CIRCUIT_BREAKER_LIMIT_SETTING.getKey(), "10m").build();
+        CircuitBreakerService esBreakerService = Mockito.spy(new org.elasticsearch.indices.breaker.HierarchyCircuitBreakerService(Settings.EMPTY, clusterSettings));
+        CrateCircuitBreakerService breakerService = new CrateCircuitBreakerService(settings, clusterSettings, esBreakerService);
+        CircuitBreaker breaker;
+        breaker = breakerService.getBreaker(JOBS_LOG);
+        assertThat(breaker.getLimit(), Matchers.is(10485760L));
+        breaker = breakerService.getBreaker(OPERATIONS_LOG);
+        assertThat(breaker.getLimit(), Matchers.is(10485760L));
+        Settings newSettings = Settings.builder().put(JOBS_LOG_CIRCUIT_BREAKER_LIMIT_SETTING.getKey(), "100m").put(OPERATIONS_LOG_CIRCUIT_BREAKER_LIMIT_SETTING.getKey(), "100m").build();
+        clusterSettings.applySettings(newSettings);
+        // expecting 5 times because registerBreaker() is also called from constructor of CrateCircuitBreakerService 3 times
+        // and twice from the new settings
+        Mockito.verify(esBreakerService, Mockito.times(5)).registerBreaker(org.mockito.Matchers.any());
+        breaker = breakerService.getBreaker(JOBS_LOG);
+        assertThat(breaker.getLimit(), Matchers.is(104857600L));
+        breaker = breakerService.getBreaker(OPERATIONS_LOG);
+        assertThat(breaker.getLimit(), Matchers.is(104857600L));
+        // updating with same settings should not register a new breaker
+        clusterSettings.applySettings(newSettings);
+        Mockito.verify(esBreakerService, Mockito.times(5)).registerBreaker(org.mockito.Matchers.any());
+    }
+
+    @Test
+    public void testBreakingExceptionMessage() throws Exception {
+        String message = CrateCircuitBreakerService.breakingExceptionMessage("dummy", 1234);
+        assertThat(message, Matchers.is(String.format(Locale.ENGLISH, BREAKING_EXCEPTION_MESSAGE, "dummy", 1234, new ByteSizeValue(1234))));
+    }
+
+    @Test
+    public void testStats() throws Exception {
+        CircuitBreakerService esBreakerService = new org.elasticsearch.indices.breaker.HierarchyCircuitBreakerService(Settings.EMPTY, clusterSettings);
+        CrateCircuitBreakerService breakerService = new CrateCircuitBreakerService(Settings.EMPTY, clusterSettings, esBreakerService);
+        CircuitBreakerStats[] stats = breakerService.stats().getAllStats();
+        assertThat(stats.length, Matchers.is(8));
+        CircuitBreakerStats queryBreakerStats = breakerService.stats(QUERY);
+        assertThat(queryBreakerStats.getEstimated(), Matchers.is(0L));
+    }
+}
+

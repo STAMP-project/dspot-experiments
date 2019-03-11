@@ -1,0 +1,315 @@
+/**
+ * Licensed to CRATE Technology GmbH ("Crate") under one or more contributor
+ * license agreements.  See the NOTICE file distributed with this work for
+ * additional information regarding copyright ownership.  Crate licenses
+ * this file to you under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.  You may
+ * obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * However, if you have executed another commercial license agreement
+ * with Crate these terms will supersede the license and you may use the
+ * software solely pursuant to the terms of the relevant commercial agreement.
+ */
+package io.crate.analyze.expressions;
+
+
+import AnyLikeOperator.LIKE;
+import AnyOperators.Names.EQ;
+import DataTypes.INTEGER;
+import DataTypes.LONG;
+import DataTypes.SHORT;
+import EqOperator.NAME;
+import Literal.BOOLEAN_FALSE;
+import Literal.BOOLEAN_TRUE;
+import Option.ALLOW_QUOTED_SUBSCRIPT;
+import com.google.common.collect.ImmutableList;
+import com.google.common.collect.ImmutableMap;
+import io.crate.action.sql.SessionContext;
+import io.crate.analyze.ParamTypeHints;
+import io.crate.analyze.relations.AnalyzedRelation;
+import io.crate.analyze.relations.ParentRelations;
+import io.crate.analyze.relations.TableRelation;
+import io.crate.auth.user.User;
+import io.crate.exceptions.ConversionException;
+import io.crate.expression.scalar.conditional.CoalesceFunction;
+import io.crate.expression.symbol.Field;
+import io.crate.expression.symbol.Function;
+import io.crate.expression.symbol.ParameterSymbol;
+import io.crate.expression.symbol.Symbol;
+import io.crate.metadata.ColumnIdent;
+import io.crate.metadata.CoordinatorTxnCtx;
+import io.crate.metadata.Functions;
+import io.crate.metadata.RelationName;
+import io.crate.metadata.RowGranularity;
+import io.crate.metadata.table.TableInfo;
+import io.crate.sql.parser.SqlParser;
+import io.crate.sql.tree.FunctionCall;
+import io.crate.sql.tree.LongLiteral;
+import io.crate.sql.tree.QualifiedName;
+import io.crate.sql.tree.StringLiteral;
+import io.crate.test.integration.CrateDummyClusterServiceUnitTest;
+import io.crate.testing.SQLExecutor;
+import io.crate.testing.SqlExpressions;
+import io.crate.testing.SymbolMatchers;
+import io.crate.testing.T3;
+import io.crate.testing.TestingHelpers;
+import io.crate.types.DataTypes;
+import java.util.Collections;
+import java.util.EnumSet;
+import java.util.Map;
+import org.hamcrest.Matchers;
+import org.junit.Test;
+import org.mockito.Mockito;
+
+
+/**
+ * Additional tests for the ExpressionAnalyzer.
+ * Most of the remaining stuff is tested via {@link io.crate.analyze.SelectStatementAnalyzerTest} and other *AnalyzerTest classes.
+ */
+public class ExpressionAnalyzerTest extends CrateDummyClusterServiceUnitTest {
+    private ImmutableMap<QualifiedName, AnalyzedRelation> dummySources;
+
+    private CoordinatorTxnCtx coordinatorTxnCtx;
+
+    private ExpressionAnalysisContext context;
+
+    private ParamTypeHints paramTypeHints;
+
+    private Functions functions;
+
+    private SQLExecutor executor;
+
+    private SqlExpressions expressions;
+
+    @Test
+    public void testUnsupportedExpressionCurrentDate() throws Exception {
+        expectedException.expect(UnsupportedOperationException.class);
+        expectedException.expectMessage("Unsupported expression current_time");
+        SessionContext sessionContext = SessionContext.systemSessionContext();
+        ExpressionAnalyzer expressionAnalyzer = new ExpressionAnalyzer(functions, coordinatorTxnCtx, paramTypeHints, new io.crate.analyze.relations.FullQualifiedNameFieldProvider(dummySources, ParentRelations.NO_PARENTS, sessionContext.searchPath().currentSchema()), null);
+        ExpressionAnalysisContext expressionAnalysisContext = new ExpressionAnalysisContext();
+        expressionAnalyzer.convert(SqlParser.createExpression("current_time"), expressionAnalysisContext);
+    }
+
+    @Test
+    public void testQuotedSubscriptExpression() throws Exception {
+        SessionContext sessionContext = new SessionContext(0, EnumSet.of(ALLOW_QUOTED_SUBSCRIPT), User.CRATE_USER, ( s) -> {
+        }, ( t) -> {
+        });
+        ExpressionAnalyzer expressionAnalyzer = new ExpressionAnalyzer(functions, new CoordinatorTxnCtx(sessionContext), paramTypeHints, new io.crate.analyze.relations.FullQualifiedNameFieldProvider(dummySources, ParentRelations.NO_PARENTS, sessionContext.searchPath().currentSchema()), null);
+        ExpressionAnalysisContext expressionAnalysisContext = new ExpressionAnalysisContext();
+        Field field1 = ((Field) (expressionAnalyzer.convert(SqlParser.createExpression("obj['x']"), expressionAnalysisContext)));
+        Field field2 = ((Field) (expressionAnalyzer.convert(SqlParser.createExpression("\"obj[\'x\']\""), expressionAnalysisContext)));
+        assertEquals(field1, field2);
+        Field field3 = ((Field) (expressionAnalyzer.convert(SqlParser.createExpression("\"myObj[\'x\']\""), expressionAnalysisContext)));
+        assertEquals("myObj['x']", field3.path().toString());
+        Field field4 = ((Field) (expressionAnalyzer.convert(SqlParser.createExpression("\"myObj[\'x\'][\'AbC\']\""), expressionAnalysisContext)));
+        assertEquals("myObj['x']['AbC']", field4.path().toString());
+    }
+
+    @Test
+    public void testSubscriptSplitPatternMatcher() throws Exception {
+        assertEquals("\"foo\".\"bar\"[\'x\'][\'y\']", ExpressionAnalyzer.getQuotedSubscriptLiteral("foo.bar['x']['y']"));
+        assertEquals("\"foo\"[\'x\'][\'y\']", ExpressionAnalyzer.getQuotedSubscriptLiteral("foo['x']['y']"));
+        assertEquals("\"foo\"[\'x\']", ExpressionAnalyzer.getQuotedSubscriptLiteral("foo['x']"));
+        assertEquals("\"myFoo\"[\'xY\']", ExpressionAnalyzer.getQuotedSubscriptLiteral("myFoo['xY']"));
+        assertNull(ExpressionAnalyzer.getQuotedSubscriptLiteral("foo"));
+        assertNull(ExpressionAnalyzer.getQuotedSubscriptLiteral("foo.."));
+        assertNull(ExpressionAnalyzer.getQuotedSubscriptLiteral(".foo."));
+        assertNull(ExpressionAnalyzer.getQuotedSubscriptLiteral("foo.['x']"));
+        assertNull(ExpressionAnalyzer.getQuotedSubscriptLiteral("obj"));
+        assertNull(ExpressionAnalyzer.getQuotedSubscriptLiteral("obj.x"));
+        assertNull(ExpressionAnalyzer.getQuotedSubscriptLiteral("obj[x][y]"));
+    }
+
+    @Test
+    public void testAnalyzeSubscriptFunctionCall() throws Exception {
+        // Test when use subscript function is used explicitly then it's handled (and validated)
+        // the same way it's handled when the subscript operator `[]` is used
+        SessionContext sessionContext = new SessionContext(0, EnumSet.of(ALLOW_QUOTED_SUBSCRIPT), User.CRATE_USER, ( s) -> {
+        }, ( t) -> {
+        });
+        ExpressionAnalyzer expressionAnalyzer = new ExpressionAnalyzer(functions, new CoordinatorTxnCtx(sessionContext), paramTypeHints, new io.crate.analyze.relations.FullQualifiedNameFieldProvider(dummySources, ParentRelations.NO_PARENTS, sessionContext.searchPath().currentSchema()), null);
+        ExpressionAnalysisContext expressionAnalysisContext = new ExpressionAnalysisContext();
+        FunctionCall subscriptFunctionCall = new FunctionCall(new QualifiedName("subscript"), ImmutableList.of(new io.crate.sql.tree.ArrayLiteral(ImmutableList.of(new StringLiteral("obj"))), new LongLiteral("1")));
+        Symbol symbol = expressionAnalyzer.convert(subscriptFunctionCall, expressionAnalysisContext);
+        assertThat(symbol, SymbolMatchers.isLiteral("obj"));
+    }
+
+    @Test
+    public void testInSelfJoinCaseFunctionsThatLookTheSameMustNotReuseFunctionAllocation() throws Exception {
+        TableInfo tableInfo = Mockito.mock(TableInfo.class);
+        Mockito.when(tableInfo.getReference(new ColumnIdent("id"))).thenReturn(new io.crate.metadata.Reference(new io.crate.metadata.ReferenceIdent(new RelationName("doc", "t"), "id"), RowGranularity.DOC, DataTypes.INTEGER));
+        Mockito.when(tableInfo.ident()).thenReturn(new RelationName("doc", "t"));
+        TableRelation tr1 = new TableRelation(tableInfo);
+        TableRelation tr2 = new TableRelation(tableInfo);
+        Map<QualifiedName, AnalyzedRelation> sources = ImmutableMap.of(new QualifiedName("t1"), tr1, new QualifiedName("t2"), tr2);
+        SessionContext sessionContext = SessionContext.systemSessionContext();
+        CoordinatorTxnCtx coordinatorTxnCtx = new CoordinatorTxnCtx(sessionContext);
+        ExpressionAnalyzer expressionAnalyzer = new ExpressionAnalyzer(functions, coordinatorTxnCtx, paramTypeHints, new io.crate.analyze.relations.FullQualifiedNameFieldProvider(sources, ParentRelations.NO_PARENTS, sessionContext.searchPath().currentSchema()), null);
+        Function andFunction = ((Function) (expressionAnalyzer.convert(SqlParser.createExpression("not t1.id = 1 and not t2.id = 1"), context)));
+        Field t1Id = ((Field) (arguments().get(0)));
+        Field t2Id = ((Field) (arguments().get(0)));
+        assertTrue(((t1Id.relation()) != (t2Id.relation())));
+    }
+
+    @Test
+    public void testSwapFunctionLeftSide() throws Exception {
+        SqlExpressions expressions = new SqlExpressions(T3.SOURCES);
+        Function cmp = ((Function) (expressions.normalize(expressions.asSymbol("8 + 5 > t1.x"))));
+        // the comparison was swapped so the field is on the left side
+        assertThat(cmp.info().ident().name(), Matchers.is("op_<"));
+        assertThat(cmp.arguments().get(0), SymbolMatchers.isField("x"));
+    }
+
+    @Test
+    public void testBetweenIsRewrittenToLteAndGte() throws Exception {
+        SqlExpressions expressions = new SqlExpressions(T3.SOURCES);
+        Symbol symbol = expressions.asSymbol("10 between 1 and 10");
+        assertThat(symbol, TestingHelpers.isSQL("true"));
+    }
+
+    @Test
+    public void testBetweenNullIsRewrittenToLteAndGte() throws Exception {
+        SqlExpressions expressions = new SqlExpressions(T3.SOURCES);
+        Symbol symbol = expressions.asSymbol("10 between 1 and NULL");
+        assertThat(symbol, TestingHelpers.isSQL("NULL"));
+    }
+
+    @Test
+    public void testNonDeterministicFunctionsAlwaysNew() throws Exception {
+        ExpressionAnalysisContext localContext = new ExpressionAnalysisContext();
+        String functionName = CoalesceFunction.NAME;
+        Symbol fn1 = ExpressionAnalyzer.allocateFunction(functionName, Collections.singletonList(BOOLEAN_FALSE), localContext, functions, CoordinatorTxnCtx.systemTransactionContext());
+        Symbol fn2 = ExpressionAnalyzer.allocateFunction(functionName, Collections.singletonList(BOOLEAN_FALSE), localContext, functions, CoordinatorTxnCtx.systemTransactionContext());
+        Symbol fn3 = ExpressionAnalyzer.allocateFunction(functionName, Collections.singletonList(BOOLEAN_TRUE), localContext, functions, CoordinatorTxnCtx.systemTransactionContext());
+        // different instances
+        assertThat(fn1, Matchers.allOf(Matchers.not(Matchers.sameInstance(fn2)), Matchers.not(Matchers.sameInstance(fn3))));
+        // but equal
+        assertThat(fn1, Matchers.is(Matchers.equalTo(fn2)));
+        assertThat(fn1, Matchers.is(Matchers.not(Matchers.equalTo(fn3))));
+    }
+
+    @Test
+    public void testInPredicateWithSubqueryIsRewrittenToAnyEq() {
+        Symbol symbol = executor.asSymbol(T3.SOURCES, "t1.x in (select t2.y from t2)");
+        assertThat(symbol, TestingHelpers.isSQL("(doc.t1.x = ANY(SelectSymbol{integer_array}))"));
+    }
+
+    @Test
+    public void testEarlyConstantFolding() {
+        assertThat(expressions.asSymbol("1 = (1 = (1 = 1))"), SymbolMatchers.isLiteral(true));
+    }
+
+    @Test
+    public void testLiteralCastsAreFlattened() {
+        Symbol symbol = expressions.asSymbol("cast(cast(1 as long) as double)");
+        assertThat(symbol, SymbolMatchers.isLiteral(1.0));
+    }
+
+    @Test
+    public void testParameterSymbolCastsAreFlattened() {
+        SqlExpressions expressions = new SqlExpressions(T3.SOURCES);
+        Function comparisonFunction = ((Function) (expressions.asSymbol("doc.t2.i = $1")));
+        assertThat(comparisonFunction.arguments().get(1), Matchers.is(Matchers.instanceOf(ParameterSymbol.class)));
+        assertThat(comparisonFunction.arguments().get(1).valueType(), Matchers.is(INTEGER));
+    }
+
+    @Test
+    public void testColumnsCannotBeCastedToLiteralType() {
+        SqlExpressions expressions = new SqlExpressions(T3.SOURCES);
+        Function symbol = ((Function) (expressions.asSymbol("doc.t2.i = 1.1")));
+        assertThat(symbol.arguments().get(0), SymbolMatchers.isField("i"));
+        assertThat(symbol.arguments().get(0).valueType(), Matchers.is(INTEGER));
+    }
+
+    @Test
+    public void testIncompatibleLiteralThrowsException() {
+        SqlExpressions expressions = new SqlExpressions(T3.SOURCES);
+        expectedException.expect(ConversionException.class);
+        expectedException.expectMessage("Cannot cast 2147483648 to type integer");
+        expressions.asSymbol(("doc.t2.i = 1 + " + (Integer.MAX_VALUE)));
+    }
+
+    @Test
+    public void testFunctionsCanBeCasted() {
+        SqlExpressions expressions = new SqlExpressions(T3.SOURCES);
+        Function symbol2 = ((Function) (expressions.asSymbol("doc.t5.w = doc.t2.i + 1.2")));
+        assertThat(symbol2, SymbolMatchers.isFunction(NAME));
+        assertThat(symbol2.arguments().get(0), SymbolMatchers.isField("w"));
+        assertThat(symbol2.arguments().get(1), SymbolMatchers.isFunction("to_long"));
+        assertThat(symbol2.arguments().get(1).valueType(), Matchers.is(LONG));
+    }
+
+    @Test
+    public void testColumnsCanBeCastedWhenOnBothSidesOfOperator() {
+        SqlExpressions expressions = new SqlExpressions(T3.SOURCES);
+        Function symbol = ((Function) (expressions.asSymbol("doc.t5.i < doc.t5.w")));
+        assertThat(symbol, SymbolMatchers.isFunction(LtOperator.NAME));
+        assertThat(symbol.arguments().get(0), SymbolMatchers.isFunction("to_long"));
+        assertThat(symbol.arguments().get(0).valueType(), Matchers.is(LONG));
+        assertThat(symbol.arguments().get(1).valueType(), Matchers.is(LONG));
+    }
+
+    @Test
+    public void testLiteralIsCastedToColumnValue() {
+        SqlExpressions expressions = new SqlExpressions(T3.SOURCES);
+        Function symbol = ((Function) (expressions.asSymbol("5::long < doc.t1.i")));
+        assertThat(symbol, SymbolMatchers.isFunction(GtOperator.NAME));
+        assertThat(symbol.arguments().get(0).valueType(), Matchers.is(INTEGER));
+        assertThat(symbol.arguments().get(1).valueType(), Matchers.is(INTEGER));
+        assertThat(symbol.arguments().get(1), SymbolMatchers.isLiteral(5));
+    }
+
+    @Test
+    public void testTimestampIsCastedToLong() {
+        SqlExpressions expressions = new SqlExpressions(T3.SOURCES);
+        Symbol symbol = expressions.asSymbol("doc.t5.ts :: long");
+        assertThat(symbol.valueType(), Matchers.is(LONG));
+    }
+
+    @Test
+    public void testBetweenIsEagerlyEvaluatedIfPossible() throws Exception {
+        Symbol x = expressions.asSymbol("5 between 1 and 10");
+        assertThat(x, SymbolMatchers.isLiteral(true));
+    }
+
+    @Test
+    public void testParameterExpressionInAny() throws Exception {
+        Symbol s = expressions.asSymbol("5 = ANY(?)");
+        assertThat(s, SymbolMatchers.isFunction(EQ, SymbolMatchers.isLiteral(5L), Matchers.instanceOf(ParameterSymbol.class)));
+    }
+
+    @Test
+    public void testParameterExpressionInLikeAny() throws Exception {
+        Symbol s = expressions.asSymbol("5 LIKE ANY(?)");
+        assertThat(s, SymbolMatchers.isFunction(LIKE, SymbolMatchers.isLiteral(5L), Matchers.instanceOf(ParameterSymbol.class)));
+    }
+
+    @Test
+    public void testAnyWithArrayOnBothSidesResultsInNiceErrorMessage() {
+        expectedException.expectMessage("Cannot cast long to type integer_array");
+        executor.analyze("select * from tarr where xs = ANY([10, 20])");
+    }
+
+    @Test
+    public void testCallingUnknownFunctionWithExplicitSchemaRaisesNiceError() {
+        expectedException.expectMessage("unknown function: foo.bar(long)");
+        executor.analyze("select foo.bar(1)");
+    }
+
+    @Test
+    public void testTypeAliasCanBeUsedInCastNotation() {
+        Symbol symbol = executor.asSymbol(Collections.emptyMap(), "10::int2");
+        assertThat(symbol.valueType(), Matchers.is(SHORT));
+    }
+}
+

@@ -1,0 +1,171 @@
+/**
+ * Copyright 2016 LinkedIn Corp. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ */
+package com.github.ambry.commons;
+
+
+import NetworkClientErrorCode.ConnectionUnavailable;
+import NetworkClientErrorCode.NetworkError;
+import RouterErrorCode.AmbryUnavailable;
+import ServerErrorCode.Disk_Unavailable;
+import ServerErrorCode.IO_Error;
+import ServerErrorCode.No_Error;
+import ServerErrorCode.Partition_ReadOnly;
+import ServerErrorCode.Replica_Unavailable;
+import ServerErrorCode.Temporarily_Disabled;
+import ServerErrorCode.Unknown_Error;
+import com.codahale.metrics.MetricRegistry;
+import com.github.ambry.clustermap.ClusterMap;
+import com.github.ambry.clustermap.DataNodeId;
+import com.github.ambry.clustermap.MockReplicaId;
+import com.github.ambry.clustermap.PartitionId;
+import com.github.ambry.clustermap.ReplicaEventType;
+import com.github.ambry.clustermap.ReplicaId;
+import com.github.ambry.network.ConnectionPoolTimeoutException;
+import com.github.ambry.router.RouterErrorCode;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.SocketException;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import org.json.JSONObject;
+import org.junit.Assert;
+import org.junit.Test;
+
+
+/**
+ * Test handler code
+ */
+public class ResponseHandlerTest {
+    class DummyMap implements ClusterMap {
+        ReplicaId lastReplicaID;
+
+        Set<ReplicaEventType> lastReplicaEvents;
+
+        public DummyMap() {
+            lastReplicaEvents = new HashSet();
+            lastReplicaID = null;
+        }
+
+        @Override
+        public PartitionId getPartitionIdFromStream(InputStream stream) throws IOException {
+            return null;
+        }
+
+        @Override
+        public List<PartitionId> getWritablePartitionIds(String partitionClass) {
+            return null;
+        }
+
+        @Override
+        public List<PartitionId> getAllPartitionIds(String partitionClass) {
+            return null;
+        }
+
+        @Override
+        public boolean hasDatacenter(String datacenterName) {
+            return false;
+        }
+
+        @Override
+        public byte getLocalDatacenterId() {
+            return UNKNOWN_DATACENTER_ID;
+        }
+
+        @Override
+        public String getDatacenterName(byte id) {
+            return null;
+        }
+
+        @Override
+        public DataNodeId getDataNodeId(String hostname, int port) {
+            return null;
+        }
+
+        @Override
+        public List<ReplicaId> getReplicaIds(DataNodeId dataNodeId) {
+            return null;
+        }
+
+        @Override
+        public List<DataNodeId> getDataNodeIds() {
+            return null;
+        }
+
+        @Override
+        public MetricRegistry getMetricRegistry() {
+            return null;
+        }
+
+        @Override
+        public void onReplicaEvent(ReplicaId replicaId, ReplicaEventType event) {
+            lastReplicaID = replicaId;
+            lastReplicaEvents.add(event);
+        }
+
+        @Override
+        public JSONObject getSnapshot() {
+            return null;
+        }
+
+        @Override
+        public void close() {
+        }
+
+        public void reset() {
+            lastReplicaID = null;
+            lastReplicaEvents.clear();
+        }
+
+        public ReplicaId getLastReplicaID() {
+            return lastReplicaID;
+        }
+
+        public Set<ReplicaEventType> getLastReplicaEvents() {
+            return lastReplicaEvents;
+        }
+    }
+
+    @Test
+    public void basicTest() {
+        ResponseHandlerTest.DummyMap mockClusterMap = new ResponseHandlerTest.DummyMap();
+        ResponseHandler handler = new ResponseHandler(mockClusterMap);
+        Map<Object, ReplicaEventType[]> expectedEventTypes = new HashMap<>();
+        expectedEventTypes.put(new SocketException(), new ReplicaEventType[]{ ReplicaEventType.Node_Timeout });
+        expectedEventTypes.put(new IOException(), new ReplicaEventType[]{ ReplicaEventType.Node_Timeout });
+        expectedEventTypes.put(new ConnectionPoolTimeoutException(""), new ReplicaEventType[]{ ReplicaEventType.Node_Timeout });
+        expectedEventTypes.put(IO_Error, new ReplicaEventType[]{ ReplicaEventType.Node_Response, ReplicaEventType.Disk_Error });
+        expectedEventTypes.put(Disk_Unavailable, new ReplicaEventType[]{ ReplicaEventType.Node_Response, ReplicaEventType.Disk_Error });
+        expectedEventTypes.put(Partition_ReadOnly, new ReplicaEventType[]{ ReplicaEventType.Node_Response, ReplicaEventType.Disk_Ok, ReplicaEventType.Partition_ReadOnly, ReplicaEventType.Replica_Available });
+        expectedEventTypes.put(Replica_Unavailable, new ReplicaEventType[]{ ReplicaEventType.Node_Response, ReplicaEventType.Disk_Ok, ReplicaEventType.Replica_Unavailable });
+        expectedEventTypes.put(Temporarily_Disabled, new ReplicaEventType[]{ ReplicaEventType.Node_Response, ReplicaEventType.Disk_Ok, ReplicaEventType.Replica_Unavailable });
+        expectedEventTypes.put(Unknown_Error, new ReplicaEventType[]{ ReplicaEventType.Node_Response, ReplicaEventType.Disk_Ok, ReplicaEventType.Replica_Available });
+        expectedEventTypes.put(No_Error, new ReplicaEventType[]{ ReplicaEventType.Node_Response, ReplicaEventType.Disk_Ok, ReplicaEventType.Replica_Available });
+        expectedEventTypes.put(NetworkError, new ReplicaEventType[]{ ReplicaEventType.Node_Timeout });
+        expectedEventTypes.put(ConnectionUnavailable, new ReplicaEventType[]{  });
+        expectedEventTypes.put(new com.github.ambry.router.RouterException("", RouterErrorCode.UnexpectedInternalError), new ReplicaEventType[]{  });
+        expectedEventTypes.put(AmbryUnavailable, new ReplicaEventType[]{  });
+        for (Map.Entry<Object, ReplicaEventType[]> entry : expectedEventTypes.entrySet()) {
+            mockClusterMap.reset();
+            handler.onEvent(new MockReplicaId(), entry.getKey());
+            Set<ReplicaEventType> expectedEvents = new HashSet(Arrays.asList(entry.getValue()));
+            Set<ReplicaEventType> generatedEvents = mockClusterMap.getLastReplicaEvents();
+            Assert.assertEquals(((((("Unexpected generated event for event " + (entry.getKey())) + " \nExpected: ") + expectedEvents) + " \nReceived: ") + generatedEvents), expectedEvents, generatedEvents);
+        }
+    }
+}
+

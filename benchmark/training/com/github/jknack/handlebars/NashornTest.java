@@ -1,0 +1,70 @@
+package com.github.jknack.handlebars;
+
+
+import com.github.jknack.handlebars.js.JavaScriptHelperTest;
+import java.io.FileReader;
+import java.nio.file.Paths;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.SimpleBindings;
+import org.junit.Assert;
+import org.junit.Test;
+
+
+public class NashornTest {
+    public static class ObjectWithPublicFields {
+        public String name;
+
+        public ObjectWithPublicFields(final String name) {
+            this.name = name;
+        }
+    }
+
+    public static class Bean {
+        private String name;
+
+        public Bean(final String name) {
+            this.name = name;
+        }
+
+        public String getName() {
+            return name;
+        }
+    }
+
+    @Test
+    public void bootstrap() throws Exception {
+        Handlebars hbs = new Handlebars();
+        ScriptEngine nashorn = new ScriptEngineManager().getEngineByName("nashorn");
+        SimpleBindings bindings = new SimpleBindings();
+        bindings.put("Handlebars_java", hbs);
+        nashorn.eval(new FileReader(Paths.get("src/main/resources/helpers.nashorn.js").toFile()), bindings);
+        nashorn.eval(new FileReader(Paths.get("src/test/resources/com/github/jknack/handlebars/js/helpers.js").toFile()), bindings);
+        Assert.assertEquals("Long live to Js!", hbs.compileInline("{{simple}}").apply(null));
+        Assert.assertEquals("JS1", hbs.compileInline("{{context this}}").apply(hash("name", "JS1")));
+        Assert.assertEquals("JS2", hbs.compileInline("{{context this}}").apply(new NashornTest.Bean("JS2")));
+        Assert.assertEquals("JS3", hbs.compileInline("{{context this}}").apply(new NashornTest.ObjectWithPublicFields("JS3")));
+        Assert.assertEquals("JS4", hbs.compileInline("{{thisContext}}").apply(hash("name", "JS4")));
+        Assert.assertEquals("JS5", hbs.compileInline("{{thisContext}}").apply(new NashornTest.Bean("JS5")));
+        Assert.assertEquals("edgar is 32 years old", hbs.compileInline("{{param1 this 32}}").apply(new NashornTest.Bean("edgar")));
+        Assert.assertEquals("1, 2, 3", hbs.compileInline("{{params this 1 2 3}}").apply(null));
+        Assert.assertEquals("1, 2, true", hbs.compileInline("{{hash this h1=1 h2='2' h3=true}}").apply(null));
+        Assert.assertEquals("I'm curly!", hbs.compileInline("{{#fn this}}I'm {{name}}!{{/fn}}").apply(new JavaScriptHelperTest.Bean("curly")));
+        Assert.assertEquals("I'm moe!", hbs.compileInline("{{#fnWithNewContext this}}I'm {{name}}!{{/fnWithNewContext}}").apply(new JavaScriptHelperTest.Bean("curly")));
+        Assert.assertEquals("&lt;a&gt;&lt;/a&gt;", hbs.compileInline("{{escapeString}}").apply(null));
+        Assert.assertEquals("<a></a>", hbs.compileInline("{{safeString}}").apply(null));
+        Assert.assertEquals("<a href='/root/goodbye'>Goodbye</a>", hbs.compileInline("{{#goodbyes}}{{{link ../prefix}}}{{/goodbyes}}").apply(hash("prefix", "/root", "goodbyes", new Object[]{ hash("text", "Goodbye", "url", "goodbye") })));
+        Assert.assertEquals("Goodbye Alan! goodbye Alan! GOODBYE Alan! ", hbs.compileInline("{{#goodbyes2}}{{name}}{{/goodbyes2}}").apply(hash("name", "Alan")));
+        Assert.assertEquals("Goodbye Alan! goodbye Alan! GOODBYE Alan! ", hbs.compileInline("{{#goodbyes4}}{{../name}}{{/goodbyes4}}").apply(hash("name", "Alan")));
+        Assert.assertEquals("<a href='/root/goodbye'>Goodbye</a>", hbs.compileInline("{{#goodbyes}}{{#link2 ../prefix}}{{text}}{{/link2}}{{/goodbyes}}").apply(hash("prefix", "/root", "goodbyes", new Object[]{ hash("text", "Goodbye", "url", "goodbye") })));
+        Assert.assertEquals("GOODBYE! cruel world!", hbs.compileInline("{{#goodbyes3}}{{text}}! {{/goodbyes3}}cruel {{world}}!").apply(hash("world", "world")));
+        Assert.assertEquals("<form><p>Yehuda</p></form>", hbs.compileInline("{{#form}}<p>{{name}}</p>{{/form}}").apply(hash("name", "Yehuda")));
+        Assert.assertEquals("<ul><li><a href=\"/people/1\">Alan</a></li><li><a href=\"/people/2\">Yehuda</a></li></ul>", hbs.compileInline("<ul>{{#people}}<li>{{#link3}}{{name}}{{/link3}}</li>{{/people}}</ul>").apply(hash("people", new Object[]{ hash("name", "Alan", "id", 1), hash("name", "Yehuda", "id", 2) })));
+        Assert.assertEquals("", hbs.compileInline("{{#empty2}}shouldn't render{{/empty2}}").apply(null));
+        Assert.assertEquals("<form><p>Yehuda</p></form>", hbs.compileInline("{{#form2 yehuda}}<p>{{name}}</p>{{/form2}}").apply(hash("yehuda", hash("name", "Yehuda"))));
+        Assert.assertEquals("<ul><li>Alan</li><li>Yehuda</li></ul>", hbs.compileInline("{{#list people}}{{name}}{{^}}<em>Nobody's here</em>{{/list}}").apply(hash("people", new Object[]{ hash("name", "Alan"), hash("name", "Yehuda") })));
+        Assert.assertEquals("<p><em>Nobody's here</em></p>", hbs.compileInline("{{#list people}}{{name}}{{^}}<em>Nobody's here</em>{{/list}}").apply(hash("people", new Object[0])));
+        Assert.assertEquals("<p>Nobody&#x27;s here</p>", hbs.compileInline("{{#list people}}Hello{{^}}{{message}}{{/list}}").apply(hash("people", new Object[0], "message", "Nobody's here")));
+    }
+}
+

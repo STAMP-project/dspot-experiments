@@ -1,0 +1,258 @@
+/**
+ * Copyright 2018 The Bazel Authors. All rights reserved.
+ */
+/**
+ *
+ */
+/**
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ */
+/**
+ * you may not use this file except in compliance with the License.
+ */
+/**
+ * You may obtain a copy of the License at
+ */
+/**
+ *
+ */
+/**
+ * http://www.apache.org/licenses/LICENSE-2.0
+ */
+/**
+ *
+ */
+/**
+ * Unless required by applicable law or agreed to in writing, software
+ */
+/**
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ */
+/**
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ */
+/**
+ * See the License for the specific language governing permissions and
+ */
+/**
+ * limitations under the License.
+ */
+package com.google.devtools.build.lib.skyframe;
+
+
+import ArtifactOwner.NullArtifactOwner;
+import com.google.common.collect.ImmutableList;
+import com.google.devtools.build.lib.actions.ActionInput;
+import com.google.devtools.build.lib.actions.ActionInputHelper;
+import com.google.devtools.build.lib.actions.ActionInputMap;
+import com.google.devtools.build.lib.actions.Artifact;
+import com.google.devtools.build.lib.actions.Artifact.SpecialArtifact;
+import com.google.devtools.build.lib.actions.Artifact.SpecialArtifactType;
+import com.google.devtools.build.lib.actions.ArtifactPathResolver;
+import com.google.devtools.build.lib.actions.ArtifactRoot;
+import com.google.devtools.build.lib.actions.FileArtifactValue;
+import com.google.devtools.build.lib.testutil.Scratch;
+import com.google.devtools.build.lib.vfs.PathFragment;
+import java.io.FileNotFoundException;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
+
+
+/**
+ * Tests for {@link ActionMetadataHandler}.
+ */
+@RunWith(JUnit4.class)
+public class ActionMetadataHandlerTest {
+    private Scratch scratch;
+
+    private ArtifactRoot sourceRoot;
+
+    private ArtifactRoot outputRoot;
+
+    @Test
+    public void withNonArtifactInput() throws Exception {
+        ActionInput input = ActionInputHelper.fromPath("foo/bar");
+        FileArtifactValue metadata = /* proxy= */
+        /* isShareable= */
+        FileArtifactValue.createNormalFile(new byte[]{ 1, 2, 3 }, null, 10L, true);
+        ActionInputMap map = new ActionInputMap(1);
+        map.putWithNoDepOwner(input, metadata);
+        assertThat(map.getMetadata(input)).isEqualTo(metadata);
+        ActionMetadataHandler handler = /* missingArtifactsAllowed= */
+        /* outputs= */
+        /* tsgm= */
+        new ActionMetadataHandler(map, false, ImmutableList.of(), null, ArtifactPathResolver.IDENTITY, new MinimalOutputStore());
+        assertThat(handler.getMetadata(input)).isNull();
+    }
+
+    @Test
+    public void withArtifactInput() throws Exception {
+        PathFragment path = PathFragment.create("src/a");
+        Artifact artifact = new Artifact(path, sourceRoot);
+        FileArtifactValue metadata = /* proxy= */
+        /* isShareable= */
+        FileArtifactValue.createNormalFile(new byte[]{ 1, 2, 3 }, null, 10L, true);
+        ActionInputMap map = new ActionInputMap(1);
+        map.putWithNoDepOwner(artifact, metadata);
+        ActionMetadataHandler handler = /* missingArtifactsAllowed= */
+        /* outputs= */
+        /* tsgm= */
+        new ActionMetadataHandler(map, false, ImmutableList.of(), null, ArtifactPathResolver.IDENTITY, new MinimalOutputStore());
+        assertThat(handler.getMetadata(artifact)).isEqualTo(metadata);
+    }
+
+    @Test
+    public void withUnknownSourceArtifactAndNoMissingArtifactsAllowed() throws Exception {
+        PathFragment path = PathFragment.create("src/a");
+        Artifact artifact = new Artifact(path, sourceRoot);
+        ActionInputMap map = new ActionInputMap(1);
+        ActionMetadataHandler handler = /* missingArtifactsAllowed= */
+        /* outputs= */
+        /* tsgm= */
+        new ActionMetadataHandler(map, false, ImmutableList.of(), null, ArtifactPathResolver.IDENTITY, new MinimalOutputStore());
+        try {
+            handler.getMetadata(artifact);
+            Assert.fail();
+        } catch (IllegalStateException expected) {
+            assertThat(expected).hasMessageThat().contains("null for ");
+        }
+    }
+
+    @Test
+    public void withUnknownSourceArtifact() throws Exception {
+        PathFragment path = PathFragment.create("src/a");
+        Artifact artifact = new Artifact(path, sourceRoot);
+        ActionInputMap map = new ActionInputMap(1);
+        ActionMetadataHandler handler = /* missingArtifactsAllowed= */
+        /* outputs= */
+        /* tsgm= */
+        new ActionMetadataHandler(map, true, ImmutableList.of(), null, ArtifactPathResolver.IDENTITY, new MinimalOutputStore());
+        assertThat(handler.getMetadata(artifact)).isNull();
+    }
+
+    @Test
+    public void withUnknownOutputArtifactMissingAllowed() throws Exception {
+        PathFragment path = PathFragment.create("foo/bar");
+        Artifact artifact = new Artifact(path, outputRoot);
+        ActionInputMap map = new ActionInputMap(1);
+        ActionMetadataHandler handler = /* missingArtifactsAllowed= */
+        /* outputs= */
+        /* tsgm= */
+        new ActionMetadataHandler(map, true, ImmutableList.of(), null, ArtifactPathResolver.IDENTITY, new MinimalOutputStore());
+        assertThat(handler.getMetadata(artifact)).isNull();
+    }
+
+    @Test
+    public void withUnknownOutputArtifactStatsFile() throws Exception {
+        scratch.file("/output/bin/foo/bar", "not empty");
+        Artifact artifact = new Artifact(PathFragment.create("foo/bar"), outputRoot);
+        assertThat(artifact.getPath().exists()).isTrue();
+        ActionInputMap map = new ActionInputMap(1);
+        ActionMetadataHandler handler = /* missingArtifactsAllowed= */
+        /* outputs= */
+        /* tsgm= */
+        new ActionMetadataHandler(map, false, ImmutableList.of(artifact), null, ArtifactPathResolver.IDENTITY, new MinimalOutputStore());
+        assertThat(handler.getMetadata(artifact)).isNotNull();
+    }
+
+    @Test
+    public void withUnknownOutputArtifactStatsFileFailsWithException() throws Exception {
+        Artifact artifact = new Artifact(PathFragment.create("foo/bar"), outputRoot);
+        assertThat(artifact.getPath().exists()).isFalse();
+        ActionInputMap map = new ActionInputMap(1);
+        ActionMetadataHandler handler = /* missingArtifactsAllowed= */
+        /* outputs= */
+        /* tsgm= */
+        new ActionMetadataHandler(map, false, ImmutableList.of(artifact), null, ArtifactPathResolver.IDENTITY, new MinimalOutputStore());
+        try {
+            handler.getMetadata(artifact);
+            Assert.fail();
+        } catch (FileNotFoundException expected) {
+        }
+    }
+
+    @Test
+    public void withUnknownOutputArtifactMissingDisallowed() throws Exception {
+        PathFragment path = PathFragment.create("foo/bar");
+        Artifact artifact = new Artifact(path, outputRoot);
+        ActionInputMap map = new ActionInputMap(1);
+        ActionMetadataHandler handler = /* missingArtifactsAllowed= */
+        /* outputs= */
+        /* tsgm= */
+        new ActionMetadataHandler(map, false, ImmutableList.of(), null, ArtifactPathResolver.IDENTITY, new MinimalOutputStore());
+        try {
+            handler.getMetadata(artifact);
+            Assert.fail();
+        } catch (IllegalStateException expected) {
+        }
+    }
+
+    @Test
+    public void withUnknownOutputArtifactMissingAllowedTreeArtifact() throws Exception {
+        PathFragment path = PathFragment.create("bin/foo/bar");
+        SpecialArtifact treeArtifact = new SpecialArtifact(outputRoot, path, NullArtifactOwner.INSTANCE, SpecialArtifactType.TREE);
+        Artifact artifact = new com.google.devtools.build.lib.actions.Artifact.TreeFileArtifact(treeArtifact, PathFragment.create("baz"));
+        ActionInputMap map = new ActionInputMap(1);
+        ActionMetadataHandler handler = /* missingArtifactsAllowed= */
+        /* outputs= */
+        /* tsgm= */
+        new ActionMetadataHandler(map, true, ImmutableList.of(), null, ArtifactPathResolver.IDENTITY, new MinimalOutputStore());
+        assertThat(handler.getMetadata(artifact)).isNull();
+    }
+
+    @Test
+    public void withUnknownOutputArtifactStatsFileTreeArtifact() throws Exception {
+        scratch.file("/output/bin/foo/bar/baz", "not empty");
+        PathFragment path = PathFragment.create("bin/foo/bar");
+        SpecialArtifact treeArtifact = new SpecialArtifact(outputRoot, path, NullArtifactOwner.INSTANCE, SpecialArtifactType.TREE);
+        Artifact artifact = new com.google.devtools.build.lib.actions.Artifact.TreeFileArtifact(treeArtifact, PathFragment.create("baz"));
+        assertThat(artifact.getPath().exists()).isTrue();
+        ActionInputMap map = new ActionInputMap(1);
+        ActionMetadataHandler handler = /* missingArtifactsAllowed= */
+        /* outputs= */
+        /* tsgm= */
+        new ActionMetadataHandler(map, false, ImmutableList.of(treeArtifact), null, ArtifactPathResolver.IDENTITY, new MinimalOutputStore());
+        assertThat(handler.getMetadata(artifact)).isNotNull();
+    }
+
+    @Test
+    public void withUnknownOutputArtifactMissingDisallowedTreeArtifact() throws Exception {
+        PathFragment path = PathFragment.create("bin/foo/bar");
+        SpecialArtifact treeArtifact = new SpecialArtifact(outputRoot, path, NullArtifactOwner.INSTANCE, SpecialArtifactType.TREE);
+        Artifact artifact = new com.google.devtools.build.lib.actions.Artifact.TreeFileArtifact(treeArtifact, PathFragment.create("baz"));
+        ActionInputMap map = new ActionInputMap(1);
+        ActionMetadataHandler handler = /* missingArtifactsAllowed= */
+        /* outputs= */
+        /* tsgm= */
+        new ActionMetadataHandler(map, false, ImmutableList.of(), null, ArtifactPathResolver.IDENTITY, new MinimalOutputStore());
+        try {
+            handler.getMetadata(artifact);
+            Assert.fail();
+        } catch (IllegalStateException expected) {
+        }
+    }
+
+    @Test
+    public void resettingOutputs() throws Exception {
+        scratch.file("/output/bin/foo/bar", "not empty");
+        PathFragment path = PathFragment.create("foo/bar");
+        Artifact artifact = new Artifact(path, outputRoot);
+        ActionInputMap map = new ActionInputMap(1);
+        ActionMetadataHandler handler = /* missingArtifactsAllowed= */
+        /* outputs= */
+        /* tsgm= */
+        new ActionMetadataHandler(map, true, ImmutableList.of(artifact), null, ArtifactPathResolver.IDENTITY, new MinimalOutputStore());
+        handler.discardOutputMetadata();
+        // The handler doesn't have any info. It'll stat the file and discover that it's 10 bytes long.
+        assertThat(handler.getMetadata(artifact).getSize()).isEqualTo(10);
+        // Inject a remote file of size 42.
+        handler.injectRemoteFile(artifact, new byte[]{ 1, 2, 3 }, 42, 0);
+        assertThat(handler.getMetadata(artifact).getSize()).isEqualTo(42);
+        // Reset this output, which will make the handler stat the file again.
+        handler.resetOutputs(ImmutableList.of(artifact));
+        assertThat(handler.getMetadata(artifact).getSize()).isEqualTo(10);
+    }
+}
+

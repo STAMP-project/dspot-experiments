@@ -1,0 +1,608 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.beam.runners.flink.translation.wrappers.streaming;
+
+
+import BoundedWindow.TIMESTAMP_MIN_VALUE;
+import DoFnOperator.MultiOutputOutputManagerFactory;
+import Duration.ZERO;
+import GlobalWindow.INSTANCE;
+import PaneInfo.NO_FIRING;
+import StatefulDoFnRunner.TimeInternalsCleanupTimer.GC_DELAY_MS;
+import TimeDomain.EVENT_TIME;
+import WindowedValue.FullWindowedValueCoder;
+import WindowedValue.ValueOnlyWindowedValueCoder;
+import com.fasterxml.jackson.databind.type.TypeFactory;
+import com.fasterxml.jackson.databind.util.LRUMap;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Optional;
+import org.apache.beam.runners.flink.FlinkPipelineOptions;
+import org.apache.beam.runners.flink.translation.types.CoderTypeInformation;
+import org.apache.beam.runners.flink.translation.types.CoderTypeSerializer;
+import org.apache.beam.sdk.coders.Coder;
+import org.apache.beam.sdk.coders.KvCoder;
+import org.apache.beam.sdk.coders.StringUtf8Coder;
+import org.apache.beam.sdk.coders.VarIntCoder;
+import org.apache.beam.sdk.coders.VarLongCoder;
+import org.apache.beam.sdk.options.PipelineOptionsFactory;
+import org.apache.beam.sdk.state.StateSpec;
+import org.apache.beam.sdk.state.StateSpecs;
+import org.apache.beam.sdk.state.Timer;
+import org.apache.beam.sdk.state.TimerSpec;
+import org.apache.beam.sdk.state.TimerSpecs;
+import org.apache.beam.sdk.state.ValueState;
+import org.apache.beam.sdk.transforms.DoFn;
+import org.apache.beam.sdk.transforms.DoFnSchemaInformation;
+import org.apache.beam.sdk.transforms.join.RawUnionValue;
+import org.apache.beam.sdk.transforms.windowing.BoundedWindow;
+import org.apache.beam.sdk.transforms.windowing.FixedWindows;
+import org.apache.beam.sdk.transforms.windowing.GlobalWindow;
+import org.apache.beam.sdk.transforms.windowing.IntervalWindow;
+import org.apache.beam.sdk.util.WindowedValue;
+import org.apache.beam.sdk.values.KV;
+import org.apache.beam.sdk.values.PCollectionView;
+import org.apache.beam.sdk.values.TupleTag;
+import org.apache.beam.sdk.values.WindowingStrategy;
+import org.apache.beam.vendor.guava.v20_0.com.google.common.collect.ImmutableList;
+import org.apache.beam.vendor.guava.v20_0.com.google.common.collect.ImmutableMap;
+import org.apache.flink.api.common.typeinfo.BasicTypeInfo;
+import org.apache.flink.api.java.functions.KeySelector;
+import org.apache.flink.runtime.checkpoint.OperatorSubtaskState;
+import org.apache.flink.streaming.util.KeyedOneInputStreamOperatorTestHarness;
+import org.apache.flink.streaming.util.OneInputStreamOperatorTestHarness;
+import org.apache.flink.streaming.util.TwoInputStreamOperatorTestHarness;
+import org.apache.flink.util.OutputTag;
+import org.hamcrest.MatcherAssert;
+import org.hamcrest.Matchers;
+import org.joda.time.Duration;
+import org.joda.time.Instant;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
+import org.mockito.internal.util.reflection.Whitebox;
+
+
+/**
+ * Tests for {@link DoFnOperator}.
+ */
+@RunWith(JUnit4.class)
+public class DoFnOperatorTest {
+    // views and windows for testing side inputs
+    private static final long WINDOW_MSECS_1 = 100;
+
+    private static final long WINDOW_MSECS_2 = 500;
+
+    private PCollectionView<Iterable<String>> view1;
+
+    private PCollectionView<Iterable<String>> view2;
+
+    @Test
+    @SuppressWarnings("unchecked")
+    public void testSingleOutput() throws Exception {
+        Coder<WindowedValue<String>> coder = WindowedValue.getValueOnlyCoder(StringUtf8Coder.of());
+        TupleTag<String> outputTag = new TupleTag("main-output");
+        DoFnOperator<String, String> doFnOperator = /* side-input mapping */
+        /* side inputs */
+        new DoFnOperator(new DoFnOperatorTest.IdentityDoFn(), "stepName", coder, null, Collections.emptyMap(), outputTag, Collections.emptyList(), new DoFnOperator.MultiOutputOutputManagerFactory<>(outputTag, coder), WindowingStrategy.globalDefault(), new HashMap(), Collections.emptyList(), PipelineOptionsFactory.as(FlinkPipelineOptions.class), null, null, DoFnSchemaInformation.create());
+        OneInputStreamOperatorTestHarness<WindowedValue<String>, WindowedValue<String>> testHarness = new OneInputStreamOperatorTestHarness(doFnOperator);
+        testHarness.open();
+        testHarness.processElement(new org.apache.flink.streaming.runtime.streamrecord.StreamRecord(WindowedValue.valueInGlobalWindow("Hello")));
+        MatcherAssert.assertThat(StreamRecordStripper.stripStreamRecordFromWindowedValue(testHarness.getOutput()), contains(WindowedValue.valueInGlobalWindow("Hello")));
+        testHarness.close();
+    }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    public void testMultiOutputOutput() throws Exception {
+        WindowedValue.ValueOnlyWindowedValueCoder<String> coder = WindowedValue.getValueOnlyCoder(StringUtf8Coder.of());
+        TupleTag<String> mainOutput = new TupleTag("main-output");
+        TupleTag<String> additionalOutput1 = new TupleTag("output-1");
+        TupleTag<String> additionalOutput2 = new TupleTag("output-2");
+        ImmutableMap<TupleTag<?>, OutputTag<?>> tagsToOutputTags = ImmutableMap.<TupleTag<?>, OutputTag<?>>builder().put(additionalOutput1, new OutputTag<String>(additionalOutput1.getId()) {}).put(additionalOutput2, new OutputTag<String>(additionalOutput2.getId()) {}).build();
+        ImmutableMap<TupleTag<?>, Coder<WindowedValue<?>>> tagsToCoders = ImmutableMap.<TupleTag<?>, Coder<WindowedValue<?>>>builder().put(mainOutput, ((Coder) (coder))).put(additionalOutput1, coder).put(additionalOutput2, coder).build();
+        ImmutableMap<TupleTag<?>, Integer> tagsToIds = ImmutableMap.<TupleTag<?>, Integer>builder().put(mainOutput, 0).put(additionalOutput1, 1).put(additionalOutput2, 2).build();
+        DoFnOperator<String, String> doFnOperator = /* side-input mapping */
+        /* side inputs */
+        new DoFnOperator(new DoFnOperatorTest.MultiOutputDoFn(additionalOutput1, additionalOutput2), "stepName", coder, null, Collections.emptyMap(), mainOutput, ImmutableList.of(additionalOutput1, additionalOutput2), new DoFnOperator.MultiOutputOutputManagerFactory(mainOutput, tagsToOutputTags, tagsToCoders, tagsToIds), WindowingStrategy.globalDefault(), new HashMap(), Collections.emptyList(), PipelineOptionsFactory.as(FlinkPipelineOptions.class), null, null, DoFnSchemaInformation.create());
+        OneInputStreamOperatorTestHarness<WindowedValue<String>, WindowedValue<String>> testHarness = new OneInputStreamOperatorTestHarness(doFnOperator);
+        testHarness.open();
+        testHarness.processElement(new org.apache.flink.streaming.runtime.streamrecord.StreamRecord(WindowedValue.valueInGlobalWindow("one")));
+        testHarness.processElement(new org.apache.flink.streaming.runtime.streamrecord.StreamRecord(WindowedValue.valueInGlobalWindow("two")));
+        testHarness.processElement(new org.apache.flink.streaming.runtime.streamrecord.StreamRecord(WindowedValue.valueInGlobalWindow("hello")));
+        MatcherAssert.assertThat(this.stripStreamRecord(testHarness.getOutput()), contains(WindowedValue.valueInGlobalWindow("got: hello")));
+        MatcherAssert.assertThat(this.stripStreamRecord(testHarness.getSideOutput(tagsToOutputTags.get(additionalOutput1))), contains(WindowedValue.valueInGlobalWindow("extra: one"), WindowedValue.valueInGlobalWindow("got: hello")));
+        MatcherAssert.assertThat(this.stripStreamRecord(testHarness.getSideOutput(tagsToOutputTags.get(additionalOutput2))), contains(WindowedValue.valueInGlobalWindow("extra: two"), WindowedValue.valueInGlobalWindow("got: hello")));
+        testHarness.close();
+    }
+
+    /**
+     * This test specifically verifies that we correctly map Flink watermarks to Beam watermarks. In
+     * Beam, a watermark {@code T} guarantees there will not be elements with a timestamp {@code < T}
+     * in the future. In Flink, a watermark {@code T} guarantees there will not be elements with a
+     * timestamp {@code <= T} in the future. We have to make sure to take this into account when
+     * firing timers.
+     *
+     * <p>This not test the timer API in general or processing-time timers because there are generic
+     * tests for this in {@code ParDoTest}.
+     */
+    @Test
+    public void testWatermarkContract() throws Exception {
+        final Instant timerTimestamp = new Instant(1000);
+        final String outputMessage = "Timer fired";
+        WindowingStrategy<Object, IntervalWindow> windowingStrategy = WindowingStrategy.of(FixedWindows.of(new Duration(10000)));
+        DoFn<Integer, String> fn = new DoFn<Integer, String>() {
+            private static final String EVENT_TIMER_ID = "eventTimer";
+
+            @TimerId(EVENT_TIMER_ID)
+            private final TimerSpec eventTimer = TimerSpecs.timer(EVENT_TIME);
+
+            @ProcessElement
+            public void processElement(ProcessContext context, @TimerId(EVENT_TIMER_ID)
+            Timer timer) {
+                timer.set(timerTimestamp);
+            }
+
+            @OnTimer(EVENT_TIMER_ID)
+            public void onEventTime(OnTimerContext context) {
+                Assert.assertEquals("Timer timestamp must match set timestamp.", timerTimestamp, context.timestamp());
+                context.outputWithTimestamp(outputMessage, context.timestamp());
+            }
+        };
+        WindowedValue.FullWindowedValueCoder<Integer> inputCoder = WindowedValue.getFullCoder(VarIntCoder.of(), windowingStrategy.getWindowFn().windowCoder());
+        WindowedValue.FullWindowedValueCoder<String> outputCoder = WindowedValue.getFullCoder(StringUtf8Coder.of(), windowingStrategy.getWindowFn().windowCoder());
+        TupleTag<String> outputTag = new TupleTag("main-output");
+        DoFnOperator<Integer, String> doFnOperator = /* side-input mapping */
+        /* side inputs */
+        /* key coder */
+        new DoFnOperator(fn, "stepName", inputCoder, null, Collections.emptyMap(), outputTag, Collections.emptyList(), new DoFnOperator.MultiOutputOutputManagerFactory<>(outputTag, outputCoder), windowingStrategy, new HashMap(), Collections.emptyList(), PipelineOptionsFactory.as(FlinkPipelineOptions.class), VarIntCoder.of(), WindowedValue::getValue, DoFnSchemaInformation.create());
+        OneInputStreamOperatorTestHarness<WindowedValue<Integer>, WindowedValue<String>> testHarness = new KeyedOneInputStreamOperatorTestHarness(doFnOperator, WindowedValue::getValue, new CoderTypeInformation(VarIntCoder.of()));
+        testHarness.setup(new CoderTypeSerializer(outputCoder));
+        testHarness.open();
+        testHarness.processWatermark(0);
+        IntervalWindow window1 = new IntervalWindow(new Instant(0), Duration.millis(10000));
+        // this should register a timer
+        testHarness.processElement(new org.apache.flink.streaming.runtime.streamrecord.StreamRecord(WindowedValue.of(13, new Instant(0), window1, NO_FIRING)));
+        MatcherAssert.assertThat(StreamRecordStripper.stripStreamRecordFromWindowedValue(testHarness.getOutput()), Matchers.emptyIterable());
+        // this does not yet fire the timer (in vanilla Flink it would)
+        testHarness.processWatermark(timerTimestamp.getMillis());
+        MatcherAssert.assertThat(StreamRecordStripper.stripStreamRecordFromWindowedValue(testHarness.getOutput()), Matchers.emptyIterable());
+        testHarness.getOutput().clear();
+        // this must fire the timer
+        testHarness.processWatermark(((timerTimestamp.getMillis()) + 1));
+        MatcherAssert.assertThat(StreamRecordStripper.stripStreamRecordFromWindowedValue(testHarness.getOutput()), contains(WindowedValue.of(outputMessage, new Instant(timerTimestamp), window1, NO_FIRING)));
+        testHarness.close();
+    }
+
+    @Test
+    public void testLateDroppingForStatefulFn() throws Exception {
+        WindowingStrategy<Object, IntervalWindow> windowingStrategy = WindowingStrategy.of(FixedWindows.of(new Duration(10)));
+        DoFn<Integer, String> fn = new DoFn<Integer, String>() {
+            @StateId("state")
+            private final StateSpec<ValueState<String>> stateSpec = StateSpecs.value(StringUtf8Coder.of());
+
+            @ProcessElement
+            public void processElement(ProcessContext context) {
+                context.output(context.element().toString());
+            }
+        };
+        Coder<WindowedValue<Integer>> inputCoder = WindowedValue.getFullCoder(VarIntCoder.of(), windowingStrategy.getWindowFn().windowCoder());
+        Coder<WindowedValue<String>> outputCoder = WindowedValue.getFullCoder(StringUtf8Coder.of(), windowingStrategy.getWindowFn().windowCoder());
+        TupleTag<String> outputTag = new TupleTag("main-output");
+        DoFnOperator<Integer, String> doFnOperator = /* side-input mapping */
+        /* side inputs */
+        /* key coder */
+        new DoFnOperator(fn, "stepName", inputCoder, null, Collections.emptyMap(), outputTag, Collections.emptyList(), new DoFnOperator.MultiOutputOutputManagerFactory<>(outputTag, outputCoder), windowingStrategy, new HashMap(), Collections.emptyList(), PipelineOptionsFactory.as(FlinkPipelineOptions.class), VarIntCoder.of(), WindowedValue::getValue, DoFnSchemaInformation.create());
+        OneInputStreamOperatorTestHarness<WindowedValue<Integer>, WindowedValue<String>> testHarness = new KeyedOneInputStreamOperatorTestHarness(doFnOperator, WindowedValue::getValue, new CoderTypeInformation(VarIntCoder.of()));
+        testHarness.open();
+        testHarness.processWatermark(0);
+        IntervalWindow window1 = new IntervalWindow(new Instant(0), Duration.millis(10));
+        // this should not be late
+        testHarness.processElement(new org.apache.flink.streaming.runtime.streamrecord.StreamRecord(WindowedValue.of(13, new Instant(0), window1, NO_FIRING)));
+        MatcherAssert.assertThat(StreamRecordStripper.stripStreamRecordFromWindowedValue(testHarness.getOutput()), contains(WindowedValue.of("13", new Instant(0), window1, NO_FIRING)));
+        testHarness.getOutput().clear();
+        testHarness.processWatermark(9);
+        // this should still not be considered late
+        testHarness.processElement(new org.apache.flink.streaming.runtime.streamrecord.StreamRecord(WindowedValue.of(17, new Instant(0), window1, NO_FIRING)));
+        MatcherAssert.assertThat(StreamRecordStripper.stripStreamRecordFromWindowedValue(testHarness.getOutput()), contains(WindowedValue.of("17", new Instant(0), window1, NO_FIRING)));
+        testHarness.getOutput().clear();
+        testHarness.processWatermark(10);
+        // this should now be considered late
+        testHarness.processElement(new org.apache.flink.streaming.runtime.streamrecord.StreamRecord(WindowedValue.of(17, new Instant(0), window1, NO_FIRING)));
+        MatcherAssert.assertThat(StreamRecordStripper.stripStreamRecordFromWindowedValue(testHarness.getOutput()), Matchers.emptyIterable());
+        testHarness.close();
+    }
+
+    @Test
+    public void testStateGCForStatefulFn() throws Exception {
+        WindowingStrategy<Object, IntervalWindow> windowingStrategy = WindowingStrategy.of(FixedWindows.of(new Duration(10))).withAllowedLateness(ZERO);
+        final String timerId = "boo";
+        final String stateId = "dazzle";
+        final int offset = 5000;
+        final int timerOutput = 4093;
+        DoFn<KV<String, Integer>, KV<String, Integer>> fn = new DoFn<KV<String, Integer>, KV<String, Integer>>() {
+            @TimerId(timerId)
+            private final TimerSpec spec = TimerSpecs.timer(EVENT_TIME);
+
+            @StateId(stateId)
+            private final StateSpec<ValueState<String>> stateSpec = StateSpecs.value(StringUtf8Coder.of());
+
+            @ProcessElement
+            public void processElement(ProcessContext context, @TimerId(timerId)
+            Timer timer, @StateId(stateId)
+            ValueState<String> state, BoundedWindow window) {
+                timer.set(window.maxTimestamp());
+                state.write(context.element().getKey());
+                context.output(KV.of(context.element().getKey(), ((context.element().getValue()) + offset)));
+            }
+
+            @OnTimer(timerId)
+            public void onTimer(OnTimerContext context, @StateId(stateId)
+            ValueState<String> state) {
+                context.output(KV.of(state.read(), timerOutput));
+            }
+        };
+        FullWindowedValueCoder<KV<String, Integer>> coder = WindowedValue.getFullCoder(KvCoder.of(StringUtf8Coder.of(), VarIntCoder.of()), windowingStrategy.getWindowFn().windowCoder());
+        TupleTag<KV<String, Integer>> outputTag = new TupleTag("main-output");
+        DoFnOperator<KV<String, Integer>, KV<String, Integer>> doFnOperator = /* side-input mapping */
+        /* side inputs */
+        /* key coder */
+        new DoFnOperator(fn, "stepName", coder, null, Collections.emptyMap(), outputTag, Collections.emptyList(), new DoFnOperator.MultiOutputOutputManagerFactory<>(outputTag, coder), windowingStrategy, new HashMap(), Collections.emptyList(), PipelineOptionsFactory.as(FlinkPipelineOptions.class), StringUtf8Coder.of(), ( kvWindowedValue) -> kvWindowedValue.getValue().getKey(), DoFnSchemaInformation.create());
+        KeyedOneInputStreamOperatorTestHarness<String, WindowedValue<KV<String, Integer>>, WindowedValue<KV<String, Integer>>> testHarness = new KeyedOneInputStreamOperatorTestHarness(doFnOperator, ( kvWindowedValue) -> kvWindowedValue.getValue().getKey(), new CoderTypeInformation(StringUtf8Coder.of()));
+        testHarness.open();
+        testHarness.processWatermark(0);
+        Assert.assertEquals(0, testHarness.numKeyedStateEntries());
+        IntervalWindow window1 = new IntervalWindow(new Instant(0), Duration.millis(10));
+        testHarness.processElement(new org.apache.flink.streaming.runtime.streamrecord.StreamRecord(WindowedValue.of(KV.of("key1", 5), new Instant(1), window1, NO_FIRING)));
+        testHarness.processElement(new org.apache.flink.streaming.runtime.streamrecord.StreamRecord(WindowedValue.of(KV.of("key2", 7), new Instant(3), window1, NO_FIRING)));
+        MatcherAssert.assertThat(StreamRecordStripper.stripStreamRecordFromWindowedValue(testHarness.getOutput()), contains(WindowedValue.of(KV.of("key1", (5 + offset)), new Instant(1), window1, NO_FIRING), WindowedValue.of(KV.of("key2", (7 + offset)), new Instant(3), window1, NO_FIRING)));
+        // 2 entries for the elements and 2 for the pending timers
+        Assert.assertEquals(4, testHarness.numKeyedStateEntries());
+        testHarness.getOutput().clear();
+        // this should trigger both the window.maxTimestamp() timer and the GC timer
+        // this tests that the GC timer fires after the user timer
+        // we have to add 1 here because Flink timers fire when watermark >= timestamp while Beam
+        // timers fire when watermark > timestamp
+        testHarness.processWatermark(((window1.maxTimestamp().plus(windowingStrategy.getAllowedLateness()).plus(GC_DELAY_MS).getMillis()) + 1));
+        MatcherAssert.assertThat(StreamRecordStripper.stripStreamRecordFromWindowedValue(testHarness.getOutput()), contains(WindowedValue.of(KV.of("key1", timerOutput), new Instant(9), window1, NO_FIRING), WindowedValue.of(KV.of("key2", timerOutput), new Instant(9), window1, NO_FIRING)));
+        // ensure the state was garbage collected and the pending timers have been removed
+        Assert.assertEquals(0, testHarness.numKeyedStateEntries());
+        testHarness.close();
+    }
+
+    @Test
+    public void testNormalParDoSideInputs() throws Exception {
+        testSideInputs(false);
+    }
+
+    @Test
+    public void testKeyedParDoSideInputs() throws Exception {
+        testSideInputs(true);
+    }
+
+    @Test
+    public void testStateRestore() throws Exception {
+        DoFn<KV<String, Long>, KV<String, Long>> filterElementsEqualToCountFn = new DoFn<KV<String, Long>, KV<String, Long>>() {
+            @StateId("counter")
+            private final StateSpec<ValueState<Long>> counterSpec = StateSpecs.value(VarLongCoder.of());
+
+            @ProcessElement
+            public void processElement(ProcessContext context, @StateId("counter")
+            ValueState<Long> count) {
+                long currentCount = Optional.ofNullable(count.read()).orElse(0L);
+                currentCount = currentCount + 1;
+                count.write(currentCount);
+                KV<String, Long> currentElement = context.element();
+                if (currentCount == (currentElement.getValue())) {
+                    context.output(currentElement);
+                }
+            }
+        };
+        WindowingStrategy<Object, GlobalWindow> windowingStrategy = WindowingStrategy.globalDefault();
+        TupleTag<KV<String, Long>> outputTag = new TupleTag("main-output");
+        org.apache.beam.sdk.util.WindowedValue.FullWindowedValueCoder<KV<String, Long>> kvCoder = WindowedValue.getFullCoder(KvCoder.of(StringUtf8Coder.of(), VarLongCoder.of()), windowingStrategy.getWindowFn().windowCoder());
+        CoderTypeInformation<String> keyCoderInfo = new CoderTypeInformation(StringUtf8Coder.of());
+        KeySelector<WindowedValue<KV<String, Long>>, String> keySelector = ( e) -> e.getValue().getKey();
+        OneInputStreamOperatorTestHarness<WindowedValue<KV<String, Long>>, WindowedValue<KV<String, Long>>> testHarness = createTestHarness(windowingStrategy, filterElementsEqualToCountFn, kvCoder, kvCoder, outputTag, keyCoderInfo, keySelector);
+        testHarness.open();
+        testHarness.processElement(new org.apache.flink.streaming.runtime.streamrecord.StreamRecord(WindowedValue.valueInGlobalWindow(KV.of("a", 100L))));
+        testHarness.processElement(new org.apache.flink.streaming.runtime.streamrecord.StreamRecord(WindowedValue.valueInGlobalWindow(KV.of("a", 100L))));
+        OperatorSubtaskState snapshot = testHarness.snapshot(0, 0);
+        testHarness.close();
+        testHarness = createTestHarness(windowingStrategy, filterElementsEqualToCountFn, kvCoder, kvCoder, outputTag, keyCoderInfo, keySelector);
+        testHarness.initializeState(snapshot);
+        testHarness.open();
+        // after restore: counter = 2
+        testHarness.processElement(new org.apache.flink.streaming.runtime.streamrecord.StreamRecord(WindowedValue.valueInGlobalWindow(KV.of("a", 100L))));
+        testHarness.processElement(new org.apache.flink.streaming.runtime.streamrecord.StreamRecord(WindowedValue.valueInGlobalWindow(KV.of("a", 4L))));
+        testHarness.processElement(new org.apache.flink.streaming.runtime.streamrecord.StreamRecord(WindowedValue.valueInGlobalWindow(KV.of("a", 5L))));
+        testHarness.processElement(new org.apache.flink.streaming.runtime.streamrecord.StreamRecord(WindowedValue.valueInGlobalWindow(KV.of("a", 100L))));
+        MatcherAssert.assertThat(StreamRecordStripper.stripStreamRecordFromWindowedValue(testHarness.getOutput()), contains(WindowedValue.valueInGlobalWindow(KV.of("a", 4L)), WindowedValue.valueInGlobalWindow(KV.of("a", 5L))));
+        testHarness.close();
+    }
+
+    @Test
+    public void nonKeyedParDoSideInputCheckpointing() throws Exception {
+        sideInputCheckpointing(() -> {
+            Coder<WindowedValue<String>> coder = WindowedValue.getFullCoder(StringUtf8Coder.of(), IntervalWindow.getCoder());
+            TupleTag<String> outputTag = new TupleTag("main-output");
+            ImmutableMap<Integer, PCollectionView<?>> sideInputMapping = ImmutableMap.<Integer, PCollectionView<?>>builder().put(1, view1).put(2, view2).build();
+            DoFnOperator<String, String> doFnOperator = /* side-input mapping */
+            /* side inputs */
+            new DoFnOperator(new DoFnOperatorTest.IdentityDoFn(), "stepName", coder, null, Collections.emptyMap(), outputTag, Collections.emptyList(), new DoFnOperator.MultiOutputOutputManagerFactory<>(outputTag, coder), WindowingStrategy.globalDefault(), sideInputMapping, ImmutableList.of(view1, view2), PipelineOptionsFactory.as(FlinkPipelineOptions.class), null, null, DoFnSchemaInformation.create());
+            return new TwoInputStreamOperatorTestHarness(doFnOperator);
+        });
+    }
+
+    @Test
+    public void keyedParDoSideInputCheckpointing() throws Exception {
+        sideInputCheckpointing(() -> {
+            Coder<WindowedValue<String>> coder = WindowedValue.getFullCoder(StringUtf8Coder.of(), IntervalWindow.getCoder());
+            TupleTag<String> outputTag = new TupleTag("main-output");
+            StringUtf8Coder keyCoder = StringUtf8Coder.of();
+            ImmutableMap<Integer, PCollectionView<?>> sideInputMapping = ImmutableMap.<Integer, PCollectionView<?>>builder().put(1, view1).put(2, view2).build();
+            DoFnOperator<String, String> doFnOperator = /* side-input mapping */
+            /* side inputs */
+            new DoFnOperator(new DoFnOperatorTest.IdentityDoFn(), "stepName", coder, null, Collections.emptyMap(), outputTag, Collections.emptyList(), new DoFnOperator.MultiOutputOutputManagerFactory<>(outputTag, coder), WindowingStrategy.of(FixedWindows.of(Duration.millis(100))), sideInputMapping, ImmutableList.of(view1, view2), PipelineOptionsFactory.as(FlinkPipelineOptions.class), keyCoder, WindowedValue::getValue, DoFnSchemaInformation.create());
+            return // we use a dummy key for the second input since it is considered to be broadcast
+            new org.apache.flink.streaming.util.KeyedTwoInputStreamOperatorTestHarness(doFnOperator, WindowedValue::getValue, null, BasicTypeInfo.STRING_TYPE_INFO);
+        });
+    }
+
+    @Test
+    public void nonKeyedParDoPushbackDataCheckpointing() throws Exception {
+        pushbackDataCheckpointing(() -> {
+            Coder<WindowedValue<String>> coder = WindowedValue.getFullCoder(StringUtf8Coder.of(), IntervalWindow.getCoder());
+            TupleTag<String> outputTag = new TupleTag("main-output");
+            ImmutableMap<Integer, PCollectionView<?>> sideInputMapping = ImmutableMap.<Integer, PCollectionView<?>>builder().put(1, view1).put(2, view2).build();
+            DoFnOperator<String, String> doFnOperator = /* side-input mapping */
+            /* side inputs */
+            new DoFnOperator(new DoFnOperatorTest.IdentityDoFn(), "stepName", coder, null, Collections.emptyMap(), outputTag, Collections.emptyList(), new DoFnOperator.MultiOutputOutputManagerFactory<>(outputTag, coder), WindowingStrategy.of(FixedWindows.of(Duration.millis(100))), sideInputMapping, ImmutableList.of(view1, view2), PipelineOptionsFactory.as(FlinkPipelineOptions.class), null, null, DoFnSchemaInformation.create());
+            return new TwoInputStreamOperatorTestHarness(doFnOperator);
+        });
+    }
+
+    @Test
+    public void keyedParDoPushbackDataCheckpointing() throws Exception {
+        pushbackDataCheckpointing(() -> {
+            Coder<WindowedValue<String>> coder = WindowedValue.getFullCoder(StringUtf8Coder.of(), IntervalWindow.getCoder());
+            TupleTag<String> outputTag = new TupleTag("main-output");
+            StringUtf8Coder keyCoder = StringUtf8Coder.of();
+            ImmutableMap<Integer, PCollectionView<?>> sideInputMapping = ImmutableMap.<Integer, PCollectionView<?>>builder().put(1, view1).put(2, view2).build();
+            DoFnOperator<String, String> doFnOperator = /* side-input mapping */
+            /* side inputs */
+            new DoFnOperator(new DoFnOperatorTest.IdentityDoFn(), "stepName", coder, null, Collections.emptyMap(), outputTag, Collections.emptyList(), new DoFnOperator.MultiOutputOutputManagerFactory<>(outputTag, coder), WindowingStrategy.of(FixedWindows.of(Duration.millis(100))), sideInputMapping, ImmutableList.of(view1, view2), PipelineOptionsFactory.as(FlinkPipelineOptions.class), keyCoder, WindowedValue::getValue, DoFnSchemaInformation.create());
+            return // we use a dummy key for the second input since it is considered to be broadcast
+            new org.apache.flink.streaming.util.KeyedTwoInputStreamOperatorTestHarness(doFnOperator, WindowedValue::getValue, null, BasicTypeInfo.STRING_TYPE_INFO);
+        });
+    }
+
+    @Test
+    public void testTimersRestore() throws Exception {
+        final Instant timerTimestamp = new Instant(1000);
+        final String outputMessage = "Timer fired";
+        WindowingStrategy<Object, IntervalWindow> windowingStrategy = WindowingStrategy.of(FixedWindows.of(new Duration(10000)));
+        DoFn<Integer, String> fn = new DoFn<Integer, String>() {
+            private static final String EVENT_TIMER_ID = "eventTimer";
+
+            @TimerId(EVENT_TIMER_ID)
+            private final TimerSpec eventTimer = TimerSpecs.timer(EVENT_TIME);
+
+            @ProcessElement
+            public void processElement(ProcessContext context, @TimerId(EVENT_TIMER_ID)
+            Timer timer) {
+                timer.set(timerTimestamp);
+            }
+
+            @OnTimer(EVENT_TIMER_ID)
+            public void onEventTime(OnTimerContext context) {
+                Assert.assertEquals("Timer timestamp must match set timestamp.", timerTimestamp, context.timestamp());
+                context.outputWithTimestamp(outputMessage, context.timestamp());
+            }
+        };
+        WindowedValue.FullWindowedValueCoder<Integer> inputCoder = WindowedValue.getFullCoder(VarIntCoder.of(), windowingStrategy.getWindowFn().windowCoder());
+        WindowedValue.FullWindowedValueCoder<String> outputCoder = WindowedValue.getFullCoder(StringUtf8Coder.of(), windowingStrategy.getWindowFn().windowCoder());
+        TupleTag<String> outputTag = new TupleTag("main-output");
+        final CoderTypeSerializer<WindowedValue<String>> outputSerializer = new CoderTypeSerializer(outputCoder);
+        CoderTypeInformation<Integer> keyCoderInfo = new CoderTypeInformation(VarIntCoder.of());
+        KeySelector<WindowedValue<Integer>, Integer> keySelector = WindowedValue::getValue;
+        OneInputStreamOperatorTestHarness<WindowedValue<Integer>, WindowedValue<String>> testHarness = createTestHarness(windowingStrategy, fn, inputCoder, outputCoder, outputTag, keyCoderInfo, keySelector);
+        testHarness.setup(outputSerializer);
+        testHarness.open();
+        testHarness.processWatermark(0);
+        IntervalWindow window1 = new IntervalWindow(new Instant(0), Duration.millis(10000));
+        // this should register a timer
+        testHarness.processElement(new org.apache.flink.streaming.runtime.streamrecord.StreamRecord(WindowedValue.of(13, new Instant(0), window1, NO_FIRING)));
+        MatcherAssert.assertThat(StreamRecordStripper.stripStreamRecordFromWindowedValue(testHarness.getOutput()), Matchers.emptyIterable());
+        // snapshot and restore
+        final OperatorSubtaskState snapshot = testHarness.snapshot(0, 0);
+        testHarness.close();
+        testHarness = createTestHarness(windowingStrategy, fn, inputCoder, outputCoder, outputTag, keyCoderInfo, keySelector);
+        testHarness.setup(outputSerializer);
+        testHarness.initializeState(snapshot);
+        testHarness.open();
+        // this must fire the timer
+        testHarness.processWatermark(((timerTimestamp.getMillis()) + 1));
+        MatcherAssert.assertThat(StreamRecordStripper.stripStreamRecordFromWindowedValue(testHarness.getOutput()), contains(WindowedValue.of(outputMessage, new Instant(timerTimestamp), window1, NO_FIRING)));
+        testHarness.close();
+    }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    public void testBundle() throws Exception {
+        WindowedValue.ValueOnlyWindowedValueCoder<String> windowedValueCoder = WindowedValue.getValueOnlyCoder(StringUtf8Coder.of());
+        TupleTag<String> outputTag = new TupleTag("main-output");
+        FlinkPipelineOptions options = PipelineOptionsFactory.as(FlinkPipelineOptions.class);
+        options.setMaxBundleSize(2L);
+        options.setMaxBundleTimeMills(10L);
+        DoFnOperatorTest.IdentityDoFn<String> doFn = new DoFnOperatorTest.IdentityDoFn<String>() {
+            @FinishBundle
+            public void finishBundle(FinishBundleContext context) {
+                context.output("finishBundle", TIMESTAMP_MIN_VALUE, INSTANCE);
+            }
+        };
+        DoFnOperator.MultiOutputOutputManagerFactory<String> outputManagerFactory = new DoFnOperator.MultiOutputOutputManagerFactory(outputTag, WindowedValue.getFullCoder(StringUtf8Coder.of(), GlobalWindow.Coder.INSTANCE));
+        DoFnOperator<String, String> doFnOperator = /* side-input mapping */
+        /* side inputs */
+        new DoFnOperator(doFn, "stepName", windowedValueCoder, null, Collections.emptyMap(), outputTag, Collections.emptyList(), outputManagerFactory, WindowingStrategy.globalDefault(), new HashMap(), Collections.emptyList(), options, null, null, DoFnSchemaInformation.create());
+        OneInputStreamOperatorTestHarness<WindowedValue<String>, WindowedValue<String>> testHarness = new OneInputStreamOperatorTestHarness(doFnOperator);
+        testHarness.open();
+        testHarness.processElement(new org.apache.flink.streaming.runtime.streamrecord.StreamRecord(WindowedValue.valueInGlobalWindow("a")));
+        testHarness.processElement(new org.apache.flink.streaming.runtime.streamrecord.StreamRecord(WindowedValue.valueInGlobalWindow("b")));
+        testHarness.processElement(new org.apache.flink.streaming.runtime.streamrecord.StreamRecord(WindowedValue.valueInGlobalWindow("c")));
+        // draw a snapshot
+        OperatorSubtaskState snapshot = testHarness.snapshot(0, 0);
+        // There is a finishBundle in snapshot()
+        // Elements will be buffered as part of finishing a bundle in snapshot()
+        MatcherAssert.assertThat(StreamRecordStripper.stripStreamRecordFromWindowedValue(testHarness.getOutput()), contains(WindowedValue.valueInGlobalWindow("a"), WindowedValue.valueInGlobalWindow("b"), WindowedValue.valueInGlobalWindow("finishBundle"), WindowedValue.valueInGlobalWindow("c")));
+        testHarness.close();
+        DoFnOperator<String, String> newDoFnOperator = /* side-input mapping */
+        /* side inputs */
+        new DoFnOperator(doFn, "stepName", windowedValueCoder, null, Collections.emptyMap(), outputTag, Collections.emptyList(), outputManagerFactory, WindowingStrategy.globalDefault(), new HashMap(), Collections.emptyList(), options, null, null, DoFnSchemaInformation.create());
+        OneInputStreamOperatorTestHarness<WindowedValue<String>, WindowedValue<String>> newHarness = new OneInputStreamOperatorTestHarness(newDoFnOperator);
+        // restore snapshot
+        newHarness.initializeState(snapshot);
+        newHarness.open();
+        // startBundle will output the buffered elements.
+        newHarness.processElement(new org.apache.flink.streaming.runtime.streamrecord.StreamRecord(WindowedValue.valueInGlobalWindow("d")));
+        // check finishBundle by timeout
+        newHarness.setProcessingTime(10);
+        MatcherAssert.assertThat(StreamRecordStripper.stripStreamRecordFromWindowedValue(newHarness.getOutput()), contains(WindowedValue.valueInGlobalWindow("finishBundle"), WindowedValue.valueInGlobalWindow("d"), WindowedValue.valueInGlobalWindow("finishBundle")));
+        // A final bundle will be created when sending the MAX watermark
+        newHarness.close();
+        MatcherAssert.assertThat(StreamRecordStripper.stripStreamRecordFromWindowedValue(newHarness.getOutput()), contains(WindowedValue.valueInGlobalWindow("finishBundle"), WindowedValue.valueInGlobalWindow("d"), WindowedValue.valueInGlobalWindow("finishBundle"), WindowedValue.valueInGlobalWindow("finishBundle")));
+        // close() will also call dispose(), but call again to verify no new bundle
+        // is created afterwards
+        newDoFnOperator.dispose();
+        MatcherAssert.assertThat(StreamRecordStripper.stripStreamRecordFromWindowedValue(newHarness.getOutput()), contains(WindowedValue.valueInGlobalWindow("finishBundle"), WindowedValue.valueInGlobalWindow("d"), WindowedValue.valueInGlobalWindow("finishBundle"), WindowedValue.valueInGlobalWindow("finishBundle")));
+    }
+
+    @Test
+    public void testBundleKeyed() throws Exception {
+        StringUtf8Coder keyCoder = StringUtf8Coder.of();
+        KvToByteBufferKeySelector keySelector = new KvToByteBufferKeySelector(keyCoder);
+        KvCoder<String, String> kvCoder = KvCoder.of(keyCoder, StringUtf8Coder.of());
+        ValueOnlyWindowedValueCoder<KV<String, String>> windowedValueCoder = WindowedValue.getValueOnlyCoder(kvCoder);
+        TupleTag<String> outputTag = new TupleTag("main-output");
+        FlinkPipelineOptions options = PipelineOptionsFactory.as(FlinkPipelineOptions.class);
+        options.setMaxBundleSize(2L);
+        options.setMaxBundleTimeMills(10L);
+        DoFnOperatorTest.IdentityDoFn<KV<String, String>> doFn = new DoFnOperatorTest.IdentityDoFn<KV<String, String>>() {
+            @FinishBundle
+            public void finishBundle(FinishBundleContext context) {
+                context.output(KV.of("key2", "finishBundle"), TIMESTAMP_MIN_VALUE, INSTANCE);
+            }
+        };
+        MultiOutputOutputManagerFactory<KV<String, String>> outputManagerFactory = new DoFnOperator.MultiOutputOutputManagerFactory(outputTag, WindowedValue.getFullCoder(kvCoder, GlobalWindow.Coder.INSTANCE));
+        DoFnOperator<KV<String, String>, KV<String, String>> doFnOperator = /* side-input mapping */
+        /* side inputs */
+        new DoFnOperator(doFn, "stepName", windowedValueCoder, null, Collections.emptyMap(), outputTag, Collections.emptyList(), outputManagerFactory, WindowingStrategy.globalDefault(), new HashMap(), Collections.emptyList(), options, keyCoder, keySelector, DoFnSchemaInformation.create());
+        OneInputStreamOperatorTestHarness<WindowedValue<KV<String, String>>, WindowedValue<KV<String, String>>> testHarness = new KeyedOneInputStreamOperatorTestHarness(doFnOperator, keySelector, keySelector.getProducedType());
+        testHarness.open();
+        testHarness.processElement(new org.apache.flink.streaming.runtime.streamrecord.StreamRecord(WindowedValue.valueInGlobalWindow(KV.of("key", "a"))));
+        testHarness.processElement(new org.apache.flink.streaming.runtime.streamrecord.StreamRecord(WindowedValue.valueInGlobalWindow(KV.of("key", "b"))));
+        testHarness.processElement(new org.apache.flink.streaming.runtime.streamrecord.StreamRecord(WindowedValue.valueInGlobalWindow(KV.of("key", "c"))));
+        // Take a snapshot
+        OperatorSubtaskState snapshot = testHarness.snapshot(0, 0);
+        // There is a finishBundle in snapshot()
+        // Elements will be buffered as part of finishing a bundle in snapshot()
+        MatcherAssert.assertThat(StreamRecordStripper.stripStreamRecordFromWindowedValue(testHarness.getOutput()), contains(WindowedValue.valueInGlobalWindow(KV.of("key", "a")), WindowedValue.valueInGlobalWindow(KV.of("key", "b")), WindowedValue.valueInGlobalWindow(KV.of("key2", "finishBundle")), WindowedValue.valueInGlobalWindow(KV.of("key", "c"))));
+        testHarness.close();
+        doFnOperator = /* side-input mapping */
+        /* side inputs */
+        new DoFnOperator(doFn, "stepName", windowedValueCoder, null, Collections.emptyMap(), outputTag, Collections.emptyList(), outputManagerFactory, WindowingStrategy.globalDefault(), new HashMap(), Collections.emptyList(), options, keyCoder, keySelector, DoFnSchemaInformation.create());
+        testHarness = new KeyedOneInputStreamOperatorTestHarness(doFnOperator, keySelector, keySelector.getProducedType());
+        // Restore snapshot
+        testHarness.initializeState(snapshot);
+        testHarness.open();
+        // startBundle will output the buffered elements.
+        testHarness.processElement(new org.apache.flink.streaming.runtime.streamrecord.StreamRecord(WindowedValue.valueInGlobalWindow(KV.of("key", "d"))));
+        // check finishBundle by timeout
+        testHarness.setProcessingTime(10);
+        MatcherAssert.assertThat(StreamRecordStripper.stripStreamRecordFromWindowedValue(testHarness.getOutput()), // The first finishBundle is restored from the checkpoint
+        contains(WindowedValue.valueInGlobalWindow(KV.of("key2", "finishBundle")), WindowedValue.valueInGlobalWindow(KV.of("key", "d")), WindowedValue.valueInGlobalWindow(KV.of("key2", "finishBundle"))));
+        testHarness.close();
+    }
+
+    /**
+     * Ensures Jackson cache is cleaned to get rid of any references to the Flink Classloader. See
+     * https://jira.apache.org/jira/browse/BEAM-6460
+     */
+    @Test
+    public void testRemoveCachedClassReferences() throws Exception {
+        FlinkPipelineOptions options = PipelineOptionsFactory.as(FlinkPipelineOptions.class);
+        options.setParallelism(4);
+        TupleTag<String> outputTag = new TupleTag("main-output");
+        WindowedValue.ValueOnlyWindowedValueCoder<String> windowedValueCoder = WindowedValue.getValueOnlyCoder(StringUtf8Coder.of());
+        DoFnOperatorTest.IdentityDoFn<String> doFn = new DoFnOperatorTest.IdentityDoFn<String>() {
+            @FinishBundle
+            public void finishBundle(FinishBundleContext context) {
+                context.output("finishBundle", TIMESTAMP_MIN_VALUE, INSTANCE);
+            }
+        };
+        DoFnOperator.MultiOutputOutputManagerFactory<String> outputManagerFactory = new DoFnOperator.MultiOutputOutputManagerFactory(outputTag, WindowedValue.getFullCoder(StringUtf8Coder.of(), GlobalWindow.Coder.INSTANCE));
+        DoFnOperator<String, String> doFnOperator = /* side-input mapping */
+        /* side inputs */
+        new DoFnOperator(doFn, "stepName", windowedValueCoder, null, Collections.emptyMap(), outputTag, Collections.emptyList(), outputManagerFactory, WindowingStrategy.globalDefault(), new HashMap(), Collections.emptyList(), options, null, null, DoFnSchemaInformation.create());
+        OneInputStreamOperatorTestHarness<WindowedValue<String>, WindowedValue<String>> testHarness = new OneInputStreamOperatorTestHarness(doFnOperator);
+        LRUMap typeCache = ((LRUMap) (Whitebox.getInternalState(TypeFactory.defaultInstance(), "_typeCache")));
+        MatcherAssert.assertThat(typeCache.size(), Matchers.greaterThan(0));
+        testHarness.open();
+        testHarness.close();
+        MatcherAssert.assertThat(typeCache.size(), Matchers.is(0));
+    }
+
+    private static class MultiOutputDoFn extends DoFn<String, String> {
+        private TupleTag<String> additionalOutput1;
+
+        private TupleTag<String> additionalOutput2;
+
+        public MultiOutputDoFn(TupleTag<String> additionalOutput1, TupleTag<String> additionalOutput2) {
+            this.additionalOutput1 = additionalOutput1;
+            this.additionalOutput2 = additionalOutput2;
+        }
+
+        @ProcessElement
+        public void processElement(ProcessContext c) throws Exception {
+            if ("one".equals(c.element())) {
+                c.output(additionalOutput1, "extra: one");
+            } else
+                if ("two".equals(c.element())) {
+                    c.output(additionalOutput2, "extra: two");
+                } else {
+                    c.output(("got: " + (c.element())));
+                    c.output(additionalOutput1, ("got: " + (c.element())));
+                    c.output(additionalOutput2, ("got: " + (c.element())));
+                }
+
+        }
+    }
+
+    private static class IdentityDoFn<T> extends DoFn<T, T> {
+        @ProcessElement
+        public void processElement(ProcessContext c) throws Exception {
+            c.output(c.element());
+        }
+    }
+
+    private interface TestHarnessFactory<T> {
+        T create() throws Exception;
+    }
+}
+

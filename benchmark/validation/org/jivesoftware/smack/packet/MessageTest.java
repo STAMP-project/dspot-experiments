@@ -1,0 +1,143 @@
+/**
+ * Copyright (C) 2007 Jive Software.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.jivesoftware.smack.packet;
+
+
+import Message.Body;
+import Message.Type;
+import StreamOpen.CLIENT_NAMESPACE;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import org.jivesoftware.smack.test.util.XmlUnitUtils;
+import org.junit.Assert;
+import org.junit.Test;
+import org.xml.sax.SAXException;
+
+
+public class MessageTest {
+    @Test
+    public void setMessageTypeTest() throws IOException, SAXException {
+        Message.Type type = Type.chat;
+        Message.Type type2 = Type.headline;
+        StringBuilder controlBuilder = new StringBuilder();
+        controlBuilder.append("<message").append(" type=\"").append(type).append("\">").append("</message>");
+        String control = controlBuilder.toString();
+        Message messageTypeInConstructor = new Message(null, Type.chat);
+        messageTypeInConstructor.setStanzaId(null);
+        Assert.assertEquals(type, messageTypeInConstructor.getType());
+        assertXMLEqual(control, messageTypeInConstructor.toXML(CLIENT_NAMESPACE).toString());
+        controlBuilder = new StringBuilder();
+        controlBuilder.append("<message").append(" type=\"").append(type2).append("\">").append("</message>");
+        control = controlBuilder.toString();
+        Message messageTypeSet = MessageTest.getNewMessage();
+        messageTypeSet.setType(type2);
+        Assert.assertEquals(type2, messageTypeSet.getType());
+        assertXMLEqual(control, messageTypeSet.toXML(CLIENT_NAMESPACE).toString());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void setNullMessageBodyTest() {
+        Message message = MessageTest.getNewMessage();
+        message.addBody(null, null);
+    }
+
+    @Test
+    public void setMessageSubjectTest() throws IOException, SAXException {
+        final String messageSubject = "This is a test of the emergency broadcast system.";
+        StringBuilder controlBuilder = new StringBuilder();
+        controlBuilder.append("<message>").append("<subject>").append(messageSubject).append("</subject>").append("</message>");
+        String control = controlBuilder.toString();
+        Message message = MessageTest.getNewMessage();
+        message.setSubject(messageSubject);
+        Assert.assertEquals(messageSubject, message.getSubject());
+        assertXMLEqual(control, message.toXML(CLIENT_NAMESPACE).toString());
+    }
+
+    @Test
+    public void oneMessageBodyTest() throws IOException, SAXException {
+        final String messageBody = "This is a test of the emergency broadcast system.";
+        StringBuilder controlBuilder = new StringBuilder();
+        controlBuilder.append("<message>").append("<body>").append(messageBody).append("</body>").append("</message>");
+        String control = controlBuilder.toString();
+        Message message = MessageTest.getNewMessage();
+        message.setBody(messageBody);
+        Assert.assertEquals(messageBody, message.getBody());
+        assertXMLEqual(control, message.toXML(CLIENT_NAMESPACE).toString());
+    }
+
+    @Test
+    public void multipleMessageBodiesTest() throws IOException, SAXException {
+        final String messageBody1 = "This is a test of the emergency broadcast system, 1.";
+        final String lang2 = "ru";
+        final String messageBody2 = "This is a test of the emergency broadcast system, 2.";
+        final String lang3 = "sp";
+        final String messageBody3 = "This is a test of the emergency broadcast system, 3.";
+        StringBuilder controlBuilder = new StringBuilder();
+        controlBuilder.append("<message>").append("<body>").append(messageBody1).append("</body>").append("<body xml:lang=\"").append(lang2).append("\">").append(messageBody2).append("</body>").append("<body xml:lang=\"").append(lang3).append("\">").append(messageBody3).append("</body>").append("</message>");
+        String control = controlBuilder.toString();
+        Message message = MessageTest.getNewMessage();
+        message.addBody(null, messageBody1);
+        message.addBody(lang2, messageBody2);
+        message.addBody(lang3, messageBody3);
+        XmlUnitUtils.assertSimilar(control, message.toXML(CLIENT_NAMESPACE));
+        Collection<String> languages = message.getBodyLanguages();
+        List<String> controlLanguages = new ArrayList<>();
+        controlLanguages.add(lang2);
+        controlLanguages.add(lang3);
+        controlLanguages.removeAll(languages);
+        Assert.assertTrue(((controlLanguages.size()) == 0));
+    }
+
+    @Test
+    public void removeMessageBodyTest() {
+        Message message = MessageTest.getNewMessage();
+        message.setBody("test");
+        Assert.assertTrue(((message.getBodies().size()) == 1));
+        message.setBody(null);
+        Assert.assertTrue(((message.getBodies().size()) == 0));
+        Assert.assertFalse(message.removeBody("sp"));
+        Message.Body body = message.addBody("es", "test");
+        Assert.assertTrue(((message.getBodies().size()) == 1));
+        message.removeBody(body);
+        Assert.assertTrue(((message.getBodies().size()) == 0));
+    }
+
+    @Test
+    public void setMessageThreadTest() throws IOException, SAXException {
+        final String messageThread = "1234";
+        StringBuilder controlBuilder = new StringBuilder();
+        controlBuilder.append("<message>").append("<thread>").append(messageThread).append("</thread>").append("</message>");
+        String control = controlBuilder.toString();
+        Message message = MessageTest.getNewMessage();
+        message.setThread(messageThread);
+        Assert.assertEquals(messageThread, message.getThread());
+        assertXMLEqual(control, message.toXML(CLIENT_NAMESPACE).toString());
+    }
+
+    @Test
+    public void messageXmlLangTest() throws IOException, SAXException {
+        final String lang = "sp";
+        StringBuilder controlBuilder = new StringBuilder();
+        controlBuilder.append("<message").append(" xml:lang=\"").append(lang).append("\">").append("</message>");
+        String control = controlBuilder.toString();
+        Message message = MessageTest.getNewMessage();
+        message.setLanguage(lang);
+        assertXMLEqual(control, message.toXML(CLIENT_NAMESPACE).toString());
+    }
+}
+

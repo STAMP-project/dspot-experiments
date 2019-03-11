@@ -1,0 +1,47 @@
+/**
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
+ * an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations under the License.
+ *
+ * Copyright 2012-2019 the original author or authors.
+ */
+package org.assertj.core.api.list;
+
+
+import org.assertj.core.api.Assertions;
+import org.assertj.core.data.TolkienCharacter;
+import org.assertj.core.data.TolkienCharacterAssert;
+import org.assertj.core.data.TolkienCharacterAssertFactory;
+import org.junit.jupiter.api.Test;
+
+
+public class ListAssert_filteredOn_using_filterOperator_with_navigation_Test extends ListAssert_filteredOn_BaseTest {
+    // these tests validate any FilterOperator with strongly typed navigation assertions
+    // no need to write tests for all FilterOperators
+    @Test
+    public void shoul_honor_AssertFactory_strongly_typed_navigation_assertions() {
+        // GIVEN
+        Iterable<TolkienCharacter> hobbits = ListAssert_filteredOn_BaseTest.hobbits();
+        TolkienCharacterAssertFactory tolkienCharacterAssertFactory = new TolkienCharacterAssertFactory();
+        // THEN
+        Assertions.assertThat(hobbits, tolkienCharacterAssertFactory).filteredOn("name", Assertions.in("Frodo")).first().hasAge(33);
+        Assertions.assertThat(hobbits, tolkienCharacterAssertFactory).filteredOn("name", Assertions.in("Frodo")).last().hasAge(33);
+        Assertions.assertThat(hobbits, tolkienCharacterAssertFactory).filteredOn("name", Assertions.in("Frodo")).element(0).hasAge(33);
+    }
+
+    @Test
+    public void shoul_honor_ClassBased_strongly_typed_navigation_assertions() {
+        // GIVEN
+        Iterable<TolkienCharacter> hobbits = ListAssert_filteredOn_BaseTest.hobbits();
+        // THEN
+        Assertions.assertThat(hobbits, TolkienCharacterAssert.class).filteredOn("name", Assertions.in("Frodo")).first().hasAge(33);
+        Assertions.assertThat(hobbits, TolkienCharacterAssert.class).filteredOn("name", Assertions.in("Frodo")).last().hasAge(33);
+        Assertions.assertThat(hobbits, TolkienCharacterAssert.class).filteredOn("name", Assertions.in("Frodo")).element(0).hasAge(33);
+    }
+}
+

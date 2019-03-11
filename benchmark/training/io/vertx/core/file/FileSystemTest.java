@@ -1,0 +1,1802 @@
+/**
+ * Copyright (c) 2014 Red Hat, Inc. and others
+ *
+ * This program and the accompanying materials are made available under the
+ * terms of the Eclipse Public License 2.0 which is available at
+ * http://www.eclipse.org/legal/epl-2.0, or the Apache License, Version 2.0
+ * which is available at https://www.apache.org/licenses/LICENSE-2.0.
+ *
+ * SPDX-License-Identifier: EPL-2.0 OR Apache-2.0
+ */
+package io.vertx.core.file;
+
+
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
+import io.vertx.core.Future;
+import io.vertx.core.Vertx;
+import io.vertx.core.buffer.Buffer;
+import io.vertx.core.file.impl.AsyncFileImpl;
+import io.vertx.core.impl.Utils;
+import io.vertx.core.json.JsonObject;
+import io.vertx.core.streams.Pump;
+import io.vertx.core.streams.ReadStream;
+import io.vertx.test.core.TestUtils;
+import io.vertx.test.core.VertxTestBase;
+import java.io.File;
+import java.nio.file.AtomicMoveNotSupportedException;
+import java.nio.file.FileSystem;
+import java.nio.file.Files;
+import java.nio.file.LinkOption;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.nio.file.attribute.GroupPrincipal;
+import java.nio.file.attribute.PosixFileAttributes;
+import java.nio.file.attribute.PosixFilePermission;
+import java.nio.file.attribute.UserPrincipal;
+import java.util.EnumSet;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
+import org.junit.Assume;
+import org.junit.AssumptionViolatedException;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.TemporaryFolder;
+
+
+/**
+ *
+ *
+ * @author <a href="http://tfox.org">Tim Fox</a>
+ */
+public class FileSystemTest extends VertxTestBase {
+    private static final String DEFAULT_DIR_PERMS = "rwxr-xr-x";
+
+    private static final String DEFAULT_FILE_PERMS = "rw-r--r--";
+
+    private String pathSep;
+
+    private String testDir;
+
+    @Rule
+    public TemporaryFolder testFolder = new TemporaryFolder();
+
+    @Test
+    public void testIllegalArguments() throws Exception {
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().copy(null, "ignored", ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().copy("ignored", null, ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().copyBlocking(null, "ignored"));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().copyBlocking("ignored", null));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().copyRecursive(null, "ignored", true, ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().copyRecursive("ignored", null, true, ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().copyRecursiveBlocking(null, "ignored", true));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().copyRecursiveBlocking("ignored", null, true));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().move(null, "ignored", ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().move("ignored", null, ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().moveBlocking(null, "ignored"));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().moveBlocking("ignored", null));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().truncate(null, 0, ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().truncateBlocking(null, 0));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().chmod(null, "ignored", ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().chmod("ignored", null, ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().chmodBlocking(null, "ignored"));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().chmodBlocking("ignored", null));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().chmodRecursive(null, "ignored", "ignored", ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().chmodRecursive("ignored", null, "ignored", ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().chmodRecursiveBlocking(null, "ignored", "ignored"));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().chmodRecursiveBlocking("ignored", null, "ignored"));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().chown(null, "ignored", "ignored", ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().chownBlocking(null, "ignored", "ignored"));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().props(null, ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().propsBlocking(null));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().lprops(null, ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().lpropsBlocking(null));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().link(null, "ignored", ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().link("ignored", null, ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().linkBlocking(null, "ignored"));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().linkBlocking("ignored", null));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().symlink(null, "ignored", ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().symlink("ignored", null, ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().symlinkBlocking(null, "ignored"));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().symlinkBlocking("ignored", null));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().unlink(null, ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().unlinkBlocking(null));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().readSymlink(null, ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().readSymlinkBlocking(null));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().delete(null, ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().deleteBlocking(null));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().deleteRecursive(null, true, ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().deleteRecursiveBlocking(null, true));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().mkdir(null, ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().mkdirBlocking(null));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().mkdir(null, "ignored", ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().mkdirBlocking(null, "ignored"));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().mkdirs(null, ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().mkdirsBlocking(null));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().mkdirs(null, "ignored", ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().mkdirsBlocking(null, "ignored"));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().readDir(null, ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().readDirBlocking(null));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().readDir(null, "ignored", ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().readDirBlocking(null, "ignored"));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().readFile(null, ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().readFileBlocking(null));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().writeFile(null, Buffer.buffer(), ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().writeFile("ignored", null, ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().writeFileBlocking(null, Buffer.buffer()));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().writeFileBlocking("ignored", null));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().open(null, new OpenOptions(), ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().open("ignored", null, ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().openBlocking(null, new OpenOptions()));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().openBlocking("ignored", null));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().createFile(null, ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().createFileBlocking(null));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().createFile(null, "ignored", ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().createFileBlocking(null, "ignored"));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().exists(null, ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().existsBlocking(null));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().fsProps(null, ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> vertx.fileSystem().fsPropsBlocking(null));
+        String fileName = "some-file.dat";
+        AsyncFile asyncFile = vertx.fileSystem().openBlocking((((testDir) + (pathSep)) + fileName), new OpenOptions());
+        TestUtils.assertNullPointerException(() -> asyncFile.write(null));
+        TestUtils.assertIllegalArgumentException(() -> asyncFile.setWriteQueueMaxSize(1));
+        TestUtils.assertIllegalArgumentException(() -> asyncFile.setWriteQueueMaxSize(0));
+        TestUtils.assertIllegalArgumentException(() -> asyncFile.setWriteQueueMaxSize((-1)));
+        TestUtils.assertNullPointerException(() -> asyncFile.write(null, 0, ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> asyncFile.write(Buffer.buffer(), 0, null));
+        TestUtils.assertIllegalArgumentException(() -> asyncFile.write(Buffer.buffer(), (-1), ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> asyncFile.read(null, 0, 0, 0, ( h) -> {
+        }));
+        TestUtils.assertNullPointerException(() -> asyncFile.read(Buffer.buffer(), 0, 0, 0, null));
+        TestUtils.assertIllegalArgumentException(() -> asyncFile.read(Buffer.buffer(), (-1), 0, 0, ( h) -> {
+        }));
+        TestUtils.assertIllegalArgumentException(() -> asyncFile.read(Buffer.buffer(), 0, (-1), 0, ( h) -> {
+        }));
+        TestUtils.assertIllegalArgumentException(() -> asyncFile.read(Buffer.buffer(), 0, 0, (-1), ( h) -> {
+        }));
+    }
+
+    @Test
+    public void testSimpleCopy() throws Exception {
+        String source = "foo.txt";
+        String target = "bar.txt";
+        createFileWithJunk(source, 100);
+        testCopy(source, target, false, true, ( v) -> {
+            assertTrue(fileExists(source));
+            assertTrue(fileExists(target));
+        });
+        await();
+    }
+
+    @Test
+    public void testSimpleCopyFileAlreadyExists() throws Exception {
+        String source = "foo.txt";
+        String target = "bar.txt";
+        createFileWithJunk(source, 100);
+        createFileWithJunk(target, 100);
+        testCopy(source, target, false, false, ( v) -> {
+            assertTrue(fileExists(source));
+            assertTrue(fileExists(target));
+        });
+        await();
+    }
+
+    @Test
+    public void testCopyIntoDir() throws Exception {
+        String source = "foo.txt";
+        String dir = "some-dir";
+        String target = (dir + (pathSep)) + "bar.txt";
+        mkDir(dir);
+        createFileWithJunk(source, 100);
+        testCopy(source, target, false, true, ( v) -> {
+            assertTrue(fileExists(source));
+            assertTrue(fileExists(target));
+        });
+        await();
+    }
+
+    @Test
+    public void testCopyEmptyDir() throws Exception {
+        String source = "some-dir";
+        String target = "some-other-dir";
+        mkDir(source);
+        testCopy(source, target, false, true, ( v) -> {
+            assertTrue(fileExists(source));
+            assertTrue(fileExists(target));
+        });
+        await();
+    }
+
+    @Test
+    public void testCopyNonEmptyDir() throws Exception {
+        String source = "some-dir";
+        String target = "some-other-dir";
+        String file1 = (pathSep) + "somefile.bar";
+        mkDir(source);
+        createFileWithJunk((source + file1), 100);
+        testCopy(source, target, false, true, ( v) -> {
+            assertTrue(fileExists(source));
+            assertTrue(fileExists(target));
+            assertFalse(fileExists((target + file1)));
+        });
+        await();
+    }
+
+    @Test
+    public void testFailCopyDirAlreadyExists() throws Exception {
+        String source = "some-dir";
+        String target = "some-other-dir";
+        mkDir(source);
+        mkDir(target);
+        testCopy(source, target, false, false, ( v) -> {
+            assertTrue(fileExists(source));
+            assertTrue(fileExists(target));
+        });
+        await();
+    }
+
+    @Test
+    public void testRecursiveCopy() throws Exception {
+        String dir = "some-dir";
+        String file1 = (pathSep) + "file1.dat";
+        String file2 = (pathSep) + "index.html";
+        String dir2 = "next-dir";
+        String file3 = (pathSep) + "blah.java";
+        mkDir(dir);
+        createFileWithJunk((dir + file1), 100);
+        createFileWithJunk((dir + file2), 100);
+        mkDir(((dir + (pathSep)) + dir2));
+        createFileWithJunk((((dir + (pathSep)) + dir2) + file3), 100);
+        String target = "some-other-dir";
+        testCopy(dir, target, true, true, ( v) -> {
+            assertTrue(fileExists(dir));
+            assertTrue(fileExists(target));
+            assertTrue(fileExists((target + file1)));
+            assertTrue(fileExists((target + file2)));
+            assertTrue(fileExists((((target + (pathSep)) + dir2) + file3)));
+        });
+        await();
+    }
+
+    @Test
+    public void testSimpleMove() throws Exception {
+        String source = "foo.txt";
+        String target = "bar.txt";
+        createFileWithJunk(source, 100);
+        testMove(source, target, true, ( v) -> {
+            assertFalse(fileExists(source));
+            assertTrue(fileExists(target));
+        });
+        await();
+    }
+
+    @Test
+    public void testSimpleMoveFileAlreadyExists() throws Exception {
+        String source = "foo.txt";
+        String target = "bar.txt";
+        createFileWithJunk(source, 100);
+        createFileWithJunk(target, 100);
+        testMove(source, target, false, ( v) -> {
+            assertTrue(fileExists(source));
+            assertTrue(fileExists(target));
+        });
+        await();
+    }
+
+    @Test
+    public void testMoveEmptyDir() throws Exception {
+        String source = "some-dir";
+        String target = "some-other-dir";
+        mkDir(source);
+        testMove(source, target, true, ( v) -> {
+            assertFalse(fileExists(source));
+            assertTrue(fileExists(target));
+        });
+        await();
+    }
+
+    @Test
+    public void testMoveEmptyDirTargetExists() throws Exception {
+        String source = "some-dir";
+        String target = "some-other-dir";
+        mkDir(source);
+        mkDir(target);
+        testMove(source, target, false, ( v) -> {
+            assertTrue(fileExists(source));
+            assertTrue(fileExists(target));
+        });
+        await();
+    }
+
+    @Test
+    public void testMoveNonEmptyDir() throws Exception {
+        String dir = "some-dir";
+        String file1 = (pathSep) + "file1.dat";
+        String file2 = (pathSep) + "index.html";
+        String dir2 = "next-dir";
+        String file3 = (pathSep) + "blah.java";
+        mkDir(dir);
+        createFileWithJunk((dir + file1), 100);
+        createFileWithJunk((dir + file2), 100);
+        mkDir(((dir + (pathSep)) + dir2));
+        createFileWithJunk((((dir + (pathSep)) + dir2) + file3), 100);
+        String target = "some-other-dir";
+        testMove(dir, target, true, ( v) -> {
+            assertFalse(fileExists(dir));
+            assertTrue(fileExists(target));
+            assertTrue(fileExists((target + file1)));
+            assertTrue(fileExists((target + file2)));
+            assertTrue(fileExists((((target + (pathSep)) + dir2) + file3)));
+        });
+        await();
+    }
+
+    @Test
+    public void testTruncate() throws Exception {
+        String file1 = "some-file.dat";
+        long initialLen = 1000;
+        long truncatedLen = 534;
+        createFileWithJunk(file1, initialLen);
+        assertEquals(initialLen, fileLength(file1));
+        testTruncate(file1, truncatedLen, true, ( v) -> {
+            assertEquals(truncatedLen, fileLength(file1));
+        });
+        await();
+    }
+
+    @Test
+    public void testTruncateExtendsFile() throws Exception {
+        String file1 = "some-file.dat";
+        long initialLen = 500;
+        long truncatedLen = 1000;
+        createFileWithJunk(file1, initialLen);
+        assertEquals(initialLen, fileLength(file1));
+        testTruncate(file1, truncatedLen, true, ( v) -> {
+            assertEquals(truncatedLen, fileLength(file1));
+        });
+        await();
+    }
+
+    @Test
+    public void testTruncateFileDoesNotExist() throws Exception {
+        String file1 = "some-file.dat";
+        long truncatedLen = 534;
+        testTruncate(file1, truncatedLen, false, null);
+        await();
+    }
+
+    @Test
+    public void testChmodNonRecursive1() throws Exception {
+        testChmodNonRecursive("rw-------");
+    }
+
+    @Test
+    public void testChmodNonRecursive2() throws Exception {
+        testChmodNonRecursive("rwx------");
+    }
+
+    @Test
+    public void testChmodNonRecursive3() throws Exception {
+        testChmodNonRecursive("rw-rw-rw-");
+    }
+
+    @Test
+    public void testChmodNonRecursive4() throws Exception {
+        testChmodNonRecursive("rw-r--r--");
+    }
+
+    @Test
+    public void testChmodNonRecursive5() throws Exception {
+        testChmodNonRecursive("rw--w--w-");
+    }
+
+    @Test
+    public void testChmodNonRecursive6() throws Exception {
+        testChmodNonRecursive("rw-rw-rw-");
+    }
+
+    @Test
+    public void testChmodRecursive1() throws Exception {
+        testChmodRecursive("rw-------", "rwx------");
+    }
+
+    @Test
+    public void testChmodRecursive2() throws Exception {
+        testChmodRecursive("rwx------", "rwx------");
+    }
+
+    @Test
+    public void testChmodRecursive3() throws Exception {
+        testChmodRecursive("rw-rw-rw-", "rwxrw-rw-");
+    }
+
+    @Test
+    public void testChmodRecursive4() throws Exception {
+        testChmodRecursive("rw-r--r--", "rwxr--r--");
+    }
+
+    @Test
+    public void testChmodRecursive5() throws Exception {
+        testChmodRecursive("rw--w--w-", "rwx-w--w-");
+    }
+
+    @Test
+    public void testChmodRecursive6() throws Exception {
+        testChmodRecursive("rw-rw-rw-", "rwxrw-rw-");
+    }
+
+    @Test
+    public void testChownToRootFails() throws Exception {
+        testChownFails("root");
+    }
+
+    @Test
+    public void testChownToNotExistingUserFails() throws Exception {
+        testChownFails("jfhfhjejweg");
+    }
+
+    @Test
+    public void testChownToOwnUser() throws Exception {
+        String file1 = "some-file.dat";
+        createFileWithJunk(file1, 100);
+        String fullPath = ((testDir) + (pathSep)) + file1;
+        Path path = Paths.get(fullPath);
+        UserPrincipal owner = Files.getOwner(path);
+        String user = owner.getName();
+        vertx.fileSystem().chown(fullPath, user, null, ( ar) -> {
+            deleteFile(file1);
+            assertTrue(ar.succeeded());
+            testComplete();
+        });
+        await();
+    }
+
+    @Test
+    public void testChownToOwnGroup() throws Exception {
+        // Not supported in WindowsFileSystemProvider
+        Assume.assumeFalse(Utils.isWindows());
+        String file1 = "some-file.dat";
+        createFileWithJunk(file1, 100);
+        String fullPath = ((testDir) + (pathSep)) + file1;
+        Path path = Paths.get(fullPath);
+        GroupPrincipal group = Files.readAttributes(path, PosixFileAttributes.class, LinkOption.NOFOLLOW_LINKS).group();
+        vertx.fileSystem().chown(fullPath, null, group.getName(), ( ar) -> {
+            deleteFile(file1);
+            assertTrue(ar.succeeded());
+            testComplete();
+        });
+        await();
+    }
+
+    @Test
+    public void testProps() throws Exception {
+        String fileName = "some-file.txt";
+        long fileSize = 1234;
+        // The times are quite inaccurate so we give 1 second leeway
+        long start = 1000 * (((System.currentTimeMillis()) / 1000) - 1);
+        createFileWithJunk(fileName, fileSize);
+        testProps(fileName, false, true, ( st) -> {
+            assertNotNull(st);
+            assertEquals(fileSize, st.size());
+            assertTrue(((st.creationTime()) >= start));
+            assertTrue(((st.lastAccessTime()) >= start));
+            assertTrue(((st.lastModifiedTime()) >= start));
+            assertFalse(st.isDirectory());
+            assertTrue(st.isRegularFile());
+            assertFalse(st.isSymbolicLink());
+        });
+        await();
+    }
+
+    @Test
+    public void testPropsFileDoesNotExist() throws Exception {
+        String fileName = "some-file.txt";
+        testProps(fileName, false, false, null);
+        await();
+    }
+
+    @Test
+    public void testPropsFollowLink() throws Exception {
+        // Symlinks require a modified security policy in Windows. -- See http://stackoverflow.com/questions/23217460/how-to-create-soft-symbolic-link-using-java-nio-files
+        Assume.assumeFalse(Utils.isWindows());
+        String fileName = "some-file.txt";
+        long fileSize = 1234;
+        // The times are quite inaccurate so we give 1 second leeway
+        long start = 1000 * (((System.currentTimeMillis()) / 1000) - 1);
+        createFileWithJunk(fileName, fileSize);
+        long end = 1000 * (((System.currentTimeMillis()) / 1000) + 1);
+        String linkName = "some-link.txt";
+        Files.createSymbolicLink(Paths.get((((testDir) + (pathSep)) + linkName)), Paths.get(fileName));
+        testProps(linkName, false, true, ( st) -> {
+            assertNotNull(st);
+            assertEquals(fileSize, st.size());
+            assertTrue(((st.creationTime()) >= start));
+            assertTrue(((st.creationTime()) <= end));
+            assertTrue(((st.lastAccessTime()) >= start));
+            assertTrue(((st.lastAccessTime()) <= end));
+            assertTrue(((st.lastModifiedTime()) >= start));
+            assertTrue(((st.lastModifiedTime()) <= end));
+            assertFalse(st.isDirectory());
+            assertFalse(st.isOther());
+            assertTrue(st.isRegularFile());
+            assertFalse(st.isSymbolicLink());
+        });
+        await();
+    }
+
+    @Test
+    public void testPropsDontFollowLink() throws Exception {
+        // Symlinks require a modified security policy in Windows. -- See http://stackoverflow.com/questions/23217460/how-to-create-soft-symbolic-link-using-java-nio-files
+        Assume.assumeFalse(Utils.isWindows());
+        String fileName = "some-file.txt";
+        long fileSize = 1234;
+        createFileWithJunk(fileName, fileSize);
+        String linkName = "some-link.txt";
+        Files.createSymbolicLink(Paths.get((((testDir) + (pathSep)) + linkName)), Paths.get(fileName));
+        testProps(linkName, true, true, ( st) -> {
+            assertNotNull((st != null));
+            assertTrue(st.isSymbolicLink());
+        });
+        await();
+    }
+
+    @Test
+    public void testLink() throws Exception {
+        String fileName = "some-file.txt";
+        long fileSize = 1234;
+        createFileWithJunk(fileName, fileSize);
+        String linkName = "some-link.txt";
+        testLink(linkName, fileName, false, true, ( v) -> {
+            assertEquals(fileSize, fileLength(linkName));
+            assertFalse(Files.isSymbolicLink(Paths.get((((testDir) + (pathSep)) + linkName))));
+        });
+        await();
+    }
+
+    @Test
+    public void testSymLink() throws Exception {
+        // Symlinks require a modified security policy in Windows. -- See http://stackoverflow.com/questions/23217460/how-to-create-soft-symbolic-link-using-java-nio-files
+        Assume.assumeFalse(Utils.isWindows());
+        String fileName = "some-file.txt";
+        long fileSize = 1234;
+        createFileWithJunk(fileName, fileSize);
+        String symlinkName = "some-sym-link.txt";
+        testLink(symlinkName, fileName, true, true, ( v) -> {
+            assertEquals(fileSize, fileLength(symlinkName));
+            assertTrue(Files.isSymbolicLink(Paths.get((((testDir) + (pathSep)) + symlinkName))));
+            // Now try reading it
+            String read = vertx.fileSystem().readSymlinkBlocking((((testDir) + (pathSep)) + symlinkName));
+            assertEquals(fileName, read);
+        });
+        await();
+    }
+
+    @Test
+    public void testUnlink() throws Exception {
+        String fileName = "some-file.txt";
+        long fileSize = 1234;
+        createFileWithJunk(fileName, fileSize);
+        String linkName = "some-link.txt";
+        Files.createLink(Paths.get((((testDir) + (pathSep)) + linkName)), Paths.get((((testDir) + (pathSep)) + fileName)));
+        assertEquals(fileSize, fileLength(linkName));
+        vertx.fileSystem().unlink((((testDir) + (pathSep)) + linkName), createHandler(true, ( v) -> assertFalse(fileExists(linkName))));
+        await();
+    }
+
+    @Test
+    public void testReadSymLink() throws Exception {
+        // Symlinks require a modified security policy in Windows. -- See http://stackoverflow.com/questions/23217460/how-to-create-soft-symbolic-link-using-java-nio-files
+        Assume.assumeFalse(Utils.isWindows());
+        String fileName = "some-file.txt";
+        long fileSize = 1234;
+        createFileWithJunk(fileName, fileSize);
+        String linkName = "some-link.txt";
+        Files.createSymbolicLink(Paths.get((((testDir) + (pathSep)) + linkName)), Paths.get(fileName));
+        vertx.fileSystem().readSymlink((((testDir) + (pathSep)) + linkName), ( ar) -> {
+            if (ar.failed()) {
+                fail(ar.cause().getMessage());
+            } else {
+                assertEquals(fileName, ar.result());
+                testComplete();
+            }
+        });
+        await();
+    }
+
+    @Test
+    public void testSimpleDelete() throws Exception {
+        String fileName = "some-file.txt";
+        createFileWithJunk(fileName, 100);
+        assertTrue(fileExists(fileName));
+        testDelete(fileName, false, true, ( v) -> {
+            assertFalse(fileExists(fileName));
+        });
+        await();
+    }
+
+    @Test
+    public void testDeleteEmptyDir() throws Exception {
+        String dirName = "some-dir";
+        mkDir(dirName);
+        assertTrue(fileExists(dirName));
+        testDelete(dirName, false, true, ( v) -> {
+            assertFalse(fileExists(dirName));
+        });
+        await();
+    }
+
+    @Test
+    public void testDeleteNonExistent() throws Exception {
+        String dirName = "some-dir";
+        assertFalse(fileExists(dirName));
+        testDelete(dirName, false, false, null);
+        await();
+    }
+
+    @Test
+    public void testDeleteNonEmptyFails() throws Exception {
+        String dirName = "some-dir";
+        mkDir(dirName);
+        String file1 = "some-file.txt";
+        createFileWithJunk(((dirName + (pathSep)) + file1), 100);
+        testDelete(dirName, false, false, null);
+        await();
+    }
+
+    @Test
+    public void testDeleteRecursive() throws Exception {
+        String dir = "some-dir";
+        String file1 = (pathSep) + "file1.dat";
+        String file2 = (pathSep) + "index.html";
+        String dir2 = "next-dir";
+        String file3 = (pathSep) + "blah.java";
+        mkDir(dir);
+        createFileWithJunk((dir + file1), 100);
+        createFileWithJunk((dir + file2), 100);
+        mkDir(((dir + (pathSep)) + dir2));
+        createFileWithJunk((((dir + (pathSep)) + dir2) + file3), 100);
+        testDelete(dir, true, true, ( v) -> {
+            assertFalse(fileExists(dir));
+        });
+        await();
+    }
+
+    @Test
+    public void testMkdirSimple() throws Exception {
+        String dirName = "some-dir";
+        testMkdir(dirName, null, false, true, ( v) -> {
+            assertTrue(fileExists(dirName));
+            assertTrue(Files.isDirectory(Paths.get((((testDir) + (pathSep)) + dirName))));
+        });
+        await();
+    }
+
+    @Test
+    public void testMkdirWithParentsFails() throws Exception {
+        String dirName = ("top-dir" + (pathSep)) + "some-dir";
+        testMkdir(dirName, null, false, false, null);
+        await();
+    }
+
+    @Test
+    public void testMkdirWithPerms() throws Exception {
+        String dirName = "some-dir";
+        String perms = "rwx--x--x";
+        testMkdir(dirName, perms, false, true, ( v) -> {
+            assertTrue(fileExists(dirName));
+            assertTrue(Files.isDirectory(Paths.get((((testDir) + (pathSep)) + dirName))));
+            assertPerms(perms, dirName);
+        });
+        await();
+    }
+
+    @Test
+    public void testMkdirCreateParents() throws Exception {
+        String dirName = ("top-dir" + (pathSep)) + "/some-dir";
+        testMkdir(dirName, null, true, true, ( v) -> {
+            assertTrue(fileExists(dirName));
+            assertTrue(Files.isDirectory(Paths.get((((testDir) + (pathSep)) + dirName))));
+        });
+        await();
+    }
+
+    @Test
+    public void testMkdirCreateParentsWithPerms() throws Exception {
+        String dirName = ("top-dir" + (pathSep)) + "/some-dir";
+        String perms = "rwx--x--x";
+        testMkdir(dirName, perms, true, true, ( v) -> {
+            assertTrue(fileExists(dirName));
+            assertTrue(Files.isDirectory(Paths.get((((testDir) + (pathSep)) + dirName))));
+            assertPerms(perms, dirName);
+        });
+        await();
+    }
+
+    @Test
+    public void testReadDirSimple() throws Exception {
+        String dirName = "some-dir";
+        mkDir(dirName);
+        int numFiles = 10;
+        for (int i = 0; i < numFiles; i++) {
+            createFileWithJunk(((((dirName + (pathSep)) + "file-") + i) + ".dat"), 100);
+        }
+        testReadDir(dirName, null, true, ( fileNames) -> {
+            assertEquals(numFiles, fileNames.size());
+            Set<String> fset = new HashSet<String>();
+            for (String fileName : fileNames) {
+                fset.add(fileName);
+            }
+            File dir = new File((((testDir) + (pathSep)) + dirName));
+            String root;
+            try {
+                root = dir.getCanonicalPath();
+            } catch ( e) {
+                fail(e.getMessage());
+                return;
+            }
+            for (int i = 0; i < numFiles; i++) {
+                assertTrue(fset.contains(((((root + (pathSep)) + "file-") + i) + ".dat")));
+            }
+        });
+        await();
+    }
+
+    @Test
+    public void testReadDirWithFilter() throws Exception {
+        String dirName = "some-dir";
+        mkDir(dirName);
+        int numFiles = 10;
+        for (int i = 0; i < numFiles; i++) {
+            createFileWithJunk(((((dirName + (pathSep)) + "foo-") + i) + ".txt"), 100);
+        }
+        for (int i = 0; i < numFiles; i++) {
+            createFileWithJunk(((((dirName + (pathSep)) + "bar-") + i) + ".txt"), 100);
+        }
+        testReadDir(dirName, "foo.+", true, ( fileNames) -> {
+            assertEquals(numFiles, fileNames.size());
+            Set<String> fset = new HashSet<>();
+            for (String fileName : fileNames) {
+                fset.add(fileName);
+            }
+            File dir = new File((((testDir) + (pathSep)) + dirName));
+            String root;
+            try {
+                root = dir.getCanonicalPath();
+            } catch ( e) {
+                fail(e.getMessage());
+                return;
+            }
+            for (int i = 0; i < numFiles; i++) {
+                assertTrue(fset.contains(((((root + (pathSep)) + "foo-") + i) + ".txt")));
+            }
+        });
+        await();
+    }
+
+    @Test
+    public void testReadFile() throws Exception {
+        byte[] content = TestUtils.randomByteArray(1000);
+        String fileName = "some-file.dat";
+        createFile(fileName, content);
+        vertx.fileSystem().readFile((((testDir) + (pathSep)) + fileName), ( ar) -> {
+            if (ar.failed()) {
+                fail(ar.cause().getMessage());
+            } else {
+                assertEquals(Buffer.buffer(content), ar.result());
+                testComplete();
+            }
+        });
+        await();
+    }
+
+    @Test
+    public void testWriteFile() throws Exception {
+        byte[] content = TestUtils.randomByteArray(1000);
+        Buffer buff = Buffer.buffer(content);
+        String fileName = "some-file.dat";
+        vertx.fileSystem().writeFile((((testDir) + (pathSep)) + fileName), buff, ( ar) -> {
+            if (ar.failed()) {
+                fail(ar.cause().getMessage());
+            } else {
+                assertTrue(fileExists(fileName));
+                assertEquals(content.length, fileLength(fileName));
+                byte[] readBytes;
+                try {
+                    readBytes = Files.readAllBytes(Paths.get((((testDir) + (pathSep)) + fileName)));
+                } catch ( e) {
+                    fail(e.getMessage());
+                    return;
+                }
+                assertEquals(buff, Buffer.buffer(readBytes));
+                testComplete();
+            }
+        });
+        await();
+    }
+
+    @Test
+    public void testWriteAsync() throws Exception {
+        String fileName = "some-file.dat";
+        int chunkSize = 1000;
+        int chunks = 10;
+        byte[] content = TestUtils.randomByteArray((chunkSize * chunks));
+        Buffer buff = Buffer.buffer(content);
+        AtomicInteger count = new AtomicInteger();
+        vertx.fileSystem().open((((testDir) + (pathSep)) + fileName), new OpenOptions(), ( arr) -> {
+            if (arr.succeeded()) {
+                for (int i = 0; i < chunks; i++) {
+                    Buffer chunk = buff.getBuffer((i * chunkSize), ((i + 1) * chunkSize));
+                    assertEquals(chunkSize, chunk.length());
+                    arr.result().write(chunk, (i * chunkSize), ( ar) -> {
+                        if (ar.succeeded()) {
+                            if ((count.incrementAndGet()) == chunks) {
+                                arr.result().close(( ar2) -> {
+                                    if (ar2.failed()) {
+                                        fail(ar2.cause().getMessage());
+                                    } else {
+                                        assertTrue(fileExists(fileName));
+                                        byte[] readBytes;
+                                        try {
+                                            readBytes = Files.readAllBytes(Paths.get((((testDir) + (pathSep)) + fileName)));
+                                        } catch ( e) {
+                                            fail(e.getMessage());
+                                            return;
+                                        }
+                                        Buffer read = Buffer.buffer(readBytes);
+                                        assertEquals(buff, read);
+                                        testComplete();
+                                    }
+                                });
+                            }
+                        } else {
+                            fail(ar.cause().getMessage());
+                        }
+                    });
+                }
+            } else {
+                fail(arr.cause().getMessage());
+            }
+        });
+        await();
+    }
+
+    @Test
+    public void testWriteEmptyAsync() throws Exception {
+        String fileName = "some-file.dat";
+        vertx.fileSystem().open((((testDir) + (pathSep)) + fileName), new OpenOptions(), onSuccess(( file) -> {
+            file.write(Buffer.buffer(), 0, onSuccess(( v) -> {
+                testComplete();
+            }));
+        }));
+        await();
+    }
+
+    @Test
+    public void testReadAsync() throws Exception {
+        String fileName = "some-file.dat";
+        int chunkSize = 1000;
+        int chunks = 10;
+        byte[] content = TestUtils.randomByteArray((chunkSize * chunks));
+        Buffer expected = Buffer.buffer(content);
+        createFile(fileName, content);
+        AtomicInteger reads = new AtomicInteger();
+        vertx.fileSystem().open((((testDir) + (pathSep)) + fileName), new OpenOptions(), ( arr) -> {
+            if (arr.succeeded()) {
+                Buffer buff = Buffer.buffer((chunks * chunkSize));
+                for (int i = 0; i < chunks; i++) {
+                    arr.result().read(buff, (i * chunkSize), (i * chunkSize), chunkSize, ( arb) -> {
+                        if (arb.succeeded()) {
+                            if ((reads.incrementAndGet()) == chunks) {
+                                arr.result().close(( ar) -> {
+                                    if (ar.failed()) {
+                                        fail(ar.cause().getMessage());
+                                    } else {
+                                        assertEquals(expected, buff);
+                                        assertEquals(buff, arb.result());
+                                        testComplete();
+                                    }
+                                });
+                            }
+                        } else {
+                            fail(arb.cause().getMessage());
+                        }
+                    });
+                }
+            } else {
+                fail(arr.cause().getMessage());
+            }
+        });
+        await();
+    }
+
+    @Test
+    public void testWriteStream() throws Exception {
+        String fileName = "some-file.dat";
+        int chunkSize = 1000;
+        int chunks = 10;
+        byte[] content = TestUtils.randomByteArray((chunkSize * chunks));
+        Buffer buff = Buffer.buffer(content);
+        vertx.fileSystem().open((((testDir) + (pathSep)) + fileName), new OpenOptions(), ( ar) -> {
+            if (ar.succeeded()) {
+                WriteStream<Buffer> ws = ar.result();
+                ws.exceptionHandler(( t) -> fail(t.getMessage()));
+                for (int i = 0; i < chunks; i++) {
+                    Buffer chunk = buff.getBuffer((i * chunkSize), ((i + 1) * chunkSize));
+                    assertEquals(chunkSize, chunk.length());
+                    ws.write(chunk);
+                }
+                ar.result().close(( ar2) -> {
+                    if (ar2.failed()) {
+                        fail(ar2.cause().getMessage());
+                    } else {
+                        assertTrue(fileExists(fileName));
+                        byte[] readBytes;
+                        try {
+                            readBytes = Files.readAllBytes(Paths.get((((testDir) + (pathSep)) + fileName)));
+                        } catch ( e) {
+                            fail(e.getMessage());
+                            return;
+                        }
+                        assertEquals(buff, Buffer.buffer(readBytes));
+                        testComplete();
+                    }
+                });
+            } else {
+                fail(ar.cause().getMessage());
+            }
+        });
+        await();
+    }
+
+    @Test
+    public void testWriteStreamAppend() throws Exception {
+        String fileName = "some-file.dat";
+        int chunkSize = 1000;
+        int chunks = 10;
+        byte[] existing = TestUtils.randomByteArray(1000);
+        createFile(fileName, existing);
+        byte[] content = TestUtils.randomByteArray((chunkSize * chunks));
+        Buffer buff = Buffer.buffer(content);
+        vertx.fileSystem().open((((testDir) + (pathSep)) + fileName), new OpenOptions().setAppend(true), ( ar) -> {
+            if (ar.succeeded()) {
+                AsyncFile ws = ar.result();
+                ws.exceptionHandler(( t) -> fail(t.getMessage()));
+                for (int i = 0; i < chunks; i++) {
+                    Buffer chunk = buff.getBuffer((i * chunkSize), ((i + 1) * chunkSize));
+                    assertEquals(chunkSize, chunk.length());
+                    ws.write(chunk);
+                }
+                ar.result().close(( ar2) -> {
+                    if (ar2.failed()) {
+                        fail(ar2.cause().getMessage());
+                    } else {
+                        assertTrue(fileExists(fileName));
+                        byte[] readBytes;
+                        try {
+                            readBytes = Files.readAllBytes(Paths.get((((testDir) + (pathSep)) + fileName)));
+                        } catch ( e) {
+                            fail(e.getMessage());
+                            return;
+                        }
+                        assertEquals(Buffer.buffer(existing).appendBuffer(buff), Buffer.buffer(readBytes));
+                        testComplete();
+                    }
+                });
+            } else {
+                fail(ar.cause().getMessage());
+            }
+        });
+        await();
+    }
+
+    @Test
+    public void testWriteStreamWithCompositeBuffer() throws Exception {
+        String fileName = "some-file.dat";
+        int chunkSize = 1000;
+        int chunks = 10;
+        byte[] content1 = TestUtils.randomByteArray((chunkSize * (chunks / 2)));
+        byte[] content2 = TestUtils.randomByteArray((chunkSize * (chunks / 2)));
+        ByteBuf byteBuf = Unpooled.wrappedBuffer(content1, content2);
+        Buffer buff = Buffer.buffer(byteBuf);
+        vertx.fileSystem().open((((testDir) + (pathSep)) + fileName), new OpenOptions(), ( ar) -> {
+            if (ar.succeeded()) {
+                WriteStream<Buffer> ws = ar.result();
+                ws.exceptionHandler(( t) -> fail(t.getMessage()));
+                ws.write(buff);
+                ar.result().close(( ar2) -> {
+                    if (ar2.failed()) {
+                        fail(ar2.cause().getMessage());
+                    } else {
+                        assertTrue(fileExists(fileName));
+                        byte[] readBytes;
+                        try {
+                            readBytes = Files.readAllBytes(Paths.get((((testDir) + (pathSep)) + fileName)));
+                        } catch ( e) {
+                            fail(e.getMessage());
+                            return;
+                        }
+                        assertEquals(buff, Buffer.buffer(readBytes));
+                        byteBuf.release();
+                        testComplete();
+                    }
+                });
+            } else {
+                fail(ar.cause().getMessage());
+            }
+        });
+        await();
+    }
+
+    enum ReadStrategy {
+
+        NONE() {
+            @Override
+            void init(ReadStream<Buffer> stream) {
+            }
+
+            @Override
+            Future<Void> handle(ReadStream<Buffer> stream) {
+                return Future.succeededFuture();
+            }
+        },
+        FLOWING() {
+            @Override
+            void init(ReadStream<Buffer> stream) {
+                FileSystemTest.ReadStrategy.flowing.set(true);
+            }
+
+            @Override
+            Future<Void> handle(ReadStream<Buffer> stream) {
+                Future<Void> fut = Future.future();
+                assert FileSystemTest.ReadStrategy.flowing.getAndSet(false);
+                stream.pause();
+                Vertx.currentContext().owner().setTimer(1, ( id) -> {
+                    assert !(io.vertx.core.file.flowing.getAndSet(true));
+                    stream.resume();
+                    fut.complete();
+                });
+                return fut;
+            }
+        },
+        FETCH() {
+            @Override
+            void init(ReadStream<Buffer> stream) {
+                FileSystemTest.ReadStrategy.fetching.set(true);
+                stream.pause();
+                stream.fetch(1);
+            }
+
+            @Override
+            Future<Void> handle(ReadStream<Buffer> stream) {
+                Future<Void> fut = Future.future();
+                assert FileSystemTest.ReadStrategy.fetching.getAndSet(false);
+                Vertx.currentContext().owner().setTimer(1, ( id) -> {
+                    assert !(io.vertx.core.file.fetching.getAndSet(true));
+                    stream.fetch(1);
+                    fut.complete();
+                });
+                return fut;
+            }
+        };
+        static final AtomicBoolean flowing = new AtomicBoolean();
+
+        static final AtomicBoolean fetching = new AtomicBoolean();
+
+        abstract void init(ReadStream<Buffer> stream);
+
+        abstract Future<Void> handle(ReadStream<Buffer> stream);
+    }
+
+    @Test
+    public void testReadStream() throws Exception {
+        testReadStream(FileSystemTest.ReadStrategy.NONE);
+    }
+
+    @Test
+    public void testReadStreamFlowing() throws Exception {
+        testReadStream(FileSystemTest.ReadStrategy.FLOWING);
+    }
+
+    @Test
+    public void testReadStreamFetch() throws Exception {
+        testReadStream(FileSystemTest.ReadStrategy.FETCH);
+    }
+
+    @Test
+    public void testReadStreamWithBufferSize() throws Exception {
+        String fileName = "some-file.dat";
+        int chunkSize = 16384;
+        int chunks = 1;
+        byte[] content = TestUtils.randomByteArray((chunkSize * chunks));
+        createFile(fileName, content);
+        vertx.fileSystem().open((((testDir) + (pathSep)) + fileName), new OpenOptions(), ( ar) -> {
+            if (ar.succeeded()) {
+                AsyncFile rs = ar.result();
+                rs.setReadBufferSize(chunkSize);
+                Buffer buff = Buffer.buffer();
+                int[] callCount = { 0 };
+                rs.handler(( buff1) -> {
+                    buff.appendBuffer(buff1);
+                    (callCount[0])++;
+                });
+                rs.exceptionHandler(( t) -> fail(t.getMessage()));
+                rs.endHandler(( v) -> {
+                    ar.result().close(( ar2) -> {
+                        if (ar2.failed()) {
+                            fail(ar2.cause().getMessage());
+                        } else {
+                            assertEquals(1, callCount[0]);
+                            assertEquals(Buffer.buffer(content), buff);
+                            testComplete();
+                        }
+                    });
+                });
+            } else {
+                fail(ar.cause().getMessage());
+            }
+        });
+        await();
+    }
+
+    @Test
+    public void testReadStreamSetReadPos() throws Exception {
+        String fileName = "some-file.dat";
+        int chunkSize = 1000;
+        int chunks = 10;
+        byte[] content = TestUtils.randomByteArray((chunkSize * chunks));
+        createFile(fileName, content);
+        vertx.fileSystem().open((((testDir) + (pathSep)) + fileName), new OpenOptions(), ( ar) -> {
+            if (ar.succeeded()) {
+                AsyncFile rs = ar.result();
+                rs.setReadPos(((chunkSize * chunks) / 2));
+                Buffer buff = Buffer.buffer();
+                rs.handler(buff::appendBuffer);
+                rs.exceptionHandler(( t) -> fail(t.getMessage()));
+                rs.endHandler(( v) -> {
+                    ar.result().close(( ar2) -> {
+                        if (ar2.failed()) {
+                            fail(ar2.cause().getMessage());
+                        } else {
+                            assertEquals(((chunkSize * chunks) / 2), buff.length());
+                            byte[] lastHalf = new byte[(chunkSize * chunks) / 2];
+                            System.arraycopy(content, ((chunkSize * chunks) / 2), lastHalf, 0, ((chunkSize * chunks) / 2));
+                            assertEquals(Buffer.buffer(lastHalf), buff);
+                            testComplete();
+                        }
+                    });
+                });
+            } else {
+                fail(ar.cause().getMessage());
+            }
+        });
+        await();
+    }
+
+    @Test
+    public void testReadStreamSetReadLength() throws Exception {
+        String fileName = "some-file.dat";
+        int chunkSize = 1000;
+        int chunks = 10;
+        byte[] content = TestUtils.randomByteArray((chunkSize * chunks));
+        int readLength = (chunkSize * chunks) / 3;
+        createFile(fileName, content);
+        vertx.fileSystem().open((((testDir) + (pathSep)) + fileName), new OpenOptions(), ( ar) -> {
+            if (ar.succeeded()) {
+                AsyncFile rs = ar.result();
+                rs.setReadLength(readLength);
+                Buffer buff = Buffer.buffer();
+                rs.handler(buff::appendBuffer);
+                rs.exceptionHandler(( t) -> fail(t.getMessage()));
+                rs.endHandler(( v) -> {
+                    ar.result().close(( ar2) -> {
+                        if (ar2.failed()) {
+                            fail(ar2.cause().getMessage());
+                        } else {
+                            assertEquals(readLength, buff.length());
+                            byte[] firstThird = new byte[readLength];
+                            System.arraycopy(content, 0, firstThird, 0, readLength);
+                            assertEquals(Buffer.buffer(firstThird), buff);
+                            testComplete();
+                        }
+                    });
+                });
+            } else {
+                fail(ar.cause().getMessage());
+            }
+        });
+        await();
+    }
+
+    @Test
+    public void testReadStreamSetReadPosReadLengthBufferSize() throws Exception {
+        String fileName = "some-file.dat";
+        int chunkSize = 1000;
+        int chunks = 10;
+        byte[] content = TestUtils.randomByteArray((chunkSize * chunks));
+        int readLength = (chunkSize * chunks) / 3;
+        int readPos = (chunkSize * chunks) / 3;
+        int readBufferSize = 1000;
+        int numOfReads = (readLength / readBufferSize) + ((readLength % readBufferSize) > 0 ? 1 : 0);
+        createFile(fileName, content);
+        vertx.fileSystem().open((((testDir) + (pathSep)) + fileName), new OpenOptions(), ( ar) -> {
+            if (ar.succeeded()) {
+                AsyncFile rs = ar.result();
+                rs.setReadPos(readPos);
+                rs.setReadLength(readLength);
+                rs.setReadBufferSize(readBufferSize);
+                final Buffer buff = Buffer.buffer();
+                final int[] appendCount = new int[]{ 0 };
+                rs.handler(( rsBuff) -> {
+                    buff.appendBuffer(rsBuff);
+                    (appendCount[0])++;
+                });
+                rs.exceptionHandler(( t) -> fail(t.getMessage()));
+                rs.endHandler(( v) -> {
+                    ar.result().close(( ar2) -> {
+                        if (ar2.failed()) {
+                            fail(ar2.cause().getMessage());
+                        } else {
+                            assertEquals(buff.length(), readLength);
+                            assertEquals(numOfReads, appendCount[0]);
+                            byte[] middleThird = new byte[readLength];
+                            System.arraycopy(content, readPos, middleThird, 0, readLength);
+                            assertEquals(Buffer.buffer(middleThird), buff);
+                            testComplete();
+                        }
+                    });
+                });
+            } else {
+                fail(ar.cause().getMessage());
+            }
+        });
+        await();
+    }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    public void testPumpFileStreams() throws Exception {
+        String fileName1 = "some-file.dat";
+        String fileName2 = "some-other-file.dat";
+        // Non integer multiple of buffer size
+        int fileSize = ((int) ((AsyncFileImpl.DEFAULT_READ_BUFFER_SIZE) * 1000.3));
+        byte[] content = TestUtils.randomByteArray(fileSize);
+        createFile(fileName1, content);
+        vertx.fileSystem().open((((testDir) + (pathSep)) + fileName1), new OpenOptions(), ( arr) -> {
+            if (arr.succeeded()) {
+                ReadStream rs = arr.result();
+                // Open file for writing
+                vertx.fileSystem().open((((testDir) + (pathSep)) + fileName2), new OpenOptions(), ( ar) -> {
+                    if (ar.succeeded()) {
+                        io.vertx.core.streams.WriteStream ws = ar.result();
+                        Pump p = Pump.pump(rs, ws);
+                        p.start();
+                        rs.endHandler(( v) -> {
+                            arr.result().close(( car) -> {
+                                if (car.failed()) {
+                                    fail(ar.cause().getMessage());
+                                } else {
+                                    ar.result().close(( ar2) -> {
+                                        if (ar2.failed()) {
+                                            fail(ar2.cause().getMessage());
+                                        } else {
+                                            assertTrue(fileExists(fileName2));
+                                            byte[] readBytes;
+                                            try {
+                                                readBytes = Files.readAllBytes(Paths.get((((testDir) + (pathSep)) + fileName2)));
+                                            } catch ( e) {
+                                                fail(e.getMessage());
+                                                return;
+                                            }
+                                            assertEquals(Buffer.buffer(content), Buffer.buffer(readBytes));
+                                            testComplete();
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                    } else {
+                        fail(ar.cause().getMessage());
+                    }
+                });
+            } else {
+                fail(arr.cause().getMessage());
+            }
+        });
+        await();
+    }
+
+    @Test
+    public void testCreateFileNoPerms() throws Exception {
+        testCreateFile(null, true);
+    }
+
+    @Test
+    public void testCreateFileWithPerms() throws Exception {
+        testCreateFile("rwx------", true);
+    }
+
+    @Test
+    public void testCreateFileAlreadyExists() throws Exception {
+        createFileWithJunk("some-file.dat", 100);
+        testCreateFile(null, false);
+    }
+
+    @Test
+    public void testExists() throws Exception {
+        testExists(true);
+    }
+
+    @Test
+    public void testNotExists() throws Exception {
+        testExists(false);
+    }
+
+    @Test
+    public void testFSProps() throws Exception {
+        String fileName = "some-file.txt";
+        createFileWithJunk(fileName, 1234);
+        testFSProps(fileName, ( props) -> {
+            assertTrue(((props.totalSpace()) > 0));
+            assertTrue(((props.unallocatedSpace()) > 0));
+            assertTrue(((props.usableSpace()) > 0));
+        });
+        await();
+    }
+
+    @Test
+    public void testOpenOptions() {
+        OpenOptions opts = new OpenOptions();
+        assertNull(opts.getPerms());
+        String perms = "rwxrwxrwx";
+        assertEquals(opts, opts.setPerms(perms));
+        assertEquals(perms, opts.getPerms());
+        assertTrue(opts.isCreate());
+        assertEquals(opts, opts.setCreate(false));
+        assertFalse(opts.isCreate());
+        assertFalse(opts.isCreateNew());
+        assertEquals(opts, opts.setCreateNew(true));
+        assertTrue(opts.isCreateNew());
+        assertTrue(opts.isRead());
+        assertEquals(opts, opts.setRead(false));
+        assertFalse(opts.isRead());
+        assertTrue(opts.isWrite());
+        assertEquals(opts, opts.setWrite(false));
+        assertFalse(opts.isWrite());
+        assertFalse(opts.isDsync());
+        assertEquals(opts, opts.setDsync(true));
+        assertTrue(opts.isDsync());
+        assertFalse(opts.isSync());
+        assertEquals(opts, opts.setSync(true));
+        assertTrue(opts.isSync());
+        assertFalse(opts.isDeleteOnClose());
+        assertEquals(opts, opts.setDeleteOnClose(true));
+        assertTrue(opts.isDeleteOnClose());
+        assertFalse(opts.isTruncateExisting());
+        assertEquals(opts, opts.setTruncateExisting(true));
+        assertTrue(opts.isTruncateExisting());
+        assertFalse(opts.isSparse());
+        assertEquals(opts, opts.setSparse(true));
+        assertTrue(opts.isSparse());
+    }
+
+    @Test
+    public void testDefaultOptionOptions() {
+        OpenOptions def = new OpenOptions();
+        OpenOptions json = new OpenOptions(new JsonObject());
+        assertEquals(def.getPerms(), json.getPerms());
+        assertEquals(def.isRead(), json.isRead());
+        assertEquals(def.isWrite(), json.isWrite());
+        assertEquals(def.isCreate(), json.isCreate());
+        assertEquals(def.isCreateNew(), json.isCreateNew());
+        assertEquals(def.isDeleteOnClose(), json.isDeleteOnClose());
+        assertEquals(def.isTruncateExisting(), json.isTruncateExisting());
+        assertEquals(def.isSparse(), json.isSparse());
+        assertEquals(def.isSync(), json.isSync());
+        assertEquals(def.isDsync(), json.isDsync());
+    }
+
+    @Test
+    public void testAsyncFileCloseHandlerIsAsync() throws Exception {
+        String fileName = "some-file.dat";
+        createFileWithJunk(fileName, 100);
+        AsyncFile file = vertx.fileSystem().openBlocking((((testDir) + (pathSep)) + fileName), new OpenOptions());
+        ThreadLocal stack = new ThreadLocal();
+        stack.set(true);
+        file.close(( ar) -> {
+            assertNull(stack.get());
+            assertTrue(Vertx.currentContext().isEventLoopContext());
+            testComplete();
+        });
+        await();
+    }
+
+    @Test
+    public void testDrainNotCalledAfterClose() throws Exception {
+        String fileName = "some-file.dat";
+        vertx.fileSystem().open((((testDir) + (pathSep)) + fileName), new OpenOptions(), onSuccess(( file) -> {
+            Buffer buf = TestUtils.randomBuffer((1024 * 1024));
+            file.write(buf);
+            AtomicBoolean drainAfterClose = new AtomicBoolean();
+            file.drainHandler(( v) -> {
+                drainAfterClose.set(true);
+            });
+            file.close(( ar) -> {
+                assertFalse(drainAfterClose.get());
+                testComplete();
+            });
+        }));
+        await();
+    }
+
+    @Test
+    public void testResumeFileInEndHandler() throws Exception {
+        Buffer expected = TestUtils.randomBuffer(10000);
+        String fileName = "some-file.dat";
+        createFile(fileName, expected.getBytes());
+        vertx.fileSystem().open((((testDir) + (pathSep)) + fileName), new OpenOptions(), onSuccess(( file) -> {
+            Buffer buffer = Buffer.buffer();
+            file.endHandler(( v) -> {
+                assertEquals(buffer.length(), expected.length());
+                file.pause();
+                file.resume();
+                complete();
+            });
+            file.handler(buffer::appendBuffer);
+        }));
+        await();
+    }
+
+    @Test
+    public void testPausedEnd() throws Exception {
+        String fileName = "some-file.dat";
+        createFile(fileName, new byte[0]);
+        AtomicBoolean paused = new AtomicBoolean(false);
+        vertx.fileSystem().open((((testDir) + (pathSep)) + fileName), new OpenOptions(), onSuccess(( file) -> {
+            Buffer buffer = Buffer.buffer();
+            paused.set(true);
+            file.pause();
+            vertx.setTimer(100, ( id) -> {
+                paused.set(false);
+                file.resume();
+            });
+            file.endHandler(( v) -> {
+                assertFalse(paused.get());
+                testComplete();
+            });
+            file.handler(buffer::appendBuffer);
+        }));
+        await();
+    }
+
+    // @Repeat(times=1000)
+    @Test
+    public void testAsyncFileConcurrency() throws Exception {
+        String fileName = "some-file.dat";
+        AtomicReference<AsyncFile> arFile = new AtomicReference<>();
+        CountDownLatch latch = new CountDownLatch(1);
+        vertx.fileSystem().open((((testDir) + (pathSep)) + fileName), new OpenOptions(), ( ar) -> {
+            if (ar.succeeded()) {
+                AsyncFile af = ar.result();
+                arFile.set(af);
+            } else {
+                fail(ar.cause().getMessage());
+            }
+            latch.countDown();
+        });
+        awaitLatch(latch);
+        AsyncFile af = arFile.get();
+        Buffer buff = Buffer.buffer(TestUtils.randomByteArray(4096));
+        for (int i = 0; i < 100000; i++) {
+            af.write(buff);
+        }
+        af.close(onSuccess(( v) -> {
+            testComplete();
+        }));
+        await();
+    }
+
+    @Test
+    public void testAtomicMove() throws Exception {
+        String source = "foo.txt";
+        String middle = "baz.txt";
+        String target = "bar.txt";
+        createFileWithJunk(source, 100);
+        try {
+            Files.move(new File(testDir, source).toPath(), new File(testDir, middle).toPath(), StandardCopyOption.ATOMIC_MOVE);
+        } catch (AtomicMoveNotSupportedException e) {
+            throw new AssumptionViolatedException("Atomic move unsupported");
+        }
+        FileSystem fs = vertx.fileSystem();
+        String from = ((testDir) + (pathSep)) + middle;
+        String to = ((testDir) + (pathSep)) + target;
+        CopyOptions options = new CopyOptions().setAtomicMove(true);
+        fs.move(from, to, options, onSuccess(( v) -> {
+            assertFalse(fileExists(middle));
+            assertTrue(fileExists(target));
+            complete();
+        }));
+        await();
+    }
+
+    @Test
+    public void testCopyReplaceExisting() throws Exception {
+        String source = "foo.txt";
+        String target = "bar.txt";
+        createFileWithJunk(source, 100);
+        createFileWithJunk(target, 100);
+        FileSystem fs = vertx.fileSystem();
+        String from = ((testDir) + (pathSep)) + source;
+        String to = ((testDir) + (pathSep)) + target;
+        CopyOptions options = new CopyOptions().setReplaceExisting(true);
+        fs.copy(from, to, options, onSuccess(( v) -> {
+            fs.readFile(from, onSuccess(( expected) -> {
+                fs.readFile(to, onSuccess(( actual) -> {
+                    assertEquals(expected, actual);
+                    complete();
+                }));
+            }));
+        }));
+        await();
+    }
+
+    @Test
+    public void testCopyNoReplaceExisting() throws Exception {
+        String source = "foo.txt";
+        String target = "bar.txt";
+        createFileWithJunk(source, 100);
+        createFileWithJunk(target, 100);
+        FileSystem fs = vertx.fileSystem();
+        String from = ((testDir) + (pathSep)) + source;
+        String to = ((testDir) + (pathSep)) + target;
+        CopyOptions options = new CopyOptions();
+        fs.copy(from, to, options, onFailure(( t) -> {
+            assertThat(t, instanceOf(.class));
+            assertThat(t.getCause(), instanceOf(.class));
+            complete();
+        }));
+        await();
+    }
+
+    @Test
+    public void testCopyFileAttributes() throws Exception {
+        String source = "foo.txt";
+        String target = "bar.txt";
+        createFileWithJunk(source, 100);
+        try {
+            Files.setPosixFilePermissions(new File(testDir, source).toPath(), EnumSet.of(PosixFilePermission.OWNER_READ));
+        } catch (UnsupportedOperationException e) {
+            throw new AssumptionViolatedException("POSIX file perms unsupported");
+        }
+        FileSystem fs = vertx.fileSystem();
+        String from = ((testDir) + (pathSep)) + source;
+        String to = ((testDir) + (pathSep)) + target;
+        CopyOptions options = new CopyOptions().setCopyAttributes(false);
+        fs.copy(from, to, options, onSuccess(( v) -> {
+            fs.props(from, onSuccess(( expected) -> {
+                fs.props(from, onSuccess(( actual) -> {
+                    assertEquals(expected.creationTime(), actual.creationTime());
+                    assertEquals(expected.lastModifiedTime(), actual.lastModifiedTime());
+                    vertx.<Set<PosixFilePermission>>executeBlocking(( fut) -> {
+                        try {
+                            fut.complete(Files.getPosixFilePermissions(new File(testDir, target).toPath(), LinkOption.NOFOLLOW_LINKS));
+                        } catch ( e) {
+                            fut.fail(e);
+                        }
+                    }, onSuccess(( perms) -> {
+                        assertEquals(EnumSet.of(PosixFilePermission.OWNER_READ), perms);
+                        complete();
+                    }));
+                }));
+            }));
+        }));
+        await();
+    }
+
+    @Test
+    public void testCopyNoFollowLinks() throws Exception {
+        // Symlinks require a modified security policy in Windows. -- See http://stackoverflow.com/questions/23217460/how-to-create-soft-symbolic-link-using-java-nio-files
+        Assume.assumeFalse(Utils.isWindows());
+        String source = "foo.txt";
+        String link = "link.txt";
+        String target = "bar.txt";
+        createFileWithJunk(source, 100);
+        try {
+            Files.createSymbolicLink(new File(testDir, link).toPath(), new File(testDir, source).toPath());
+        } catch (UnsupportedOperationException e) {
+            throw new AssumptionViolatedException("Links unsupported");
+        }
+        FileSystem fs = vertx.fileSystem();
+        String from = ((testDir) + (pathSep)) + link;
+        String to = ((testDir) + (pathSep)) + target;
+        CopyOptions options = new CopyOptions().setNofollowLinks(true);
+        fs.copy(from, to, options, onSuccess(( v) -> {
+            fs.lprops(to, onSuccess(( props) -> {
+                assertTrue(props.isSymbolicLink());
+                fs.readFile(from, onSuccess(( expected) -> {
+                    fs.readFile(to, onSuccess(( actual) -> {
+                        assertEquals(expected, actual);
+                        complete();
+                    }));
+                }));
+            }));
+        }));
+        await();
+    }
+
+    @Test
+    public void testCreateTempDirectory() {
+        FileSystem fs = vertx.fileSystem();
+        fs.createTempDirectory("project", onSuccess(( tempDirectory) -> {
+            assertNotNull(tempDirectory);
+            assertTrue(Files.exists(Paths.get(tempDirectory)));
+            complete();
+        }));
+        await();
+    }
+
+    @Test
+    public void testCreateTempDirectoryBlocking() {
+        FileSystem fs = vertx.fileSystem();
+        String tempDirectory = fs.createTempDirectoryBlocking("project");
+        assertTrue(Files.exists(Paths.get(tempDirectory)));
+    }
+
+    @Test
+    public void testCreateTempDirectoryWithPerms() {
+        Assume.assumeFalse(Utils.isWindows());
+        FileSystem fs = vertx.fileSystem();
+        fs.createTempDirectory("project", FileSystemTest.DEFAULT_DIR_PERMS, onSuccess(( tempDirectory) -> {
+            try {
+                String perms = PosixFilePermissions.toString(Files.getPosixFilePermissions(Paths.get(tempDirectory)));
+                assertEquals(perms, DEFAULT_DIR_PERMS);
+            } catch ( e) {
+                fail(e);
+            }
+            complete();
+        }));
+        await();
+    }
+
+    @Test
+    public void testCreateTempDirectoryWithPermsBlocking() throws Exception {
+        Assume.assumeFalse(Utils.isWindows());
+        FileSystem fs = vertx.fileSystem();
+        String tempDirectory = fs.createTempDirectoryBlocking("project", FileSystemTest.DEFAULT_DIR_PERMS);
+        String perms = java.nio.file.attribute.PosixFilePermissions.toString(Files.getPosixFilePermissions(Paths.get(tempDirectory)));
+        assertEquals(perms, FileSystemTest.DEFAULT_DIR_PERMS);
+    }
+
+    @Test
+    public void testCreateTempDirectoryWithDirectory() {
+        FileSystem fs = vertx.fileSystem();
+        createTempDirectory(testDir, "project", null, onSuccess(( tempDirectory) -> {
+            Path path = Paths.get(tempDirectory);
+            assertTrue(Files.exists(path));
+            assertTrue(path.startsWith(testDir));
+            complete();
+        }));
+        await();
+    }
+
+    @Test
+    public void testCreateTempDirectoryWithDirectoryBlocking() {
+        FileSystem fs = vertx.fileSystem();
+        String tempDirectory = createTempDirectoryBlocking(testDir, "project", null);
+        Path path = Paths.get(tempDirectory);
+        assertTrue(Files.exists(Paths.get(tempDirectory)));
+        assertTrue(path.startsWith(testDir));
+    }
+
+    @Test
+    public void testCreateTempFile() {
+        FileSystem fs = vertx.fileSystem();
+        fs.createTempFile("project", ".tmp", onSuccess(( tempFile) -> {
+            assertNotNull(tempFile);
+            assertTrue(Files.exists(Paths.get(tempFile)));
+            complete();
+        }));
+        await();
+    }
+
+    @Test
+    public void testCreateTempFileBlocking() {
+        FileSystem fs = vertx.fileSystem();
+        String tempFile = fs.createTempFileBlocking("project", ".tmp");
+        assertNotNull(tempFile);
+        assertTrue(Files.exists(Paths.get(tempFile)));
+    }
+
+    @Test
+    public void testCreateTempFileWithDirectory() {
+        FileSystem fs = vertx.fileSystem();
+        fs.createTempFile(testDir, "project", ".tmp", null, onSuccess(( tempFile) -> {
+            assertNotNull(tempFile);
+            Path path = Paths.get(tempFile);
+            assertTrue(Files.exists(path));
+            assertTrue(path.startsWith(testDir));
+            complete();
+        }));
+        await();
+    }
+
+    @Test
+    public void testCreateTempFileWithDirectoryBlocking() {
+        FileSystem fs = vertx.fileSystem();
+        String tempFile = fs.createTempFileBlocking(testDir, "project", ".tmp", null);
+        assertNotNull(tempFile);
+        Path path = Paths.get(tempFile);
+        assertTrue(Files.exists(path));
+        assertTrue(path.startsWith(testDir));
+    }
+
+    @Test
+    public void testCreateTempFileWithPerms() {
+        Assume.assumeFalse(Utils.isWindows());
+        FileSystem fs = vertx.fileSystem();
+        createTempFile("project", ".tmp", FileSystemTest.DEFAULT_FILE_PERMS, onSuccess(( tempFile) -> {
+            Path path = Paths.get(tempFile);
+            assertTrue(Files.exists(path));
+            try {
+                String perms = PosixFilePermissions.toString(Files.getPosixFilePermissions(path));
+                assertEquals(perms, DEFAULT_FILE_PERMS);
+            } catch ( e) {
+                fail(e);
+            }
+        }));
+    }
+
+    @Test
+    public void testCreateTempFileWithPermsBlocking() throws Exception {
+        Assume.assumeFalse(Utils.isWindows());
+        FileSystem fs = vertx.fileSystem();
+        String tempFile = createTempFileBlocking("project", ".tmp", FileSystemTest.DEFAULT_FILE_PERMS);
+        Path path = Paths.get(tempFile);
+        assertTrue(Files.exists(path));
+        String perms = java.nio.file.attribute.PosixFilePermissions.toString(Files.getPosixFilePermissions(path));
+        assertEquals(perms, FileSystemTest.DEFAULT_FILE_PERMS);
+    }
+}
+
