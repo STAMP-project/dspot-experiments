@@ -1,0 +1,124 @@
+/**
+ * Copyright 2016 LinkedIn Corp. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ */
+package com.github.ambry.store;
+
+
+import TestUtils.RANDOM;
+import com.github.ambry.utils.Utils;
+import java.util.List;
+import org.junit.Assert;
+import org.junit.Test;
+
+
+public class JournalTest {
+    @Test
+    public void testJournalOperation() {
+        long pos = Utils.getRandomLong(RANDOM, 1000);
+        long gen = Utils.getRandomLong(RANDOM, 1000);
+        String firstLogSegmentName = LogSegmentNameHelper.getName(pos, gen);
+        String secondLogSegmentName = LogSegmentNameHelper.getNextPositionName(firstLogSegmentName);
+        Journal journal = new Journal("test", 10, 5);
+        Assert.assertNull("First offset should be null", journal.getFirstOffset());
+        Assert.assertNull("Last offset should be null", journal.getLastOffset());
+        Assert.assertNull("Should not be able to get entries because there are none", journal.getEntriesSince(new Offset(firstLogSegmentName, 0), true));
+        addEntryAndVerify(journal, new Offset(firstLogSegmentName, 0), new MockId("id1"));
+        Assert.assertEquals("Did not get expected key at offset", new MockId("id1"), journal.getKeyAtOffset(new Offset(firstLogSegmentName, 0)));
+        addEntryAndVerify(journal, new Offset(firstLogSegmentName, 1000), new MockId("id2"));
+        addEntryAndVerify(journal, new Offset(firstLogSegmentName, 2000), new MockId("id3"));
+        addEntryAndVerify(journal, new Offset(firstLogSegmentName, 3000), new MockId("id4"));
+        addEntryAndVerify(journal, new Offset(firstLogSegmentName, 4000), new MockId("id5"));
+        addEntryAndVerify(journal, new Offset(secondLogSegmentName, 0), new MockId("id6"));
+        addEntryAndVerify(journal, new Offset(secondLogSegmentName, 1000), new MockId("id7"));
+        addEntryAndVerify(journal, new Offset(secondLogSegmentName, 2000), new MockId("id8"));
+        addEntryAndVerify(journal, new Offset(secondLogSegmentName, 3000), new MockId("id9"));
+        addEntryAndVerify(journal, new Offset(secondLogSegmentName, 4000), new MockId("id10"));
+        Assert.assertEquals("First offset not as expected", new Offset(firstLogSegmentName, 0), journal.getFirstOffset());
+        Assert.assertEquals("Last offset not as expected", new Offset(secondLogSegmentName, 4000), journal.getLastOffset());
+        List<JournalEntry> entries = journal.getEntriesSince(new Offset(firstLogSegmentName, 0), true);
+        Assert.assertEquals(entries.get(0).getOffset(), new Offset(firstLogSegmentName, 0));
+        Assert.assertEquals(entries.get(0).getKey(), new MockId("id1"));
+        Assert.assertEquals(entries.size(), 5);
+        Assert.assertEquals(entries.get(4).getOffset(), new Offset(firstLogSegmentName, 4000));
+        Assert.assertEquals(entries.get(4).getKey(), new MockId("id5"));
+        entries = journal.getEntriesSince(new Offset(secondLogSegmentName, 0), false);
+        Assert.assertEquals(entries.get(0).getOffset(), new Offset(secondLogSegmentName, 1000));
+        Assert.assertEquals(entries.get(0).getKey(), new MockId("id7"));
+        Assert.assertEquals(entries.get(3).getOffset(), new Offset(secondLogSegmentName, 4000));
+        Assert.assertEquals(entries.get(3).getKey(), new MockId("id10"));
+        Assert.assertEquals(entries.size(), 4);
+        entries = journal.getEntriesSince(new Offset(secondLogSegmentName, 2000), false);
+        Assert.assertEquals(entries.get(0).getOffset(), new Offset(secondLogSegmentName, 3000));
+        Assert.assertEquals(entries.get(0).getKey(), new MockId("id9"));
+        Assert.assertEquals(entries.get(1).getOffset(), new Offset(secondLogSegmentName, 4000));
+        Assert.assertEquals(entries.get(1).getKey(), new MockId("id10"));
+        Assert.assertEquals(entries.size(), 2);
+        entries = journal.getEntriesSince(new Offset(firstLogSegmentName, 2000), false);
+        Assert.assertEquals(entries.get(0).getOffset(), new Offset(firstLogSegmentName, 3000));
+        Assert.assertEquals(entries.get(0).getKey(), new MockId("id4"));
+        Assert.assertEquals(entries.get(4).getOffset(), new Offset(secondLogSegmentName, 2000));
+        Assert.assertEquals(entries.get(4).getKey(), new MockId("id8"));
+        Assert.assertEquals(entries.size(), 5);
+        Assert.assertNull("Should not be able to get entries because offset does not exist", journal.getEntriesSince(new Offset(firstLogSegmentName, 1), true));
+        addEntryAndVerify(journal, new Offset(secondLogSegmentName, 5000), new MockId("id11"));
+        Assert.assertEquals("First offset not as expected", new Offset(firstLogSegmentName, 1000), journal.getFirstOffset());
+        Assert.assertEquals("Last offset not as expected", new Offset(secondLogSegmentName, 5000), journal.getLastOffset());
+        Assert.assertNull("Journal should have no entries for the first added offset", journal.getKeyAtOffset(new Offset(firstLogSegmentName, 0)));
+        Assert.assertNull("Journal should have no entries for the offset after the last one", journal.getKeyAtOffset(new Offset(firstLogSegmentName, 5001)));
+        Assert.assertNull("Journal should have no entries for offsets that weren't added", journal.getKeyAtOffset(new Offset(firstLogSegmentName, 1001)));
+        entries = journal.getEntriesSince(new Offset(firstLogSegmentName, 0), true);
+        Assert.assertNull(entries);
+        entries = journal.getEntriesSince(new Offset(firstLogSegmentName, 1000), false);
+        Assert.assertEquals(entries.get(0).getOffset(), new Offset(firstLogSegmentName, 2000));
+        Assert.assertEquals(entries.get(0).getKey(), new MockId("id3"));
+        Assert.assertEquals(entries.size(), 5);
+        Assert.assertEquals(entries.get(4).getOffset(), new Offset(secondLogSegmentName, 1000));
+        Assert.assertEquals(entries.get(4).getKey(), new MockId("id7"));
+    }
+
+    /**
+     * Tests the {@link Journal}'s bootstrap mode by performing the following operations:
+     * 1. Add entries before going into bootstrap mode and the entries in the journal should respect the max constraint
+     * 2. Start bootstrap mode and add more entries. Verify the entries in the journal can exceed the max constraint
+     * 3. Finish bootstrap mode and verify the entries in the journal are respecting the max constraint again
+     */
+    @Test
+    public void testJournalBootstrapMode() {
+        long pos = Utils.getRandomLong(RANDOM, 1000);
+        long gen = Utils.getRandomLong(RANDOM, 1000);
+        String logSegmentName = LogSegmentNameHelper.getName(pos, gen);
+        Offset[] offsets = new Offset[4];
+        MockId[] keys = new MockId[4];
+        for (int i = 0; i < 4; i++) {
+            offsets[i] = new Offset(logSegmentName, (i * 1000));
+            keys[i] = new MockId(("id" + i));
+        }
+        // Bootstrap mode is off by default and journal entries should respect the max constraint
+        Journal journal = new Journal("test", 1, 1);
+        addEntryAndVerify(journal, offsets[0], keys[0]);
+        addEntryAndVerify(journal, offsets[1], keys[1]);
+        Assert.assertEquals("Unexpected journal size", 1, journal.getCurrentNumberOfEntries());
+        Assert.assertEquals("Oldest entry is not being replaced", offsets[1], journal.getFirstOffset());
+        // Bootstrap mode is turned on and journal entries should be able to exceed the max constraint
+        journal.startBootstrap();
+        addEntryAndVerify(journal, offsets[2], keys[2]);
+        Assert.assertEquals("Unexpected journal size", 2, journal.getCurrentNumberOfEntries());
+        Assert.assertEquals("Oldest entry should not be replaced", offsets[1], journal.getFirstOffset());
+        // Bootstrap mode is off and journal entries should respect the max constraint again
+        journal.finishBootstrap();
+        addEntryAndVerify(journal, offsets[3], keys[3]);
+        Assert.assertEquals("Unexpected journal size", 2, journal.getCurrentNumberOfEntries());
+        Assert.assertEquals("Oldest entry is not being replaced", offsets[2], journal.getFirstOffset());
+    }
+}
+

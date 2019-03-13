@@ -1,0 +1,381 @@
+/**
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+ *
+ * Copyright (c) 2011-2017 Oracle and/or its affiliates. All rights reserved.
+ *
+ * The contents of this file are subject to the terms of either the GNU
+ * General Public License Version 2 only ("GPL") or the Common Development
+ * and Distribution License("CDDL") (collectively, the "License").  You
+ * may not use this file except in compliance with the License.  You can
+ * obtain a copy of the License at
+ * https://oss.oracle.com/licenses/CDDL+GPL-1.1
+ * or LICENSE.txt.  See the License for the specific
+ * language governing permissions and limitations under the License.
+ *
+ * When distributing the software, include this License Header Notice in each
+ * file and include the License file at LICENSE.txt.
+ *
+ * GPL Classpath Exception:
+ * Oracle designates this particular file as subject to the "Classpath"
+ * exception as provided by Oracle in the GPL Version 2 section of the License
+ * file that accompanied this code.
+ *
+ * Modifications:
+ * If applicable, add the following below the License Header, with the fields
+ * enclosed by brackets [] replaced by your own identifying information:
+ * "Portions Copyright [year] [name of copyright owner]"
+ *
+ * Contributor(s):
+ * If you wish your version of this file to be governed by only the CDDL or
+ * only the GPL Version 2, indicate your decision by adding "[Contributor]
+ * elects to include this software in this distribution under the [CDDL or GPL
+ * Version 2] license."  If you don't indicate a single choice of license, a
+ * recipient has the option to distribute your version of this file under
+ * either the CDDL, the GPL Version 2 or to extend the choice of license to
+ * its licensees as provided above.  However, if you add GPL Version 2 code
+ * and therefore, elected the GPL Version 2 license, then the option applies
+ * only if the new code is made subject to such option by the copyright
+ * holder.
+ */
+package org.glassfish.jersey.server.internal.routing;
+
+
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.Iterator;
+import java.util.List;
+import javax.ws.rs.core.MultivaluedMap;
+import javax.ws.rs.core.PathSegment;
+import javax.ws.rs.core.UriInfo;
+import org.junit.Assert;
+import org.junit.Test;
+
+
+/**
+ *
+ *
+ * @author Marek Potociar (marek.potociar at oracle.com)
+ */
+public class UriRoutingContextTest {
+    public UriRoutingContextTest() {
+    }
+
+    @Test
+    public void testGetAbsolutePath() throws URISyntaxException {
+        UriRoutingContext context;
+        context = createContext("http://example.org/app/", "http://example.org/app/resource?foo1=bar1&foo2=bar2", "GET");
+        Assert.assertEquals(URI.create("http://example.org/app/resource"), context.getAbsolutePath());
+        context = createContext("http://example.org/app/", "http://example.org/app/resource%20decoded?foo1=bar1", "GET");
+        Assert.assertEquals(URI.create("http://example.org/app/resource%20decoded"), context.getAbsolutePath());
+    }
+
+    @Test
+    public void testGetPath() throws URISyntaxException {
+        UriRoutingContext context;
+        context = createContext("http://example.org/my%20app/resource?foo1=bar1&foo2=bar2", "GET");
+        Assert.assertEquals("my app/resource", context.getPath());
+        context = createContext("http://example.org/my%20app/", "http://example.org/my%20app/resource?foo1=bar1&foo2=bar2", "GET");
+        Assert.assertEquals("resource", context.getPath());
+        context = createContext("http://example.org/my%20app/", "http://example.org/my%20app/resource?foo1=bar1&foo2=bar2", "GET");
+        Assert.assertEquals("resource", context.getPath());
+    }
+
+    @Test
+    public void testGetDecodedPath() throws URISyntaxException {
+        UriRoutingContext ctx = createContext("http://example.org/my%20app/resource?foo1=bar1&foo2=bar2", "GET");
+        Assert.assertEquals("my%20app/resource", ctx.getPath(false));
+        Assert.assertEquals("my app/resource", ctx.getPath(true));
+    }
+
+    @Test
+    public void testGetPathBuilder() throws URISyntaxException {
+        UriRoutingContext ctx = createContext("http://example.org/my%20app/", "http://example.org/my%20app/resource?foo1=bar1&foo2=bar2", "GET");
+        Assert.assertEquals(URI.create("http://example.org/my%20app/resource"), ctx.getAbsolutePathBuilder().build());
+    }
+
+    @Test
+    public void testGetPathSegments() throws URISyntaxException {
+        List<PathSegment> lps = createContext("http://example.org/app/", "http://example.org/app/my%20resource/my%20subresource", "GET").getPathSegments();
+        Assert.assertEquals(2, lps.size());
+        Assert.assertEquals("my resource", lps.get(0).getPath());
+        Assert.assertEquals("my subresource", lps.get(1).getPath());
+        try {
+            lps.remove(0);
+            Assert.fail("UnsupportedOperationException expected - returned list should not be modifiable.");
+        } catch (UnsupportedOperationException ex) {
+            // passed
+        }
+    }
+
+    @Test
+    public void testGetPathSegments2() throws URISyntaxException {
+        List<PathSegment> lps = createContext("http://example.org/app/", "http://example.org/app/my%20resource/my%20subresource", "GET").getPathSegments(false);
+        Assert.assertEquals(2, lps.size());
+        Assert.assertEquals("my%20resource", lps.get(0).getPath());
+        Assert.assertEquals("my%20subresource", lps.get(1).getPath());
+        try {
+            lps.remove(0);
+            Assert.fail("UnsupportedOperationException expected - returned list should not be modifiable.");
+        } catch (UnsupportedOperationException ex) {
+            // passed
+        }
+    }
+
+    @Test
+    public void testQueryParams() throws URISyntaxException {
+        MultivaluedMap<String, String> map = createContext("http://example.org/app/resource?foo1=bar1&foo2=bar2", "GET").getQueryParameters();
+        Assert.assertEquals(2, map.size());
+        Assert.assertEquals("bar1", map.getFirst("foo1"));
+        Assert.assertEquals("bar2", map.getFirst("foo2"));
+        try {
+            map.remove("foo1");
+            Assert.fail("UnsupportedOperationException expected - returned list should not be modifiable.");
+        } catch (UnsupportedOperationException ex) {
+            // passed
+        }
+    }
+
+    @Test
+    public void testQueryParamsDecoded() throws URISyntaxException {
+        MultivaluedMap<String, String> map = createContext("http://example.org/app/resource?foo1=%7Bbar1%7D&foo2=%7Bbar2%7D", "GET").getQueryParameters(true);
+        Assert.assertEquals(2, map.size());
+        Assert.assertEquals("{bar1}", map.getFirst("foo1"));
+        Assert.assertEquals("{bar2}", map.getFirst("foo2"));
+        try {
+            map.remove("foo1");
+            Assert.fail("UnsupportedOperationException expected - returned list should not be modifiable.");
+        } catch (UnsupportedOperationException ex) {
+            // passed
+        }
+    }
+
+    /**
+     * Migrated Jersey 1.x {@code com.sun.jersey.impl.PathSegmentsHttpRequestTest}.
+     */
+    @Test
+    public void testGetPathSegmentsGeneral() {
+        final UriInfo ui = createContext("/p1;x=1;y=1/p2;x=2;y=2/p3;x=3;y=3", "GET");
+        List<PathSegment> segments = ui.getPathSegments();
+        Assert.assertEquals(3, segments.size());
+        final Iterator<PathSegment> psi = segments.iterator();
+        PathSegment segment;
+        segment = psi.next();
+        Assert.assertEquals("p1", segment.getPath());
+        MultivaluedMap<String, String> m = segment.getMatrixParameters();
+        Assert.assertEquals("1", m.getFirst("x"));
+        Assert.assertEquals("1", m.getFirst("y"));
+        segment = psi.next();
+        Assert.assertEquals("p2", segment.getPath());
+        m = segment.getMatrixParameters();
+        Assert.assertEquals("2", m.getFirst("x"));
+        Assert.assertEquals("2", m.getFirst("y"));
+        segment = psi.next();
+        Assert.assertEquals("p3", segment.getPath());
+        m = segment.getMatrixParameters();
+        Assert.assertEquals("3", m.getFirst("x"));
+        Assert.assertEquals("3", m.getFirst("y"));
+    }
+
+    /**
+     * Migrated Jersey 1.x {@code com.sun.jersey.impl.PathSegmentsHttpRequestTest}.
+     */
+    @Test
+    public void testGetPathSegmentsMultipleSlash() {
+        final UriInfo ui = createContext("/p//p//p//", "GET");
+        List<PathSegment> segments = ui.getPathSegments();
+        Assert.assertEquals(7, segments.size());
+        final Iterator<PathSegment> psi = segments.iterator();
+        PathSegment segment;
+        segment = psi.next();
+        Assert.assertEquals("p", segment.getPath());
+        Assert.assertEquals(0, segment.getMatrixParameters().size());
+        segment = psi.next();
+        Assert.assertEquals("", segment.getPath());
+        Assert.assertEquals(0, segment.getMatrixParameters().size());
+        segment = psi.next();
+        Assert.assertEquals("p", segment.getPath());
+        Assert.assertEquals(0, segment.getMatrixParameters().size());
+        segment = psi.next();
+        Assert.assertEquals("", segment.getPath());
+        Assert.assertEquals(0, segment.getMatrixParameters().size());
+        segment = psi.next();
+        Assert.assertEquals("p", segment.getPath());
+        Assert.assertEquals(0, segment.getMatrixParameters().size());
+        segment = psi.next();
+        Assert.assertEquals("", segment.getPath());
+        Assert.assertEquals(0, segment.getMatrixParameters().size());
+        segment = psi.next();
+        Assert.assertEquals("", segment.getPath());
+        Assert.assertEquals(0, segment.getMatrixParameters().size());
+    }
+
+    /**
+     * Migrated Jersey 1.x {@code com.sun.jersey.impl.PathSegmentsHttpRequestTest}.
+     */
+    @Test
+    public void testGetPathSegmentsMultipleMatrix() {
+        final UriInfo ui = createContext("/p;x=1;x=2;x=3", "GET");
+        List<PathSegment> segments = ui.getPathSegments();
+        Assert.assertEquals(1, segments.size());
+        final Iterator<PathSegment> psi = segments.iterator();
+        PathSegment segment;
+        segment = psi.next();
+        MultivaluedMap<String, String> m = segment.getMatrixParameters();
+        List<String> values = m.get("x");
+        for (int i = 0; i < (m.size()); i++) {
+            Assert.assertEquals(Integer.valueOf((i + 1)).toString(), values.get(i));
+        }
+    }
+
+    /**
+     * Migrated Jersey 1.x {@code com.sun.jersey.impl.PathSegmentsHttpRequestTest}.
+     */
+    @Test
+    public void testGetPathSegmentsMultipleSlashmulitpleMatrix() {
+        final UriInfo ui = createContext("/;x=1;y=1/;x=2;y=2/;x=3;y=3", "GET");
+        List<PathSegment> segments = ui.getPathSegments();
+        Assert.assertEquals(3, segments.size());
+        final Iterator<PathSegment> psi = segments.iterator();
+        PathSegment segment;
+        segment = psi.next();
+        MultivaluedMap<String, String> m = segment.getMatrixParameters();
+        Assert.assertEquals("1", m.getFirst("x"));
+        Assert.assertEquals("1", m.getFirst("y"));
+        segment = psi.next();
+        m = segment.getMatrixParameters();
+        Assert.assertEquals("2", m.getFirst("x"));
+        Assert.assertEquals("2", m.getFirst("y"));
+        segment = psi.next();
+        m = segment.getMatrixParameters();
+        Assert.assertEquals("3", m.getFirst("x"));
+        Assert.assertEquals("3", m.getFirst("y"));
+    }
+
+    /**
+     * Migrated Jersey 1.x {@code com.sun.jersey.impl.QueryParametersHttpRequestTest}.
+     */
+    @Test
+    public void testGetQueryParametersGeneral() throws Exception {
+        final UriInfo ui = createContext("/widgets/10?verbose=true&item=1&item=2", "GET");
+        MultivaluedMap<String, String> p = ui.getQueryParameters();
+        Assert.assertEquals(p.get("verbose").size(), 1);
+        Assert.assertEquals(p.getFirst("verbose"), "true");
+        Assert.assertEquals(p.get("item").size(), 2);
+        Assert.assertEquals(p.getFirst("item"), "1");
+        Assert.assertEquals(p.get("foo"), null);
+        Assert.assertEquals(p.getFirst("foo"), null);
+    }
+
+    /**
+     * Migrated Jersey 1.x {@code com.sun.jersey.impl.QueryParametersHttpRequestTest}.
+     */
+    @Test
+    public void testGetQueryParametersEmpty() throws Exception {
+        final UriInfo ui = createContext("/widgets/10", "GET");
+        MultivaluedMap<String, String> p = ui.getQueryParameters();
+        Assert.assertEquals(p.size(), 0);
+    }
+
+    /**
+     * Migrated Jersey 1.x {@code com.sun.jersey.impl.QueryParametersHttpRequestTest}.
+     */
+    @Test
+    public void testGetQueryParametersSingleAmpersand() throws Exception {
+        final UriInfo ui = createContext("/widgets/10?&", "GET");
+        MultivaluedMap<String, String> p = ui.getQueryParameters();
+        Assert.assertEquals(p.size(), 0);
+    }
+
+    /**
+     * Migrated Jersey 1.x {@code com.sun.jersey.impl.QueryParametersHttpRequestTest}.
+     */
+    @Test
+    public void testGetQueryParametersMultipleAmpersand() throws Exception {
+        final UriInfo ui = createContext("/widgets/10?&&%20=%20&&&", "GET");
+        MultivaluedMap<String, String> p = ui.getQueryParameters();
+        Assert.assertEquals(p.size(), 1);
+    }
+
+    /**
+     * Migrated Jersey 1.x {@code com.sun.jersey.impl.QueryParametersHttpRequestTest}.
+     */
+    @Test
+    public void testGetQueryParametersInterspersedAmpersand() throws Exception {
+        final UriInfo ui = createContext("/widgets/10?a=1&&b=2", "GET");
+        MultivaluedMap<String, String> p = ui.getQueryParameters();
+        Assert.assertEquals(p.size(), 2);
+    }
+
+    /**
+     * Migrated Jersey 1.x {@code com.sun.jersey.impl.QueryParametersHttpRequestTest}.
+     */
+    @Test
+    public void testGetQueryParametersEmptyValues() throws Exception {
+        final UriInfo ui = createContext("/widgets/10?one&two&three", "GET");
+        MultivaluedMap<String, String> p = ui.getQueryParameters();
+        Assert.assertEquals(p.getFirst("one"), "");
+        Assert.assertEquals(p.getFirst("two"), "");
+        Assert.assertEquals(p.getFirst("three"), "");
+    }
+
+    /**
+     * Migrated Jersey 1.x {@code com.sun.jersey.impl.QueryParametersHttpRequestTest}.
+     */
+    @Test
+    public void testGetQueryParametersMultipleEmptyValues() throws Exception {
+        final UriInfo ui = createContext("/widgets/10?one&one&one", "GET");
+        MultivaluedMap<String, String> p = ui.getQueryParameters();
+        Assert.assertEquals(p.get("one").size(), 3);
+        Assert.assertEquals(p.get("one").get(0), "");
+        Assert.assertEquals(p.get("one").get(1), "");
+        Assert.assertEquals(p.get("one").get(2), "");
+    }
+
+    /**
+     * Migrated Jersey 1.x {@code com.sun.jersey.impl.QueryParametersHttpRequestTest}.
+     */
+    @Test
+    public void testGetQueryParametersWhiteSpace() throws Exception {
+        final UriInfo ui = createContext("/widgets/10?x+=+1%20&%20y+=+2", "GET");
+        MultivaluedMap<String, String> p = ui.getQueryParameters();
+        Assert.assertEquals(" 1 ", p.getFirst("x "));
+        Assert.assertEquals(" 2", p.getFirst(" y "));
+    }
+
+    /**
+     * Migrated Jersey 1.x {@code com.sun.jersey.impl.QueryParametersHttpRequestTest}.
+     */
+    @Test
+    public void testGetQueryParametersDecoded() throws Exception {
+        UriInfo ui;
+        MultivaluedMap<String, String> p;
+        ui = createContext("/widgets/10?x+=+1%20&%20y+=+2", "GET");
+        p = ui.getQueryParameters();
+        Assert.assertEquals(" 1 ", p.getFirst("x "));
+        Assert.assertEquals(" 2", p.getFirst(" y "));
+        ui = createContext("/widgets/10?x=1&y=1+%2B+2", "GET");
+        p = ui.getQueryParameters(true);
+        Assert.assertEquals("1", p.getFirst("x"));
+        Assert.assertEquals("1 + 2", p.getFirst("y"));
+        ui = createContext("/widgets/10?x=1&y=1+%26+2", "GET");
+        p = ui.getQueryParameters(true);
+        Assert.assertEquals("1", p.getFirst("x"));
+        Assert.assertEquals("1 & 2", p.getFirst("y"));
+        ui = createContext("/widgets/10?x=1&y=1+%7C%7C+2", "GET");
+        p = ui.getQueryParameters(true);
+        Assert.assertEquals("1", p.getFirst("x"));
+        Assert.assertEquals("1 || 2", p.getFirst("y"));
+    }
+
+    /**
+     * Migrated Jersey 1.x {@code com.sun.jersey.impl.QueryParametersHttpRequestTest}.
+     */
+    @Test
+    public void testGetQueryParametersEncoded() throws Exception {
+        final UriInfo ui = createContext("/widgets/10?x+=+1%20&%20y+=+2", "GET");
+        MultivaluedMap<String, String> p = ui.getQueryParameters(false);
+        Assert.assertEquals("+1%20", p.getFirst("x "));
+        Assert.assertEquals("+2", p.getFirst(" y "));
+    }
+}
+

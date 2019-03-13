@@ -1,0 +1,142 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one or more contributor license
+ * agreements. See the NOTICE file distributed with this work for additional information regarding
+ * copyright ownership. The ASF licenses this file to You under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance with the License. You may obtain a
+ * copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
+package org.apache.geode.internal.cache;
+
+
+import DataPolicy.EMPTY;
+import Operation.GET;
+import Operation.REPLACE;
+import Scope.DISTRIBUTED_ACK;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import org.apache.geode.CancelCriterion;
+import org.apache.geode.cache.ExpirationAttributes;
+import org.apache.geode.cache.RegionAttributes;
+import org.apache.geode.distributed.internal.DistributionManager;
+import org.apache.geode.distributed.internal.InternalDistributedSystem;
+import org.apache.geode.distributed.internal.membership.InternalDistributedMember;
+import org.apache.geode.internal.cache.versions.VersionTag;
+import org.apache.geode.internal.offheap.StoredObject;
+import org.junit.Assert;
+import org.junit.Test;
+import org.mockito.ArgumentMatchers;
+import org.mockito.Mockito;
+
+
+public class SearchLoadAndWriteProcessorTest {
+    /**
+     * This test verifies the fix for GEODE-1199. It verifies that when doNetWrite is called with an
+     * event that has a StoredObject value that it will have "release" called on it.
+     */
+    @Test
+    public void verifyThatOffHeapReleaseIsCalledAfterNetWrite() {
+        // setup
+        SearchLoadAndWriteProcessor processor = SearchLoadAndWriteProcessor.getProcessor();
+        LocalRegion lr = Mockito.mock(LocalRegion.class);
+        Mockito.when(lr.getOffHeap()).thenReturn(true);
+        Mockito.when(lr.getScope()).thenReturn(DISTRIBUTED_ACK);
+        Object key = "key";
+        StoredObject value = Mockito.mock(StoredObject.class);
+        Mockito.when(value.hasRefCount()).thenReturn(true);
+        Mockito.when(value.retain()).thenReturn(true);
+        Object cbArg = null;
+        KeyInfo keyInfo = new KeyInfo(key, value, cbArg);
+        Mockito.when(lr.getKeyInfo(ArgumentMatchers.any(), ArgumentMatchers.any(), ArgumentMatchers.any())).thenReturn(keyInfo);
+        processor.region = lr;
+        EntryEventImpl event = EntryEventImpl.create(lr, REPLACE, key, value, cbArg, false, null);
+        try {
+            // the test
+            processor.doNetWrite(event, null, null, 0);
+            // verification
+            Mockito.verify(value, Mockito.times(2)).retain();
+            Mockito.verify(value, Mockito.times(1)).release();
+        } finally {
+            processor.release();
+        }
+    }
+
+    InternalDistributedMember departedMember;
+
+    @Test
+    public void verifyNoProcessingReplyFromADepartedMember() {
+        SearchLoadAndWriteProcessor processor = SearchLoadAndWriteProcessor.getProcessor();
+        DistributedRegion lr = Mockito.mock(DistributedRegion.class);
+        RegionAttributes attrs = Mockito.mock(RegionAttributes.class);
+        GemFireCacheImpl cache = Mockito.mock(GemFireCacheImpl.class);
+        InternalDistributedSystem ds = Mockito.mock(InternalDistributedSystem.class);
+        DistributionManager dm = Mockito.mock(DistributionManager.class);
+        CacheDistributionAdvisor advisor = Mockito.mock(CacheDistributionAdvisor.class);
+        CachePerfStats stats = Mockito.mock(CachePerfStats.class);
+        ExpirationAttributes expirationAttrs = Mockito.mock(ExpirationAttributes.class);
+        InternalDistributedMember m1 = Mockito.mock(InternalDistributedMember.class);
+        InternalDistributedMember m2 = Mockito.mock(InternalDistributedMember.class);
+        Set<InternalDistributedMember> replicates = new HashSet<InternalDistributedMember>();
+        replicates.add(m1);
+        replicates.add(m2);
+        Mockito.when(lr.getAttributes()).thenReturn(attrs);
+        Mockito.when(lr.getSystem()).thenReturn(ds);
+        Mockito.when(lr.getCache()).thenReturn(cache);
+        Mockito.when(lr.getCacheDistributionAdvisor()).thenReturn(advisor);
+        Mockito.when(lr.getDistributionManager()).thenReturn(dm);
+        Mockito.when(lr.getCachePerfStats()).thenReturn(stats);
+        Mockito.when(lr.getScope()).thenReturn(DISTRIBUTED_ACK);
+        Mockito.when(lr.getCancelCriterion()).thenReturn(Mockito.mock(CancelCriterion.class));
+        Mockito.when(cache.getDistributedSystem()).thenReturn(ds);
+        Mockito.when(cache.getInternalDistributedSystem()).thenReturn(ds);
+        Mockito.when(cache.getSearchTimeout()).thenReturn(30);
+        Mockito.when(attrs.getScope()).thenReturn(DISTRIBUTED_ACK);
+        Mockito.when(attrs.getDataPolicy()).thenReturn(EMPTY);
+        Mockito.when(attrs.getEntryTimeToLive()).thenReturn(expirationAttrs);
+        Mockito.when(attrs.getEntryIdleTimeout()).thenReturn(expirationAttrs);
+        Mockito.when(advisor.adviseInitializedReplicates()).thenReturn(replicates);
+        Object key = "k1";
+        byte[] v1 = "v1".getBytes();
+        byte[] v2 = "v2".getBytes();
+        EntryEventImpl event = EntryEventImpl.create(lr, GET, key, null, null, false, null);
+        Thread t1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                await().until(() -> (processor.getSelectedNode()) != null);
+                departedMember = processor.getSelectedNode();
+                // Simulate member departed event
+                processor.memberDeparted(dm, departedMember, true);
+            }
+        });
+        t1.start();
+        Thread t2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                await().until(() -> (((departedMember) != null) && ((processor.getSelectedNode()) != null)) && ((departedMember) != (processor.getSelectedNode())));
+                // Handle search result from the departed member
+                processor.incomingNetSearchReply(v1, System.currentTimeMillis(), false, false, true, Mockito.mock(VersionTag.class), departedMember);
+            }
+        });
+        t2.start();
+        Thread t3 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                await().until(() -> (((departedMember) != null) && ((processor.getSelectedNode()) != null)) && ((departedMember) != (processor.getSelectedNode())));
+                // Handle search result from a new member
+                processor.incomingNetSearchReply(v2, System.currentTimeMillis(), false, false, true, Mockito.mock(VersionTag.class), processor.getSelectedNode());
+            }
+        });
+        t3.start();
+        processor.initialize(lr, key, null);
+        processor.doSearchAndLoad(event, null, null, false);
+        Assert.assertTrue(Arrays.equals(((byte[]) (event.getNewValue())), v2));
+    }
+}
+

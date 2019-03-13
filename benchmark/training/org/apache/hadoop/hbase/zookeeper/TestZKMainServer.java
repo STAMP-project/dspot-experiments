@@ -1,0 +1,143 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.hadoop.hbase.zookeeper;
+
+
+import HConstants.EMPTY_BYTE_ARRAY;
+import HConstants.ZK_SESSION_TIMEOUT;
+import HConstants.ZOOKEEPER_CLIENT_PORT;
+import java.security.Permission;
+import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.HBaseClassTestRule;
+import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.HBaseZKTestingUtility;
+import org.apache.hadoop.hbase.testclassification.SmallTests;
+import org.apache.hadoop.hbase.testclassification.ZKTests;
+import org.junit.Assert;
+import org.junit.ClassRule;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+
+
+@Category({ ZKTests.class, SmallTests.class })
+public class TestZKMainServer {
+    @ClassRule
+    public static final HBaseClassTestRule CLASS_RULE = HBaseClassTestRule.forClass(TestZKMainServer.class);
+
+    // ZKMS calls System.exit.  Catch the call and prevent exit using trick described up in
+    // http://stackoverflow.com/questions/309396/java-how-to-test-methods-that-call-system-exit
+    protected static class ExitException extends SecurityException {
+        private static final long serialVersionUID = 1L;
+
+        private final int status;
+
+        public ExitException(int status) {
+            super("There is no escape!");
+            this.status = status;
+        }
+    }
+
+    private static class NoExitSecurityManager extends SecurityManager {
+        @Override
+        public void checkPermission(Permission perm) {
+            // allow anything.
+        }
+
+        @Override
+        public void checkPermission(Permission perm, Object context) {
+            // allow anything.
+        }
+
+        @Override
+        public void checkExit(int status) {
+            super.checkExit(status);
+            throw new TestZKMainServer.ExitException(status);
+        }
+    }
+
+    /**
+     * We need delete of a znode to work at least.
+     */
+    @Test
+    public void testCommandLineWorks() throws Exception {
+        System.setSecurityManager(new TestZKMainServer.NoExitSecurityManager());
+        HBaseZKTestingUtility htu = new HBaseZKTestingUtility();
+        // Make it long so for sure succeeds.
+        getConfiguration().setInt(ZK_SESSION_TIMEOUT, 30000);
+        htu.startMiniZKCluster();
+        try {
+            ZKWatcher zkw = htu.getZooKeeperWatcher();
+            String znode = "/testCommandLineWorks";
+            ZKUtil.createWithParents(zkw, znode, EMPTY_BYTE_ARRAY);
+            ZKUtil.checkExists(zkw, znode);
+            boolean exception = false;
+            try {
+                ZKMainServer.main(new String[]{ "-server", "localhost:" + (htu.getZkCluster().getClientPort()), "delete", znode });
+            } catch (TestZKMainServer.ExitException ee) {
+                // ZKMS calls System.exit which should trigger this exception.
+                exception = true;
+            }
+            Assert.assertTrue(exception);
+            Assert.assertEquals((-1), ZKUtil.checkExists(zkw, znode));
+        } finally {
+            htu.shutdownMiniZKCluster();
+            System.setSecurityManager(null);// or save and restore original
+
+        }
+    }
+
+    @Test
+    public void testHostPortParse() {
+        ZKMainServer parser = new ZKMainServer();
+        Configuration c = HBaseConfiguration.create();
+        Assert.assertEquals(("localhost:" + (c.get(ZOOKEEPER_CLIENT_PORT))), parser.parse(c));
+        final String port = "1234";
+        c.set(ZOOKEEPER_CLIENT_PORT, port);
+        c.set("hbase.zookeeper.quorum", "example.com");
+        Assert.assertEquals(("example.com:" + port), parser.parse(c));
+        c.set("hbase.zookeeper.quorum", "example1.com,example2.com,example3.com");
+        String ensemble = parser.parse(c);
+        Assert.assertTrue(port, ensemble.matches(("(example[1-3]\\.com:1234,){2}example[1-3]\\.com:" + port)));
+        // multiple servers with its own port
+        c.set("hbase.zookeeper.quorum", "example1.com:5678,example2.com:9012,example3.com:3456");
+        ensemble = parser.parse(c);
+        Assert.assertEquals(ensemble, "example1.com:5678,example2.com:9012,example3.com:3456");
+        // some servers without its own port, which will be assigned the default client port
+        c.set("hbase.zookeeper.quorum", "example1.com:5678,example2.com:9012,example3.com");
+        ensemble = parser.parse(c);
+        Assert.assertEquals(ensemble, ("example1.com:5678,example2.com:9012,example3.com:" + port));
+        // multiple servers(IPv6) with its own port
+        c.set("hbase.zookeeper.quorum", ("[2001:db8:1::242:ac11:2]:2181," + "[2001:db8:1::242:ac11:3]:5678"));
+        ensemble = parser.parse(c);
+        Assert.assertEquals(("[2001:db8:1::242:ac11:2]:2181," + "[2001:db8:1::242:ac11:3]:5678"), ensemble);
+        // some servers(IPv6) without its own port, which will be assigned the default client port
+        c.set("hbase.zookeeper.quorum", ("[1001:db8:1::242:ac11:8], [2001:db8:1::242:df23:2]:9876," + "[2001:db8:1::242:ac11:3]:5678"));
+        ensemble = parser.parse(c);
+        Assert.assertEquals(("[1001:db8:1::242:ac11:8]:1234, [2001:db8:1::242:df23:2]:9876," + "[2001:db8:1::242:ac11:3]:5678"), ensemble);
+        // a bad case
+        try {
+            // some servers(IPv6) with an invaild Ipv6 address in it
+            c.set("hbase.zookeeper.quorum", ("[1001:db8:1::242:ac11:8], [2001:db8:1::242:df23:2]:9876," + "[1001:db8:1::242:ac11:8:89:67]:5678"));
+            ensemble = parser.parse(c);
+            Assert.fail("IPv6 address should be 8 groups.");
+        } catch (IllegalArgumentException e) {
+            // expected
+        }
+    }
+}
+

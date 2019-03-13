@@ -1,0 +1,45 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.camel.component.jms.issues;
+
+
+import org.apache.camel.component.mock.MockEndpoint;
+import org.apache.camel.test.junit4.CamelTestSupport;
+import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
+/**
+ * Lets test that a number of headers MQSeries doesn't like to be sent are excluded when
+ * forwarding a JMS message from one destination to another
+ */
+public class LarsIssueTest extends CamelTestSupport {
+    private static final Logger LOG = LoggerFactory.getLogger(LarsIssueTest.class);
+
+    @Test
+    public void testSendSomeMessages() throws Exception {
+        MockEndpoint endpoint = getMockEndpoint("mock:results");
+        String body1 = "Hello world!";
+        String body2 = "Goodbye world!";
+        endpoint.expectedBodiesReceived(body1, body2);
+        template.sendBody("activemq:queue:foo.bar", body1);
+        template.sendBody("activemq:queue:foo.bar", body2);
+        assertMockEndpointsSatisfied();
+    }
+}
+

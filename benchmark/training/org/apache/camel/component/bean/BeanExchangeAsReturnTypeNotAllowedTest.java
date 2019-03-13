@@ -1,0 +1,53 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.camel.component.bean;
+
+
+import org.apache.camel.ContextTestSupport;
+import org.apache.camel.Exchange;
+import org.apache.camel.RuntimeCamelException;
+import org.apache.camel.component.mock.MockEndpoint;
+import org.junit.Assert;
+import org.junit.Test;
+
+
+/**
+ * Unit test to demonstrate that bean invocation must no return Exchange.
+ */
+public class BeanExchangeAsReturnTypeNotAllowedTest extends ContextTestSupport {
+    @Test
+    public void testExchangeAsReturnTypeNotAllowed() throws Exception {
+        MockEndpoint result = getMockEndpoint("mock:result");
+        result.expectedMessageCount(0);
+        try {
+            template.sendBody("direct:in", "Hello World");
+            Assert.fail("Should have thrown IllegalStateException");
+        } catch (RuntimeCamelException e) {
+            Assert.assertTrue(((e.getCause()) instanceof IllegalStateException));
+            // expected
+        }
+        result.assertIsSatisfied();
+    }
+
+    public static class MyBean {
+        public Exchange doSomething(Exchange exchange) {
+            // this method should not be called
+            return exchange;
+        }
+    }
+}
+

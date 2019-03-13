@@ -1,0 +1,537 @@
+/**
+ * This file is part of Graylog.
+ *
+ * Graylog is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * Graylog is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Graylog.  If not, see <http://www.gnu.org/licenses/>.
+ */
+package org.graylog2.indexer.searches;
+
+
+import DateTimeZone.UTC;
+import IndexRange.COMPARATOR;
+import ScrollResult.ScrollChunk;
+import Searches.DateHistogramInterval.HOUR;
+import Searches.DateHistogramInterval.MINUTE;
+import Searches.DateHistogramInterval.MONTH;
+import Searches.DateHistogramInterval.QUARTER;
+import Searches.DateHistogramInterval.YEAR;
+import Searches.TermsStatsOrder.COUNT;
+import Sorting.DEFAULT;
+import Sorting.Direction.ASC;
+import com.codahale.metrics.Histogram;
+import com.codahale.metrics.MetricRegistry;
+import com.codahale.metrics.Timer;
+import com.google.common.collect.ImmutableSortedSet;
+import com.lordofthejars.nosqlunit.annotation.UsingDataSet;
+import com.lordofthejars.nosqlunit.core.LoadStrategyEnum;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
+import java.util.Collections;
+import java.util.List;
+import java.util.SortedSet;
+import org.elasticsearch.index.query.RangeQueryBuilder;
+import org.graylog2.ElasticsearchBase;
+import org.graylog2.buffers.processors.fakestreams.FakeStream;
+import org.graylog2.indexer.IndexHelper;
+import org.graylog2.indexer.IndexSet;
+import org.graylog2.indexer.IndexSetRegistry;
+import org.graylog2.indexer.indexset.IndexSetConfig;
+import org.graylog2.indexer.indices.Indices;
+import org.graylog2.indexer.ranges.IndexRange;
+import org.graylog2.indexer.ranges.IndexRangeComparator;
+import org.graylog2.indexer.ranges.IndexRangeService;
+import org.graylog2.indexer.ranges.MongoIndexRange;
+import org.graylog2.indexer.results.CountResult;
+import org.graylog2.indexer.results.FieldStatsResult;
+import org.graylog2.indexer.results.HistogramResult;
+import org.graylog2.indexer.results.ResultMessage;
+import org.graylog2.indexer.results.ScrollResult;
+import org.graylog2.indexer.results.SearchResult;
+import org.graylog2.indexer.results.TermsResult;
+import org.graylog2.indexer.results.TermsStatsResult;
+import org.graylog2.indexer.retention.strategies.DeletionRetentionStrategy;
+import org.graylog2.indexer.retention.strategies.DeletionRetentionStrategyConfig;
+import org.graylog2.indexer.rotation.strategies.MessageCountRotationStrategy;
+import org.graylog2.indexer.rotation.strategies.MessageCountRotationStrategyConfig;
+import org.graylog2.plugin.Tools;
+import org.graylog2.plugin.indexer.searches.timeranges.AbsoluteRange;
+import org.graylog2.plugin.indexer.searches.timeranges.KeywordRange;
+import org.graylog2.plugin.indexer.searches.timeranges.RelativeRange;
+import org.graylog2.plugin.indexer.searches.timeranges.TimeRange;
+import org.graylog2.plugin.streams.Stream;
+import org.graylog2.streams.StreamService;
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
+import org.junit.Rule;
+import org.junit.Test;
+import org.mockito.ArgumentMatchers;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnit;
+import org.mockito.junit.MockitoRule;
+
+
+public class SearchesIT extends ElasticsearchBase {
+    private static final String REQUEST_TIMER_NAME = "org.graylog2.indexer.searches.Searches.elasticsearch.requests";
+
+    private static final String RANGES_HISTOGRAM_NAME = "org.graylog2.indexer.searches.Searches.elasticsearch.ranges";
+
+    @Rule
+    public final MockitoRule mockitoRule = MockitoJUnit.rule();
+
+    private static final String INDEX_NAME = "graylog_0";
+
+    private static final String STREAM_ID = "000000000000000000000001";
+
+    private static final ImmutableSortedSet<IndexRange> INDEX_RANGES = ImmutableSortedSet.orderedBy(new IndexRangeComparator()).add(new IndexRange() {
+        @Override
+        public String indexName() {
+            return SearchesIT.INDEX_NAME;
+        }
+
+        @Override
+        public DateTime calculatedAt() {
+            return DateTime.now(DateTimeZone.UTC);
+        }
+
+        @Override
+        public DateTime end() {
+            return new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC);
+        }
+
+        @Override
+        public int calculationDuration() {
+            return 0;
+        }
+
+        @Override
+        public List<String> streamIds() {
+            return Collections.singletonList(SearchesIT.STREAM_ID);
+        }
+
+        @Override
+        public DateTime begin() {
+            return new DateTime(0L, DateTimeZone.UTC);
+        }
+    }).build();
+
+    private static final IndexSetConfig indexSetConfig = IndexSetConfig.builder().id("index-set-1").title("Index set 1").description("For testing").indexPrefix("graylog").creationDate(ZonedDateTime.now()).shards(1).replicas(0).rotationStrategyClass(MessageCountRotationStrategy.class.getCanonicalName()).rotationStrategy(MessageCountRotationStrategyConfig.createDefault()).retentionStrategyClass(DeletionRetentionStrategy.class.getCanonicalName()).retentionStrategy(DeletionRetentionStrategyConfig.createDefault()).indexAnalyzer("standard").indexTemplateName("template-1").indexOptimizationMaxNumSegments(1).indexOptimizationDisabled(false).build();
+
+    private static final IndexSet indexSet = new org.graylog2.indexer.TestIndexSet(SearchesIT.indexSetConfig);
+
+    @Mock
+    private IndexRangeService indexRangeService;
+
+    @Mock
+    private StreamService streamService;
+
+    @Mock
+    private Indices indices;
+
+    @Mock
+    private IndexSetRegistry indexSetRegistry;
+
+    private MetricRegistry metricRegistry;
+
+    private Searches searches;
+
+    @Test
+    @UsingDataSet(loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+    public void testCountWithoutFilter() throws Exception {
+        CountResult result = searches.count("*", AbsoluteRange.create(new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC), new DateTime(2015, 1, 2, 0, 0, DateTimeZone.UTC)));
+        assertThat(result.count()).isEqualTo(10L);
+    }
+
+    @Test
+    @UsingDataSet(loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+    public void testCountWithFilter() throws Exception {
+        final IndexSetConfig indexSetConfig = IndexSetConfig.builder().id("id").title("title").indexPrefix("prefix").shards(1).replicas(0).rotationStrategy(MessageCountRotationStrategyConfig.createDefault()).retentionStrategyClass(DeletionRetentionStrategy.class.getCanonicalName()).retentionStrategy(DeletionRetentionStrategyConfig.createDefault()).creationDate(ZonedDateTime.of(2017, 5, 24, 0, 0, 0, 0, ZoneOffset.UTC)).indexAnalyzer("standard").indexTemplateName("template").indexOptimizationMaxNumSegments(1).indexOptimizationDisabled(false).build();
+        final IndexSet indexSet = new org.graylog2.indexer.TestIndexSet(indexSetConfig);
+        final Stream stream = new FakeStream("test") {
+            @Override
+            public IndexSet getIndexSet() {
+                return indexSet;
+            }
+        };
+        Mockito.when(streamService.load(SearchesIT.STREAM_ID)).thenReturn(stream);
+        CountResult result = searches.count("*", AbsoluteRange.create(new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC), new DateTime(2015, 1, 2, 0, 0, DateTimeZone.UTC)), ("streams:" + (SearchesIT.STREAM_ID)));
+        assertThat(result.count()).isEqualTo(5L);
+    }
+
+    @Test
+    @UsingDataSet(loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+    public void testCountWithInvalidFilter() throws Exception {
+        CountResult result = searches.count("*", AbsoluteRange.create(new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC), new DateTime(2015, 1, 2, 0, 0, DateTimeZone.UTC)), "foobar-not-a-filter");
+        assertThat(result.count()).isEqualTo(0L);
+    }
+
+    @Test
+    @UsingDataSet(loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+    public void countRecordsMetrics() throws Exception {
+        CountResult result = searches.count("*", AbsoluteRange.create(new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC), new DateTime(2015, 1, 2, 0, 0, DateTimeZone.UTC)));
+        assertThat(metricRegistry.getTimers()).containsKey(SearchesIT.REQUEST_TIMER_NAME);
+        assertThat(metricRegistry.getHistograms()).containsKey(SearchesIT.RANGES_HISTOGRAM_NAME);
+        Timer timer = metricRegistry.timer(SearchesIT.REQUEST_TIMER_NAME);
+        assertThat(timer.getCount()).isEqualTo(1L);
+    }
+
+    @Test
+    @UsingDataSet(loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+    public void testTerms() throws Exception {
+        TermsResult result = searches.terms("n", 25, "*", AbsoluteRange.create(new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC), new DateTime(2015, 1, 2, 0, 0, DateTimeZone.UTC)));
+        assertThat(result.getTotal()).isEqualTo(10L);
+        assertThat(result.getMissing()).isEqualTo(2L);
+        assertThat(result.getTerms()).hasSize(4).containsEntry("1", 2L).containsEntry("2", 2L).containsEntry("3", 3L).containsEntry("4", 1L);
+    }
+
+    @Test
+    @UsingDataSet(loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+    public void testTermsWithNonExistingIndex() throws Exception {
+        final SortedSet<IndexRange> indexRanges = ImmutableSortedSet.orderedBy(COMPARATOR).add(MongoIndexRange.create(SearchesIT.INDEX_NAME, new DateTime(0L, DateTimeZone.UTC), new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC), DateTime.now(DateTimeZone.UTC), 0, null)).add(MongoIndexRange.create("does-not-exist", new DateTime(0L, DateTimeZone.UTC), new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC), DateTime.now(DateTimeZone.UTC), 0, null)).build();
+        Mockito.when(indexRangeService.find(ArgumentMatchers.any(DateTime.class), ArgumentMatchers.any(DateTime.class))).thenReturn(indexRanges);
+        TermsResult result = searches.terms("n", 25, "*", AbsoluteRange.create(new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC), new DateTime(2015, 1, 2, 0, 0, DateTimeZone.UTC)));
+        assertThat(result.getTotal()).isEqualTo(10L);
+        assertThat(result.getMissing()).isEqualTo(2L);
+        assertThat(result.getTerms()).hasSize(4).containsEntry("1", 2L).containsEntry("2", 2L).containsEntry("3", 3L).containsEntry("4", 1L);
+    }
+
+    @Test
+    @UsingDataSet(loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+    public void termsRecordsMetrics() throws Exception {
+        TermsResult result = searches.terms("n", 25, "*", AbsoluteRange.create(new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC), new DateTime(2015, 1, 2, 0, 0, DateTimeZone.UTC)));
+        assertThat(metricRegistry.getTimers()).containsKey(SearchesIT.REQUEST_TIMER_NAME);
+        assertThat(metricRegistry.getHistograms()).containsKey(SearchesIT.RANGES_HISTOGRAM_NAME);
+        Timer timer = metricRegistry.timer(SearchesIT.REQUEST_TIMER_NAME);
+        assertThat(timer.getCount()).isEqualTo(1L);
+        Histogram histogram = metricRegistry.histogram(SearchesIT.RANGES_HISTOGRAM_NAME);
+        assertThat(histogram.getCount()).isEqualTo(1L);
+        assertThat(histogram.getSnapshot().getValues()).containsExactly(86400L);
+    }
+
+    @Test
+    @UsingDataSet(loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+    public void testTermsAscending() throws Exception {
+        TermsResult result = searches.terms("n", 1, "*", null, AbsoluteRange.create(new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC), new DateTime(2015, 1, 2, 0, 0, DateTimeZone.UTC)), ASC);
+        assertThat(result.getTotal()).isEqualTo(10L);
+        assertThat(result.getMissing()).isEqualTo(2L);
+        assertThat(result.getTerms()).hasSize(1).containsEntry("4", 1L);
+    }
+
+    @Test
+    @UsingDataSet(loadStrategy = LoadStrategyEnum.CLEAN_INSERT, locations = "SearchesIT-terms_stats.json")
+    public void testTermsStats() throws Exception {
+        TermsStatsResult r = searches.termsStats("f", "n", COUNT, 25, "*", AbsoluteRange.create(new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC), new DateTime(2015, 1, 2, 0, 0, DateTimeZone.UTC)));
+        assertThat(r.getResults()).hasSize(2);
+        assertThat(r.getResults().get(0)).hasSize(7).containsEntry("key_field", "Ho");
+    }
+
+    @Test
+    @UsingDataSet(loadStrategy = LoadStrategyEnum.CLEAN_INSERT, locations = "SearchesIT-terms_stats.json")
+    public void termsStatsRecordsMetrics() throws Exception {
+        TermsStatsResult r = searches.termsStats("f", "n", COUNT, 25, "*", AbsoluteRange.create(new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC), new DateTime(2015, 1, 2, 0, 0, DateTimeZone.UTC)));
+        assertThat(metricRegistry.getTimers()).containsKey(SearchesIT.REQUEST_TIMER_NAME);
+        assertThat(metricRegistry.getHistograms()).containsKey(SearchesIT.RANGES_HISTOGRAM_NAME);
+        Timer timer = metricRegistry.timer(SearchesIT.REQUEST_TIMER_NAME);
+        assertThat(timer.getCount()).isEqualTo(1L);
+        Histogram histogram = metricRegistry.histogram(SearchesIT.RANGES_HISTOGRAM_NAME);
+        assertThat(histogram.getCount()).isEqualTo(1L);
+        assertThat(histogram.getSnapshot().getValues()).containsExactly(86400L);
+    }
+
+    @Test
+    @UsingDataSet(loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+    public void testFieldStats() throws Exception {
+        FieldStatsResult result = searches.fieldStats("n", "*", AbsoluteRange.create(new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC), new DateTime(2015, 1, 2, 0, 0, DateTimeZone.UTC)));
+        assertThat(result.getSearchHits()).hasSize(10);
+        assertThat(result.getCount()).isEqualTo(8);
+        assertThat(result.getMin()).isEqualTo(1.0);
+        assertThat(result.getMax()).isEqualTo(4.0);
+        assertThat(result.getMean()).isEqualTo(2.375);
+        assertThat(result.getSum()).isEqualTo(19.0);
+        assertThat(result.getSumOfSquares()).isEqualTo(53.0);
+        assertThat(result.getVariance()).isEqualTo(0.984375);
+        assertThat(result.getStdDeviation()).isEqualTo(0.9921567416492215);
+    }
+
+    @Test
+    @UsingDataSet(loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+    public void fieldStatsRecordsMetrics() throws Exception {
+        FieldStatsResult result = searches.fieldStats("n", "*", AbsoluteRange.create(new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC), new DateTime(2015, 1, 2, 0, 0, DateTimeZone.UTC)));
+        assertThat(metricRegistry.getTimers()).containsKey(SearchesIT.REQUEST_TIMER_NAME);
+        assertThat(metricRegistry.getHistograms()).containsKey(SearchesIT.RANGES_HISTOGRAM_NAME);
+        Timer timer = metricRegistry.timer(SearchesIT.REQUEST_TIMER_NAME);
+        assertThat(timer.getCount()).isEqualTo(1L);
+        Histogram histogram = metricRegistry.histogram(SearchesIT.RANGES_HISTOGRAM_NAME);
+        assertThat(histogram.getCount()).isEqualTo(1L);
+        assertThat(histogram.getSnapshot().getValues()).containsExactly(86400L);
+    }
+
+    @Test
+    @UsingDataSet(loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+    @SuppressWarnings("unchecked")
+    public void testHistogram() throws Exception {
+        final AbsoluteRange range = AbsoluteRange.create(new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC).withZone(DateTimeZone.UTC), new DateTime(2015, 1, 2, 0, 0, DateTimeZone.UTC).withZone(DateTimeZone.UTC));
+        HistogramResult h = searches.histogram("*", HOUR, range);
+        assertThat(h.getInterval()).isEqualTo(HOUR);
+        assertThat(h.getHistogramBoundaries()).isEqualTo(range);
+        assertThat(h.getResults()).hasSize(5).containsEntry(((getMillis()) / 1000L), 2L).containsEntry(((getMillis()) / 1000L), 2L).containsEntry(((getMillis()) / 1000L), 2L).containsEntry(((getMillis()) / 1000L), 2L).containsEntry(((getMillis()) / 1000L), 2L);
+    }
+
+    @Test
+    @UsingDataSet(loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+    @SuppressWarnings("unchecked")
+    public void testHistogramWithNonExistingIndex() throws Exception {
+        final SortedSet<IndexRange> indexRanges = ImmutableSortedSet.orderedBy(COMPARATOR).add(MongoIndexRange.create(SearchesIT.INDEX_NAME, new DateTime(0L, DateTimeZone.UTC), new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC), DateTime.now(DateTimeZone.UTC), 0, null)).add(MongoIndexRange.create("does-not-exist", new DateTime(0L, DateTimeZone.UTC), new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC), DateTime.now(DateTimeZone.UTC), 0, null)).build();
+        Mockito.when(indexRangeService.find(ArgumentMatchers.any(DateTime.class), ArgumentMatchers.any(DateTime.class))).thenReturn(indexRanges);
+        final AbsoluteRange range = AbsoluteRange.create(new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC).withZone(DateTimeZone.UTC), new DateTime(2015, 1, 2, 0, 0, DateTimeZone.UTC).withZone(DateTimeZone.UTC));
+        HistogramResult h = searches.histogram("*", HOUR, range);
+        assertThat(h.getInterval()).isEqualTo(HOUR);
+        assertThat(h.getHistogramBoundaries()).isEqualTo(range);
+        assertThat(h.getResults()).hasSize(5).containsEntry(((getMillis()) / 1000L), 2L).containsEntry(((getMillis()) / 1000L), 2L).containsEntry(((getMillis()) / 1000L), 2L).containsEntry(((getMillis()) / 1000L), 2L).containsEntry(((getMillis()) / 1000L), 2L);
+    }
+
+    @Test
+    @UsingDataSet(loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+    public void histogramRecordsMetrics() throws Exception {
+        final AbsoluteRange range = AbsoluteRange.create(new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC), new DateTime(2015, 1, 2, 0, 0, DateTimeZone.UTC));
+        HistogramResult h = searches.histogram("*", MINUTE, range);
+        assertThat(metricRegistry.getTimers()).containsKey(SearchesIT.REQUEST_TIMER_NAME);
+        assertThat(metricRegistry.getHistograms()).containsKey(SearchesIT.RANGES_HISTOGRAM_NAME);
+        Timer timer = metricRegistry.timer(SearchesIT.REQUEST_TIMER_NAME);
+        assertThat(timer.getCount()).isEqualTo(1L);
+        Histogram histogram = metricRegistry.histogram(SearchesIT.RANGES_HISTOGRAM_NAME);
+        assertThat(histogram.getCount()).isEqualTo(1L);
+        assertThat(histogram.getSnapshot().getValues()).containsExactly(86400L);
+    }
+
+    @Test
+    @UsingDataSet(loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+    @SuppressWarnings("unchecked")
+    public void testFieldHistogram() throws Exception {
+        final AbsoluteRange range = AbsoluteRange.create(new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC).withZone(DateTimeZone.UTC), new DateTime(2015, 1, 2, 0, 0, DateTimeZone.UTC).withZone(DateTimeZone.UTC));
+        HistogramResult h = searches.fieldHistogram("*", "n", HOUR, null, range, false);
+        assertThat(h.getInterval()).isEqualTo(HOUR);
+        assertThat(h.getHistogramBoundaries()).isEqualTo(range);
+        assertThat(h.getResults()).hasSize(5);
+        assertThat(((java.util.Map<String, Number>) (h.getResults().get(((getMillis()) / 1000L))))).containsEntry("total_count", 2L).containsEntry("total", 0.0);
+        assertThat(((java.util.Map<String, Number>) (h.getResults().get(((getMillis()) / 1000L))))).containsEntry("total_count", 2L).containsEntry("total", 4.0).containsEntry("mean", 2.0);
+    }
+
+    @Test
+    @UsingDataSet(loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+    @SuppressWarnings("unchecked")
+    public void testFieldHistogramWithMonth() throws Exception {
+        final AbsoluteRange range = AbsoluteRange.create(new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC).withZone(DateTimeZone.UTC), new DateTime(2015, 1, 2, 0, 0, DateTimeZone.UTC).withZone(DateTimeZone.UTC));
+        HistogramResult h = searches.fieldHistogram("*", "n", MONTH, null, range, false);
+        assertThat(h.getInterval()).isEqualTo(MONTH);
+        assertThat(h.getHistogramBoundaries()).isEqualTo(range);
+        assertThat(h.getResults()).hasSize(1);
+        assertThat(((java.util.Map<String, Number>) (h.getResults().get(((getMillis()) / 1000L))))).containsEntry("total_count", 10L).containsEntry("total", 19.0).containsEntry("min", 1.0).containsEntry("max", 4.0);
+    }
+
+    @Test
+    @UsingDataSet(loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+    @SuppressWarnings("unchecked")
+    public void testFieldHistogramWithQuarter() throws Exception {
+        final AbsoluteRange range = AbsoluteRange.create(new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC).withZone(DateTimeZone.UTC), new DateTime(2015, 1, 2, 0, 0, DateTimeZone.UTC).withZone(DateTimeZone.UTC));
+        HistogramResult h = searches.fieldHistogram("*", "n", QUARTER, null, range, false);
+        assertThat(h.getInterval()).isEqualTo(QUARTER);
+        assertThat(h.getHistogramBoundaries()).isEqualTo(range);
+        assertThat(h.getResults()).hasSize(1);
+        assertThat(((java.util.Map<String, Number>) (h.getResults().get(((getMillis()) / 1000L))))).containsEntry("total_count", 10L).containsEntry("total", 19.0).containsEntry("min", 1.0).containsEntry("max", 4.0);
+    }
+
+    @Test
+    @UsingDataSet(loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+    @SuppressWarnings("unchecked")
+    public void testFieldHistogramWithYear() throws Exception {
+        final AbsoluteRange range = AbsoluteRange.create(new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC).withZone(DateTimeZone.UTC), new DateTime(2015, 1, 2, 0, 0, DateTimeZone.UTC).withZone(DateTimeZone.UTC));
+        HistogramResult h = searches.fieldHistogram("*", "n", YEAR, null, range, false);
+        assertThat(h.getInterval()).isEqualTo(YEAR);
+        assertThat(h.getHistogramBoundaries()).isEqualTo(range);
+        assertThat(h.getResults()).hasSize(1);
+        assertThat(((java.util.Map<String, Number>) (h.getResults().get(((getMillis()) / 1000L))))).containsEntry("total_count", 10L).containsEntry("total", 19.0).containsEntry("min", 1.0).containsEntry("max", 4.0);
+    }
+
+    @Test
+    @UsingDataSet(loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+    public void fieldHistogramRecordsMetrics() throws Exception {
+        final AbsoluteRange range = AbsoluteRange.create(new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC), new DateTime(2015, 1, 2, 0, 0, DateTimeZone.UTC));
+        HistogramResult h = searches.fieldHistogram("*", "n", MINUTE, null, range, false);
+        assertThat(metricRegistry.getTimers()).containsKey(SearchesIT.REQUEST_TIMER_NAME);
+        assertThat(metricRegistry.getHistograms()).containsKey(SearchesIT.RANGES_HISTOGRAM_NAME);
+        Timer timer = metricRegistry.timer(SearchesIT.REQUEST_TIMER_NAME);
+        assertThat(timer.getCount()).isEqualTo(1L);
+        Histogram histogram = metricRegistry.histogram(SearchesIT.RANGES_HISTOGRAM_NAME);
+        assertThat(histogram.getCount()).isEqualTo(1L);
+        assertThat(histogram.getSnapshot().getValues()).containsExactly(86400L);
+    }
+
+    @Test
+    public void determineAffectedIndicesWithRangesIncludesDeflectorTarget() throws Exception {
+        final DateTime now = DateTime.now(UTC);
+        final MongoIndexRange indexRange0 = MongoIndexRange.create("graylog_0", now, now.plusDays(1), now, 0);
+        final MongoIndexRange indexRange1 = MongoIndexRange.create("graylog_1", now.plusDays(1), now.plusDays(2), now, 0);
+        final MongoIndexRange indexRangeLatest = MongoIndexRange.create("graylog_2", new DateTime(0L, DateTimeZone.UTC), new DateTime(0L, DateTimeZone.UTC), now, 0);
+        final SortedSet<IndexRange> indices = ImmutableSortedSet.orderedBy(COMPARATOR).add(indexRange0).add(indexRange1).add(indexRangeLatest).build();
+        Mockito.when(indexRangeService.find(ArgumentMatchers.any(DateTime.class), ArgumentMatchers.any(DateTime.class))).thenReturn(indices);
+        final TimeRange absoluteRange = AbsoluteRange.create(now.minusDays(1), now.plusDays(1));
+        final TimeRange keywordRange = KeywordRange.create("1 day ago");
+        final TimeRange relativeRange = RelativeRange.create(3600);
+        assertThat(searches.determineAffectedIndicesWithRanges(absoluteRange, null)).containsExactly(indexRangeLatest, indexRange0, indexRange1);
+        assertThat(searches.determineAffectedIndicesWithRanges(keywordRange, null)).containsExactly(indexRangeLatest, indexRange0, indexRange1);
+        assertThat(searches.determineAffectedIndicesWithRanges(relativeRange, null)).containsExactly(indexRangeLatest, indexRange0, indexRange1);
+    }
+
+    @Test
+    public void determineAffectedIndicesWithRangesDoesNotIncludesDeflectorTargetIfMissing() throws Exception {
+        final DateTime now = DateTime.now(UTC);
+        final MongoIndexRange indexRange0 = MongoIndexRange.create("graylog_0", now, now.plusDays(1), now, 0);
+        final MongoIndexRange indexRange1 = MongoIndexRange.create("graylog_1", now.plusDays(1), now.plusDays(2), now, 0);
+        final SortedSet<IndexRange> indices = ImmutableSortedSet.orderedBy(COMPARATOR).add(indexRange0).add(indexRange1).build();
+        Mockito.when(indexRangeService.find(ArgumentMatchers.any(DateTime.class), ArgumentMatchers.any(DateTime.class))).thenReturn(indices);
+        final TimeRange absoluteRange = AbsoluteRange.create(now.minusDays(1), now.plusDays(1));
+        final TimeRange keywordRange = KeywordRange.create("1 day ago");
+        final TimeRange relativeRange = RelativeRange.create(3600);
+        assertThat(searches.determineAffectedIndicesWithRanges(absoluteRange, null)).containsExactly(indexRange0, indexRange1);
+        assertThat(searches.determineAffectedIndicesWithRanges(keywordRange, null)).containsExactly(indexRange0, indexRange1);
+        assertThat(searches.determineAffectedIndicesWithRanges(relativeRange, null)).containsExactly(indexRange0, indexRange1);
+    }
+
+    @Test
+    public void determineAffectedIndicesIncludesDeflectorTarget() throws Exception {
+        final DateTime now = DateTime.now(UTC);
+        final MongoIndexRange indexRange0 = MongoIndexRange.create("graylog_0", now, now.plusDays(1), now, 0);
+        final MongoIndexRange indexRange1 = MongoIndexRange.create("graylog_1", now.plusDays(1), now.plusDays(2), now, 0);
+        final MongoIndexRange indexRangeLatest = MongoIndexRange.create("graylog_2", new DateTime(0L, DateTimeZone.UTC), new DateTime(0L, DateTimeZone.UTC), now, 0);
+        final SortedSet<IndexRange> indices = ImmutableSortedSet.orderedBy(COMPARATOR).add(indexRange0).add(indexRange1).add(indexRangeLatest).build();
+        Mockito.when(indexRangeService.find(ArgumentMatchers.any(DateTime.class), ArgumentMatchers.any(DateTime.class))).thenReturn(indices);
+        final TimeRange absoluteRange = AbsoluteRange.create(now.minusDays(1), now.plusDays(1));
+        final TimeRange keywordRange = KeywordRange.create("1 day ago");
+        final TimeRange relativeRange = RelativeRange.create(3600);
+        assertThat(searches.determineAffectedIndices(absoluteRange, null)).containsExactlyInAnyOrder(indexRangeLatest.indexName(), indexRange0.indexName(), indexRange1.indexName());
+        assertThat(searches.determineAffectedIndices(keywordRange, null)).containsExactlyInAnyOrder(indexRangeLatest.indexName(), indexRange0.indexName(), indexRange1.indexName());
+        assertThat(searches.determineAffectedIndices(relativeRange, null)).containsExactlyInAnyOrder(indexRangeLatest.indexName(), indexRange0.indexName(), indexRange1.indexName());
+    }
+
+    @Test
+    public void determineAffectedIndicesDoesNotIncludesDeflectorTargetIfMissing() throws Exception {
+        final DateTime now = DateTime.now(UTC);
+        final MongoIndexRange indexRange0 = MongoIndexRange.create("graylog_0", now, now.plusDays(1), now, 0);
+        final MongoIndexRange indexRange1 = MongoIndexRange.create("graylog_1", now.plusDays(1), now.plusDays(2), now, 0);
+        final SortedSet<IndexRange> indices = ImmutableSortedSet.orderedBy(COMPARATOR).add(indexRange0).add(indexRange1).build();
+        Mockito.when(indexRangeService.find(ArgumentMatchers.any(DateTime.class), ArgumentMatchers.any(DateTime.class))).thenReturn(indices);
+        final TimeRange absoluteRange = AbsoluteRange.create(now.minusDays(1), now.plusDays(1));
+        final TimeRange keywordRange = KeywordRange.create("1 day ago");
+        final TimeRange relativeRange = RelativeRange.create(3600);
+        assertThat(searches.determineAffectedIndices(absoluteRange, null)).containsOnly(indexRange0.indexName(), indexRange1.indexName());
+        assertThat(searches.determineAffectedIndices(keywordRange, null)).containsOnly(indexRange0.indexName(), indexRange1.indexName());
+        assertThat(searches.determineAffectedIndices(relativeRange, null)).containsOnly(indexRange0.indexName(), indexRange1.indexName());
+    }
+
+    @Test
+    public void getTimestampRangeFilterReturnsNullIfTimeRangeIsNull() {
+        assertThat(IndexHelper.getTimestampRangeFilter(null)).isNull();
+    }
+
+    @Test
+    public void getTimestampRangeFilterReturnsRangeQueryWithGivenTimeRange() {
+        final DateTime from = new DateTime(2016, 1, 15, 12, 0, DateTimeZone.UTC);
+        final DateTime to = from.plusHours(1);
+        final TimeRange timeRange = AbsoluteRange.create(from, to);
+        final RangeQueryBuilder queryBuilder = ((RangeQueryBuilder) (IndexHelper.getTimestampRangeFilter(timeRange)));
+        assertThat(queryBuilder).isNotNull();
+        assertThat(queryBuilder.fieldName()).isEqualTo("timestamp");
+        assertThat(queryBuilder.from()).isEqualTo(Tools.buildElasticSearchTimeFormat(from));
+        assertThat(queryBuilder.to()).isEqualTo(Tools.buildElasticSearchTimeFormat(to));
+    }
+
+    @Test
+    public void determineAffectedIndicesFilterIndexPrefix() throws Exception {
+        final DateTime now = DateTime.now(UTC);
+        final MongoIndexRange indexRange0 = MongoIndexRange.create("graylog_0", now, now.plusDays(1), now, 0);
+        final MongoIndexRange indexRange1 = MongoIndexRange.create("graylog_1", now.plusDays(1), now.plusDays(2), now, 0);
+        final MongoIndexRange b0 = MongoIndexRange.create("b_0", now.plusDays(1), now.plusDays(2), now, 0);
+        final MongoIndexRange b1 = MongoIndexRange.create("b_1", now.plusDays(1), now.plusDays(2), now, 0);
+        final SortedSet<IndexRange> indices = ImmutableSortedSet.orderedBy(COMPARATOR).add(indexRange0).add(indexRange1).add(b0).add(b1).build();
+        final Stream bStream = Mockito.mock(Stream.class);
+        Mockito.when(indexRangeService.find(ArgumentMatchers.any(DateTime.class), ArgumentMatchers.any(DateTime.class))).thenReturn(indices);
+        Mockito.when(streamService.load(ArgumentMatchers.eq("123456789ABCDEF"))).thenReturn(bStream);
+        final IndexSet indexSet = Mockito.mock(IndexSet.class);
+        Mockito.when(indexSet.isManagedIndex(ArgumentMatchers.startsWith("b_"))).thenReturn(true);
+        Mockito.when(bStream.getIndexSet()).thenReturn(indexSet);
+        final TimeRange absoluteRange = AbsoluteRange.create(now.minusDays(1), now.plusDays(1));
+        assertThat(searches.determineAffectedIndices(absoluteRange, "streams:123456789ABCDEF")).containsOnly(b0.indexName(), b1.indexName());
+    }
+
+    @Test
+    @UsingDataSet(loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+    public void searchDoesNotIncludeJestMetadata() throws Exception {
+        final AbsoluteRange range = AbsoluteRange.create(new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC).withZone(DateTimeZone.UTC), new DateTime(2015, 1, 2, 0, 0, DateTimeZone.UTC).withZone(DateTimeZone.UTC));
+        final SearchResult searchResult = searches.search("_id:1", range, 0, 0, DEFAULT);
+        assertThat(searchResult).isNotNull();
+        assertThat(searchResult.getTotalResults()).isEqualTo(1L);
+        assertThat(searchResult.getFields()).doesNotContain("es_metadata_id", "es_metadata_version");
+    }
+
+    @Test
+    @UsingDataSet(loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+    public void fieldStatsDoesNotIncludeJestMetadata() throws Exception {
+        final AbsoluteRange range = AbsoluteRange.create(new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC).withZone(DateTimeZone.UTC), new DateTime(2015, 1, 2, 0, 0, DateTimeZone.UTC).withZone(DateTimeZone.UTC));
+        final FieldStatsResult fieldStatsResult = searches.fieldStats("n", "_id:1", range);
+        assertThat(fieldStatsResult).isNotNull();
+        assertThat(fieldStatsResult.getSearchHits()).isNotNull();
+        assertThat(fieldStatsResult.getSearchHits()).hasSize(1);
+        final ResultMessage resultMessage = fieldStatsResult.getSearchHits().get(0);
+        assertThat(resultMessage.getMessage().getFields()).doesNotContainKeys("es_metadata_id", "es_metadata_version");
+    }
+
+    @Test
+    @UsingDataSet(loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+    public void searchReturnsCorrectTotalHits() throws Exception {
+        final AbsoluteRange range = AbsoluteRange.create(new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC).withZone(DateTimeZone.UTC), new DateTime(2015, 1, 2, 0, 0, DateTimeZone.UTC).withZone(DateTimeZone.UTC));
+        final SearchResult searchResult = searches.search("*", range, 5, 0, DEFAULT);
+        assertThat(searchResult).isNotNull();
+        assertThat(searchResult.getResults()).hasSize(5);
+        assertThat(searchResult.getTotalResults()).isEqualTo(10L);
+        assertThat(searchResult.getFields()).doesNotContain("es_metadata_id", "es_metadata_version");
+    }
+
+    @Test
+    @UsingDataSet(loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+    public void searchReturnsResultWithSelectiveFields() throws Exception {
+        final AbsoluteRange range = AbsoluteRange.create(new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC).withZone(DateTimeZone.UTC), new DateTime(2015, 1, 2, 0, 0, DateTimeZone.UTC).withZone(DateTimeZone.UTC));
+        final SearchesConfig searchesConfig = SearchesConfig.builder().query("*").range(range).limit(1).offset(0).fields(Collections.singletonList("source")).build();
+        final SearchResult searchResult = searches.search(searchesConfig);
+        assertThat(searchResult).isNotNull();
+        assertThat(searchResult.getResults()).hasSize(1);
+        assertThat(searchResult.getTotalResults()).isEqualTo(10L);
+    }
+
+    @Test
+    @UsingDataSet(loadStrategy = LoadStrategyEnum.CLEAN_INSERT)
+    public void scrollReturnsResultWithSelectiveFields() throws Exception {
+        Mockito.when(indexSetRegistry.getForIndices(Collections.singleton("graylog_0"))).thenReturn(Collections.singleton(SearchesIT.indexSet));
+        final AbsoluteRange range = AbsoluteRange.create(new DateTime(2015, 1, 1, 0, 0, DateTimeZone.UTC).withZone(DateTimeZone.UTC), new DateTime(2015, 1, 2, 0, 0, DateTimeZone.UTC).withZone(DateTimeZone.UTC));
+        final ScrollResult scrollResult = searches.scroll("*", range, 5, 0, Collections.singletonList("source"), null);
+        assertThat(scrollResult).isNotNull();
+        assertThat(scrollResult.getQueryHash()).isNotEmpty();
+        assertThat(scrollResult.totalHits()).isEqualTo(10L);
+        final ScrollResult.ScrollChunk firstChunk = scrollResult.nextChunk();
+        assertThat(firstChunk).isNotNull();
+        assertThat(firstChunk.getMessages()).hasSize(5);
+        assertThat(firstChunk.isFirstChunk()).isTrue();
+        assertThat(firstChunk.getFields()).containsExactly("source");
+    }
+}
+

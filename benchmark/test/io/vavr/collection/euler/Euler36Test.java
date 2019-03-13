@@ -1,0 +1,40 @@
+/**
+ * __    __  __  __    __  ___
+ * \  \  /  /    \  \  /  /  __/
+ *  \  \/  /  /\  \  \/  /  /
+ *   \____/__/  \__\____/__/
+ *
+ * Copyright 2014-2019 Vavr, http://vavr.io
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package io.vavr.collection.euler;
+
+
+import org.junit.Test;
+
+
+/**
+ * <strong>Problem 36: Double-base palindromes</strong>
+ * <p>The decimal number, 585 = 1001001001<sub>2</sub> (binary), is palindromic in both bases.</p>
+ * <p>Find the sum of all numbers, less than one million, which are palindromic in base 10 and base 2.</p>
+ * <p class="info">(Please note that the palindromic number, in either base, may not include leading zeros.)</p>
+ * See also <a href="https://projecteuler.net/problem=36">projecteuler.net problem 36</a>.
+ */
+public class Euler36Test {
+    @Test
+    public void shouldSolveProblem36() {
+        assertThat(Euler36Test.solve(1000000)).isEqualTo(872187);
+    }
+}
+

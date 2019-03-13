@@ -1,0 +1,76 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.camel.component.jms;
+
+
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.time.Instant;
+import java.util.Date;
+import org.apache.activemq.command.ActiveMQBlobMessage;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
+
+
+@RunWith(MockitoJUnitRunner.class)
+public class JmsBindingTest {
+    private final Instant instant = Instant.ofEpochMilli(1519672338000L);
+
+    @Mock
+    private JmsConfiguration mockJmsConfiguration;
+
+    @Mock
+    private JmsEndpoint mockJmsEndpoint;
+
+    private JmsBinding jmsBindingUnderTest;
+
+    @Test
+    public void testExtractNullBodyFromJmsShouldReturnNull() throws Exception {
+        Assert.assertNull(jmsBindingUnderTest.extractBodyFromJms(null, new ActiveMQBlobMessage()));
+    }
+
+    @Test
+    public void testGetValidJmsHeaderValueWithBigIntegerShouldSucceed() {
+        Object value = jmsBindingUnderTest.getValidJMSHeaderValue("foo", new BigInteger("12345"));
+        Assert.assertEquals("12345", value);
+    }
+
+    @Test
+    public void testGetValidJmsHeaderValueWithBigDecimalShouldSucceed() {
+        Object value = jmsBindingUnderTest.getValidJMSHeaderValue("foo", new BigDecimal("123.45"));
+        Assert.assertEquals("123.45", value);
+    }
+
+    @Test
+    public void testGetValidJmsHeaderValueWithDateShouldSucceed() {
+        Object value = jmsBindingUnderTest.getValidJMSHeaderValue("foo", Date.from(instant));
+        Assert.assertNotNull(value);
+        // We can't assert further as the returned value is bound to the machine time zone and locale
+    }
+
+    @Test
+    public void testGetValidJmsHeaderValueWithIso8601DateShouldSucceed() {
+        Mockito.when(mockJmsConfiguration.isFormatDateHeadersToIso8601()).thenReturn(true);
+        Object value = jmsBindingUnderTest.getValidJMSHeaderValue("foo", Date.from(instant));
+        Assert.assertEquals("2018-02-26T19:12:18Z", value);
+    }
+}
+

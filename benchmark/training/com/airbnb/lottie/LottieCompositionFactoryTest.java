@@ -1,0 +1,109 @@
+package com.airbnb.lottie;
+
+
+import RuntimeEnvironment.application;
+import android.util.JsonReader;
+import java.io.FileNotFoundException;
+import java.io.StringReader;
+import junit.framework.Assert;
+import org.junit.Test;
+
+import static org.junit.Assert.assertTrue;
+
+
+public class LottieCompositionFactoryTest extends BaseTest {
+    private static final String JSON = "{\"v\":\"4.11.1\",\"fr\":60,\"ip\":0,\"op\":180,\"w\":300,\"h\":300,\"nm\":\"Comp 1\",\"ddd\":0,\"assets\":[]," + ((((("\"layers\":[{\"ddd\":0,\"ind\":1,\"ty\":4,\"nm\":\"Shape Layer 1\",\"sr\":1,\"ks\":{\"o\":{\"a\":0,\"k\":100,\"ix\":11},\"r\":{\"a\":0," + "\"k\":0,\"ix\":10},\"p\":{\"a\":0,\"k\":[150,150,0],\"ix\":2},\"a\":{\"a\":0,\"k\":[0,0,0],\"ix\":1},\"s\":{\"a\":0,\"k\":[100,100,100],") + "\"ix\":6}},\"ao\":0,\"shapes\":[{\"ty\":\"rc\",\"d\":1,\"s\":{\"a\":0,\"k\":[100,100],\"ix\":2},\"p\":{\"a\":0,\"k\":[0,0],\"ix\":3},") + "\"r\":{\"a\":0,\"k\":0,\"ix\":4},\"nm\":\"Rectangle Path 1\",\"mn\":\"ADBE Vector Shape - Rect\",\"hd\":false},{\"ty\":\"fl\",") + "\"c\":{\"a\":0,\"k\":[0.928262987324,0,0,1],\"ix\":4},\"o\":{\"a\":0,\"k\":100,\"ix\":5},\"r\":1,\"nm\":\"Fill 1\",\"mn\":\"ADBE Vector ") + "Graphic - Fill\",\"hd\":false}],\"ip\":0,\"op\":180,\"st\":0,\"bm\":0}]}");
+
+    private static final String NOT_JSON = "not json";
+
+    @Test
+    public void testLoadJsonString() {
+        LottieResult<LottieComposition> result = LottieCompositionFactory.fromJsonStringSync(LottieCompositionFactoryTest.JSON, "json");
+        Assert.assertNull(result.getException());
+        Assert.assertNotNull(result.getValue());
+    }
+
+    @Test
+    public void testLoadInvalidJsonString() {
+        LottieResult<LottieComposition> result = LottieCompositionFactory.fromJsonStringSync(LottieCompositionFactoryTest.NOT_JSON, "not_json");
+        Assert.assertNotNull(result.getException());
+        Assert.assertNull(result.getValue());
+    }
+
+    @Test
+    public void testLoadJsonReader() {
+        JsonReader reader = new JsonReader(new StringReader(LottieCompositionFactoryTest.JSON));
+        LottieResult<LottieComposition> result = LottieCompositionFactory.fromJsonReaderSync(reader, "json");
+        Assert.assertNull(result.getException());
+        Assert.assertNotNull(result.getValue());
+    }
+
+    @Test
+    public void testLoadInvalidJsonReader() {
+        JsonReader reader = new JsonReader(new StringReader(LottieCompositionFactoryTest.NOT_JSON));
+        LottieResult<LottieComposition> result = LottieCompositionFactory.fromJsonReaderSync(reader, "json");
+        Assert.assertNotNull(result.getException());
+        Assert.assertNull(result.getValue());
+    }
+
+    @Test
+    public void testLoadInvalidAssetName() {
+        LottieResult<LottieComposition> result = LottieCompositionFactory.fromAssetSync(application, "square2.json");
+        Assert.assertEquals(FileNotFoundException.class, result.getException().getClass());
+        Assert.assertNull(result.getValue());
+    }
+
+    @Test
+    public void testNonJsonAssetFile() {
+        LottieResult<LottieComposition> result = LottieCompositionFactory.fromAssetSync(application, "not_json.txt");
+        Assert.assertNotNull(result.getException());
+        Assert.assertNull(result.getValue());
+    }
+
+    @Test
+    public void testLoadInvalidRawResName() {
+        LottieResult<LottieComposition> result = LottieCompositionFactory.fromRawResSync(application, 0);
+        Assert.assertNotNull(result.getException());
+        Assert.assertNull(result.getValue());
+    }
+
+    @Test
+    public void testNullMultipleTimesAsync() {
+        JsonReader reader = new JsonReader(new StringReader(LottieCompositionFactoryTest.JSON));
+        LottieTask<LottieComposition> task1 = LottieCompositionFactory.fromJsonReader(reader, null);
+        LottieTask<LottieComposition> task2 = LottieCompositionFactory.fromJsonReader(reader, null);
+        Assert.assertFalse((task1 == task2));
+    }
+
+    @Test
+    public void testNullMultipleTimesSync() {
+        JsonReader reader = new JsonReader(new StringReader(LottieCompositionFactoryTest.JSON));
+        LottieResult<LottieComposition> task1 = LottieCompositionFactory.fromJsonReaderSync(reader, null);
+        LottieResult<LottieComposition> task2 = LottieCompositionFactory.fromJsonReaderSync(reader, null);
+        Assert.assertFalse((task1 == task2));
+    }
+
+    @Test
+    public void testCacheWorks() {
+        JsonReader reader = new JsonReader(new StringReader(LottieCompositionFactoryTest.JSON));
+        LottieTask<LottieComposition> task1 = LottieCompositionFactory.fromJsonReader(reader, "foo");
+        LottieTask<LottieComposition> task2 = LottieCompositionFactory.fromJsonReader(reader, "foo");
+        assertTrue((task1 == task2));
+    }
+
+    @Test
+    public void testZeroCacheWorks() {
+        JsonReader reader = new JsonReader(new StringReader(LottieCompositionFactoryTest.JSON));
+        LottieCompositionFactory.setMaxCacheSize(1);
+        LottieResult<LottieComposition> taskFoo1 = LottieCompositionFactory.fromJsonReaderSync(reader, "foo");
+        LottieResult<LottieComposition> taskBar = LottieCompositionFactory.fromJsonReaderSync(reader, "bar");
+        LottieResult<LottieComposition> taskFoo2 = LottieCompositionFactory.fromJsonReaderSync(reader, "foo");
+        Assert.assertFalse((taskFoo1 == taskFoo2));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCannotSetCacheSizeToZero() {
+        LottieCompositionFactory.setMaxCacheSize(0);
+    }
+}
+

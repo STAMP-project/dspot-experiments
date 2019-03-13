@@ -1,0 +1,196 @@
+/**
+ * Copyright (c) 2008-2019, Hazelcast, Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.hazelcast.client.map;
+
+
+import com.hazelcast.aggregation.Aggregators;
+import com.hazelcast.client.test.TestHazelcastFactory;
+import com.hazelcast.core.HazelcastInstance;
+import com.hazelcast.core.IMap;
+import com.hazelcast.map.AbstractEntryProcessor;
+import com.hazelcast.projection.Projection;
+import com.hazelcast.query.PagingPredicate;
+import com.hazelcast.query.Predicate;
+import com.hazelcast.query.Predicates;
+import com.hazelcast.query.TruePredicate;
+import com.hazelcast.test.HazelcastParallelClassRunner;
+import com.hazelcast.test.HazelcastTestSupport;
+import com.hazelcast.test.annotation.ParallelTest;
+import com.hazelcast.test.annotation.QuickTest;
+import java.util.Collection;
+import java.util.Map;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.junit.runner.RunWith;
+
+
+@RunWith(HazelcastParallelClassRunner.class)
+@Category({ QuickTest.class, ParallelTest.class })
+public class ClientPartitionPredicateTest extends HazelcastTestSupport {
+    private static final int PARTITIONS = 10;
+
+    private static final int ITEMS_PER_PARTITION = 20;
+
+    private final TestHazelcastFactory hazelcastFactory = new TestHazelcastFactory();
+
+    private HazelcastInstance server;
+
+    private HazelcastInstance client;
+
+    private IMap<String, Integer> map;
+
+    private String partitionKey;
+
+    private int partitionId;
+
+    private Predicate<String, Integer> predicate;
+
+    @Test
+    public void values_withPagingPredicate() {
+        PagingPredicate<String, Integer> pagingPredicate = new PagingPredicate<String, Integer>(Predicates.alwaysTrue(), 1);
+        predicate = new com.hazelcast.query.PartitionPredicate<String, Integer>(randomString(), pagingPredicate);
+        for (int i = 0; i < (ClientPartitionPredicateTest.ITEMS_PER_PARTITION); i++) {
+            int size = map.values(predicate).size();
+            Assert.assertEquals(1, size);
+            pagingPredicate.nextPage();
+        }
+        int size = map.values(predicate).size();
+        Assert.assertEquals(0, size);
+    }
+
+    @Test
+    public void keys_withPagingPredicate() {
+        PagingPredicate<String, Integer> pagingPredicate = new PagingPredicate<String, Integer>(Predicates.alwaysTrue(), 1);
+        predicate = new com.hazelcast.query.PartitionPredicate<String, Integer>(randomString(), pagingPredicate);
+        for (int i = 0; i < (ClientPartitionPredicateTest.ITEMS_PER_PARTITION); i++) {
+            int size = map.keySet(predicate).size();
+            Assert.assertEquals(1, size);
+            pagingPredicate.nextPage();
+        }
+        int size = map.keySet(predicate).size();
+        Assert.assertEquals(0, size);
+    }
+
+    @Test
+    public void entries_withPagingPredicate() {
+        PagingPredicate<String, Integer> pagingPredicate = new PagingPredicate<String, Integer>(Predicates.alwaysTrue(), 1);
+        predicate = new com.hazelcast.query.PartitionPredicate<String, Integer>(randomString(), pagingPredicate);
+        for (int i = 0; i < (ClientPartitionPredicateTest.ITEMS_PER_PARTITION); i++) {
+            int size = map.entrySet(predicate).size();
+            Assert.assertEquals(1, size);
+            pagingPredicate.nextPage();
+        }
+        int size = map.entrySet(predicate).size();
+        Assert.assertEquals(0, size);
+    }
+
+    @Test
+    public void values() {
+        Collection<Integer> values = map.values(predicate);
+        Assert.assertEquals(ClientPartitionPredicateTest.ITEMS_PER_PARTITION, values.size());
+        for (Integer value : values) {
+            Assert.assertEquals(partitionId, value.intValue());
+        }
+    }
+
+    @Test
+    public void keySet() {
+        Collection<String> keys = map.keySet(predicate);
+        Assert.assertEquals(ClientPartitionPredicateTest.ITEMS_PER_PARTITION, keys.size());
+        for (String key : keys) {
+            Assert.assertEquals(partitionId, server.getPartitionService().getPartition(key).getPartitionId());
+        }
+    }
+
+    @Test
+    public void entries() {
+        Collection<Map.Entry<String, Integer>> entries = map.entrySet(predicate);
+        Assert.assertEquals(ClientPartitionPredicateTest.ITEMS_PER_PARTITION, entries.size());
+        for (Map.Entry<String, Integer> entry : entries) {
+            Assert.assertEquals(partitionId, server.getPartitionService().getPartition(entry.getKey()).getPartitionId());
+            Assert.assertEquals(partitionId, entry.getValue().intValue());
+        }
+    }
+
+    @Test
+    public void aggregate() throws Exception {
+        int partitionId = 2;
+        String keyForPartition = generateKeyForPartition(server, partitionId);
+        Predicate partitionPredicate = new com.hazelcast.query.PartitionPredicate<String, Integer>(keyForPartition, TruePredicate.INSTANCE);
+        Long aggregate = map.aggregate(Aggregators.<Map.Entry<String, Integer>>integerSum(), partitionPredicate);
+        Long sum = ((long) (partitionId * (ClientPartitionPredicateTest.ITEMS_PER_PARTITION)));
+        Assert.assertEquals(sum, aggregate);
+    }
+
+    @Test
+    public void executeOnEntries() throws Exception {
+        int partitionId = 2;
+        String keyForPartition = generateKeyForPartition(server, partitionId);
+        Predicate partitionPredicate = new com.hazelcast.query.PartitionPredicate<String, Integer>(keyForPartition, TruePredicate.INSTANCE);
+        Map<String, Object> entries = map.executeOnEntries(new ClientPartitionPredicateTest.MyProcessor(), partitionPredicate);
+        Assert.assertEquals(ClientPartitionPredicateTest.ITEMS_PER_PARTITION, entries.size());
+    }
+
+    @Test
+    public void removeAll() {
+        int sizeBefore = map.size();
+        int partitionSizeBefore = map.keySet(predicate).size();
+        map.removeAll(predicate);
+        Assert.assertEquals((sizeBefore - partitionSizeBefore), map.size());
+        Assert.assertEquals(0, map.keySet(predicate).size());
+        for (int i = 0; i < (ClientPartitionPredicateTest.ITEMS_PER_PARTITION); ++i) {
+            String key;
+            do {
+                key = generateKeyForPartition(server, partitionId);
+            } while (map.containsKey(key) );
+            map.put(key, i);
+        }
+        sizeBefore = map.size();
+        partitionSizeBefore = map.keySet(predicate).size();
+        Assert.assertEquals(ClientPartitionPredicateTest.ITEMS_PER_PARTITION, partitionSizeBefore);
+        map.removeAll(new com.hazelcast.query.PartitionPredicate<String, Integer>(partitionKey, Predicates.equal("this", ((ClientPartitionPredicateTest.ITEMS_PER_PARTITION) - 1))));
+        Assert.assertEquals((sizeBefore - 1), map.size());
+        Assert.assertEquals((partitionSizeBefore - 1), map.keySet(predicate).size());
+    }
+
+    static class MyProcessor extends AbstractEntryProcessor<String, Integer> {
+        public MyProcessor() {
+        }
+
+        @Override
+        public Object process(Map.Entry<String, Integer> entry) {
+            Integer in = entry.getValue();
+            entry.setValue((in * 10));
+            return entry;
+        }
+    }
+
+    @Test
+    public void project() throws Exception {
+        Predicate partitionPredicate = new com.hazelcast.query.PartitionPredicate<String, Integer>(1, TruePredicate.INSTANCE);
+        Collection<Integer> collection = map.project(new ClientPartitionPredicateTest.PrimitiveValueIncrementingProjection(), partitionPredicate);
+        Assert.assertEquals(ClientPartitionPredicateTest.ITEMS_PER_PARTITION, collection.size());
+    }
+
+    public static class PrimitiveValueIncrementingProjection extends Projection<Map.Entry<String, Integer>, Integer> {
+        @Override
+        public Integer transform(Map.Entry<String, Integer> input) {
+            return (input.getValue()) + 1;
+        }
+    }
+}
+

@@ -1,0 +1,88 @@
+/**
+ * Copyright (c) 2008-2019, Hazelcast, Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.hazelcast.cache.impl;
+
+
+import com.hazelcast.logging.ILogger;
+import com.hazelcast.logging.Logger;
+import com.hazelcast.nio.ClassLoaderUtil;
+import com.hazelcast.test.HazelcastTestSupport;
+import com.hazelcast.test.annotation.ParallelTest;
+import com.hazelcast.test.annotation.QuickTest;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.junit.runner.RunWith;
+import org.mockito.ArgumentMatchers;
+import org.mockito.Mockito;
+import org.powermock.core.classloader.annotations.PrepareForTest;
+import org.powermock.modules.junit4.PowerMockRunner;
+
+
+@RunWith(PowerMockRunner.class)
+@PrepareForTest(ClassLoaderUtil.class)
+@Category({ QuickTest.class, ParallelTest.class })
+public class JCacheDetectorTest extends HazelcastTestSupport {
+    private ILogger logger = Logger.getLogger(JCacheDetectorTest.class);
+
+    private ClassLoader classLoader = Mockito.mock(ClassLoader.class);
+
+    @Test
+    public void testConstructor() {
+        HazelcastTestSupport.assertUtilityConstructor(JCacheDetector.class);
+    }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    public void testIsJCacheAvailable_withCorrectVersion() throws Exception {
+        Mockito.when(ClassLoaderUtil.isClassAvailable(ArgumentMatchers.any(ClassLoader.class), ArgumentMatchers.anyString())).thenReturn(true);
+        Assert.assertTrue(JCacheDetector.isJCacheAvailable(classLoader));
+    }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    public void testIsJCacheAvailable_withCorrectVersion_withLogger() throws Exception {
+        Mockito.when(ClassLoaderUtil.isClassAvailable(ArgumentMatchers.any(ClassLoader.class), ArgumentMatchers.anyString())).thenReturn(true);
+        Assert.assertTrue(JCacheDetector.isJCacheAvailable(classLoader, logger));
+    }
+
+    @Test
+    public void testIsJCacheAvailable_notFound() throws Exception {
+        Mockito.when(ClassLoaderUtil.isClassAvailable(ArgumentMatchers.any(ClassLoader.class), ArgumentMatchers.anyString())).thenReturn(false);
+        Assert.assertFalse(JCacheDetector.isJCacheAvailable(classLoader));
+    }
+
+    @Test
+    public void testIsJCacheAvailable_notFound_withLogger() throws Exception {
+        Mockito.when(ClassLoaderUtil.isClassAvailable(ArgumentMatchers.any(ClassLoader.class), ArgumentMatchers.anyString())).thenReturn(false);
+        Assert.assertFalse(JCacheDetector.isJCacheAvailable(classLoader, logger));
+    }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    public void testIsJCacheAvailable_withWrongJCacheVersion() throws Exception {
+        Mockito.when(ClassLoaderUtil.isClassAvailable(ArgumentMatchers.any(ClassLoader.class), ArgumentMatchers.anyString())).thenReturn(true).thenReturn(false);
+        Assert.assertFalse(JCacheDetector.isJCacheAvailable(classLoader));
+    }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    public void testIsJCacheAvailable_withWrongJCacheVersion_withLogger() throws Exception {
+        Mockito.when(ClassLoaderUtil.isClassAvailable(ArgumentMatchers.any(ClassLoader.class), ArgumentMatchers.anyString())).thenReturn(true).thenReturn(false);
+        Assert.assertFalse(JCacheDetector.isJCacheAvailable(classLoader, logger));
+    }
+}
+

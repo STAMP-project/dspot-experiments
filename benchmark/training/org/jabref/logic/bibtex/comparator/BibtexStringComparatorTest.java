@@ -1,0 +1,41 @@
+package org.jabref.logic.bibtex.comparator;
+
+
+import org.jabref.model.entry.BibtexString;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+
+public class BibtexStringComparatorTest {
+    private final BibtexStringComparator bsc1 = new BibtexStringComparator(false);
+
+    private final BibtexStringComparator bsc2 = new BibtexStringComparator(true);
+
+    @Test
+    public void test() {
+        BibtexString bs1 = new BibtexString("VLSI", "Very Large Scale Integration");
+        BibtexString bs2 = new BibtexString("DSP", "Digital Signal Processing");
+        BibtexString bs3 = new BibtexString("DSP", "Digital Signal Processing");
+        // Same string
+        Assertions.assertEquals(0, bsc1.compare(bs1, bs1));
+        // Same content
+        Assertions.assertEquals(0, bsc1.compare(bs2, bs3));
+        // Alphabetical order
+        Assertions.assertTrue(((bsc1.compare(bs1, bs2)) > 0));
+        Assertions.assertTrue(((bsc1.compare(bs2, bs1)) < 0));
+        // Same, but with the comparator checking for internal strings (none)
+        Assertions.assertEquals(0, bsc2.compare(bs1, bs1));
+        Assertions.assertEquals(0, bsc2.compare(bs2, bs3));
+        Assertions.assertTrue(((bsc2.compare(bs1, bs2)) > 0));
+        Assertions.assertTrue(((bsc2.compare(bs2, bs1)) < 0));
+        // Create string with internal string
+        BibtexString bs4 = new BibtexString("DSPVLSI", "#VLSI# #DSP#");
+        // bs4 before bs1 if not considering that bs4 contains bs1
+        Assertions.assertTrue(((bsc1.compare(bs1, bs4)) > 0));
+        Assertions.assertTrue(((bsc1.compare(bs4, bs1)) < 0));
+        // bs4 after bs1 if considering that bs4 contains bs1
+        Assertions.assertTrue(((bsc2.compare(bs1, bs4)) < 0));
+        Assertions.assertTrue(((bsc2.compare(bs4, bs1)) > 0));
+    }
+}
+

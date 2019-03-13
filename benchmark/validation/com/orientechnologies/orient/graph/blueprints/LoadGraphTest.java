@@ -1,0 +1,30 @@
+package com.orientechnologies.orient.graph.blueprints;
+
+
+import com.orientechnologies.orient.graph.console.OInternalGraphImporter;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import org.junit.Test;
+
+
+public class LoadGraphTest {
+    private static final String INPUT_FILE = "src/test/resources/graph-example-2.xml";
+
+    private String inputFile = LoadGraphTest.INPUT_FILE;
+
+    private String dbURL;
+
+    @Test
+    public void testImport() throws FileNotFoundException, IOException {
+        OInternalGraphImporter loadGraph = new OInternalGraphImporter();
+        String storageType = System.getProperty("storageType");
+        if (storageType == null)
+            storageType = "memory";
+
+        if ((dbURL) == null)
+            dbURL = (storageType + ":") + "target/databases/GratefulDeadConcerts";
+
+        loadGraph.runImport(inputFile, dbURL);
+    }
+}
+

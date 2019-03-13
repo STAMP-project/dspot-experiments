@@ -1,0 +1,110 @@
+/**
+ * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+ *
+ * Copyright (c) 2013-2017 Oracle and/or its affiliates. All rights reserved.
+ *
+ * The contents of this file are subject to the terms of either the GNU
+ * General Public License Version 2 only ("GPL") or the Common Development
+ * and Distribution License("CDDL") (collectively, the "License").  You
+ * may not use this file except in compliance with the License.  You can
+ * obtain a copy of the License at
+ * https://oss.oracle.com/licenses/CDDL+GPL-1.1
+ * or LICENSE.txt.  See the License for the specific
+ * language governing permissions and limitations under the License.
+ *
+ * When distributing the software, include this License Header Notice in each
+ * file and include the License file at LICENSE.txt.
+ *
+ * GPL Classpath Exception:
+ * Oracle designates this particular file as subject to the "Classpath"
+ * exception as provided by Oracle in the GPL Version 2 section of the License
+ * file that accompanied this code.
+ *
+ * Modifications:
+ * If applicable, add the following below the License Header, with the fields
+ * enclosed by brackets [] replaced by your own identifying information:
+ * "Portions Copyright [year] [name of copyright owner]"
+ *
+ * Contributor(s):
+ * If you wish your version of this file to be governed by only the CDDL or
+ * only the GPL Version 2, indicate your decision by adding "[Contributor]
+ * elects to include this software in this distribution under the [CDDL or GPL
+ * Version 2] license."  If you don't indicate a single choice of license, a
+ * recipient has the option to distribute your version of this file under
+ * either the CDDL, the GPL Version 2 or to extend the choice of license to
+ * its licensees as provided above.  However, if you add GPL Version 2 code
+ * and therefore, elected the GPL Version 2 license, then the option applies
+ * only if the new code is made subject to such option by the copyright
+ * holder.
+ */
+package org.glassfish.jersey.tests.integration.servlet_25_init_1;
+
+
+import java.net.URI;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Response;
+import org.glassfish.jersey.test.JerseyTest;
+import org.glassfish.jersey.uri.UriTemplate;
+import org.hamcrest.CoreMatchers;
+import org.junit.Assert;
+import org.junit.Test;
+
+
+/**
+ * Servlet 2.5 initialization test #01.
+ *
+ * @author Pavel Bucek (pavel.bucek at oracle.com)
+ * @author Martin Matula
+ */
+public class Servlet25Init1ITCase extends JerseyTest {
+    @Test
+    public void testHelloWorld() throws Exception {
+        String s = target().path("servlet_path/helloworld").request().get(String.class);
+        Assert.assertEquals(("Hello World! " + (this.getClass().getPackage().getName())), s);
+    }
+
+    @Test
+    public void testHelloWorldAtWrongPath() {
+        Response r = target().path("application_path/helloworld").request().get();
+        Assert.assertTrue(("Request to application_path/helloworld should have failed, but did not. That means two applications are " + "registered."), ((r.getStatus()) >= 400));
+    }
+
+    @Test
+    public void testHelloWorldViaClientInResource() throws Exception {
+        String s = target().path("servlet_path/viaclient/helloworld").request().get(String.class);
+        Assert.assertEquals(("Hello World! " + (this.getClass().getPackage().getName())), s);
+    }
+
+    @Test
+    public void testUnreachableResource() {
+        Response r = target().path("servlet_path/unreachable").request().get();
+        Assert.assertTrue("Managed to reach a resource that is not registered in the application.", ((r.getStatus()) >= 400));
+    }
+
+    @Test
+    public void testUnreachableResourceAtWrongPath() {
+        Response r = target().path("application_path/unreachable").request().get();
+        Assert.assertTrue("Managed to reach a resource that is not registered in the application.", ((r.getStatus()) >= 400));
+    }
+
+    @Test
+    public void testInjection() {
+        String s = target().path("servlet_path/helloworld/injection").request().get(String.class);
+        Assert.assertEquals("GETtruetestServlet1testServlet1/", s);
+    }
+
+    // Reproducer for JERSEY-1801
+    @Test
+    public void multipleLinksTest() {
+        final WebTarget target = target("/servlet_path/links/");
+        final Response response = target.request().get();
+        Assert.assertThat(response.getStatus(), CoreMatchers.equalTo(200));
+        final URI targetUri = target.getUri();
+        Assert.assertThat(response.getLink("parent").getUri(), CoreMatchers.equalTo(URI.create("http://oracle.com")));
+        Assert.assertThat(response.getLink("framework").getUri(), CoreMatchers.equalTo(URI.create("http://jersey.java.net")));
+        Assert.assertThat(response.getLink("test1").getUri(), CoreMatchers.equalTo(UriTemplate.resolve(targetUri, "test1")));
+        Assert.assertThat(response.getLink("test2").getUri(), CoreMatchers.equalTo(UriTemplate.resolve(targetUri, "test2")));
+        Assert.assertThat(response.getLink("test3").getUri(), CoreMatchers.equalTo(UriTemplate.resolve(targetUri, "test3")));
+    }
+}
+

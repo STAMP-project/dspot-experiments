@@ -1,0 +1,131 @@
+/**
+ * Copyright MapStruct Authors.
+ *
+ * Licensed under the Apache License version 2.0, available at http://www.apache.org/licenses/LICENSE-2.0
+ */
+package org.mapstruct.ap.internal.util;
+
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Locale;
+import org.junit.Test;
+
+
+/**
+ *
+ *
+ * @author Filip Hrisafov
+ */
+public class StringsTest {
+    private static final Locale TURKEY_LOCALE = StringsTest.getTurkeyLocale();
+
+    private Locale defaultLocale;
+
+    @Test
+    public void testCapitalize() throws Exception {
+        assertThat(Strings.capitalize(null)).isNull();
+        assertThat(Strings.capitalize("c")).isEqualTo("C");
+        assertThat(Strings.capitalize("capitalize")).isEqualTo("Capitalize");
+        assertThat(Strings.capitalize("AlreadyCapitalized")).isEqualTo("AlreadyCapitalized");
+        assertThat(Strings.capitalize("notCapitalized")).isEqualTo("NotCapitalized");
+    }
+
+    @Test
+    public void testDecapitalize() throws Exception {
+        assertThat(Strings.decapitalize(null)).isNull();
+        assertThat(Strings.decapitalize("c")).isEqualTo("c");
+        assertThat(Strings.decapitalize("capitalize")).isEqualTo("capitalize");
+        assertThat(Strings.decapitalize("AlreadyCapitalized")).isEqualTo("alreadyCapitalized");
+        assertThat(Strings.decapitalize("notCapitalized")).isEqualTo("notCapitalized");
+    }
+
+    @Test
+    public void testJoin() throws Exception {
+        assertThat(Strings.join(new ArrayList<String>(), "-")).isEqualTo("");
+        assertThat(Strings.join(Arrays.asList("Hello", "World"), "-")).isEqualTo("Hello-World");
+        assertThat(Strings.join(Arrays.asList("Hello"), "-")).isEqualTo("Hello");
+    }
+
+    @Test
+    public void testJoinAndCamelize() throws Exception {
+        assertThat(Strings.joinAndCamelize(new ArrayList<String>())).isEqualTo("");
+        assertThat(Strings.joinAndCamelize(Arrays.asList("Hello", "World"))).isEqualTo("HelloWorld");
+        assertThat(Strings.joinAndCamelize(Arrays.asList("Hello", "world"))).isEqualTo("HelloWorld");
+        assertThat(Strings.joinAndCamelize(Arrays.asList("hello", "world"))).isEqualTo("helloWorld");
+    }
+
+    @Test
+    public void testIsEmpty() throws Exception {
+        assertThat(Strings.isEmpty(null)).isTrue();
+        assertThat(Strings.isEmpty("")).isTrue();
+        assertThat(Strings.isEmpty(" ")).isFalse();
+        assertThat(Strings.isEmpty("not empty")).isFalse();
+    }
+
+    @Test
+    public void testGetSaveVariableNameWithArrayExistingVariables() throws Exception {
+        assertThat(Strings.getSafeVariableName("int[]")).isEqualTo("intArray");
+        assertThat(Strings.getSafeVariableName("Extends")).isEqualTo("extends1");
+        assertThat(Strings.getSafeVariableName("class")).isEqualTo("class1");
+        assertThat(Strings.getSafeVariableName("Class")).isEqualTo("class1");
+        assertThat(Strings.getSafeVariableName("Case")).isEqualTo("case1");
+        assertThat(Strings.getSafeVariableName("Synchronized")).isEqualTo("synchronized1");
+        assertThat(Strings.getSafeVariableName("prop", "prop", "prop_")).isEqualTo("prop1");
+    }
+
+    @Test
+    public void testGetSaveVariableNameVariablesEndingOnNumberVariables() throws Exception {
+        assertThat(Strings.getSafeVariableName("prop1", "prop1")).isEqualTo("prop1_1");
+        assertThat(Strings.getSafeVariableName("prop1", "prop1", "prop1_1")).isEqualTo("prop1_2");
+    }
+
+    @Test
+    public void testGetSaveVariableNameWithCollection() throws Exception {
+        assertThat(Strings.getSafeVariableName("int[]", new ArrayList<String>())).isEqualTo("intArray");
+        assertThat(Strings.getSafeVariableName("Extends", new ArrayList<String>())).isEqualTo("extends1");
+        assertThat(Strings.getSafeVariableName("prop", Arrays.asList("prop", "prop1"))).isEqualTo("prop2");
+        assertThat(Strings.getSafeVariableName("prop.font", Arrays.asList("propFont", "propFont_"))).isEqualTo("propFont1");
+    }
+
+    @Test
+    public void testSanitizeIdentifierName() throws Exception {
+        assertThat(Strings.sanitizeIdentifierName("test")).isEqualTo("test");
+        assertThat(Strings.sanitizeIdentifierName("int[]")).isEqualTo("intArray");
+    }
+
+    @Test
+    public void findMostSimilarWord() throws Exception {
+        String mostSimilarWord = Strings.getMostSimilarWord("fulName", Arrays.asList("fullAge", "fullName", "address", "status"));
+        assertThat(mostSimilarWord).isEqualTo("fullName");
+    }
+
+    @Test
+    public void capitalizeEnglish() {
+        Locale.setDefault(Locale.ENGLISH);
+        String international = Strings.capitalize("international");
+        assertThat(international).isEqualTo("International");
+    }
+
+    @Test
+    public void decapitalizeEnglish() {
+        Locale.setDefault(Locale.ENGLISH);
+        String international = Strings.decapitalize("International");
+        assertThat(international).isEqualTo("international");
+    }
+
+    @Test
+    public void capitalizeTurkish() {
+        Locale.setDefault(StringsTest.TURKEY_LOCALE);
+        String international = Strings.capitalize("international");
+        assertThat(international).isEqualTo("International");
+    }
+
+    @Test
+    public void decapitalizeTurkish() {
+        Locale.setDefault(StringsTest.TURKEY_LOCALE);
+        String international = Strings.decapitalize("International");
+        assertThat(international).isEqualTo("international");
+    }
+}
+

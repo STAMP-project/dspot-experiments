@@ -1,0 +1,29 @@
+package com.bumptech.glide.load.model.stream;
+
+
+import com.bumptech.glide.load.Options;
+import com.bumptech.glide.load.data.DataFetcher;
+import com.bumptech.glide.load.data.HttpUrlFetcher;
+import com.bumptech.glide.load.model.GlideUrl;
+import com.bumptech.glide.util.Preconditions;
+import java.io.InputStream;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
+import org.robolectric.annotation.Config;
+
+
+@RunWith(RobolectricTestRunner.class)
+@Config(manifest = Config.NONE)
+public class HttpGlideUrlLoaderTest {
+    private HttpGlideUrlLoader loader;
+
+    private GlideUrl model;
+
+    @Test
+    public void testReturnsValidFetcher() {
+        DataFetcher<InputStream> result = Preconditions.checkNotNull(loader.buildLoadData(model, 100, 100, new Options())).fetcher;
+        assertThat(result).isInstanceOf(HttpUrlFetcher.class);
+    }
+}
+

@@ -1,0 +1,144 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.beam.runners.core.metrics;
+
+
+import DistributionData.EMPTY;
+import SimpleMonitoringInfoBuilder.ELEMENT_COUNT_URN;
+import SimpleMonitoringInfoBuilder.PCOLLECTION_LABEL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import org.apache.beam.model.pipeline.v1.MetricsApi.MonitoringInfo;
+import org.apache.beam.sdk.metrics.MetricName;
+import org.hamcrest.Matchers;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
+
+
+/**
+ * Tests for {@link MetricsContainerImpl}.
+ */
+@RunWith(JUnit4.class)
+public class MetricsContainerImplTest {
+    @Test
+    public void testCounterDeltas() {
+        MetricsContainerImpl container = new MetricsContainerImpl("step1");
+        CounterCell c1 = container.getCounter(MetricName.named("ns", "name1"));
+        CounterCell c2 = container.getCounter(MetricName.named("ns", "name2"));
+        Assert.assertThat("All counters should start out dirty", container.getUpdates().counterUpdates(), containsInAnyOrder(MetricUpdateMatchers.metricUpdate("name1", 0L), MetricUpdateMatchers.metricUpdate("name2", 0L)));
+        container.commitUpdates();
+        Assert.assertThat("After commit no counters should be dirty", container.getUpdates().counterUpdates(), Matchers.emptyIterable());
+        c1.inc(5L);
+        c2.inc(4L);
+        Assert.assertThat(container.getUpdates().counterUpdates(), containsInAnyOrder(MetricUpdateMatchers.metricUpdate("name1", 5L), MetricUpdateMatchers.metricUpdate("name2", 4L)));
+        Assert.assertThat("Since we haven't committed, updates are still included", container.getUpdates().counterUpdates(), containsInAnyOrder(MetricUpdateMatchers.metricUpdate("name1", 5L), MetricUpdateMatchers.metricUpdate("name2", 4L)));
+        container.commitUpdates();
+        Assert.assertThat("After commit there are no updates", container.getUpdates().counterUpdates(), Matchers.emptyIterable());
+        c1.inc(8L);
+        Assert.assertThat(container.getUpdates().counterUpdates(), Matchers.contains(MetricUpdateMatchers.metricUpdate("name1", 13L)));
+        CounterCell dne = container.tryGetCounter(MetricName.named("ns", "dne"));
+        Assert.assertEquals(dne, null);
+    }
+
+    @Test
+    public void testCounterCumulatives() {
+        MetricsContainerImpl container = new MetricsContainerImpl("step1");
+        CounterCell c1 = container.getCounter(MetricName.named("ns", "name1"));
+        CounterCell c2 = container.getCounter(MetricName.named("ns", "name2"));
+        c1.inc(2L);
+        c2.inc(4L);
+        c1.inc(3L);
+        container.getUpdates();
+        container.commitUpdates();
+        Assert.assertThat("Committing updates shouldn't affect cumulative counter values", container.getCumulative().counterUpdates(), containsInAnyOrder(MetricUpdateMatchers.metricUpdate("name1", 5L), MetricUpdateMatchers.metricUpdate("name2", 4L)));
+        c1.inc(8L);
+        Assert.assertThat(container.getCumulative().counterUpdates(), containsInAnyOrder(MetricUpdateMatchers.metricUpdate("name1", 13L), MetricUpdateMatchers.metricUpdate("name2", 4L)));
+        CounterCell readC1 = container.tryGetCounter(MetricName.named("ns", "name1"));
+        Assert.assertEquals(13L, ((long) (readC1.getCumulative())));
+    }
+
+    @Test
+    public void testDistributionDeltas() {
+        MetricsContainerImpl container = new MetricsContainerImpl("step1");
+        DistributionCell c1 = container.getDistribution(MetricName.named("ns", "name1"));
+        DistributionCell c2 = container.getDistribution(MetricName.named("ns", "name2"));
+        Assert.assertThat("Initial update includes initial zero-values", container.getUpdates().distributionUpdates(), containsInAnyOrder(MetricUpdateMatchers.metricUpdate("name1", EMPTY), MetricUpdateMatchers.metricUpdate("name2", EMPTY)));
+        container.commitUpdates();
+        Assert.assertThat("No updates after commit", container.getUpdates().distributionUpdates(), Matchers.emptyIterable());
+        c1.update(5L);
+        c2.update(4L);
+        Assert.assertThat(container.getUpdates().distributionUpdates(), containsInAnyOrder(MetricUpdateMatchers.metricUpdate("name1", DistributionData.create(5, 1, 5, 5)), MetricUpdateMatchers.metricUpdate("name2", DistributionData.create(4, 1, 4, 4))));
+        Assert.assertThat("Updates stay the same without commit", container.getUpdates().distributionUpdates(), containsInAnyOrder(MetricUpdateMatchers.metricUpdate("name1", DistributionData.create(5, 1, 5, 5)), MetricUpdateMatchers.metricUpdate("name2", DistributionData.create(4, 1, 4, 4))));
+        container.commitUpdates();
+        Assert.assertThat("No updatess after commit", container.getUpdates().distributionUpdates(), Matchers.emptyIterable());
+        c1.update(8L);
+        c1.update(4L);
+        Assert.assertThat(container.getUpdates().distributionUpdates(), Matchers.contains(MetricUpdateMatchers.metricUpdate("name1", DistributionData.create(17, 3, 4, 8))));
+        container.commitUpdates();
+        DistributionCell dne = container.tryGetDistribution(MetricName.named("ns", "dne"));
+        Assert.assertEquals(dne, null);
+    }
+
+    @Test
+    public void testMonitoringInfosArePopulatedForUserCounters() {
+        MetricsContainerImpl testObject = new MetricsContainerImpl("step1");
+        CounterCell c1 = testObject.getCounter(MetricName.named("ns", "name1"));
+        CounterCell c2 = testObject.getCounter(MetricName.named("ns", "name2"));
+        c1.inc(2L);
+        c2.inc(4L);
+        c1.inc(3L);
+        SimpleMonitoringInfoBuilder builder1 = new SimpleMonitoringInfoBuilder();
+        builder1.setUrnForUserMetric("ns", "name1");
+        builder1.setInt64Value(5);
+        builder1.setPTransformLabel("step1");
+        builder1.build();
+        SimpleMonitoringInfoBuilder builder2 = new SimpleMonitoringInfoBuilder();
+        builder2.setUrnForUserMetric("ns", "name2");
+        builder2.setInt64Value(4);
+        builder2.setPTransformLabel("step1");
+        builder2.build();
+        ArrayList<MonitoringInfo> actualMonitoringInfos = new ArrayList<MonitoringInfo>();
+        for (MonitoringInfo mi : testObject.getMonitoringInfos()) {
+            actualMonitoringInfos.add(SimpleMonitoringInfoBuilder.clearTimestamp(mi));
+        }
+        Assert.assertThat(actualMonitoringInfos, containsInAnyOrder(builder1.build(), builder2.build()));
+    }
+
+    @Test
+    public void testMonitoringInfosArePopulatedForABeamCounter() {
+        MetricsContainerImpl testObject = new MetricsContainerImpl("step1");
+        HashMap<String, String> labels = new HashMap<String, String>();
+        labels.put(PCOLLECTION_LABEL, "pcollection");
+        MetricName name = MonitoringInfoMetricName.named(ELEMENT_COUNT_URN, labels);
+        CounterCell c1 = testObject.getCounter(name);
+        c1.inc(2L);
+        SimpleMonitoringInfoBuilder builder1 = new SimpleMonitoringInfoBuilder();
+        builder1.setUrn(ELEMENT_COUNT_URN);
+        builder1.setPCollectionLabel("pcollection");
+        builder1.setInt64Value(2);
+        builder1.build();
+        ArrayList<MonitoringInfo> actualMonitoringInfos = new ArrayList<MonitoringInfo>();
+        for (MonitoringInfo mi : testObject.getMonitoringInfos()) {
+            actualMonitoringInfos.add(SimpleMonitoringInfoBuilder.clearTimestamp(mi));
+        }
+        Assert.assertThat(actualMonitoringInfos, containsInAnyOrder(builder1.build()));
+    }
+}
+

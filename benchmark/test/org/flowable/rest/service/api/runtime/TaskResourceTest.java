@@ -1,0 +1,761 @@
+/**
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.flowable.rest.service.api.runtime;
+
+
+import DelegationState.PENDING;
+import DelegationState.RESOLVED;
+import HistoryLevel.AUDIT;
+import RestUrls.URL_EXECUTION;
+import RestUrls.URL_PROCESS_DEFINITION;
+import RestUrls.URL_PROCESS_INSTANCE;
+import RestUrls.URL_TASK;
+import RestUrls.URL_TASK_COLLECTION;
+import RestUrls.URL_TASK_FORM;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import java.util.Calendar;
+import java.util.List;
+import org.apache.http.HttpStatus;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpDelete;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpPut;
+import org.apache.http.entity.StringEntity;
+import org.flowable.engine.impl.cmd.ChangeDeploymentTenantIdCmd;
+import org.flowable.engine.repository.ProcessDefinition;
+import org.flowable.engine.runtime.ProcessInstance;
+import org.flowable.engine.test.Deployment;
+import org.flowable.form.api.FormDefinition;
+import org.flowable.form.api.FormDeployment;
+import org.flowable.form.api.FormInstance;
+import org.flowable.rest.service.BaseSpringRestTestCase;
+import org.flowable.rest.service.api.RestUrls;
+import org.flowable.task.api.Task;
+import org.flowable.task.api.history.HistoricTaskInstance;
+import org.flowable.variable.api.history.HistoricVariableInstance;
+import org.junit.Assert;
+import org.junit.Test;
+
+
+/**
+ * Test for all REST-operations related to a single Task resource.
+ *
+ * @author Frederik Heremans
+ */
+public class TaskResourceTest extends BaseSpringRestTestCase {
+    /**
+     * Test getting a single task, spawned by a process. GET runtime/tasks/{taskId}
+     */
+    @Test
+    @Deployment
+    public void testGetProcessTask() throws Exception {
+        Calendar now = Calendar.getInstance();
+        processEngineConfiguration.getClock().setCurrentTime(now.getTime());
+        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("oneTaskProcess");
+        Task task = taskService.createTaskQuery().processInstanceId(processInstance.getId()).singleResult();
+        taskService.setDueDate(task.getId(), now.getTime());
+        taskService.setOwner(task.getId(), "owner");
+        task = taskService.createTaskQuery().processInstanceId(processInstance.getId()).singleResult();
+        Assert.assertNotNull(task);
+        String url = buildUrl(URL_TASK, task.getId());
+        CloseableHttpResponse response = executeRequest(new HttpGet(url), HttpStatus.SC_OK);
+        // Check resulting task
+        JsonNode responseNode = objectMapper.readTree(response.getEntity().getContent());
+        closeResponse(response);
+        Assert.assertEquals(task.getId(), responseNode.get("id").asText());
+        Assert.assertEquals(task.getAssignee(), responseNode.get("assignee").asText());
+        Assert.assertEquals(task.getOwner(), responseNode.get("owner").asText());
+        Assert.assertEquals(task.getFormKey(), responseNode.get("formKey").asText());
+        Assert.assertEquals(task.getDescription(), responseNode.get("description").asText());
+        Assert.assertEquals(task.getName(), responseNode.get("name").asText());
+        Assert.assertEquals(task.getDueDate(), getDateFromISOString(responseNode.get("dueDate").asText()));
+        Assert.assertEquals(task.getCreateTime(), getDateFromISOString(responseNode.get("createTime").asText()));
+        Assert.assertEquals(task.getPriority(), responseNode.get("priority").asInt());
+        Assert.assertTrue(responseNode.get("parentTaskId").isNull());
+        Assert.assertTrue(responseNode.get("delegationState").isNull());
+        Assert.assertEquals("", responseNode.get("tenantId").textValue());
+        Assert.assertEquals(responseNode.get("executionUrl").asText(), buildUrl(URL_EXECUTION, task.getExecutionId()));
+        Assert.assertEquals(responseNode.get("processInstanceUrl").asText(), buildUrl(URL_PROCESS_INSTANCE, task.getProcessInstanceId()));
+        Assert.assertEquals(responseNode.get("processDefinitionUrl").asText(), buildUrl(URL_PROCESS_DEFINITION, task.getProcessDefinitionId()));
+        Assert.assertEquals(responseNode.get("url").asText(), url);
+        // Set tenant on deployment
+        managementService.executeCommand(new ChangeDeploymentTenantIdCmd(deploymentId, "myTenant"));
+        response = executeRequest(new HttpGet(url), HttpStatus.SC_OK);
+        responseNode = objectMapper.readTree(response.getEntity().getContent());
+        closeResponse(response);
+        Assert.assertEquals("myTenant", responseNode.get("tenantId").asText());
+    }
+
+    /**
+     * Test getting a single task, created using the API. GET runtime/tasks/{taskId}
+     */
+    @Test
+    public void testGetProcessAdhoc() throws Exception {
+        try {
+            Calendar now = Calendar.getInstance();
+            processEngineConfiguration.getClock().setCurrentTime(now.getTime());
+            Task parentTask = taskService.newTask();
+            taskService.saveTask(parentTask);
+            Task task = taskService.newTask();
+            task.setParentTaskId(parentTask.getId());
+            task.setName("Task name");
+            task.setDescription("Descriptions");
+            task.setAssignee("kermit");
+            task.setDelegationState(RESOLVED);
+            task.setDescription("Description");
+            task.setDueDate(now.getTime());
+            task.setOwner("owner");
+            task.setPriority(20);
+            taskService.saveTask(task);
+            String url = buildUrl(URL_TASK, task.getId());
+            CloseableHttpResponse response = executeRequest(new HttpGet(url), HttpStatus.SC_OK);
+            // Check resulting task
+            JsonNode responseNode = objectMapper.readTree(response.getEntity().getContent());
+            closeResponse(response);
+            Assert.assertEquals(task.getId(), responseNode.get("id").asText());
+            Assert.assertEquals(task.getAssignee(), responseNode.get("assignee").asText());
+            Assert.assertEquals(task.getOwner(), responseNode.get("owner").asText());
+            Assert.assertEquals(task.getDescription(), responseNode.get("description").asText());
+            Assert.assertEquals(task.getName(), responseNode.get("name").asText());
+            Assert.assertEquals(task.getDueDate(), getDateFromISOString(responseNode.get("dueDate").asText()));
+            Assert.assertEquals(task.getCreateTime(), getDateFromISOString(responseNode.get("createTime").asText()));
+            Assert.assertEquals(task.getPriority(), responseNode.get("priority").asInt());
+            Assert.assertEquals("resolved", responseNode.get("delegationState").asText());
+            Assert.assertTrue(responseNode.get("executionId").isNull());
+            Assert.assertTrue(responseNode.get("processInstanceId").isNull());
+            Assert.assertTrue(responseNode.get("processDefinitionId").isNull());
+            Assert.assertEquals("", responseNode.get("tenantId").textValue());
+            Assert.assertEquals(responseNode.get("parentTaskUrl").asText(), buildUrl(URL_TASK, parentTask.getId()));
+            Assert.assertEquals(responseNode.get("url").asText(), url);
+        } finally {
+            // Clean adhoc-tasks even if test fails
+            List<Task> tasks = taskService.createTaskQuery().list();
+            for (Task task : tasks) {
+                taskService.deleteTask(task.getId(), true);
+            }
+        }
+    }
+
+    /**
+     * Test updating a single task without passing in any value, no values should be altered. PUT runtime/tasks/{taskId}
+     */
+    @Test
+    public void testUpdateTaskNoOverrides() throws Exception {
+        try {
+            Calendar now = Calendar.getInstance();
+            Task parentTask = taskService.newTask();
+            taskService.saveTask(parentTask);
+            Task task = taskService.newTask();
+            task.setParentTaskId(parentTask.getId());
+            task.setName("Task name");
+            task.setDescription("Description");
+            task.setAssignee("kermit");
+            task.setDelegationState(RESOLVED);
+            task.setDescription("Description");
+            task.setDueDate(now.getTime());
+            task.setOwner("owner");
+            task.setPriority(20);
+            taskService.saveTask(task);
+            ObjectNode requestNode = objectMapper.createObjectNode();
+            // Execute the request with an empty request JSON-object
+            HttpPut httpPut = new HttpPut(((BaseSpringRestTestCase.SERVER_URL_PREFIX) + (RestUrls.createRelativeResourceUrl(URL_TASK, task.getId()))));
+            httpPut.setEntity(new StringEntity(requestNode.toString()));
+            closeResponse(executeRequest(httpPut, HttpStatus.SC_OK));
+            task = taskService.createTaskQuery().taskId(task.getId()).singleResult();
+            Assert.assertEquals("Task name", task.getName());
+            Assert.assertEquals("Description", task.getDescription());
+            Assert.assertEquals("kermit", task.getAssignee());
+            Assert.assertEquals("owner", task.getOwner());
+            Assert.assertEquals(20, task.getPriority());
+            Assert.assertEquals(RESOLVED, task.getDelegationState());
+            Assert.assertEquals(now.getTime(), task.getDueDate());
+            Assert.assertEquals(parentTask.getId(), task.getParentTaskId());
+        } finally {
+            // Clean adhoc-tasks even if test fails
+            List<Task> tasks = taskService.createTaskQuery().list();
+            for (Task task : tasks) {
+                taskService.deleteTask(task.getId(), true);
+            }
+        }
+    }
+
+    /**
+     * Test updating a single task. PUT runtime/tasks/{taskId}
+     */
+    @Test
+    public void testUpdateTask() throws Exception {
+        try {
+            Task task = taskService.newTask();
+            taskService.saveTask(task);
+            Task parentTask = taskService.newTask();
+            taskService.saveTask(parentTask);
+            ObjectNode requestNode = objectMapper.createObjectNode();
+            Calendar dueDate = Calendar.getInstance();
+            String dueDateString = getISODateString(dueDate.getTime());
+            requestNode.put("name", "New task name");
+            requestNode.put("description", "New task description");
+            requestNode.put("assignee", "assignee");
+            requestNode.put("owner", "owner");
+            requestNode.put("priority", 20);
+            requestNode.put("delegationState", "resolved");
+            requestNode.put("dueDate", dueDateString);
+            requestNode.put("parentTaskId", parentTask.getId());
+            // Execute the request
+            HttpPut httpPut = new HttpPut(((BaseSpringRestTestCase.SERVER_URL_PREFIX) + (RestUrls.createRelativeResourceUrl(URL_TASK, task.getId()))));
+            httpPut.setEntity(new StringEntity(requestNode.toString()));
+            closeResponse(executeRequest(httpPut, HttpStatus.SC_OK));
+            task = taskService.createTaskQuery().taskId(task.getId()).singleResult();
+            Assert.assertEquals("New task name", task.getName());
+            Assert.assertEquals("New task description", task.getDescription());
+            Assert.assertEquals("assignee", task.getAssignee());
+            Assert.assertEquals("owner", task.getOwner());
+            Assert.assertEquals(20, task.getPriority());
+            Assert.assertEquals(RESOLVED, task.getDelegationState());
+            Assert.assertEquals(dateFormat.parse(dueDateString), task.getDueDate());
+            Assert.assertEquals(parentTask.getId(), task.getParentTaskId());
+        } finally {
+            // Clean adhoc-tasks even if test fails
+            List<Task> tasks = taskService.createTaskQuery().list();
+            for (Task task : tasks) {
+                taskService.deleteTask(task.getId(), true);
+            }
+        }
+    }
+
+    /**
+     * Test updating an unexisting task. PUT runtime/tasks/{taskId}
+     */
+    @Test
+    public void testUpdateUnexistingTask() throws Exception {
+        ObjectNode requestNode = objectMapper.createObjectNode();
+        // Execute the request with an empty request JSON-object
+        HttpPut httpPut = new HttpPut(((BaseSpringRestTestCase.SERVER_URL_PREFIX) + (RestUrls.createRelativeResourceUrl(URL_TASK, "unexistingtask"))));
+        httpPut.setEntity(new StringEntity(requestNode.toString()));
+        closeResponse(executeRequest(httpPut, HttpStatus.SC_NOT_FOUND));
+    }
+
+    /**
+     * Test deleting a single task. DELETE runtime/tasks/{taskId}
+     */
+    @Test
+    public void testDeleteTask() throws Exception {
+        try {
+            // 1. Simple delete
+            Task task = taskService.newTask();
+            taskService.saveTask(task);
+            String taskId = task.getId();
+            // Execute the request
+            HttpDelete httpDelete = new HttpDelete(((BaseSpringRestTestCase.SERVER_URL_PREFIX) + (RestUrls.createRelativeResourceUrl(URL_TASK, taskId))));
+            closeResponse(executeRequest(httpDelete, HttpStatus.SC_NO_CONTENT));
+            task = taskService.createTaskQuery().taskId(task.getId()).singleResult();
+            Assert.assertNull(task);
+            if (processEngineConfiguration.getHistoryLevel().isAtLeast(AUDIT)) {
+                // Check that the historic task has not been deleted
+                Assert.assertNotNull(historyService.createHistoricTaskInstanceQuery().taskId(taskId).singleResult());
+            }
+            // 2. Cascade delete
+            task = taskService.newTask();
+            taskService.saveTask(task);
+            taskId = task.getId();
+            // Execute the request
+            httpDelete = new HttpDelete((((BaseSpringRestTestCase.SERVER_URL_PREFIX) + (RestUrls.createRelativeResourceUrl(URL_TASK, taskId))) + "?cascadeHistory=true"));
+            closeResponse(executeRequest(httpDelete, HttpStatus.SC_NO_CONTENT));
+            task = taskService.createTaskQuery().taskId(task.getId()).singleResult();
+            Assert.assertNull(task);
+            if (processEngineConfiguration.getHistoryLevel().isAtLeast(AUDIT)) {
+                // Check that the historic task has been deleted
+                Assert.assertNull(historyService.createHistoricTaskInstanceQuery().taskId(taskId).singleResult());
+            }
+            // 3. Delete with reason
+            task = taskService.newTask();
+            taskService.saveTask(task);
+            taskId = task.getId();
+            // Execute the request
+            httpDelete = new HttpDelete((((BaseSpringRestTestCase.SERVER_URL_PREFIX) + (RestUrls.createRelativeResourceUrl(URL_TASK, taskId))) + "?deleteReason=fortestingpurposes"));
+            closeResponse(executeRequest(httpDelete, HttpStatus.SC_NO_CONTENT));
+            task = taskService.createTaskQuery().taskId(task.getId()).singleResult();
+            Assert.assertNull(task);
+            if (processEngineConfiguration.getHistoryLevel().isAtLeast(AUDIT)) {
+                // Check that the historic task has been deleted and
+                // delete-reason has been set
+                HistoricTaskInstance instance = historyService.createHistoricTaskInstanceQuery().taskId(taskId).singleResult();
+                Assert.assertNotNull(instance);
+                Assert.assertEquals("fortestingpurposes", instance.getDeleteReason());
+            }
+        } finally {
+            // Clean adhoc-tasks even if test fails
+            List<Task> tasks = taskService.createTaskQuery().list();
+            for (Task task : tasks) {
+                taskService.deleteTask(task.getId(), true);
+            }
+            // Clean historic tasks with no runtime-counterpart
+            List<HistoricTaskInstance> historicTasks = historyService.createHistoricTaskInstanceQuery().list();
+            for (HistoricTaskInstance task : historicTasks) {
+                historyService.deleteHistoricTaskInstance(task.getId());
+            }
+        }
+    }
+
+    /**
+     * Test deleting a single task linked with a process instance. DELETE runtime/tasks/{taskId}
+     */
+    @Test
+    @Deployment(resources = "org/flowable/rest/service/api/oneTaskProcess.bpmn20.xml")
+    public void testDeleteTaskLinkedWithAProcessInstance() throws Exception {
+        String processInstanceId = runtimeService.createProcessInstanceBuilder().processDefinitionKey("oneTaskProcess").start().getId();
+        // 1. Simple delete
+        Task task = taskService.createTaskQuery().processInstanceId(processInstanceId).singleResult();
+        assertThat(task.getExecutionId()).as("task executionId").isNotNull();
+        String taskId = task.getId();
+        // Execute the request
+        HttpDelete httpDelete = new HttpDelete(((BaseSpringRestTestCase.SERVER_URL_PREFIX) + (RestUrls.createRelativeResourceUrl(URL_TASK, taskId))));
+        CloseableHttpResponse response = executeRequest(httpDelete, HttpStatus.SC_FORBIDDEN);
+        JsonNode responseNode = readContent(response);
+        closeResponse(response);
+        assertThatJson(responseNode).isEqualTo(("{" + (("message: 'Forbidden'," + "exception: 'Cannot delete a task that is part of a process instance.'") + "}")));
+        assertThat(taskService.createTaskQuery().taskId(task.getId()).singleResult()).isNotNull();
+        if (processEngineConfiguration.getHistoryLevel().isAtLeast(AUDIT)) {
+            // Check that the historic task has not been deleted
+            assertThat(historyService.createHistoricTaskInstanceQuery().taskId(taskId).singleResult()).isNotNull();
+        }
+        // 2. Cascade delete
+        // Execute the request
+        httpDelete = new HttpDelete((((BaseSpringRestTestCase.SERVER_URL_PREFIX) + (RestUrls.createRelativeResourceUrl(URL_TASK, taskId))) + "?cascadeHistory=true"));
+        response = executeRequest(httpDelete, HttpStatus.SC_FORBIDDEN);
+        responseNode = readContent(response);
+        closeResponse(response);
+        assertThatJson(responseNode).isEqualTo(("{" + (("message: 'Forbidden'," + "exception: 'Cannot delete a task that is part of a process instance.'") + "}")));
+        assertThat(taskService.createTaskQuery().taskId(task.getId()).singleResult()).isNotNull();
+        if (processEngineConfiguration.getHistoryLevel().isAtLeast(AUDIT)) {
+            // Check that the historic task has been deleted
+            assertThat(historyService.createHistoricTaskInstanceQuery().taskId(taskId).singleResult()).isNotNull();
+        }
+        // 3. Delete with reason
+        // Execute the request
+        httpDelete = new HttpDelete((((BaseSpringRestTestCase.SERVER_URL_PREFIX) + (RestUrls.createRelativeResourceUrl(URL_TASK, taskId))) + "?deleteReason=fortestingpurposes"));
+        response = executeRequest(httpDelete, HttpStatus.SC_FORBIDDEN);
+        responseNode = readContent(response);
+        closeResponse(response);
+        assertThatJson(responseNode).isEqualTo(("{" + (("message: 'Forbidden'," + "exception: 'Cannot delete a task that is part of a process instance.'") + "}")));
+        assertThat(taskService.createTaskQuery().taskId(task.getId()).singleResult()).isNotNull();
+        if (processEngineConfiguration.getHistoryLevel().isAtLeast(AUDIT)) {
+            // Check that the historic task has been deleted and
+            // delete-reason has been set
+            assertThat(historyService.createHistoricTaskInstanceQuery().taskId(taskId).singleResult()).isNotNull();
+        }
+    }
+
+    /**
+     * Test updating an unexisting task. PUT runtime/tasks/{taskId}
+     */
+    @Test
+    public void testDeleteUnexistingTask() throws Exception {
+        HttpDelete httpDelete = new HttpDelete(((BaseSpringRestTestCase.SERVER_URL_PREFIX) + (RestUrls.createRelativeResourceUrl(URL_TASK, "unexistingtask"))));
+        closeResponse(executeRequest(httpDelete, HttpStatus.SC_NOT_FOUND));
+    }
+
+    /**
+     * Test updating a task that is part of a process. PUT runtime/tasks/{taskId}
+     */
+    @Test
+    @Deployment
+    public void testDeleteTaskInProcess() throws Exception {
+        ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("oneTaskProcess");
+        Task task = taskService.createTaskQuery().processInstanceId(processInstance.getId()).singleResult();
+        Assert.assertNotNull(task);
+        HttpDelete httpDelete = new HttpDelete(((BaseSpringRestTestCase.SERVER_URL_PREFIX) + (RestUrls.createRelativeResourceUrl(URL_TASK, task.getId()))));
+        closeResponse(executeRequest(httpDelete, HttpStatus.SC_FORBIDDEN));
+    }
+
+    /**
+     * Test completing a single task. POST runtime/tasks/{taskId}
+     */
+    @Test
+    @Deployment
+    public void testCompleteTask() throws Exception {
+        try {
+            Task task = taskService.newTask();
+            taskService.saveTask(task);
+            String taskId = task.getId();
+            ObjectNode requestNode = objectMapper.createObjectNode();
+            requestNode.put("action", "complete");
+            HttpPost httpPost = new HttpPost(((BaseSpringRestTestCase.SERVER_URL_PREFIX) + (RestUrls.createRelativeResourceUrl(URL_TASK, task.getId()))));
+            httpPost.setEntity(new StringEntity(requestNode.toString()));
+            closeResponse(executeRequest(httpPost, HttpStatus.SC_OK));
+            // Task should not exist anymore
+            task = taskService.createTaskQuery().taskId(taskId).singleResult();
+            Assert.assertNull(task);
+            // Test completing with variables
+            ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("oneTaskProcess");
+            task = taskService.createTaskQuery().processInstanceId(processInstance.getId()).singleResult();
+            taskId = task.getId();
+            requestNode = objectMapper.createObjectNode();
+            ArrayNode variablesNode = objectMapper.createArrayNode();
+            requestNode.put("action", "complete");
+            requestNode.set("variables", variablesNode);
+            ObjectNode var1 = objectMapper.createObjectNode();
+            variablesNode.add(var1);
+            var1.put("name", "var1");
+            var1.put("value", "First value");
+            ObjectNode var2 = objectMapper.createObjectNode();
+            variablesNode.add(var2);
+            var2.put("name", "var2");
+            var2.put("value", "Second value");
+            httpPost = new HttpPost(((BaseSpringRestTestCase.SERVER_URL_PREFIX) + (RestUrls.createRelativeResourceUrl(URL_TASK, taskId))));
+            httpPost.setEntity(new StringEntity(requestNode.toString()));
+            closeResponse(executeRequest(httpPost, HttpStatus.SC_OK));
+            task = taskService.createTaskQuery().taskId(taskId).singleResult();
+            Assert.assertNull(task);
+            if (processEngineConfiguration.getHistoryLevel().isAtLeast(AUDIT)) {
+                HistoricTaskInstance historicTaskInstance = historyService.createHistoricTaskInstanceQuery().taskId(taskId).singleResult();
+                Assert.assertNotNull(historicTaskInstance);
+                List<HistoricVariableInstance> updates = historyService.createHistoricVariableInstanceQuery().processInstanceId(processInstance.getId()).list();
+                Assert.assertNotNull(updates);
+                Assert.assertEquals(2, updates.size());
+                boolean foundFirst = false;
+                boolean foundSecond = false;
+                for (HistoricVariableInstance var : updates) {
+                    if (var.getVariableName().equals("var1")) {
+                        Assert.assertEquals("First value", var.getValue());
+                        foundFirst = true;
+                    } else
+                        if (var.getVariableName().equals("var2")) {
+                            Assert.assertEquals("Second value", var.getValue());
+                            foundSecond = true;
+                        }
+
+                }
+                Assert.assertTrue(foundFirst);
+                Assert.assertTrue(foundSecond);
+            }
+        } finally {
+            // Clean adhoc-tasks even if test fails
+            List<Task> tasks = taskService.createTaskQuery().list();
+            for (Task task : tasks) {
+                taskService.deleteTask(task.getId(), true);
+            }
+            // Clean historic tasks with no runtime-counterpart
+            List<HistoricTaskInstance> historicTasks = historyService.createHistoricTaskInstanceQuery().list();
+            for (HistoricTaskInstance task : historicTasks) {
+                historyService.deleteHistoricTaskInstance(task.getId());
+            }
+        }
+    }
+
+    @Test
+    @Deployment
+    public void testCompleteTaskWithForm() throws Exception {
+        ProcessDefinition processDefinition = repositoryService.createProcessDefinitionQuery().processDefinitionKey("oneTaskProcess").singleResult();
+        try {
+            formRepositoryService.createDeployment().addClasspathResource("org/flowable/rest/service/api/runtime/simple.form").deploy();
+            FormDefinition formDefinition = formRepositoryService.createFormDefinitionQuery().formDefinitionKey("form1").singleResult();
+            Assert.assertNotNull(formDefinition);
+            ProcessInstance processInstance = runtimeService.startProcessInstanceByKey("oneTaskProcess");
+            Task task = taskService.createTaskQuery().processInstanceId(processInstance.getId()).singleResult();
+            String taskId = task.getId();
+            String url = RestUrls.createRelativeResourceUrl(URL_TASK_FORM, taskId);
+            CloseableHttpResponse response = executeRequest(new HttpGet(((BaseSpringRestTestCase.SERVER_URL_PREFIX) + url)), HttpStatus.SC_OK);
+            JsonNode responseNode = objectMapper.readTree(response.getEntity().getContent());
+            closeResponse(response);
+            Assert.assertEquals(formDefinition.getId(), responseNode.get("id").asText());
+            Assert.assertEquals(formDefinition.getKey(), responseNode.get("key").asText());
+            Assert.assertEquals(formDefinition.getName(), responseNode.get("name").asText());
+            Assert.assertEquals(2, responseNode.get("fields").size());
+            ObjectNode requestNode = objectMapper.createObjectNode();
+            ArrayNode variablesNode = objectMapper.createArrayNode();
+            requestNode.put("action", "complete");
+            requestNode.put("formDefinitionId", formDefinition.getId());
+            requestNode.set("variables", variablesNode);
+            ObjectNode var1 = objectMapper.createObjectNode();
+            variablesNode.add(var1);
+            var1.put("name", "user");
+            var1.put("value", "First value");
+            ObjectNode var2 = objectMapper.createObjectNode();
+            variablesNode.add(var2);
+            var2.put("name", "number");
+            var2.put("value", 789);
+            HttpPost httpPost = new HttpPost(((BaseSpringRestTestCase.SERVER_URL_PREFIX) + (RestUrls.createRelativeResourceUrl(URL_TASK, taskId))));
+            httpPost.setEntity(new StringEntity(requestNode.toString()));
+            closeResponse(executeRequest(httpPost, HttpStatus.SC_OK));
+            task = taskService.createTaskQuery().taskId(taskId).singleResult();
+            Assert.assertNull(task);
+            FormInstance formInstance = formEngineFormService.createFormInstanceQuery().taskId(taskId).singleResult();
+            Assert.assertNotNull(formInstance);
+            byte[] valuesBytes = formEngineFormService.getFormInstanceValues(formInstance.getId());
+            Assert.assertNotNull(valuesBytes);
+            JsonNode instanceNode = objectMapper.readTree(valuesBytes);
+            JsonNode valuesNode = instanceNode.get("values");
+            Assert.assertEquals("First value", valuesNode.get("user").asText());
+            Assert.assertEquals(789, valuesNode.get("number").asInt());
+            if (processEngineConfiguration.getHistoryLevel().isAtLeast(AUDIT)) {
+                HistoricTaskInstance historicTaskInstance = historyService.createHistoricTaskInstanceQuery().taskId(taskId).singleResult();
+                Assert.assertNotNull(historicTaskInstance);
+                List<HistoricVariableInstance> variables = historyService.createHistoricVariableInstanceQuery().processInstanceId(processInstance.getId()).list();
+                Assert.assertNotNull(variables);
+                Assert.assertEquals(2, variables.size());
+                boolean foundFirst = false;
+                boolean foundSecond = false;
+                for (HistoricVariableInstance variable : variables) {
+                    if (variable.getVariableName().equals("user")) {
+                        Assert.assertEquals("First value", variable.getValue());
+                        foundFirst = true;
+                    } else
+                        if (variable.getVariableName().equals("number")) {
+                            Assert.assertEquals(789, variable.getValue());
+                            foundSecond = true;
+                        }
+
+                }
+                Assert.assertTrue(foundFirst);
+                Assert.assertTrue(foundSecond);
+            }
+        } finally {
+            formEngineFormService.deleteFormInstancesByProcessDefinition(processDefinition.getId());
+            List<FormDeployment> formDeployments = formRepositoryService.createDeploymentQuery().list();
+            for (FormDeployment formDeployment : formDeployments) {
+                formRepositoryService.deleteDeployment(formDeployment.getId());
+            }
+        }
+    }
+
+    /**
+     * Test claiming a single task and all exceptional cases related to claiming. POST runtime/tasks/{taskId}
+     */
+    @Test
+    public void testClaimTask() throws Exception {
+        try {
+            Task task = taskService.newTask();
+            taskService.saveTask(task);
+            taskService.addCandidateUser(task.getId(), "newAssignee");
+            Assert.assertEquals(1L, taskService.createTaskQuery().taskCandidateUser("newAssignee").count());
+            // Add candidate group
+            String taskId = task.getId();
+            task.setAssignee("fred");
+            // Claiming without assignee should set assignee to null
+            ObjectNode requestNode = objectMapper.createObjectNode();
+            requestNode.put("action", "claim");
+            HttpPost httpPost = new HttpPost(((BaseSpringRestTestCase.SERVER_URL_PREFIX) + (RestUrls.createRelativeResourceUrl(URL_TASK, taskId))));
+            httpPost.setEntity(new StringEntity(requestNode.toString()));
+            closeResponse(executeRequest(httpPost, HttpStatus.SC_OK));
+            task = taskService.createTaskQuery().taskId(taskId).singleResult();
+            Assert.assertNotNull(task);
+            Assert.assertNull(task.getAssignee());
+            Assert.assertEquals(1L, taskService.createTaskQuery().taskCandidateUser("newAssignee").count());
+            // Claim the task and check result
+            requestNode.put("assignee", "newAssignee");
+            httpPost.setEntity(new StringEntity(requestNode.toString()));
+            closeResponse(executeRequest(httpPost, HttpStatus.SC_OK));
+            task = taskService.createTaskQuery().taskId(taskId).singleResult();
+            Assert.assertNotNull(task);
+            Assert.assertEquals("newAssignee", task.getAssignee());
+            Assert.assertEquals(0L, taskService.createTaskQuery().taskCandidateUser("newAssignee").count());
+            // Claiming with the same user should not cause an exception
+            httpPost.setEntity(new StringEntity(requestNode.toString()));
+            closeResponse(executeRequest(httpPost, HttpStatus.SC_OK));
+            task = taskService.createTaskQuery().taskId(taskId).singleResult();
+            Assert.assertNotNull(task);
+            Assert.assertEquals("newAssignee", task.getAssignee());
+            Assert.assertEquals(0L, taskService.createTaskQuery().taskCandidateUser("newAssignee").count());
+            // Claiming with another user should cause exception
+            requestNode.put("assignee", "anotherUser");
+            httpPost.setEntity(new StringEntity(requestNode.toString()));
+            closeResponse(executeRequest(httpPost, HttpStatus.SC_CONFLICT));
+        } finally {
+            // Clean adhoc-tasks even if test fails
+            List<Task> tasks = taskService.createTaskQuery().list();
+            for (Task task : tasks) {
+                taskService.deleteTask(task.getId(), true);
+            }
+            // Clean historic tasks with no runtime-counterpart
+            List<HistoricTaskInstance> historicTasks = historyService.createHistoricTaskInstanceQuery().list();
+            for (HistoricTaskInstance task : historicTasks) {
+                historyService.deleteHistoricTaskInstance(task.getId());
+            }
+        }
+    }
+
+    @Test
+    @Deployment
+    public void testReclaimTask() throws Exception {
+        // Start process instance
+        runtimeService.startProcessInstanceByKey("reclaimTest");
+        // Get task id
+        String url = RestUrls.createRelativeResourceUrl(URL_TASK_COLLECTION);
+        CloseableHttpResponse response = executeRequest(new HttpGet(((BaseSpringRestTestCase.SERVER_URL_PREFIX) + url)), HttpStatus.SC_OK);
+        JsonNode dataNode = objectMapper.readTree(response.getEntity().getContent()).get("data");
+        closeResponse(response);
+        String taskId = ((ArrayNode) (dataNode)).get(0).get("id").asText();
+        Assert.assertNotNull(taskId);
+        // Claim
+        Assert.assertEquals(0L, taskService.createTaskQuery().taskAssignee("kermit").count());
+        ObjectNode requestNode = objectMapper.createObjectNode();
+        requestNode.put("action", "claim");
+        requestNode.put("assignee", "kermit");
+        HttpPost httpPost = new HttpPost(((BaseSpringRestTestCase.SERVER_URL_PREFIX) + (RestUrls.createRelativeResourceUrl(URL_TASK, taskId))));
+        httpPost.setEntity(new StringEntity(requestNode.toString()));
+        closeResponse(executeRequest(httpPost, HttpStatus.SC_OK));
+        Assert.assertEquals(1L, taskService.createTaskQuery().taskAssignee("kermit").count());
+        // Unclaim
+        requestNode = objectMapper.createObjectNode();
+        requestNode.put("action", "claim");
+        httpPost = new HttpPost(((BaseSpringRestTestCase.SERVER_URL_PREFIX) + (RestUrls.createRelativeResourceUrl(URL_TASK, taskId))));
+        httpPost.setEntity(new StringEntity(requestNode.toString()));
+        closeResponse(executeRequest(httpPost, HttpStatus.SC_OK));
+        Assert.assertEquals(0L, taskService.createTaskQuery().taskAssignee("kermit").count());
+        // Claim again
+        requestNode = objectMapper.createObjectNode();
+        requestNode.put("action", "claim");
+        requestNode.put("assignee", "kermit");
+        httpPost = new HttpPost(((BaseSpringRestTestCase.SERVER_URL_PREFIX) + (RestUrls.createRelativeResourceUrl(URL_TASK, taskId))));
+        httpPost.setEntity(new StringEntity(requestNode.toString()));
+        closeResponse(executeRequest(httpPost, HttpStatus.SC_OK));
+        Assert.assertEquals(1L, taskService.createTaskQuery().taskAssignee("kermit").count());
+    }
+
+    /**
+     * Test delegating a single task and all exceptional cases related to delegation. POST runtime/tasks/{taskId}
+     */
+    @Test
+    public void testDelegateTask() throws Exception {
+        try {
+            Task task = taskService.newTask();
+            task.setAssignee("initialAssignee");
+            taskService.saveTask(task);
+            String taskId = task.getId();
+            // Delegating without assignee fails
+            ObjectNode requestNode = objectMapper.createObjectNode();
+            requestNode.put("action", "delegate");
+            HttpPost httpPost = new HttpPost(((BaseSpringRestTestCase.SERVER_URL_PREFIX) + (RestUrls.createRelativeResourceUrl(URL_TASK, taskId))));
+            httpPost.setEntity(new StringEntity(requestNode.toString()));
+            closeResponse(executeRequest(httpPost, HttpStatus.SC_BAD_REQUEST));
+            // Delegate the task and check result
+            requestNode.put("assignee", "newAssignee");
+            httpPost.setEntity(new StringEntity(requestNode.toString()));
+            closeResponse(executeRequest(httpPost, HttpStatus.SC_OK));
+            task = taskService.createTaskQuery().taskId(taskId).singleResult();
+            Assert.assertNotNull(task);
+            Assert.assertEquals("newAssignee", task.getAssignee());
+            Assert.assertEquals("initialAssignee", task.getOwner());
+            Assert.assertEquals(PENDING, task.getDelegationState());
+            // Delegating again should not cause an exception and should delegate
+            // to user without affecting initial delegator (owner)
+            requestNode.put("assignee", "anotherAssignee");
+            httpPost.setEntity(new StringEntity(requestNode.toString()));
+            closeResponse(executeRequest(httpPost, HttpStatus.SC_OK));
+            task = taskService.createTaskQuery().taskId(taskId).singleResult();
+            Assert.assertNotNull(task);
+            Assert.assertEquals("anotherAssignee", task.getAssignee());
+            Assert.assertEquals("initialAssignee", task.getOwner());
+            Assert.assertEquals(PENDING, task.getDelegationState());
+        } finally {
+            // Clean adhoc-tasks even if test fails
+            List<Task> tasks = taskService.createTaskQuery().list();
+            for (Task task : tasks) {
+                taskService.deleteTask(task.getId(), true);
+            }
+        }
+    }
+
+    /**
+     * Test resolving a single task and all exceptional cases related to resolution. POST runtime/tasks/{taskId}
+     */
+    @Test
+    public void testResolveTask() throws Exception {
+        try {
+            Task task = taskService.newTask();
+            task.setAssignee("initialAssignee");
+            taskService.saveTask(task);
+            taskService.delegateTask(task.getId(), "anotherUser");
+            String taskId = task.getId();
+            // Resolve the task and check result
+            ObjectNode requestNode = objectMapper.createObjectNode();
+            requestNode.put("action", "resolve");
+            HttpPost httpPost = new HttpPost(((BaseSpringRestTestCase.SERVER_URL_PREFIX) + (RestUrls.createRelativeResourceUrl(URL_TASK, taskId))));
+            httpPost.setEntity(new StringEntity(requestNode.toString()));
+            closeResponse(executeRequest(httpPost, HttpStatus.SC_OK));
+            task = taskService.createTaskQuery().taskId(taskId).singleResult();
+            Assert.assertNotNull(task);
+            Assert.assertEquals("initialAssignee", task.getAssignee());
+            Assert.assertEquals("initialAssignee", task.getOwner());
+            Assert.assertEquals(RESOLVED, task.getDelegationState());
+            // Resolving again should not cause an exception
+            httpPost.setEntity(new StringEntity(requestNode.toString()));
+            closeResponse(executeRequest(httpPost, HttpStatus.SC_OK));
+            task = taskService.createTaskQuery().taskId(taskId).singleResult();
+            Assert.assertNotNull(task);
+            Assert.assertEquals("initialAssignee", task.getAssignee());
+            Assert.assertEquals("initialAssignee", task.getOwner());
+            Assert.assertEquals(RESOLVED, task.getDelegationState());
+        } finally {
+            // Clean adhoc-tasks even if test fails
+            List<Task> tasks = taskService.createTaskQuery().list();
+            for (Task task : tasks) {
+                taskService.deleteTask(task.getId(), true);
+            }
+        }
+    }
+
+    /**
+     * Test executing an invalid action on a single task. POST runtime/tasks/{taskId}
+     */
+    @Test
+    public void testInvalidTaskAction() throws Exception {
+        try {
+            Task task = taskService.newTask();
+            taskService.saveTask(task);
+            String taskId = task.getId();
+            ObjectNode requestNode = objectMapper.createObjectNode();
+            requestNode.put("action", "unexistingaction");
+            HttpPost httpPost = new HttpPost(((BaseSpringRestTestCase.SERVER_URL_PREFIX) + (RestUrls.createRelativeResourceUrl(URL_TASK, taskId))));
+            httpPost.setEntity(new StringEntity(requestNode.toString()));
+            closeResponse(executeRequest(httpPost, HttpStatus.SC_BAD_REQUEST));
+        } finally {
+            // Clean adhoc-tasks even if test fails
+            List<Task> tasks = taskService.createTaskQuery().list();
+            for (Task task : tasks) {
+                taskService.deleteTask(task.getId(), true);
+            }
+            // Clean historic tasks with no runtime-counterpart
+            List<HistoricTaskInstance> historicTasks = historyService.createHistoricTaskInstanceQuery().list();
+            for (HistoricTaskInstance task : historicTasks) {
+                historyService.deleteHistoricTaskInstance(task.getId());
+            }
+        }
+    }
+
+    /**
+     * Test actions on an unexisting task. POST runtime/tasks/{taskId}
+     */
+    @Test
+    public void testActionsUnexistingTask() throws Exception {
+        ObjectNode requestNode = objectMapper.createObjectNode();
+        requestNode.put("action", "complete");
+        HttpPost httpPost = new HttpPost(((BaseSpringRestTestCase.SERVER_URL_PREFIX) + (RestUrls.createRelativeResourceUrl(URL_TASK, "unexisting"))));
+        httpPost.setEntity(new StringEntity(requestNode.toString()));
+        closeResponse(executeRequest(httpPost, HttpStatus.SC_NOT_FOUND));
+        requestNode.put("action", "claim");
+        httpPost.setEntity(new StringEntity(requestNode.toString()));
+        closeResponse(executeRequest(httpPost, HttpStatus.SC_NOT_FOUND));
+        requestNode.put("action", "delegate");
+        httpPost.setEntity(new StringEntity(requestNode.toString()));
+        closeResponse(executeRequest(httpPost, HttpStatus.SC_NOT_FOUND));
+        requestNode.put("action", "resolve");
+        httpPost.setEntity(new StringEntity(requestNode.toString()));
+        closeResponse(executeRequest(httpPost, HttpStatus.SC_NOT_FOUND));
+    }
+}
+

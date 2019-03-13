@@ -1,0 +1,146 @@
+/**
+ * Copyright (c) 2008-2019, Hazelcast, Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.hazelcast.concurrent.atomiclong;
+
+
+import com.hazelcast.core.HazelcastInstance;
+import com.hazelcast.core.IAtomicLong;
+import com.hazelcast.core.IFunction;
+import com.hazelcast.spi.impl.PartitionSpecificRunnable;
+import com.hazelcast.test.HazelcastParallelClassRunner;
+import com.hazelcast.test.HazelcastTestSupport;
+import com.hazelcast.test.annotation.ParallelTest;
+import com.hazelcast.test.annotation.QuickTest;
+import java.io.Serializable;
+import java.util.concurrent.CountDownLatch;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.junit.runner.RunWith;
+
+
+@RunWith(HazelcastParallelClassRunner.class)
+@Category({ QuickTest.class, ParallelTest.class })
+public class AtomicLongBackupTest extends HazelcastTestSupport {
+    public int backupCount = 1;
+
+    private String name = HazelcastTestSupport.randomName();
+
+    private HazelcastInstance[] instances;
+
+    private int partitionId;
+
+    private IAtomicLong atomicLong;
+
+    @Test
+    public void testSet() {
+        atomicLong.set(5);
+        assertAtomicLongValue(instances, 5);
+    }
+
+    @Test
+    public void testCompareAndSet() {
+        atomicLong.set(5);
+        atomicLong.compareAndSet(5, 10);
+        assertAtomicLongValue(instances, 10);
+    }
+
+    @Test
+    public void testAlter() {
+        atomicLong.set(5);
+        atomicLong.alter(new AtomicLongBackupTest.SetFunction(10));
+        assertAtomicLongValue(instances, 10);
+    }
+
+    @Test
+    public void testAlterAndGet() {
+        atomicLong.set(5);
+        atomicLong.alterAndGet(new AtomicLongBackupTest.SetFunction(10));
+        assertAtomicLongValue(instances, 10);
+    }
+
+    @Test
+    public void testGetAndAlter() {
+        atomicLong.set(5);
+        atomicLong.getAndAlter(new AtomicLongBackupTest.SetFunction(10));
+        assertAtomicLongValue(instances, 10);
+    }
+
+    @Test
+    public void testAddAndGet() {
+        atomicLong.set(5);
+        atomicLong.addAndGet(5);
+        assertAtomicLongValue(instances, 10);
+    }
+
+    @Test
+    public void testGetAndAdd() {
+        atomicLong.set(5);
+        atomicLong.getAndAdd(5);
+        assertAtomicLongValue(instances, 10);
+    }
+
+    @Test
+    public void testIncrementAndGet() {
+        atomicLong.set(5);
+        atomicLong.incrementAndGet();
+        assertAtomicLongValue(instances, 6);
+    }
+
+    @Test
+    public void testDecrementAndGet() {
+        atomicLong.set(5);
+        atomicLong.decrementAndGet();
+        assertAtomicLongValue(instances, 4);
+    }
+
+    private class GetLongValue implements PartitionSpecificRunnable {
+        final CountDownLatch latch = new CountDownLatch(1);
+
+        final AtomicLongService atomicLongService;
+
+        long value;
+
+        GetLongValue(AtomicLongService atomicLongService) {
+            this.atomicLongService = atomicLongService;
+        }
+
+        @Override
+        public int getPartitionId() {
+            return partitionId;
+        }
+
+        @Override
+        public void run() {
+            final AtomicLongContainer longContainer = atomicLongService.getLongContainer(name);
+            value = longContainer.get();
+            latch.countDown();
+        }
+    }
+
+    private static class SetFunction implements IFunction<Long, Long> , Serializable {
+        private long value;
+
+        SetFunction(long value) {
+            this.value = value;
+        }
+
+        @Override
+        public Long apply(Long input) {
+            return value;
+        }
+    }
+}
+

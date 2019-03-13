@@ -1,0 +1,426 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.camel.component.salesforce;
+
+
+import HttpMethod.GET;
+import SalesforceEndpointConfig.SOBJECT_EXT_ID_NAME;
+import SalesforceEndpointConfig.SOBJECT_EXT_ID_VALUE;
+import SalesforceEndpointConfig.SOBJECT_ID;
+import SalesforceEndpointConfig.SOBJECT_NAME;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import java.io.InputStream;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.util.HashMap;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
+import org.apache.camel.CamelExecutionException;
+import org.apache.camel.component.salesforce.api.NoSuchSObjectException;
+import org.apache.camel.component.salesforce.api.SalesforceException;
+import org.apache.camel.component.salesforce.api.SalesforceMultipleChoicesException;
+import org.apache.camel.component.salesforce.api.dto.AbstractDTOBase;
+import org.apache.camel.component.salesforce.api.dto.CreateSObjectResult;
+import org.apache.camel.component.salesforce.api.dto.GlobalObjects;
+import org.apache.camel.component.salesforce.api.dto.RestResources;
+import org.apache.camel.component.salesforce.api.dto.SObjectBasicInfo;
+import org.apache.camel.component.salesforce.api.dto.SObjectDescription;
+import org.apache.camel.component.salesforce.api.dto.Version;
+import org.apache.camel.component.salesforce.api.dto.Versions;
+import org.apache.camel.component.salesforce.dto.generated.Document;
+import org.apache.camel.component.salesforce.dto.generated.Line_Item__c;
+import org.apache.camel.component.salesforce.dto.generated.Merchandise__c;
+import org.apache.camel.component.salesforce.dto.generated.QueryRecordsLine_Item__c;
+import org.apache.camel.component.salesforce.dto.generated.Task;
+import org.apache.camel.support.jsse.SSLContextParameters;
+import org.eclipse.jetty.client.HttpClient;
+import org.eclipse.jetty.client.api.ContentResponse;
+import org.eclipse.jetty.client.api.Request;
+import org.eclipse.jetty.util.ssl.SslContextFactory;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+
+import static SalesforceEndpointConfig.APEX_QUERY_PARAM_PREFIX;
+
+
+@Category(Standalone.class)
+@RunWith(Parameterized.class)
+public class RestApiIntegrationTest extends AbstractSalesforceTestBase {
+    /**
+     * Request DTO for Salesforce APEX REST calls. See
+     * https://www.salesforce.com/us/developer/docs/apexcode/Content/apex_rest_methods.htm.
+     */
+    @XStreamAlias("request")
+    public static class MerchandiseRequest extends AbstractDTOBase {
+        private Merchandise__c merchandise;
+
+        public MerchandiseRequest(final Merchandise__c merchandise) {
+            this.merchandise = merchandise;
+        }
+
+        public Merchandise__c getMerchandise() {
+            return merchandise;
+        }
+
+        public void setMerchandise(final Merchandise__c merchandise) {
+            this.merchandise = merchandise;
+        }
+    }
+
+    /**
+     * Response DTO for Salesforce APEX REST calls. See
+     * https://www.salesforce.com/us/developer/docs/apexcode/Content/apex_rest_methods.htm.
+     */
+    @XStreamAlias("response")
+    public static class MerchandiseResponse extends Merchandise__c {
+        // XML response contains a type string with the SObject type name
+        private String type;
+
+        public String getType() {
+            return type;
+        }
+
+        public void setType(final String type) {
+            this.type = type;
+        }
+    }
+
+    private static final AtomicInteger NEW_LINE_ITEM_ID = new AtomicInteger(100);
+
+    private static final String TEST_DOCUMENT_ID = "Test Document";
+
+    private static final AtomicInteger TEST_LINE_ITEM_ID = new AtomicInteger(1);
+
+    @Parameterized.Parameter
+    public String format;
+
+    private String testId;
+
+    @Test
+    public void testApexCall() throws Exception {
+        // request merchandise with id in URI template
+        Merchandise__c merchandise = template().requestBodyAndHeader("direct:apexCallGet", null, "id", testId, Merchandise__c.class);
+        assertNotNull(merchandise);
+        // request merchandise with id as query param
+        merchandise = template().requestBodyAndHeader("direct:apexCallGetWithId", null, ((APEX_QUERY_PARAM_PREFIX) + "id"), testId, Merchandise__c.class);
+        assertNotNull(merchandise);
+        // patch merchandise
+        // clear fields that won't be modified
+        clearBaseFields();
+        setId(testId);
+        merchandise.setPrice__c(null);
+        merchandise.setTotal_Inventory__c(null);
+        merchandise = template().requestBody("direct:apexCallPatch", new RestApiIntegrationTest.MerchandiseRequest(merchandise), Merchandise__c.class);
+        assertNotNull(merchandise);
+    }
+
+    @Test
+    public void testCreateUpdateDelete() throws Exception {
+        final Merchandise__c merchandise = new Merchandise__c();
+        setName("Wee Wee Wee Plane");
+        merchandise.setDescription__c("Microlite plane");
+        merchandise.setPrice__c(2000.0);
+        merchandise.setTotal_Inventory__c(50.0);
+        final CreateSObjectResult result = template().requestBody("direct:createSObject", merchandise, CreateSObjectResult.class);
+        assertNotNull(result);
+        assertTrue("Create success", result.getSuccess());
+        // test JSON update
+        // make the plane cheaper
+        merchandise.setPrice__c(1500.0);
+        // change inventory to half
+        merchandise.setTotal_Inventory__c(25.0);
+        // also need to set the Id
+        merchandise.setId(result.getId());
+        assertNull(template().requestBodyAndHeader("direct:updateSObject", merchandise, SOBJECT_ID, result.getId()));
+        // delete the newly created SObject
+        assertNull(template().requestBody("direct:deleteSObject", result.getId()));
+    }
+
+    @Test
+    public void testCreateUpdateDeleteTasks() throws Exception {
+        final Task taken = new Task();
+        taken.setDescription("Task1");
+        taken.setActivityDate(ZonedDateTime.of(1700, 1, 2, 3, 4, 5, 6, ZoneId.systemDefault()));
+        final CreateSObjectResult result = template().requestBody("direct:createSObject", taken, CreateSObjectResult.class);
+        assertNotNull(result);
+        assertTrue("Create success", result.getSuccess());
+        // test JSON update
+        // make the plane cheaper
+        taken.setId(result.getId());
+        taken.setActivityDate(ZonedDateTime.of(1991, 1, 2, 3, 4, 5, 6, ZoneId.systemDefault()));
+        assertNull(template().requestBodyAndHeader("direct:updateSObject", taken, SOBJECT_ID, result.getId()));
+        // delete the newly created SObject
+        assertNull(template().requestBody("direct:deleteSObjectTaken", result.getId()));
+    }
+
+    @Test
+    public void testCreateUpdateDeleteWithId() throws Exception {
+        Line_Item__c lineItem = new Line_Item__c();
+        final String lineItemId = String.valueOf(RestApiIntegrationTest.TEST_LINE_ITEM_ID.incrementAndGet());
+        setName(lineItemId);
+        CreateSObjectResult result = template().requestBody("direct:createLineItem", lineItem, CreateSObjectResult.class);
+        assertNotNull(result);
+        assertTrue(result.getSuccess());
+        // get line item with Name 1
+        lineItem = template().requestBody("direct:getSObjectWithId", lineItemId, Line_Item__c.class);
+        assertNotNull(lineItem);
+        // test insert with id
+        // set the unit price and sold
+        lineItem.setUnit_Price__c(1000.0);
+        lineItem.setUnits_Sold__c(50.0);
+        // update line item with Name NEW_LINE_ITEM_ID
+        final String newLineItemId = String.valueOf(RestApiIntegrationTest.NEW_LINE_ITEM_ID.incrementAndGet());
+        setName(newLineItemId);
+        result = template().requestBodyAndHeader("direct:upsertSObject", lineItem, SOBJECT_EXT_ID_VALUE, newLineItemId, CreateSObjectResult.class);
+        assertNotNull(result);
+        assertTrue(result.getSuccess());
+        // clear read only parent type fields
+        lineItem.setInvoice_Statement__c(null);
+        lineItem.setMerchandise__c(null);
+        // change the units sold
+        lineItem.setUnits_Sold__c(25.0);
+        // update line item with Name NEW_LINE_ITEM_ID
+        result = template().requestBodyAndHeader("direct:upsertSObject", lineItem, SOBJECT_EXT_ID_VALUE, newLineItemId, CreateSObjectResult.class);
+        assertNull(result);
+        // delete the SObject with Name NEW_LINE_ITEM_ID
+        assertNull(template().requestBody("direct:deleteSObjectWithId", newLineItemId));
+    }
+
+    @Test
+    public void testGetBasicInfo() throws Exception {
+        final SObjectBasicInfo objectBasicInfo = template().requestBody("direct:getBasicInfo", null, SObjectBasicInfo.class);
+        assertNotNull(objectBasicInfo);
+        // set test Id for testGetSObject
+        assertFalse("RecentItems is empty", objectBasicInfo.getRecentItems().isEmpty());
+        testId = objectBasicInfo.getRecentItems().get(0).getId();
+    }
+
+    @Test
+    public void testGetBlobField() throws Exception {
+        // get document with Name "Test Document"
+        final HashMap<String, Object> headers = new HashMap<>();
+        headers.put(SOBJECT_NAME, "Document");
+        headers.put(SOBJECT_EXT_ID_NAME, "Name");
+        final Document document = template().requestBodyAndHeaders("direct:getSObjectWithId", RestApiIntegrationTest.TEST_DOCUMENT_ID, headers, Document.class);
+        assertNotNull(document);
+        // get Body field for this document
+        try (final InputStream body = template().requestBody("direct:getBlobField", document, InputStream.class)) {
+            assertNotNull(body);
+            assertTrue(((body.available()) > 0));
+        }
+    }
+
+    @Test
+    public void testGetDescription() throws Exception {
+        final SObjectDescription sObjectDescription = template().requestBody("direct:getDescription", null, SObjectDescription.class);
+        assertNotNull(sObjectDescription);
+    }
+
+    @Test
+    public void testGetGlobalObjects() throws Exception {
+        final GlobalObjects globalObjects = template().requestBody("direct:getGlobalObjects", null, GlobalObjects.class);
+        assertNotNull(globalObjects);
+    }
+
+    @Test
+    public void testGetResources() throws Exception {
+        final RestResources resources = template().requestBody("direct:getResources", null, RestResources.class);
+        assertNotNull(resources);
+    }
+
+    @Test
+    public void testGetSObject() throws Exception {
+        final Merchandise__c merchandise = template().requestBody("direct:getSObject", testId, Merchandise__c.class);
+        assertNotNull(merchandise);
+        assertNull(merchandise.getTotal_Inventory__c());
+        assertNotNull(merchandise.getPrice__c());
+    }
+
+    @Test
+    public void testGetVersions() throws Exception {
+        // test getVersions doesn't need a body
+        // assert expected result
+        final Object o = template().requestBody("direct:getVersions", ((Object) (null)));
+        List<Version> versions = null;
+        if (o instanceof Versions) {
+            versions = getVersions();
+        } else {
+            @SuppressWarnings("unchecked")
+            final List<Version> tmp = ((List<Version>) (o));
+            versions = tmp;
+        }
+        assertNotNull(versions);
+    }
+
+    @Test
+    public void testQuery() throws Exception {
+        final QueryRecordsLine_Item__c queryRecords = template().requestBody("direct:query", null, QueryRecordsLine_Item__c.class);
+        assertNotNull(queryRecords);
+    }
+
+    @Test
+    public void testQueryAll() throws Exception {
+        final QueryRecordsLine_Item__c queryRecords = template().requestBody("direct:queryAll", null, QueryRecordsLine_Item__c.class);
+        assertNotNull(queryRecords);
+    }
+
+    @Test
+    public void testRetry() throws Exception {
+        final SalesforceComponent sf = context().getComponent("salesforce", SalesforceComponent.class);
+        final String accessToken = sf.getSession().getAccessToken();
+        final SslContextFactory sslContextFactory = new SslContextFactory();
+        sslContextFactory.setSslContext(new SSLContextParameters().createSSLContext(context));
+        final HttpClient httpClient = new HttpClient(sslContextFactory);
+        httpClient.setConnectTimeout(60000);
+        httpClient.start();
+        final String uri = ((sf.getLoginConfig().getLoginUrl()) + "/services/oauth2/revoke?token=") + accessToken;
+        final Request logoutGet = httpClient.newRequest(uri).method(GET).timeout(1, TimeUnit.MINUTES);
+        final ContentResponse response = logoutGet.send();
+        assertEquals(HttpStatus.OK_200, response.getStatus());
+        testGetGlobalObjects();
+    }
+
+    @Test
+    public void testRetryFailure() throws Exception {
+        final SalesforceComponent sf = context().getComponent("salesforce", SalesforceComponent.class);
+        final String accessToken = sf.getSession().getAccessToken();
+        final SslContextFactory sslContextFactory = new SslContextFactory();
+        sslContextFactory.setSslContext(new SSLContextParameters().createSSLContext(context));
+        final HttpClient httpClient = new HttpClient(sslContextFactory);
+        httpClient.setConnectTimeout(60000);
+        httpClient.start();
+        final String uri = ((sf.getLoginConfig().getLoginUrl()) + "/services/oauth2/revoke?token=") + accessToken;
+        final Request logoutGet = httpClient.newRequest(uri).method(GET).timeout(1, TimeUnit.MINUTES);
+        final ContentResponse response = logoutGet.send();
+        assertEquals(HttpStatus.OK_200, response.getStatus());
+        // set component config to bad password to cause relogin attempts to fail
+        final String password = sf.getLoginConfig().getPassword();
+        sf.getLoginConfig().setPassword("bad_password");
+        try {
+            testGetGlobalObjects();
+            fail("Expected CamelExecutionException!");
+        } catch (final CamelExecutionException e) {
+            if ((e.getCause()) instanceof SalesforceException) {
+                final SalesforceException cause = ((SalesforceException) (e.getCause()));
+                assertEquals("Expected 400 on authentication retry failure", HttpStatus.BAD_REQUEST_400, cause.getStatusCode());
+            } else {
+                fail("Expected SalesforceException!");
+            }
+        } finally {
+            // reset password and retries to allow other tests to pass
+            sf.getLoginConfig().setPassword(password);
+        }
+    }
+
+    @Test
+    public void testSearch() throws Exception {
+        final Object obj = template().requestBody("direct:search", ((Object) (null)));
+        assertNotNull(obj);
+    }
+
+    @Test
+    public void testStatus300() throws Exception {
+        // get test merchandise
+        // note that the header value overrides sObjectFields in endpoint
+        final Merchandise__c merchandise = template().requestBodyAndHeader("direct:getSObject", testId, "sObjectFields", "Name,Description__c,Price__c,Total_Inventory__c", Merchandise__c.class);
+        assertNotNull(merchandise);
+        assertNotNull(getName());
+        assertNotNull(merchandise.getPrice__c());
+        assertNotNull(merchandise.getTotal_Inventory__c());
+        CreateSObjectResult result = null;
+        try {
+            clearBaseFields();
+            result = template().requestBody("direct:createSObject", merchandise, CreateSObjectResult.class);
+            assertNotNull(result);
+            assertNotNull(result.getId());
+            // look by external Id to cause 300 error
+            // note that the request SObject overrides settings on the endpoint for LineItem__c
+            try {
+                template().requestBody("direct:getSObjectWithId", merchandise, Merchandise__c.class);
+                fail("Expected SalesforceException with statusCode 300");
+            } catch (final CamelExecutionException e) {
+                final Throwable cause = e.getCause();
+                assertTrue((cause instanceof SalesforceMultipleChoicesException));
+                final SalesforceMultipleChoicesException multipleChoices = ((SalesforceMultipleChoicesException) (cause));
+                assertEquals(300, multipleChoices.getStatusCode());
+                final List<String> choices = multipleChoices.getChoices();
+                assertNotNull(choices);
+                assertFalse(choices.isEmpty());
+            }
+        } finally {
+            // delete the test clone
+            if (result != null) {
+                template().requestBody("direct:deleteSObject", result.getId());
+            }
+        }
+    }
+
+    @Test
+    public void testStatus400() throws Exception {
+        // get test merchandise
+        // note that the header value overrides sObjectFields in endpoint
+        final Merchandise__c merchandise = template().requestBodyAndHeader("direct:getSObject", testId, "sObjectFields", "Description__c,Price__c", Merchandise__c.class);
+        assertNotNull(merchandise);
+        assertNotNull(merchandise.getPrice__c());
+        assertNull(merchandise.getTotal_Inventory__c());
+        clearBaseFields();
+        // required field Total_Inventory__c is missing
+        CreateSObjectResult result = null;
+        try {
+            result = template().requestBody("direct:createSObject", merchandise, CreateSObjectResult.class);
+            fail("Expected SalesforceException with statusCode 400");
+        } catch (final CamelExecutionException e) {
+            final Throwable cause = e.getCause();
+            assertTrue((cause instanceof SalesforceException));
+            final SalesforceException badRequest = ((SalesforceException) (cause));
+            assertEquals(400, badRequest.getStatusCode());
+            assertEquals(1, badRequest.getErrors().size());
+            assertEquals("[Total_Inventory__c]", badRequest.getErrors().get(0).getFields().toString());
+        } finally {
+            // delete the clone if created
+            if (result != null) {
+                template().requestBody("direct:deleteSObject", result.getId());
+            }
+        }
+    }
+
+    @Test
+    public void testStatus404() {
+        // try to get a non existent SObject
+        try {
+            template().requestBody("direct:getSObject", "ILLEGAL_ID", Merchandise__c.class);
+            fail("Expected SalesforceException");
+        } catch (final CamelExecutionException e) {
+            final Throwable cause = e.getCause();
+            assertTrue((cause instanceof NoSuchSObjectException));
+            final NoSuchSObjectException noSuchObject = ((NoSuchSObjectException) (cause));
+            assertEquals(404, noSuchObject.getStatusCode());
+            assertEquals(1, noSuchObject.getErrors().size());
+        }
+    }
+
+    @Test
+    public void testFetchingGlobalObjects() {
+        final GlobalObjects globalObjects = template().requestBody("salesforce:getGlobalObjects", null, GlobalObjects.class);
+        assertNotNull(globalObjects);
+        assertFalse(globalObjects.getSobjects().isEmpty());
+    }
+}
+

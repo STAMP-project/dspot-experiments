@@ -1,0 +1,802 @@
+/**
+ * Copyright 2017 LINE Corporation
+ *
+ * LINE Corporation licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+package com.linecorp.armeria.internal.annotation;
+
+
+import HttpMethod.GET;
+import HttpMethod.POST;
+import HttpStatus.BAD_REQUEST;
+import HttpStatus.OK;
+import MediaType.FORM_DATA;
+import MediaType.JSON_PATCH;
+import MediaType.JSON_UTF_8;
+import MediaType.OCTET_STREAM;
+import MediaType.PLAIN_TEXT_UTF_8;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.linecorp.armeria.client.HttpClient;
+import com.linecorp.armeria.common.AggregatedHttpMessage;
+import com.linecorp.armeria.common.HttpData;
+import com.linecorp.armeria.common.HttpHeaders;
+import com.linecorp.armeria.server.ServerBuilder;
+import com.linecorp.armeria.server.ServiceRequestContext;
+import com.linecorp.armeria.server.TestConverters;
+import com.linecorp.armeria.server.annotation.Get;
+import com.linecorp.armeria.server.annotation.Header;
+import com.linecorp.armeria.server.annotation.Param;
+import com.linecorp.armeria.server.annotation.Post;
+import com.linecorp.armeria.server.annotation.RequestConverter;
+import com.linecorp.armeria.server.annotation.RequestConverterFunction;
+import com.linecorp.armeria.server.annotation.RequestObject;
+import com.linecorp.armeria.server.annotation.ResponseConverter;
+import com.linecorp.armeria.server.logging.LoggingService;
+import com.linecorp.armeria.testing.server.ServerRule;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
+import org.junit.ClassRule;
+import org.junit.Test;
+
+
+public class AnnotatedHttpServiceRequestConverterTest {
+    @ClassRule
+    public static final ServerRule rule = new ServerRule() {
+        @Override
+        protected void configure(ServerBuilder sb) throws Exception {
+            sb.annotatedService("/1", new AnnotatedHttpServiceRequestConverterTest.MyService1(), LoggingService.newDecorator());
+            sb.annotatedService("/2", new AnnotatedHttpServiceRequestConverterTest.MyService2(), LoggingService.newDecorator());
+            sb.annotatedService("/3", new AnnotatedHttpServiceRequestConverterTest.MyService3(), LoggingService.newDecorator());
+        }
+    };
+
+    @ResponseConverter(TestConverters.UnformattedStringConverterFunction.class)
+    @RequestConverter(AnnotatedHttpServiceRequestConverterTest.TestRequestConverter1.class)
+    public static class MyService1 {
+        @Post("/convert1")
+        public String convert1(AnnotatedHttpServiceRequestConverterTest.RequestJsonObj1 obj1) {
+            assertThat(obj1).isNotNull();
+            return obj1.toString();
+        }
+
+        @Post("/convert2")
+        @RequestConverter(AnnotatedHttpServiceRequestConverterTest.TestRequestConverter2.class)
+        @RequestConverter(AnnotatedHttpServiceRequestConverterTest.TestRequestConverter1A.class)
+        @RequestConverter(AnnotatedHttpServiceRequestConverterTest.TestRequestConverter1.class)
+        public String convert2(AnnotatedHttpServiceRequestConverterTest.RequestJsonObj1 obj1) {
+            assertThat(obj1).isNotNull();
+            return obj1.toString();
+        }
+
+        @Post("/convert3")
+        public String convert3(@RequestConverter(AnnotatedHttpServiceRequestConverterTest.TestRequestConverterOptional1.class)
+        Optional<AnnotatedHttpServiceRequestConverterTest.RequestJsonObj1> obj1, @RequestConverter(AnnotatedHttpServiceRequestConverterTest.TestRequestConverterOptional2.class)
+        Optional<AnnotatedHttpServiceRequestConverterTest.RequestJsonObj2> obj2) {
+            assertThat(obj1.isPresent()).isTrue();
+            assertThat(obj2.isPresent()).isTrue();
+            return obj2.get().strVal();
+        }
+    }
+
+    @ResponseConverter(TestConverters.ByteArrayConverterFunction.class)
+    @ResponseConverter(TestConverters.UnformattedStringConverterFunction.class)
+    public static class MyService2 {
+        private final ObjectMapper mapper = new ObjectMapper();
+
+        @Post("/default/bean1/{userName}/{seqNum}")
+        public String defaultBean1ForPost(AnnotatedHttpServiceRequestConverterTest.RequestBean1 bean1) throws JsonProcessingException {
+            assertThat(bean1).isNotNull();
+            bean1.validate();
+            return mapper.writeValueAsString(bean1);
+        }
+
+        @Get("/default/bean1/{userName}/{seqNum}")
+        public String defaultBean1ForGet(AnnotatedHttpServiceRequestConverterTest.RequestBean1 bean1) throws JsonProcessingException {
+            assertThat(bean1).isNotNull();
+            bean1.validate();
+            return mapper.writeValueAsString(bean1);
+        }
+
+        @Post("/default/bean2/{userName}/{serialNo}")
+        public String defaultBean2ForPost(AnnotatedHttpServiceRequestConverterTest.RequestBean2 bean2) throws JsonProcessingException {
+            assertThat(bean2).isNotNull();
+            bean2.validate();
+            return mapper.writeValueAsString(bean2);
+        }
+
+        @Get("/default/bean2/{userName}")
+        public String defaultBean2ForGet(AnnotatedHttpServiceRequestConverterTest.RequestBean2 bean2) throws JsonProcessingException {
+            assertThat(bean2).isNotNull();
+            bean2.validate();
+            return mapper.writeValueAsString(bean2);
+        }
+
+        @Post("/default/bean3/{userName}/{departmentNo}")
+        public String defaultBean3ForPost(AnnotatedHttpServiceRequestConverterTest.RequestBean3 bean3) throws JsonProcessingException {
+            assertThat(bean3).isNotNull();
+            bean3.validate();
+            return mapper.writeValueAsString(bean3);
+        }
+
+        @Get("/default/bean3/{userName}")
+        public String defaultBean3ForGet(AnnotatedHttpServiceRequestConverterTest.RequestBean3 bean3) throws JsonProcessingException {
+            assertThat(bean3).isNotNull();
+            bean3.validate();
+            return mapper.writeValueAsString(bean3);
+        }
+
+        @Get("/default/bean4")
+        public String defaultBean4(AnnotatedHttpServiceRequestConverterTest.RequestBean4 bean4) throws JsonProcessingException {
+            assertThat(bean4).isNotNull();
+            return mapper.writeValueAsString(bean4);
+        }
+
+        @Post("/default/json")
+        public String defaultJson(AnnotatedHttpServiceRequestConverterTest.RequestJsonObj1 obj1, AnnotatedHttpServiceRequestConverterTest.RequestJsonObj2 obj2) {
+            assertThat(obj1).isNotNull();
+            assertThat(obj2).isNotNull();
+            return obj2.strVal();
+        }
+
+        @Post("/default/invalidJson")
+        public String invalidJson(JsonNode node) {
+            // Should never reach here because we are sending invalid JSON.
+            throw new Error();
+        }
+
+        @Post("/default/binary")
+        public byte[] defaultBinary(HttpData obj1, byte[] obj2) {
+            assertThat(obj1).isNotNull();
+            assertThat(obj2).isNotNull();
+            // Actually they have the same byte array.
+            assertThat(obj1.array()).isSameAs(obj2);
+            return obj2;
+        }
+
+        @Post("/default/text")
+        public String defaultText(String obj1) {
+            assertThat(obj1).isNotNull();
+            return obj1;
+        }
+    }
+
+    static class MyService3 {
+        @Get("/composite1/:age")
+        public String composite1(AnnotatedHttpServiceRequestConverterTest.MyService3.CompositeRequestBean1 bean) {
+            return ((((bean.getClass().getSimpleName()) + ':') + (bean.alice.age)) + ':') + (bean.bob.age);
+        }
+
+        static class CompositeRequestBean1 {
+            private final AnnotatedHttpServiceRequestConverterTest.MyService3.Alice alice;
+
+            private AnnotatedHttpServiceRequestConverterTest.MyService3.Bob bob;
+
+            @RequestConverter(AnnotatedHttpServiceRequestConverterTest.MyService3.AliceRequestConverter.class)
+            CompositeRequestBean1(AnnotatedHttpServiceRequestConverterTest.MyService3.Alice alice) {
+                this.alice = alice;
+            }
+
+            @RequestConverter(AnnotatedHttpServiceRequestConverterTest.MyService3.BobRequestConverter.class)
+            void setBob(AnnotatedHttpServiceRequestConverterTest.MyService3.Bob bob) {
+                this.bob = bob;
+            }
+        }
+
+        @Get("/composite2/:age")
+        public String composite2(AnnotatedHttpServiceRequestConverterTest.MyService3.CompositeRequestBean2 bean) {
+            return ((((bean.getClass().getSimpleName()) + ':') + (bean.alice.age)) + ':') + (bean.bob.age);
+        }
+
+        @RequestConverter(AnnotatedHttpServiceRequestConverterTest.MyService3.AliceRequestConverter.class)
+        static class CompositeRequestBean2 {
+            private AnnotatedHttpServiceRequestConverterTest.MyService3.Alice alice;
+
+            private AnnotatedHttpServiceRequestConverterTest.MyService3.Bob bob;
+
+            void initialize(@RequestObject
+            AnnotatedHttpServiceRequestConverterTest.MyService3.Alice alice, @RequestConverter(AnnotatedHttpServiceRequestConverterTest.MyService3.BobRequestConverter.class)
+            AnnotatedHttpServiceRequestConverterTest.MyService3.Bob bob) {
+                this.alice = alice;
+                this.bob = bob;
+            }
+        }
+
+        @Get("/composite3/:age")
+        public String composite3(AnnotatedHttpServiceRequestConverterTest.MyService3.CompositeRequestBean3 bean) {
+            return ((((bean.getClass().getSimpleName()) + ':') + (bean.alice.age)) + ':') + (bean.bob.age);
+        }
+
+        @SuppressWarnings("checkstyle:all")
+        @RequestConverter(AnnotatedHttpServiceRequestConverterTest.MyService3.AliceRequestConverter.class)
+        @RequestConverter(AnnotatedHttpServiceRequestConverterTest.MyService3.BobRequestConverter.class)
+        static class CompositeRequestBean3 {
+            @RequestObject
+            protected AnnotatedHttpServiceRequestConverterTest.MyService3.Alice alice;
+
+            @RequestObject
+            protected AnnotatedHttpServiceRequestConverterTest.MyService3.Bob bob;
+        }
+
+        @Get("/composite4/:age")
+        public String composite4(AnnotatedHttpServiceRequestConverterTest.MyService3.CompositeRequestBean4 bean) {
+            return ((((bean.getClass().getSimpleName()) + ':') + (bean.alice.age)) + ':') + (bean.bob.age);
+        }
+
+        static class CompositeRequestBean4 {
+            @RequestConverter(AnnotatedHttpServiceRequestConverterTest.MyService3.AliceRequestConverter.class)
+            private AnnotatedHttpServiceRequestConverterTest.MyService3.Alice alice;
+
+            @RequestConverter(AnnotatedHttpServiceRequestConverterTest.MyService3.BobRequestConverter.class)
+            private AnnotatedHttpServiceRequestConverterTest.MyService3.Bob bob;
+        }
+
+        @Post("/composite5/:age")
+        public String composite5(AnnotatedHttpServiceRequestConverterTest.MyService3.CompositeRequestBean5 bean) {
+            return ((((((((bean.getClass().getSimpleName()) + ':') + (bean.alice.age)) + ':') + (bean.bob.age)) + ':') + (bean.json1.strVal)) + ':') + (bean.json1.intVal);
+        }
+
+        @RequestConverter(AnnotatedHttpServiceRequestConverterTest.MyService3.AliceRequestConverter.class)
+        @RequestConverter(AnnotatedHttpServiceRequestConverterTest.MyService3.BobRequestConverter.class)
+        static class CompositeRequestBean5 extends AnnotatedHttpServiceRequestConverterTest.MyService3.CompositeRequestBean3 {
+            @RequestObject
+            private AnnotatedHttpServiceRequestConverterTest.RequestJsonObj1 json1;
+        }
+
+        static class Alice {
+            private final int age;
+
+            Alice(int age) {
+                this.age = age;
+            }
+        }
+
+        static class Bob {
+            private final int age;
+
+            Bob(int age) {
+                this.age = age;
+            }
+        }
+
+        static class AliceRequestConverter implements RequestConverterFunction {
+            @Nullable
+            @Override
+            public Object convertRequest(ServiceRequestContext ctx, AggregatedHttpMessage request, Class<?> expectedResultType) throws Exception {
+                if (expectedResultType == (AnnotatedHttpServiceRequestConverterTest.MyService3.Alice.class)) {
+                    final String age = ctx.pathParam("age");
+                    assert age != null;
+                    return new AnnotatedHttpServiceRequestConverterTest.MyService3.Alice(Integer.parseInt(age));
+                }
+                return RequestConverterFunction.fallthrough();
+            }
+        }
+
+        static class BobRequestConverter implements RequestConverterFunction {
+            @Nullable
+            @Override
+            public Object convertRequest(ServiceRequestContext ctx, AggregatedHttpMessage request, Class<?> expectedResultType) throws Exception {
+                if (expectedResultType == (AnnotatedHttpServiceRequestConverterTest.MyService3.Bob.class)) {
+                    final String age = ctx.pathParam("age");
+                    assert age != null;
+                    return new AnnotatedHttpServiceRequestConverterTest.MyService3.Bob(((Integer.parseInt(age)) * 2));
+                }
+                return RequestConverterFunction.fallthrough();
+            }
+        }
+    }
+
+    static class RequestJsonObj1 {
+        private final int intVal;
+
+        private final String strVal;
+
+        @JsonCreator
+        RequestJsonObj1(@JsonProperty("intVal")
+        int intVal, @JsonProperty("strVal")
+        String strVal) {
+            this.intVal = intVal;
+            this.strVal = Objects.requireNonNull(strVal, "strVal");
+        }
+
+        @JsonProperty
+        int intVal() {
+            return intVal;
+        }
+
+        @JsonProperty
+        String strVal() {
+            return strVal;
+        }
+
+        @Override
+        public String toString() {
+            return ((((getClass().getSimpleName()) + ':') + (intVal())) + ':') + (strVal());
+        }
+    }
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    static class RequestJsonObj2 {
+        private final String strVal;
+
+        @JsonCreator
+        RequestJsonObj2(@JsonProperty("strVal")
+        String strVal) {
+            this.strVal = Objects.requireNonNull(strVal, "strVal");
+        }
+
+        @JsonProperty
+        String strVal() {
+            return strVal;
+        }
+    }
+
+    abstract static class AbstractRequestBean {
+        // test case: field with annotation
+        @Nullable
+        @Param
+        String userName;
+
+        int age = Integer.MIN_VALUE;
+
+        @Nullable
+        AnnotatedHttpServiceRequestConverterTest.Gender gender;
+
+        @Nullable
+        List<String> permissions;
+
+        @Nullable
+        String clientName;
+
+        // test case: method parameters with annotation
+        public void initParams(@Param("age")
+        final int age, @Header("x-client-name")
+        final String clientName, @Header
+        final String xUserPermission) {
+            this.age = age;
+            this.clientName = clientName;
+            permissions = Arrays.asList(xUserPermission.split(","));
+        }
+
+        @JsonProperty
+        public int getAge() {
+            return age;
+        }
+
+        @JsonProperty
+        public AnnotatedHttpServiceRequestConverterTest.Gender getGender() {
+            return gender;
+        }
+
+        // test case: method with annotation
+        @Param
+        public void setGender(final AnnotatedHttpServiceRequestConverterTest.Gender gender) {
+            this.gender = gender;
+        }
+
+        @JsonProperty
+        public String getUserName() {
+            return userName;
+        }
+
+        @JsonProperty
+        public List<String> getPermissions() {
+            return permissions;
+        }
+
+        @JsonProperty
+        public String getClientName() {
+            return clientName;
+        }
+
+        public void validate() {
+            assertThat(userName).isNotNull();
+            assertThat(age).isNotEqualTo(Integer.MIN_VALUE);
+            assertThat(gender).isNotNull();
+            assertThat(permissions).isNotNull();
+            assertThat(clientName).isNotNull();
+        }
+    }
+
+    enum Gender {
+
+        MALE,
+        FEMALE;}
+
+    // test case: default constructor(with no args)
+    static class RequestBean1 extends AnnotatedHttpServiceRequestConverterTest.AbstractRequestBean {
+        // test case: field with annotation
+        @Nullable
+        @Param("seqNum")
+        private Long seqNum;
+
+        // test case: field with annotation
+        @Nullable
+        @Param("manager")
+        private Boolean manager;
+
+        @Nullable
+        private String notPopulatedStr;
+
+        private int notPopulatedInt;
+
+        @Nullable
+        private Long notPopulatedLong;
+
+        @Nullable
+        private Boolean notPopulatedBoolean;
+
+        @JsonProperty
+        public long getSeqNum() {
+            return seqNum;
+        }
+
+        @JsonProperty
+        public boolean isManager() {
+            return manager;
+        }
+
+        @Override
+        public void validate() {
+            super.validate();
+            assertThat(seqNum).isNotNull();
+            assertThat(manager).isNotNull();
+            assertThat(notPopulatedStr).isNull();
+            assertThat(notPopulatedInt).isEqualTo(0);
+            assertThat(notPopulatedLong).isNull();
+            assertThat(notPopulatedBoolean).isNull();
+        }
+    }
+
+    static class RequestBean2 extends AnnotatedHttpServiceRequestConverterTest.AbstractRequestBean {
+        private final Long serialNo;
+
+        private final String uid;
+
+        // test case: constructor args with annotations
+        RequestBean2(@Param("serialNo")
+        Long serialNo, @Header("uid")
+        String uid) {
+            this.serialNo = serialNo;
+            this.uid = uid;
+        }
+
+        @Override
+        public void validate() {
+            super.validate();
+            assertThat(serialNo).isNotNull();
+            assertThat(uid).isNotNull();
+        }
+    }
+
+    static class RequestBean3 extends AnnotatedHttpServiceRequestConverterTest.AbstractRequestBean {
+        private int departmentNo = Integer.MIN_VALUE;
+
+        // test case: constructor with annotations
+        @Param("departmentNo")
+        RequestBean3(int departmentNo) {
+            this.departmentNo = departmentNo;
+        }
+
+        @Override
+        public void validate() {
+            super.validate();
+            assertThat(departmentNo).isNotEqualTo(Integer.MIN_VALUE);
+        }
+    }
+
+    static class RequestBean4 {
+        private int foo;
+
+        // This field is not set because the foo param is already used in the constructor.
+        @Param("foo")
+        private int foo1;
+
+        private int foo2;
+
+        private int foo3;
+
+        RequestBean4(@Param("foo")
+        int foo) {
+            this.foo = foo;
+        }
+
+        // @Param("foo") is used redundantly,
+        // but the foo2 will be injected because otherwise we cannot inject the foo3.
+        public void setFoo(@Param("foo")
+        int foo2, @Header("foo")
+        int foo3) {
+            this.foo2 = foo2;
+            this.foo3 = foo3;
+        }
+
+        @JsonProperty
+        public int getFoo() {
+            return foo;
+        }
+
+        @JsonProperty
+        public int getFoo1() {
+            return foo1;
+        }
+
+        @JsonProperty
+        public int getFoo2() {
+            return foo2;
+        }
+
+        @JsonProperty
+        public int getFoo3() {
+            return foo3;
+        }
+    }
+
+    public static class TestRequestConverter1 implements RequestConverterFunction {
+        private final ObjectMapper mapper = new ObjectMapper();
+
+        @Override
+        public AnnotatedHttpServiceRequestConverterTest.RequestJsonObj1 convertRequest(ServiceRequestContext ctx, AggregatedHttpMessage request, Class<?> expectedResultType) throws Exception {
+            if (expectedResultType.isAssignableFrom(AnnotatedHttpServiceRequestConverterTest.RequestJsonObj1.class)) {
+                return mapper.readValue(request.contentUtf8(), AnnotatedHttpServiceRequestConverterTest.RequestJsonObj1.class);
+            }
+            return RequestConverterFunction.fallthrough();
+        }
+    }
+
+    public static class TestRequestConverter1A implements RequestConverterFunction {
+        private final ObjectMapper mapper = new ObjectMapper();
+
+        @Override
+        public AnnotatedHttpServiceRequestConverterTest.RequestJsonObj1 convertRequest(ServiceRequestContext ctx, AggregatedHttpMessage request, Class<?> expectedResultType) throws Exception {
+            if (expectedResultType.isAssignableFrom(AnnotatedHttpServiceRequestConverterTest.RequestJsonObj1.class)) {
+                final AnnotatedHttpServiceRequestConverterTest.RequestJsonObj1 obj1 = mapper.readValue(request.contentUtf8(), AnnotatedHttpServiceRequestConverterTest.RequestJsonObj1.class);
+                return new AnnotatedHttpServiceRequestConverterTest.RequestJsonObj1(((obj1.intVal()) + 1), ((obj1.strVal()) + 'a'));
+            }
+            return RequestConverterFunction.fallthrough();
+        }
+    }
+
+    public static class TestRequestConverter2 implements RequestConverterFunction {
+        @Override
+        public AnnotatedHttpServiceRequestConverterTest.RequestJsonObj2 convertRequest(ServiceRequestContext ctx, AggregatedHttpMessage request, Class<?> expectedResultType) throws Exception {
+            if (expectedResultType.isAssignableFrom(AnnotatedHttpServiceRequestConverterTest.RequestJsonObj2.class)) {
+                return new AnnotatedHttpServiceRequestConverterTest.RequestJsonObj2(request.headers().method().name());
+            }
+            return RequestConverterFunction.fallthrough();
+        }
+    }
+
+    public static class TestRequestConverterOptional1 implements RequestConverterFunction {
+        private final ObjectMapper mapper = new ObjectMapper();
+
+        @Override
+        public Optional<AnnotatedHttpServiceRequestConverterTest.RequestJsonObj1> convertRequest(ServiceRequestContext ctx, AggregatedHttpMessage request, Class<?> expectedResultType) throws Exception {
+            return Optional.of(mapper.readValue(request.contentUtf8(), AnnotatedHttpServiceRequestConverterTest.RequestJsonObj1.class));
+        }
+    }
+
+    public static class TestRequestConverterOptional2 implements RequestConverterFunction {
+        @Override
+        public Optional<AnnotatedHttpServiceRequestConverterTest.RequestJsonObj2> convertRequest(ServiceRequestContext ctx, AggregatedHttpMessage request, Class<?> expectedResultType) throws Exception {
+            return Optional.of(new AnnotatedHttpServiceRequestConverterTest.RequestJsonObj2(request.headers().method().name()));
+        }
+    }
+
+    @Test
+    public void testRequestConverter() throws Exception {
+        final HttpClient client = HttpClient.of(AnnotatedHttpServiceRequestConverterTest.rule.uri("/"));
+        final ObjectMapper mapper = new ObjectMapper();
+        AggregatedHttpMessage response;
+        final AnnotatedHttpServiceRequestConverterTest.RequestJsonObj1 obj1 = new AnnotatedHttpServiceRequestConverterTest.RequestJsonObj1(1, "abc");
+        final String content1 = mapper.writeValueAsString(obj1);
+        response = client.post("/1/convert1", content1).aggregate().join();
+        assertThat(response.status()).isEqualTo(OK);
+        assertThat(response.contentUtf8()).isEqualTo(obj1.toString());
+        // The order of converters
+        final AnnotatedHttpServiceRequestConverterTest.RequestJsonObj1 obj1a = new AnnotatedHttpServiceRequestConverterTest.RequestJsonObj1(2, "abca");
+        response = client.post("/1/convert2", content1).aggregate().join();
+        assertThat(response.status()).isEqualTo(OK);
+        assertThat(response.contentUtf8()).isEqualTo(obj1a.toString());
+        // Multiple @RequestConverter annotated parameters
+        response = client.post("/1/convert3", content1).aggregate().join();
+        assertThat(response.status()).isEqualTo(OK);
+        assertThat(response.contentUtf8()).isEqualTo(POST.name());
+    }
+
+    @Test
+    public void testDefaultRequestConverter_bean1() throws Exception {
+        final HttpClient client = HttpClient.of(AnnotatedHttpServiceRequestConverterTest.rule.uri("/"));
+        final ObjectMapper mapper = new ObjectMapper();
+        AggregatedHttpMessage response;
+        // test for RequestBean1
+        final AnnotatedHttpServiceRequestConverterTest.RequestBean1 expectedRequestBean = new AnnotatedHttpServiceRequestConverterTest.RequestBean1();
+        expectedRequestBean.userName = "john";
+        expectedRequestBean.age = 25;
+        expectedRequestBean.gender = AnnotatedHttpServiceRequestConverterTest.Gender.MALE;
+        expectedRequestBean.permissions = Arrays.asList("perm1", "perm2");
+        expectedRequestBean.clientName = "TestClient";
+        expectedRequestBean.seqNum = 1234L;
+        expectedRequestBean.manager = true;
+        final String expectedResponseContent = mapper.writeValueAsString(expectedRequestBean);
+        // Normal Request: POST + Form Data
+        final HttpData formData = HttpData.ofAscii("age=25&manager=true&gender=male");
+        HttpHeaders reqHeaders = HttpHeaders.of(POST, "/2/default/bean1/john/1234").set(com.linecorp.armeria.common.HttpHeaderNames.of("x-user-permission"), "perm1,perm2").set(com.linecorp.armeria.common.HttpHeaderNames.of("x-client-name"), "TestClient").contentType(FORM_DATA);
+        response = client.execute(AggregatedHttpMessage.of(reqHeaders, formData)).aggregate().join();
+        assertThat(response.status()).isEqualTo(OK);
+        assertThat(response.contentUtf8()).isEqualTo(expectedResponseContent);
+        // Normal Request: GET + Query String
+        reqHeaders = HttpHeaders.of(GET, "/2/default/bean1/john/1234?age=25&manager=true&gender=MALE").set(com.linecorp.armeria.common.HttpHeaderNames.of("x-user-permission"), "perm1,perm2").set(com.linecorp.armeria.common.HttpHeaderNames.of("x-client-name"), "TestClient");
+        response = client.execute(AggregatedHttpMessage.of(reqHeaders)).aggregate().join();
+        assertThat(response.status()).isEqualTo(OK);
+        assertThat(response.contentUtf8()).isEqualTo(expectedResponseContent);
+        // Bad Request: age=badParam
+        reqHeaders = HttpHeaders.of(GET, "/2/default/bean1/john/1234?age=badParam&manager=true&gender=male").set(com.linecorp.armeria.common.HttpHeaderNames.of("x-user-permission"), "perm1,perm2").set(com.linecorp.armeria.common.HttpHeaderNames.of("x-client-name"), "TestClient");
+        response = client.execute(AggregatedHttpMessage.of(reqHeaders)).aggregate().join();
+        assertThat(response.status()).isEqualTo(BAD_REQUEST);
+        // Bad Request: seqNum=badParam
+        reqHeaders = HttpHeaders.of(GET, "/2/default/bean1/john/badParam?age=25&manager=true&gender=MALE").set(com.linecorp.armeria.common.HttpHeaderNames.of("x-user-permission"), "perm1,perm2").set(com.linecorp.armeria.common.HttpHeaderNames.of("x-client-name"), "TestClient");
+        response = client.execute(AggregatedHttpMessage.of(reqHeaders)).aggregate().join();
+        assertThat(response.status()).isEqualTo(BAD_REQUEST);
+        // Bad Request: gender=badParam
+        reqHeaders = HttpHeaders.of(GET, "/2/default/bean1/john/1234?age=25&manager=true&gender=badParam").set(com.linecorp.armeria.common.HttpHeaderNames.of("x-user-permission"), "perm1,perm2").set(com.linecorp.armeria.common.HttpHeaderNames.of("x-client-name"), "TestClient");
+        response = client.execute(AggregatedHttpMessage.of(reqHeaders)).aggregate().join();
+        assertThat(response.status()).isEqualTo(BAD_REQUEST);
+    }
+
+    @Test
+    public void testDefaultRequestConverter_bean2() throws Exception {
+        final HttpClient client = HttpClient.of(AnnotatedHttpServiceRequestConverterTest.rule.uri("/"));
+        final ObjectMapper mapper = new ObjectMapper();
+        AggregatedHttpMessage response;
+        // test for RequestBean2
+        final AnnotatedHttpServiceRequestConverterTest.RequestBean2 expectedRequestBean = new AnnotatedHttpServiceRequestConverterTest.RequestBean2(98765L, "abcd-efgh");
+        expectedRequestBean.userName = "john";
+        expectedRequestBean.age = 25;
+        expectedRequestBean.gender = AnnotatedHttpServiceRequestConverterTest.Gender.MALE;
+        expectedRequestBean.permissions = Arrays.asList("perm1", "perm2");
+        expectedRequestBean.clientName = "TestClient";
+        final String expectedResponseContent = mapper.writeValueAsString(expectedRequestBean);
+        // Normal Request: POST + Form Data
+        final HttpData formData = HttpData.ofAscii("age=25&gender=male");
+        HttpHeaders reqHeaders = HttpHeaders.of(POST, "/2/default/bean2/john/98765").set(com.linecorp.armeria.common.HttpHeaderNames.of("x-user-permission"), "perm1,perm2").set(com.linecorp.armeria.common.HttpHeaderNames.of("x-client-name"), "TestClient").set(com.linecorp.armeria.common.HttpHeaderNames.of("uid"), "abcd-efgh").contentType(FORM_DATA);
+        response = client.execute(AggregatedHttpMessage.of(reqHeaders, formData)).aggregate().join();
+        assertThat(response.status()).isEqualTo(OK);
+        assertThat(response.contentUtf8()).isEqualTo(expectedResponseContent);
+        // Normal Request: GET + Query String
+        reqHeaders = HttpHeaders.of(GET, "/2/default/bean2/john?age=25&gender=MALE&serialNo=98765").set(com.linecorp.armeria.common.HttpHeaderNames.of("x-user-permission"), "perm1,perm2").set(com.linecorp.armeria.common.HttpHeaderNames.of("x-client-name"), "TestClient").set(com.linecorp.armeria.common.HttpHeaderNames.of("uid"), "abcd-efgh");
+        response = client.execute(AggregatedHttpMessage.of(reqHeaders)).aggregate().join();
+        assertThat(response.status()).isEqualTo(OK);
+        assertThat(response.contentUtf8()).isEqualTo(expectedResponseContent);
+    }
+
+    @Test
+    public void testDefaultRequestConverter_bean3() throws Exception {
+        final HttpClient client = HttpClient.of(AnnotatedHttpServiceRequestConverterTest.rule.uri("/"));
+        final ObjectMapper mapper = new ObjectMapper();
+        AggregatedHttpMessage response;
+        // test for RequestBean3
+        final AnnotatedHttpServiceRequestConverterTest.RequestBean3 expectedRequestBean = new AnnotatedHttpServiceRequestConverterTest.RequestBean3(3349);
+        expectedRequestBean.userName = "john";
+        expectedRequestBean.age = 25;
+        expectedRequestBean.gender = AnnotatedHttpServiceRequestConverterTest.Gender.MALE;
+        expectedRequestBean.permissions = Arrays.asList("perm1", "perm2");
+        expectedRequestBean.clientName = "TestClient";
+        final String expectedResponseContent = mapper.writeValueAsString(expectedRequestBean);
+        // Normal Request: POST + Form Data
+        final HttpData formData = HttpData.ofAscii("age=25&gender=male");
+        HttpHeaders reqHeaders = HttpHeaders.of(POST, "/2/default/bean3/john/3349").set(com.linecorp.armeria.common.HttpHeaderNames.of("x-user-permission"), "perm1,perm2").set(com.linecorp.armeria.common.HttpHeaderNames.of("x-client-name"), "TestClient").contentType(FORM_DATA);
+        response = client.execute(AggregatedHttpMessage.of(reqHeaders, formData)).aggregate().join();
+        assertThat(response.status()).isEqualTo(OK);
+        assertThat(response.contentUtf8()).isEqualTo(expectedResponseContent);
+        // Normal Request: GET + Query String
+        reqHeaders = HttpHeaders.of(GET, "/2/default/bean3/john?age=25&gender=MALE&departmentNo=3349").set(com.linecorp.armeria.common.HttpHeaderNames.of("x-user-permission"), "perm1,perm2").set(com.linecorp.armeria.common.HttpHeaderNames.of("x-client-name"), "TestClient");
+        response = client.execute(AggregatedHttpMessage.of(reqHeaders)).aggregate().join();
+        assertThat(response.status()).isEqualTo(OK);
+        assertThat(response.contentUtf8()).isEqualTo(expectedResponseContent);
+    }
+
+    @Test
+    public void testDefaultRequestConverter_bean4() throws Exception {
+        final HttpClient client = HttpClient.of(AnnotatedHttpServiceRequestConverterTest.rule.uri("/3"));
+        final ObjectMapper mapper = new ObjectMapper();
+        AggregatedHttpMessage response;
+        response = client.get("/composite1/10").aggregate().join();
+        assertThat(response.contentUtf8()).isEqualTo(((AnnotatedHttpServiceRequestConverterTest.MyService3.CompositeRequestBean1.class.getSimpleName()) + ":10:20"));
+        response = client.get("/composite2/10").aggregate().join();
+        assertThat(response.contentUtf8()).isEqualTo(((AnnotatedHttpServiceRequestConverterTest.MyService3.CompositeRequestBean2.class.getSimpleName()) + ":10:20"));
+        response = client.get("/composite3/10").aggregate().join();
+        assertThat(response.contentUtf8()).isEqualTo(((AnnotatedHttpServiceRequestConverterTest.MyService3.CompositeRequestBean3.class.getSimpleName()) + ":10:20"));
+        response = client.get("/composite4/10").aggregate().join();
+        assertThat(response.contentUtf8()).isEqualTo(((AnnotatedHttpServiceRequestConverterTest.MyService3.CompositeRequestBean4.class.getSimpleName()) + ":10:20"));
+        final AnnotatedHttpServiceRequestConverterTest.RequestJsonObj1 obj1 = new AnnotatedHttpServiceRequestConverterTest.RequestJsonObj1(1, "abc");
+        final String content1 = mapper.writeValueAsString(obj1);
+        response = client.execute(AggregatedHttpMessage.of(POST, "/composite5/10", JSON_UTF_8, content1)).aggregate().join();
+        assertThat(response.contentUtf8()).isEqualTo((((((AnnotatedHttpServiceRequestConverterTest.MyService3.CompositeRequestBean5.class.getSimpleName()) + ":10:20:") + (obj1.strVal())) + ':') + (obj1.intVal())));
+    }
+
+    @Test
+    public void testDefaultRequestConverter_json() throws Exception {
+        final HttpClient client = HttpClient.of(AnnotatedHttpServiceRequestConverterTest.rule.uri("/"));
+        final ObjectMapper mapper = new ObjectMapper();
+        AggregatedHttpMessage response;
+        final AnnotatedHttpServiceRequestConverterTest.RequestJsonObj1 obj1 = new AnnotatedHttpServiceRequestConverterTest.RequestJsonObj1(1, "abc");
+        final String content1 = mapper.writeValueAsString(obj1);
+        // MediaType.JSON_UTF_8
+        response = client.execute(AggregatedHttpMessage.of(POST, "/2/default/json", JSON_UTF_8, content1)).aggregate().join();
+        assertThat(response.status()).isEqualTo(OK);
+        assertThat(response.contentUtf8()).isEqualTo("abc");
+        // MediaType.JSON_PATCH
+        // obj1 is not a json-patch+json format, but just check if it's converted by
+        // DefaultRequestConverter when it is valid JSON format
+        response = client.execute(AggregatedHttpMessage.of(POST, "/2/default/json", JSON_PATCH, content1)).aggregate().join();
+        assertThat(response.status()).isEqualTo(OK);
+        assertThat(response.contentUtf8()).isEqualTo("abc");
+        // "application/vnd.api+json"
+        response = client.execute(AggregatedHttpMessage.of(POST, "/2/default/json", com.linecorp.armeria.common.MediaType.create("application", "vnd.api+json"), content1)).aggregate().join();
+        assertThat(response.status()).isEqualTo(OK);
+        assertThat(response.contentUtf8()).isEqualTo("abc");
+        final String invalidJson = "{\"foo:\"bar\"}";// should be \"foo\"
+
+        response = client.execute(AggregatedHttpMessage.of(POST, "/2/default/invalidJson", JSON_UTF_8, invalidJson)).aggregate().join();
+        assertThat(response.status()).isEqualTo(BAD_REQUEST);
+    }
+
+    @Test
+    public void testDefaultRequestConverter_binary() throws Exception {
+        final HttpClient client = HttpClient.of(AnnotatedHttpServiceRequestConverterTest.rule.uri("/"));
+        final AggregatedHttpMessage response;
+        final byte[] binary = new byte[]{ 0, 1, 2 };
+        response = client.execute(AggregatedHttpMessage.of(POST, "/2/default/binary", OCTET_STREAM, binary)).aggregate().join();
+        assertThat(response.status()).isEqualTo(OK);
+        assertThat(response.content().array()).isEqualTo(binary);
+    }
+
+    @Test
+    public void testDefaultRequestConverter_text() throws Exception {
+        final HttpClient client = HttpClient.of(AnnotatedHttpServiceRequestConverterTest.rule.uri("/"));
+        AggregatedHttpMessage response;
+        final byte[] utf8 = "?".getBytes(StandardCharsets.UTF_8);
+        response = client.execute(AggregatedHttpMessage.of(POST, "/2/default/text", PLAIN_TEXT_UTF_8, utf8)).aggregate().join();
+        assertThat(response.status()).isEqualTo(OK);
+        assertThat(response.content().array()).isEqualTo(utf8);
+        final com.linecorp.armeria.common.MediaType textPlain = com.linecorp.armeria.common.MediaType.create("text", "plain");
+        final byte[] iso8859_1 = "?".getBytes(StandardCharsets.ISO_8859_1);
+        response = client.execute(AggregatedHttpMessage.of(POST, "/2/default/text", textPlain, iso8859_1)).aggregate().join();
+        assertThat(response.status()).isEqualTo(OK);
+        // Response is encoded as UTF-8.
+        assertThat(response.content().array()).isEqualTo(utf8);
+    }
+
+    @Test
+    public void testRedundantlyUsedParameters() throws Exception {
+        final HttpClient client = HttpClient.of(AnnotatedHttpServiceRequestConverterTest.rule.uri("/"));
+        final ObjectMapper mapper = new ObjectMapper();
+        final AnnotatedHttpServiceRequestConverterTest.RequestBean4 expectedRequestBean = new AnnotatedHttpServiceRequestConverterTest.RequestBean4(100);
+        expectedRequestBean.foo2 = 100;
+        expectedRequestBean.foo3 = 200;
+        final String expectedResponseContent = mapper.writeValueAsString(expectedRequestBean);
+        final HttpHeaders reqHeaders = HttpHeaders.of(GET, "/2/default/bean4?foo=100").setObject(com.linecorp.armeria.common.HttpHeaderNames.of("foo"), 200);
+        final AggregatedHttpMessage response = client.execute(reqHeaders).aggregate().join();
+        assertThat(response.status()).isEqualTo(OK);
+        assertThat(response.contentUtf8()).isEqualTo(expectedResponseContent);
+    }
+}
+

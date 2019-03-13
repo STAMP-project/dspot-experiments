@@ -1,0 +1,112 @@
+/**
+ * Copyright (c) 2008-2019, Hazelcast, Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.hazelcast.topic.impl.reliable;
+
+
+import com.hazelcast.core.HazelcastInstance;
+import com.hazelcast.core.ITopic;
+import com.hazelcast.core.Message;
+import com.hazelcast.core.MessageListener;
+import com.hazelcast.core.MigrationEvent;
+import com.hazelcast.core.MigrationListener;
+import com.hazelcast.test.AssertTask;
+import com.hazelcast.test.HazelcastParallelClassRunner;
+import com.hazelcast.test.HazelcastTestSupport;
+import com.hazelcast.test.OverridePropertyRule;
+import com.hazelcast.test.TestHazelcastInstanceFactory;
+import com.hazelcast.test.annotation.ParallelTest;
+import com.hazelcast.test.annotation.QuickTest;
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.concurrent.atomic.AtomicInteger;
+import org.junit.Assert;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.junit.runner.RunWith;
+
+
+@Category({ QuickTest.class, ParallelTest.class })
+@RunWith(HazelcastParallelClassRunner.class)
+public class SubscriptionMigrationTest extends HazelcastTestSupport {
+    @Rule
+    public OverridePropertyRule overridePropertyRule = OverridePropertyRule.set("hazelcast.partition.count", "2");
+
+    // gh issue: https://github.com/hazelcast/hazelcast/issues/13602
+    @Test
+    public void testListenerReceivesMessagesAfterPartitionIsMigratedBack() {
+        TestHazelcastInstanceFactory factory = createHazelcastInstanceFactory();
+        HazelcastInstance instance1 = factory.newHazelcastInstance();
+        final String rtNameOnPartition0 = generateReliableTopicNameForPartition(instance1, 0);
+        final String rtNameOnPartition1 = generateReliableTopicNameForPartition(instance1, 1);
+        ITopic<String> topic0 = instance1.getReliableTopic(rtNameOnPartition0);
+        ITopic<String> topic1 = instance1.getReliableTopic(rtNameOnPartition1);
+        final SubscriptionMigrationTest.CountingMigrationListener migrationListener = new SubscriptionMigrationTest.CountingMigrationListener();
+        instance1.getPartitionService().addMigrationListener(migrationListener);
+        final SubscriptionMigrationTest.PayloadMessageListener<String> listener0 = new SubscriptionMigrationTest.PayloadMessageListener<String>();
+        final SubscriptionMigrationTest.PayloadMessageListener<String> listener1 = new SubscriptionMigrationTest.PayloadMessageListener<String>();
+        topic0.addMessageListener(listener0);
+        topic1.addMessageListener(listener1);
+        topic0.publish("itemA");
+        topic1.publish("item1");
+        HazelcastInstance instance2 = factory.newHazelcastInstance();
+        HazelcastTestSupport.assertEqualsEventually(1, migrationListener.partitionMigrationCount);
+        instance2.shutdown();
+        HazelcastTestSupport.assertEqualsEventually(2, migrationListener.partitionMigrationCount);
+        topic0.publish("itemB");
+        topic1.publish("item2");
+        HazelcastTestSupport.assertTrueEventually(new AssertTask() {
+            @Override
+            public void run() {
+                Assert.assertTrue(listener0.isReceived("itemA"));
+                Assert.assertTrue(listener0.isReceived("itemB"));
+                Assert.assertTrue(listener1.isReceived("item1"));
+                Assert.assertTrue(listener1.isReceived("item2"));
+            }
+        });
+    }
+
+    public class PayloadMessageListener<V> implements MessageListener<V> {
+        private Collection<V> receivedMessages = new HashSet<V>();
+
+        @Override
+        public void onMessage(Message<V> message) {
+            receivedMessages.add(message.getMessageObject());
+        }
+
+        boolean isReceived(V message) {
+            return receivedMessages.contains(message);
+        }
+    }
+
+    public class CountingMigrationListener implements MigrationListener {
+        AtomicInteger partitionMigrationCount = new AtomicInteger();
+
+        @Override
+        public void migrationStarted(MigrationEvent migrationEvent) {
+        }
+
+        @Override
+        public synchronized void migrationCompleted(MigrationEvent migrationEvent) {
+            partitionMigrationCount.incrementAndGet();
+        }
+
+        @Override
+        public void migrationFailed(MigrationEvent migrationEvent) {
+        }
+    }
+}
+

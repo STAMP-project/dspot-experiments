@@ -1,0 +1,215 @@
+/**
+ * *  Copyright 2010-2016 OrientDB LTD (http://orientdb.com)
+ *  *
+ *  *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  *  you may not use this file except in compliance with the License.
+ *  *  You may obtain a copy of the License at
+ *  *
+ *  *       http://www.apache.org/licenses/LICENSE-2.0
+ *  *
+ *  *  Unless required by applicable law or agreed to in writing, software
+ *  *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  *  See the License for the specific language governing permissions and
+ *  *  limitations under the License.
+ *  *
+ *  * For more information: http://orientdb.com
+ */
+package com.orientechnologies.orient.graph.sql;
+
+
+import OClass.INDEX_TYPE.NOTUNIQUE_HASH_INDEX;
+import OType.LONG;
+import com.orientechnologies.orient.core.db.record.OIdentifiable;
+import com.orientechnologies.orient.core.record.impl.ODocument;
+import com.orientechnologies.orient.core.sql.OCommandSQL;
+import com.orientechnologies.orient.graph.GraphTxAbstractTest;
+import com.tinkerpop.blueprints.impls.orient.OrientBaseGraph;
+import com.tinkerpop.blueprints.impls.orient.OrientEdgeType;
+import com.tinkerpop.blueprints.impls.orient.OrientVertex;
+import com.tinkerpop.blueprints.impls.orient.OrientVertexType;
+import org.junit.Assert;
+import org.junit.Test;
+
+
+public class SQLMoveVertexCommandInTxTest extends GraphTxAbstractTest {
+    private static OrientVertexType customer;
+
+    private static OrientVertexType provider;
+
+    private static OrientEdgeType knows;
+
+    private static int customerGeniusCluster;
+
+    @Test
+    public void testMoveSingleRecordToAnotherCluster() {
+        OrientVertex v1 = GraphTxAbstractTest.graph.addVertex("class:Customer").setProperties("name", "Jay1", "test", "testMoveSingleRecordToAnotherCluster");
+        OrientVertex v2 = GraphTxAbstractTest.graph.addVertex("class:Customer").setProperties("name", "Jay2", "test", "testMoveSingleRecordToAnotherCluster");
+        OrientVertex v3 = GraphTxAbstractTest.graph.addVertex("class:Customer").setProperties("name", "Jay3", "test", "testMoveSingleRecordToAnotherCluster");
+        v1.addEdge("self", v1);// SELF
+
+        v1.addEdge("other", v2);
+        v1.addEdge("knows", v3);
+        v2.addEdge("knows", v1);
+        GraphTxAbstractTest.graph.commit();
+        Assert.assertEquals(v1.getIdentity().getClusterId(), SQLMoveVertexCommandInTxTest.customer.getDefaultClusterId());
+        Iterable<OrientVertex> result = GraphTxAbstractTest.graph.command(new OCommandSQL((("MOVE VERTEX " + (v1.getIdentity())) + " TO CLUSTER:Customer_genius"))).execute();
+        // CHECK RESULT
+        int tot = 0;
+        for (OrientVertex v : result) {
+            tot++;
+            ODocument fromTo = v.getRecord();
+            OIdentifiable from = fromTo.field("old");
+            OIdentifiable to = fromTo.field("new");
+            // CHECK FROM
+            Assert.assertEquals(from, v1.getIdentity());
+            // CHECK DESTINATION
+            Assert.assertEquals(to.getIdentity().getClusterId(), SQLMoveVertexCommandInTxTest.customerGeniusCluster);
+            ODocument newDocument = to.getRecord();
+            Assert.assertEquals(newDocument.field("name"), "Jay1");
+            Assert.assertEquals(newDocument.field("test"), "testMoveSingleRecordToAnotherCluster");
+        }
+        Assert.assertEquals(tot, 1);
+    }
+
+    @Test
+    public void testMoveSingleRecordToAnotherClass() {
+        ODocument doc = new ODocument("Customer").field("name", "Jay").field("test", "testMoveSingleRecordToAnotherClass").save();
+        Assert.assertEquals(doc.getIdentity().getClusterId(), SQLMoveVertexCommandInTxTest.customer.getDefaultClusterId());
+        Iterable<OrientVertex> result = GraphTxAbstractTest.graph.command(new OCommandSQL((("MOVE VERTEX " + (doc.getIdentity())) + " TO CLASS:Provider"))).execute();
+        // CHECK RESULT
+        ODocument fromTo = result.iterator().next().getRecord();
+        Assert.assertFalse(result.iterator().hasNext());
+        OIdentifiable from = fromTo.field("old");
+        OIdentifiable to = fromTo.field("new");
+        // CHECK FROM
+        Assert.assertEquals(from, doc.getIdentity());
+        // CHECK DESTINATION
+        Assert.assertEquals(to.getIdentity().getClusterId(), SQLMoveVertexCommandInTxTest.provider.getDefaultClusterId());
+        ODocument newDocument = to.getRecord();
+        Assert.assertEquals(newDocument.getClassName(), "Provider");
+        Assert.assertEquals(newDocument.field("name"), "Jay");
+        Assert.assertEquals(newDocument.field("test"), "testMoveSingleRecordToAnotherClass");
+    }
+
+    @Test
+    public void testMoveMultipleRecordToAnotherCluster() {
+        new ODocument("Customer").field("name", "Jay").field("workedOn", "Amiga").save();
+        new ODocument("Customer").field("name", "Steve").field("workedOn", "Mac").save();
+        new ODocument("Customer").field("name", "Bill").field("workedOn", "Ms-Dos").save();
+        new ODocument("Customer").field("name", "Tim").field("workedOn", "Amiga").save();
+        GraphTxAbstractTest.graph.commit();
+        Iterable<OrientVertex> result = GraphTxAbstractTest.graph.command(new OCommandSQL("MOVE VERTEX (select from Customer where workedOn = 'Amiga') TO CLUSTER:Customer_genius")).execute();
+        // CHECK RESULT
+        int tot = 0;
+        for (OrientVertex v : result) {
+            tot++;
+            ODocument fromTo = v.getRecord();
+            OIdentifiable from = fromTo.field("old");
+            OIdentifiable to = fromTo.field("new");
+            // CHECK FROM
+            Assert.assertEquals(from.getIdentity().getClusterId(), SQLMoveVertexCommandInTxTest.customer.getDefaultClusterId());
+            // CHECK DESTINATION
+            Assert.assertEquals(to.getIdentity().getClusterId(), SQLMoveVertexCommandInTxTest.customerGeniusCluster);
+            ODocument newDocument = to.getRecord();
+            Assert.assertEquals(newDocument.getClassName(), "Customer");
+            Assert.assertEquals(newDocument.field("workedOn"), "Amiga");
+        }
+        Assert.assertEquals(tot, 2);
+    }
+
+    @Test
+    public void testMoveMultipleRecordToAnotherClass() {
+        new ODocument("Customer").field("name", "Luca").field("city", "Rome").save();
+        new ODocument("Customer").field("name", "Jill").field("city", "Austin").save();
+        new ODocument("Customer").field("name", "Marco").field("city", "Rome").save();
+        new ODocument("Customer").field("name", "XXX").field("city", "Athens").save();
+        GraphTxAbstractTest.graph.commit();
+        Iterable<OrientVertex> result = GraphTxAbstractTest.graph.command(new OCommandSQL("MOVE VERTEX (select from Customer where city = 'Rome') TO CLASS:Provider")).execute();
+        // CHECK RESULT
+        int tot = 0;
+        for (OrientVertex v : result) {
+            tot++;
+            ODocument fromTo = v.getRecord();
+            OIdentifiable from = fromTo.field("old");
+            OIdentifiable to = fromTo.field("new");
+            // CHECK FROM
+            Assert.assertEquals(from.getIdentity().getClusterId(), SQLMoveVertexCommandInTxTest.customer.getDefaultClusterId());
+            // CHECK DESTINATION
+            Assert.assertEquals(to.getIdentity().getClusterId(), SQLMoveVertexCommandInTxTest.provider.getDefaultClusterId());
+            ODocument newDocument = to.getRecord();
+            Assert.assertEquals(newDocument.getClassName(), "Provider");
+            Assert.assertEquals(newDocument.field("city"), "Rome");
+        }
+        Assert.assertEquals(tot, 2);
+    }
+
+    @Test
+    public void testMoveMultipleRecordToAnotherClassInTx() {
+        new ODocument("Customer").field("name", "Luca").field("city", "Rome").save();
+        new ODocument("Customer").field("name", "Jill").field("city", "Austin").save();
+        new ODocument("Customer").field("name", "Marco").field("city", "Rome").save();
+        new ODocument("Customer").field("name", "XXX").field("city", "Athens").save();
+        GraphTxAbstractTest.graph.commit();
+        Iterable<OrientVertex> result = GraphTxAbstractTest.graph.command(new OCommandSQL("MOVE VERTEX (select from Customer where city = 'Rome') TO CLASS:Provider")).execute();
+        // CHECK RESULT
+        int tot = 0;
+        for (OrientVertex v : result) {
+            tot++;
+            ODocument fromTo = v.getRecord();
+            OIdentifiable from = fromTo.field("old");
+            OIdentifiable to = fromTo.field("new");
+            // CHECK FROM
+            Assert.assertEquals(from.getIdentity().getClusterId(), SQLMoveVertexCommandInTxTest.customer.getDefaultClusterId());
+            // CHECK DESTINATION
+            Assert.assertEquals(to.getIdentity().getClusterId(), SQLMoveVertexCommandInTxTest.provider.getDefaultClusterId());
+            ODocument newDocument = to.getRecord();
+            Assert.assertEquals(newDocument.getClassName(), "Provider");
+            Assert.assertEquals(newDocument.field("city"), "Rome");
+        }
+        Assert.assertEquals(tot, 2);
+    }
+
+    @Test
+    public void testMoveBatch() {
+        for (int i = 0; i < 100; ++i)
+            new ODocument("Customer").field("testMoveBatch", true).save();
+
+        GraphTxAbstractTest.graph.commit();
+        Iterable<OrientVertex> result = GraphTxAbstractTest.graph.command(new OCommandSQL("MOVE VERTEX (select from Customer where testMoveBatch = true) TO CLASS:Provider BATCH 10")).execute();
+        // CHECK RESULT
+        int tot = 0;
+        for (OrientVertex v : result) {
+            tot++;
+            ODocument fromTo = v.getRecord();
+            OIdentifiable from = fromTo.field("old");
+            OIdentifiable to = fromTo.field("new");
+            // CHECK FROM
+            Assert.assertEquals(from.getIdentity().getClusterId(), SQLMoveVertexCommandInTxTest.customer.getDefaultClusterId());
+            // CHECK DESTINATION
+            Assert.assertEquals(to.getIdentity().getClusterId(), SQLMoveVertexCommandInTxTest.provider.getDefaultClusterId());
+            ODocument newDocument = to.getRecord();
+            Assert.assertEquals(newDocument.getClassName(), "Provider");
+            Assert.assertTrue(((Boolean) (newDocument.field("testMoveBatch"))));
+        }
+        Assert.assertEquals(tot, 100);
+    }
+
+    @Test
+    public void testMoveWithUniqueIndex() {
+        GraphTxAbstractTest.graph.executeOutsideTx(new com.orientechnologies.common.util.OCallable<Object, OrientBaseGraph>() {
+            @Override
+            public Object call(OrientBaseGraph iArgument) {
+                SQLMoveVertexCommandInTxTest.customer.createProperty("id", LONG).createIndex(NOTUNIQUE_HASH_INDEX);
+                return null;
+            }
+        });
+        for (int i = 0; i < 100; ++i)
+            new ODocument("Customer").field("id", i).save();
+
+        GraphTxAbstractTest.graph.commit();
+        Iterable<OrientVertex> result = GraphTxAbstractTest.graph.command(new OCommandSQL("MOVE VERTEX (select from Customer where id = 0) TO CLUSTER:Customer_genius")).execute();
+        Iterable<OrientVertex> result2 = GraphTxAbstractTest.graph.command(new OCommandSQL("MOVE VERTEX (select from Customer where id = 1) TO CLASS:Customer")).execute();
+    }
+}
+

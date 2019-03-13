@@ -1,0 +1,114 @@
+/**
+ * Copyright MapStruct Authors.
+ *
+ * Licensed under the Apache License version 2.0, available at http://www.apache.org/licenses/LICENSE-2.0
+ */
+package org.mapstruct.ap.test.conversion.string;
+
+
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mapstruct.ap.testutil.IssueKey;
+import org.mapstruct.ap.testutil.WithClasses;
+import org.mapstruct.ap.testutil.runner.AnnotationProcessorTestRunner;
+import org.mapstruct.ap.testutil.runner.GeneratedSource;
+
+
+@WithClasses({ Source.class, Target.class, SourceTargetMapper.class })
+@RunWith(AnnotationProcessorTestRunner.class)
+public class StringConversionTest {
+    private static final String STRING_CONSTANT = "String constant";
+
+    @Rule
+    public final GeneratedSource generatedSource = new GeneratedSource().addComparisonToFixtureFor(SourceTargetMapper.class);
+
+    @Test
+    public void shouldApplyStringConversions() {
+        Source source = new Source();
+        source.setB(((byte) (1)));
+        source.setBb(((byte) (2)));
+        source.setS(((short) (3)));
+        source.setSs(((short) (4)));
+        source.setI(5);
+        source.setIi(6);
+        source.setL(7L);
+        source.setLl(8L);
+        source.setF(9.0F);
+        source.setFf(10.0F);
+        source.setD(11.0);
+        source.setDd(12.0);
+        source.setBool(true);
+        source.setBoolBool(Boolean.TRUE);
+        source.setC('G');
+        source.setCc('H');
+        Target target = SourceTargetMapper.INSTANCE.sourceToTarget(source);
+        assertThat(target).isNotNull();
+        assertThat(target.getB()).isEqualTo("1");
+        assertThat(target.getBb()).isEqualTo("2");
+        assertThat(target.getS()).isEqualTo("3");
+        assertThat(target.getSs()).isEqualTo("4");
+        assertThat(target.getI()).isEqualTo("5");
+        assertThat(target.getIi()).isEqualTo("6");
+        assertThat(target.getL()).isEqualTo("7");
+        assertThat(target.getLl()).isEqualTo("8");
+        assertThat(target.getF()).isEqualTo("9.0");
+        assertThat(target.getFf()).isEqualTo("10.0");
+        assertThat(target.getD()).isEqualTo("11.0");
+        assertThat(target.getDd()).isEqualTo("12.0");
+        assertThat(target.getBool()).isEqualTo("true");
+        assertThat(target.getBoolBool()).isEqualTo("true");
+        assertThat(target.getC()).isEqualTo("G");
+        assertThat(target.getCc()).isEqualTo("H");
+    }
+
+    @Test
+    public void shouldApplyReverseStringConversions() {
+        Target target = new Target();
+        target.setB("1");
+        target.setBb("2");
+        target.setS("3");
+        target.setSs("4");
+        target.setI("5");
+        target.setIi("6");
+        target.setL("7");
+        target.setLl("8");
+        target.setF("9.0");
+        target.setFf("10.0");
+        target.setD("11.0");
+        target.setDd("12.0");
+        target.setBool("true");
+        target.setBoolBool("true");
+        target.setC("G");
+        target.setCc("H");
+        Source source = SourceTargetMapper.INSTANCE.targetToSource(target);
+        assertThat(source).isNotNull();
+        assertThat(source.getB()).isEqualTo(((byte) (1)));
+        assertThat(source.getBb()).isEqualTo(Byte.valueOf(((byte) (2))));
+        assertThat(source.getS()).isEqualTo(((short) (3)));
+        assertThat(source.getSs()).isEqualTo(Short.valueOf(((short) (4))));
+        assertThat(source.getI()).isEqualTo(5);
+        assertThat(source.getIi()).isEqualTo(Integer.valueOf(6));
+        assertThat(source.getL()).isEqualTo(7);
+        assertThat(source.getLl()).isEqualTo(Long.valueOf(8));
+        assertThat(source.getF()).isEqualTo(9.0F);
+        assertThat(source.getFf()).isEqualTo(Float.valueOf(10.0F));
+        assertThat(source.getD()).isEqualTo(11.0);
+        assertThat(source.getDd()).isEqualTo(Double.valueOf(12.0));
+        assertThat(source.getBool()).isEqualTo(true);
+        assertThat(source.getBoolBool()).isEqualTo(true);
+        assertThat(source.getC()).isEqualTo('G');
+        assertThat(source.getCc()).isEqualTo('H');
+    }
+
+    @Test
+    @IssueKey("328")
+    public void stringShouldBeMappedToObjectByReference() {
+        Target target = new Target();
+        target.setObject(StringConversionTest.STRING_CONSTANT);
+        Source source = SourceTargetMapper.INSTANCE.targetToSource(target);
+        // no conversion, no built-in method
+        assertThat(source.getObject()).isSameAs(StringConversionTest.STRING_CONSTANT);
+    }
+}
+

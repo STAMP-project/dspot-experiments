@@ -1,0 +1,55 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.camel.processor.jpa;
+
+
+import java.io.File;
+import org.apache.camel.component.mock.MockEndpoint;
+import org.apache.camel.processor.idempotent.jpa.MessageProcessed;
+import org.junit.Test;
+
+
+/**
+ * Unit test using jpa idempotent repository for the file consumer.
+ */
+public class FileConsumerJpaIdempotentTest extends AbstractJpaTest {
+    protected static final String SELECT_ALL_STRING = ("select x from " + (MessageProcessed.class.getName())) + " x where x.processorName = ?1";
+
+    protected static final String PROCESSOR_NAME = "FileConsumer";
+
+    @Test
+    public void testFileConsumerJpaIdempotent() throws Exception {
+        // consume the file the first time
+        MockEndpoint mock = getMockEndpoint("mock:result");
+        mock.expectedBodiesReceived("Hello World");
+        mock.expectedMessageCount(1);
+        context.getRouteController().startRoute("foo");
+        assertMockEndpointsSatisfied();
+        Thread.sleep(1000);
+        // reset mock and set new expectations
+        mock.reset();
+        mock.expectedMessageCount(0);
+        // move file back
+        File file = new File("target/idempotent/done/report.txt");
+        File renamed = new File("target/idempotent/report.txt");
+        file.renameTo(renamed);
+        // should NOT consume the file again, let 2 secs pass to let the consumer try to consume it but it should not
+        Thread.sleep(2000);
+        assertMockEndpointsSatisfied();
+    }
+}
+

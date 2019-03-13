@@ -1,0 +1,87 @@
+/**
+ * Copyright 2013-2019 the original author or authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.springframework.cloud.config.server;
+
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.ArgumentMatchers;
+import org.mockito.BDDMockito;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.BeanFactoryUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.cloud.config.client.ConfigServicePropertySourceLocator;
+import org.springframework.cloud.config.environment.Environment;
+import org.springframework.cloud.config.server.environment.EnvironmentRepository;
+import org.springframework.cloud.config.server.resource.ResourceRepository;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit4.SpringRunner;
+
+
+@RunWith(SpringRunner.class)
+@SpringBootTest(classes = ConfigClientOnIntegrationTests.TestConfiguration.class, properties = "spring.cloud.config.enabled:true", webEnvironment = WebEnvironment.RANDOM_PORT)
+@ActiveProfiles("test")
+@DirtiesContext
+public class ConfigClientOnIntegrationTests {
+    private static String localRepo = null;
+
+    @LocalServerPort
+    private int port;
+
+    @Autowired
+    private ApplicationContext context;
+
+    @Test
+    public void contextLoads() {
+        Environment environment = new TestRestTemplate().getForObject((("http://localhost:" + (this.port)) + "/foo/development/"), Environment.class);
+        assertThat(environment.getPropertySources().isEmpty()).isTrue();
+    }
+
+    @Test
+    public void configClientEnabled() throws Exception {
+        assertThat(BeanFactoryUtils.beanNamesForTypeIncludingAncestors(this.context, ConfigServicePropertySourceLocator.class).length).isEqualTo(1);
+    }
+
+    @Configuration
+    @EnableAutoConfiguration
+    @EnableConfigServer
+    protected static class TestConfiguration {
+        @Bean
+        public EnvironmentRepository environmentRepository() {
+            EnvironmentRepository repository = Mockito.mock(EnvironmentRepository.class);
+            BDDMockito.given(repository.findOne(ArgumentMatchers.anyString(), ArgumentMatchers.anyString(), ArgumentMatchers.anyString())).willReturn(new Environment("", ""));
+            return repository;
+        }
+
+        @Bean
+        public ResourceRepository resourceRepository() {
+            ResourceRepository repository = Mockito.mock(ResourceRepository.class);
+            BDDMockito.given(repository.findOne(ArgumentMatchers.anyString(), ArgumentMatchers.anyString(), ArgumentMatchers.anyString(), ArgumentMatchers.anyString())).willReturn(new ByteArrayResource("".getBytes()));
+            return repository;
+        }
+    }
+}
+

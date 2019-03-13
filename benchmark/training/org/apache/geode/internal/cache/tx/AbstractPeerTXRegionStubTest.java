@@ -1,0 +1,206 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one or more contributor license
+ * agreements. See the NOTICE file distributed with this work for additional information regarding
+ * copyright ownership. The ASF licenses this file to You under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance with the License. You may obtain a
+ * copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
+package org.apache.geode.internal.cache.tx;
+
+
+import RemoteFetchKeysMessage.FetchKeysResponse;
+import org.apache.geode.CancelCriterion;
+import org.apache.geode.cache.CacheClosedException;
+import org.apache.geode.cache.Region.Entry;
+import org.apache.geode.cache.RegionDestroyedException;
+import org.apache.geode.cache.TransactionDataNodeHasDepartedException;
+import org.apache.geode.cache.TransactionDataNotColocatedException;
+import org.apache.geode.cache.TransactionException;
+import org.apache.geode.distributed.internal.ClusterDistributionManager;
+import org.apache.geode.distributed.internal.InternalDistributedSystem;
+import org.apache.geode.distributed.internal.ReplyException;
+import org.apache.geode.distributed.internal.membership.InternalDistributedMember;
+import org.apache.geode.internal.cache.DistributedPutAllOperation;
+import org.apache.geode.internal.cache.DistributedRemoveAllOperation;
+import org.apache.geode.internal.cache.EntryEventImpl;
+import org.apache.geode.internal.cache.InternalRegion;
+import org.apache.geode.internal.cache.KeyInfo;
+import org.apache.geode.internal.cache.LocalRegion;
+import org.apache.geode.internal.cache.TXStateStub;
+import org.apache.geode.internal.cache.tier.sockets.ClientProxyMembershipID;
+import org.apache.geode.internal.cache.tier.sockets.VersionedObjectList;
+import org.junit.Assert;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.ExpectedException;
+import org.mockito.Mockito;
+
+
+public class AbstractPeerTXRegionStubTest {
+    private AbstractPeerTXRegionStub txrStub;
+
+    private TXStateStub state;
+
+    private LocalRegion region;
+
+    private class TestingAbstractPeerTXRegionStub extends AbstractPeerTXRegionStub {
+        private final LocalRegion region;
+
+        private TestingAbstractPeerTXRegionStub(TXStateStub txState, LocalRegion r) {
+            super(txState);
+            this.region = r;
+        }
+
+        @Override
+        public void destroyExistingEntry(EntryEventImpl event, boolean cacheWrite, Object expectedOldValue) {
+        }
+
+        @Override
+        public Entry getEntry(KeyInfo keyInfo, boolean allowTombstone) {
+            return null;
+        }
+
+        @Override
+        public void invalidateExistingEntry(EntryEventImpl event, boolean invokeCallbacks, boolean forceNewEntry) {
+        }
+
+        @Override
+        public boolean containsKey(KeyInfo keyInfo) {
+            return false;
+        }
+
+        @Override
+        public boolean containsValueForKey(KeyInfo keyInfo) {
+            return false;
+        }
+
+        @Override
+        public Object findObject(KeyInfo keyInfo, boolean isCreate, boolean generateCallbacks, Object value, boolean preferCD, ClientProxyMembershipID requestingClient, EntryEventImpl clientEvent) {
+            return null;
+        }
+
+        @Override
+        public Object getEntryForIterator(KeyInfo keyInfo, boolean allowTombstone) {
+            return null;
+        }
+
+        @Override
+        public boolean putEntry(EntryEventImpl event, boolean ifNew, boolean ifOld, Object expectedOldValue, boolean requireOldValue, long lastModified, boolean overwriteDestroyed) {
+            return false;
+        }
+
+        @Override
+        public void postPutAll(DistributedPutAllOperation putallOp, VersionedObjectList successfulPuts, InternalRegion region) {
+        }
+
+        @Override
+        public void postRemoveAll(DistributedRemoveAllOperation op, VersionedObjectList successfulOps, InternalRegion region) {
+        }
+
+        @Override
+        public void cleanup() {
+        }
+
+        @Override
+        protected InternalRegion getRegion() {
+            return this.region;
+        }
+    }
+
+    @Rule
+    public ExpectedException expectedException = ExpectedException.none();
+
+    @Test
+    public void getRegionKeysForIterationTranslatesCacheClosedException() {
+        expectedException.expect(TransactionDataNodeHasDepartedException.class);
+        // Mocking to cause getSystem() to throw exceptions for testing
+        // getSystem is called when creating FetchKeysResponse in RemoteFetchKeysResponse.send, which is
+        // called from getRegionKeysForIteration
+        Mockito.when(region.getSystem()).thenThrow(CacheClosedException.class);
+        txrStub.getRegionKeysForIteration();
+        Assert.fail("AbstractPeerTXRegionStub expected to translate CacheClosedException to TransactionDataNodeHasDepartedException ");
+    }
+
+    @Test
+    public void getRegionKeysForIterationTranslatesRemoteOperationException() {
+        expectedException.expect(TransactionDataNodeHasDepartedException.class);
+        InternalDistributedSystem system = Mockito.mock(InternalDistributedSystem.class);
+        ClusterDistributionManager manager = Mockito.mock(ClusterDistributionManager.class);
+        Mockito.when(system.getDistributionManager()).thenReturn(manager);
+        Mockito.when(manager.getCancelCriterion()).thenReturn(Mockito.mock(CancelCriterion.class));
+        InternalDistributedMember target = new InternalDistributedMember("localhost", 1234);
+        RemoteFetchKeysMessage.FetchKeysResponse responseProcessor = new RemoteFetchKeysMessage.FetchKeysResponse(system, target);
+        RemoteFetchKeysMessage.FetchKeysResponse spy = Mockito.spy(responseProcessor);
+        Exception replyException = new ReplyException("testing", new org.apache.geode.internal.cache.RemoteOperationException("The cache is closing", new CacheClosedException()));
+        Mockito.doThrow(replyException).when(spy).waitForRepliesUninterruptibly();
+        spy.waitForKeys();
+        Assert.fail("Expected to translate RemoteOperationException.CacheClosedException to TransactionDataNodeHasDepartedException ");
+    }
+
+    @Test
+    public void getRegionKeysForIterationTranslatesRegionDestroyedException() {
+        expectedException.expect(TransactionDataNotColocatedException.class);
+        // Mocking to cause getSystem() to throw exceptions for testing
+        // getSystem is called when creating FetchKeysResponse in RemoteFetchKeysResponse.send, which is
+        // called from getRegionKeysForIteration
+        Mockito.when(region.getSystem()).thenThrow(RegionDestroyedException.class);
+        txrStub.getRegionKeysForIteration();
+        Assert.fail("AbstractPeerTXRegionStub expected to translate CacheClosedException to TransactionDataNodeHasDepartedException ");
+    }
+
+    @Test
+    public void getRegionKeysForIterationRethrowTransactionException() {
+        expectedException.expect(TransactionDataNodeHasDepartedException.class);
+        Mockito.when(region.getSystem()).thenThrow(TransactionDataNodeHasDepartedException.class);
+        txrStub.getRegionKeysForIteration();
+        Assert.fail("AbstractPeerTXRegionStub expected to rethrow TransactionDataNodeHasDepartedException ");
+    }
+
+    @Test
+    public void getRegionKeysForIterationTranslatesRuntimeException() {
+        expectedException.expect(TransactionException.class);
+        Mockito.when(region.getSystem()).thenThrow(new RuntimeException());
+        txrStub.getRegionKeysForIteration();
+        Assert.fail("AbstractPeerTXRegionStub expected to translate RuntimeException to TransactionException ");
+    }
+
+    @Test
+    public void entryCountTranslatesCacheClosedException() {
+        expectedException.expect(TransactionDataNodeHasDepartedException.class);
+        Mockito.when(region.getSystem()).thenThrow(CacheClosedException.class);
+        txrStub.entryCount();
+        Assert.fail("AbstractPeerTXRegionStub expected to translate CacheClosedException to TransactionDataNodeHasDepartedException ");
+    }
+
+    @Test
+    public void entryCountTranslatesRegionDestroyedException() {
+        expectedException.expect(TransactionDataNotColocatedException.class);
+        Mockito.when(region.getSystem()).thenThrow(RegionDestroyedException.class);
+        txrStub.entryCount();
+        Assert.fail("AbstractPeerTXRegionStub expected to translate CacheClosedException to TransactionDataNodeHasDepartedException ");
+    }
+
+    @Test
+    public void entryCountRethrowTransactionException() {
+        expectedException.expect(TransactionDataNodeHasDepartedException.class);
+        Mockito.when(region.getSystem()).thenThrow(TransactionDataNodeHasDepartedException.class);
+        txrStub.entryCount();
+        Assert.fail("AbstractPeerTXRegionStub expected to rethrow TransactionDataNodeHasDepartedException ");
+    }
+
+    @Test
+    public void entryCountTranslatesRuntimeException() {
+        expectedException.expect(TransactionException.class);
+        Mockito.when(region.getSystem()).thenThrow(new RuntimeException());
+        txrStub.entryCount();
+        Assert.fail("AbstractPeerTXRegionStub expected to translate RuntimeException to TransactionException ");
+    }
+}
+

@@ -1,0 +1,75 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.camel.language;
+
+
+import org.apache.camel.ContextTestSupport;
+import org.apache.camel.PropertyInject;
+import org.junit.Test;
+
+
+/**
+ *
+ */
+public class PropertyInjectAnnotationParameterTest extends ContextTestSupport {
+    @Test
+    public void testPropertyInjectAnnotationOne() throws Exception {
+        getMockEndpoint("mock:result").expectedBodiesReceived("Hello World");
+        template.sendBody("direct:one", "World");
+        assertMockEndpointsSatisfied();
+    }
+
+    @Test
+    public void testPropertyInjectAnnotationTwo() throws Exception {
+        getMockEndpoint("mock:result").expectedBodiesReceived("WorldWorldWorld");
+        template.sendBody("direct:two", "World");
+        assertMockEndpointsSatisfied();
+    }
+
+    @Test
+    public void testPropertyInjectAnnotationThree() throws Exception {
+        getMockEndpoint("mock:result").expectedBodiesReceived("Goodbye World");
+        template.sendBody("direct:three", "World");
+        assertMockEndpointsSatisfied();
+    }
+
+    public static final class MyBean {
+        public String callA(@PropertyInject("greeting")
+        String greeting, String body) {
+            return (greeting + " ") + body;
+        }
+    }
+
+    public static final class MyOtherBean {
+        public String callA(@PropertyInject(value = "bye", defaultValue = "Goodbye")
+        String bye, String body) {
+            return (bye + " ") + body;
+        }
+    }
+
+    public static final class MyCounterBean {
+        public String callA(@PropertyInject("times")
+        int times, String body) {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < times; i++) {
+                sb.append(body);
+            }
+            return sb.toString();
+        }
+    }
+}
+

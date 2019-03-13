@@ -1,0 +1,216 @@
+/**
+ * Licensed to CRATE Technology GmbH ("Crate") under one or more contributor
+ * license agreements.  See the NOTICE file distributed with this work for
+ * additional information regarding copyright ownership.  Crate licenses
+ * this file to you under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.  You may
+ * obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.  See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ *
+ * However, if you have executed another commercial license agreement
+ * with Crate these terms will supersede the license and you may use the
+ * software solely pursuant to the terms of the relevant commercial agreement.
+ */
+package io.crate.analyze;
+
+
+import BlobIndicesService.SETTING_INDEX_BLOBS_PATH;
+import BlobSchemaInfo.NAME;
+import IndexMetaData.SETTING_AUTO_EXPAND_REPLICAS;
+import IndexMetaData.SETTING_NUMBER_OF_REPLICAS;
+import IndexMetaData.SETTING_NUMBER_OF_SHARDS;
+import io.crate.exceptions.InvalidRelationName;
+import io.crate.exceptions.OperationOnInaccessibleRelationException;
+import io.crate.exceptions.RelationAlreadyExists;
+import io.crate.exceptions.RelationUnknown;
+import io.crate.test.integration.CrateDummyClusterServiceUnitTest;
+import io.crate.testing.SQLExecutor;
+import org.hamcrest.Matchers;
+import org.junit.Test;
+
+
+public class BlobTableAnalyzerTest extends CrateDummyClusterServiceUnitTest {
+    private SQLExecutor e;
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testWithInvalidProperty() {
+        e.analyze("create blob table screenshots with (foobar=1)");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testWithMultipleArgsToProperty() {
+        e.analyze("create blob table screenshots with (number_of_replicas=[1, 2])");
+    }
+
+    @Test
+    public void testCreateBlobTableAutoExpand() {
+        CreateBlobTableAnalyzedStatement analysis = e.analyze("create blob table screenshots clustered into 10 shards with (number_of_replicas='0-all')");
+        assertThat(analysis.tableIdent().name(), Matchers.is("screenshots"));
+        assertThat(analysis.tableIdent().schema(), Matchers.is(NAME));
+        assertThat(analysis.tableParameter().settings().getAsInt(SETTING_NUMBER_OF_SHARDS, 0), Matchers.is(10));
+        assertThat(analysis.tableParameter().settings().get(SETTING_AUTO_EXPAND_REPLICAS), Matchers.is("0-all"));
+    }
+
+    @Test
+    public void testCreateBlobTableDefaultNumberOfShards() {
+        CreateBlobTableAnalyzedStatement analysis = e.analyze("create blob table screenshots");
+        assertThat(analysis.tableIdent().name(), Matchers.is("screenshots"));
+        assertThat(analysis.tableIdent().schema(), Matchers.is(NAME));
+        assertThat(analysis.tableParameter().settings().getAsInt(SETTING_NUMBER_OF_SHARDS, 0), Matchers.is(4));
+    }
+
+    @Test
+    public void testCreateBlobTableRaisesErrorIfAlreadyExists() {
+        expectedException.expect(RelationAlreadyExists.class);
+        e.analyze("create blob table blobs");
+    }
+
+    @Test
+    public void testCreateBlobTable() {
+        CreateBlobTableAnalyzedStatement analysis = e.analyze("create blob table screenshots clustered into 10 shards with (number_of_replicas='0-all')");
+        assertThat(analysis.tableIdent().name(), Matchers.is("screenshots"));
+        assertThat(analysis.tableParameter().settings().getAsInt(SETTING_NUMBER_OF_SHARDS, 0), Matchers.is(10));
+        assertThat(analysis.tableParameter().settings().get(SETTING_AUTO_EXPAND_REPLICAS), Matchers.is("0-all"));
+    }
+
+    @Test
+    public void testCreateBlobTableWithPath() {
+        CreateBlobTableAnalyzedStatement analysis = e.analyze("create blob table screenshots with (blobs_path='/tmp/crate_blob_data')");
+        assertThat(analysis.tableIdent().name(), Matchers.is("screenshots"));
+        assertThat(analysis.tableParameter().settings().get(SETTING_INDEX_BLOBS_PATH.getKey()), Matchers.is("/tmp/crate_blob_data"));
+    }
+
+    @Test
+    public void testCreateBlobTableWithPathParameter() {
+        CreateBlobTableAnalyzedStatement analysis = e.analyze("create blob table screenshots with (blobs_path=?)", new Object[]{ "/tmp/crate_blob_data" });
+        assertThat(analysis.tableIdent().name(), Matchers.is("screenshots"));
+        assertThat(analysis.tableParameter().settings().get(SETTING_INDEX_BLOBS_PATH.getKey()), Matchers.is("/tmp/crate_blob_data"));
+    }
+
+    @Test
+    public void testCreateBlobTableWithPathInvalidType() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Invalid value for argument 'blobs_path'");
+        e.analyze("create blob table screenshots with (blobs_path=1)");
+    }
+
+    @Test
+    public void testCreateBlobTableWithPathInvalidParameter() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Invalid value for argument 'blobs_path'");
+        e.analyze("create blob table screenshots with (blobs_path=?)", new Object[]{ 1 });
+    }
+
+    @Test(expected = InvalidRelationName.class)
+    public void testCreateBlobTableIllegalTableName() {
+        e.analyze("create blob table \"blob.s\"");
+    }
+
+    @Test
+    public void testDropBlobTable() {
+        DropBlobTableAnalyzedStatement analysis = e.analyze("drop blob table blobs");
+        assertThat(analysis.tableIdent().name(), Matchers.is("blobs"));
+        assertThat(analysis.tableIdent().schema(), Matchers.is(NAME));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testDropBlobTableWithInvalidSchema() {
+        e.analyze("drop blob table doc.users");
+    }
+
+    @Test
+    public void testDropBlobTableWithValidSchema() {
+        DropBlobTableAnalyzedStatement analysis = e.analyze("drop blob table \"blob\".blobs");
+        assertThat(analysis.tableIdent().name(), Matchers.is("blobs"));
+    }
+
+    @Test(expected = RelationUnknown.class)
+    public void testDropBlobTableThatDoesNotExist() {
+        e.analyze("drop blob table unknown");
+    }
+
+    @Test
+    public void testDropBlobTableIfExists() {
+        DropBlobTableAnalyzedStatement analysis = e.analyze("drop blob table if exists blobs");
+        assertThat(analysis.dropIfExists(), Matchers.is(true));
+        assertThat(analysis.tableIdent().name(), Matchers.is("blobs"));
+        assertThat(analysis.tableIdent().schema(), Matchers.is(NAME));
+    }
+
+    @Test
+    public void testDropNonExistentBlobTableIfExists() {
+        DropBlobTableAnalyzedStatement analysis = e.analyze("drop blob table if exists unknown");
+        assertThat(analysis.dropIfExists(), Matchers.is(true));
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testAlterBlobTableWithInvalidProperty() {
+        e.analyze("alter blob table blobs set (foobar='2')");
+    }
+
+    @Test
+    public void testAlterBlobTableWithReplicas() {
+        AlterBlobTableAnalyzedStatement analysis = e.analyze("alter blob table blobs set (number_of_replicas=2)");
+        assertThat(analysis.table().ident().name(), Matchers.is("blobs"));
+        assertThat(analysis.tableParameter().settings().getAsInt(SETTING_NUMBER_OF_REPLICAS, 0), Matchers.is(2));
+    }
+
+    @Test
+    public void testAlterBlobTableWithPath() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("Invalid property \"blobs_path\" passed to [ALTER | CREATE] TABLE statement");
+        e.analyze("alter blob table blobs set (blobs_path=1)");
+    }
+
+    @Test
+    public void testCreateBlobTableWithParams() {
+        CreateBlobTableAnalyzedStatement analysis = e.analyze("create blob table screenshots clustered into ? shards with (number_of_replicas= ?)", new Object[]{ 2, "0-all" });
+        assertThat(analysis.tableIdent().name(), Matchers.is("screenshots"));
+        assertThat(analysis.tableIdent().schema(), Matchers.is(NAME));
+        assertThat(analysis.tableParameter().settings().getAsInt(SETTING_NUMBER_OF_SHARDS, 0), Matchers.is(2));
+        assertThat(analysis.tableParameter().settings().get(SETTING_AUTO_EXPAND_REPLICAS), Matchers.is("0-all"));
+    }
+
+    @Test
+    public void testCreateBlobTableWithInvalidShardsParam() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("invalid number 'foo'");
+        e.analyze("create blob table screenshots clustered into ? shards", new Object[]{ "foo" });
+    }
+
+    @Test
+    public void testAlterBlobTableRename() {
+        expectedException.expect(OperationOnInaccessibleRelationException.class);
+        expectedException.expectMessage("The relation \"blob.blobs\" doesn\'t support or allow ALTER RENAME operations.");
+        e.analyze("alter blob table blobs rename to blobbier");
+    }
+
+    @Test
+    public void testAlterBlobTableRenameWithExplicitSchema() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("The Schema \"schema\" isn\'t valid in a [CREATE | ALTER] BLOB TABLE clause");
+        e.analyze("alter blob table schema.blobs rename to blobbier");
+    }
+
+    @Test
+    public void testAlterBlobTableOpenClose() {
+        expectedException.expect(OperationOnInaccessibleRelationException.class);
+        expectedException.expectMessage("The relation \"blob.blobs\" doesn\'t support or allow ALTER OPEN/CLOSE operations.");
+        e.analyze("alter blob table blobs close");
+    }
+
+    @Test
+    public void testAlterBlobTableOpenCloseWithExplicitSchema() {
+        expectedException.expect(IllegalArgumentException.class);
+        expectedException.expectMessage("The Schema \"schema\" isn\'t valid in a [CREATE | ALTER] BLOB TABLE clause");
+        e.analyze("alter blob table schema.blob close");
+    }
+}
+

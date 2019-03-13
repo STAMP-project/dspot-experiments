@@ -1,0 +1,58 @@
+package com.vaadin.tests.components.menubar;
+
+
+import com.vaadin.testbench.By;
+import com.vaadin.testbench.elements.LabelElement;
+import com.vaadin.testbench.elements.MenuBarElement;
+import com.vaadin.tests.tb3.MultiBrowserTest;
+import org.junit.Test;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import static com.vaadin.tests.components.menubar.MenuBarsWithNesting.itemNames.length;
+
+
+/**
+ * This class tests the method VMenuBar.getSubPartElement(String) by using
+ * Vaadin locators for finding the items of a MenuBar.
+ *
+ * @author Vaadin Ltd
+ */
+public class MenuBarsWithNestingTest extends MultiBrowserTest {
+    private MenuBarElement firstMenuBar;
+
+    private MenuBarElement secondMenuBar;
+
+    private LabelElement label;
+
+    @Test
+    public void testMenuWithoutIcons() {
+        WebElement fileMenu = firstMenuBar.findElement(By.vaadin("#File"));
+        fileMenu.click();
+        WebElement exportMenu = fileMenu.findElement(By.vaadin("#Export.."));
+        exportMenu.click();
+        waitUntil(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[text() = 'As PDF...']")));
+    }
+
+    @Test
+    public void testMenuWithIcons() throws InterruptedException {
+        // There is a separate test for the last item of the second menu.
+        for (int i = 0; i < ((length) - 1); i++) {
+            String itemName = MenuBarsWithNesting.itemNames[i];
+            secondMenuBar.findElement(By.vaadin(("#" + itemName))).click();
+            waitUntil(ExpectedConditions.textToBePresentInElement(label.getWrappedElement(), itemName));
+        }
+    }
+
+    @Test
+    public void testNestedMenuWithIcons() throws InterruptedException {
+        String selection = MenuBarsWithNesting.itemNames[((length) - 1)];
+        for (String itemName : MenuBarsWithNesting.nestedItemnames) {
+            WebElement lastMenuItem = secondMenuBar.findElement(By.vaadin(("#" + selection)));
+            lastMenuItem.click();
+            lastMenuItem.findElement(By.vaadin(("#" + itemName))).click();
+            waitUntil(ExpectedConditions.textToBePresentInElement(label.getWrappedElement(), itemName));
+        }
+    }
+}
+

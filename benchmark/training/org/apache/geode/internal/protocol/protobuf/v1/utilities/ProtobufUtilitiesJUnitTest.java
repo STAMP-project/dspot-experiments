@@ -1,0 +1,138 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one or more contributor license
+ * agreements. See the NOTICE file distributed with this work for additional information regarding
+ * copyright ownership. The ASF licenses this file to You under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance with the License. You may obtain a
+ * copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
+package org.apache.geode.internal.protocol.protobuf.v1.utilities;
+
+
+import BasicTypes.EncodedValue.Builder;
+import com.google.protobuf.ByteString;
+import java.nio.charset.Charset;
+import org.apache.geode.internal.protocol.protobuf.v1.BasicTypes;
+import org.apache.geode.internal.protocol.protobuf.v1.ProtobufSerializationService;
+import org.apache.geode.test.junit.categories.ClientServerTest;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+
+
+@Category({ ClientServerTest.class })
+public class ProtobufUtilitiesJUnitTest {
+    private ProtobufSerializationService protobufSerializationService = new ProtobufSerializationService();
+
+    @Test
+    public void getIntPrimitiveFromEncodedValue() throws Exception {
+        BasicTypes.EncodedValue.Builder builder = BasicTypes.EncodedValue.newBuilder();
+        BasicTypes.EncodedValue encodedValue = builder.setIntResult(1).build();
+        Assert.assertEquals(1, protobufSerializationService.decode(encodedValue));
+    }
+
+    @Test
+    public void getLongPrimitiveFromEncodedValue() throws Exception {
+        BasicTypes.EncodedValue encodedValue = BasicTypes.EncodedValue.newBuilder().setLongResult(1).build();
+        Assert.assertEquals(1L, protobufSerializationService.decode(encodedValue));
+    }
+
+    @Test
+    public void getShortPrimitiveFromEncodedValue() throws Exception {
+        BasicTypes.EncodedValue encodedValue = BasicTypes.EncodedValue.newBuilder().setShortResult(1).build();
+        Assert.assertEquals(((short) (1)), protobufSerializationService.decode(encodedValue));
+    }
+
+    @Test
+    public void getBytePrimitiveFromEncodedValue() throws Exception {
+        BasicTypes.EncodedValue encodedValue = BasicTypes.EncodedValue.newBuilder().setByteResult(1).build();
+        Assert.assertEquals(((byte) (1)), protobufSerializationService.decode(encodedValue));
+    }
+
+    @Test
+    public void getBooleanPrimitiveFromEncodedValue() throws Exception {
+        BasicTypes.EncodedValue encodedValue = BasicTypes.EncodedValue.newBuilder().setBooleanResult(true).build();
+        Assert.assertEquals(true, protobufSerializationService.decode(encodedValue));
+    }
+
+    @Test
+    public void getDoublePrimitiveFromEncodedValue() throws Exception {
+        BasicTypes.EncodedValue encodedValue = BasicTypes.EncodedValue.newBuilder().setDoubleResult(1.0).build();
+        Assert.assertEquals(1.0, protobufSerializationService.decode(encodedValue));
+    }
+
+    @Test
+    public void getFloatPrimitiveFromEncodedValue() throws Exception {
+        BasicTypes.EncodedValue encodedValue = BasicTypes.EncodedValue.newBuilder().setFloatResult(1).build();
+        Assert.assertEquals(1.0F, protobufSerializationService.decode(encodedValue));
+    }
+
+    @Test
+    public void getByteArrayPrimitiveFromEncodedValue() throws Exception {
+        BasicTypes.EncodedValue encodedValue = BasicTypes.EncodedValue.newBuilder().setBinaryResult(ByteString.copyFrom("SomeBinary".getBytes())).build();
+        Assert.assertArrayEquals("SomeBinary".getBytes(Charset.forName("UTF-8")), ((byte[]) (protobufSerializationService.decode(encodedValue))));
+    }
+
+    @Test
+    public void getStringPrimitiveFromEncodedValue() throws Exception {
+        BasicTypes.EncodedValue encodedValue = BasicTypes.EncodedValue.newBuilder().setStringResult("SomeString").build();
+        Assert.assertEquals("SomeString", protobufSerializationService.decode(encodedValue));
+    }
+
+    @Test
+    public void doesAIntValueSuccessfullyEncodeIntoPrimitiveEncodedValues() throws Exception {
+        createAndVerifyEncodedValue(1);
+    }
+
+    @Test
+    public void doesALongValueSuccessfullyEncodeIntoPrimitiveEncodedValues() throws Exception {
+        createAndVerifyEncodedValue(1L);
+    }
+
+    @Test
+    public void doesAShortValueSuccessfullyEncodeIntoPrimitiveEncodedValues() throws Exception {
+        createAndVerifyEncodedValue(((short) (1)));
+    }
+
+    @Test
+    public void doesAByteValueSuccessfullyEncodeIntoPrimitiveEncodedValues() throws Exception {
+        createAndVerifyEncodedValue(((byte) (1)));
+    }
+
+    @Test
+    public void doesABooleanValueSuccessfullyEncodeIntoPrimitiveEncodedValues() throws Exception {
+        createAndVerifyEncodedValue(true);
+    }
+
+    @Test
+    public void doesADoubleValueSuccessfullyEncodeIntoPrimitiveEncodedValues() throws Exception {
+        createAndVerifyEncodedValue(((double) (1)));
+    }
+
+    @Test
+    public void doesAFloatValueSuccessfullyEncodeIntoPrimitiveEncodedValues() throws Exception {
+        createAndVerifyEncodedValue(((float) (1)));
+    }
+
+    @Test
+    public void doesABinaryValueSuccessfullyEncodeIntoPrimitiveEncodedValues() throws Exception {
+        createAndVerifyEncodedValue("Some Text to Binary".getBytes());
+    }
+
+    @Test
+    public void doesAStringValueSuccessfullyEncodeIntoPrimitiveEncodedValues() throws Exception {
+        createAndVerifyEncodedValue("Some String text to test");
+    }
+
+    @Test
+    public void doesANullValueSuccessfullyEncodeIntoEncodedValues() throws Exception {
+        createAndVerifyEncodedValue(null);
+    }
+}
+

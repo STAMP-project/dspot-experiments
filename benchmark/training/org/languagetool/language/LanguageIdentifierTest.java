@@ -1,0 +1,104 @@
+/**
+ * LanguageTool, a natural language style checker
+ * Copyright (C) 2014 Daniel Naber (http://www.danielnaber.de)
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301
+ * USA
+ */
+package org.languagetool.language;
+
+
+import java.util.Arrays;
+import java.util.Collections;
+import org.junit.Test;
+
+
+public class LanguageIdentifierTest {
+    private final LanguageIdentifier identifier = new LanguageIdentifier();
+
+    private static final String fastTextBinary = "/prg/fastText-0.1.0/fasttext";
+
+    private static final String fastTextModel = "/prg/fastText-0.1.0/data/lid.176.bin";
+
+    private static final String czech = "V sou?asn? dob? je ozna?en?m Linux m?n?no nejen j?dro opera?n?ho syst?mu, " + "ale zahrnuje do n?j t?? ve?ker? programov? vybaven?";
+
+    @Test
+    public void testDetection() {
+        langAssert("de", "Das ist ein deutscher Text");
+        langAssert("en", "This is an English text");
+        langAssert("fr", "Le mont Revard est un sommet du d?partement fran?ais ...");
+        // some test sentences from the "Linux" article of Wikipedia:
+        langAssert("be", "?????????????? Linux ?????????????? ? ??????????????? ???????? ????????? ?? ????? ???????????? ????'??????.");
+        langAssert("ca", "Aquest sistema operatiu va cr?ixer gr?cies al treball col?laboratiu de programadors de tot el m?n ...");
+        langAssert("zh", "Linux??????????x86???????????????????Linux????????????????");
+        langAssert("da", "Linux-distributionerne har traditionelt deres st?rste udbredelse p? servere, men er hastigt p? vej p? almindelige pc'er.");
+        langAssert("nl", "Linux is een verzameling van open source Unix-achtige besturingssystemen gebaseerd op de POSIX-standaard.");
+        langAssert("el", "?? Linux ?????? ?? ???????????? ??? ?? ???????????? ?? ?????? ???????? ????????????? ??????????, ??? ?????? ???????? ???? ?????? ???????? ...");
+        // langAssert("is", "Linux er frj?ls st?rikerfiskjarni sem Linus Torvalds byrja?i a? skrifa ?ri? 1991, ...");
+        langAssert("it", "Grazie alla portabilit? del kernel Linux sono stati sviluppati sistemi operativi Linux per un'ampia gamma di dispositivi:");
+        langAssert("ja", "Linux??????Linux?????????????????????????????????????? (OS) ??????");
+        langAssert("km", "????????????????????????????????????????????? ???????????????????????????????????????????? ? ????????????????????????????????? ? ???????????????");
+        // langAssert("lt", "Linux ? laisvos (atviro kodo) operacin?s sistemos branduolio (kernel) pavadinimas.");
+        // langAssert("ml", "???? ?????????? ??? ????????????? ??????????? ????/??????? (???????:GNU/Linux).");
+        langAssert("fa", "\u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u062d\u0630\u0641 \u0634\u062f\u0647\u200c\u0627\u0633\u062a. \u062f\u0631 \u0632\u06cc\u0631 \u0633\u06cc\u0627\u0647\u0647\u0654 \u062d\u0630\u0641 \u0648 \u0627\u0646\u062a\u0642\u0627\u0644 \u0627\u06cc\u0646 \u0635\u0641\u062d\u0647 \u0646\u0645\u0627\u06cc\u0634 \u062f\u0627\u062f\u0647 \u0634\u062f\u0647\u200c\u0627\u0633\u062a.");
+        langAssert("pl", "Linux ? rodzina uniksopodobnych system?w operacyjnych opartych na j?drze Linux.");
+        langAssert("pt", "Linux ? um termo utilizado para se referir a sistemas operativos ou sistemas operacionais que utilizem o n?cleo Linux.");
+        langAssert("ro", "Linux este o familie de sisteme de operare de tip Unix care folosesc Nucleul Linux (?n englez? kernel).");
+        langAssert("ru", "Linux, ????? ??????? ? ????? ???????? Unix-???????? ???????????? ??????, ?????????? ?? ??????????? ????.");
+        langAssert("sk", "Linux je po??ta?ov? opera?n? syst?m a jeho jadro.");
+        langAssert("sl", "Linux je prost operacijski sistem podoben Unixu s prosto dostopno izvorno kodo ...");
+        langAssert("es", "GNU/Linux es uno de los t?rminos empleados para referirse a la combinaci?n del n?cleo o kernel libre ...");
+        langAssert("sv", "Linux eller GNU/Linux ?r ett Unix-liknande operativsystem som till st?rsta delen");
+        langAssert("tl", "Ang Linux ay isang operating system kernel para sa mga operating system na humahalintulad sa Unix.");
+        langAssert("ta", "Linux ????? ??? ???????????? ???????????????.");
+        langAssert("uk", "??????? ? ???????? ????? UNIX-???????? ??????????? ?????? ?? ?????? ???????????? ????.");
+        langAssert("km", "\u17a2\u17d2\u1793\u1780\u200b\u17a2\u17b6\u1785\u200b\u1787\u17bd\u1799\u200b\u179b\u17be\u1780\u200b\u179f\u17d2\u1791\u17bd\u1799\u200b\u179c\u17b7\u1782\u17b8\u1797\u17b8\u178c\u17b6\u1797\u17b6\u179f\u17b6\u1781\u17d2\u1798\u17c2\u179a\u200b\u1793\u17c1\u17c7\u200b\u17b1\u17d2\u1799\u200b\u1798\u17b6\u1793\u200b\u179b\u1780\u17d2\u1781\u178e\u17c8");
+        // not yet in language-detector 0.5:
+        langAssert("eo", "Imperiestraj pingvenoj man?as ?efe krustacojn kaj malgrandajn ...");
+    }
+
+    @Test
+    public void testKnownLimitations() {
+        // wrong, but low probabilities
+        // identifier.enableFasttext(new File(fastTextBinary), new File(fastTextModel));
+        // fasttext just assumes english, ignore / comment out
+        langAssert(null, "");
+        langAssert("ca", "X");
+        // not activated because it impairs detection of Spanish, so ast and gl may be mis-detected:
+        langAssert("es", "L'Iberorrom?nicu o Iberromance ye un subgrupu de lling?es romances que posiblemente ...");// ast
+
+        langAssert("es", "Dodro ? un concello da provincia da Coru?a pertencente ? comarca do Sar ...");// gl
+
+        // Somali, known by language-detector, but not by LT, so we get back something else:
+        langAssert("tl", ("Dhammaan garoomada caalamka ayaa loo isticmaalaa. Ururku waxa uu qabtaa ama uu ku shaqaleeyahay " + ("isusocodka diyaaradaha aduunka ee iskaga gooshaya xuduudaha iyo ka hortagga wixii qalad ah iyo baaritaanka " + "marka ay dhacdo dhibaato la xiriirta dulimaad.")));
+    }
+
+    @Test
+    public void testIgnoreSignature() {
+        langAssert("de", "Das ist ein deutscher Text\n-- \nBut this is an\nEnglish text in the signature, and it\'s much longer than the original text.");
+        langAssert("en", "This is an English text.\n-- \nDas ist ein\ndeutscher Text in der Signatur, der l\u00e4nger ist als der Haupttext.");
+    }
+
+    @Test
+    public void testAdditionalLanguagesBuiltIn() {
+        LanguageIdentifier defaultIdent = new LanguageIdentifier();
+        langAssert("sk", LanguageIdentifierTest.czech, defaultIdent);// misdetected, as cz isn't supported by LT
+
+        LanguageIdentifier csIdent = new LanguageIdentifier();
+        langAssert("sk", LanguageIdentifierTest.czech, csIdent, Arrays.asList("cs"), Collections.emptyList());// no-op language only supported by fastText
+
+    }
+}
+

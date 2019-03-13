@@ -1,0 +1,49 @@
+package com.vaadin.v7.tests.components.grid;
+
+
+import com.vaadin.testbench.elements.ButtonElement;
+import com.vaadin.testbench.elements.GridElement;
+import com.vaadin.testbench.parallel.BrowserUtil;
+import com.vaadin.testbench.parallel.TestCategory;
+import com.vaadin.tests.tb3.MultiBrowserTest;
+import java.io.IOException;
+import org.junit.Assert;
+import org.junit.Test;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
+import static GridWidthIncrease.COLUMN_COUNT;
+
+
+@TestCategory("grid")
+public class GridWidthIncreaseTest extends MultiBrowserTest {
+    private static int INCREASE_COUNT = 3;
+
+    @Test
+    public void testColumnsExpandWithGrid() throws IOException {
+        openTestURL();
+        GridElement grid = $(GridElement.class).first();
+        double accuracy = 1.0;
+        DesiredCapabilities cap = getDesiredCapabilities();
+        if (((BrowserUtil.isIE(cap, 8)) || (BrowserUtil.isIE(cap, 9))) || (BrowserUtil.isPhantomJS(cap))) {
+            accuracy = 2.0;
+        }
+        for (int i = 0; i < (GridWidthIncreaseTest.INCREASE_COUNT); ++i) {
+            $(ButtonElement.class).first().click();
+            int prevWidth = 0;
+            for (int c = 0; c < (COLUMN_COUNT); ++c) {
+                int width = grid.getCell(0, c).getSize().getWidth();
+                if (c > 0) {
+                    // check that columns are roughly the same width.
+                    Assert.assertEquals("Difference in column widths", prevWidth, width, accuracy);
+                }
+                prevWidth = width;
+            }
+            /* Column widths should be the same as table wrapper size. Since
+            Selenium doesn't support subpixels correctly, we use a rough
+            estimation.
+             */
+            Assert.assertEquals(grid.getRow(0).getSize().getWidth(), grid.getTableWrapper().getSize().getWidth(), accuracy);
+        }
+    }
+}
+

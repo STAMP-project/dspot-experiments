@@ -1,0 +1,99 @@
+/**
+ * Copyright 2017 LinkedIn Corp.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not
+ * use this file except in compliance with the License. You may obtain a copy of
+ * the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations under
+ * the License.
+ */
+package azkaban.db;
+
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.ResultSetHandler;
+import org.junit.Assert;
+import org.junit.Test;
+import org.mockito.Mockito;
+
+
+public class DatabaseOperatorTest {
+    private static final List<Integer> list = new ArrayList<>();
+
+    private static final int index_2 = 15;
+
+    private static int index_1 = 3;
+
+    private final AzkabanDataSource datasource = new AzDBTestUtility.EmbeddedH2BasicDataSource();
+
+    private final ResultSetHandler<Integer> handler = ( rs) -> {
+        if (!(rs.next())) {
+            return 0;
+        }
+        return rs.getInt(1);
+    };
+
+    private DatabaseOperator dbOperator;
+
+    private QueryRunner queryRunner;
+
+    private Connection conn;
+
+    @Test
+    public void testValidQuery() throws Exception {
+        final int res = this.dbOperator.query("select * from blah where ? = ?", this.handler, "id", 2);
+        Assert.assertEquals(15, res);
+        Mockito.verify(this.queryRunner).query("select * from blah where ? = ?", this.handler, "id", 2);
+    }
+
+    @Test
+    public void testInvalidQuery() throws Exception {
+        final int res = this.dbOperator.query("select * from blah where ? = ?", this.handler, "id", 3);
+        Assert.assertEquals(0, res);
+    }
+
+    @Test(expected = SQLException.class)
+    public void testTypoSqlStatement() throws Exception {
+        System.out.println("testTypoSqlStatement");
+        this.dbOperator.query("sele * from blah where ? = ?", this.handler, "id", 2);
+    }
+
+    @Test
+    public void testTransaction() throws Exception {
+        Mockito.when(this.queryRunner.update(this.conn, "update blah set ? = ?", "1", 26)).thenReturn(1);
+        Mockito.when(this.queryRunner.query(this.conn, "select * from blah where ? = ?", this.handler, "id", 1)).thenReturn(26);
+        final SQLTransaction<Integer> transaction = ( transOperator) -> {
+            transOperator.update("update blah set ? = ?", "1", 26);
+            return transOperator.query("select * from blah where ? = ?", this.handler, "id", 1);
+        };
+        final int res = this.dbOperator.transaction(transaction);
+        Assert.assertEquals(26, res);
+    }
+
+    @Test
+    public void testValidUpdate() throws Exception {
+        final int res = this.dbOperator.update("update blah set ? = ?", "1", 26);
+        // 1 row is affected
+        Assert.assertEquals(1, res);
+        Assert.assertEquals(26, DatabaseOperatorTest.index_1);
+        Mockito.verify(this.queryRunner).update("update blah set ? = ?", "1", 26);
+    }
+
+    @Test
+    public void testInvalidUpdate() throws Exception {
+        final int res = this.dbOperator.update("update blah set ? = ?", "3", 26);
+        // 0 row is affected
+        Assert.assertEquals(0, res);
+    }
+}
+

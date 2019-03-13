@@ -1,0 +1,32 @@
+/**
+ * Copyright MapStruct Authors.
+ *
+ * Licensed under the Apache License version 2.0, available at http://www.apache.org/licenses/LICENSE-2.0
+ */
+package org.mapstruct.ap.test.bugs._909;
+
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mapstruct.ap.testutil.WithClasses;
+import org.mapstruct.ap.testutil.runner.AnnotationProcessorTestRunner;
+import org.mapstruct.factory.Mappers;
+
+
+/**
+ * Verifies that forged iterable mapping methods for multi-dimensional arrays are generated properly.
+ *
+ * @author Andreas Gudian
+ */
+@RunWith(AnnotationProcessorTestRunner.class)
+@WithClasses(ValuesMapper.class)
+public class Issue909Test {
+    @Test
+    public void properlyCreatesMapperWithValuesAsParameterName() {
+        ValuesMapper.ValuesHolder valuesHolder = new ValuesMapper.ValuesHolder();
+        valuesHolder.setValues("values");
+        ValuesMapper.ValuesHolderDto dto = Mappers.getMapper(ValuesMapper.class).convert(valuesHolder);
+        assertThat(dto.getValues()).isEqualTo("values");
+    }
+}
+

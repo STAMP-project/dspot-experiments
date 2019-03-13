@@ -1,0 +1,16 @@
+package com.vaadin.tests.components.treetable;
+
+
+import com.vaadin.tests.tb3.MultiBrowserTest;
+import org.junit.Test;
+
+
+public class MinimalWidthColumnsTest extends MultiBrowserTest {
+    @Test
+    public void testFor1pxDifference() throws Exception {
+        openTestURL();
+        waitUntilLoadingIndicatorNotVisible();
+        compareScreen("onepixdifference");
+    }
+}
+

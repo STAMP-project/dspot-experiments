@@ -1,0 +1,65 @@
+/**
+ * Copyright 2012-2019 The Feign Authors
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
+package feign.httpclient;
+
+
+import feign.Feign;
+import feign.client.AbstractClientTest;
+import feign.jaxrs.JAXRSContract;
+import java.nio.charset.StandardCharsets;
+import javax.ws.rs.PUT;
+import javax.ws.rs.Path;
+import javax.ws.rs.QueryParam;
+import okhttp3.mockwebserver.MockResponse;
+import okhttp3.mockwebserver.RecordedRequest;
+import org.apache.http.client.HttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
+import org.junit.Assert;
+import org.junit.Test;
+
+
+/**
+ * Tests client-specific behavior, such as ensuring Content-Length is sent when specified.
+ */
+public class ApacheHttpClientTest extends AbstractClientTest {
+    @Test
+    public void queryParamsAreRespectedWhenBodyIsEmpty() throws InterruptedException {
+        final HttpClient httpClient = HttpClientBuilder.create().build();
+        final ApacheHttpClientTest.JaxRsTestInterface testInterface = Feign.builder().contract(new JAXRSContract()).client(new ApacheHttpClient(httpClient)).target(ApacheHttpClientTest.JaxRsTestInterface.class, ("http://localhost:" + (server.getPort())));
+        server.enqueue(new MockResponse().setBody("foo"));
+        server.enqueue(new MockResponse().setBody("foo"));
+        Assert.assertEquals("foo", testInterface.withBody("foo", "bar"));
+        final RecordedRequest request1 = server.takeRequest();
+        Assert.assertEquals("/withBody?foo=foo", request1.getPath());
+        Assert.assertEquals("bar", request1.getBody().readString(StandardCharsets.UTF_8));
+        Assert.assertEquals("foo", testInterface.withoutBody("foo"));
+        final RecordedRequest request2 = server.takeRequest();
+        Assert.assertEquals("/withoutBody?foo=foo", request2.getPath());
+        Assert.assertEquals("", request2.getBody().readString(StandardCharsets.UTF_8));
+    }
+
+    @Path("/")
+    public interface JaxRsTestInterface {
+        @PUT
+        @Path("/withBody")
+        public String withBody(@QueryParam("foo")
+        String foo, String bar);
+
+        @PUT
+        @Path("/withoutBody")
+        public String withoutBody(@QueryParam("foo")
+        String foo);
+    }
+}
+

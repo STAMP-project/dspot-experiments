@@ -1,0 +1,102 @@
+package com.vaadin.tests.elements;
+
+
+import com.vaadin.testbench.elements.AbstractLayoutElement;
+import com.vaadin.testbench.elements.CheckBoxElement;
+import com.vaadin.testbench.elements.ColorPickerElement;
+import com.vaadin.testbench.elements.ComboBoxElement;
+import com.vaadin.testbench.elements.DateFieldElement;
+import com.vaadin.testbench.elements.ListSelectElement;
+import com.vaadin.testbench.elements.OptionGroupElement;
+import com.vaadin.testbench.elements.TableElement;
+import com.vaadin.testbench.elements.TextAreaElement;
+import com.vaadin.testbench.elements.TextFieldElement;
+import com.vaadin.testbench.elements.TreeTableElement;
+import com.vaadin.testbench.elements.TwinColSelectElement;
+import com.vaadin.tests.tb3.MultiBrowserTest;
+import com.vaadin.v7.testbench.elements.TreeElement;
+import org.junit.Test;
+
+
+/**
+ * Test class which have test methods for all components added in the testUI
+ * class. Open TestURL is called only once before tests. Parent class should
+ * override protected Class<?> getUIClass() to specify which testUI should be
+ * used
+ */
+public abstract class CompatibilityElementComponentGetCaptionBaseTest extends MultiBrowserTest {
+    AbstractLayoutElement mainLayout;
+
+    @Test
+    public void getComboboxCaptionTest() {
+        ComboBoxElement elem = mainLayout.$(ComboBoxElement.class).get(0);
+        testCaption(elem, 0);
+    }
+
+    @Test
+    public void getTableCaptionTest() {
+        TableElement elem = mainLayout.$(TableElement.class).get(0);
+        testCaption(elem, 1);
+    }
+
+    @Test
+    public void getTreeTableCaptionTest() {
+        TreeTableElement elem = mainLayout.$(TreeTableElement.class).get(0);
+        testCaption(elem, 2);
+    }
+
+    @Test
+    public void getTreeCaptionTest() {
+        TreeElement elem = mainLayout.$(TreeElement.class).get(0);
+        testCaption(elem, 3);
+    }
+
+    @Test
+    public void getTwinColSelectCaptionTest() {
+        TwinColSelectElement elem = mainLayout.$(TwinColSelectElement.class).get(0);
+        testCaption(elem, 4);
+    }
+
+    @Test
+    public void getOptionGroupCaptionTest() {
+        OptionGroupElement elem = mainLayout.$(OptionGroupElement.class).get(0);
+        testCaption(elem, 5);
+    }
+
+    @Test
+    public void getListSelectCaptionTest() {
+        ListSelectElement elem = mainLayout.$(ListSelectElement.class).get(0);
+        testCaption(elem, 6);
+    }
+
+    @Test
+    public void getColorPickerCaptionTest() {
+        ColorPickerElement elem = mainLayout.$(ColorPickerElement.class).get(0);
+        testCaption(elem, 7);
+    }
+
+    @Test
+    public void getCheckBoxCaptionTest() {
+        CheckBoxElement elem = mainLayout.$(CheckBoxElement.class).get(0);
+        testCaption(elem, 8);
+    }
+
+    @Test
+    public void getTextFieldCaptionTest() {
+        TextFieldElement elem = mainLayout.$(TextFieldElement.class).get(0);
+        testCaption(elem, 9);
+    }
+
+    @Test
+    public void getTextAreaCaptionTest() {
+        TextAreaElement elem = mainLayout.$(TextAreaElement.class).get(0);
+        testCaption(elem, 10);
+    }
+
+    @Test
+    public void getDateFieldCaptionTest() {
+        DateFieldElement elem = mainLayout.$(DateFieldElement.class).get(0);
+        testCaption(elem, 11);
+    }
+}
+

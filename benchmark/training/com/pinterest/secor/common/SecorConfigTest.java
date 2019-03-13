@@ -1,0 +1,70 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package com.pinterest.secor.common;
+
+
+import com.pinterest.secor.protobuf.Messages.UnitTestMessage1;
+import com.pinterest.secor.protobuf.Messages.UnitTestMessage2;
+import java.net.URL;
+import java.util.Map;
+import org.apache.commons.configuration.ConfigurationException;
+import org.apache.commons.configuration.PropertiesConfiguration;
+import org.junit.Assert;
+import org.junit.Test;
+
+
+public class SecorConfigTest {
+    @Test
+    public void config_should_read_migration_required_properties_default_values() throws ConfigurationException {
+        URL configFile = Thread.currentThread().getContextClassLoader().getResource("secor.common.properties");
+        PropertiesConfiguration properties = new PropertiesConfiguration(configFile);
+        SecorConfig secorConfig = new SecorConfig(properties);
+        Assert.assertEquals("true", secorConfig.getDualCommitEnabled());
+        Assert.assertEquals("zookeeper", secorConfig.getOffsetsStorage());
+    }
+
+    @Test
+    public void config_should_read_migration_required() throws ConfigurationException {
+        URL configFile = Thread.currentThread().getContextClassLoader().getResource("secor.kafka.migration.test.properties");
+        PropertiesConfiguration properties = new PropertiesConfiguration(configFile);
+        SecorConfig secorConfig = new SecorConfig(properties);
+        Assert.assertEquals("false", secorConfig.getDualCommitEnabled());
+        Assert.assertEquals("kafka", secorConfig.getOffsetsStorage());
+    }
+
+    @Test
+    public void testProtobufMessageClassPerTopic() throws ConfigurationException {
+        URL configFile = Thread.currentThread().getContextClassLoader().getResource("secor.test.protobuf.properties");
+        PropertiesConfiguration properties = new PropertiesConfiguration(configFile);
+        SecorConfig secorConfig = new SecorConfig(properties);
+        Map<String, String> messageClassPerTopic = secorConfig.getProtobufMessageClassPerTopic();
+        Assert.assertEquals(2, messageClassPerTopic.size());
+        Assert.assertEquals(UnitTestMessage1.class.getName(), messageClassPerTopic.get("mytopic1"));
+        Assert.assertEquals(UnitTestMessage2.class.getName(), messageClassPerTopic.get("mytopic2"));
+    }
+
+    @Test
+    public void shouldReadMetricCollectorConfiguration() throws ConfigurationException {
+        URL configFile = Thread.currentThread().getContextClassLoader().getResource("secor.test.monitoring.properties");
+        PropertiesConfiguration properties = new PropertiesConfiguration(configFile);
+        SecorConfig secorConfig = new SecorConfig(properties);
+        Assert.assertEquals("com.pinterest.secor.monitoring.OstrichMetricCollector", secorConfig.getMetricsCollectorClass());
+    }
+}
+

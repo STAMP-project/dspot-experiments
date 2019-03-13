@@ -1,0 +1,371 @@
+/**
+ * Copyright (c) 2008-2019, Hazelcast, Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package com.hazelcast.map;
+
+
+import com.hazelcast.config.Config;
+import com.hazelcast.config.MapStoreConfig;
+import com.hazelcast.core.EntryEvent;
+import com.hazelcast.core.HazelcastInstance;
+import com.hazelcast.core.IMap;
+import com.hazelcast.core.MapLoader;
+import com.hazelcast.core.TransactionalMap;
+import com.hazelcast.map.listener.EntryAddedListener;
+import com.hazelcast.spi.properties.GroupProperty;
+import com.hazelcast.test.AssertTask;
+import com.hazelcast.test.HazelcastParallelClassRunner;
+import com.hazelcast.test.HazelcastTestSupport;
+import com.hazelcast.test.TestHazelcastInstanceFactory;
+import com.hazelcast.test.annotation.ParallelTest;
+import com.hazelcast.test.annotation.QuickTest;
+import com.hazelcast.transaction.TransactionException;
+import com.hazelcast.transaction.TransactionalTaskContext;
+import com.hazelcast.util.StringUtil;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.atomic.AtomicReference;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import org.junit.runner.RunWith;
+
+
+@RunWith(HazelcastParallelClassRunner.class)
+@Category({ QuickTest.class, ParallelTest.class })
+public class InterceptorTest extends HazelcastTestSupport {
+    @Test
+    public void testMapInterceptor() {
+        Config config = getConfig();
+        TestHazelcastInstanceFactory nodeFactory = createHazelcastInstanceFactory(2);
+        HazelcastInstance hz = nodeFactory.newHazelcastInstance(config);
+        nodeFactory.newHazelcastInstance(config);
+        IMap<Object, Object> map = hz.getMap("testMapInterceptor");
+        String id = map.addInterceptor(new InterceptorTest.SimpleInterceptor());
+        map.put(1, "New York");
+        map.put(2, "Istanbul");
+        map.put(3, "Tokyo");
+        map.put(4, "London");
+        map.put(5, "Paris");
+        map.put(6, "Cairo");
+        map.put(7, "Hong Kong");
+        try {
+            map.remove(1);
+        } catch (Exception ignore) {
+        }
+        try {
+            map.remove(2);
+        } catch (Exception ignore) {
+        }
+        Assert.assertEquals(6, map.size());
+        Assert.assertNull(map.get(1));
+        Assert.assertEquals(map.get(2), "ISTANBUL:");
+        Assert.assertEquals(map.get(3), "TOKYO:");
+        Assert.assertEquals(map.get(4), "LONDON:");
+        Assert.assertEquals(map.get(5), "PARIS:");
+        Assert.assertEquals(map.get(6), "CAIRO:");
+        Assert.assertEquals(map.get(7), "HONG KONG:");
+        map.removeInterceptor(id);
+        map.put(8, "Moscow");
+        Assert.assertNull(map.get(1));
+        Assert.assertEquals(map.get(2), "ISTANBUL");
+        Assert.assertEquals(map.get(3), "TOKYO");
+        Assert.assertEquals(map.get(4), "LONDON");
+        Assert.assertEquals(map.get(5), "PARIS");
+        Assert.assertEquals(map.get(6), "CAIRO");
+        Assert.assertEquals(map.get(7), "HONG KONG");
+        Assert.assertEquals(map.get(8), "Moscow");
+    }
+
+    @Test
+    public void testMapInterceptorOnNewMember() {
+        Config config = getConfig();
+        TestHazelcastInstanceFactory nodeFactory = createHazelcastInstanceFactory(2);
+        HazelcastInstance hz1 = nodeFactory.newHazelcastInstance(config);
+        IMap<Integer, Object> map1 = hz1.getMap("map");
+        for (int i = 0; i < 100; i++) {
+            map1.put(i, i);
+        }
+        map1.addInterceptor(new InterceptorTest.NegativeGetInterceptor());
+        for (int i = 0; i < 100; i++) {
+            Assert.assertEquals((("Expected negative value on map1.get(" + i) + ")"), (i * (-1)), map1.get(i));
+        }
+        HazelcastInstance hz2 = nodeFactory.newHazelcastInstance(config);
+        IMap<Integer, Object> map2 = hz2.getMap("map");
+        for (int i = 0; i < 100; i++) {
+            Assert.assertEquals((("Expected negative value on map1.get(" + i) + ")"), (i * (-1)), map1.get(i));
+            Assert.assertEquals((("Expected negative value on map1.get(" + i) + ")"), (i * (-1)), map2.get(i));
+        }
+    }
+
+    @Test
+    public void testGetAll_withGetInterceptor() {
+        HazelcastInstance instance = createHazelcastInstance(getConfig());
+        IMap<Integer, String> map = instance.getMap(HazelcastTestSupport.randomString());
+        map.addInterceptor(new InterceptorTest.SimpleInterceptor());
+        Set<Integer> set = new HashSet<Integer>();
+        for (int i = 0; i < 100; i++) {
+            map.put(i, String.valueOf(i));
+            set.add(i);
+        }
+        Map<Integer, String> allValues = map.getAll(set);
+        for (int i = 0; i < 100; i++) {
+            Assert.assertEquals("Expected intercepted value on map.getAll()", ((String.valueOf(i)) + ":"), allValues.get(i));
+        }
+    }
+
+    @Test
+    public void testPutEvent_withInterceptor() {
+        HazelcastInstance instance = createHazelcastInstance(getConfig());
+        IMap<Integer, String> map = instance.getMap(HazelcastTestSupport.randomString());
+        map.addInterceptor(new InterceptorTest.SimpleInterceptor());
+        final InterceptorTest.EntryAddedLatch listener = new InterceptorTest.EntryAddedLatch();
+        map.addEntryListener(listener, true);
+        String value = "foo";
+        map.put(1, value);
+        final String expectedValue = value.toUpperCase(StringUtil.LOCALE_INTERNAL);
+        HazelcastTestSupport.assertTrueEventually(new AssertTask() {
+            @Override
+            public void run() {
+                Assert.assertEquals(expectedValue, listener.getAddedValue());
+            }
+        }, 15);
+    }
+
+    @Test
+    public void testPutEvent_withInterceptor_withEntryProcessor_withMultipleKeys() {
+        HazelcastInstance instance = createHazelcastInstance(getConfig());
+        IMap<Integer, String> map = instance.getMap(HazelcastTestSupport.randomString());
+        map.addInterceptor(new InterceptorTest.SimpleInterceptor());
+        final InterceptorTest.EntryAddedLatch listener = new InterceptorTest.EntryAddedLatch();
+        map.addEntryListener(listener, true);
+        String value = "foo";
+        Set<Integer> keys = new HashSet<Integer>();
+        keys.add(1);
+        map.executeOnKeys(keys, new InterceptorTest.EntryPutProcessor("foo"));
+        final String expectedValue = value.toUpperCase(StringUtil.LOCALE_INTERNAL);
+        HazelcastTestSupport.assertTrueEventually(new AssertTask() {
+            @Override
+            public void run() {
+                Assert.assertEquals(expectedValue, listener.getAddedValue());
+            }
+        }, 15);
+    }
+
+    @Test
+    public void testPutEvent_withInterceptor_withEntryProcessor() {
+        HazelcastInstance instance = createHazelcastInstance(getConfig());
+        IMap<Integer, String> map = instance.getMap(HazelcastTestSupport.randomString());
+        map.addInterceptor(new InterceptorTest.SimpleInterceptor());
+        final InterceptorTest.EntryAddedLatch listener = new InterceptorTest.EntryAddedLatch();
+        map.addEntryListener(listener, true);
+        String value = "foo";
+        map.executeOnKey(1, new InterceptorTest.EntryPutProcessor("foo"));
+        final String expectedValue = value.toUpperCase(StringUtil.LOCALE_INTERNAL);
+        HazelcastTestSupport.assertTrueEventually(new AssertTask() {
+            @Override
+            public void run() {
+                Assert.assertEquals(expectedValue, listener.getAddedValue());
+            }
+        }, 15);
+    }
+
+    @Test
+    public void testPutEvent_withInterceptor_withLoadAll() {
+        String name = HazelcastTestSupport.randomString();
+        Config config = getConfig();
+        config.setProperty(GroupProperty.MAP_LOAD_ALL_PUBLISHES_ADDED_EVENT.getName(), "true");
+        MapStoreConfig mapStoreConfig = new MapStoreConfig().setEnabled(true).setImplementation(new InterceptorTest.DummyLoader());
+        config.getMapConfig(name).setMapStoreConfig(mapStoreConfig);
+        HazelcastInstance instance = createHazelcastInstance(config);
+        IMap<Integer, String> map = instance.getMap(name);
+        map.addInterceptor(new InterceptorTest.SimpleInterceptor());
+        final InterceptorTest.EntryAddedLatch listener = new InterceptorTest.EntryAddedLatch();
+        map.addEntryListener(listener, true);
+        Set<Integer> keys = new HashSet<Integer>();
+        keys.add(1);
+        map.loadAll(keys, false);
+        HazelcastTestSupport.assertTrueEventually(new AssertTask() {
+            @Override
+            public void run() {
+                Assert.assertEquals("FOO-1", listener.getAddedValue());
+            }
+        }, 15);
+    }
+
+    @Test
+    public void testInterceptPut_replicatedToBackups() {
+        String name = HazelcastTestSupport.randomString();
+        TestHazelcastInstanceFactory factory = createHazelcastInstanceFactory();
+        Config config = getConfig();
+        HazelcastInstance hz1 = factory.newHazelcastInstance(config);
+        HazelcastInstance hz2 = factory.newHazelcastInstance(config);
+        IMap<Object, Object> map = hz2.getMap(name);
+        map.addInterceptor(new InterceptorTest.NegativePutInterceptor());
+        int count = 1000;
+        for (int i = 1; i <= count; i++) {
+            map.set(i, i);
+        }
+        HazelcastTestSupport.waitAllForSafeState(hz1, hz2);
+        hz1.getLifecycleService().terminate();
+        for (int i = 1; i <= count; i++) {
+            Assert.assertEquals((-i), map.get(i));
+        }
+    }
+
+    @Test
+    public void testInterceptPut_replicatedToBackups_usingTransactions() {
+        final String name = HazelcastTestSupport.randomString();
+        TestHazelcastInstanceFactory factory = createHazelcastInstanceFactory();
+        Config config = getConfig();
+        HazelcastInstance hz1 = factory.newHazelcastInstance(config);
+        HazelcastInstance hz2 = factory.newHazelcastInstance(config);
+        IMap<Object, Object> map = hz2.getMap(name);
+        map.addInterceptor(new InterceptorTest.NegativePutInterceptor());
+        final int count = 1000;
+        hz2.executeTransaction(new com.hazelcast.transaction.TransactionalTask<Object>() {
+            @Override
+            public Object execute(TransactionalTaskContext context) throws TransactionException {
+                TransactionalMap<Object, Object> txMap = context.getMap(name);
+                for (int i = 1; i <= count; i++) {
+                    txMap.set(i, i);
+                }
+                return null;
+            }
+        });
+        HazelcastTestSupport.waitAllForSafeState(hz1, hz2);
+        hz1.getLifecycleService().terminate();
+        for (int i = 1; i <= count; i++) {
+            Assert.assertEquals((-i), map.get(i));
+        }
+    }
+
+    static class DummyLoader implements MapLoader<Integer, String> {
+        @Override
+        public String load(Integer key) {
+            return "foo-" + key;
+        }
+
+        @Override
+        public Map<Integer, String> loadAll(Collection<Integer> keys) {
+            Map<Integer, String> map = new HashMap<Integer, String>(keys.size());
+            for (Integer key : keys) {
+                map.put(key, load(key));
+            }
+            return map;
+        }
+
+        @Override
+        public Iterable<Integer> loadAllKeys() {
+            return null;
+        }
+    }
+
+    static class EntryPutProcessor extends AbstractEntryProcessor<Integer, String> {
+        String value;
+
+        EntryPutProcessor(String value) {
+            this.value = value;
+        }
+
+        @Override
+        public Object process(Map.Entry<Integer, String> entry) {
+            return entry.setValue(value);
+        }
+    }
+
+    static class EntryAddedLatch implements EntryAddedListener<Integer, String> {
+        AtomicReference<String> value = new AtomicReference<String>();
+
+        @Override
+        public void entryAdded(EntryEvent<Integer, String> event) {
+            value.compareAndSet(null, event.getValue());
+        }
+
+        String getAddedValue() {
+            return value.get();
+        }
+    }
+
+    static class MapInterceptorAdaptor implements MapInterceptor {
+        @Override
+        public Object interceptGet(Object value) {
+            return value;
+        }
+
+        @Override
+        public void afterGet(Object value) {
+        }
+
+        @Override
+        public Object interceptPut(Object oldValue, Object newValue) {
+            return newValue;
+        }
+
+        @Override
+        public void afterPut(Object value) {
+        }
+
+        @Override
+        public Object interceptRemove(Object removedValue) {
+            return removedValue;
+        }
+
+        @Override
+        public void afterRemove(Object value) {
+        }
+    }
+
+    public static class SimpleInterceptor extends InterceptorTest.MapInterceptorAdaptor {
+        @Override
+        public Object interceptGet(Object value) {
+            if (value == null) {
+                return null;
+            }
+            return value + ":";
+        }
+
+        @Override
+        public Object interceptPut(Object oldValue, Object newValue) {
+            return newValue.toString().toUpperCase(StringUtil.LOCALE_INTERNAL);
+        }
+
+        @Override
+        public Object interceptRemove(Object removedValue) {
+            if (removedValue.equals("ISTANBUL")) {
+                throw new RuntimeException("you can not remove this");
+            }
+            return removedValue;
+        }
+    }
+
+    static class NegativeGetInterceptor extends InterceptorTest.MapInterceptorAdaptor {
+        @Override
+        public Object interceptGet(Object value) {
+            return ((Integer) (value)) * (-1);
+        }
+    }
+
+    static class NegativePutInterceptor extends InterceptorTest.MapInterceptorAdaptor {
+        @Override
+        public Object interceptPut(Object oldValue, Object newValue) {
+            return ((Integer) (newValue)) * (-1);
+        }
+    }
+}
+

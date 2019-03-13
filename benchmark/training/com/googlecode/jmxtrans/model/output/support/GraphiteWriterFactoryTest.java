@@ -1,0 +1,195 @@
+/**
+ * The MIT License
+ * Copyright ? 2010 JmxTrans team
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+package com.googlecode.jmxtrans.model.output.support;
+
+
+import com.google.common.collect.ImmutableList;
+import com.googlecode.jmxtrans.ConfigurationParser;
+import com.googlecode.jmxtrans.exceptions.LifecycleException;
+import com.googlecode.jmxtrans.model.OutputWriter;
+import com.googlecode.jmxtrans.model.Query;
+import com.googlecode.jmxtrans.model.Server;
+import com.googlecode.jmxtrans.model.output.support.pool.DatagramChannelAllocator;
+import com.googlecode.jmxtrans.model.output.support.pool.RetryingAllocator;
+import com.googlecode.jmxtrans.model.output.support.pool.SocketExpiration;
+import com.googlecode.jmxtrans.test.IntegrationTest;
+import com.googlecode.jmxtrans.test.RequiresIO;
+import java.lang.reflect.Field;
+import java.net.URISyntaxException;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.experimental.categories.Category;
+import stormpot.BlazePool;
+import stormpot.CompoundExpiration;
+import stormpot.LifecycledPool;
+import stormpot.TimeExpiration;
+
+
+@Category({ IntegrationTest.class, RequiresIO.class })
+public class GraphiteWriterFactoryTest {
+    private ConfigurationParser configurationParser;
+
+    @Test
+    public void canParseConfigurationFileWithCustomParameters() throws LifecycleException, URISyntaxException {
+        ImmutableList<Server> servers = configurationParser.parseServers(ImmutableList.of(file("/graphite-writer-factory-example2.json")), false);
+        assertThat(servers).hasSize(1);
+        Server server = servers.get(0);
+        assertThat(server.getQueries()).hasSize(1);
+        Query query = server.getQueries().iterator().next();
+        assertThat(query.getOutputWriterInstances()).hasSize(1);
+        OutputWriter outputWriter = query.getOutputWriterInstances().iterator().next();
+        assertThat(outputWriter).isInstanceOf(ResultTransformerOutputWriter.class);
+        ResultTransformerOutputWriter resultTransformerOutputWriter = ((ResultTransformerOutputWriter) (outputWriter));
+        OutputWriter target = resultTransformerOutputWriter.getTarget();
+        assertThat(target).isInstanceOf(WriterPoolOutputWriter.class);
+        WriterPoolOutputWriter writerPoolOutputWriter = ((WriterPoolOutputWriter) (target));
+        assertThat(writerPoolOutputWriter.getSocketTimeoutMs()).isEqualTo(1000);
+        assertThat(writerPoolOutputWriter.getPoolClaimTimeout().getTimeout()).isEqualTo(2);
+    }
+
+    @Test
+    public void use_tcp_protocol_by_default() throws LifecycleException, URISyntaxException {
+        ImmutableList<Server> servers = configurationParser.parseServers(ImmutableList.of(file("/graphite-writer-factory-example2.json")), false);
+        assertThat(servers).hasSize(1);
+        Server server = servers.get(0);
+        assertThat(server.getQueries()).hasSize(1);
+        Query query = server.getQueries().iterator().next();
+        assertThat(query.getOutputWriterInstances()).hasSize(1);
+        OutputWriter outputWriter = query.getOutputWriterInstances().iterator().next();
+        assertThat(outputWriter).isInstanceOf(ResultTransformerOutputWriter.class);
+        ResultTransformerOutputWriter resultTransformerOutputWriter = ((ResultTransformerOutputWriter) (outputWriter));
+        OutputWriter target = resultTransformerOutputWriter.getTarget();
+        assertThat(target).isInstanceOf(WriterPoolOutputWriter.class);
+        LifecycledPool writerPool = getWriterPool();
+        assertThat(writerPool).isInstanceOf(BlazePool.class);
+        BlazePool blazePool = ((BlazePool) (writerPool));
+        // using TcpOutputWriterBuilder
+        try {
+            // first level allocator
+            Field allocator = blazePool.getClass().getDeclaredField("allocator");
+            allocator.setAccessible(true);
+            Object insideAllocator = allocator.get(blazePool);
+            // second level allocator
+            Field allocatorLv2 = insideAllocator.getClass().getDeclaredField("allocator");
+            allocatorLv2.setAccessible(true);
+            Object level2Allocator = allocatorLv2.get(insideAllocator);
+            // third level
+            Field allocatorLv3 = level2Allocator.getClass().getDeclaredField("allocator");
+            allocatorLv3.setAccessible(true);
+            Object level3Allocator = allocatorLv3.get(level2Allocator);
+            assertThat(level3Allocator).isInstanceOf(RetryingAllocator.class);
+        } catch (IllegalAccessException | NoSuchFieldException e) {
+            Assert.fail();
+        }
+    }
+
+    @Test
+    public void writer_using_udp_protocol() throws LifecycleException, URISyntaxException {
+        ImmutableList<Server> servers = configurationParser.parseServers(ImmutableList.of(file("/graphite-writer-factory-example-with-udp.json")), false);
+        assertThat(servers).hasSize(1);
+        Server server = servers.get(0);
+        assertThat(server.getQueries()).hasSize(1);
+        Query query = server.getQueries().iterator().next();
+        assertThat(query.getOutputWriterInstances()).hasSize(1);
+        OutputWriter outputWriter = query.getOutputWriterInstances().iterator().next();
+        assertThat(outputWriter).isInstanceOf(ResultTransformerOutputWriter.class);
+        ResultTransformerOutputWriter resultTransformerOutputWriter = ((ResultTransformerOutputWriter) (outputWriter));
+        OutputWriter target = resultTransformerOutputWriter.getTarget();
+        assertThat(target).isInstanceOf(WriterPoolOutputWriter.class);
+        LifecycledPool writerPool = getWriterPool();
+        assertThat(writerPool).isInstanceOf(BlazePool.class);
+        BlazePool blazePool = ((BlazePool) (writerPool));
+        // using UdpOutputWriterBuilder
+        try {
+            // first level allocator
+            Field allocator = blazePool.getClass().getDeclaredField("allocator");
+            allocator.setAccessible(true);
+            Object insideAllocator = allocator.get(blazePool);
+            // second level allocator
+            Field allocatorLv2 = insideAllocator.getClass().getDeclaredField("allocator");
+            allocatorLv2.setAccessible(true);
+            Object level2Allocator = allocatorLv2.get(insideAllocator);
+            // third level
+            Field allocatorLv3 = level2Allocator.getClass().getDeclaredField("allocator");
+            allocatorLv3.setAccessible(true);
+            Object level3Allocator = allocatorLv3.get(level2Allocator);
+            assertThat(level3Allocator).isInstanceOf(DatagramChannelAllocator.class);
+        } catch (IllegalAccessException | NoSuchFieldException e) {
+            Assert.fail();
+        }
+    }
+
+    @Test
+    public void socketExpirationIsUsedByDefault() throws LifecycleException, URISyntaxException {
+        ImmutableList<Server> servers = configurationParser.parseServers(ImmutableList.of(file("/graphite-writer-factory-example2.json")), false);
+        Server server = servers.get(0);
+        Query query = server.getQueries().iterator().next();
+        OutputWriter outputWriter = query.getOutputWriterInstances().iterator().next();
+        ResultTransformerOutputWriter resultTransformerOutputWriter = ((ResultTransformerOutputWriter) (outputWriter));
+        OutputWriter target = resultTransformerOutputWriter.getTarget();
+        LifecycledPool writerPool = getWriterPool();
+        BlazePool blazePool = ((BlazePool) (writerPool));
+        try {
+            Field expirationField = blazePool.getClass().getDeclaredField("deallocRule");
+            expirationField.setAccessible(true);
+            Object expiration = expirationField.get(blazePool);
+            assertThat(expiration).isInstanceOf(SocketExpiration.class);
+        } catch (IllegalAccessException | NoSuchFieldException e) {
+            Assert.fail();
+        }
+    }
+
+    @Test
+    public void timedSocketExpirationIsUsedWhenConfigured() throws LifecycleException, URISyntaxException {
+        ImmutableList<Server> servers = configurationParser.parseServers(ImmutableList.of(file("/graphite-writer-factory-example-with-timed-socket-expiration.json")), false);
+        Server server = servers.get(0);
+        Query query = server.getQueries().iterator().next();
+        OutputWriter outputWriter = query.getOutputWriterInstances().iterator().next();
+        ResultTransformerOutputWriter resultTransformerOutputWriter = ((ResultTransformerOutputWriter) (outputWriter));
+        OutputWriter target = resultTransformerOutputWriter.getTarget();
+        LifecycledPool writerPool = getWriterPool();
+        BlazePool blazePool = ((BlazePool) (writerPool));
+        try {
+            Field expirationField = blazePool.getClass().getDeclaredField("deallocRule");
+            expirationField.setAccessible(true);
+            Object compoundExpiration = expirationField.get(blazePool);
+            assertThat(compoundExpiration).isInstanceOf(CompoundExpiration.class);
+            Field timeExpirationField = compoundExpiration.getClass().getDeclaredField("firstExpiration");
+            timeExpirationField.setAccessible(true);
+            Object timeExpiration = timeExpirationField.get(compoundExpiration);
+            assertThat(timeExpiration).isInstanceOf(TimeExpiration.class);
+            Field maxPermittedAgeMillisField = timeExpiration.getClass().getDeclaredField("maxPermittedAgeMillis");
+            maxPermittedAgeMillisField.setAccessible(true);
+            Object maxPermittedAgeMillis = maxPermittedAgeMillisField.get(timeExpiration);
+            assertThat(maxPermittedAgeMillis).isInstanceOf(Number.class);
+            assertThat(((Number) (maxPermittedAgeMillis)).intValue()).isEqualTo(15000);
+            Field socketExpirationField = compoundExpiration.getClass().getDeclaredField("secondExpiration");
+            socketExpirationField.setAccessible(true);
+            Object socketExpiration = socketExpirationField.get(compoundExpiration);
+            assertThat(socketExpiration).isInstanceOf(SocketExpiration.class);
+        } catch (IllegalAccessException | NoSuchFieldException e) {
+            Assert.fail();
+        }
+    }
+}
+

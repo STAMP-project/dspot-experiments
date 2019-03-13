@@ -1,0 +1,80 @@
+/**
+ * Copyright 2017 LINE Corporation
+ *
+ * LINE Corporation licenses this file to you under the Apache License,
+ * version 2.0 (the "License"); you may not use this file except in compliance
+ * with the License. You may obtain a copy of the License at:
+ *
+ *   https://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+package com.linecorp.armeria.common;
+
+
+import com.linecorp.armeria.common.util.Exceptions;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionException;
+import org.junit.Test;
+
+
+public class RpcResponseTest {
+    private static final Object RESULT = new Object();
+
+    private static final Throwable CAUSE = Exceptions.clearTrace(new Throwable());
+
+    @Test
+    public void successfulFrom() {
+        final CompletableFuture<Object> future = new CompletableFuture<>();
+        final RpcResponse res = RpcResponse.from(future);
+        assertThat(res.isDone()).isFalse();
+        future.complete(RpcResponseTest.RESULT);
+        assertThat(res.isDone()).isTrue();
+        assertThat(res.join()).isSameAs(RpcResponseTest.RESULT);
+    }
+
+    @Test
+    public void failedFrom() {
+        final CompletableFuture<Object> future = new CompletableFuture<>();
+        final RpcResponse res = RpcResponse.from(future);
+        assertThat(res.isDone()).isFalse();
+        future.completeExceptionally(RpcResponseTest.CAUSE);
+        assertThat(res.isDone()).isTrue();
+        assertThatThrownBy(res::join).isInstanceOf(CompletionException.class).hasCause(RpcResponseTest.CAUSE);
+    }
+
+    @Test
+    public void successfulFromResponseFuture() {
+        final CompletableFuture<RpcResponse> future = new CompletableFuture<>();
+        final RpcResponse res = RpcResponse.from(future);
+        assertThat(res.isDone()).isFalse();
+        future.complete(RpcResponse.of(RpcResponseTest.RESULT));
+        assertThat(res.isDone()).isTrue();
+        assertThat(res.join()).isSameAs(RpcResponseTest.RESULT);
+    }
+
+    @Test
+    public void failedFromResponseFuture() {
+        final CompletableFuture<RpcResponse> future = new CompletableFuture<>();
+        final RpcResponse res = RpcResponse.from(future);
+        assertThat(res.isDone()).isFalse();
+        future.completeExceptionally(RpcResponseTest.CAUSE);
+        assertThat(res.isDone()).isTrue();
+        assertThatThrownBy(res::join).isInstanceOf(CompletionException.class).hasCause(RpcResponseTest.CAUSE);
+    }
+
+    @Test
+    public void failedFromFailedResponseFuture() {
+        final CompletableFuture<RpcResponse> future = new CompletableFuture<>();
+        final RpcResponse res = RpcResponse.from(future);
+        assertThat(res.isDone()).isFalse();
+        future.complete(RpcResponse.ofFailure(RpcResponseTest.CAUSE));
+        assertThat(res.isDone()).isTrue();
+        assertThatThrownBy(res::join).isInstanceOf(CompletionException.class).hasCause(RpcResponseTest.CAUSE);
+    }
+}
+

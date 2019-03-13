@@ -1,0 +1,70 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.camel.processor;
+
+
+import Exchange.RECIPIENT_LIST_ENDPOINT;
+import Exchange.TO_ENDPOINT;
+import java.util.ArrayList;
+import java.util.List;
+import org.apache.camel.AggregationStrategy;
+import org.apache.camel.ContextTestSupport;
+import org.apache.camel.Exchange;
+import org.apache.camel.component.mock.MockEndpoint;
+import org.junit.Assert;
+import org.junit.Test;
+
+
+public class RecipientListExchangePropertyAggregationStrategyTest extends ContextTestSupport {
+    private final RecipientListExchangePropertyAggregationStrategyTest.MyAggregationStrategy strategy = new RecipientListExchangePropertyAggregationStrategyTest.MyAggregationStrategy();
+
+    @Test
+    public void testRecipientExchangeProperty() throws Exception {
+        getMockEndpoint("mock:a").expectedPropertyReceived(RECIPIENT_LIST_ENDPOINT, "direct://a");
+        getMockEndpoint("mock:a").expectedPropertyReceived(TO_ENDPOINT, "mock://a");
+        getMockEndpoint("mock:b").expectedPropertyReceived(RECIPIENT_LIST_ENDPOINT, "direct://b");
+        getMockEndpoint("mock:b").expectedPropertyReceived(TO_ENDPOINT, "mock://b");
+        getMockEndpoint("mock:c").expectedPropertyReceived(RECIPIENT_LIST_ENDPOINT, "direct://c");
+        getMockEndpoint("mock:c").expectedPropertyReceived(TO_ENDPOINT, "mock://c");
+        MockEndpoint mock = getMockEndpoint("mock:result");
+        mock.expectedBodiesReceived("Hello c");
+        // would be the last one
+        mock.expectedPropertyReceived(RECIPIENT_LIST_ENDPOINT, "direct://c");
+        String out = template.requestBodyAndHeader("direct:start", "Hello World", "slip", "direct:a,direct:b,direct:c", String.class);
+        Assert.assertEquals("Hello c", out);
+        assertMockEndpointsSatisfied();
+        Assert.assertEquals(3, strategy.getUris().size());
+        Assert.assertEquals("direct://a", strategy.getUris().get(0));
+        Assert.assertEquals("direct://b", strategy.getUris().get(1));
+        Assert.assertEquals("direct://c", strategy.getUris().get(2));
+    }
+
+    private static class MyAggregationStrategy implements AggregationStrategy {
+        private List<String> uris = new ArrayList<>();
+
+        @Override
+        public Exchange aggregate(Exchange oldExchange, Exchange newExchange) {
+            uris.add(newExchange.getProperty(RECIPIENT_LIST_ENDPOINT, String.class));
+            return newExchange;
+        }
+
+        public List<String> getUris() {
+            return uris;
+        }
+    }
+}
+

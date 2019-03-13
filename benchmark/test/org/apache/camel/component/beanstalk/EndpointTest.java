@@ -1,0 +1,67 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.camel.component.beanstalk;
+
+
+import BeanstalkComponent.COMMAND_KICK;
+import BeanstalkComponent.COMMAND_RELEASE;
+import org.apache.camel.CamelContext;
+import org.junit.Assert;
+import org.junit.Test;
+
+
+public class EndpointTest {
+    CamelContext context;
+
+    @Test
+    public void testPriority() {
+        BeanstalkEndpoint endpoint = context.getEndpoint("beanstalk:default?jobPriority=1000", BeanstalkEndpoint.class);
+        Assert.assertNotNull("Beanstalk endpoint", endpoint);
+        Assert.assertEquals("Priority", 1000, endpoint.getJobPriority());
+    }
+
+    @Test
+    public void testTimeToRun() {
+        BeanstalkEndpoint endpoint = context.getEndpoint("beanstalk:default?jobTimeToRun=10", BeanstalkEndpoint.class);
+        Assert.assertNotNull("Beanstalk endpoint", endpoint);
+        Assert.assertEquals("Time to run", 10, endpoint.getJobTimeToRun());
+    }
+
+    @Test
+    public void testDelay() {
+        BeanstalkEndpoint endpoint = context.getEndpoint("beanstalk:default?jobDelay=10", BeanstalkEndpoint.class);
+        Assert.assertNotNull("Beanstalk endpoint", endpoint);
+        Assert.assertEquals("Delay", 10, endpoint.getJobDelay());
+    }
+
+    @Test
+    public void testCommand() {
+        BeanstalkEndpoint endpoint = context.getEndpoint("beanstalk:default?command=release", BeanstalkEndpoint.class);
+        Assert.assertNotNull("Beanstalk endpoint", endpoint);
+        Assert.assertEquals("Command", COMMAND_RELEASE, endpoint.getCommand().name());
+    }
+
+    @Test
+    public void testTubes() {
+        BeanstalkEndpoint endpoint = context.getEndpoint("beanstalk:host:11303/tube1+tube%2B+tube%3F?command=kick", BeanstalkEndpoint.class);
+        Assert.assertNotNull("Beanstalk endpoint", endpoint);
+        Assert.assertEquals("Command", COMMAND_KICK, endpoint.getCommand().name());
+        Assert.assertEquals("Host", "host", endpoint.conn.host);
+        Assert.assertArrayEquals("Tubes", new String[]{ "tube1", "tube+", "tube?" }, endpoint.conn.tubes);
+    }
+}
+

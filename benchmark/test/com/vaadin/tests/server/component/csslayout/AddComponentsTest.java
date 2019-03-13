@@ -1,0 +1,90 @@
+package com.vaadin.tests.server.component.csslayout;
+
+
+import com.vaadin.ui.Component;
+import com.vaadin.ui.CssLayout;
+import com.vaadin.ui.Label;
+import com.vaadin.ui.Layout;
+import org.junit.Assert;
+import org.junit.Test;
+
+
+public class AddComponentsTest {
+    private final Component[] children = new Component[]{ new Label("A"), new Label("B"), new Label("C"), new Label("D") };
+
+    @Test
+    public void moveComponentsBetweenLayouts() {
+        CssLayout layout1 = new CssLayout();
+        CssLayout layout2 = new CssLayout();
+        layout1.addComponent(children[0]);
+        layout1.addComponent(children[1]);
+        layout2.addComponent(children[2]);
+        layout2.addComponent(children[3]);
+        layout2.addComponent(children[1], 1);
+        assertOrder(layout1, new int[]{ 0 });
+        assertOrder(layout2, new int[]{ 2, 1, 3 });
+        layout1.addComponent(children[3], 0);
+        assertOrder(layout1, new int[]{ 3, 0 });
+        assertOrder(layout2, new int[]{ 2, 1 });
+        layout2.addComponent(children[0]);
+        assertOrder(layout1, new int[]{ 3 });
+        assertOrder(layout2, new int[]{ 2, 1, 0 });
+        layout1.addComponentAsFirst(children[1]);
+        assertOrder(layout1, new int[]{ 1, 3 });
+        assertOrder(layout2, new int[]{ 2, 0 });
+    }
+
+    @Test
+    public void shuffleChildComponents() {
+        CssLayout layout = new CssLayout();
+        for (int i = 0; i < (children.length); ++i) {
+            layout.addComponent(children[i], i);
+        }
+        assertOrder(layout, new int[]{ 0, 1, 2, 3 });
+        // Move C from #2 to #1
+        // Exhibits defect #7668
+        layout.addComponent(children[2], 1);
+        assertOrder(layout, new int[]{ 0, 2, 1, 3 });
+        // Move C from #1 to #4 (which becomes #3 when #1 is erased)
+        layout.addComponent(children[2], 4);
+        assertOrder(layout, new int[]{ 0, 1, 3, 2 });
+        // Keep everything in place
+        layout.addComponent(children[1], 1);
+        assertOrder(layout, new int[]{ 0, 1, 3, 2 });
+        // Move D from #2 to #0
+        layout.addComponent(children[3], 0);
+        assertOrder(layout, new int[]{ 3, 0, 1, 2 });
+        // Move A from #1 to end (#4 which becomes #3)
+        layout.addComponent(children[0]);
+        assertOrder(layout, new int[]{ 3, 1, 2, 0 });
+        // Keep everything in place
+        layout.addComponent(children[0]);
+        assertOrder(layout, new int[]{ 3, 1, 2, 0 });
+        // Move C from #2 to #0
+        layout.addComponentAsFirst(children[2]);
+        assertOrder(layout, new int[]{ 2, 3, 1, 0 });
+        // Keep everything in place
+        layout.addComponentAsFirst(children[2]);
+        assertOrder(layout, new int[]{ 2, 3, 1, 0 });
+    }
+
+    @Test
+    public void testConstructorWithComponents() {
+        Layout layout = new CssLayout(children);
+        assertOrder(layout, new int[]{ 0, 1, 2, 3 });
+    }
+
+    @Test
+    public void testAddComponents() {
+        CssLayout layout = new CssLayout();
+        layout.addComponents(children);
+        assertOrder(layout, new int[]{ 0, 1, 2, 3 });
+        Label extra = new Label("Extra");
+        layout.addComponents(extra);
+        Assert.assertSame(extra, layout.getComponent(4));
+        layout.removeAllComponents();
+        layout.addComponents(children[3], children[2], children[1], children[0]);
+        assertOrder(layout, new int[]{ 3, 2, 1, 0 });
+    }
+}
+

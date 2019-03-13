@@ -1,0 +1,76 @@
+/**
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.camel.example.cafe;
+
+
+import DrinkType.CAPPUCCINO;
+import DrinkType.ESPRESSO;
+import DrinkType.LATTE;
+import DrinkType.MOCHA;
+import java.util.ArrayList;
+import java.util.List;
+import org.apache.camel.component.mock.MockEndpoint;
+import org.apache.camel.example.cafe.test.TestDrinkRouter;
+import org.apache.camel.example.cafe.test.TestWaiter;
+import org.apache.camel.test.junit4.CamelTestSupport;
+import org.junit.Test;
+
+import static DrinkType.CAPPUCCINO;
+import static DrinkType.ESPRESSO;
+import static DrinkType.LATTE;
+import static DrinkType.MOCHA;
+
+
+public class CafeRouteBuilderTest extends CamelTestSupport {
+    protected TestWaiter waiter = new TestWaiter();
+
+    protected TestDrinkRouter driverRouter = new TestDrinkRouter();
+
+    @Test
+    public void testSplitter() throws InterruptedException {
+        MockEndpoint coldDrinks = context.getEndpoint("mock:coldDrinks", MockEndpoint.class);
+        MockEndpoint hotDrinks = context.getEndpoint("mock:hotDrinks", MockEndpoint.class);
+        Order order = new Order(1);
+        order.addItem(ESPRESSO, 2, true);
+        order.addItem(CAPPUCCINO, 2, false);
+        coldDrinks.expectedBodiesReceived(new OrderItem(order, ESPRESSO, 2, true));
+        hotDrinks.expectedBodiesReceived(new OrderItem(order, CAPPUCCINO, 2, false));
+        template.sendBody("direct:cafe", order);
+        assertMockEndpointsSatisfied();
+    }
+
+    @Test
+    public void testCafeRoute() throws Exception {
+        driverRouter.setTestModel(false);
+        List<Drink> drinks = new ArrayList<>();
+        Order order = new Order(2);
+        order.addItem(ESPRESSO, 2, true);
+        order.addItem(CAPPUCCINO, 4, false);
+        order.addItem(LATTE, 4, false);
+        order.addItem(MOCHA, 2, false);
+        drinks.add(new Drink(2, ESPRESSO, true, 2));
+        drinks.add(new Drink(2, CAPPUCCINO, false, 4));
+        drinks.add(new Drink(2, LATTE, false, 4));
+        drinks.add(new Drink(2, MOCHA, false, 2));
+        waiter.setVerfiyDrinks(drinks);
+        template.sendBody("direct:cafe", order);
+        // wait enough time to let the aggregate complete
+        Thread.sleep(10000);
+        waiter.verifyDrinks();
+    }
+}
+
