@@ -1,0 +1,41 @@
+diff --git a/pdfbox/src/main/java/org/apache/pdfbox/pdfparser/COSParser.java b/pdfbox/src/main/java/org/apache/pdfbox/pdfparser/COSParser.java
+index 9c3314e..75faddd 100644
+--- a/pdfbox/src/main/java/org/apache/pdfbox/pdfparser/COSParser.java
++++ b/pdfbox/src/main/java/org/apache/pdfbox/pdfparser/COSParser.java
+@@ -2287,12 +2287,12 @@ public class COSParser extends BaseParser
+             COSBase pages = root.getDictionaryObject(COSName.PAGES);
+             if (pages instanceof COSDictionary)
+             {
+-                checkPagesDictionary((COSDictionary) pages, new HashSet<COSObject>());
++                checkPagesDictionary((COSDictionary) pages);
+             }
+         }
+     }
+ 
+-    private int checkPagesDictionary(COSDictionary pagesDict, Set<COSObject> set)
++    private int checkPagesDictionary(COSDictionary pagesDict)
+     {
+         // check for kids
+         COSBase kids = pagesDict.getDictionaryObject(COSName.KIDS);
+@@ -2304,11 +2304,6 @@ public class COSParser extends BaseParser
+             for (COSBase kid : kidsList)
+             {
+                 COSObject kidObject = (COSObject) kid;
+-                if (set.contains(kidObject))
+-                {
+-                    kidsArray.remove(kid);
+-                    continue;
+-                }
+                 COSBase kidBaseobject = kidObject.getObject();
+                 // object wasn't dereferenced -> remove it
+                 if (kidBaseobject.equals(COSNull.NULL))
+@@ -2323,8 +2318,7 @@ public class COSParser extends BaseParser
+                     if (COSName.PAGES.equals(type))
+                     {
+                         // process nested pages dictionaries
+-                        set.add(kidObject);
+-                        numberOfPages += checkPagesDictionary(kidDictionary, set);
++                        numberOfPages += checkPagesDictionary(kidDictionary);
+                     }
+                     else if (COSName.PAGE.equals(type))
+                     {

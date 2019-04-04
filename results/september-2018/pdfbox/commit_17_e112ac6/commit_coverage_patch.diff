@@ -1,0 +1,80 @@
+diff --git a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/PDAnnotationLine.java b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/PDAnnotationLine.java
+index c188fcf..26206f8 100644
+--- a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/PDAnnotationLine.java
++++ b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/PDAnnotationLine.java
+@@ -271,34 +271,6 @@ public class PDAnnotationLine extends PDAnnotationMarkup
+     }
+ 
+     /**
+-     * This will set the border style dictionary, specifying the width and dash pattern used in drawing the line.
+-     *
+-     * @param bs the border style dictionary to set.
+-     *
+-     */
+-    @Override
+-    public void setBorderStyle(PDBorderStyleDictionary bs)
+-    {
+-        this.getCOSObject().setItem(COSName.BS, bs);
+-    }
+-
+-    /**
+-     * This will retrieve the border style dictionary, specifying the width and dash pattern used in drawing the line.
+-     *
+-     * @return the border style dictionary.
+-     */
+-    @Override
+-    public PDBorderStyleDictionary getBorderStyle()
+-    {
+-        COSBase bs = getCOSObject().getDictionaryObject(COSName.BS);
+-        if (bs instanceof COSDictionary)
+-        {
+-            return new PDBorderStyleDictionary((COSDictionary) bs);
+-        }
+-        return null;
+-    }
+-
+-    /**
+      * This will retrieve the length of the leader line.
+      * 
+      * @return the length of the leader line
+diff --git a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/PDAnnotationSquareCircle.java b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/PDAnnotationSquareCircle.java
+index 8eb52f1..341d636 100644
+--- a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/PDAnnotationSquareCircle.java
++++ b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/PDAnnotationSquareCircle.java
+@@ -135,36 +135,6 @@ public abstract class PDAnnotationSquareCircle extends PDAnnotationMarkup
+     }
+ 
+     /**
+-     * This will set the border style dictionary, specifying the width and dash pattern used in
+-     * drawing the line.
+-     *
+-     * @param bs the border style dictionary to set. TODO not all annotations may have a BS entry
+-     *
+-     */
+-    @Override
+-    public void setBorderStyle(PDBorderStyleDictionary bs)
+-    {
+-        this.getCOSObject().setItem(COSName.BS, bs);
+-    }
+-
+-    /**
+-     * This will retrieve the border style dictionary, specifying the width and dash pattern used in
+-     * drawing the line.
+-     *
+-     * @return the border style dictionary. TODO not all annotations may have a BS entry
+-     */
+-    @Override
+-    public PDBorderStyleDictionary getBorderStyle()
+-    {
+-        COSBase bs = getCOSObject().getDictionaryObject(COSName.BS);
+-        if (bs instanceof COSDictionary)
+-        {
+-            return new PDBorderStyleDictionary((COSDictionary) bs);
+-        }
+-        return null;
+-    }
+-
+-    /**
+      * This will set the difference between the annotations "outer" rectangle defined by /Rect and
+      * the border.
+      *

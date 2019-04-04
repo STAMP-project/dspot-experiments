@@ -1,0 +1,42 @@
+diff --git a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/graphics/image/JPEGFactory.java b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/graphics/image/JPEGFactory.java
+index 1df29bb..7c29f13 100644
+--- a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/graphics/image/JPEGFactory.java
++++ b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/graphics/image/JPEGFactory.java
+@@ -177,27 +177,20 @@ public final class JPEGFactory
+     {
+         // Metadata format:
+         // https://docs.oracle.com/javase/10/docs/api/javax/imageio/metadata/doc-files/jpeg_metadata.html
+-        try
++        IIOMetadata imageMetadata = reader.getImageMetadata(0);
++        Element tree = (Element) imageMetadata.getAsTree("javax_imageio_jpeg_image_1.0");
++        Element markerSequence = (Element) tree.getElementsByTagName("markerSequence").item(0);
++        NodeList nodeList = markerSequence.getElementsByTagName("sof");
++        if (nodeList != null && nodeList.getLength() > 0)
+         {
+-            IIOMetadata imageMetadata = reader.getImageMetadata(0);
+-            Element tree = (Element) imageMetadata.getAsTree("javax_imageio_jpeg_image_1.0");
+-            Element markerSequence = (Element) tree.getElementsByTagName("markerSequence").item(0);
+-            NodeList nodeList = markerSequence.getElementsByTagName("sof");
+-            if (nodeList != null && nodeList.getLength() > 0)
++            Element element = (Element) nodeList.item(0);
++            String process = element.getAttribute("process");
++            if ("2".equals(process))
+             {
+-                Element element = (Element) nodeList.item(0);
+-                String process = element.getAttribute("process");
+-                if ("2".equals(process))
+-                {
+-                    LOG.warn("Progressive JPEGs are not properly supported by Adobe Reader;");
+-                    LOG.warn("please check whether your PDF displays.");
+-                }
++                LOG.warn("Progressive JPEGs are not properly supported by Adobe Reader;");
++                LOG.warn("please check whether your PDF displays.");
+             }
+         }
+-        catch (IOException ex)
+-        {
+-            LOG.debug("error reading metadata", ex);
+-        }
+     }
+ 
+     /**

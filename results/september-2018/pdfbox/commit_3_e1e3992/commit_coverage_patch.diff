@@ -1,0 +1,13 @@
+diff --git a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/form/AppearanceGeneratorHelper.java b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/form/AppearanceGeneratorHelper.java
+index a8b6cea..5941eb0 100644
+--- a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/form/AppearanceGeneratorHelper.java
++++ b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/form/AppearanceGeneratorHelper.java
+@@ -699,7 +699,7 @@ class AppearanceGeneratorHelper
+             contents.newLineAtOffset(contentRect.getLowerLeftX(), yTextPos);
+             contents.showText(options.get(i));
+ 
+-            if (i - topIndex != (numOptions - 1))
++            if (i != (numOptions - 1))
+             {
+                 contents.endText();
+             }

@@ -1,0 +1,29 @@
+diff --git a/src/main/java/org/jsoup/parser/XmlTreeBuilder.java b/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
+index 10bb54a..0851833 100644
+--- a/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
++++ b/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
+@@ -114,7 +114,7 @@ public class XmlTreeBuilder extends TreeBuilder {
+      * @param endTag tag to close
+      */
+     private void popStackToClose(Token.EndTag endTag) {
+-        String elName = settings.normalizeTag(endTag.tagName);
++        String elName = endTag.normalName();
+         Element firstFound = null;
+ 
+         for (int pos = stack.size() -1; pos >= 0; pos--) {
+diff --git a/src/test/java/org/jsoup/parser/XmlTreeBuilderTest.java b/src/test/java/org/jsoup/parser/XmlTreeBuilderTest.java
+index e5d6f01..cb5bb14 100644
+--- a/src/test/java/org/jsoup/parser/XmlTreeBuilderTest.java
++++ b/src/test/java/org/jsoup/parser/XmlTreeBuilderTest.java
+@@ -179,9 +179,9 @@ public class XmlTreeBuilderTest {
+ 
+     @Test
+     public void preservesCaseByDefault() {
+-        String xml = "<CHECK>One</CHECK><TEST ID=1>Check</TEST>";
++        String xml = "<TEST ID=1>Check</TEST>";
+         Document doc = Jsoup.parse(xml, "", Parser.xmlParser());
+-        assertEquals("<CHECK>One</CHECK><TEST ID=\"1\">Check</TEST>", TextUtil.stripNewlines(doc.html()));
++        assertEquals("<TEST ID=\"1\">Check</TEST>", TextUtil.stripNewlines(doc.html()));
+     }
+ 
+     @Test

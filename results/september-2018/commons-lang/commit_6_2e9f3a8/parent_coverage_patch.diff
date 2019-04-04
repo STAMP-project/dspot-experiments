@@ -1,0 +1,161 @@
+diff --git a/src/changes/changes.xml b/src/changes/changes.xml
+index 5bfedf4..61eca68 100644
+--- a/src/changes/changes.xml
++++ b/src/changes/changes.xml
+@@ -55,7 +55,6 @@ The <action> type attribute can be add,update,fix,remove.
+     <action issue="LANG-1367" type="update" dev="ggregory" due-to="Gary Gregory">ObjectUtils.identityToString(Object) and friends should allocate builders and buffers with a size</action>
+     <action issue="LANG-1352" type="add" dev="pschumacher" due-to="Ruslan Sibgatullin">EnumUtils.getEnumIgnoreCase and isValidEnumIgnoreCase methods added</action>
+     <action issue="LANG-1372" type="add" dev="pschumacher" due-to="Sérgio Ozaki">Add ToStringSummary annotation</action>
+-    <action issue="LANG-1356" type="add" dev="pschumacher" due-to="Yathos UG">Add bypass option for classes to recursive and reflective EqualsBuilder</action>
+   </release>
+ 
+   <release version="3.7" date="2017-11-04" description="New features and bug fixes. Requires Java 7, supports Java 8, 9, 10.">
+diff --git a/src/main/java/org/apache/commons/lang3/builder/EqualsBuilder.java b/src/main/java/org/apache/commons/lang3/builder/EqualsBuilder.java
+index 60a532e..d2cf7c7 100644
+--- a/src/main/java/org/apache/commons/lang3/builder/EqualsBuilder.java
++++ b/src/main/java/org/apache/commons/lang3/builder/EqualsBuilder.java
+@@ -19,10 +19,8 @@
+ import java.lang.reflect.AccessibleObject;
+ import java.lang.reflect.Field;
+ import java.lang.reflect.Modifier;
+-import java.util.ArrayList;
+ import java.util.Collection;
+ import java.util.HashSet;
+-import java.util.List;
+ import java.util.Set;
+ 
+ import org.apache.commons.lang3.ArrayUtils;
+@@ -215,7 +213,6 @@ private static void unregister(final Object lhs, final Object rhs) {
+ 
+     private boolean testTransients = false;
+     private boolean testRecursive = false;
+-    private List<Class<?>> bypassReflectionClasses;
+     private Class<?> reflectUpToClass = null;
+     private String[] excludeFields = null;
+ 
+@@ -226,9 +223,7 @@ private static void unregister(final Object lhs, final Object rhs) {
+      * @see Object#equals(Object)
+      */
+     public EqualsBuilder() {
+-        // set up default classes to bypass reflection for
+-        bypassReflectionClasses = new ArrayList<Class<?>>();
+-        bypassReflectionClasses.add(String.class); //hashCode field being lazy but not transient
++        // do nothing for now.
+     }
+ 
+     //-------------------------------------------------------------------------
+@@ -256,23 +251,6 @@ public EqualsBuilder setTestRecursive(final boolean testRecursive) {
+     }
+ 
+     /**
+-     * <p>Set <code>Class</code>es whose instances should be compared by calling their <code>equals</code>
+-     * although being in recursive mode. So the fields of theses classes will not be compared recursively by reflection.</p>
+-     *
+-     * <p>Here you should name classes having non-transient fields which are cache fields being set lazily.<br>
+-     * Prominent example being {@link String} class with its hash code cache field. Due to the importance
+-     * of the <code>String</code> class, it is included in the default bypasses classes. Usually, if you use
+-     * your own set of classes here, remember to include <code>String</code> class, too.</p>
+-     * @param bypassReflectionClasses  classes to bypass reflection test
+-     * @return EqualsBuilder - used to chain calls.
+-     * @since 3.8
+-     */
+-    public EqualsBuilder setBypassReflectionClasses(List<Class<?>> bypassReflectionClasses) {
+-        this.bypassReflectionClasses = bypassReflectionClasses;
+-        return this;
+-    }
+-
+-    /**
+      * Set the superclass to reflect up to at reflective tests.
+      * @param reflectUpToClass the super class to reflect up to
+      * @return EqualsBuilder - used to chain calls.
+@@ -480,10 +458,6 @@ public static boolean reflectionEquals(final Object lhs, final Object rhs, final
+      *
+      * <p>Field names listed in field <code>excludeFields</code> will be ignored.</p>
+      *
+-     * <p>If either class of the compared objects is contained in
+-     * <code>bypassReflectionClasses</code>, both objects are compared by calling
+-     * the equals method of the left hand object with the right hand object as an argument.</p>
+-     *
+      * @param lhs  the left hand object
+      * @param rhs  the left hand object
+      * @return EqualsBuilder - used to chain calls.
+@@ -529,16 +503,10 @@ public EqualsBuilder reflectionAppend(final Object lhs, final Object rhs) {
+             if (testClass.isArray()) {
+                 append(lhs, rhs);
+             } else {
+-                //If either class is being excluded, call normal object equals method on lhsClass.
+-                if (bypassReflectionClasses != null
+-                        && (bypassReflectionClasses.contains(lhsClass) || bypassReflectionClasses.contains(rhsClass))) {
+-                    isEquals = lhs.equals(rhs);
+-                } else {
++                reflectionAppend(lhs, rhs, testClass);
++                while (testClass.getSuperclass() != null && testClass != reflectUpToClass) {
++                    testClass = testClass.getSuperclass();
+                     reflectionAppend(lhs, rhs, testClass);
+-                    while (testClass.getSuperclass() != null && testClass != reflectUpToClass) {
+-                        testClass = testClass.getSuperclass();
+-                        reflectionAppend(lhs, rhs, testClass);
+-                    }
+                 }
+             }
+         } catch (final IllegalArgumentException e) {
+diff --git a/src/test/java/org/apache/commons/lang3/builder/EqualsBuilderTest.java b/src/test/java/org/apache/commons/lang3/builder/EqualsBuilderTest.java
+index 05f1da9..23651f6 100644
+--- a/src/test/java/org/apache/commons/lang3/builder/EqualsBuilderTest.java
++++ b/src/test/java/org/apache/commons/lang3/builder/EqualsBuilderTest.java
+@@ -168,19 +168,6 @@ public void setT(final int t) {
+         }
+     }
+ 
+-    static class TestRecursiveGenericObject<T> {
+-
+-        private final T a;
+-
+-        TestRecursiveGenericObject(final T a) {
+-            this.a = a;
+-        }
+-
+-        public T getA() {
+-            return a;
+-        }
+-    }
+-
+     static class TestRecursiveObject {
+         private final TestRecursiveInnerObject a;
+         private final TestRecursiveInnerObject b;
+@@ -432,35 +419,6 @@ public void testObjectBuild() {
+     }
+ 
+     @Test
+-    public void testObjectRecursiveGenericInteger() {
+-        final TestRecursiveGenericObject<Integer> o1_a = new TestRecursiveGenericObject<Integer>(1);
+-        final TestRecursiveGenericObject<Integer> o1_b = new TestRecursiveGenericObject<Integer>(1);
+-        final TestRecursiveGenericObject<Integer> o2 = new TestRecursiveGenericObject<Integer>(2);
+-
+-        assertTrue(new EqualsBuilder().setTestRecursive(true).append(o1_a, o1_b).isEquals());
+-        assertTrue(new EqualsBuilder().setTestRecursive(true).append(o1_b, o1_a).isEquals());
+-
+-        assertFalse(new EqualsBuilder().setTestRecursive(true).append(o1_b, o2).isEquals());
+-    }
+-
+-    @Test
+-    public void testObjectRecursiveGenericString() {
+-        // Note: Do not use literals, because string literals are always mapped by same object (internal() of String))!
+-        String s1_a = String.valueOf(1);
+-        final TestRecursiveGenericObject<String> o1_a = new TestRecursiveGenericObject<String>(s1_a);
+-        final TestRecursiveGenericObject<String> o1_b = new TestRecursiveGenericObject<String>(String.valueOf(1));
+-        final TestRecursiveGenericObject<String> o2 = new TestRecursiveGenericObject<String>(String.valueOf(2));
+-
+-        // To trigger bug reported in LANG-1356, call hashCode only on string in instance o1_a
+-        s1_a.hashCode();
+-
+-        assertTrue(new EqualsBuilder().setTestRecursive(true).append(o1_a, o1_b).isEquals());
+-        assertTrue(new EqualsBuilder().setTestRecursive(true).append(o1_b, o1_a).isEquals());
+-
+-        assertFalse(new EqualsBuilder().setTestRecursive(true).append(o1_b, o2).isEquals());
+-    }
+-
+-    @Test
+     public void testObjectRecursive() {
+         final TestRecursiveInnerObject i1_1 = new TestRecursiveInnerObject(1);
+         final TestRecursiveInnerObject i1_2 = new TestRecursiveInnerObject(1);

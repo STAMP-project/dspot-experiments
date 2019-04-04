@@ -1,0 +1,706 @@
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/AbstractExtensionDependency.java b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/AbstractExtensionDependency.java
+index b557228..96e8c1c 100644
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/AbstractExtensionDependency.java
++++ b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/AbstractExtensionDependency.java
+@@ -55,14 +55,9 @@
+     protected List<ExtensionRepositoryDescriptor> repositories;
+ 
+     /**
+-     * @see #isOptional()
+-     */
+-    protected boolean optional;
+-
+-    /**
+      * @see #getProperties()
+      */
+-    protected Map<String, Object> properties = new HashMap<>();
++    protected Map<String, Object> properties = new HashMap<String, Object>();
+ 
+     /**
+      * Create new instance by cloning the provided one.
+@@ -84,7 +79,7 @@ public AbstractExtensionDependency(ExtensionDependency dependency)
+     public AbstractExtensionDependency(ExtensionDependency dependency, VersionConstraint versionConstraint)
+     {
+         this(dependency.getId(), versionConstraint != null ? versionConstraint : dependency.getVersionConstraint(),
+-            dependency.isOptional(), dependency.getProperties());
++            dependency.getProperties());
+     }
+ 
+     /**
+@@ -93,18 +88,7 @@ public AbstractExtensionDependency(ExtensionDependency dependency, VersionConstr
+      */
+     public AbstractExtensionDependency(String id, VersionConstraint versionConstraint)
+     {
+-        this(id, versionConstraint, false);
+-    }
+-
+-    /**
+-     * @param id the id (or feature) of the extension dependency
+-     * @param versionConstraint the version constraint of the extension dependency
+-     * @param optional true if the dependency is optional
+-     * @since 9.6RC1
+-     */
+-    public AbstractExtensionDependency(String id, VersionConstraint versionConstraint, boolean optional)
+-    {
+-        this(id, versionConstraint, optional, null);
++        this(id, versionConstraint, null);
+     }
+ 
+     /**
+@@ -121,23 +105,6 @@ public AbstractExtensionDependency(String id, VersionConstraint versionConstrain
+         }
+     }
+ 
+-    /**
+-     * @param id the id (or feature) of the extension dependency
+-     * @param versionConstraint the version constraint of the extension dependency
+-     * @param optional true if the dependency is optional
+-     * @param properties the custom properties of the extension dependency
+-     */
+-    public AbstractExtensionDependency(String id, VersionConstraint versionConstraint, boolean optional,
+-        Map<String, Object> properties)
+-    {
+-        this.id = id;
+-        this.versionConstraint = versionConstraint;
+-        this.optional = optional;
+-        if (properties != null) {
+-            this.properties.putAll(properties);
+-        }
+-    }
+-
+     @Override
+     public String getId()
+     {
+@@ -190,19 +157,14 @@ public void setRepositories(Collection<? extends ExtensionRepositoryDescriptor>
+      */
+     public void addRepository(ExtensionRepositoryDescriptor repository)
+     {
+-        List<ExtensionRepositoryDescriptor> newrepositories = new ArrayList<>(getRepositories());
++        List<ExtensionRepositoryDescriptor> newrepositories =
++            new ArrayList<ExtensionRepositoryDescriptor>(getRepositories());
+         newrepositories.add(repository);
+ 
+         this.repositories = Collections.unmodifiableList(newrepositories);
+     }
+ 
+     @Override
+-    public boolean isOptional()
+-    {
+-        return this.optional;
+-    }
+-
+-    @Override
+     public boolean isCompatible(Extension extension)
+     {
+         if (isCompatible(extension.getId())) {
+@@ -290,8 +252,6 @@ public int hashCode()
+ 
+         builder.append(getId());
+         builder.append(getVersionConstraint());
+-        builder.append(isOptional());
+-        builder.append(getRepositories());
+         builder.append(getProperties());
+ 
+         return builder.toHashCode();
+@@ -313,9 +273,7 @@ public boolean equals(Object obj)
+ 
+             builder.append(getId(), otherDependency.getId());
+             builder.append(getVersionConstraint(), otherDependency.getVersionConstraint());
+-            builder.append(isOptional(), otherDependency.isOptional());
+             builder.append(getRepositories(), otherDependency.getRepositories());
+-            builder.append(getProperties(), otherDependency.getProperties());
+ 
+             equals = builder.isEquals();
+         } else {
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/DefaultExtensionDependency.java b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/DefaultExtensionDependency.java
+index 92fd9f9..39a9798 100644
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/DefaultExtensionDependency.java
++++ b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/DefaultExtensionDependency.java
+@@ -43,17 +43,6 @@ public DefaultExtensionDependency(String id, VersionConstraint versionConstraint
+     /**
+      * @param id the id of the extension dependency
+      * @param versionConstraint the version constraint of the extension dependency
+-     * @param optional true if the dependency is optional
+-     * @since 9.6RC1
+-     */
+-    public DefaultExtensionDependency(String id, VersionConstraint versionConstraint, boolean optional)
+-    {
+-        super(id, versionConstraint, optional);
+-    }
+-
+-    /**
+-     * @param id the id of the extension dependency
+-     * @param versionConstraint the version constraint of the extension dependency
+      * @param properties the custom properties of the extension dependency
+      */
+     public DefaultExtensionDependency(String id, VersionConstraint versionConstraint, Map<String, Object> properties)
+@@ -62,19 +51,6 @@ public DefaultExtensionDependency(String id, VersionConstraint versionConstraint
+     }
+ 
+     /**
+-     * @param id the id of the extension dependency
+-     * @param versionConstraint the version constraint of the extension dependency
+-     * @param optional true if the dependency is optional
+-     * @param properties the custom properties of the extension dependency
+-     * @since 9.6RC1
+-     */
+-    public DefaultExtensionDependency(String id, VersionConstraint versionConstraint, boolean optional,
+-        Map<String, Object> properties)
+-    {
+-        super(id, versionConstraint, optional, properties);
+-    }
+-
+-    /**
+      * Create new instance by cloning the provided one.
+      *
+      * @param dependency the extension dependency to copy
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/ExtensionDependency.java b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/ExtensionDependency.java
+index 12e3783..eff8f02 100644
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/ExtensionDependency.java
++++ b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/ExtensionDependency.java
+@@ -109,14 +109,4 @@ default boolean isCompatible(ExtensionId extensionId)
+     {
+         return getId().equals(extensionId.getId()) && getVersionConstraint().isCompatible(extensionId.getVersion());
+     }
+-
+-    /**
+-     * @return true if the dependency is not mandatory, usually meaning it will be installed (if valid) by default but
+-     *         can be uninstalled without uninstalling backward dependency
+-     * @since 9.6RC1
+-     */
+-    default boolean isOptional()
+-    {
+-        return false;
+-    }
+ }
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/handler/internal/DefaultExtensionInitializer.java b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/handler/internal/DefaultExtensionInitializer.java
+index 288ccf9..6a1e6ed 100644
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/handler/internal/DefaultExtensionInitializer.java
++++ b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/handler/internal/DefaultExtensionInitializer.java
+@@ -29,7 +29,6 @@
+ import javax.inject.Inject;
+ import javax.inject.Singleton;
+ 
+-import org.apache.commons.lang3.exception.ExceptionUtils;
+ import org.slf4j.Logger;
+ import org.xwiki.component.annotation.Component;
+ import org.xwiki.component.phase.Initializable;
+@@ -179,21 +178,15 @@ private void initializeExtensionInNamespace(InstalledExtension installedExtensio
+                         this.installedExtensionRepository.getInstalledExtension(dependency.getId(), namespace);
+ 
+                     if (dependencyExtension == installedExtension) {
+-                        throw new ExtensionException(String.format(
+-                            "Extension [] has itself as dependency ([])."
+-                                + " It usually mean an extension is installed along with one of it's features.",
++                        throw new ExtensionException(String.format("Extension [] has itself as dependency ([])."
++                            + " It usually mean an extension is installed along with one of it's features.",
+                             installedExtension, dependency));
+                     }
+ 
+                     try {
+                         initializeExtensionInNamespace(dependencyExtension, namespace, initializedExtensions);
+                     } catch (Exception e) {
+-                        if (dependency.isOptional()) {
+-                            this.logger.warn("Failed to initialize dependency [{}]: ", dependency,
+-                                ExceptionUtils.getRootCauseMessage(e));
+-                        } else {
+-                            throw new ExtensionException("Failed to initialize dependency [" + dependency + "]", e);
+-                        }
++                        throw new ExtensionException("Failed to initialize dependency [" + dependency + "]", e);
+                     }
+                 }
+             }
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/internal/ExtensionFactory.java b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/internal/ExtensionFactory.java
+index 7b319dc..b31871a 100644
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/internal/ExtensionFactory.java
++++ b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/internal/ExtensionFactory.java
+@@ -78,15 +78,13 @@ public ExtensionDependency getExtensionDependency(ExtensionDependency dependency
+      * 
+      * @param id the id of the extension dependency
+      * @param versionConstraint the version constraint of the extension dependency
+-     * @param optional true if the dependency is optional
+      * @param properties the custom properties of the extension dependency
+      * @return unique instance of {@link ExtensionDependency} equals to the passed one
+-     * @since 9.6RC1
+      */
+-    public ExtensionDependency getExtensionDependency(String id, VersionConstraint versionConstraint, boolean optional,
++    public ExtensionDependency getExtensionDependency(String id, VersionConstraint versionConstraint,
+         Map<String, Object> properties)
+     {
+-        return getExtensionDependency(new DefaultExtensionDependency(id, versionConstraint, optional, properties));
++        return getExtensionDependency(new DefaultExtensionDependency(id, versionConstraint, properties));
+     }
+ 
+     /**
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/job/internal/AbstractExtensionPlanJob.java b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/job/internal/AbstractExtensionPlanJob.java
+index 29e4966..93c5085 100644
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/job/internal/AbstractExtensionPlanJob.java
++++ b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/job/internal/AbstractExtensionPlanJob.java
+@@ -231,7 +231,7 @@ protected void uninstallExtension(InstalledExtension installedExtension, String
+             }
+         }
+ 
+-        List<ExtensionPlanNode> children = new ArrayList<>();
++        List<ExtensionPlanNode> children = new ArrayList<ExtensionPlanNode>();
+ 
+         // Uninstall backward dependencies
+         if (withBackWard) {
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/job/internal/AbstractInstallPlanJob.java b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/job/internal/AbstractInstallPlanJob.java
+index 611ab4a..c342919 100644
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/job/internal/AbstractInstallPlanJob.java
++++ b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/job/internal/AbstractInstallPlanJob.java
+@@ -32,7 +32,6 @@
+ 
+ import javax.inject.Inject;
+ 
+-import org.apache.commons.lang3.exception.ExceptionUtils;
+ import org.xwiki.component.manager.ComponentLookupException;
+ import org.xwiki.component.namespace.NamespaceNotAllowedException;
+ import org.xwiki.component.namespace.NamespaceValidator;
+@@ -77,7 +76,7 @@
+ 
+         public VersionConstraint versionConstraint;
+ 
+-        public final List<ModifableExtensionPlanNode> duplicates = new ArrayList<>();
++        public final List<ModifableExtensionPlanNode> duplicates = new ArrayList<ModifableExtensionPlanNode>();
+ 
+         // helpers
+ 
+@@ -266,7 +265,11 @@ private void addExtensionNode(ModifableExtensionPlanNode node)
+     protected void installExtension(ExtensionId extensionId, String namespace, DefaultExtensionPlanTree parentBranch)
+         throws InstallException
+     {
+-        installExtension(extensionId, false, namespace, parentBranch);
++        try {
++            installExtension(extensionId, false, namespace, parentBranch);
++        } catch (ResolveException e) {
++            throw new InstallException("An unexpected exception has been raised", e);
++        }
+     }
+ 
+     /**
+@@ -277,9 +280,10 @@ protected void installExtension(ExtensionId extensionId, String namespace, Defau
+      * @param namespace the namespace where to install the extension
+      * @param parentBranch the children of the parent {@link DefaultExtensionPlanNode}
+      * @throws InstallException error when trying to install provided extension
++     * @throws ResolveException unexpected exception has been raised
+      */
+     protected void installExtension(ExtensionId extensionId, boolean dependency, String namespace,
+-        DefaultExtensionPlanTree parentBranch) throws InstallException
++        DefaultExtensionPlanTree parentBranch) throws InstallException, ResolveException
+     {
+         if (getRequest().isVerbose()) {
+             if (namespace != null) {
+@@ -494,60 +498,8 @@ private void installExtensionDependency(ExtensionDependency extensionDependency,
+         List<ModifableExtensionPlanNode> parentBranch, Map<String, ExtensionDependency> managedDependencies)
+         throws InstallException, IncompatibleVersionConstraintException, ResolveException
+     {
+-        if (extensionDependency.isOptional()) {
+-            installOptionalExtensionDependency(extensionDependency, namespace, parentBranch, managedDependencies);
+-        } else {
+-            installMandatoryExtensionDependency(extensionDependency, namespace, parentBranch, managedDependencies);
+-        }
+-    }
+-
+-    /**
+-     * Install provided extension dependency.
+-     *
+-     * @param extensionDependency the extension dependency to install
+-     * @param namespace the namespace where to install the extension
+-     * @param parentBranch the children of the parent {@link DefaultExtensionPlanNode}
+-     * @param managedDependencies the managed dependencies
+-     * @throws InstallException error when trying to install provided extension
+-     * @throws ResolveException
+-     * @throws IncompatibleVersionConstraintException
+-     */
+-    private void installOptionalExtensionDependency(ExtensionDependency extensionDependency, String namespace,
+-        List<ModifableExtensionPlanNode> parentBranch, Map<String, ExtensionDependency> managedDependencies)
+-    {
+-        // Save current plan
+-        List<ModifableExtensionPlanNode> dependencyBranch = new ArrayList<>(parentBranch);
+-
+-        try {
+-            installMandatoryExtensionDependency(extensionDependency, namespace, dependencyBranch, managedDependencies);
+-
+-            parentBranch.addAll(dependencyBranch);
+-        } catch (Exception e) {
+-            if (getRequest().isVerbose()) {
+-                this.logger.warn("Failed to install optional dependency [{}]", extensionDependency,
+-                    ExceptionUtils.getRootCauseMessage(e));
+-            }
+-        }
+-    }
+-
+-    /**
+-     * Install provided extension dependency.
+-     *
+-     * @param extensionDependency the extension dependency to install
+-     * @param namespace the namespace where to install the extension
+-     * @param parentBranch the children of the parent {@link DefaultExtensionPlanNode}
+-     * @param managedDependencies the managed dependencies
+-     * @throws InstallException error when trying to install provided extension
+-     * @throws ResolveException
+-     * @throws IncompatibleVersionConstraintException
+-     */
+-    private void installMandatoryExtensionDependency(ExtensionDependency extensionDependency, String namespace,
+-        List<ModifableExtensionPlanNode> parentBranch, Map<String, ExtensionDependency> managedDependencies)
+-        throws InstallException, IncompatibleVersionConstraintException, ResolveException
+-    {
+-        // Make sure the dependency have a version constraint
++        // Make sure the version have a version constraint
+         if (extensionDependency.getVersionConstraint() == null) {
+-            // TODO: install the last version instead of failing ?
+             throw new InstallException("Dependency [" + extensionDependency + "] does not have any version constraint");
+         }
+ 
+@@ -573,7 +525,7 @@ private void installMandatoryExtensionDependency(ExtensionDependency extensionDe
+         // upgrade/downgrade/replace it)
+         if (namespace != null && getRequest().isRootModificationsAllowed()
+             && hasIncompatileRootDependency(extensionDependency)) {
+-            installMandatoryExtensionDependency(extensionDependency, null, parentBranch, managedDependencies);
++            installExtensionDependency(extensionDependency, null, parentBranch, managedDependencies);
+ 
+             return;
+         }
+@@ -944,7 +896,7 @@ private ModifableExtensionPlanNode installExtension(Extension sourceExtension, E
+ 
+                 try {
+                     children = new ArrayList<>();
+-                    for (ExtensionDependency extensionDependency : dependencies) {
++                    for (ExtensionDependency extensionDependency : rewrittenExtension.getDependencies()) {
+                         this.progressManager.startStep(this);
+ 
+                         // Replace with managed dependency if any
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/repository/internal/DefaultExtensionSerializer.java b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/repository/internal/DefaultExtensionSerializer.java
+index 60f489b..a3e7e8e 100644
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/repository/internal/DefaultExtensionSerializer.java
++++ b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/repository/internal/DefaultExtensionSerializer.java
+@@ -124,8 +124,6 @@
+ 
+     private static final String ELEMENT_DDEPENDENCY = "dependency";
+ 
+-    private static final String ELEMENT_DDOPTIONAL = "optional";
+-
+     private static final String ELEMENT_EXTENSIONFEATURES = "extensionfeatures";
+ 
+     private static final String ELEMENT_EFFEATURE = "feature";
+@@ -454,13 +452,10 @@ private void loadExtensionDescriptor(MutableExtension extension, Element extensi
+                 if (dependency.getNodeName().equals(ELEMENT_DDEPENDENCY)) {
+                     Node dependencyIdNode = getNode(dependency, ELEMENT_ID);
+                     Node dependencyVersionNode = getNode(dependency, ELEMENT_VERSION);
+-                    Node dependencyOptionalNode = getNode(dependency, ELEMENT_DDOPTIONAL);
+ 
+                     dependencies.add(this.factory.getExtensionDependency(dependencyIdNode.getTextContent(),
+                         dependencyVersionNode != null
+                             ? this.factory.getVersionConstraint(dependencyVersionNode.getTextContent()) : null,
+-                        dependencyOptionalNode != null ? Boolean.valueOf(dependencyOptionalNode.getTextContent())
+-                            : false,
+                         parseProperties((Element) dependency)));
+                 }
+             }
+@@ -781,7 +776,6 @@ private void addDependencies(Document document, Element parentElement, String fi
+ 
+                 addElement(document, dependencyElement, ELEMENT_ID, dependency.getId());
+                 addElement(document, dependencyElement, ELEMENT_VERSION, dependency.getVersionConstraint().getValue());
+-                addElement(document, dependencyElement, ELEMENT_DDOPTIONAL, dependency.isOptional());
+                 addProperties(document, dependencyElement, dependency.getProperties());
+             }
+         }
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/repository/internal/installed/DefaultInstalledExtensionRepository.java b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/repository/internal/installed/DefaultInstalledExtensionRepository.java
+index 5e93b92..be4334f 100644
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/repository/internal/installed/DefaultInstalledExtensionRepository.java
++++ b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/repository/internal/installed/DefaultInstalledExtensionRepository.java
+@@ -372,11 +372,9 @@ private DefaultInstalledExtension validateExtension(LocalExtension localExtensio
+ 
+                 validateDependency(dependency, namespace, ExtensionUtils.append(managedDependencies, localExtension));
+             } catch (InvalidExtensionException e) {
+-                if (!dependency.isOptional()) {
+-                    // Continue to make sure all extensions are validated in the right order
+-                    if (dependencyException == null) {
+-                        dependencyException = e;
+-                    }
++                // Continue to make sure all extension are validated in the right order
++                if (dependencyException == null) {
++                    dependencyException = e;
+                 }
+             }
+         }
+@@ -596,7 +594,7 @@ private void updateMissingBackwardDependencies(DefaultInstalledExtension install
+     {
+         // Add the extension as backward dependency
+         for (ExtensionDependency dependency : installedExtension.getDependencies()) {
+-            if (!dependency.isOptional() && !this.coreExtensionRepository.exists(dependency.getId())) {
++            if (!this.coreExtensionRepository.exists(dependency.getId())) {
+                 // Get the extension for the dependency feature for the provided namespace
+                 DefaultInstalledExtension dependencyLocalExtension =
+                     (DefaultInstalledExtension) getInstalledExtension(dependency.getId(), namespace);
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/TestResources.java b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/TestResources.java
+index 9061732..9c8584a 100644
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/TestResources.java
++++ b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/TestResources.java
+@@ -73,9 +73,6 @@
+     public static final ExtensionId REMOTE_WITHRMISSINGDEPENDENCY_ID =
+         new ExtensionId("rwithmissingdependency", "version");
+ 
+-    public static final ExtensionId REMOTE_WITHRMISSINGOPTIONALDEPENDENCY_ID =
+-        new ExtensionId("rwithmissingoptionaldependency", "version");
+-
+     public static final ExtensionId REMOTE_MISSINGDEPENDENCY_ID = new ExtensionId("missingdependency", "version");
+ 
+     public static final ExtensionId REMOTE_UPGRADE10_ID = new ExtensionId("upgrade", "1.0");
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/job/internal/InstallPlanJobTest.java b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/job/internal/InstallPlanJobTest.java
+index 815dabc..d3ff42e 100644
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/job/internal/InstallPlanJobTest.java
++++ b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/job/internal/InstallPlanJobTest.java
+@@ -643,23 +643,6 @@ public void testInstallWithManagedDependency() throws Throwable
+         Assert.assertEquals(0, node.getChildren().size());
+     }
+ 
+-    @Test
+-    public void testInstallWithInvalidOptionalDependency() throws Throwable
+-    {
+-        ExtensionPlan plan = installPlan(TestResources.REMOTE_WITHRMISSINGOPTIONALDEPENDENCY_ID, "namespace");
+-
+-        Assert.assertEquals(1, plan.getTree().size());
+-
+-        ExtensionPlanNode node = plan.getTree().iterator().next();
+-        ExtensionPlanAction action = node.getAction();
+-
+-        Assert.assertEquals(TestResources.REMOTE_WITHRMISSINGOPTIONALDEPENDENCY_ID, action.getExtension().getId());
+-        Assert.assertEquals(Action.INSTALL, action.getAction());
+-        Assert.assertEquals(0, action.getPreviousExtensions().size());
+-        Assert.assertEquals("namespace", action.getNamespace());
+-        Assert.assertEquals(0, node.getChildren().size());
+-    }
+-
+     // Failures
+ 
+     @Test(expected = InstallException.class)
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/job/internal/UninstallJobTest.java b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/job/internal/UninstallJobTest.java
+index 9df9131..7646c89 100644
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/job/internal/UninstallJobTest.java
++++ b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/job/internal/UninstallJobTest.java
+@@ -21,14 +21,12 @@
+ 
+ import org.junit.Assert;
+ import org.junit.Test;
++import org.xwiki.extension.ResolveException;
+ import org.xwiki.extension.TestResources;
+-import org.xwiki.extension.UninstallException;
+ import org.xwiki.extension.handler.ExtensionHandler;
+ import org.xwiki.extension.test.AbstractExtensionHandlerTest;
+ import org.xwiki.extension.test.TestExtensionHandler;
+ 
+-import static org.junit.Assert.fail;
+-
+ public class UninstallJobTest extends AbstractExtensionHandlerTest
+ {
+     private TestResources resources;
+@@ -56,12 +54,12 @@ public void testUninstall() throws Throwable
+         uninstall(TestResources.INSTALLED_ID, null);
+ 
+         Assert.assertFalse(this.handler.getExtensions().get(null).contains(this.resources.installed));
+-        Assert.assertNull(
+-            this.installedExtensionRepository.getInstalledExtension(TestResources.INSTALLED_ID.getId(), null));
++        Assert.assertNull(this.installedExtensionRepository.getInstalledExtension(TestResources.INSTALLED_ID.getId(),
++            null));
+ 
+         Assert.assertTrue(this.handler.getExtensions().get(null).contains(this.resources.installedDependency));
+-        Assert.assertNotNull(this.installedExtensionRepository
+-            .getInstalledExtension(TestResources.INSTALLED_DEPENDENCY_ID.getId(), null));
++        Assert.assertNotNull(this.installedExtensionRepository.getInstalledExtension(
++            TestResources.INSTALLED_DEPENDENCY_ID.getId(), null));
+     }
+ 
+     @Test
+@@ -70,12 +68,12 @@ public void testUninstallWithBackwarDepencency() throws Throwable
+         uninstall(TestResources.INSTALLED_DEPENDENCY_ID, null);
+ 
+         Assert.assertFalse(this.handler.getExtensions().get(null).contains(this.resources.installed));
+-        Assert.assertNull(
+-            this.installedExtensionRepository.getInstalledExtension(TestResources.INSTALLED_ID.getId(), null));
++        Assert.assertNull(this.installedExtensionRepository.getInstalledExtension(TestResources.INSTALLED_ID.getId(),
++            null));
+ 
+         Assert.assertFalse(this.handler.getExtensions().get(null).contains(this.resources.installedDependency));
+-        Assert.assertNull(this.installedExtensionRepository
+-            .getInstalledExtension(TestResources.INSTALLED_DEPENDENCY_ID.getId(), null));
++        Assert.assertNull(this.installedExtensionRepository.getInstalledExtension(
++            TestResources.INSTALLED_DEPENDENCY_ID.getId(), null));
+     }
+ 
+     @Test
+@@ -85,9 +83,7 @@ public void testUninstallTwice() throws Throwable
+ 
+         try {
+             uninstall(TestResources.INSTALLED_ID, null);
+-
+-            fail("Should have failed to uninstall the extension twice");
+-        } catch (UninstallException expected) {
++        } catch (ResolveException expected) {
+             // expected
+         }
+     }
+@@ -106,12 +102,12 @@ public void testUninstallFromNamespace() throws Throwable
+         uninstall(TestResources.INSTALLED_ID, "namespace1");
+ 
+         Assert.assertFalse(this.handler.getExtensions().get("namespace1").contains(this.resources.installed));
+-        Assert.assertNull(
+-            this.installedExtensionRepository.getInstalledExtension(TestResources.INSTALLED_ID.getId(), "namespace1"));
++        Assert.assertNull(this.installedExtensionRepository.getInstalledExtension(TestResources.INSTALLED_ID.getId(),
++            "namespace1"));
+ 
+         Assert.assertTrue(this.handler.getExtensions().get("namespace2").contains(this.resources.installed));
+-        Assert.assertNotNull(
+-            this.installedExtensionRepository.getInstalledExtension(TestResources.INSTALLED_ID.getId(), "namespace2"));
++        Assert.assertNotNull(this.installedExtensionRepository.getInstalledExtension(
++            TestResources.INSTALLED_ID.getId(), "namespace2"));
+     }
+ 
+     @Test
+@@ -128,18 +124,18 @@ public void testUninstallFromNamespaceWithBackwarDepencency() throws Throwable
+         uninstall(TestResources.INSTALLED_DEPENDENCY_ID, "namespace1");
+ 
+         Assert.assertFalse(this.handler.getExtensions().get("namespace1").contains(this.resources.installed));
+-        Assert.assertNull(
+-            this.installedExtensionRepository.getInstalledExtension(TestResources.INSTALLED_ID.getId(), "namespace1"));
++        Assert.assertNull(this.installedExtensionRepository.getInstalledExtension(TestResources.INSTALLED_ID.getId(),
++            "namespace1"));
+         Assert.assertFalse(this.handler.getExtensions().get("namespace1").contains(this.resources.installedDependency));
+-        Assert.assertNull(this.installedExtensionRepository
+-            .getInstalledExtension(TestResources.INSTALLED_DEPENDENCY_ID.getId(), "namespace1"));
++        Assert.assertNull(this.installedExtensionRepository.getInstalledExtension(
++            TestResources.INSTALLED_DEPENDENCY_ID.getId(), "namespace1"));
+ 
+         Assert.assertTrue(this.handler.getExtensions().get("namespace2").contains(this.resources.installed));
+-        Assert.assertNotNull(
+-            this.installedExtensionRepository.getInstalledExtension(TestResources.INSTALLED_ID.getId(), "namespace2"));
++        Assert.assertNotNull(this.installedExtensionRepository.getInstalledExtension(
++            TestResources.INSTALLED_ID.getId(), "namespace2"));
+         Assert.assertTrue(this.handler.getExtensions().get("namespace2").contains(this.resources.installed));
+-        Assert.assertNotNull(
+-            this.installedExtensionRepository.getInstalledExtension(TestResources.INSTALLED_ID.getId(), "namespace2"));
++        Assert.assertNotNull(this.installedExtensionRepository.getInstalledExtension(
++            TestResources.INSTALLED_ID.getId(), "namespace2"));
+     }
+ 
+     @Test
+@@ -156,11 +152,11 @@ public void testUninstallFromAllNamespaces() throws Throwable
+         uninstall(TestResources.INSTALLED_ID, null);
+ 
+         Assert.assertFalse(this.handler.getExtensions().get("namespace1").contains(this.resources.installed));
+-        Assert.assertNull(
+-            this.installedExtensionRepository.getInstalledExtension(TestResources.INSTALLED_ID.getId(), "namespace1"));
++        Assert.assertNull(this.installedExtensionRepository.getInstalledExtension(TestResources.INSTALLED_ID.getId(),
++            "namespace1"));
+ 
+         Assert.assertFalse(this.handler.getExtensions().get("namespace2").contains(this.resources.installed));
+-        Assert.assertNull(
+-            this.installedExtensionRepository.getInstalledExtension(TestResources.INSTALLED_ID.getId(), "namespace2"));
++        Assert.assertNull(this.installedExtensionRepository.getInstalledExtension(TestResources.INSTALLED_ID.getId(),
++            "namespace2"));
+     }
+ }
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/test/AbstractExtensionHandlerTest.java b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/test/AbstractExtensionHandlerTest.java
+index ec5e0b0..362eac5 100644
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/test/AbstractExtensionHandlerTest.java
++++ b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/test/AbstractExtensionHandlerTest.java
+@@ -84,10 +84,6 @@ protected Job executeJob(String jobId, Request request, LogLevel failFrom) throw
+ 
+         installJob.join();
+ 
+-        if (installJob.getStatus().getError() != null) {
+-            throw installJob.getStatus().getError();
+-        }
+-
+         List<LogEvent> errors = installJob.getStatus().getLog().getLogsFrom(failFrom);
+         if (!errors.isEmpty()) {
+             throw errors.get(0).getThrowable() != null ? errors.get(0).getThrowable()
+@@ -244,7 +240,6 @@ protected InstallRequest createInstallRequest(ExtensionId extensionId, String[]
+             }
+         }
+         installRequest.setRootModificationsAllowed(rootModifications);
+-        installRequest.setVerbose(false);
+ 
+         return installRequest;
+     }
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/resources/repository/remote/rwithmissingoptionaldependency-version.test b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/resources/repository/remote/rwithmissingoptionaldependency-version.test
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/resources/repository/remote/rwithmissingoptionaldependency-version.xed b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/resources/repository/remote/rwithmissingoptionaldependency-version.xed
+deleted file mode 100644
+index 17d8a2f..0000000
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/resources/repository/remote/rwithmissingoptionaldependency-version.xed
++++ /dev/null
+@@ -1,14 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<extension>
+-  <id>rwithmissingoptionaldependency</id>
+-  <version>version</version>
+-  <type>test</type>
+-  <dependencies>
+-    <dependency>
+-      <id>doesnotexist</id>
+-      <version>version</version>
+-      <optional>true</optional>
+-    </dependency>
+-  </dependencies>
+-</extension>
+\ No newline at end of file
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-maven/src/main/java/org/xwiki/extension/maven/internal/DefaultMavenExtensionDependency.java b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-maven/src/main/java/org/xwiki/extension/maven/internal/DefaultMavenExtensionDependency.java
+index 38f41bf..c59a7c2 100644
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-maven/src/main/java/org/xwiki/extension/maven/internal/DefaultMavenExtensionDependency.java
++++ b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-maven/src/main/java/org/xwiki/extension/maven/internal/DefaultMavenExtensionDependency.java
+@@ -68,12 +68,15 @@ public DefaultMavenExtensionDependency(ExtensionDependency dependency)
+      */
+     public DefaultMavenExtensionDependency(String extensionId, VersionConstraint constraint, Dependency mavenDependency)
+     {
+-        super(extensionId, constraint, mavenDependency.isOptional());
++        super(extensionId, constraint);
+ 
+-        // custom properties lost when saving
+-        putProperty(PKEY_MAVEN_DEPENDENCY, mavenDependency);
+-        // custom properties to remember
+-        putProperty(PKEY_MAVEN_DEPENDENCY_SCOPE, mavenDependency.getScope());
++        if (mavenDependency != null) {
++            // custom properties lost when saving
++            putProperty(PKEY_MAVEN_DEPENDENCY, mavenDependency);
++            // custom properties to remember
++            putProperty(PKEY_MAVEN_DEPENDENCY_SCOPE, mavenDependency.getScope());
++            putProperty(PKEY_MAVEN_DEPENDENCY_OPTIONAL, mavenDependency.isOptional());
++        }
+     }
+ 
+     /**
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-maven/src/main/java/org/xwiki/extension/maven/internal/converter/ModelConverter.java b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-maven/src/main/java/org/xwiki/extension/maven/internal/converter/ModelConverter.java
+index f06759e..2c8162f 100644
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-maven/src/main/java/org/xwiki/extension/maven/internal/converter/ModelConverter.java
++++ b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-maven/src/main/java/org/xwiki/extension/maven/internal/converter/ModelConverter.java
+@@ -191,8 +191,8 @@ private MavenExtension convertToExtension(Model model)
+ 
+         // dependencies
+         for (Dependency mavenDependency : model.getDependencies()) {
+-            if (mavenDependency.getScope() == null || mavenDependency.getScope().equals("compile")
+-                || mavenDependency.getScope().equals("runtime")) {
++            if (!mavenDependency.isOptional() && (mavenDependency.getScope() == null
++                || mavenDependency.getScope().equals("compile") || mavenDependency.getScope().equals("runtime"))) {
+                 ExtensionDependency extensionDependency = toExtensionDependency(mavenDependency, model, repositories);
+ 
+                 extension.addDependency(extensionDependency);
+diff --git a/xwiki-commons-core/xwiki-commons-repository/xwiki-commons-repository-model/src/main/resources/xwiki.rest.extension.model.xsd b/xwiki-commons-core/xwiki-commons-repository/xwiki-commons-repository-model/src/main/resources/xwiki.rest.extension.model.xsd
+index 70a940d..26a3079 100644
+--- a/xwiki-commons-core/xwiki-commons-repository/xwiki-commons-repository-model/src/main/resources/xwiki.rest.extension.model.xsd
++++ b/xwiki-commons-core/xwiki-commons-repository/xwiki-commons-repository-model/src/main/resources/xwiki.rest.extension.model.xsd
+@@ -49,10 +49,7 @@
+       <element name="constraint" type="string" maxOccurs="1"
+         minOccurs="1">
+       </element>
+-      <element name="optional" type="boolean"></element>
+-      <element name="repositories" type="extension:ExtensionRepository"
+-        minOccurs="0" maxOccurs="unbounded">
+-      </element>
++      <element name="repositories" type="extension:ExtensionRepository" minOccurs="0" maxOccurs="unbounded"></element>
+     </sequence>
+   </complexType>
+ 

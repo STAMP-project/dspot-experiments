@@ -1,0 +1,45 @@
+diff --git a/src/main/java/org/apache/commons/lang3/math/NumberUtils.java b/src/main/java/org/apache/commons/lang3/math/NumberUtils.java
+index 9428ba7..5942db7 100644
+--- a/src/main/java/org/apache/commons/lang3/math/NumberUtils.java
++++ b/src/main/java/org/apache/commons/lang3/math/NumberUtils.java
+@@ -1407,7 +1407,7 @@ public static boolean isCreatable(final String str) {
+         boolean foundDigit = false;
+         // deal with any possible sign up front
+         final int start = chars[0] == '-' || chars[0] == '+' ? 1 : 0;
+-        if (sz > start + 1 && chars[start] == '0' && !StringUtils.contains(str, '.')) { // leading 0, skip if is a decimal number
++        if (sz > start + 1 && chars[start] == '0') { // leading 0
+             if (chars[start + 1] == 'x' || chars[start + 1] == 'X') { // leading 0x/0X
+                 int i = start + 2;
+                 if (i == sz) {
+diff --git a/src/test/java/org/apache/commons/lang3/math/NumberUtilsTest.java b/src/test/java/org/apache/commons/lang3/math/NumberUtilsTest.java
+index 376a579..20d87fe 100644
+--- a/src/test/java/org/apache/commons/lang3/math/NumberUtilsTest.java
++++ b/src/test/java/org/apache/commons/lang3/math/NumberUtilsTest.java
+@@ -1326,10 +1326,6 @@ public void testIsNumber() {
+         compareIsNumberWithCreateNumber("-1234", true);
+         compareIsNumberWithCreateNumber("-1234.5", true);
+         compareIsNumberWithCreateNumber("-.12345", true);
+-        compareIsNumberWithCreateNumber("-0001.12345", true);
+-        compareIsNumberWithCreateNumber("-000.12345", true);
+-        compareIsNumberWithCreateNumber("+00.12345", true);
+-        compareIsNumberWithCreateNumber("+0002.12345", true);
+         compareIsNumberWithCreateNumber("-1234E5", true);
+         compareIsNumberWithCreateNumber("0", true);
+         compareIsNumberWithCreateNumber("-0", true);
+@@ -1346,7 +1342,6 @@ public void testIsNumber() {
+         compareIsNumberWithCreateNumber(" ", false);
+         compareIsNumberWithCreateNumber("\r\n\t", false);
+         compareIsNumberWithCreateNumber("--2.3", false);
+-
+         compareIsNumberWithCreateNumber(".12.3", false);
+         compareIsNumberWithCreateNumber("-123E", false);
+         compareIsNumberWithCreateNumber("-123E+-212", false);
+@@ -1357,8 +1352,6 @@ public void testIsNumber() {
+         compareIsNumberWithCreateNumber("-0ABC123", false);
+         compareIsNumberWithCreateNumber("123.4E-D", false);
+         compareIsNumberWithCreateNumber("123.4ED", false);
+-        compareIsNumberWithCreateNumber("+000E.12345", false);
+-        compareIsNumberWithCreateNumber("-000E.12345", false);
+         compareIsNumberWithCreateNumber("1234E5l", false);
+         compareIsNumberWithCreateNumber("11a", false);
+         compareIsNumberWithCreateNumber("1a", false);

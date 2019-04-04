@@ -1,0 +1,14 @@
+======= REPORT =======
+4 amplified test fails on the new versions.
+testNormalisesText_add497356_literalMutationString497423(org.jsoup.nodes.ElementTest): expected:<Hello There.[]d Here is some text.> but was:<Hello There.[ ]d Here is some text.>
+testAddBooleanAttribute_add443538(org.jsoup.nodes.ElementTest): expected:<true[=""]> but was:<true[]>
+testKeepsPreText_literalMutationString99596_literalMutationString99677(org.jsoup.nodes.ElementTest): expected:<Hello there.[]udiv>   What's 
+
+  t...> but was:<Hello there.[ ]udiv>   What's 
+
+  t...>
+testKeepsPreText_literalMutationString99595_literalMutationString99656(org.jsoup.nodes.ElementTest): expected:<Hello there.[]k   What'sB
+
+  that?> but was:<Hello there.[ ]k   What'sB
+
+  that?>

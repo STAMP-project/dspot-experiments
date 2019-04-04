@@ -1,0 +1,561 @@
+diff --git a/.travis.yml b/.travis.yml
+index fd1f6f5..661c4a8 100644
+--- a/.travis.yml
++++ b/.travis.yml
+@@ -22,7 +22,7 @@ jdk:
+   - oraclejdk8
+ 
+ script:
+-  - mvn test apache-rat:check clirr:check checkstyle:check javadoc:javadoc
++  - mvn test apache-rat:check javadoc:javadoc
+ 
+ after_success:
+   - mvn clean cobertura:cobertura coveralls:report
+diff --git a/README.md b/README.md
+index fc28d5f..c5da757 100644
+--- a/README.md
++++ b/README.md
+@@ -45,6 +45,7 @@ Apache Commons IO
+ 
+ [![Build Status](https://travis-ci.org/apache/commons-io.svg?branch=master)](https://travis-ci.org/apache/commons-io)
+ [![Coverage Status](https://coveralls.io/repos/github/apache/commons-io/badge.svg?branch=master)](https://coveralls.io/github/apache/commons-io?branch=master)
++[![License](http://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
+ 
+ The Apache Commons IO library contains utility classes, stream implementations, file filters, 
+ file comparators, endian transformation classes, and much more.
+diff --git a/checkstyle.xml b/checkstyle.xml
+index b06c818..bd420dd 100644
+--- a/checkstyle.xml
++++ b/checkstyle.xml
+@@ -36,6 +36,10 @@ limitations under the License.
+     <module name="RedundantImport"/>
+     <module name="UnusedImports"/>
+     <module name="NeedBraces"/>
++    <module name="RedundantThrows">
++      <property name="allowUnchecked" value="true"/>
++      <property name="allowSubclasses" value="true"/>
++    </module>
+     <module name="LineLength">
+       <property name="max" value="160"/>
+     </module>
+diff --git a/pom.xml b/pom.xml
+index 6246c77..10c1df5 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -19,7 +19,7 @@
+   <parent>
+     <groupId>org.apache.commons</groupId>
+     <artifactId>commons-parent</artifactId>
+-    <version>42</version>
++    <version>41</version>
+   </parent>
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>commons-io</groupId>
+@@ -259,9 +259,6 @@ file comparators, endian transformation classes, and much more.
+     </commons.osgi.export>
+ 
+     <commons.scmPubCheckoutDirectory>site-content</commons.scmPubCheckoutDirectory>
+-    <!-- Override clirr version to be able to build the site on Java 8 -->
+-    <commons.clirr.version>2.8</commons.clirr.version>
+-    <checkstyle.plugin.version>2.17</checkstyle.plugin.version>
+   </properties>
+ 
+   <build>
+@@ -315,15 +312,6 @@ file comparators, endian transformation classes, and much more.
+       </plugin>
+       <plugin>
+         <groupId>org.apache.maven.plugins</groupId>
+-        <artifactId>maven-checkstyle-plugin</artifactId>
+-        <version>${checkstyle.plugin.version}</version>
+-        <configuration>
+-          <configLocation>${basedir}/checkstyle.xml</configLocation>
+-          <enableRulesSummary>false</enableRulesSummary>
+-        </configuration>
+-      </plugin>
+-      <plugin>
+-        <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-scm-publish-plugin</artifactId>
+         <configuration>
+           <ignorePathsToDelete>
+@@ -344,7 +332,7 @@ file comparators, endian transformation classes, and much more.
+       <plugin>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-checkstyle-plugin</artifactId>
+-        <version>${checkstyle.plugin.version}</version>
++        <version>2.12.1</version>
+         <configuration>
+           <configLocation>${basedir}/checkstyle.xml</configLocation>
+           <enableRulesSummary>false</enableRulesSummary>
+diff --git a/src/changes/changes.xml b/src/changes/changes.xml
+index a395005..1247b0a 100644
+--- a/src/changes/changes.xml
++++ b/src/changes/changes.xml
+@@ -47,12 +47,6 @@ The <action> type attribute can be add,update,fix,remove.
+   <body>
+     <!-- The release date is the date RC is cut -->
+     <release version="2.6" date="2017-MM-DD" description="New features and bug fixes.">
+-      <action issue="IO-367" dev="pschumacher" type="add" due-to="James Sawle">
+-        Add convenience methods for copyToDirectory
+-      </action>
+-      <action issue="IO-442" dev="pschumacher" type="fix" due-to="Simon Robinson">
+-        Javadoc contradictory for FileFilterUtils.ageFileFilter(cutoff) and the filter it constructs: AgeFileFilter(cutoff)
+-      </action>
+       <action issue="IO-534" dev="sebb" type="fix">
+         FileUtilTestCase.testForceDeleteDir() should not delete testDirectory parent
+       </action>
+diff --git a/src/main/java/org/apache/commons/io/FileUtils.java b/src/main/java/org/apache/commons/io/FileUtils.java
+index 10f39b9..51f82d7 100644
+--- a/src/main/java/org/apache/commons/io/FileUtils.java
++++ b/src/main/java/org/apache/commons/io/FileUtils.java
+@@ -1531,75 +1531,6 @@ public static void copyToFile(final InputStream source, final File destination)
+         }
+     }
+ 
+-    /**
+-     * Copies a file or directory to within another directory preserving the file dates.
+-     * <p>
+-     * This method copies the source file or directory, along all its contents, to a
+-     * directory of the same name in the specified destination directory.
+-     * <p>
+-     * The destination directory is created if it does not exist.
+-     * If the destination directory did exist, then this method merges
+-     * the source with the destination, with the source taking precedence.
+-     * <p>
+-     * <strong>Note:</strong> This method tries to preserve the files' last
+-     * modified date/times using {@link File#setLastModified(long)}, however
+-     * it is not guaranteed that those operations will succeed.
+-     * If the modification operation fails, no indication is provided.
+-     *
+-     * @param src      an existing file or directory to copy, must not be {@code null}
+-     * @param destDir  the directory to place the copy in, must not be {@code null}
+-     *
+-     * @throws NullPointerException if source or destination is {@code null}
+-     * @throws IOException if source or destination is invalid
+-     * @throws IOException if an IO error occurs during copying 
+-     * @see #copyDirectoryToDirectory(File, File)
+-     * @see #copyFileToDirectory(File, File)
+-     * @since 2.6
+-     */
+-    public static void copyToDirectory(final File src, final File destDir) throws IOException {
+-        if (src == null) {
+-            throw new NullPointerException("Source must not be null");
+-        }
+-        if (src.isFile()) {
+-            copyFileToDirectory(src, destDir);
+-        } else if (src.isDirectory()) {
+-            copyDirectoryToDirectory(src, destDir);
+-        } else {
+-            throw new IOException("The source " + src + " does not exist");
+-        }
+-    }
+-
+-    /**
+-     * Copies a files to a directory preserving each file's date.
+-     * <p>
+-     * This method copies the contents of the specified source files
+-     * to a file of the same name in the specified destination directory.
+-     * The destination directory is created if it does not exist.
+-     * If the destination file exists, then this method will overwrite it.
+-     * <p>
+-     * <strong>Note:</strong> This method tries to preserve the file's last
+-     * modified date/times using {@link File#setLastModified(long)}, however
+-     * it is not guaranteed that the operation will succeed.
+-     * If the modification operation fails, no indication is provided.
+-     *
+-     * @param srcs     a existing files to copy, must not be {@code null}
+-     * @param destDir  the directory to place the copy in, must not be {@code null}
+-     *
+-     * @throws NullPointerException if source or destination is null
+-     * @throws IOException if source or destination is invalid
+-     * @throws IOException if an IO error occurs during copying
+-     * @see #copyFileToDirectory(File, File)
+-     * @since 2.6
+-     */
+-    public static void copyToDirectory(final Iterable<File> srcs, final File destDir) throws IOException {
+-        if (srcs == null) {
+-            throw new NullPointerException("Sources must not be null");
+-        }
+-        for (File src : srcs) {
+-            copyFileToDirectory(src, destDir);
+-        }
+-    }
+-
+     //-----------------------------------------------------------------------
+     /**
+      * Deletes a directory recursively.
+diff --git a/src/main/java/org/apache/commons/io/IOUtils.java b/src/main/java/org/apache/commons/io/IOUtils.java
+index f4ccaf4..daa9505 100644
+--- a/src/main/java/org/apache/commons/io/IOUtils.java
++++ b/src/main/java/org/apache/commons/io/IOUtils.java
+@@ -818,14 +818,14 @@ public static BufferedInputStream buffer(final InputStream inputStream, int size
+ 
+         final byte[] data = new byte[size];
+         int offset = 0;
+-        int read;
++        int readed;
+ 
+-        while (offset < size && (read = input.read(data, offset, size - offset)) != EOF) {
+-            offset += read;
++        while (offset < size && (readed = input.read(data, offset, size - offset)) != EOF) {
++            offset += readed;
+         }
+ 
+         if (offset != size) {
+-            throw new IOException("Unexpected read size. current: " + offset + ", expected: " + size);
++            throw new IOException("Unexpected readed size. current: " + offset + ", excepted: " + size);
+         }
+ 
+         return data;
+diff --git a/src/main/java/org/apache/commons/io/filefilter/FileFilterUtils.java b/src/main/java/org/apache/commons/io/filefilter/FileFilterUtils.java
+index 0326a40..431bf2a 100644
+--- a/src/main/java/org/apache/commons/io/filefilter/FileFilterUtils.java
++++ b/src/main/java/org/apache/commons/io/filefilter/FileFilterUtils.java
+@@ -518,8 +518,8 @@ public static IOFileFilter asFileFilter(final FilenameFilter filter) {
+ 
+     //-----------------------------------------------------------------------
+     /**
+-     * Returns a filter that returns true if the file was last modified before
+-     * or at the specified cutoff time.
++     * Returns a filter that returns true if the file was last modified after
++     * the specified cutoff time.
+      *
+      * @param cutoff  the time threshold
+      * @return an appropriately configured age file filter
+@@ -544,8 +544,8 @@ public static IOFileFilter ageFileFilter(final long cutoff, final boolean accept
+     }
+ 
+     /**
+-     * Returns a filter that returns true if the file was last modified before
+-     * or at the specified cutoff date.
++     * Returns a filter that returns true if the file was last modified after
++     * the specified cutoff date.
+      *
+      * @param cutoffDate  the time threshold
+      * @return an appropriately configured age file filter
+@@ -570,8 +570,8 @@ public static IOFileFilter ageFileFilter(final Date cutoffDate, final boolean ac
+     }
+ 
+     /**
+-     * Returns a filter that returns true if the file was last modified before
+-     * or at the same time as the specified reference file.
++     * Returns a filter that returns true if the file was last modified after
++     * the specified reference file.
+      *
+      * @param cutoffReference  the file whose last modification
+      *        time is used as the threshold age of the files
+diff --git a/src/main/java/org/apache/commons/io/input/MessageDigestCalculatingInputStream.java b/src/main/java/org/apache/commons/io/input/MessageDigestCalculatingInputStream.java
+index 21d2d5c..c360560 100644
+--- a/src/main/java/org/apache/commons/io/input/MessageDigestCalculatingInputStream.java
++++ b/src/main/java/org/apache/commons/io/input/MessageDigestCalculatingInputStream.java
+@@ -31,16 +31,9 @@
+  */
+ public class MessageDigestCalculatingInputStream extends ObservableInputStream {
+ 
+-    /**
+-     * Maintains the message digest.
+-     */
+     public static class MessageDigestMaintainingObserver extends Observer {
+         private final MessageDigest md;
+ 
+-        /**
+-         * Creates an MessageDigestMaintainingObserver for the given MessageDigest. 
+-         * @param pMd the message digest to use
+-         */
+         public MessageDigestMaintainingObserver(MessageDigest pMd) {
+             md = pMd;
+         }
+@@ -60,8 +53,6 @@ void data(byte[] pBuffer, int pOffset, int pLength) throws IOException {
+ 
+     /** Creates a new instance, which calculates a signature on the given stream,
+      * using the given {@link MessageDigest}.
+-     * @param pStream the stream to calculate the message digest for
+-     * @param pDigest the message digest to use
+      */
+     public MessageDigestCalculatingInputStream(InputStream pStream, MessageDigest pDigest) {
+         super(pStream);
+@@ -71,9 +62,6 @@ public MessageDigestCalculatingInputStream(InputStream pStream, MessageDigest pD
+ 
+     /** Creates a new instance, which calculates a signature on the given stream,
+      * using a {@link MessageDigest} with the given algorithm.
+-     * @param pStream the stream to calculate the message digest for
+-     * @param pAlgorithm the name of the algorithm to use
+-     * @throws NoSuchAlgorithmException if no Provider supports a MessageDigestSpi implementation for the specified algorithm.
+      */
+     public MessageDigestCalculatingInputStream(InputStream pStream, String pAlgorithm) throws NoSuchAlgorithmException {
+         this(pStream, MessageDigest.getInstance(pAlgorithm));
+@@ -81,8 +69,6 @@ public MessageDigestCalculatingInputStream(InputStream pStream, String pAlgorith
+ 
+     /** Creates a new instance, which calculates a signature on the given stream,
+      * using a {@link MessageDigest} with the "MD5" algorithm.
+-     * @param pStream the stream to calculate the message digest for
+-     * @throws NoSuchAlgorithmException if no Provider supports a MessageDigestSpi implementation for the specified algorithm.
+      */
+     public MessageDigestCalculatingInputStream(InputStream pStream) throws NoSuchAlgorithmException {
+         this(pStream, MessageDigest.getInstance("MD5"));
+@@ -94,7 +80,6 @@ public MessageDigestCalculatingInputStream(InputStream pStream) throws NoSuchAlg
+      * This is probably not, what you expect. Make sure, that the complete data has been
+      * read, if that is what you want. The easiest way to do so is by invoking
+      * {@link #consume()}.
+-     * @return the message digest used
+      */
+     public MessageDigest getMessageDigest() {
+         return messageDigest;
+diff --git a/src/main/java/org/apache/commons/io/input/ObservableInputStream.java b/src/main/java/org/apache/commons/io/input/ObservableInputStream.java
+index bae3b46..a8dd078 100644
+--- a/src/main/java/org/apache/commons/io/input/ObservableInputStream.java
++++ b/src/main/java/org/apache/commons/io/input/ObservableInputStream.java
+@@ -18,6 +18,7 @@
+ 
+ import java.io.IOException;
+ import java.io.InputStream;
++import java.security.MessageDigest;
+ import java.util.ArrayList;
+ import java.util.List;
+ 
+@@ -35,17 +36,13 @@
+  * @see MessageDigestCalculatingInputStream
+  */
+ public class ObservableInputStream extends ProxyInputStream {
+-
+     public static abstract class Observer {
+-
+         /** Called to indicate, that {@link InputStream#read()} has been invoked
+          * on the {@link ObservableInputStream}, and will return a value.
+          * @param pByte The value, which is being returned. This will never be -1 (EOF),
+          *    because, in that case, {@link #finished()} will be invoked instead.
+-         * @throws IOException if an i/o-error occurs
+          */
+         void data(int pByte) throws IOException {}
+- 
+         /** Called to indicate, that {@link InputStream#read(byte[])}, or
+          * {@link InputStream#read(byte[], int, int)} have been called, and are about to
+          * invoke data.
+@@ -53,59 +50,37 @@ void data(int pByte) throws IOException {}
+          *   data has been stored.
+          * @param pOffset The offset within the byte array, where data has been stored.
+          * @param pLength The number of bytes, which have been stored in the byte array.
+-         * @throws IOException if an i/o-error occurs
+          */
+         void data(byte[] pBuffer, int pOffset, int pLength) throws IOException {}
+-
+         /** Called to indicate, that EOF has been seen on the underlying stream.
+          * This method may be called multiple times, if the reader keeps invoking
+          * either of the read methods, and they will consequently keep returning
+          * EOF.
+-         * @throws IOException if an i/o-error occurs
+          */
+         void finished() throws IOException {}
+-
+         /** Called to indicate, that the {@link ObservableInputStream} has been closed.
+-         * @throws IOException if an i/o-error occurs
+          */
+         void closed() throws IOException {}
+-
+         /**
+          * Called to indicate, that an error occurred on the underlying stream.
+-         * @throws IOException if an i/o-error occurs
+          */
+         void error(IOException pException) throws IOException { throw pException; }
+     }
+ 
+     private final List<Observer> observers = new ArrayList<>();
+-
+-    /**
+-     * Creates a new ObservableInputStream for the given InputStream.
+-     * @param pProxy the input stream to proxy
+-     */
++    
+     public ObservableInputStream(InputStream pProxy) {
+         super(pProxy);
+     }
+ 
+-    /**
+-     * Adds an Observer.
+-     * @param pObserver the observer to add
+-     */
+     public void add(Observer pObserver) {
+         observers.add(pObserver);
+     }
+ 
+-    /**
+-     * Removes an Observer.
+-     * @param pObserver the observer to remove
+-     */
+     public void remove(Observer pObserver) {
+         observers.remove(pObserver);
+     }
+ 
+-    /**
+-     * Removes all Observers.
+-     */
+     public void removeAllObservers() {
+         observers.clear();
+     }
+@@ -226,9 +201,6 @@ protected void noteClosed() throws IOException {
+         }
+     }
+ 
+-    /** Gets all currently registered observers.
+-     * @return a list of the currently registered observers
+-     */
+     protected List<Observer> getObservers() {
+         return observers;
+     }
+diff --git a/src/main/java/org/apache/commons/io/output/WriterOutputStream.java b/src/main/java/org/apache/commons/io/output/WriterOutputStream.java
+index 5838283..0043d87 100644
+--- a/src/main/java/org/apache/commons/io/output/WriterOutputStream.java
++++ b/src/main/java/org/apache/commons/io/output/WriterOutputStream.java
+@@ -310,11 +310,6 @@ private void flushOutput() throws IOException {
+         }
+     }
+ 
+-    /**
+-     * Check if the JDK in use properly supports the given charset.
+-     * 
+-     * @param charset the charset to check the support for
+-     */
+     private static void checkIbmJdkWithBrokenUTF16(Charset charset){
+         if (!"UTF-16".equals(charset.name())) {
+             return;
+diff --git a/src/site/resources/profile.clirr b/src/site/resources/profile.clirr
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/src/site/resources/profile.cobertura b/src/site/resources/profile.cobertura
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/src/test/java/org/apache/commons/io/FileUtilsTestCase.java b/src/test/java/org/apache/commons/io/FileUtilsTestCase.java
+index 303b7c9..04dc7f0 100644
+--- a/src/test/java/org/apache/commons/io/FileUtilsTestCase.java
++++ b/src/test/java/org/apache/commons/io/FileUtilsTestCase.java
+@@ -1534,95 +1534,6 @@ public void testCopyDirectoryErrors() throws Exception {
+         }
+     }
+ 
+-    // copyToDirectory
+-
+-    @Test
+-    public void testCopyToDirectoryWithFile() throws IOException {
+-        final File directory = new File(getTestDirectory(), "subdir");
+-        if (!directory.exists()) {
+-            directory.mkdirs();
+-        }
+-        final File destination = new File(directory, testFile1.getName());
+-
+-        FileUtils.copyToDirectory(testFile1, directory);
+-        assertTrue("Check Exists", destination.exists());
+-        assertEquals("Check Full Copy", testFile1Size, destination.length());
+-    }
+-
+-    @Test(expected=NullPointerException.class)
+-    public void testCopyToDirectoryWithFileSourceIsNull() throws IOException {
+-        FileUtils.copyToDirectory((File) null, getTestDirectory());
+-    }
+-
+-    @Test(expected=IOException.class)
+-    public void testCopyToDirectoryWithFileSourceDoesNotExist() throws IOException {
+-        FileUtils.copyToDirectory(new File(getTestDirectory(), "doesNotExists"), getTestDirectory());
+-    }
+-
+-    @Test
+-    public void testCopyToDirectoryWithDirectory() throws IOException {
+-        final File destDirectory = new File(getTestDirectory(), "destination");
+-        if (!destDirectory.exists()) {
+-            destDirectory.mkdirs();
+-        }
+-
+-        // Create a test directory
+-        final File inputDirectory = new File(getTestDirectory(), "input");
+-        if (!inputDirectory.exists()) {
+-            inputDirectory.mkdirs();
+-        }
+-        final File outputDirDestination = new File(destDirectory, inputDirectory.getName());
+-        FileUtils.copyToDirectory(testFile1, inputDirectory);
+-        final File destFile1 = new File(outputDirDestination, testFile1.getName());
+-        FileUtils.copyToDirectory(testFile2, inputDirectory);
+-        final File destFile2 = new File(outputDirDestination, testFile2.getName());
+-
+-        FileUtils.copyToDirectory(inputDirectory, destDirectory);
+-
+-        // Check the directory was created
+-        assertTrue("Check Exists", outputDirDestination.exists());
+-        assertTrue("Check Directory", outputDirDestination.isDirectory());
+-
+-        // Check each file
+-        assertTrue("Check Exists", destFile1.exists());
+-        assertEquals("Check Full Copy", testFile1Size, destFile1.length());
+-        assertTrue("Check Exists", destFile2.exists());
+-        assertEquals("Check Full Copy", testFile2Size, destFile2.length());
+-    }
+-
+-    @Test
+-    public void testCopyToDirectoryWithIterable() throws IOException {
+-        final File directory = new File(getTestDirectory(), "subdir");
+-        if (!directory.exists()) {
+-            directory.mkdirs();
+-        }
+-
+-        List<File> input = new ArrayList<>();
+-        input.add(testFile1);
+-        input.add(testFile2);
+-
+-        final File destFile1 = new File(directory, testFile1.getName());
+-        final File destFile2 = new File(directory, testFile2.getName());
+-
+-        FileUtils.copyToDirectory(input, directory);
+-        // Check each file
+-        assertTrue("Check Exists", destFile1.exists());
+-        assertEquals("Check Full Copy", testFile1Size, destFile1.length());
+-        assertTrue("Check Exists", destFile2.exists());
+-        assertEquals("Check Full Copy", testFile2Size, destFile2.length());
+-    }
+-
+-    @Test(expected=NullPointerException.class)
+-    public void testCopyToDirectoryWithIterableSourceIsNull() throws IOException {
+-        FileUtils.copyToDirectory((List<File>) null, getTestDirectory());
+-    }
+-
+-    @Test(expected=IOException.class)
+-    public void testCopyToDirectoryWithIterableSourceDoesNotExist() throws IOException {
+-        FileUtils.copyToDirectory(Collections.singleton(new File(getTestDirectory(), "doesNotExists")),
+-                getTestDirectory());
+-    }
+-
+     // forceDelete
+ 
+     @Test
+diff --git a/src/test/java/org/apache/commons/io/IOUtilsTestCase.java b/src/test/java/org/apache/commons/io/IOUtilsTestCase.java
+index 4356467..a29a41e 100644
+--- a/src/test/java/org/apache/commons/io/IOUtilsTestCase.java
++++ b/src/test/java/org/apache/commons/io/IOUtilsTestCase.java
+@@ -904,7 +904,7 @@ public synchronized void close() throws IOException {
+ 
+         try (FileInputStream fin = new FileInputStream(m_testFile)) {
+             IOUtils.toByteArray(fin, -1);
+-            fail("IllegalArgumentException expected");
++            fail("IllegalArgumentException excepted");
+         } catch (final IllegalArgumentException exc) {
+             assertTrue("Exception message does not start with \"Size must be equal or greater than zero\"", exc
+                     .getMessage().startsWith("Size must be equal or greater than zero"));
+@@ -926,10 +926,10 @@ public synchronized void close() throws IOException {
+ 
+         try (FileInputStream fin = new FileInputStream(m_testFile)) {
+             IOUtils.toByteArray(fin, m_testFile.length() + 1);
+-            fail("IOException expected");
++            fail("IOException excepted");
+         } catch (final IOException exc) {
+-            assertTrue("Exception message does not start with \"Unexpected read size\"",
+-                    exc.getMessage().startsWith("Unexpected read size"));
++            assertTrue("Exception message does not start with \"Unexpected readed size\"",
++                    exc.getMessage().startsWith("Unexpected readed size"));
+         }
+ 
+     }
+@@ -938,7 +938,7 @@ public synchronized void close() throws IOException {
+ 
+         try (FileInputStream fin = new FileInputStream(m_testFile)) {
+             IOUtils.toByteArray(fin, (long) Integer.MAX_VALUE + 1);
+-            fail("IOException expected");
++            fail("IOException excepted");
+         } catch (final IllegalArgumentException exc) {
+             assertTrue("Exception message does not start with \"Size cannot be greater than Integer max value\"", exc
+                     .getMessage().startsWith("Size cannot be greater than Integer max value"));

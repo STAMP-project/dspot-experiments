@@ -1,0 +1,32 @@
+diff --git a/src/main/java/org/apache/commons/io/input/BoundedReader.java b/src/main/java/org/apache/commons/io/input/BoundedReader.java
+index 587d602..a20b51c 100644
+--- a/src/main/java/org/apache/commons/io/input/BoundedReader.java
++++ b/src/main/java/org/apache/commons/io/input/BoundedReader.java
+@@ -139,7 +139,7 @@ public class BoundedReader
+         for ( int i = 0; i < len; i++ ) {
+             c = read();
+             if ( c == -1 ) {
+-                return i == 0 ? -1 : i;
++                return i;
+             }
+             cbuf[off + i] = (char) c;
+         }
+diff --git a/src/test/java/org/apache/commons/io/input/BoundedReaderTest.java b/src/test/java/org/apache/commons/io/input/BoundedReaderTest.java
+index 9bd44f5..2f61ccc 100644
+--- a/src/test/java/org/apache/commons/io/input/BoundedReaderTest.java
++++ b/src/test/java/org/apache/commons/io/input/BoundedReaderTest.java
+@@ -181,12 +181,4 @@ public class BoundedReaderTest
+         mr.close();
+         assertTrue( closed.get() );
+     }
+-
+-    @Test(timeout = 5000)
+-    public void testReadBytesEOF() throws IOException {
+-        BoundedReader mr = new BoundedReader( sr, 3 );
+-        BufferedReader br = new BufferedReader( mr );
+-        br.readLine();
+-        br.readLine();
+-    }
+-}
++}
+\ No newline at end of file

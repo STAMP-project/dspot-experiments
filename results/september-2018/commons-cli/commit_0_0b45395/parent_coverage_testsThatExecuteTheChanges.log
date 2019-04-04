@@ -1,0 +1,226 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< commons-cli:commons-cli >-----------------------
+[INFO] Building Apache Commons CLI 1.5-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.0.0:clean (default-clean) @ commons-cli ---
+[INFO] Deleting /tmp/icst-2019/september-2018/dataset/commons-cli_parent/target
+[INFO] 
+[INFO] --- diff-test-selection:0.5-SNAPSHOT:list (default-cli) @ commons-cli ---
+[INFO] Computing coverage for /tmp/icst-2019/september-2018/dataset/commons-cli_parent
+[WARN] Maven will be executed in interactive mode, but no input stream has been configured for this MavenInvoker instance.
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< commons-cli:commons-cli >-----------------------
+[INFO] Building Apache Commons CLI 1.5-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.0.0:clean (default-clean) @ commons-cli ---
+[INFO] 
+[INFO] --- clover-maven-plugin:4.2.0:setup (default-cli) @ commons-cli ---
+[INFO] No 'maven.clover.licenseLocation' configured. Using default license.
+[INFO] OpenClover Version 4.2.0, built on April 30 2017 (build-1000)
+[INFO] Loaded from: /home/spirals/danglot/.m2/repository/org/openclover/clover/4.2.0/clover-4.2.0.jar
+[INFO] Clover free edition.
+[INFO] Creating new database at '/tmp/icst-2019/september-2018/dataset/commons-cli_parent/target/clover/clover.db'.
+[INFO] Processing files at 1.8 source level.
+[INFO] Clover all over. Instrumented 23 files (1 package).
+[INFO] Elapsed time = 0.658 secs. (34.954 files/sec, 9,711.246 srclines/sec)
+[INFO] OpenClover Version 4.2.0, built on April 30 2017 (build-1000)
+[INFO] Loaded from: /home/spirals/danglot/.m2/repository/org/openclover/clover/4.2.0/clover-4.2.0.jar
+[INFO] Clover free edition.
+[INFO] Updating existing database at '/tmp/icst-2019/september-2018/dataset/commons-cli_parent/target/clover/clover.db'.
+[INFO] Processing files at 1.8 source level.
+[INFO] Clover all over. Instrumented 27 files (2 packages).
+[INFO] 269 test methods detected.
+[INFO] Elapsed time = 0.845 secs. (31.953 files/sec, 6,633.136 srclines/sec)
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-maven-3) @ commons-cli ---
+[INFO] Skipping Rule Enforcement.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:1.10:parse-version (parse-version) @ commons-cli ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-cli ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /tmp/icst-2019/september-2018/dataset/commons-cli_parent/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (process-resource-bundles) @ commons-cli ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-cli ---
+[INFO] Executing: /bin/sh -c cd '/tmp/icst-2019/september-2018/dataset/commons-cli_parent' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /tmp/icst-2019/september-2018/dataset/commons-cli_parent
+[INFO] Storing buildNumber: 70a392756c713f404fed0e3ddd48aa18ce20485f at timestamp: 1538311284926
+[INFO] Storing buildScmBranch: master
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ commons-cli ---
+[INFO] Using 'utf-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /tmp/icst-2019/september-2018/dataset/commons-cli_parent/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.6.0:compile (default-compile) @ commons-cli ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 23 source files to /tmp/icst-2019/september-2018/dataset/commons-cli_parent/target/classes
+[INFO] /tmp/icst-2019/september-2018/dataset/commons-cli_parent/target/clover/src-instrumented/org/apache/commons/cli/Parser.java: Some input files use unchecked or unsafe operations.
+[INFO] /tmp/icst-2019/september-2018/dataset/commons-cli_parent/target/clover/src-instrumented/org/apache/commons/cli/Parser.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-bundle-plugin:3.0.1:manifest (bundle-manifest) @ commons-cli ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.15:check (checkAPIcompatibility) @ commons-cli ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java15:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ commons-cli ---
+[INFO] Using 'utf-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /tmp/icst-2019/september-2018/dataset/commons-cli_parent/src/test/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.6.0:testCompile (default-testCompile) @ commons-cli ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 27 source files to /tmp/icst-2019/september-2018/dataset/commons-cli_parent/target/test-classes
+[INFO] /tmp/icst-2019/september-2018/dataset/commons-cli_parent/target/clover/src-test-instrumented/org/apache/commons/cli/bug/BugCLI71Test.java: Some input files use or override a deprecated API.
+[INFO] /tmp/icst-2019/september-2018/dataset/commons-cli_parent/target/clover/src-test-instrumented/org/apache/commons/cli/bug/BugCLI71Test.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.7.7.201606060606:prepare-agent (prepare-agent) @ commons-cli ---
+[INFO] Skipping JaCoCo execution because property jacoco.skip is set.
+[INFO] argLine set to empty
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ commons-cli ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.apache.commons.cli.DefaultParserTest
+Tests run: 58, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.194 sec - in org.apache.commons.cli.DefaultParserTest
+Running org.apache.commons.cli.PatternOptionBuilderTest
+Exception found converting v to desired type: Unable to parse the URL: foo://commons.apache.org
+Exception found converting d to desired type: Unable to find the class: System.DateTime
+Exception found converting x to desired type: For input string: "3,5"
+Exception found converting i to desired type: java.lang.IllegalAccessException; Unable to create an instance of: java.util.Calendar
+Exception found converting n to desired type: Unable to find the class: System.DateTime
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec - in org.apache.commons.cli.PatternOptionBuilderTest
+Running org.apache.commons.cli.CommandLineTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.cli.CommandLineTest
+Running org.apache.commons.cli.GnuParserTest
+Tests run: 58, Failures: 0, Errors: 0, Skipped: 21, Time elapsed: 0.074 sec - in org.apache.commons.cli.GnuParserTest
+Running org.apache.commons.cli.OptionTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.cli.OptionTest
+Running org.apache.commons.cli.BasicParserTest
+Tests run: 58, Failures: 0, Errors: 0, Skipped: 24, Time elapsed: 0.036 sec - in org.apache.commons.cli.BasicParserTest
+Running org.apache.commons.cli.ValueTest
+Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec - in org.apache.commons.cli.ValueTest
+Running org.apache.commons.cli.OptionBuilderTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.apache.commons.cli.OptionBuilderTest
+Running org.apache.commons.cli.bug.BugCLI13Test
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.cli.bug.BugCLI13Test
+Running org.apache.commons.cli.bug.BugCLI133Test
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.cli.bug.BugCLI133Test
+Running org.apache.commons.cli.bug.BugCLI162Test
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec - in org.apache.commons.cli.bug.BugCLI162Test
+Running org.apache.commons.cli.bug.BugCLI148Test
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.cli.bug.BugCLI148Test
+Running org.apache.commons.cli.bug.BugCLI266Test
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.cli.bug.BugCLI266Test
+Running org.apache.commons.cli.bug.BugCLI252Test
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.cli.bug.BugCLI252Test
+Running org.apache.commons.cli.bug.BugCLI71Test
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.cli.bug.BugCLI71Test
+Running org.apache.commons.cli.bug.BugCLI265Test
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.cli.bug.BugCLI265Test
+Running org.apache.commons.cli.bug.BugCLI18Test
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.cli.bug.BugCLI18Test
+Running org.apache.commons.cli.bug.BugsTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in org.apache.commons.cli.bug.BugsTest
+Running org.apache.commons.cli.OptionsTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.cli.OptionsTest
+Running org.apache.commons.cli.OptionGroupTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.apache.commons.cli.OptionGroupTest
+Running org.apache.commons.cli.ValuesTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.apache.commons.cli.ValuesTest
+Running org.apache.commons.cli.ArgumentIsOptionTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.cli.ArgumentIsOptionTest
+Running org.apache.commons.cli.HelpFormatterTest
+Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 sec - in org.apache.commons.cli.HelpFormatterTest
+Running org.apache.commons.cli.ApplicationTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.cli.ApplicationTest
+Running org.apache.commons.cli.UtilTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.cli.UtilTest
+Running org.apache.commons.cli.PosixParserTest
+Tests run: 58, Failures: 0, Errors: 0, Skipped: 9, Time elapsed: 0.033 sec - in org.apache.commons.cli.PosixParserTest
+
+Results :
+
+Tests run: 389, Failures: 0, Errors: 0, Skipped: 54
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 13.262 s
+[INFO] Finished at: 2018-09-30T14:41:32+02:00
+[INFO] ------------------------------------------------------------------------
+Writing HTML report to '/tmp/icst-2019/september-2018/dataset/commons-cli_parent/target/clover/report'
+Done. Processed 2 packages in 2222ms (1111ms per package).
+[INFO] /tmp/icst-2019/september-2018/dataset/commons-cli_parent/src/main/java/org/apache/commons/cli/TypeHandler.java
+[INFO] /tmp/icst-2019/september-2018/dataset/commons-cli/src/main/java/org/apache/commons/cli/TypeHandler.java
+[info] org.apache.commons.cli.TypeHandler:68 is modified.
+[info] org.apache.commons.cli.TypeHandler:236 is modified.
+[info] org.apache.commons.cli.TypeHandler:238 is modified.
+[info] org.apache.commons.cli.TypeHandler:238 is modified.
+[info] org.apache.commons.cli.TypeHandler:242 is modified.
+[info] org.apache.commons.cli.TypeHandler:242 is modified.
+[info] org.apache.commons.cli.TypeHandler:90 is modified.
+[info] org.apache.commons.cli.TypeHandler:92 is modified.
+[info] org.apache.commons.cli.TypeHandler:92 is modified.
+[info] org.apache.commons.cli.TypeHandler:86 is modified.
+[info] org.apache.commons.cli.TypeHandler:86 is modified.
+[info] org.apache.commons.cli.TypeHandler:64 is modified.
+[info] org.apache.commons.cli.TypeHandler:68 covered.
+[info] org.apache.commons.cli.TypeHandler:64 covered.
+[info] org.apache.commons.cli.TypeHandler:72 covered.
+[info] org.apache.commons.cli.TypeHandler:76 covered.
+[info] org.apache.commons.cli.TypeHandler:80 covered.
+[info] org.apache.commons.cli.TypeHandler:84 covered.
+[info] org.apache.commons.cli.TypeHandler:90 covered.
+[info] org.apache.commons.cli.TypeHandler:88 covered.
+[info] org.apache.commons.cli.TypeHandler:92 covered.
+[info] org.apache.commons.cli.TypeHandler:86 covered.
+[INFO] /tmp/icst-2019/september-2018/dataset/commons-cli_parent/src/test/java/org/apache/commons/cli/PatternOptionBuilderTest.java
+[INFO] /tmp/icst-2019/september-2018/dataset/commons-cli/src/test/java/org/apache/commons/cli/PatternOptionBuilderTest.java
+[info] org.apache.commons.cli.PatternOptionBuilderTest:164 is modified.
+[info] org.apache.commons.cli.PatternOptionBuilderTest:165 is modified.
+[info] org.apache.commons.cli.PatternOptionBuilderTest:166 is modified.
+[info] org.apache.commons.cli.PatternOptionBuilderTest:168 is modified.
+[info] org.apache.commons.cli.PatternOptionBuilderTest:170 is modified.
+[info] org.apache.commons.cli.PatternOptionBuilderTest:171 is modified.
+[info] org.apache.commons.cli.PatternOptionBuilderTest:166 is modified.
+[info] org.apache.commons.cli.PatternOptionBuilderTest:164 is modified.
+[info] org.apache.commons.cli.PatternOptionBuilderTest:164 is modified.
+[info] org.apache.commons.cli.PatternOptionBuilderTest:165 is modified.
+[info] org.apache.commons.cli.PatternOptionBuilderTest:165 is modified.
+[info] org.apache.commons.cli.PatternOptionBuilderTest:164 is modified.
+[info] org.apache.commons.cli.PatternOptionBuilderTest:166 is modified.
+[info] org.apache.commons.cli.PatternOptionBuilderTest:168 is modified.
+[info] org.apache.commons.cli.PatternOptionBuilderTest:168 is modified.
+[info] org.apache.commons.cli.PatternOptionBuilderTest:178 is modified.
+[info] org.apache.commons.cli.PatternOptionBuilderTest:164 is modified.
+[info] org.apache.commons.cli.PatternOptionBuilderTest:165 is modified.
+[info] org.apache.commons.cli.PatternOptionBuilderTest:168 is modified.
+[info] org.apache.commons.cli.PatternOptionBuilderTest:178 is modified.
+[info] org.apache.commons.cli.PatternOptionBuilderTest:166 is modified.
+[INFO] Saving result in /tmp/icst-2019/september-2018/result/commons-cli/commit_0_0b45395/parent_coverage_testsThatExecuteTheChanges.csv ...
+[INFO] org.apache.commons.cli.CommandLineTest;testGetParsedOptionValueWithChar;testGetParsedOptionValueWithOption;testGetParsedOptionValue
+org.apache.commons.cli.PatternOptionBuilderTest;testNumberPattern;testClassPattern;testExistingFilePattern;testSimplePattern;testURLPattern;testObjectPattern
+[INFO] Writing Coverage in /tmp/icst-2019/september-2018/result/commons-cli/commit_0_0b45395/parent_coverage_testsThatExecuteTheChanges_coverage.csv
+[INFO] org.apache.commons.cli.TypeHandler;10;8
+
+[INFO] total;10;8
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 22.101 s
+[INFO] Finished at: 2018-09-30T14:41:37+02:00
+[INFO] ------------------------------------------------------------------------

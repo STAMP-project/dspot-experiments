@@ -1,0 +1,54 @@
+diff --git a/examples/android-proguard-example/AndroidManifest.xml b/examples/android-proguard-example/AndroidManifest.xml
+old mode 100755
+new mode 100644
+diff --git a/gson/src/main/java/com/google/gson/JsonParser.java b/gson/src/main/java/com/google/gson/JsonParser.java
+old mode 100755
+new mode 100644
+diff --git a/gson/src/main/java/com/google/gson/stream/JsonReader.java b/gson/src/main/java/com/google/gson/stream/JsonReader.java
+index 877742b..9cbc62f 100644
+--- a/gson/src/main/java/com/google/gson/stream/JsonReader.java
++++ b/gson/src/main/java/com/google/gson/stream/JsonReader.java
+@@ -728,7 +728,7 @@ public class JsonReader implements Closeable {
+     }
+ 
+     // We've read a complete number. Decide if it's a PEEKED_LONG or a PEEKED_NUMBER.
+-    if (last == NUMBER_CHAR_DIGIT && fitsInLong && (value != Long.MIN_VALUE || negative)) {
++    if (last == NUMBER_CHAR_DIGIT && fitsInLong && (value != Long.MIN_VALUE || negative) && (value!=0 || false==negative)) {
+       peekedLong = negative ? value : -value;
+       pos += i;
+       return peeked = PEEKED_LONG;
+diff --git a/gson/src/test/java/com/google/gson/GsonBuilderTest.java b/gson/src/test/java/com/google/gson/GsonBuilderTest.java
+old mode 100755
+new mode 100644
+diff --git a/gson/src/test/java/com/google/gson/functional/ConcurrencyTest.java b/gson/src/test/java/com/google/gson/functional/ConcurrencyTest.java
+old mode 100755
+new mode 100644
+diff --git a/gson/src/test/java/com/google/gson/functional/MapTest.java b/gson/src/test/java/com/google/gson/functional/MapTest.java
+old mode 100755
+new mode 100644
+diff --git a/gson/src/test/java/com/google/gson/functional/NullObjectAndFieldTest.java b/gson/src/test/java/com/google/gson/functional/NullObjectAndFieldTest.java
+old mode 100755
+new mode 100644
+diff --git a/gson/src/test/java/com/google/gson/stream/JsonReaderTest.java b/gson/src/test/java/com/google/gson/stream/JsonReaderTest.java
+index d6b7a83..19ca2d2 100644
+--- a/gson/src/test/java/com/google/gson/stream/JsonReaderTest.java
++++ b/gson/src/test/java/com/google/gson/stream/JsonReaderTest.java
+@@ -560,6 +560,18 @@ public final class JsonReaderTest extends TestCase {
+     } catch (NumberFormatException expected) {
+     }
+   }
++  
++  /**
++   * Issue 1053, negative zero.
++   * @throws Exception
++   */
++  public void testNegativeZero() throws Exception {
++	  	JsonReader reader = new JsonReader(reader("[-0]"));
++	    reader.setLenient(false);
++	    reader.beginArray();
++	    assertEquals(NUMBER, reader.peek());
++	    assertEquals("-0", reader.nextString());
++  }
+ 
+   /**
+    * This test fails because there's no double for 9223372036854775808, and our

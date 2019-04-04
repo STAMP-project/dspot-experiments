@@ -1,0 +1,203 @@
+diff --git a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDCircleAppearanceHandler.java b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDCircleAppearanceHandler.java
+index df81219..855af6c 100644
+--- a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDCircleAppearanceHandler.java
++++ b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDCircleAppearanceHandler.java
+@@ -27,6 +27,7 @@ import org.apache.pdfbox.pdmodel.common.PDRectangle;
+ import org.apache.pdfbox.pdmodel.interactive.annotation.PDAnnotation;
+ import org.apache.pdfbox.pdmodel.interactive.annotation.PDAnnotationCircle;
+ import org.apache.pdfbox.pdmodel.PDAppearanceContentStream;
++import org.apache.pdfbox.pdmodel.interactive.annotation.PDAnnotationMarkup;
+ import org.apache.pdfbox.pdmodel.interactive.annotation.PDAppearanceStream;
+ import org.apache.pdfbox.pdmodel.interactive.annotation.PDBorderStyleDictionary;
+ import org.apache.pdfbox.pdmodel.interactive.annotation.PDBorderEffectDictionary;
+@@ -153,7 +154,7 @@ public class PDCircleAppearanceHandler extends PDAbstractAppearanceHandler
+     // here and removed from the individual handlers.
+     float getLineWidth()
+     {
+-        PDAnnotationCircle annotation = (PDAnnotationCircle) getAnnotation();
++        PDAnnotationMarkup annotation = (PDAnnotationMarkup) getAnnotation();
+ 
+         PDBorderStyleDictionary bs = annotation.getBorderStyle();
+ 
+@@ -161,16 +162,14 @@ public class PDCircleAppearanceHandler extends PDAbstractAppearanceHandler
+         {
+             return bs.getWidth();
+         }
+-        else
++
++        COSArray borderCharacteristics = annotation.getBorder();
++        if (borderCharacteristics.size() >= 3)
+         {
+-            COSArray borderCharacteristics = annotation.getBorder();
+-            if (borderCharacteristics.size() >= 3)
++            COSBase base = borderCharacteristics.getObject(2);
++            if (base instanceof COSNumber)
+             {
+-                COSBase base = borderCharacteristics.getObject(2);
+-                if (base instanceof COSNumber)
+-                {
+-                    return ((COSNumber) base).floatValue();
+-                }
++                return ((COSNumber) base).floatValue();
+             }
+         }
+ 
+diff --git a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDLinkAppearanceHandler.java b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDLinkAppearanceHandler.java
+index 945aa32..b9d6969 100644
+--- a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDLinkAppearanceHandler.java
++++ b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDLinkAppearanceHandler.java
+@@ -185,16 +185,14 @@ public class PDLinkAppearanceHandler extends PDAbstractAppearanceHandler
+         {
+             return bs.getWidth();
+         }
+-        else
++
++        COSArray borderCharacteristics = annotation.getBorder();
++        if (borderCharacteristics.size() >= 3)
+         {
+-            COSArray borderCharacteristics = annotation.getBorder();
+-            if (borderCharacteristics.size() >= 3)
++            COSBase base = borderCharacteristics.getObject(2);
++            if (base instanceof COSNumber)
+             {
+-                COSBase base = borderCharacteristics.getObject(2);
+-                if (base instanceof COSNumber)
+-                {
+-                    return ((COSNumber) base).floatValue();
+-                }
++                return ((COSNumber) base).floatValue();
+             }
+         }
+ 
+diff --git a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDPolygonAppearanceHandler.java b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDPolygonAppearanceHandler.java
+index fdc03dd..8350b71 100644
+--- a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDPolygonAppearanceHandler.java
++++ b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDPolygonAppearanceHandler.java
+@@ -28,6 +28,7 @@ import org.apache.pdfbox.pdmodel.common.PDRectangle;
+ import org.apache.pdfbox.pdmodel.interactive.annotation.PDAnnotation;
+ import org.apache.pdfbox.pdmodel.interactive.annotation.PDAnnotationPolygon;
+ import org.apache.pdfbox.pdmodel.PDAppearanceContentStream;
++import org.apache.pdfbox.pdmodel.interactive.annotation.PDAnnotationMarkup;
+ import org.apache.pdfbox.pdmodel.interactive.annotation.PDAppearanceStream;
+ import org.apache.pdfbox.pdmodel.interactive.annotation.PDBorderEffectDictionary;
+ import org.apache.pdfbox.pdmodel.interactive.annotation.PDBorderStyleDictionary;
+@@ -206,7 +207,7 @@ public class PDPolygonAppearanceHandler extends PDAbstractAppearanceHandler
+     // here and removed from the individual handlers.
+     float getLineWidth()
+     {
+-        PDAnnotationPolygon annotation = (PDAnnotationPolygon) getAnnotation();
++        PDAnnotationMarkup annotation = (PDAnnotationMarkup) getAnnotation();
+ 
+         PDBorderStyleDictionary bs = annotation.getBorderStyle();
+ 
+@@ -214,16 +215,14 @@ public class PDPolygonAppearanceHandler extends PDAbstractAppearanceHandler
+         {
+             return bs.getWidth();
+         }
+-        else
++
++        COSArray borderCharacteristics = annotation.getBorder();
++        if (borderCharacteristics.size() >= 3)
+         {
+-            COSArray borderCharacteristics = annotation.getBorder();
+-            if (borderCharacteristics.size() >= 3)
++            COSBase base = borderCharacteristics.getObject(2);
++            if (base instanceof COSNumber)
+             {
+-                COSBase base = borderCharacteristics.getObject(2);
+-                if (base instanceof COSNumber)
+-                {
+-                    return ((COSNumber) base).floatValue();
+-                }
++                return ((COSNumber) base).floatValue();
+             }
+         }
+ 
+diff --git a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDPolylineAppearanceHandler.java b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDPolylineAppearanceHandler.java
+index 3a863d9..42af485 100644
+--- a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDPolylineAppearanceHandler.java
++++ b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDPolylineAppearanceHandler.java
+@@ -29,6 +29,7 @@ import org.apache.pdfbox.pdmodel.interactive.annotation.PDAnnotation;
+ import org.apache.pdfbox.pdmodel.interactive.annotation.PDAnnotationPolyline;
+ import org.apache.pdfbox.pdmodel.PDAppearanceContentStream;
+ import static org.apache.pdfbox.pdmodel.interactive.annotation.PDAnnotationLine.LE_NONE;
++import org.apache.pdfbox.pdmodel.interactive.annotation.PDAnnotationMarkup;
+ import org.apache.pdfbox.pdmodel.interactive.annotation.PDBorderStyleDictionary;
+ import org.apache.pdfbox.util.Matrix;
+ 
+@@ -238,7 +239,7 @@ public class PDPolylineAppearanceHandler extends PDAbstractAppearanceHandler
+     // here and removed from the individual handlers.
+     float getLineWidth()
+     {
+-        PDAnnotationPolyline annotation = (PDAnnotationPolyline) getAnnotation();
++        PDAnnotationMarkup annotation = (PDAnnotationMarkup) getAnnotation();
+ 
+         PDBorderStyleDictionary bs = annotation.getBorderStyle();
+ 
+@@ -246,16 +247,14 @@ public class PDPolylineAppearanceHandler extends PDAbstractAppearanceHandler
+         {
+             return bs.getWidth();
+         }
+-        else
++
++        COSArray borderCharacteristics = annotation.getBorder();
++        if (borderCharacteristics.size() >= 3)
+         {
+-            COSArray borderCharacteristics = annotation.getBorder();
+-            if (borderCharacteristics.size() >= 3)
++            COSBase base = borderCharacteristics.getObject(2);
++            if (base instanceof COSNumber)
+             {
+-                COSBase base = borderCharacteristics.getObject(2);
+-                if (base instanceof COSNumber)
+-                {
+-                    return ((COSNumber) base).floatValue();
+-                }
++                return ((COSNumber) base).floatValue();
+             }
+         }
+ 
+diff --git a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDSquareAppearanceHandler.java b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDSquareAppearanceHandler.java
+index 3211b6f..f82b0b8 100644
+--- a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDSquareAppearanceHandler.java
++++ b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDSquareAppearanceHandler.java
+@@ -29,6 +29,7 @@ import org.apache.pdfbox.pdmodel.common.PDRectangle;
+ import org.apache.pdfbox.pdmodel.interactive.annotation.PDAnnotation;
+ import org.apache.pdfbox.pdmodel.interactive.annotation.PDAnnotationSquare;
+ import org.apache.pdfbox.pdmodel.PDAppearanceContentStream;
++import org.apache.pdfbox.pdmodel.interactive.annotation.PDAnnotationMarkup;
+ import org.apache.pdfbox.pdmodel.interactive.annotation.PDAppearanceStream;
+ import org.apache.pdfbox.pdmodel.interactive.annotation.PDBorderEffectDictionary;
+ import org.apache.pdfbox.pdmodel.interactive.annotation.PDBorderStyleDictionary;
+@@ -156,7 +157,7 @@ public class PDSquareAppearanceHandler extends PDAbstractAppearanceHandler
+     // here and removed from the individual handlers.
+     float getLineWidth()
+     {
+-        PDAnnotationSquare annotation = (PDAnnotationSquare) getAnnotation();
++        PDAnnotationMarkup annotation = (PDAnnotationMarkup) getAnnotation();
+ 
+         PDBorderStyleDictionary bs = annotation.getBorderStyle();
+ 
+@@ -164,16 +165,14 @@ public class PDSquareAppearanceHandler extends PDAbstractAppearanceHandler
+         {
+             return bs.getWidth();
+         }
+-        else
++
++        COSArray borderCharacteristics = annotation.getBorder();
++        if (borderCharacteristics.size() >= 3)
+         {
+-            COSArray borderCharacteristics = annotation.getBorder();
+-            if (borderCharacteristics.size() >= 3)
++            COSBase base = borderCharacteristics.getObject(2);
++            if (base instanceof COSNumber)
+             {
+-                COSBase base = borderCharacteristics.getObject(2);
+-                if (base instanceof COSNumber)
+-                {
+-                    return ((COSNumber) base).floatValue();
+-                }
++                return ((COSNumber) base).floatValue();
+             }
+         }
+ 

@@ -1,0 +1,170 @@
+diff --git a/CHANGES b/CHANGES
+index d4bc3c2..73eb2cd 100644
+--- a/CHANGES
++++ b/CHANGES
+@@ -31,6 +31,11 @@ jsoup changelog
+   * Bugfix: when parsing from a URL, an end tag could be read incorrectly if it started on a buffer boundary.
+       <https://github.com/jhy/jsoup/issues/995>
+ 
++  * Bugfix: when parsing from a URL, if the remote server failed to complete its write (i.e. it writes less than the
++    Content Length header promised on a gzipped stream), the parse method would incorrectly throw an unchecked
++    exception. It now throws the declared IOException.
++      <https://github.com/jhy/jsoup/issues/980>
++
+ *** Release 1.11.2 [2017-Nov-19]
+   * Improvement: added a new pseudo selector :matchText, which allows text nodes to match as if they were elements.
+     This enables finding text that is only marked by a "br" tag, for example.
+diff --git a/src/main/java/org/jsoup/Connection.java b/src/main/java/org/jsoup/Connection.java
+index 29c4f19..57dc878 100644
+--- a/src/main/java/org/jsoup/Connection.java
++++ b/src/main/java/org/jsoup/Connection.java
+@@ -724,6 +724,7 @@ public interface Connection {
+          * same connection response (otherwise, once the response is read, its InputStream will have been drained and
+          * may not be re-read). Calling {@link #body() } or {@link #bodyAsBytes()} has the same effect.
+          * @return this response, for chaining
++         * @throws UncheckedIOException if an IO exception occurs during buffering.
+          */
+         Response bufferUp();
+ 
+diff --git a/src/main/java/org/jsoup/UncheckedIOException.java b/src/main/java/org/jsoup/UncheckedIOException.java
+index e9a91df..3d05bab 100644
+--- a/src/main/java/org/jsoup/UncheckedIOException.java
++++ b/src/main/java/org/jsoup/UncheckedIOException.java
+@@ -2,7 +2,7 @@ package org.jsoup;
+ 
+ import java.io.IOException;
+ 
+-public class UncheckedIOException extends Error {
++public class UncheckedIOException extends RuntimeException {
+     public UncheckedIOException(IOException cause) {
+         super(cause);
+     }
+diff --git a/src/main/java/org/jsoup/helper/DataUtil.java b/src/main/java/org/jsoup/helper/DataUtil.java
+index b9462dc..3037d61 100644
+--- a/src/main/java/org/jsoup/helper/DataUtil.java
++++ b/src/main/java/org/jsoup/helper/DataUtil.java
+@@ -1,5 +1,6 @@
+ package org.jsoup.helper;
+ 
++import org.jsoup.UncheckedIOException;
+ import org.jsoup.internal.ConstrainableInputStream;
+ import org.jsoup.nodes.Document;
+ import org.jsoup.nodes.Element;
+@@ -148,7 +149,12 @@ public final class DataUtil {
+             if (charsetName == null)
+                 charsetName = defaultCharset;
+             BufferedReader reader = new BufferedReader(new InputStreamReader(input, charsetName), bufferSize);
+-            doc = parser.parseInput(reader, baseUri);
++            try {
++                doc = parser.parseInput(reader, baseUri);
++            } catch (UncheckedIOException e) {
++                // io exception when parsing (not seen before because reading the stream as we go)
++                throw e.ioException();
++            }
+             doc.outputSettings().charset(charsetName);
+         }
+         input.close();
+diff --git a/src/test/java/org/jsoup/integration/ConnectTest.java b/src/test/java/org/jsoup/integration/ConnectTest.java
+index cdc2536..b6e1a18 100644
+--- a/src/test/java/org/jsoup/integration/ConnectTest.java
++++ b/src/test/java/org/jsoup/integration/ConnectTest.java
+@@ -2,9 +2,11 @@ package org.jsoup.integration;
+ 
+ import org.jsoup.Connection;
+ import org.jsoup.Jsoup;
++import org.jsoup.UncheckedIOException;
+ import org.jsoup.integration.servlets.Deflateservlet;
+ import org.jsoup.integration.servlets.EchoServlet;
+ import org.jsoup.integration.servlets.HelloServlet;
++import org.jsoup.integration.servlets.InterruptedServlet;
+ import org.jsoup.integration.servlets.SlowRider;
+ import org.jsoup.nodes.Document;
+ import org.jsoup.nodes.Element;
+@@ -381,4 +383,38 @@ public class ConnectTest {
+         Document doc = res.parse();
+         assertEquals("Hello, World!", doc.selectFirst("p").text());
+     }
++
++    @Test
++    public void handlesEmptyStreamDuringParseRead() throws IOException {
++        // this handles situations where the remote server sets a content length greater than it actually writes
++
++        Connection.Response res = Jsoup.connect(InterruptedServlet.Url)
++            .timeout(200)
++            .execute();
++
++        boolean threw = false;
++        try {
++            Document document = res.parse();
++            assertEquals("Something", document.title());
++        } catch (IOException e) {
++            threw = true;
++        }
++        assertEquals(true, threw);
++    }
++
++    @Test
++    public void handlesEmtpyStreamDuringBufferdRead() throws IOException {
++        Connection.Response res = Jsoup.connect(InterruptedServlet.Url)
++            .timeout(200)
++            .execute();
++
++        boolean threw = false;
++        try {
++            res.bufferUp();
++        } catch (UncheckedIOException e) {
++            threw = true;
++        }
++        assertEquals(true, threw);
++
++    }
+ }
+diff --git a/src/test/java/org/jsoup/integration/servlets/InterruptedServlet.java b/src/test/java/org/jsoup/integration/servlets/InterruptedServlet.java
+new file mode 100644
+index 0000000..f403be9
+--- /dev/null
++++ b/src/test/java/org/jsoup/integration/servlets/InterruptedServlet.java
+@@ -0,0 +1,31 @@
++package org.jsoup.integration.servlets;
++
++import org.jsoup.integration.TestServer;
++import org.jsoup.parser.CharacterReaderTest;
++
++import javax.servlet.ServletException;
++import javax.servlet.http.HttpServletRequest;
++import javax.servlet.http.HttpServletResponse;
++import java.io.IOException;
++
++public class InterruptedServlet extends BaseServlet {
++    public static final String Url = TestServer.map(InterruptedServlet.class);
++
++    @Override
++    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
++        res.setContentType(TextHtml);
++        res.setStatus(HttpServletResponse.SC_OK);
++
++        StringBuilder sb = new StringBuilder();
++        sb.append("<title>Something</title>");
++        while (sb.length() <= CharacterReaderTest.maxBufferLen) {
++            sb.append("A suitable amount of data. \n");
++        }
++        String data = sb.toString();
++
++        res.setContentLength(data.length() * 2);
++
++        res.getWriter().write(data);
++
++    }
++}
+diff --git a/src/test/java/org/jsoup/parser/CharacterReaderTest.java b/src/test/java/org/jsoup/parser/CharacterReaderTest.java
+index b058db0..ad9e32b 100644
+--- a/src/test/java/org/jsoup/parser/CharacterReaderTest.java
++++ b/src/test/java/org/jsoup/parser/CharacterReaderTest.java
+@@ -13,6 +13,7 @@ import static org.junit.Assert.*;
+  * @author Jonathan Hedley, jonathan@hedley.net
+  */
+ public class CharacterReaderTest {
++    public final static int maxBufferLen = CharacterReader.maxBufferLen;
+ 
+     @Test public void consume() {
+         CharacterReader r = new CharacterReader("one");

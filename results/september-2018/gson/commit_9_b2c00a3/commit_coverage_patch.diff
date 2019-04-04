@@ -1,0 +1,432 @@
+diff --git a/examples/android-proguard-example/AndroidManifest.xml b/examples/android-proguard-example/AndroidManifest.xml
+old mode 100755
+new mode 100644
+diff --git a/gson/src/main/java/com/google/gson/Gson.java b/gson/src/main/java/com/google/gson/Gson.java
+index fa89794..e97b162 100644
+--- a/gson/src/main/java/com/google/gson/Gson.java
++++ b/gson/src/main/java/com/google/gson/Gson.java
+@@ -134,6 +134,7 @@ public final class Gson {
+   private final boolean generateNonExecutableJson;
+   private final boolean prettyPrinting;
+   private final boolean lenient;
++  private final JsonAdapterAnnotationTypeAdapterFactory jsonAdapterFactory;
+ 
+   /**
+    * Constructs a Gson object with default configuration. The default configuration has the
+@@ -245,10 +246,11 @@ public final class Gson {
+     // type adapters for composite and user-defined types
+     factories.add(new CollectionTypeAdapterFactory(constructorConstructor));
+     factories.add(new MapTypeAdapterFactory(constructorConstructor, complexMapKeySerialization));
+-    factories.add(new JsonAdapterAnnotationTypeAdapterFactory(constructorConstructor));
++    this.jsonAdapterFactory = new JsonAdapterAnnotationTypeAdapterFactory(constructorConstructor);
++    factories.add(jsonAdapterFactory);
+     factories.add(TypeAdapters.ENUM_FACTORY);
+     factories.add(new ReflectiveTypeAdapterFactory(
+-        constructorConstructor, fieldNamingStrategy, excluder));
++        constructorConstructor, fieldNamingStrategy, excluder, jsonAdapterFactory));
+ 
+     this.factories = Collections.unmodifiableList(factories);
+   }
+@@ -486,12 +488,13 @@ public final class Gson {
+    * @since 2.2
+    */
+   public <T> TypeAdapter<T> getDelegateAdapter(TypeAdapterFactory skipPast, TypeToken<T> type) {
+-    boolean skipPastFound = false;
+-    // Skip past if and only if the specified factory is present in the factories.
+-    // This is useful because the factories created through JsonAdapter annotations are not
+-    // registered in this list.
+-    if (!factories.contains(skipPast)) skipPastFound = true;
++    // Hack. If the skipPast factory isn't registered, assume the factory is being requested via
++    // our @JsonAdapter annotation.
++    if (!factories.contains(skipPast)) {
++      skipPast = jsonAdapterFactory;
++    }
+ 
++    boolean skipPastFound = false;
+     for (TypeAdapterFactory factory : factories) {
+       if (!skipPastFound) {
+         if (factory == skipPast) {
+diff --git a/gson/src/main/java/com/google/gson/JsonParser.java b/gson/src/main/java/com/google/gson/JsonParser.java
+old mode 100755
+new mode 100644
+diff --git a/gson/src/main/java/com/google/gson/internal/bind/JsonAdapterAnnotationTypeAdapterFactory.java b/gson/src/main/java/com/google/gson/internal/bind/JsonAdapterAnnotationTypeAdapterFactory.java
+index b52e157..c079b64 100644
+--- a/gson/src/main/java/com/google/gson/internal/bind/JsonAdapterAnnotationTypeAdapterFactory.java
++++ b/gson/src/main/java/com/google/gson/internal/bind/JsonAdapterAnnotationTypeAdapterFactory.java
+@@ -17,6 +17,8 @@
+ package com.google.gson.internal.bind;
+ 
+ import com.google.gson.Gson;
++import com.google.gson.JsonDeserializer;
++import com.google.gson.JsonSerializer;
+ import com.google.gson.TypeAdapter;
+ import com.google.gson.TypeAdapterFactory;
+ import com.google.gson.annotations.JsonAdapter;
+@@ -30,7 +32,6 @@ import com.google.gson.reflect.TypeToken;
+  * @since 2.3
+  */
+ public final class JsonAdapterAnnotationTypeAdapterFactory implements TypeAdapterFactory {
+-
+   private final ConstructorConstructor constructorConstructor;
+ 
+   public JsonAdapterAnnotationTypeAdapterFactory(ConstructorConstructor constructorConstructor) {
+@@ -40,33 +41,42 @@ public final class JsonAdapterAnnotationTypeAdapterFactory implements TypeAdapte
+   @SuppressWarnings("unchecked")
+   @Override
+   public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> targetType) {
+-    JsonAdapter annotation = targetType.getRawType().getAnnotation(JsonAdapter.class);
++    Class<? super T> rawType = targetType.getRawType();
++    JsonAdapter annotation = rawType.getAnnotation(JsonAdapter.class);
+     if (annotation == null) {
+       return null;
+     }
+     return (TypeAdapter<T>) getTypeAdapter(constructorConstructor, gson, targetType, annotation);
+   }
+ 
+-  @SuppressWarnings("unchecked") // Casts guarded by conditionals.
+-  static TypeAdapter<?> getTypeAdapter(ConstructorConstructor constructorConstructor, Gson gson,
+-      TypeToken<?> fieldType, JsonAdapter annotation) {
+-    Class<?> value = annotation.value();
++  @SuppressWarnings({ "unchecked", "rawtypes" }) // Casts guarded by conditionals.
++  TypeAdapter<?> getTypeAdapter(ConstructorConstructor constructorConstructor, Gson gson,
++      TypeToken<?> type, JsonAdapter annotation) {
++    Object instance = constructorConstructor.get(TypeToken.get(annotation.value())).construct();
++
+     TypeAdapter<?> typeAdapter;
+-    if (TypeAdapter.class.isAssignableFrom(value)) {
+-      Class<TypeAdapter<?>> typeAdapterClass = (Class<TypeAdapter<?>>) value;
+-      typeAdapter = constructorConstructor.get(TypeToken.get(typeAdapterClass)).construct();
+-    } else if (TypeAdapterFactory.class.isAssignableFrom(value)) {
+-      Class<TypeAdapterFactory> typeAdapterFactory = (Class<TypeAdapterFactory>) value;
+-      typeAdapter = constructorConstructor.get(TypeToken.get(typeAdapterFactory))
+-          .construct()
+-          .create(gson, fieldType);
++    if (instance instanceof TypeAdapter) {
++      typeAdapter = (TypeAdapter<?>) instance;
++    } else if (instance instanceof TypeAdapterFactory) {
++      typeAdapter = ((TypeAdapterFactory) instance).create(gson, type);
++    } else if (instance instanceof JsonSerializer || instance instanceof JsonDeserializer) {
++      JsonSerializer<?> serializer = instance instanceof JsonSerializer
++          ? (JsonSerializer) instance
++          : null;
++      JsonDeserializer<?> deserializer = instance instanceof JsonDeserializer
++          ? (JsonDeserializer) instance
++          : null;
++      typeAdapter = new TreeTypeAdapter(serializer, deserializer, gson, type, null);
+     } else {
+       throw new IllegalArgumentException(
+-          "@JsonAdapter value must be TypeAdapter or TypeAdapterFactory reference.");
++          "@JsonAdapter value must be TypeAdapter, TypeAdapterFactory, "
++              + "JsonSerializer or JsonDeserializer reference.");
+     }
++
+     if (typeAdapter != null) {
+       typeAdapter = typeAdapter.nullSafe();
+     }
++
+     return typeAdapter;
+   }
+ }
+diff --git a/gson/src/main/java/com/google/gson/internal/bind/ReflectiveTypeAdapterFactory.java b/gson/src/main/java/com/google/gson/internal/bind/ReflectiveTypeAdapterFactory.java
+index 9d9f6be..34e9766 100644
+--- a/gson/src/main/java/com/google/gson/internal/bind/ReflectiveTypeAdapterFactory.java
++++ b/gson/src/main/java/com/google/gson/internal/bind/ReflectiveTypeAdapterFactory.java
+@@ -32,7 +32,6 @@ import com.google.gson.reflect.TypeToken;
+ import com.google.gson.stream.JsonReader;
+ import com.google.gson.stream.JsonToken;
+ import com.google.gson.stream.JsonWriter;
+-
+ import java.io.IOException;
+ import java.lang.reflect.Field;
+ import java.lang.reflect.Type;
+@@ -42,8 +41,6 @@ import java.util.LinkedHashMap;
+ import java.util.List;
+ import java.util.Map;
+ 
+-import static com.google.gson.internal.bind.JsonAdapterAnnotationTypeAdapterFactory.getTypeAdapter;
+-
+ /**
+  * Type adapter that reflects over the fields and methods of a class.
+  */
+@@ -51,12 +48,15 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
+   private final ConstructorConstructor constructorConstructor;
+   private final FieldNamingStrategy fieldNamingPolicy;
+   private final Excluder excluder;
++  private final JsonAdapterAnnotationTypeAdapterFactory jsonAdapterFactory;
+ 
+   public ReflectiveTypeAdapterFactory(ConstructorConstructor constructorConstructor,
+-      FieldNamingStrategy fieldNamingPolicy, Excluder excluder) {
++      FieldNamingStrategy fieldNamingPolicy, Excluder excluder,
++      JsonAdapterAnnotationTypeAdapterFactory jsonAdapterFactory) {
+     this.constructorConstructor = constructorConstructor;
+     this.fieldNamingPolicy = fieldNamingPolicy;
+     this.excluder = excluder;
++    this.jsonAdapterFactory = jsonAdapterFactory;
+   }
+ 
+   public boolean excludeField(Field f, boolean serialize) {
+@@ -108,7 +108,8 @@ public final class ReflectiveTypeAdapterFactory implements TypeAdapterFactory {
+     JsonAdapter annotation = field.getAnnotation(JsonAdapter.class);
+     TypeAdapter<?> mapped = null;
+     if (annotation != null) {
+-      mapped = getTypeAdapter(constructorConstructor, context, fieldType, annotation);
++      mapped = jsonAdapterFactory.getTypeAdapter(
++          constructorConstructor, context, fieldType, annotation);
+     }
+     final boolean jsonAdapterPresent = mapped != null;
+     if (mapped == null) mapped = context.getAdapter(fieldType);
+diff --git a/gson/src/test/java/com/google/gson/GsonBuilderTest.java b/gson/src/test/java/com/google/gson/GsonBuilderTest.java
+old mode 100755
+new mode 100644
+diff --git a/gson/src/test/java/com/google/gson/functional/ConcurrencyTest.java b/gson/src/test/java/com/google/gson/functional/ConcurrencyTest.java
+old mode 100755
+new mode 100644
+diff --git a/gson/src/test/java/com/google/gson/functional/JsonAdapterAnnotationOnFieldsTest.java b/gson/src/test/java/com/google/gson/functional/JsonAdapterAnnotationOnFieldsTest.java
+index 6f4a0ce..706fe60 100644
+--- a/gson/src/test/java/com/google/gson/functional/JsonAdapterAnnotationOnFieldsTest.java
++++ b/gson/src/test/java/com/google/gson/functional/JsonAdapterAnnotationOnFieldsTest.java
+@@ -16,6 +16,10 @@
+ 
+ package com.google.gson.functional;
+ 
++import java.io.IOException;
++import java.util.Arrays;
++import java.util.List;
++
+ import com.google.gson.Gson;
+ import com.google.gson.GsonBuilder;
+ import com.google.gson.TypeAdapter;
+@@ -24,7 +28,7 @@ import com.google.gson.annotations.JsonAdapter;
+ import com.google.gson.reflect.TypeToken;
+ import com.google.gson.stream.JsonReader;
+ import com.google.gson.stream.JsonWriter;
+-import java.io.IOException;
++
+ import junit.framework.TestCase;
+ 
+ /**
+@@ -268,4 +272,35 @@ public final class JsonAdapterAnnotationOnFieldsTest extends TestCase {
+           + " annotated with @JsonAdapter(LongToStringTypeAdapterFactory.class)");
+     }
+   }
++
++  public void testFieldAnnotationWorksForParameterizedType() {
++    Gson gson = new Gson();
++    String json = gson.toJson(new Gizmo2(Arrays.asList(new Part("Part"))));
++    assertEquals("{\"part\":\"GizmoPartTypeAdapterFactory\"}", json);
++    Gizmo2 computer = gson.fromJson("{'part':'Part'}", Gizmo2.class);
++    assertEquals("GizmoPartTypeAdapterFactory", computer.part.get(0).name);
++  }
++
++  private static final class Gizmo2 {
++    @JsonAdapter(Gizmo2PartTypeAdapterFactory.class)
++    List<Part> part;
++    Gizmo2(List<Part> part) {
++      this.part = part;
++    }
++  }
++
++  private static class Gizmo2PartTypeAdapterFactory implements TypeAdapterFactory {
++    @Override public <T> TypeAdapter<T> create(Gson gson, final TypeToken<T> type) {
++      return new TypeAdapter<T>() {
++        @Override public void write(JsonWriter out, T value) throws IOException {
++          out.value("GizmoPartTypeAdapterFactory");
++        }
++        @SuppressWarnings("unchecked")
++        @Override public T read(JsonReader in) throws IOException {
++          in.nextString();
++          return (T) Arrays.asList(new Part("GizmoPartTypeAdapterFactory"));
++        }
++      };
++    }
++  }
+ }
+diff --git a/gson/src/test/java/com/google/gson/functional/JsonAdapterSerializerDeserializerTest.java b/gson/src/test/java/com/google/gson/functional/JsonAdapterSerializerDeserializerTest.java
+new file mode 100644
+index 0000000..8ab4e12
+--- /dev/null
++++ b/gson/src/test/java/com/google/gson/functional/JsonAdapterSerializerDeserializerTest.java
+@@ -0,0 +1,164 @@
++/*
++ * Copyright (C) 2016 Google Inc.
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++package com.google.gson.functional;
++
++import java.lang.reflect.Type;
++
++import com.google.gson.Gson;
++import com.google.gson.JsonDeserializationContext;
++import com.google.gson.JsonDeserializer;
++import com.google.gson.JsonElement;
++import com.google.gson.JsonParseException;
++import com.google.gson.JsonPrimitive;
++import com.google.gson.JsonSerializationContext;
++import com.google.gson.JsonSerializer;
++import com.google.gson.annotations.JsonAdapter;
++
++import junit.framework.TestCase;
++
++/**
++ * Functional tests for the {@link JsonAdapter} annotation on fields where the value is of
++ * type {@link JsonSerializer} or {@link JsonDeserializer}.
++ */
++public final class JsonAdapterSerializerDeserializerTest extends TestCase {
++
++  public void testJsonSerializerDeserializerBasedJsonAdapterOnFields() {
++    Gson gson = new Gson();
++    String json = gson.toJson(new Computer(new User("Inderjeet Singh"), null, new User("Jesse Wilson")));
++    assertEquals("{\"user1\":\"UserSerializer\",\"user3\":\"UserSerializerDeserializer\"}", json);
++    Computer computer = gson.fromJson("{'user2':'Jesse Wilson','user3':'Jake Wharton'}", Computer.class);
++    assertEquals("UserSerializer", computer.user2.name);
++    assertEquals("UserSerializerDeserializer", computer.user3.name);
++  }
++
++  private static final class Computer {
++    @JsonAdapter(UserSerializer.class) final User user1;
++    @JsonAdapter(UserDeserializer.class) final User user2;
++    @JsonAdapter(UserSerializerDeserializer.class) final User user3;
++    Computer(User user1, User user2, User user3) {
++      this.user1 = user1;
++      this.user2 = user2;
++      this.user3 = user3;
++    }
++  }
++
++  private static final class User {
++    public final String name;
++    private User(String name) {
++      this.name = name;
++    }
++  }
++
++  private static final class UserSerializer implements JsonSerializer<User> {
++    @Override
++    public JsonElement serialize(User src, Type typeOfSrc, JsonSerializationContext context) {
++      return new JsonPrimitive("UserSerializer");
++    }
++  }
++
++  private static final class UserDeserializer implements JsonDeserializer<User> {
++    @Override
++    public User deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
++        throws JsonParseException {
++      return new User("UserSerializer");
++    }
++  }
++
++  private static final class UserSerializerDeserializer implements JsonSerializer<User>, JsonDeserializer<User> {
++    @Override
++    public JsonElement serialize(User src, Type typeOfSrc, JsonSerializationContext context) {
++      return new JsonPrimitive("UserSerializerDeserializer");
++    }
++    @Override
++    public User deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
++        throws JsonParseException {
++      return new User("UserSerializerDeserializer");
++    }
++  }
++
++  public void testJsonSerializerDeserializerBasedJsonAdapterOnClass() {
++    Gson gson = new Gson();
++    String json = gson.toJson(new Computer2(new User2("Inderjeet Singh")));
++    assertEquals("{\"user\":\"UserSerializerDeserializer2\"}", json);
++    Computer2 computer = gson.fromJson("{'user':'Inderjeet Singh'}", Computer2.class);
++    assertEquals("UserSerializerDeserializer2", computer.user.name);
++  }
++
++  private static final class Computer2 {
++    final User2 user;
++    Computer2(User2 user) {
++      this.user = user;
++    }
++  }
++
++  @JsonAdapter(UserSerializerDeserializer2.class)
++  private static final class User2 {
++    public final String name;
++    private User2(String name) {
++      this.name = name;
++    }
++  }
++
++  private static final class UserSerializerDeserializer2 implements JsonSerializer<User2>, JsonDeserializer<User2> {
++    @Override
++    public JsonElement serialize(User2 src, Type typeOfSrc, JsonSerializationContext context) {
++      return new JsonPrimitive("UserSerializerDeserializer2");
++    }
++    @Override
++    public User2 deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
++        throws JsonParseException {
++      return new User2("UserSerializerDeserializer2");
++    }
++  }
++
++  public void testDifferentJsonAdaptersForGenericFieldsOfSameRawType() {
++    Container c = new Container("Foo", 10);
++    Gson gson = new Gson();
++    String json = gson.toJson(c);
++    assertTrue(json.contains("\"a\":\"BaseStringAdapter\""));
++    assertTrue(json.contains("\"b\":\"BaseIntegerAdapter\""));
++  }
++
++  private static final class Container {
++    @JsonAdapter(BaseStringAdapter.class) Base<String> a;
++    @JsonAdapter(BaseIntegerAdapter.class) Base<Integer> b;
++    Container(String a, int b) {
++      this.a = new Base<String>(a);
++      this.b = new Base<Integer>(b);
++    }
++  }
++
++  private static final class Base<T> {
++    @SuppressWarnings("unused")
++    T value;
++    Base(T value) {
++      this.value = value;
++    }
++  }
++
++  private static final class BaseStringAdapter implements JsonSerializer<Base<String>> {
++    @Override public JsonElement serialize(Base<String> src, Type typeOfSrc, JsonSerializationContext context) {
++      return new JsonPrimitive("BaseStringAdapter");
++    }
++  }
++
++  private static final class BaseIntegerAdapter implements JsonSerializer<Base<Integer>> {
++    @Override public JsonElement serialize(Base<Integer> src, Type typeOfSrc, JsonSerializationContext context) {
++      return new JsonPrimitive("BaseIntegerAdapter");
++    }
++  }
++}
+diff --git a/gson/src/test/java/com/google/gson/functional/MapTest.java b/gson/src/test/java/com/google/gson/functional/MapTest.java
+old mode 100755
+new mode 100644
+diff --git a/gson/src/test/java/com/google/gson/functional/NullObjectAndFieldTest.java b/gson/src/test/java/com/google/gson/functional/NullObjectAndFieldTest.java
+old mode 100755
+new mode 100644
+diff --git a/gson/src/test/java/com/google/gson/functional/RuntimeTypeAdapterFactoryFunctionalTest.java b/gson/src/test/java/com/google/gson/functional/RuntimeTypeAdapterFactoryFunctionalTest.java
+index 7959fc8..1284e2c 100644
+--- a/gson/src/test/java/com/google/gson/functional/RuntimeTypeAdapterFactoryFunctionalTest.java
++++ b/gson/src/test/java/com/google/gson/functional/RuntimeTypeAdapterFactoryFunctionalTest.java
+@@ -45,7 +45,7 @@ public final class RuntimeTypeAdapterFactoryFunctionalTest extends TestCase {
+    * This test also ensures that {@link TypeAdapterFactory} registered through {@link JsonAdapter}
+    * work correctly for {@link Gson#getDelegateAdapter(TypeAdapterFactory, TypeToken)}.
+    */
+-  public void testSubclassesAutomaticallySerialzed() throws Exception {
++  public void testSubclassesAutomaticallySerialized() throws Exception {
+     Shape shape = new Circle(25);
+     String json = gson.toJson(shape);
+     shape = gson.fromJson(json, Shape.class);

@@ -1,0 +1,190 @@
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/job/internal/UpgradePlanJob.java b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/job/internal/UpgradePlanJob.java
+index 0d29e9f..208dedb 100644
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/job/internal/UpgradePlanJob.java
++++ b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/job/internal/UpgradePlanJob.java
+@@ -71,14 +71,39 @@ protected InstallRequest castRequest(Request request)
+         return installRequest;
+     }
+ 
++    private boolean isSkipped(InstalledExtension extension, String namespace)
++    {
++        // Explicitly skipped extensions
++
++        if (getRequest().getExcludedExtensions().contains(extension.getId())) {
++            return true;
++        }
++
++        // Extensions with no backward dependencies
++
++        Collection<ExtensionId> requestExtensions = getRequest().getExtensions();
++        boolean filterDependencies = requestExtensions == null || requestExtensions.isEmpty();
++
++        if (filterDependencies) {
++            try {
++                return extension.isDependency(namespace) && !this.installedExtensionRepository
++                    .getBackwardDependencies(extension.getId().getId(), namespace).isEmpty();
++            } catch (ResolveException e) {
++                // Should never happen
++                this.logger.error("Failed to gather backward dependencies for extension [{}]", extension.getId(), e);
++            }
++        }
++
++        return false;
++    }
++
+     /**
+      * @param extension the extension currently installed
+      * @param namespace the namespace where the extension is installed
+      */
+-    protected void upgradeExtension(InstalledExtension extension, String namespace, boolean filterDependencies)
++    protected void upgradeExtension(InstalledExtension extension, String namespace)
+     {
+-        if (!getRequest().getExcludedExtensions().contains(extension.getId())
+-            && (!filterDependencies || !extension.isDependency(namespace))) {
++        if (!isSkipped(extension, namespace)) {
+             NavigableSet<Version> versions = getVersions(extension, namespace);
+ 
+             // Useless to continue if the extension does not have any available version
+@@ -165,8 +190,7 @@ protected boolean tryInstallExtension(ExtensionId extensionId, String namespace)
+         return false;
+     }
+ 
+-    protected void upgrade(String namespace, Collection<InstalledExtension> installedExtensions,
+-        boolean filterDependencies)
++    protected void upgrade(String namespace, Collection<InstalledExtension> installedExtensions)
+     {
+         this.progressManager.pushLevelProgress(installedExtensions.size(), this);
+ 
+@@ -175,7 +199,7 @@ protected void upgrade(String namespace, Collection<InstalledExtension> installe
+                 this.progressManager.startStep(this);
+ 
+                 if (namespace == null || !installedExtension.isInstalled(null)) {
+-                    upgradeExtension(installedExtension, namespace, filterDependencies);
++                    upgradeExtension(installedExtension, namespace);
+                 }
+ 
+                 this.progressManager.endStep(this);
+@@ -185,7 +209,7 @@ protected void upgrade(String namespace, Collection<InstalledExtension> installe
+         }
+     }
+ 
+-    protected void upgrade(Collection<InstalledExtension> installedExtensions, boolean filterDependencies)
++    protected void upgrade(Collection<InstalledExtension> installedExtensions)
+     {
+         this.progressManager.pushLevelProgress(installedExtensions.size(), this);
+ 
+@@ -194,7 +218,7 @@ protected void upgrade(Collection<InstalledExtension> installedExtensions, boole
+                 this.progressManager.startStep(this);
+ 
+                 if (installedExtension.getNamespaces() == null) {
+-                    upgradeExtension(installedExtension, null, filterDependencies);
++                    upgradeExtension(installedExtension, null);
+                 } else {
+                     this.progressManager.pushLevelProgress(installedExtension.getNamespaces().size(), this);
+ 
+@@ -202,7 +226,7 @@ protected void upgrade(Collection<InstalledExtension> installedExtensions, boole
+                         for (String namespace : installedExtension.getNamespaces()) {
+                             this.progressManager.startStep(this);
+ 
+-                            upgradeExtension(installedExtension, namespace, filterDependencies);
++                            upgradeExtension(installedExtension, namespace);
+ 
+                             this.progressManager.endStep(this);
+                         }
+@@ -266,13 +290,11 @@ protected void upgrade(Collection<InstalledExtension> installedExtensions, boole
+     protected void runInternal() throws Exception
+     {
+         Collection<String> namespaces = getRequest().getNamespaces();
+-        Collection<ExtensionId> requestExtensions = getRequest().getExtensions();
+-        boolean filterDependencies = requestExtensions == null || requestExtensions.isEmpty();
+ 
+         if (namespaces == null) {
+             Collection<InstalledExtension> installedExtensions = getInstalledExtensions();
+ 
+-            upgrade(installedExtensions, filterDependencies);
++            upgrade(installedExtensions);
+         } else {
+             this.progressManager.pushLevelProgress(namespaces.size(), this);
+ 
+@@ -280,7 +302,7 @@ protected void runInternal() throws Exception
+                 for (String namespace : namespaces) {
+                     this.progressManager.startStep(this);
+ 
+-                    upgrade(namespace, getInstalledExtensions(namespace), filterDependencies);
++                    upgrade(namespace, getInstalledExtensions(namespace));
+ 
+                     this.progressManager.endStep(this);
+                 }
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/job/internal/InstallPlanJobTest.java b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/job/internal/InstallPlanJobTest.java
+index ab6e5f0..73212a4 100644
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/job/internal/InstallPlanJobTest.java
++++ b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/job/internal/InstallPlanJobTest.java
+@@ -674,6 +674,36 @@ public void testInstallWithRecommendedManagedDependency() throws Throwable
+     }
+ 
+     @Test
++    public void testInstallWithStrictRecommendedManagedDependency() throws Throwable
++    {
++        // Change the version of the dependency trough recommended version
++        this.coreRepository.getConfigurableEnvironmentExtension().putProperty("xwiki.extension.recommendedVersions",
++            "upgrade/[2.0]");
++
++        ExtensionPlan plan = installPlan(TestResources.REMOTE_WITH_MANAGED_DEPENDENY_ID, "namespace");
++
++        Assert.assertEquals(1, plan.getTree().size());
++
++        ExtensionPlanNode node = plan.getTree().iterator().next();
++        ExtensionPlanAction action = node.getAction();
++
++        Assert.assertEquals(TestResources.REMOTE_WITH_MANAGED_DEPENDENY_ID, action.getExtension().getId());
++        Assert.assertEquals(Action.INSTALL, action.getAction());
++        Assert.assertEquals(0, action.getPreviousExtensions().size());
++        Assert.assertEquals("namespace", action.getNamespace());
++        Assert.assertEquals(1, node.getChildren().size());
++
++        node = node.getChildren().iterator().next();
++        action = node.getAction();
++
++        Assert.assertEquals(TestResources.REMOTE_UPGRADE20_ID, action.getExtension().getId());
++        Assert.assertEquals(Action.INSTALL, action.getAction());
++        Assert.assertEquals(0, action.getPreviousExtensions().size());
++        Assert.assertEquals("namespace", action.getNamespace());
++        Assert.assertEquals(0, node.getChildren().size());
++    }
++
++    @Test
+     public void testInstallWithInvalidRecommendedManagedDependency() throws Throwable
+     {
+         // Change the version of the dependency trough recommended version
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/job/internal/UpgradePlanJobTest.java b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/job/internal/UpgradePlanJobTest.java
+index 6c0b4ee..359e0fe 100644
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/job/internal/UpgradePlanJobTest.java
++++ b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/job/internal/UpgradePlanJobTest.java
+@@ -24,12 +24,14 @@
+ 
+ import org.junit.Assert;
+ import org.junit.Test;
++import org.xwiki.extension.InstalledExtension;
+ import org.xwiki.extension.TestResources;
+ import org.xwiki.extension.job.InstallRequest;
+ import org.xwiki.extension.job.plan.ExtensionPlan;
+ import org.xwiki.extension.job.plan.ExtensionPlanAction;
+ import org.xwiki.extension.job.plan.ExtensionPlanAction.Action;
+ import org.xwiki.extension.job.plan.ExtensionPlanNode;
++import org.xwiki.extension.repository.internal.installed.DefaultInstalledExtension;
+ import org.xwiki.extension.test.AbstractExtensionHandlerTest;
+ 
+ public class UpgradePlanJobTest extends AbstractExtensionHandlerTest
+@@ -37,8 +39,10 @@
+     @Test
+     public void testUpgradePlanOnRoot() throws Throwable
+     {
+-        // install first version
+-        install(TestResources.REMOTE_UPGRADE10_ID);
++        // Install first version
++        InstalledExtension extension = (DefaultInstalledExtension) install(TestResources.REMOTE_UPGRADE10_ID);
++        // Tag it as dependency
++        this.installedExtensionRepository.installExtension(extension, null, true);
+ 
+         // check upgrade
+ 

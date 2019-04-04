@@ -1,0 +1,1321 @@
+diff --git a/src/changes/changes.xml b/src/changes/changes.xml
+index 300662c..69d1bc8 100644
+--- a/src/changes/changes.xml
++++ b/src/changes/changes.xml
+@@ -40,8 +40,8 @@
+       Added clarification to javadoc of "TreeBag#add(Object)" wrt null arguments.
+     </action>
+     <action issue="COLLECTIONS-427" dev="tn" type="add" due-to="Gonçalo Marques">
+-      Added "toString(...)" methods to newly created "IterableUtils" and existing "IteratorUtils"
+-      to get a string representation of an Iterable/Iterator instance similar to "Arrays#toString(...)".
++      Added "toString(...)" methods to newly created "IteratorUtils" class to get a
++      string representation of an Iterable instance similar to "Arrays#toString(...)".
+     </action>
+     <action issue="COLLECTIONS-427" dev="tn" type="fix">
+       Reverted performance improvement for "SetUniqueList#retainAll(Collection)"
+diff --git a/src/main/java/org/apache/commons/collections4/CollectionUtils.java b/src/main/java/org/apache/commons/collections4/CollectionUtils.java
+index 8d72b7e..e896986 100644
+--- a/src/main/java/org/apache/commons/collections4/CollectionUtils.java
++++ b/src/main/java/org/apache/commons/collections4/CollectionUtils.java
+@@ -1384,11 +1384,18 @@ public class CollectionUtils {
+      * @return the object at the specified index
+      * @throws IndexOutOfBoundsException if the index is invalid
+      * @throws IllegalArgumentException if the object type is invalid
+-     * @deprecated since 4.1, use {@code IteratorUtils.get(Iterator, int)} instead
+      */
+-    @Deprecated
+     public static <T> T get(final Iterator<T> iterator, final int index) {
+-        return IteratorUtils.get(iterator, index);
++        int i = index;
++        checkIndexBounds(i);
++        while (iterator.hasNext()) {
++            i--;
++            if (i == -1) {
++                return iterator.next();
++            }
++            iterator.next();
++        }
++        throw new IndexOutOfBoundsException("Entry does not exist: " + i);
+     }
+ 
+     /**
+@@ -1425,7 +1432,7 @@ public class CollectionUtils {
+      * @param index the index to check.
+      * @throws IndexOutOfBoundsException if the index is negative.
+      */
+-    static void checkIndexBounds(final int index) {
++    private static void checkIndexBounds(final int index) {
+         if (index < 0) {
+             throw new IndexOutOfBoundsException("Index cannot be negative: " + index);
+         }
+@@ -1442,11 +1449,13 @@ public class CollectionUtils {
+      * @param <T> the type of object in the {@link Iterable}.
+      * @return the object at the specified index
+      * @throws IndexOutOfBoundsException if the index is invalid
+-     * @deprecated since 4.1, use {@code IterableUtils.get(Iterable, int)} instead
+      */
+-    @Deprecated
+     public static <T> T get(final Iterable<T> iterable, final int index) {
+-        return IterableUtils.get(iterable, index);
++        checkIndexBounds(index);
++        if (iterable instanceof List<?>) {
++            return ((List<T>) iterable).get(index);
++        }
++        return get(iterable.iterator(), index);
+     }
+ 
+     /**
+diff --git a/src/main/java/org/apache/commons/collections4/FluentIterable.java b/src/main/java/org/apache/commons/collections4/FluentIterable.java
+deleted file mode 100644
+index d3d77f7..0000000
+--- a/src/main/java/org/apache/commons/collections4/FluentIterable.java
++++ /dev/null
+@@ -1,181 +0,0 @@
+-/*
+- * Licensed to the Apache Software Foundation (ASF) under one or more
+- * contributor license agreements.  See the NOTICE file distributed with
+- * this work for additional information regarding copyright ownership.
+- * The ASF licenses this file to You under the Apache License, Version 2.0
+- * (the "License"); you may not use this file except in compliance with
+- * the License.  You may obtain a copy of the License at
+- *
+- *      http://www.apache.org/licenses/LICENSE-2.0
+- *
+- * Unless required by applicable law or agreed to in writing, software
+- * distributed under the License is distributed on an "AS IS" BASIS,
+- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+- * See the License for the specific language governing permissions and
+- * limitations under the License.
+- */
+-package org.apache.commons.collections4;
+-
+-import java.util.Arrays;
+-import java.util.Collection;
+-import java.util.Enumeration;
+-import java.util.Iterator;
+-import java.util.List;
+-
+-/**
+- * A FluentIterable provides a powerful yet simple API for manipulating Iterable instances in a fluent manner.
+- * <p>
+- * A FluentIterable can be created either from an Iterable or from a set of elements.
+- * The following types of methods are provided:
+- * <ul>
+- *   <li>fluent methods which return a new {@code FluentIterable} instance
+- *   <li>conversion methods which copy the FluentIterable's contents into a new collection or array (e.g. toList())
+- *   <li>utility methods which answer questions about the FluentIterable's contents (e.g. size(), anyMatch(Predicate))
+- *   <li> 
+- * </ul>
+- * <p>
+- * The following example outputs the first 3 even numbers in the range [1, 10] into a list:
+- * <pre>
+- *   FluentIterable
+- *       .of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+- *       .filter(new Predicate<Integer>() {
+- *                   public boolean evaluate(Integer number) {
+- *                        return number % 2 == 0;
+- *                   }
+- *              )
+- *       .transform(TransformerUtils.stringValueTransformer())
+- *       .limit(3)
+- *       .toList();
+- * </pre>
+- *
+- * @param <E>  the element type
+- * @since 4.1
+- * @version $Id: $
+- */
+-public class FluentIterable<E> implements Iterable<E> {
+-
+-    private final Iterable<E> iterable;
+-
+-    // Static factory methods
+-    // ----------------------------------------------------------------------
+-
+-    public static <T> FluentIterable<T> of(T... elements) {
+-        return of(Arrays.asList(elements));
+-    }
+-    
+-    public static <T> FluentIterable<T> of(Iterable<T> iterable) {
+-        if (iterable == null) {
+-            throw new NullPointerException("Iterable must not be null");
+-        }
+-        if (iterable instanceof FluentIterable<?>) {
+-            return (FluentIterable<T>) iterable;
+-        } else {
+-            return new FluentIterable<T>(iterable);
+-        }
+-    }
+-
+-    // Constructor
+-    // ----------------------------------------------------------------------
+-
+-    private FluentIterable(final Iterable<E> iterable) {
+-        this.iterable = iterable;
+-    }
+-
+-    // fluent construction methods
+-    // ----------------------------------------------------------------------
+-
+-    public FluentIterable<E> append(final E... elements) {
+-        return append(Arrays.asList(elements));
+-    }
+-
+-    public FluentIterable<E> append(final Iterable<E> other) {
+-        return of(IterableUtils.chainedIterable(iterable, other));
+-    }
+-    
+-    public FluentIterable<E> eval() {
+-        return of(toList());
+-    }
+-
+-    public FluentIterable<E> filter(final Predicate<E> predicate) {
+-        return of(IterableUtils.filteredIterable(iterable, predicate));
+-    }
+-
+-    public FluentIterable<E> limit(final int maxSize) {
+-        return of(IterableUtils.boundedIterable(iterable, maxSize));
+-    }
+-
+-    public FluentIterable<E> loop() {
+-        return of(IterableUtils.loopingIterable(iterable));
+-    }
+-
+-    public FluentIterable<E> skip(int elementsToSkip) {
+-        return of(IterableUtils.skippingIterable(iterable, elementsToSkip));
+-    }
+-
+-    public <O> FluentIterable<O> transform(final Transformer<? super E, ? extends O> transformer) {
+-        return of(IterableUtils.transformedIterable(iterable, transformer));
+-    }
+-
+-    public FluentIterable<E> unique() {
+-        return of(IterableUtils.uniqueIterable(iterable));
+-    }
+-    
+-    // convenience methods
+-    // ----------------------------------------------------------------------
+-
+-    public Iterator<E> iterator() {
+-        return iterable.iterator();
+-    }
+-
+-    public Enumeration<E> asEnumeration() {
+-        return IteratorUtils.asEnumeration(iterator());
+-    }
+-
+-    public boolean allMatch(final Predicate<? super E> predicate) {
+-        return IterableUtils.matchesAll(iterable, predicate);
+-    }
+-
+-    public boolean anyMatch(final Predicate<? super E> predicate) {
+-        return IterableUtils.matchesAny(iterable, predicate);
+-    }
+-
+-    public boolean isEmpty() {
+-        return IterableUtils.isEmpty(iterable);
+-    }
+-
+-    public boolean contains(final Object object) {
+-        return IterableUtils.contains(iterable, object);
+-    }
+-
+-    public E get(int position) {
+-        return IterableUtils.get(iterable, position);
+-    }
+-
+-    public int size() {
+-        return IterableUtils.size(iterable);
+-    }
+-
+-    public void copyInto(final Collection<? super E> collection) {
+-        if (collection == null) {
+-            throw new NullPointerException("Collection must not be null");
+-        }
+-
+-        for (final E element : iterable) {
+-            collection.add(element);
+-        }
+-    }
+-
+-    public E[] toArray(final Class<E> arrayClass) {
+-        return IteratorUtils.toArray(iterator(), arrayClass);
+-    }
+-
+-    public List<E> toList() {
+-        return IteratorUtils.toList(iterator());
+-    }
+-
+-    @Override
+-    public String toString() {
+-        return IterableUtils.toString(iterable);
+-    }
+-
+-}
+diff --git a/src/main/java/org/apache/commons/collections4/IterableUtils.java b/src/main/java/org/apache/commons/collections4/IterableUtils.java
+index de5ae84..7297e21 100644
+--- a/src/main/java/org/apache/commons/collections4/IterableUtils.java
++++ b/src/main/java/org/apache/commons/collections4/IterableUtils.java
+@@ -16,13 +16,6 @@
+  */
+ package org.apache.commons.collections4;
+ 
+-import java.util.Collection;
+-import java.util.Iterator;
+-import java.util.List;
+-
+-import org.apache.commons.collections4.iterators.LazyIteratorChain;
+-import org.apache.commons.collections4.iterators.UniqueFilterIterator;
+-
+ /**
+  * Provides utility methods and decorators for {@link Iterable} instances.
+  *
+@@ -31,472 +24,105 @@ import org.apache.commons.collections4.iterators.UniqueFilterIterator;
+  */
+ public class IterableUtils {
+ 
+-    // Chained
+-    // ----------------------------------------------------------------------
+-
+     /**
+-     * Combines two iterables into a single iterable.
+-     * <p>
+-     * The returned iterable has an iterator that traverses the elements in {@code a},
+-     * followed by the elements in {@code b}. The source iterators are not polled until
+-     * necessary.
+-     * <p>
+-     * The returned iterable's iterator supports {@code remove()} when the corresponding
+-     * input iterator supports it.
+-     *
+-     * @param <E>  the element type
+-     * @param a  the first iterable
+-     * @param b  the second iterable
+-     * @return a new iterable, combining the provided iterables
++     * Default prefix used while converting an Iterable to its String representation.
+      */
+-    @SuppressWarnings("unchecked")
+-    public static <E> Iterable<E> chainedIterable(final Iterable<? extends E> a, final Iterable<? extends E> b) {
+-        return chainedIterable(new Iterable[] {a, b});
+-    }
+-
+-    /**
+-     * Combines three iterables into a single iterable.
+-     * <p>
+-     * The returned iterable has an iterator that traverses the elements in {@code a},
+-     * followed by the elements in {@code b} and {@code c}. The source iterators are
+-     * not polled until necessary.
+-     * <p>
+-     * The returned iterable's iterator supports {@code remove()} when the corresponding
+-     * input iterator supports it.
+-     *
+-     * @param <E>  the element type
+-     * @param a  the first iterable
+-     * @param b  the second iterable
+-     * @param c  the third iterable
+-     * @return a new iterable, combining the provided iterables
+-     */
+-    @SuppressWarnings("unchecked")
+-    public static <E> Iterable<E> chainedIterable(final Iterable<? extends E> a,
+-                                                  final Iterable<? extends E> b,
+-                                                  final Iterable<? extends E> c) {
+-        return chainedIterable(new Iterable[] {a, b, c});
+-    }
+-
+-    /**
+-     * Combines four iterables into a single iterable.
+-     * <p>
+-     * The returned iterable has an iterator that traverses the elements in {@code a},
+-     * followed by the elements in {@code b}, {@code c} and {@code d}. The source
+-     * iterators are not polled until necessary.
+-     * <p>
+-     * The returned iterable's iterator supports {@code remove()} when the corresponding
+-     * input iterator supports it.
+-     *
+-     * @param <E>  the element type
+-     * @param a  the first iterable
+-     * @param b  the second iterable
+-     * @param c  the third iterable
+-     * @param d  the fourth iterable
+-     * @return a new iterable, combining the provided iterables
+-     */
+-    @SuppressWarnings("unchecked")
+-    public static <E> Iterable<E> chainedIterable(final Iterable<? extends E> a,
+-                                                  final Iterable<? extends E> b,
+-                                                  final Iterable<? extends E> c,
+-                                                  final Iterable<? extends E> d) {
+-        return chainedIterable(new Iterable[] {a, b, c, d});
+-    }
++    private static final String DEFAULT_TOSTRING_PREFIX = "[";
+ 
+     /**
+-     * Combines the provided iterables into a single iterable.
+-     * <p>
+-     * The returned iterable has an iterator that traverses the elements in the order
+-     * of the arguments, i.e. iterables[0], iterables[1], .... The source iterators
+-     * are not polled until necessary.
+-     * <p>
+-     * The returned iterable's iterator supports {@code remove()} when the corresponding
+-     * input iterator supports it.
+-     *
+-     * @param <E>  the element type
+-     * @param iterables  the iterables to combine
+-     * @return a new iterable, combining the provided iterables
++     * Default suffix used while converting an Iterable to its String representation.
+      */
+-    public static <E> Iterable<E> chainedIterable(final Iterable<? extends E>... iterables) {
+-        return new AbstractIterable<E>() {
+-            @Override
+-            public Iterator<E> iterator() {
+-                return new LazyIteratorChain<E>() {
+-
+-                    @Override
+-                    protected Iterator<? extends E> nextIterator(int count) {
+-                        if (count > iterables.length) {
+-                            return null;
+-                        } else {
+-                            return emptyIteratorIfNull(iterables[count - 1]);
+-                        }
+-                    }
+-                    
+-                };
+-            }
+-        };
+-    }
+-
+-    // Filtered
+-    // ----------------------------------------------------------------------
++    private static final String DEFAULT_TOSTRING_SUFFIX = "]";
+ 
+     /**
+-     * Returns a view of the given iterable that only contains elements matching
+-     * the provided predicate.
+-     * <p>
+-     * The returned iterable's iterator does not supports {@code remove()}.
+-     *
+-     * @param <E>  the element type
+-     * @param iterable  the iterable to filter, may be null
+-     * @param predicate  the predicate used to filter elements, must not be null
+-     * @return a filtered view on the specified iterable
+-     * @throws NullPointerException if predicate is null
++     * Default delimiter used to delimit elements while converting an Iterable
++     * to its String representation.
+      */
+-    public static <E> Iterable<E> filteredIterable(final Iterable<E> iterable, final Predicate<? super E> predicate) {
+-        if (predicate == null) {
+-            throw new NullPointerException("predicate must not be null.");
+-        }
+-
+-        return new AbstractIterable<E>() {
+-            @Override
+-            public Iterator<E> iterator() {
+-                return IteratorUtils.filteredIterator(emptyIteratorIfNull(iterable), predicate);
+-            }
+-        };
+-    }
+-
+-    // Bounded
+-    // ----------------------------------------------------------------------
+-
+-    /**
+-     * Returns a view of the given iterable that contains at most the given number
+-     * of elements.
+-     * <p>
+-     * The returned iterable's iterator supports {@code remove()} when the corresponding
+-     * input iterator supports it.
+-     *
+-     * @param <E>  the element type
+-     * @param iterable  the iterable to limit, may be null
+-     * @param maxSize  the maximum number of elements, must not be negative
+-     * @return a bounded view on the specified iterable
+-     * @throws IllegalArgumentException if maxSize is negative
+-     */
+-    public static <E> Iterable<E> boundedIterable(final Iterable<E> iterable, final int maxSize) {
+-        if (maxSize < 0) {
+-            throw new IllegalArgumentException("maxSize parameter must not be negative.");
+-        }
+-
+-        return new AbstractIterable<E>() {
+-            @Override
+-            public Iterator<E> iterator() {
+-                return IteratorUtils.boundedIterator(emptyIteratorIfNull(iterable), maxSize);
+-            }            
+-        };
+-    }
+-
+-    // Looping
+-    // ----------------------------------------------------------------------
+-
+-    /**
+-     * Returns a view of the given iterable which will cycle infinitely over
+-     * its elements.
+-     * <p>
+-     * The returned iterable's iterator supports {@code remove()} if
+-     * {@code iterable.iterator()} does. After {@code remove()} is called, subsequent
+-     * cycles omit the removed element, which is no longer in {@code iterable}. The
+-     * iterator's {@code hasNext()} method returns {@code true} until {@code iterable}
+-     * is empty.
+-     *
+-     * @param <E>  the element type
+-     * @param iterable  the iterable to loop, may be null
+-     * @return a view of the iterable, providing an infinite loop over its elements
+-     */
+-    public static <E> Iterable<E> loopingIterable(final Iterable<E> iterable) {
+-        return new AbstractIterable<E>() {
+-            @Override
+-            public Iterator<E> iterator() {
+-                return new LazyIteratorChain<E>() {
+-                    @Override
+-                    protected Iterator<? extends E> nextIterator(int count) {
+-                        if (iterable != null) {
+-                            if (isEmpty(iterable)) {
+-                                return null;
+-                            } else {
+-                                return iterable.iterator();
+-                            }
+-                        } else {
+-                            return null;
+-                        }
+-                    }
+-                };
+-            }
+-        };
+-    }
+-
+-    // Skipping
+-    // ----------------------------------------------------------------------
+-
+-    /**
+-     * Returns a view of the given iterable that skips the first N elements.
+-     * <p>
+-     * The returned iterable's iterator supports {@code remove()} when the corresponding
+-     * input iterator supports it.
+-     *
+-     * @param <E>  the element type
+-     * @param iterable  the iterable to use, may be null
+-     * @param elementsToSkip  the number of elements to skip from the start, must not be negative
+-     * @return a view of the specified iterable, skipping the first N elements
+-     * @throws IllegalArgumentException if elementsToSkip is negative
+-     */
+-    public static <E> Iterable<E> skippingIterable(final Iterable<E> iterable, final int elementsToSkip) {
+-        if (elementsToSkip < 0) {
+-            throw new IllegalArgumentException("elementsToSkip parameter must not be negative.");
+-        }
+-
+-        return new AbstractIterable<E>() {
+-            @Override
+-            public Iterator<E> iterator() {
+-                return IteratorUtils.skippingIterator(emptyIteratorIfNull(iterable), elementsToSkip);
+-            }            
+-        };
+-    }
+-
+-    // Transformed
+-    // ----------------------------------------------------------------------
+-
+-    /**
+-     * Returns a transformed view of the given iterable where all of its elements
+-     * have been transformed by the provided transformer.
+-     * <p>
+-     * The returned iterable's iterator supports {@code remove()} when the corresponding
+-     * input iterator supports it.
+-     *
+-     * @param <E>  the element type
+-     * @param iterable  the iterable to transform, may be null
+-     * @param transformer  the transformer , must not be null
+-     * @return a transformed view of the specified iterable
+-     * @throws NullPointerException if transformer is null
+-     */
+-    public static <I, O> Iterable<O> transformedIterable(final Iterable<I> iterable, final Transformer<? super I, ? extends O> transformer) {
+-        if (transformer == null) {
+-            throw new NullPointerException("transformer must not be null.");
+-        }
+-
+-        return new AbstractIterable<O>() {
+-            @Override
+-            public Iterator<O> iterator() {
+-                return IteratorUtils.transformedIterator(emptyIteratorIfNull(iterable), transformer);
+-            }            
+-        };
+-    }
+-
+-    // Unique
+-    // ----------------------------------------------------------------------
+-
+-    /**
+-     * Returns a unique view of the given iterable.
+-     * <p>
+-     * The returned iterable's iterator does not supports {@code remove()}.
+-     *
+-     * @param <E>  the element type
+-     * @param iterable  the iterable to transform, may be null
+-     * @return a unique view of the specified iterable
+-     */
+-    public static <E> Iterable<E> uniqueIterable(final Iterable<E> iterable) {
+-        return new AbstractIterable<E>() {
+-            @Override
+-            public Iterator<E> iterator() {
+-                return new UniqueFilterIterator<E>(emptyIteratorIfNull(iterable));
+-            }            
+-        };
+-    }
+-
+-    // Utility methods
+-    // ----------------------------------------------------------------------
+-
+-    /**
+-     * Returns an empty iterator if the argument is <code>null</code>,
+-     * or returns {@code iterable.iterator()} otherwise.
+-     *
+-     * @param <E> the element type
+-     * @param iterable  the iterable, possibly <code>null</code>
+-     * @return an empty collection if the argument is <code>null</code>
+-     */
+-    public static <E> Iterator<E> emptyIteratorIfNull(final Iterable<E> iterable) {
+-        return iterable != null ? iterable.iterator() : IteratorUtils.<E>emptyIterator();
+-    }
+-
+-    /**
+-     * Answers true if a predicate is true for every element of an iterable.
+-     * <p>
+-     * A <code>null</code> or empty iterable returns true.
+-     *
+-     * @param <E>  the type of object the {@link Iterable} contains
+-     * @param input  the {@link Iterable} to use, may be null
+-     * @param predicate  the predicate to use, may not be null
+-     * @return true if every element of the collection matches the predicate or if the
+-     *   collection is empty, false otherwise
+-     * @throws NullPointerException if predicate is null
+-     */
+-    public static <E> boolean matchesAll(final Iterable<E> iterable, final Predicate<? super E> predicate) {
+-        return IteratorUtils.matchesAll(emptyIteratorIfNull(iterable), predicate);
+-    }
+-
+-    /**
+-     * Answers true if a predicate is true for any element of the iterable.
+-     * <p>
+-     * A <code>null</code> or empty iterable returns false.
+-     *
+-     * @param <E>  the type of object the {@link Iterable} contains
+-     * @param input  the {@link Iterable} to use, may be null
+-     * @param predicate  the predicate to use, may not be null
+-     * @return true if any element of the collection matches the predicate, false otherwise
+-     * @throws NullPointerException if predicate is null
+-     */
+-    public static <E> boolean matchesAny(final Iterable<E> iterable, final Predicate<? super E> predicate) {
+-        return IteratorUtils.matchesAny(emptyIteratorIfNull(iterable), predicate);
+-    }
+-
+-    /**
+-     * Answers true if the provided iterable is empty.
+-     * <p>
+-     * A <code>null</code> iterable returns true.
+-     *
+-     * @param iterable  the {@link Iterable to use}, may be null 
+-     * @return true if the iterable is null or empty, false otherwise
+-     */
+-    public static boolean isEmpty(final Iterable<?> iterable) {
+-        if (iterable instanceof Collection<?>) {
+-            return ((Collection<?>) iterable).isEmpty();
+-        } else {
+-            return IteratorUtils.isEmpty(emptyIteratorIfNull(iterable));
+-        }
+-    }
+-
+-    /**
+-     * Checks if the object is contained in the given iterable.
+-     * <p>
+-     * A <code>null</code> or empty iterable returns false.
+-     *
+-     * @param <E>  the type of object the {@link Iterable} contains
+-     * @param iterator  the iterable to check, may be null
+-     * @param object  the object to check
+-     * @return true if the object is contained in the iterable, false otherwise
+-     */
+-    public static <E> boolean contains(final Iterable<E> iterable, final Object object) {
+-        if (iterable instanceof Collection<?>) {
+-            return ((Collection<E>) iterable).contains(object);
+-        } else {
+-            return IteratorUtils.contains(emptyIteratorIfNull(iterable), object);
+-        }
+-    }
+-
+-    /**
+-     * Returns the <code>index</code>-th value in the <code>iterable</code>'s {@link Iterator}, throwing
+-     * <code>IndexOutOfBoundsException</code> if there is no such element.
+-     * <p>
+-     * If the {@link Iterable} is a {@link List}, then it will use {@link List#get(int)}.
+-     *
+-     * @param <T> the type of object in the {@link Iterable}.
+-     * @param iterable  the {@link Iterable} to get a value from, may be null
+-     * @param index  the index to get
+-     * @return the object at the specified index
+-     * @throws IndexOutOfBoundsException if the index is invalid
+-     */
+-    public static <T> T get(final Iterable<T> iterable, final int index) {
+-        CollectionUtils.checkIndexBounds(index);
+-        if (iterable instanceof List<?>) {
+-            return ((List<T>) iterable).get(index);
+-        }
+-        return IteratorUtils.get(emptyIteratorIfNull(iterable), index);
+-    }
+-
+-    /**
+-     * Returns the number of elements contained in the given iterator.
+-     * <p>
+-     * A <code>null</code> or empty iterator returns {@code 0}.
+-     *
+-     * @param iterable  the iterable to check, may be null
+-     * @return the number of elements contained in the iterable
+-     */
+-    public static int size(final Iterable<?> iterable) {
+-        if (iterable instanceof Collection<?>) {
+-            return ((Collection<?>) iterable).size();
+-        } else {
+-            return IteratorUtils.size(emptyIteratorIfNull(iterable));
+-        }
+-    }
++    private static final String DEFAULT_TOSTRING_DELIMITER = ", ";
+ 
+     /**
+      * Returns a string representation of the elements of the specified iterable.
+-     * <p>
+      * The string representation consists of a list of the iterable's elements,
+      * enclosed in square brackets ({@code "[]"}). Adjacent elements are separated
+      * by the characters {@code ", "} (a comma followed by a space). Elements are
+      * converted to strings as by {@code String.valueOf(Object)}.
+      *
+-     * @param <E>  the element type
+-     * @param iterable  the iterable to convert to a string, may be null
++     * @param <C>  the element type
++     * @param iterable  the iterable to convert to a string
+      * @return a string representation of {@code iterable}
++     * @throws IllegalArgumentException if {@code iterable} is null
+      */
+-    public static <E> String toString(final Iterable<E> iterable) {
+-        return IteratorUtils.toString(emptyIteratorIfNull(iterable));
++    public static <C> String toString(Iterable<C> iterable) {
++        return toString(iterable, new Transformer<C, String>() {
++            public String transform(C input) {
++                return String.valueOf(input);
++            }
++        }, DEFAULT_TOSTRING_DELIMITER, DEFAULT_TOSTRING_PREFIX, DEFAULT_TOSTRING_SUFFIX);
+     }
+ 
+     /**
+      * Returns a string representation of the elements of the specified iterable.
+-     * <p>
+      * The string representation consists of a list of the iterable's elements,
+      * enclosed in square brackets ({@code "[]"}). Adjacent elements are separated
+      * by the characters {@code ", "} (a comma followed by a space). Elements are
+      * converted to strings as by using the provided {@code transformer}.
+      *
+-     * @param <E>  the element type
+-     * @param iterable  the iterable to convert to a string, may be null
++     * @param <C>  the element type
++     * @param iterable  the iterable to convert to a string
+      * @param transformer  the transformer used to get a string representation of an element
+      * @return a string representation of {@code iterable}
+-     * @throws NullPointerException if {@code transformer} is null
++     * @throws IllegalArgumentException if {@code iterable} or {@code transformer} is null
+      */
+-    public static <E> String toString(final Iterable<E> iterable,
+-                                      final Transformer<? super E, String> transformer) {
+-        if (transformer == null) {
+-            throw new NullPointerException("transformer may not be null");
+-        }
+-        return IteratorUtils.toString(emptyIteratorIfNull(iterable), transformer);
++    public static <C> String toString(Iterable<C> iterable, Transformer<? super C, String> transformer) {
++        return toString(iterable, transformer, DEFAULT_TOSTRING_DELIMITER,
++                        DEFAULT_TOSTRING_PREFIX, DEFAULT_TOSTRING_SUFFIX);
+     }
+ 
+     /**
+      * Returns a string representation of the elements of the specified iterable.
+-     * <p>
+      * The string representation consists of a list of the iterable's elements,
+      * enclosed by the provided {@code prefix} and {@code suffix}. Adjacent elements
+      * are separated by the provided {@code delimiter}. Elements are converted to
+      * strings as by using the provided {@code transformer}.
+      *
+-     * @param <E>  the element type
+-     * @param iterable  the iterable to convert to a string, may be null
++     * @param <C>  the element type
++     * @param iterable  the iterable to convert to a string
+      * @param transformer  the transformer used to get a string representation of an element
+      * @param delimiter  the string to delimit elements
+      * @param prefix  the prefix, prepended to the string representation
+      * @param suffix  the suffix, appended to the string representation
+      * @return a string representation of {@code iterable}
+-     * @throws NullPointerException if either transformer, delimiter, prefix or suffix is null
+-     */
+-    public static <E> String toString(final Iterable<E> iterable,
+-                                      final Transformer<? super E, String> transformer,
+-                                      final String delimiter,
+-                                      final String prefix,
+-                                      final String suffix) {
+-        return IteratorUtils.toString(emptyIteratorIfNull(iterable),
+-                                      transformer, delimiter, prefix, suffix);
+-    }
+-
+-    // Inner classes
+-    // ----------------------------------------------------------------------
+-
+-    private static abstract class AbstractIterable<E> implements Iterable<E> {
+-        @Override
+-        public String toString() {
+-            return IterableUtils.toString(this);
++     * @throws IllegalArgumentException if any argument is null
++     */
++    public static <C> String toString(Iterable<C> iterable,
++                                      Transformer<? super C, String> transformer,
++                                      String delimiter,
++                                      String prefix,
++                                      String suffix) {
++        if (iterable == null) {
++            throw new IllegalArgumentException("iterable may not be null");
++        }
++        if (transformer == null) {
++            throw new IllegalArgumentException("transformer may not be null");
++        }
++        if (delimiter == null) {
++            throw new IllegalArgumentException("delimiter may not be null");
++        }
++        if (prefix == null) {
++            throw new IllegalArgumentException("prefix may not be null");
++        }
++        if (suffix == null) {
++            throw new IllegalArgumentException("suffix may not be null");
++        }
++        final StringBuilder stringBuilder = new StringBuilder(prefix);
++        for(final C element : iterable) {
++            stringBuilder.append(transformer.transform(element));
++            stringBuilder.append(delimiter);
++        }
++        if(stringBuilder.length() > prefix.length()) {
++            stringBuilder.setLength(stringBuilder.length() - delimiter.length());
+         }
++        stringBuilder.append(suffix);
++        return stringBuilder.toString();
+     }
+ }
+diff --git a/src/main/java/org/apache/commons/collections4/IteratorUtils.java b/src/main/java/org/apache/commons/collections4/IteratorUtils.java
+index 15eda1b..c240d9d 100644
+--- a/src/main/java/org/apache/commons/collections4/IteratorUtils.java
++++ b/src/main/java/org/apache/commons/collections4/IteratorUtils.java
+@@ -29,7 +29,6 @@ import java.util.List;
+ import java.util.ListIterator;
+ import java.util.Map;
+ 
+-import org.apache.commons.collections4.functors.EqualPredicate;
+ import org.apache.commons.collections4.iterators.ArrayIterator;
+ import org.apache.commons.collections4.iterators.ArrayListIterator;
+ import org.apache.commons.collections4.iterators.BoundedIterator;
+@@ -56,7 +55,6 @@ import org.apache.commons.collections4.iterators.PeekingIterator;
+ import org.apache.commons.collections4.iterators.PushbackIterator;
+ import org.apache.commons.collections4.iterators.SingletonIterator;
+ import org.apache.commons.collections4.iterators.SingletonListIterator;
+-import org.apache.commons.collections4.iterators.SkippingIterator;
+ import org.apache.commons.collections4.iterators.TransformIterator;
+ import org.apache.commons.collections4.iterators.UnmodifiableIterator;
+ import org.apache.commons.collections4.iterators.UnmodifiableListIterator;
+@@ -119,25 +117,9 @@ public class IteratorUtils {
+     public static final OrderedMapIterator EMPTY_ORDERED_MAP_ITERATOR = EmptyOrderedMapIterator.INSTANCE;
+ 
+     /**
+-     * Default prefix used while converting an Iterator to its String representation.
+-     */
+-    private static final String DEFAULT_TOSTRING_PREFIX = "[";
+-
+-    /**
+-     * Default suffix used while converting an Iterator to its String representation.
+-     */
+-    private static final String DEFAULT_TOSTRING_SUFFIX = "]";
+-
+-    /**
+-     * Default delimiter used to delimit elements while converting an Iterator
+-     * to its String representation.
+-     */
+-    private static final String DEFAULT_TOSTRING_DELIMITER = ", ";
+-
+-    /**
+      * IteratorUtils is not normally instantiated.
+      */
+-    private IteratorUtils() {}    
++    private IteratorUtils() {}
+ 
+     // Empty
+     //-----------------------------------------------------------------------
+@@ -461,7 +443,7 @@ public class IteratorUtils {
+      * @param iterator  the iterator to decorate
+      * @param max  the maximum number of elements returned by this iterator
+      * @return a new bounded iterator
+-     * @throws IllegalArgumentException if the iterator is null or max is negative
++     * @throws IllegalArgumentException if the iterator is null or either offset or max is negative
+      * @since 4.1
+      */
+     public static <E> BoundedIterator<E> boundedIterator(final Iterator<? extends E> iterator, long max) {
+@@ -489,22 +471,6 @@ public class IteratorUtils {
+         return new BoundedIterator<E>(iterator, offset, max);
+     }
+ 
+-    // Skipping
+-    //-----------------------------------------------------------------------
+-    /**
+-     * Decorates the specified iterator to skip the first N elements.
+-     *
+-     * @param <E>  the element type
+-     * @param iterator  the iterator to decorate
+-     * @param offset  the first number of elements to skip
+-     * @return a new skipping iterator
+-     * @throws IllegalArgumentException if the iterator is null or offset is negative
+-     * @since 4.1
+-     */
+-    public static <E> SkippingIterator<E> skippingIterator(final Iterator<E> iterator, long offset) {
+-        return new SkippingIterator<E>(iterator, offset);
+-    }
+-
+     // Unmodifiable
+     //-----------------------------------------------------------------------
+     /**
+@@ -1172,230 +1138,4 @@ public class IteratorUtils {
+         return singletonIterator(obj);
+     }
+ 
+-    // Utility methods
+-    //-----------------------------------------------------------------------
+-
+-    /**
+-     * Answers true if a predicate is true for any element of the iterator.
+-     * <p>
+-     * A <code>null</code> or empty iterator returns false.
+-     *
+-     * @param <E>  the type of object the {@link Iterator} contains
+-     * @param input  the {@link Iterator} to use, may be null
+-     * @param predicate  the predicate to use, may not be null
+-     * @return true if any element of the collection matches the predicate, false otherwise
+-     * @throws NullPointerException if predicate is null
+-     * @since 4.1
+-     */
+-    public static <E> boolean matchesAny(final Iterator<E> iterator, final Predicate<? super E> predicate) {
+-        if (predicate == null) {
+-            throw new NullPointerException("Predicate must not be null");
+-        }
+-
+-        if (iterator != null) {
+-            while (iterator.hasNext()) {
+-                final E element = iterator.next();
+-                if (predicate.evaluate(element)) {
+-                    return true;
+-                }
+-            }
+-        }
+-        return false;
+-    }
+-
+-    /**
+-     * Answers true if a predicate is true for every element of an iterator.
+-     * <p>
+-     * A <code>null</code> or empty iterator returns true.
+-     *
+-     * @param <E>  the type of object the {@link Iterator} contains
+-     * @param input  the {@link Iterator} to use, may be null
+-     * @param predicate  the predicate to use, may not be null
+-     * @return true if every element of the collection matches the predicate or if the
+-     *   collection is empty, false otherwise
+-     * @throws NullPointerException if predicate is null
+-     * @since 4.1
+-     */
+-    public static <E> boolean matchesAll(final Iterator<E> iterator, final Predicate<? super E> predicate) {
+-        if (predicate == null) {
+-            throw new NullPointerException("Predicate must not be null");
+-        }
+-
+-        if (iterator != null) {
+-            while (iterator.hasNext()) {
+-                final E element = iterator.next();
+-                if (!predicate.evaluate(element)) {
+-                    return false;
+-                }
+-            }
+-        }
+-        return true;
+-    }
+-
+-    /**
+-     * Checks if the given iterator is empty.
+-     * <p>
+-     * A <code>null</code> or empty iterator returns true.
+-     *
+-     * @param iterator  the {@link Iterator} to use, may be null
+-     * @return true if the iterator is exhausted or null, false otherwise
+-     * @since 4.1
+-     */
+-    public static boolean isEmpty(final Iterator<?> iterator) {
+-        return iterator == null || !iterator.hasNext();
+-    }
+-
+-    /**
+-     * Checks if the object is contained in the given iterator.
+-     * <p>
+-     * A <code>null</code> or empty iterator returns false.
+-     *
+-     * @param <E>  the type of object the {@link Iterator} contains
+-     * @param iterator  the iterator to check, may be null
+-     * @param object  the object to check
+-     * @return true if the object is contained in the iterator, false otherwise
+-     * @since 4.1
+-     */
+-    public static <E> boolean contains(final Iterator<E> iterator, final Object object) {
+-        return matchesAny(iterator, EqualPredicate.equalPredicate(object));
+-    }
+-
+-    /**
+-     * Returns the <code>index</code>-th value in {@link Iterator}, throwing
+-     * <code>IndexOutOfBoundsException</code> if there is no such element.
+-     * <p>
+-     * The Iterator is advanced to <code>index</code> (or to the end, if
+-     * <code>index</code> exceeds the number of entries) as a side effect of this method.
+-     *
+-     * @param <E>  the type of object in the {@link Iterator}
+-     * @param iterator  the iterator to get a value from
+-     * @param index  the index to get
+-     * @return the object at the specified index
+-     * @throws IndexOutOfBoundsException if the index is invalid
+-     * @throws IllegalArgumentException if the object type is invalid
+-     * @since 4.1
+-     */
+-    public static <E> E get(final Iterator<E> iterator, final int index) {
+-        int i = index;
+-        CollectionUtils.checkIndexBounds(i);
+-        while (iterator.hasNext()) {
+-            i--;
+-            if (i == -1) {
+-                return iterator.next();
+-            }
+-            iterator.next();
+-        }
+-        throw new IndexOutOfBoundsException("Entry does not exist: " + i);
+-    }
+-
+-    /**
+-     * Returns the number of elements contained in the given iterator.
+-     * <p>
+-     * A <code>null</code> or empty iterator returns {@code 0}.
+-     *
+-     * @param iterator  the iterator to check, may be null
+-     * @return the number of elements contained in the iterator
+-     * @since 4.1
+-     */
+-    public static int size(final Iterator<?> iterator) {
+-        int size = 0;
+-        if (iterator != null) {
+-            while (iterator.hasNext()) {
+-                iterator.next();
+-                size++;
+-            }
+-        }
+-        return size;
+-    }
+-
+-    /**
+-     * Returns a string representation of the elements of the specified iterator.
+-     * <p>
+-     * The string representation consists of a list of the iterator's elements,
+-     * enclosed in square brackets ({@code "[]"}). Adjacent elements are separated
+-     * by the characters {@code ", "} (a comma followed by a space). Elements are
+-     * converted to strings as by {@code String.valueOf(Object)}.
+-     *
+-     * @param <E>  the element type
+-     * @param iterable  the iterator to convert to a string
+-     * @return a string representation of {@code iterator}
+-     * @since 4.1
+-     */
+-    public static <E> String toString(final Iterator<E> iterator) {
+-        return toString(iterator, TransformerUtils.stringValueTransformer(),
+-                        DEFAULT_TOSTRING_DELIMITER, DEFAULT_TOSTRING_PREFIX,
+-                        DEFAULT_TOSTRING_SUFFIX);
+-    }
+-
+-    /**
+-     * Returns a string representation of the elements of the specified iterator.
+-     * <p>
+-     * The string representation consists of a list of the iterable's elements,
+-     * enclosed in square brackets ({@code "[]"}). Adjacent elements are separated
+-     * by the characters {@code ", "} (a comma followed by a space). Elements are
+-     * converted to strings as by using the provided {@code transformer}.
+-     *
+-     * @param <E>  the element type
+-     * @param iterable  the iterator to convert to a string, may be null
+-     * @param transformer  the transformer used to get a string representation of an element
+-     * @return a string representation of {@code iterator}
+-     * @throws NullPointerException if {@code transformer} is null
+-     * @since 4.1
+-     */
+-    public static <E> String toString(final Iterator<E> iterator,
+-                                      final Transformer<? super E, String> transformer) {
+-        return toString(iterator, transformer, DEFAULT_TOSTRING_DELIMITER,
+-                        DEFAULT_TOSTRING_PREFIX, DEFAULT_TOSTRING_SUFFIX);
+-    }
+-
+-    /**
+-     * Returns a string representation of the elements of the specified iterator.
+-     * <p>
+-     * The string representation consists of a list of the iterator's elements,
+-     * enclosed by the provided {@code prefix} and {@code suffix}. Adjacent elements
+-     * are separated by the provided {@code delimiter}. Elements are converted to
+-     * strings as by using the provided {@code transformer}.
+-     *
+-     * @param <E>  the element type
+-     * @param iterator  the iterator to convert to a string, may be null
+-     * @param transformer  the transformer used to get a string representation of an element
+-     * @param delimiter  the string to delimit elements
+-     * @param prefix  the prefix, prepended to the string representation
+-     * @param suffix  the suffix, appended to the string representation
+-     * @return a string representation of {@code iterator}
+-     * @throws NullPointerException if either transformer, delimiter, prefix or suffix is null
+-     * @since 4.1
+-     */
+-    public static <E> String toString(final Iterator<E> iterator,
+-                                      final Transformer<? super E, String> transformer,
+-                                      final String delimiter,
+-                                      final String prefix,
+-                                      final String suffix) {
+-        if (transformer == null) {
+-            throw new NullPointerException("transformer may not be null");
+-        }
+-        if (delimiter == null) {
+-            throw new NullPointerException("delimiter may not be null");
+-        }
+-        if (prefix == null) {
+-            throw new NullPointerException("prefix may not be null");
+-        }
+-        if (suffix == null) {
+-            throw new NullPointerException("suffix may not be null");
+-        }
+-        final StringBuilder stringBuilder = new StringBuilder(prefix);
+-        if (iterator != null) {
+-            while (iterator.hasNext()) {
+-                final E element = iterator.next();
+-                stringBuilder.append(transformer.transform(element));
+-                stringBuilder.append(delimiter);
+-            }
+-            if(stringBuilder.length() > prefix.length()) {
+-                stringBuilder.setLength(stringBuilder.length() - delimiter.length());
+-            }
+-        }
+-        stringBuilder.append(suffix);
+-        return stringBuilder.toString();
+-    }
+-
+ }
+diff --git a/src/main/java/org/apache/commons/collections4/iterators/SkippingIterator.java b/src/main/java/org/apache/commons/collections4/iterators/SkippingIterator.java
+deleted file mode 100644
+index aa0e7bc..0000000
+--- a/src/main/java/org/apache/commons/collections4/iterators/SkippingIterator.java
++++ /dev/null
+@@ -1,96 +0,0 @@
+-/*
+- * Licensed to the Apache Software Foundation (ASF) under one or more
+- * contributor license agreements. See the NOTICE file distributed with this
+- * work for additional information regarding copyright ownership. The ASF
+- * licenses this file to You under the Apache License, Version 2.0 (the
+- * "License"); you may not use this file except in compliance with the License.
+- * You may obtain a copy of the License at
+- * http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law
+- * or agreed to in writing, software distributed under the License is
+- * distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+- * KIND, either express or implied. See the License for the specific language
+- * governing permissions and limitations under the License.
+- */
+-package org.apache.commons.collections4.iterators;
+-
+-import java.util.Iterator;
+-
+-/**
+- * Decorates another iterator to skip the first N elements.
+- * <p>
+- * In case an offset parameter other than 0 is provided, the decorated
+- * iterator is immediately advanced to this position, skipping all elements
+- * before that position.
+- *
+- * @since 4.1
+- * @version $Id: $
+- */
+-public class SkippingIterator<E> extends AbstractIteratorDecorator<E> {
+-
+-    /** The offset to bound the first element return */
+-    private final long offset;
+-
+-    /** The position of the current element */
+-    private long pos;
+-
+-    //-----------------------------------------------------------------------
+-
+-    /**
+-     * Decorates the specified iterator to skip all elements until the iterator
+-     * reaches the position at {@code offset}.
+-     * <p>
+-     * The iterator is immediately advanced until it reaches the position at {@code offset},
+-     * incurring O(n) time.
+-     *
+-     * @param iterator  the iterator to be decorated
+-     * @param offset  the index of the first element of the decorated iterator to return
+-     * @throws IllegalArgumentException if iterator is null, or offset is negative
+-     */
+-    public SkippingIterator(final Iterator<E> iterator, final long offset) {
+-        super(iterator);
+-
+-        if (offset < 0) {
+-            throw new IllegalArgumentException("Offset parameter must not be negative.");
+-        }
+-
+-        this.offset = offset;
+-        this.pos = 0;
+-        init();
+-    }
+-
+-    /**
+-     * Skips the given number of elements.
+-     */
+-    private void init() {
+-        while (pos < offset && hasNext()) {
+-            next();
+-            pos++;
+-        }
+-    }
+-
+-    //-----------------------------------------------------------------------
+-
+-    @Override
+-    public E next() {
+-        final E next = super.next();
+-        pos++;
+-        return next;
+-    }
+-
+-    /**
+-     * {@inheritDoc}
+-     * <p>
+-     * In case an offset other than 0 was specified, the underlying iterator will be advanced
+-     * to this position upon creation. A call to {@link #remove()} will still result in an
+-     * {@link IllegalStateException} if no explicit call to {@link #next()} has been made prior
+-     * to calling {@link #remove()}.
+-     */
+-    @Override
+-    public void remove() {
+-        if (pos <= offset) {
+-            throw new IllegalStateException("remove() can not be called before calling next()");
+-        }
+-        super.remove();
+-    }
+-
+-}
+diff --git a/src/test/java/org/apache/commons/collections4/IterableUtilsTest.java b/src/test/java/org/apache/commons/collections4/IterableUtilsTest.java
+index dd1fa0d..71e812e 100644
+--- a/src/test/java/org/apache/commons/collections4/IterableUtilsTest.java
++++ b/src/test/java/org/apache/commons/collections4/IterableUtilsTest.java
+@@ -65,8 +65,12 @@ public class IterableUtilsTest extends BulkTest {
+         result = IterableUtils.toString(new ArrayList<Integer>());
+         assertEquals("[]", result);
+ 
+-        result = IterableUtils.toString(null);
+-        assertEquals("[]", result);
++        try {
++            IterableUtils.toString(null);
++            fail("expecting IllegalArgumentException");
++        } catch (final IllegalArgumentException iae) {
++            // expected
++        }
+ 
+         result = IterableUtils.toString(iterableA, new Transformer<Integer, String>() {
+             public String transform(Integer input) {
+@@ -83,13 +87,17 @@ public class IterableUtilsTest extends BulkTest {
+         });
+         assertEquals("[]", result);
+ 
+-        result = IterableUtils.toString(null, new Transformer<Integer, String>() {
+-            public String transform(Integer input) {
+-                fail("not supposed to reach here");
+-                return "";
+-            }
+-        });
+-        assertEquals("[]", result);
++        try {
++            IterableUtils.toString(null, new Transformer<Integer, String>() {
++                public String transform(Integer input) {
++                    fail("not supposed to reach here");
++                    return "";
++                }
++            });
++            fail("expecting IllegalArgumentException");
++        } catch (final IllegalArgumentException iae) {
++            // expected
++        }
+     }
+     
+     public void testToStringDelimiter() {
+@@ -129,18 +137,22 @@ public class IterableUtilsTest extends BulkTest {
+     }
+     
+     public void testToStringWithNullArguments() {
+-        String result = IterableUtils.toString(null, new Transformer<Integer, String>() {
+-            public String transform(Integer input) {
+-                fail("not supposed to reach here");
+-                return "";
+-            }
+-        }, "", "(", ")");
+-        assertEquals("()", result);
++        try {
++            IterableUtils.toString(null, new Transformer<Integer, String>() {
++                public String transform(Integer input) {
++                    fail("not supposed to reach here");
++                    return "";
++                }
++            }, "", "(", ")");
++            fail("expecting IllegalArgumentException");
++        } catch (final IllegalArgumentException iae) {
++            // expected
++        }
+ 
+         try {
+             IterableUtils.toString(new ArrayList<Integer>(), null, "", "(", ")");
+-            fail("expecting NullPointerException");
+-        } catch (final NullPointerException ex) {
++            fail("expecting IllegalArgumentException");
++        } catch (final IllegalArgumentException iae) {
+             // expected
+         }
+ 
+@@ -151,8 +163,8 @@ public class IterableUtilsTest extends BulkTest {
+                     return "";
+                 }
+             }, null, "(", ")");
+-            fail("expecting NullPointerException");
+-        } catch (final NullPointerException ex) {
++            fail("expecting IllegalArgumentException");
++        } catch (final IllegalArgumentException iae) {
+             // expected
+         }
+ 
+@@ -163,8 +175,8 @@ public class IterableUtilsTest extends BulkTest {
+                     return "";
+                 }
+             }, "", null, ")");
+-            fail("expecting NullPointerException");
+-        } catch (final NullPointerException ex) {
++            fail("expecting IllegalArgumentException");
++        } catch (final IllegalArgumentException iae) {
+             // expected
+         }
+ 
+@@ -175,8 +187,8 @@ public class IterableUtilsTest extends BulkTest {
+                     return "";
+                 }
+             }, "", "(", null);
+-            fail("expecting NullPointerException");
+-        } catch (final NullPointerException ex) {
++            fail("expecting IllegalArgumentException");
++        } catch (final IllegalArgumentException iae) {
+             // expected
+         }
+     }

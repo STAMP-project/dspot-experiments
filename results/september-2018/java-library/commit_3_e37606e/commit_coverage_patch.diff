@@ -1,0 +1,4333 @@
+diff --git a/CHANGELOG b/CHANGELOG
+index c9f8574..e03efc6 100644
+--- a/CHANGELOG
++++ b/CHANGELOG
+@@ -1,4 +1,26 @@
+ -------------------------
++3.1.0 17SEPT18
++-------------------------
++- Added support for the Require Interaction web notify feature.
++
++-------------------------
++3.1.0 11SEPT18
++-------------------------
++- Added support for Predictive Send Time Optimization.
++
++-------------------------
++3.0.1 28JUN18
++-------------------------
++- Updated to async-http-client 2.4.8.
++
++-------------------------
++3.0.0 23MAR18
++-------------------------
++- Updated the underlying HTTP client to fix a bug when trying to use a proxy server over HTTPS.
++- Added support for implementing a custom HTTP client.
++- Added support for creating and pushing to open channels.
++
++-------------------------
+ 2.1.0 20DEC17
+ -------------------------
+ - Added support for Campaigns.
+diff --git a/VERSION.txt b/VERSION.txt
+index 7ec1d6d..944880f 100644
+--- a/VERSION.txt
++++ b/VERSION.txt
+@@ -1 +1 @@
+-2.1.0
++3.2.0
+diff --git a/pom.xml b/pom.xml
+index 9a9c8d2..ed7f59a 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -10,7 +10,7 @@
+ 
+     <groupId>com.urbanairship</groupId>
+     <artifactId>java-client</artifactId>
+-    <version>1.3.1-SNAPSHOT</version>
++    <version>3.2.1-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+     <name>Java Client</name>
+@@ -95,8 +95,8 @@
+                 <artifactId>maven-compiler-plugin</artifactId>
+                 <version>3.3</version>
+                 <configuration>
+-                    <source>1.7</source>
+-                    <target>1.7</target>
++                    <source>1.8</source>
++                    <target>1.8</target>
+                 </configuration>
+             </plugin>
+ 
+@@ -134,7 +134,7 @@
+             <plugin>
+                 <groupId>org.jacoco</groupId>
+                 <artifactId>jacoco-maven-plugin</artifactId>
+-                <version>0.7.1.201405082137</version>
++                <version>0.8.0</version>
+                 <executions>
+                     <execution>
+                         <id>prepare-agent</id>
+@@ -221,7 +221,7 @@
+         <dependency>
+             <groupId>org.asynchttpclient</groupId>
+             <artifactId>async-http-client</artifactId>
+-            <version>2.0.38</version>
++            <version>2.4.8</version>
+         </dependency>
+ 
+         <dependency>
+diff --git a/src/main/java/com/urbanairship/api/channel/Constants.java b/src/main/java/com/urbanairship/api/channel/Constants.java
+index 6ea3e56..7b8c06f 100644
+--- a/src/main/java/com/urbanairship/api/channel/Constants.java
++++ b/src/main/java/com/urbanairship/api/channel/Constants.java
+@@ -37,6 +37,12 @@ public class Constants {
+     public static final String OPEN_PLATFORM_NAME = "open_platform_name";
+     public static final String OLD_ADDRESS = "old_address";
+     public static final String IDENTIFIERS = "identifiers";
++    public static final String ADDRESS = "address";
++    public static final String SET_TAGS = "set_tags";
++    public static final String TIMEZONE = "timezone";
++    public static final String LOCALE_COUNTRY = "locale_country";
++    public static final String LOCALE_LANGUAGE = "locale_language";
++    public static final String TYPE = "type";
+ 
+     private Constants() {
+     }
+diff --git a/src/main/java/com/urbanairship/api/channel/OpenChannelRequest.java b/src/main/java/com/urbanairship/api/channel/OpenChannelRequest.java
+new file mode 100644
+index 0000000..624f6ec
+--- /dev/null
++++ b/src/main/java/com/urbanairship/api/channel/OpenChannelRequest.java
+@@ -0,0 +1,76 @@
++package com.urbanairship.api.channel;
++
++import com.google.common.base.Preconditions;
++import com.google.common.net.HttpHeaders;
++import com.urbanairship.api.channel.model.OpenChannelResponse;
++import com.urbanairship.api.channel.model.open.OpenChannelPayload;
++import com.urbanairship.api.channel.parse.ChannelObjectMapper;
++import com.urbanairship.api.client.Request;
++import com.urbanairship.api.client.RequestUtils;
++import com.urbanairship.api.client.ResponseParser;
++import org.apache.http.entity.ContentType;
++
++import java.io.IOException;
++import java.net.URI;
++import java.net.URISyntaxException;
++import java.util.HashMap;
++import java.util.Map;
++
++public class OpenChannelRequest implements Request<OpenChannelResponse> {
++
++    private final static String API_OPEN_CHANNEL = "/api/channels/open/";
++
++    private final OpenChannelPayload payload;
++
++    private OpenChannelRequest(OpenChannelPayload payload) {
++        Preconditions.checkNotNull(payload, "Payload must not be null to create an open channel request");
++        this.payload = payload;
++    }
++
++    public static OpenChannelRequest newRequest(OpenChannelPayload payload) {
++        return new OpenChannelRequest(payload);
++    }
++
++    @Override
++    public HttpMethod getHttpMethod() {
++        return HttpMethod.POST;
++    }
++
++    @Override
++    public String getRequestBody() {
++        return payload.toJSON();
++    }
++
++    @Override
++    public ContentType getContentType() {
++        return ContentType.APPLICATION_JSON;
++    }
++
++    @Override
++    public Map<String, String> getRequestHeaders() {
++        Map<String, String> headers = new HashMap<String, String>();
++        headers.put(HttpHeaders.CONTENT_TYPE, CONTENT_TYPE_JSON);
++        headers.put(HttpHeaders.ACCEPT, UA_VERSION_JSON);
++        return headers;
++    }
++
++    @Override
++    public URI getUri(URI baseUri) throws URISyntaxException {
++        return RequestUtils.resolveURI(baseUri, API_OPEN_CHANNEL);
++    }
++
++    @Override
++    public ResponseParser<OpenChannelResponse> getResponseParser() {
++        return new ResponseParser<OpenChannelResponse>() {
++            @Override
++            public OpenChannelResponse parse(String response) throws IOException {
++                return ChannelObjectMapper.getInstance().readValue(response, OpenChannelResponse.class);
++            }
++        };
++    }
++
++    @Override
++    public boolean bearerTokenAuthRequired() {
++        return false;
++    }
++}
+diff --git a/src/main/java/com/urbanairship/api/channel/model/ChannelView.java b/src/main/java/com/urbanairship/api/channel/model/ChannelView.java
+index 17a5efb..e9baa43 100644
+--- a/src/main/java/com/urbanairship/api/channel/model/ChannelView.java
++++ b/src/main/java/com/urbanairship/api/channel/model/ChannelView.java
+@@ -36,11 +36,12 @@ public final class ChannelView {
+     private final Optional<IosSettings> iosSettings;
+     private final Optional<WebSettings> web;
+     private final Optional<OpenChannel> open;
++    private final Optional<String> address;
+ 
+     private ChannelView() {
+         this(null, null, true, true, Optional.<Boolean>absent(), Optional.<String>absent(), null,
+             Optional.<DateTime>absent(), Optional.<String>absent(), null, null, Optional.<IosSettings>absent(),
+-                Optional.<WebSettings>absent(), Optional.<OpenChannel>absent());
++                Optional.<WebSettings>absent(), Optional.<OpenChannel>absent(), Optional.<String>absent());
+     }
+ 
+     private ChannelView(String channelId,
+@@ -56,7 +57,8 @@ public final class ChannelView {
+                        ImmutableMap<String, ImmutableSet<String>> tagGroups,
+                        Optional<IosSettings> iosSettings,
+                        Optional<WebSettings> web,
+-                       Optional<OpenChannel> open) {
++                       Optional<OpenChannel> open,
++                       Optional<String> address) {
+         this.channelId = channelId;
+         this.channelType = channelType;
+         this.installed = installed;
+@@ -71,6 +73,7 @@ public final class ChannelView {
+         this.iosSettings = iosSettings;
+         this.web = web;
+         this.open = open;
++        this.address = address;
+     }
+ 
+     /**
+@@ -208,54 +211,62 @@ public final class ChannelView {
+         return open;
+     }
+ 
++    /**
++     * Get the address. The primary identifier of a record. For example,
++     * in an SMS integration, it could be the end user’s phone number.
++     *
++     * @return Optional String address
++     */
++    public Optional<String> getAddress() {
++        return address;
++    }
++
+     @Override
+     public String toString() {
+         return "ChannelView{" +
+-            "channelId='" + channelId + '\'' +
+-            ", deviceType=" + channelType +
+-            ", installed=" + installed +
+-            ", optIn=" + optIn +
+-            ", background=" + background +
+-            ", pushAddress=" + pushAddress +
+-            ", created=" + created +
+-            ", lastRegistration=" + lastRegistration +
+-            ", alias=" + alias +
+-            ", tags=" + tags +
+-            ", tagGroups=" + tagGroups +
+-            ", iosSettings=" + iosSettings +
+-            ", webSettings=" + web +
+-            ". openChannel=" + open +
+-            '}';
++                "channelId='" + channelId + '\'' +
++                ", channelType='" + channelType + '\'' +
++                ", installed=" + installed +
++                ", optIn=" + optIn +
++                ", background=" + background +
++                ", pushAddress=" + pushAddress +
++                ", created=" + created +
++                ", lastRegistration=" + lastRegistration +
++                ", alias=" + alias +
++                ", tags=" + tags +
++                ", tagGroups=" + tagGroups +
++                ", iosSettings=" + iosSettings +
++                ", web=" + web +
++                ", open=" + open +
++                ", address=" + address +
++                '}';
+     }
+ 
+     @Override
+     public int hashCode() {
+-        return Objects.hashCode(channelId, channelType, installed, optIn, background, pushAddress, created, lastRegistration, alias, tags, tagGroups, iosSettings, web, open);
++        return Objects.hashCode(channelId, channelType, installed, optIn, background, pushAddress, created, lastRegistration, alias, tags, tagGroups, iosSettings, web, open, address);
+     }
+ 
+     @Override
+-    public boolean equals(Object obj) {
+-        if (this == obj) {
+-            return true;
+-        }
+-        if (obj == null || getClass() != obj.getClass()) {
+-            return false;
+-        }
+-        final ChannelView other = (ChannelView) obj;
+-        return Objects.equal(this.channelId, other.channelId) &&
+-            Objects.equal(this.channelType, other.channelType) &&
+-            Objects.equal(this.installed, other.installed) &&
+-            Objects.equal(this.optIn, other.optIn) &&
+-            Objects.equal(this.background, other.background) &&
+-            Objects.equal(this.pushAddress, other.pushAddress) &&
+-            Objects.equal(this.created, other.created) &&
+-            Objects.equal(this.lastRegistration, other.lastRegistration) &&
+-            Objects.equal(this.alias, other.alias) &&
+-            Objects.equal(this.tags, other.tags) &&
+-            Objects.equal(this.tagGroups, other.tagGroups) &&
+-            Objects.equal(this.iosSettings, other.iosSettings) &&
+-            Objects.equal(this.web, other.web) &&
+-            Objects.equal(this.open, other.open);
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (o == null || getClass() != o.getClass()) return false;
++        ChannelView that = (ChannelView) o;
++        return installed == that.installed &&
++                optIn == that.optIn &&
++                Objects.equal(channelId, that.channelId) &&
++                Objects.equal(channelType, that.channelType) &&
++                Objects.equal(background, that.background) &&
++                Objects.equal(pushAddress, that.pushAddress) &&
++                Objects.equal(created, that.created) &&
++                Objects.equal(lastRegistration, that.lastRegistration) &&
++                Objects.equal(alias, that.alias) &&
++                Objects.equal(tags, that.tags) &&
++                Objects.equal(tagGroups, that.tagGroups) &&
++                Objects.equal(iosSettings, that.iosSettings) &&
++                Objects.equal(web, that.web) &&
++                Objects.equal(open, that.open) &&
++                Objects.equal(address, that.address);
+     }
+ 
+     public final static class Builder {
+@@ -273,6 +284,7 @@ public final class ChannelView {
+         private IosSettings iosSettings = null;
+         private WebSettings webSettings = null;
+         private OpenChannel openChannel = null;
++        private String address = null;
+ 
+         private Builder() {
+         }
+@@ -462,6 +474,17 @@ public final class ChannelView {
+         }
+ 
+         /**
++         * Set the address. The primary identifier of a record. For example,
++         * in an SMS integration, it could be the end user’s phone number.
++         * @param address String
++         * @return Builder
++         */
++        public Builder setAddress(String address) {
++            this.address = address;
++            return this;
++        }
++
++        /**
+          * Build the ChannelView object
+          * @return ChannelView
+          */
+@@ -486,7 +509,8 @@ public final class ChannelView {
+                 tagGroups.build(),
+                 Optional.fromNullable(iosSettings),
+                 Optional.fromNullable(webSettings),
+-                Optional.fromNullable(openChannel)
++                Optional.fromNullable(openChannel),
++                Optional.fromNullable(address)
+             );
+         }
+     }
+diff --git a/src/main/java/com/urbanairship/api/channel/model/OpenChannelResponse.java b/src/main/java/com/urbanairship/api/channel/model/OpenChannelResponse.java
+new file mode 100644
+index 0000000..8042f44
+--- /dev/null
++++ b/src/main/java/com/urbanairship/api/channel/model/OpenChannelResponse.java
+@@ -0,0 +1,66 @@
++package com.urbanairship.api.channel.model;
++
++import com.google.common.base.Objects;
++
++public class OpenChannelResponse {
++    private final boolean ok;
++    private final String channelId;
++
++    private OpenChannelResponse(Builder builder) {
++        this.ok = builder.ok;
++        this.channelId = builder.channel_id;
++    }
++
++    public static Builder newBuilder() {
++        return new Builder();
++    }
++
++    public boolean getOk() {
++        return ok;
++    }
++
++    public String getChannelId() {
++        return channelId;
++    }
++
++    @Override
++    public String toString() {
++        return "OpenChannelResponse{" +
++                "ok=" + ok +
++                ", channelId='" + channelId + '\'' +
++                '}';
++    }
++
++    @Override
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (o == null || getClass() != o.getClass()) return false;
++        OpenChannelResponse that = (OpenChannelResponse) o;
++        return ok == that.ok &&
++                Objects.equal(channelId, that.channelId);
++    }
++
++    @Override
++    public int hashCode() {
++        return Objects.hashCode(ok, channelId);
++    }
++
++    public static class Builder {
++        private boolean ok;
++        private String channel_id;
++
++        public Builder setOk(boolean ok) {
++            this.ok = ok;
++            return this;
++        }
++
++        public Builder setChannelId(String channel_id) {
++            this.channel_id = channel_id;
++            return this;
++        }
++
++        public OpenChannelResponse build() {
++            return new OpenChannelResponse(this);
++        }
++    }
++}
+diff --git a/src/main/java/com/urbanairship/api/channel/model/open/Channel.java b/src/main/java/com/urbanairship/api/channel/model/open/Channel.java
+new file mode 100644
+index 0000000..b502c71
+--- /dev/null
++++ b/src/main/java/com/urbanairship/api/channel/model/open/Channel.java
+@@ -0,0 +1,304 @@
++package com.urbanairship.api.channel.model.open;
++
++
++import com.google.common.base.Objects;
++import com.google.common.base.Optional;
++import com.google.common.base.Preconditions;
++import com.google.common.collect.ImmutableList;
++import com.urbanairship.api.channel.model.ChannelType;
++import com.urbanairship.api.push.model.PushModelObject;
++
++import java.util.List;
++
++/**
++ * Represents the payload to be used for registering or updating an open channel.
++ */
++public class Channel extends PushModelObject {
++
++    private final ChannelType type;
++    private final Optional<Boolean> optIn;
++    private final Optional<String> address;
++    private final Optional<Boolean> setTags;
++    private final Optional<ImmutableList<String>> tags;
++    private final Optional<String> timezone;
++    private final Optional<String> localeCountry;
++    private final Optional<String> localeLanguage;
++    private final OpenChannel open;
++
++    private Channel(Builder builder) {
++        this.type = builder.type;
++        this.open = builder.open;
++        this.address = Optional.fromNullable(builder.address);
++
++        this.optIn = Optional.fromNullable(builder.optIn);
++        this.setTags = Optional.fromNullable(builder.setTags);
++        this.timezone = Optional.fromNullable(builder.timezone);
++        this.localeCountry = Optional.fromNullable(builder.locale_country);
++        this.localeLanguage = Optional.fromNullable(builder.locale_language);
++
++        if (builder.tags.build().isEmpty()) {
++            this.tags = Optional.absent();
++        } else {
++            this.tags = Optional.of(builder.tags.build());
++        }
++    }
++
++    /**
++     * Get the ChannelType.
++     * @return ChannelType type
++     */
++    public ChannelType getType() {
++        return type;
++    }
++
++    /**
++     * Get the channel opt in status.
++     * @return Optional Boolean optIn
++     */
++    public Optional<Boolean> getOptIn() {
++        return optIn;
++    }
++
++    /**
++     * Get the channel's address, a Unique identifier of the object
++     * used as the primary ID in the delivery tier (webhook). One-to-one
++     * with Channel ID. New addresses on existing channels will overwrite
++     * old associations. Examples: email address, phone number. If
++     * missing, channel_id must be present.
++     * @return Optional String address
++     */
++    public Optional<String> getAddress() {
++        return address;
++    }
++
++    /**
++     * Get the setTags flag. Optional, though required if tags is present.
++     * If true on update, value of tags overwrites any existing tags.
++     * If false, tags are unioned with existing tags.
++     * @return Optional Boolean setTags
++     */
++    public Optional<Boolean> getSetTags() {
++        return setTags;
++    }
++
++    /**
++     * Get the List of String representations of tags.
++     * @return Optional ImmutableList of Strings
++     */
++    public Optional<ImmutableList<String>> getTags() {
++        return tags;
++    }
++
++    /**
++     * Get a String representation of the timezone.
++     * @return Optional String timezone
++     */
++    public Optional<String> getTimezone() {
++        return timezone;
++    }
++
++    /**
++     * Get a String representation of the locale country.
++     * @return Optional String localeCountry
++     */
++    public Optional<String> getLocaleCountry() {
++        return localeCountry;
++    }
++
++    /**
++     * Get a String representation of the locale language.
++     * @return Optional String localeLanguage
++     */
++    public Optional<String> getLocaleLanguage() {
++        return localeLanguage;
++    }
++
++    /**
++     * Get open channel specific properties.
++     * @return OpenChannel open
++     */
++    public OpenChannel getOpen() {
++        return open;
++    }
++
++    /**
++     * New Channel Builder.
++     *
++     * @return Builder
++     */
++    public static Builder newBuilder() {
++        return new Builder();
++    }
++
++    @Override
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (o == null || getClass() != o.getClass()) return false;
++        Channel that = (Channel) o;
++        return type == that.type &&
++                Objects.equal(optIn, that.optIn) &&
++                Objects.equal(address, that.address) &&
++                Objects.equal(setTags, that.setTags) &&
++                Objects.equal(tags, that.tags) &&
++                Objects.equal(timezone, that.timezone) &&
++                Objects.equal(localeCountry, that.localeCountry) &&
++                Objects.equal(localeLanguage, that.localeLanguage) &&
++                Objects.equal(open, that.open);
++    }
++
++    @Override
++    public String toString() {
++        return "Channel{" +
++                "type=" + type +
++                ", optIn=" + optIn +
++                ", address=" + address +
++                ", setTags=" + setTags +
++                ", tags=" + tags +
++                ", timezone=" + timezone +
++                ", localeCountry=" + localeCountry +
++                ", localeLanguage=" + localeLanguage +
++                ", open=" + open +
++                '}';
++    }
++
++    @Override
++    public int hashCode() {
++        return Objects.hashCode(type, optIn, address, setTags, tags, timezone, localeCountry, localeLanguage, open);
++    }
++
++    /**
++     * Channel Builder
++     */
++    public final static class Builder {
++        private ChannelType type;
++        private boolean optIn;
++        private String address;
++        private boolean setTags;
++        private ImmutableList.Builder<String> tags = ImmutableList.builder();
++        private String timezone;
++        private String locale_country;
++        private String locale_language;
++        private OpenChannel open;
++
++        private Builder() {}
++
++        /**
++         * Set the ChannelType. Must be open.
++         * @param type ChannelType
++         * @return Channel Builder
++         */
++        public Builder setChannelType(ChannelType type) {
++            this.type = type;
++            return this;
++        }
++
++        /**
++         * Set the channel opt in status. If false, no payloads will be
++         * delivered for the channel.
++         * @param optIn boolean
++         * @return Channel Builder
++         */
++        public Builder setOptIn(boolean optIn) {
++            this.optIn = optIn;
++            return this;
++        }
++
++        /**
++         * Set the channel's address, a Unique identifier of the object
++         * used as the primary ID in the delivery tier (webhook). One-to-one
++         * with Channel ID. New addresses on existing channels will overwrite
++         * old associations. Examples: email address, phone number. If
++         * missing, channel_id must be present.
++         * @param address String
++         * @return Channel Builder
++         */
++        public Builder setAddress(String address) {
++            this.address = address;
++            return this;
++        }
++
++        /**
++         * Optional, though required if tags is present.
++         * If true on update, value of tags overwrites any existing tags.
++         * If false, tags are unioned with existing tags.
++         * @param setTags boolean
++         * @return Channel Builder
++         */
++        public Builder setTags(boolean setTags) {
++            this.setTags = setTags;
++            return this;
++        }
++
++        /**
++         * Add a List of String representations of tags.
++         * @param tags A List of Strings
++         * @return Channel Builder
++         */
++        public Builder addAllTags(List<String> tags) {
++            this.tags.addAll(tags);
++            return this;
++        }
++
++        /**
++         * Set a String representation of a tag.
++         * @param tag String
++         * @return Channel Builder
++         */
++        public Builder addTag(String tag) {
++            tags.add(tag);
++            return this;
++        }
++
++        /**
++         * Set timezone string. An IANA tzdata identifier for the timezone
++         * as a string, e.g., "America/Los Angeles". Will set the timezone
++         * tag group tag with the specified value.
++         * @param timezone String
++         * @return Channel Builder
++         */
++        public Builder setTimeZone(String timezone) {
++            this.timezone = timezone;
++            return this;
++        }
++
++        /**
++         * Set a the localeCountry The two-letter country locale shortcode.
++         * Will set the ua_locale_country tag group to the specified value.
++         * @param locale_country String
++         * @return Channel Builder
++         */
++        public Builder setLocaleCountry(String locale_country) {
++            this.locale_country = locale_country;
++            return this;
++        }
++
++        /**
++         * Set a String localeLanguage, the two-letter language locale
++         * shortcode. Will set the ua_locale_language tag group to the
++         * specified value
++         * @param locale_language String
++         * @return Channel Builder
++         */
++        public Builder setLocaleLanguage(String locale_language) {
++            this.locale_language = locale_language;
++            return this;
++        }
++
++        /**
++         * Set open channel specific properties.
++         * @param open OpenChannel
++         * @return Channel Builder
++         */
++        public Builder setOpenChannel(OpenChannel open) {
++            this.open = open;
++            return this;
++        }
++
++        public Channel build() {
++            Preconditions.checkNotNull(type, "'type' cannot be null.");
++            Preconditions.checkNotNull(open, "'open' cannot be null.");
++
++            return new Channel(this);
++        }
++    }
++}
+diff --git a/src/main/java/com/urbanairship/api/channel/model/open/OpenChannel.java b/src/main/java/com/urbanairship/api/channel/model/open/OpenChannel.java
+index c5396ff..cb60119 100644
+--- a/src/main/java/com/urbanairship/api/channel/model/open/OpenChannel.java
++++ b/src/main/java/com/urbanairship/api/channel/model/open/OpenChannel.java
+@@ -67,7 +67,7 @@ public class OpenChannel {
+ 
+     /**
+      * New OpenChannel Builder.
+-     * @return
++     * @return Builder
+      */
+     public static Builder newBuilder() {
+         return new Builder();
+@@ -145,8 +145,8 @@ public class OpenChannel {
+          * but cannot be used for segmentations. Maximum of 100 pairs of string values.
+          * This value should be exhaustive whenever this key is present—values will not be unioned
+          * with existing identifiers, they will replace them, similar to "set_tags": true above.
+-         * @param key
+-         * @param value
++         * @param key String
++         * @param value String
+          * @return OpenChannel Builder
+          */
+         public Builder addIdentifier(String key, String value) {
+@@ -159,7 +159,7 @@ public class OpenChannel {
+          * but cannot be used for segmentations. Maximum of 100 pairs of string values.
+          * This value should be exhaustive whenever this key is present—values will not be unioned
+          * with existing identifiers, they will replace them, similar to "set_tags": true above.
+-         * @param entries
++         * @param entries Map of Strings
+          * @return OpenChannel Builder
+          */
+         public Builder addAllIdentifierEntries(Map<String, String> entries) {
+diff --git a/src/main/java/com/urbanairship/api/channel/model/open/OpenChannelPayload.java b/src/main/java/com/urbanairship/api/channel/model/open/OpenChannelPayload.java
+new file mode 100644
+index 0000000..8f72b2b
+--- /dev/null
++++ b/src/main/java/com/urbanairship/api/channel/model/open/OpenChannelPayload.java
+@@ -0,0 +1,47 @@
++package com.urbanairship.api.channel.model.open;
++
++import com.google.common.base.Objects;
++import com.urbanairship.api.push.model.PushModelObject;
++
++/**
++ * Payload used to create open channels.
++ */
++public class OpenChannelPayload extends PushModelObject {
++    private final Channel channel;
++
++    /**
++     * Create an open channel payload.
++     * @param channel Channel
++     */
++    public OpenChannelPayload(Channel channel) {
++        this.channel = channel;
++    }
++
++    /**
++     * Get the channel object that is the object used to create or update channels on an open platform.
++     * @return Channel
++     */
++    public Channel getChannel() {
++        return channel;
++    }
++
++    @Override
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (o == null || getClass() != o.getClass()) return false;
++        OpenChannelPayload that = (OpenChannelPayload) o;
++        return Objects.equal(channel, that.channel);
++    }
++
++    @Override
++    public int hashCode() {
++        return Objects.hashCode(channel);
++    }
++
++    @Override
++    public String toString() {
++        return "OpenChannelPayload{" +
++                "channel=" + channel +
++                '}';
++    }
++}
+diff --git a/src/main/java/com/urbanairship/api/channel/parse/ChannelObjectMapper.java b/src/main/java/com/urbanairship/api/channel/parse/ChannelObjectMapper.java
+index 0477b1c..b296ef2 100644
+--- a/src/main/java/com/urbanairship/api/channel/parse/ChannelObjectMapper.java
++++ b/src/main/java/com/urbanairship/api/channel/parse/ChannelObjectMapper.java
+@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
+ import com.fasterxml.jackson.datatype.joda.JodaModule;
+ import com.urbanairship.api.channel.model.ChannelResponse;
+ import com.urbanairship.api.channel.model.ChannelView;
++import com.urbanairship.api.channel.model.OpenChannelResponse;
+ import com.urbanairship.api.channel.model.ios.IosSettings;
+ import com.urbanairship.api.channel.model.ios.QuietTime;
+ import com.urbanairship.api.channel.model.open.OpenChannel;
+@@ -36,7 +37,7 @@ public class ChannelObjectMapper {
+         MODULE.addDeserializer(Subscription.class, new SubscriptionDeserializer());
+         MODULE.addDeserializer(WebSettings.class, new WebSettingsDeserializer());
+         MODULE.addDeserializer(OpenChannel.class, new OpenChannelDeserializer());
+-
++        MODULE.addDeserializer(OpenChannelResponse.class, new OpenChannelResponseDeserializer());
+ 
+         MAPPER.registerModule(MODULE);
+         MAPPER.registerModule(new JodaModule());
+diff --git a/src/main/java/com/urbanairship/api/channel/parse/ChannelViewDeserializer.java b/src/main/java/com/urbanairship/api/channel/parse/ChannelViewDeserializer.java
+index add7b1e..c456b6c 100644
+--- a/src/main/java/com/urbanairship/api/channel/parse/ChannelViewDeserializer.java
++++ b/src/main/java/com/urbanairship/api/channel/parse/ChannelViewDeserializer.java
+@@ -106,6 +106,12 @@ public final class ChannelViewDeserializer extends JsonDeserializer<ChannelView>
+                             reader.readOpenChannel(jsonParser);
+                         }
+                     })
++                    .put(Constants.ADDRESS, new FieldParser<ChannelViewReader>() {
++                        @Override
++                        public void parse(ChannelViewReader reader, JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
++                            reader.readAddress(jsonParser);
++                        }
++                    })
+                     .build()
+     );
+ 
+diff --git a/src/main/java/com/urbanairship/api/channel/parse/ChannelViewReader.java b/src/main/java/com/urbanairship/api/channel/parse/ChannelViewReader.java
+index ba87450..0bf1b80 100644
+--- a/src/main/java/com/urbanairship/api/channel/parse/ChannelViewReader.java
++++ b/src/main/java/com/urbanairship/api/channel/parse/ChannelViewReader.java
+@@ -96,6 +96,10 @@ public final class ChannelViewReader implements JsonObjectReader<ChannelView> {
+         builder.setOpenChannel(jsonParser.readValueAs(OpenChannel.class));
+     }
+ 
++    public void readAddress(JsonParser jsonParser) throws IOException {
++        builder.setAddress(StringFieldDeserializer.INSTANCE.deserialize(jsonParser, Constants.ADDRESS));
++    }
++
+     @Override
+     public ChannelView validateAndBuild() throws IOException {
+         try {
+diff --git a/src/main/java/com/urbanairship/api/channel/parse/OpenChannelResponseDeserializer.java b/src/main/java/com/urbanairship/api/channel/parse/OpenChannelResponseDeserializer.java
+new file mode 100644
+index 0000000..4a8de89
+--- /dev/null
++++ b/src/main/java/com/urbanairship/api/channel/parse/OpenChannelResponseDeserializer.java
+@@ -0,0 +1,53 @@
++package com.urbanairship.api.channel.parse;
++
++import com.fasterxml.jackson.core.JsonParser;
++import com.fasterxml.jackson.databind.DeserializationContext;
++import com.fasterxml.jackson.databind.JsonDeserializer;
++import com.google.common.base.Supplier;
++import com.google.common.collect.ImmutableMap;
++import com.urbanairship.api.channel.Constants;
++import com.urbanairship.api.channel.model.OpenChannelResponse;
++import com.urbanairship.api.common.parse.FieldParser;
++import com.urbanairship.api.common.parse.FieldParserRegistry;
++import com.urbanairship.api.common.parse.MapFieldParserRegistry;
++import com.urbanairship.api.common.parse.StandardObjectDeserializer;
++
++import java.io.IOException;
++
++public class OpenChannelResponseDeserializer extends JsonDeserializer<OpenChannelResponse> {
++    private static final FieldParserRegistry<OpenChannelResponse, OpenChannelResponseReader> FIELD_PARSERS = new MapFieldParserRegistry<OpenChannelResponse, OpenChannelResponseReader>(
++            ImmutableMap.<String, FieldParser<OpenChannelResponseReader>>builder()
++            .put("ok", new FieldParser<OpenChannelResponseReader>() {
++                @Override
++                public void parse(OpenChannelResponseReader reader, JsonParser parser, DeserializationContext context) throws IOException {
++                    reader.readOk(parser);
++                }
++            })
++            .put(Constants.CHANNEL_ID, new FieldParser<OpenChannelResponseReader>() {
++                @Override
++                public void parse(OpenChannelResponseReader reader, JsonParser parser, DeserializationContext context) throws IOException {
++                    reader.readChannelId(parser);
++                }
++            })
++            .build()
++    );
++
++    private final StandardObjectDeserializer<OpenChannelResponse, ?> deserializer;
++
++    public OpenChannelResponseDeserializer() {
++        deserializer = new StandardObjectDeserializer<OpenChannelResponse, OpenChannelResponseReader>(
++                FIELD_PARSERS,
++                new Supplier<OpenChannelResponseReader>() {
++                    @Override
++                    public OpenChannelResponseReader get() {
++                        return new OpenChannelResponseReader();
++                    }
++                }
++        );
++    }
++
++    @Override
++    public OpenChannelResponse deserialize(JsonParser parser, DeserializationContext context) throws IOException {
++        return deserializer.deserialize(parser, context);
++    }
++}
+diff --git a/src/main/java/com/urbanairship/api/channel/parse/OpenChannelResponseReader.java b/src/main/java/com/urbanairship/api/channel/parse/OpenChannelResponseReader.java
+new file mode 100644
+index 0000000..f0504a4
+--- /dev/null
++++ b/src/main/java/com/urbanairship/api/channel/parse/OpenChannelResponseReader.java
+@@ -0,0 +1,33 @@
++package com.urbanairship.api.channel.parse;
++
++import com.fasterxml.jackson.core.JsonParser;
++import com.urbanairship.api.channel.model.OpenChannelResponse;
++import com.urbanairship.api.common.parse.APIParsingException;
++import com.urbanairship.api.common.parse.JsonObjectReader;
++
++import java.io.IOException;
++
++public class OpenChannelResponseReader implements JsonObjectReader<OpenChannelResponse> {
++    private final OpenChannelResponse.Builder builder;
++
++    public OpenChannelResponseReader() {
++        this.builder = OpenChannelResponse.newBuilder();
++    }
++
++    public void readOk(JsonParser parser) throws IOException {
++        builder.setOk(parser.getBooleanValue());
++    }
++
++    public void readChannelId(JsonParser parser) throws IOException {
++        builder.setChannelId(parser.readValueAs(String.class));
++    }
++
++    @Override
++    public OpenChannelResponse validateAndBuild() throws IOException {
++        try {
++            return builder.build();
++        } catch (Exception e) {
++            throw new APIParsingException(e.getMessage());
++        }
++    }
++}
+diff --git a/src/main/java/com/urbanairship/api/channel/parse/open/ChannelSerializer.java b/src/main/java/com/urbanairship/api/channel/parse/open/ChannelSerializer.java
+new file mode 100644
+index 0000000..122db4a
+--- /dev/null
++++ b/src/main/java/com/urbanairship/api/channel/parse/open/ChannelSerializer.java
+@@ -0,0 +1,50 @@
++package com.urbanairship.api.channel.parse.open;
++
++import com.fasterxml.jackson.core.JsonGenerator;
++import com.fasterxml.jackson.databind.JsonSerializer;
++import com.fasterxml.jackson.databind.SerializerProvider;
++import com.urbanairship.api.channel.Constants;
++import com.urbanairship.api.channel.model.open.Channel;
++
++import java.io.IOException;
++
++public class ChannelSerializer extends JsonSerializer<Channel> {
++
++    @Override
++    public void serialize(Channel payload, JsonGenerator jgen, SerializerProvider provider) throws IOException {
++        jgen.writeStartObject();
++
++        jgen.writeStringField(Constants.TYPE, payload.getType().getIdentifier());
++        jgen.writeObjectField(Constants.OPEN_CHANNEL, payload.getOpen());
++
++        if (payload.getAddress().isPresent()) {
++            jgen.writeStringField(Constants.ADDRESS, payload.getAddress().get());
++        }
++
++        if (payload.getOptIn().isPresent()) {
++            jgen.writeBooleanField(Constants.OPT_IN, payload.getOptIn().get());
++        }
++
++        if (payload.getSetTags().isPresent()) {
++            jgen.writeBooleanField(Constants.SET_TAGS, payload.getSetTags().get());
++        }
++
++        if (payload.getTags().isPresent()) {
++            jgen.writeObjectField(Constants.TAGS, payload.getTags().get());
++        }
++
++        if (payload.getTimezone().isPresent()) {
++            jgen.writeStringField(Constants.TIMEZONE, payload.getTimezone().get());
++        }
++
++        if (payload.getLocaleCountry().isPresent()) {
++            jgen.writeStringField(Constants.LOCALE_COUNTRY, payload.getLocaleCountry().get());
++        }
++
++        if (payload.getLocaleLanguage().isPresent()) {
++            jgen.writeStringField(Constants.LOCALE_LANGUAGE, payload.getLocaleLanguage().get());
++        }
++
++        jgen.writeEndObject();
++    }
++}
+diff --git a/src/main/java/com/urbanairship/api/channel/parse/open/OpenChannelSerializer.java b/src/main/java/com/urbanairship/api/channel/parse/open/OpenChannelSerializer.java
+new file mode 100644
+index 0000000..78685ee
+--- /dev/null
++++ b/src/main/java/com/urbanairship/api/channel/parse/open/OpenChannelSerializer.java
+@@ -0,0 +1,29 @@
++package com.urbanairship.api.channel.parse.open;
++
++import com.fasterxml.jackson.core.JsonGenerator;
++import com.fasterxml.jackson.databind.JsonSerializer;
++import com.fasterxml.jackson.databind.SerializerProvider;
++import com.urbanairship.api.channel.Constants;
++import com.urbanairship.api.channel.model.open.OpenChannel;
++
++import java.io.IOException;
++
++public class OpenChannelSerializer extends JsonSerializer<OpenChannel> {
++
++    @Override
++    public void serialize(OpenChannel openChannel, JsonGenerator jgen, SerializerProvider provider) throws IOException {
++        jgen.writeStartObject();
++
++        jgen.writeStringField(Constants.OPEN_PLATFORM_NAME, openChannel.getOpenPlatformName());
++
++        if (openChannel.getOldAddress().isPresent()) {
++            jgen.writeStringField(Constants.OLD_ADDRESS, openChannel.getOldAddress().get());
++        }
++
++        if (openChannel.getIdentifiers().isPresent()) {
++            jgen.writeObjectField(Constants.IDENTIFIERS, openChannel.getIdentifiers().get());
++        }
++
++        jgen.writeEndObject();
++    }
++}
+\ No newline at end of file
+diff --git a/src/main/java/com/urbanairship/api/client/AsyncRequestClient.java b/src/main/java/com/urbanairship/api/client/AsyncRequestClient.java
+index e06b757..7d7d87b 100644
+--- a/src/main/java/com/urbanairship/api/client/AsyncRequestClient.java
++++ b/src/main/java/com/urbanairship/api/client/AsyncRequestClient.java
+@@ -16,17 +16,16 @@ import org.slf4j.LoggerFactory;
+ import java.io.IOException;
+ import java.net.URI;
+ import java.net.URISyntaxException;
+-import java.util.HashMap;
+ import java.util.Map;
+ import java.util.concurrent.Future;
+ 
++/**
++ * The AsyncRequestClient is the default request client used by the UrbanAirshipClient.
++ */
+ public class AsyncRequestClient implements RequestClient {
+ 
+     private static final Logger log = LoggerFactory.getLogger(UrbanAirshipClient.class);
+ 
+-    private final String appKey;
+-    private final Optional<String> appSecret;
+-    private final Optional<String> bearerToken;
+     private final Optional<ProxyServer> proxyServer;
+ 
+     private final URI baseUri;
+@@ -34,9 +33,6 @@ public class AsyncRequestClient implements RequestClient {
+     private final DefaultAsyncHttpClientConfig clientConfig;
+ 
+     private AsyncRequestClient(Builder builder) {
+-        this.appKey = builder.key;
+-        this.appSecret = Optional.fromNullable(builder.secret);
+-        this.bearerToken = Optional.fromNullable(builder.bearerToken);
+         this.baseUri = URI.create(builder.baseUri);
+ 
+         DefaultAsyncHttpClientConfig.Builder clientConfigBuilder = builder.clientConfigBuilder;
+@@ -44,7 +40,7 @@ public class AsyncRequestClient implements RequestClient {
+         clientConfigBuilder.addResponseFilter(new RequestRetryFilter(builder.maxRetries, Optional.fromNullable(builder.retryPredicate)));
+ 
+         if (Optional.fromNullable(builder.proxyServer).isPresent()) {
+-            proxyServer = Optional.fromNullable(builder.proxyServer.build());
++            proxyServer = Optional.fromNullable(builder.proxyServer);
+             clientConfigBuilder.setProxyServer(proxyServer.get());
+             clientConfigBuilder.setRealm(proxyServer.get().getRealm());
+         } else {
+@@ -55,58 +51,33 @@ public class AsyncRequestClient implements RequestClient {
+         this.client = new DefaultAsyncHttpClient(clientConfig);
+     }
+ 
+-    public static Builder newBuilder() {
+-        return new Builder();
+-    }
+-
+-    /**
+-     * Get the app key.
+-     * @return The app key.
+-     */
+-    @Override
+-    public String getAppKey() {
+-        return appKey;
+-    }
+-
+     /**
+-     * Get the app secret.
+-     * @return The app secret.
++     * New AsyncRequestClient Builder.
++     *
++     * @return AsyncRequestClient Builder.
+      */
+-    @Override
+-    public Optional<String> getAppSecret() {
+-        return appSecret;
++    public static Builder newBuilder() {
++        return new Builder();
+     }
+ 
+     /**
+-     * Get the bearer token.
+-     * @return The bearer token.
++     * Get the proxy server.
++     *
++     * @return Optional ProxyServer
+      */
+-    @Override
+-    public Optional<String> getBearerToken() {
+-        return bearerToken;
+-    }
+-
+     public Optional<ProxyServer> getProxyServer() {
+         return proxyServer;
+     }
+ 
+-    public DefaultAsyncHttpClientConfig getClientConfig() {
+-        return clientConfig;
+-    }
+-
+-
+     /**
+-     * Close the underlying HTTP client's thread pool.
++     * Get the client config.
++     *
++     * @return DefaultAsyncHttpClientConfig
+      */
+-    @Override
+-    public void close() throws IOException {
+-        log.info("Closing client");
+-        client.close();
++    public DefaultAsyncHttpClientConfig getClientConfig() {
++        return clientConfig;
+     }
+ 
+-    public <T> Future<Response> executeAsync(final Request<T> request, final ResponseCallback callback) {
+-        return executeAsync(request, callback, new HashMap<String, String>());
+-    }
+ 
+     @Override
+     /**
+@@ -162,52 +133,31 @@ public class AsyncRequestClient implements RequestClient {
+         return requestBuilder.execute(handler);
+     }
+ 
++    /**
++     * Close the underlying HTTP client's thread pool.
++     */
++    @Override
++    public void close() throws IOException {
++        log.info("Closing client");
++        client.close();
++    }
++
++    /**
++     * AsyncRequestClient Builder.
++     */
+     public static class Builder {
+ 
+-        private String key;
+-        private String secret;
+         private String baseUri;
+-        private String bearerToken;
+         private Integer maxRetries = 10;
+         private DefaultAsyncHttpClientConfig.Builder clientConfigBuilder = new DefaultAsyncHttpClientConfig.Builder();
+         private Predicate<FilterContext> retryPredicate = null;
+-        private ProxyServer.Builder proxyServer;
++        private ProxyServer proxyServer;
+ 
+         private Builder() {
+             baseUri = "https://go.urbanairship.com";
+         }
+ 
+         /**
+-         * Set the app key.
+-         * @param key String app key
+-         * @return Builder
+-         */
+-        public Builder setKey(String key) {
+-            this.key = key;
+-            return this;
+-        }
+-
+-        /**
+-         * Set the app secret.
+-         * @param appSecret String app secret
+-         * @return Builder
+-         */
+-        public Builder setSecret(String appSecret) {
+-            this.secret = appSecret;
+-            return this;
+-        }
+-
+-        /**
+-         * Set the bearer token.
+-         * @param bearerToken String bearer token
+-         * @return Builder
+-         */
+-        public Builder setBearerToken(String bearerToken) {
+-            this.bearerToken = bearerToken;
+-            return this;
+-        }
+-
+-        /**
+          * Set the base URI -- defaults to "https://go.urbanairship.com"
+          * @param URI String base URI
+          * @return Builder
+@@ -231,22 +181,22 @@ public class AsyncRequestClient implements RequestClient {
+         /**
+          * Set the client config builder -- defaults to a new builder. Available for custom settings.
+          *
+-         * @param builder The client config builder.
++         * @param clientConfigBuilder The client config builder.
+          * @return Builder
+          */
+-        public Builder setClientConfigBuilder(DefaultAsyncHttpClientConfig.Builder builder) {
+-            this.clientConfigBuilder = builder;
++        public Builder setClientConfigBuilder(DefaultAsyncHttpClientConfig.Builder clientConfigBuilder) {
++            this.clientConfigBuilder = clientConfigBuilder;
+             return this;
+         }
+ 
+         /**
+          * Set the proxy server builder.
+          *
+-         * @param builder
++         * @param proxyServer ProxyServer
+          * @return Builder
+          */
+-        public Builder setProxyServer(ProxyServer.Builder builder) {
+-            this.proxyServer = builder;
++        public Builder setProxyServer(ProxyServer proxyServer) {
++            this.proxyServer = proxyServer;
+             return this;
+         }
+ 
+@@ -275,15 +225,10 @@ public class AsyncRequestClient implements RequestClient {
+          * @return UrbanAirshipClient
+          */
+         public AsyncRequestClient build() {
+-            Preconditions.checkNotNull(key, "app key needed to build APIClient");
+             Preconditions.checkNotNull(baseUri, "base URI needed to build APIClient");
+             Preconditions.checkNotNull(maxRetries, "max non-POST retries needed to build APIClient");
+             Preconditions.checkNotNull(clientConfigBuilder, "Async HTTP client config builder needed to build APIClient");
+ 
+-            if (secret == null && bearerToken == null) {
+-                throw new NullPointerException("secret or the bearer token must be set");
+-            }
+-
+             return new AsyncRequestClient(this);
+         }
+     }
+diff --git a/src/main/java/com/urbanairship/api/client/RequestClient.java b/src/main/java/com/urbanairship/api/client/RequestClient.java
+index 4a6bfda..51c591b 100644
+--- a/src/main/java/com/urbanairship/api/client/RequestClient.java
++++ b/src/main/java/com/urbanairship/api/client/RequestClient.java
+@@ -1,17 +1,20 @@
+ package com.urbanairship.api.client;
+ 
+-import com.google.common.base.Optional;
+-
+-import java.io.IOException;
++import java.io.Closeable;
+ import java.util.Map;
+ import java.util.concurrent.Future;
+ 
+-public interface RequestClient {
++/**
++ * RequestClient must be implemented to create a custom HTTP client that is then used by UrbanAirshipClient to make requests.
++ */
++public interface RequestClient extends Closeable {
++    /**
++     * Executes the HTTP request.
++     * @param request the Request.
++     * @param callback the ResponseCallback.
++     * @param headers a Map of the headers.
++     * @param <T> type
++     * @return The Future Response.
++     */
+     public <T> Future<Response> executeAsync(final Request<T> request, final ResponseCallback callback, Map<String, String> headers);
+-
+-    public String getAppKey();
+-    public Optional<String> getAppSecret();
+-    public Optional<String> getBearerToken();
+-
+-    public void close() throws IOException;
+ }
+diff --git a/src/main/java/com/urbanairship/api/client/RequestError.java b/src/main/java/com/urbanairship/api/client/RequestError.java
+index 10e7fb7..3fe259c 100644
+--- a/src/main/java/com/urbanairship/api/client/RequestError.java
++++ b/src/main/java/com/urbanairship/api/client/RequestError.java
+@@ -51,8 +51,9 @@ public final class RequestError {
+      * parses between three, and returns a best effort response.
+      *
+      * @param body Response body for the request that caused the exception
++     * @param contentType String
+      * @return APIError
+-     * @throws IOException
++     * @throws IOException if it fails reading the error
+      */
+     public static RequestError errorFromResponse(String body, String contentType) throws IOException {
+ 
+diff --git a/src/main/java/com/urbanairship/api/client/ResponseAsyncHandler.java b/src/main/java/com/urbanairship/api/client/ResponseAsyncHandler.java
+index c114fb0..fea1051 100644
+--- a/src/main/java/com/urbanairship/api/client/ResponseAsyncHandler.java
++++ b/src/main/java/com/urbanairship/api/client/ResponseAsyncHandler.java
+@@ -5,10 +5,10 @@
+ package com.urbanairship.api.client;
+ 
+ import com.google.common.base.Optional;
++import io.netty.handler.codec.http.HttpHeaders;
+ import org.apache.commons.lang.StringUtils;
+ import org.asynchttpclient.AsyncHandler;
+ import org.asynchttpclient.HttpResponseBodyPart;
+-import org.asynchttpclient.HttpResponseHeaders;
+ import org.asynchttpclient.HttpResponseStatus;
+ import org.slf4j.Logger;
+ import org.slf4j.LoggerFactory;
+@@ -71,17 +71,16 @@ class ResponseAsyncHandler<T> implements AsyncHandler<Response> {
+     }
+ 
+     @Override
+-    public State onHeadersReceived(HttpResponseHeaders headers) throws Exception {
++    public State onHeadersReceived(HttpHeaders httpHeaders) throws Exception {
+         if (isSuccessful) {
+-            responseBuilder.setHeaders(getHeaders(headers));
++            responseBuilder.setHeaders(getHeaders(httpHeaders));
+         } else {
+-            exceptionContentType = headers.getHeaders().get(CONTENT_TYPE_KEY);
++            exceptionContentType = httpHeaders.get(CONTENT_TYPE_KEY);
+         }
+ 
+         return State.CONTINUE;
+     }
+ 
+-
+     @Override
+     public State onBodyPartReceived(HttpResponseBodyPart bodyPart) throws Exception {
+         String body = new String(bodyPart.getBodyPartBytes(), StandardCharsets.UTF_8);
+@@ -130,9 +129,9 @@ class ResponseAsyncHandler<T> implements AsyncHandler<Response> {
+      * @param httpResponse The HttpResponse.
+      * @return An immutable map of response headers.
+      */
+-    private Map<String, String> getHeaders(HttpResponseHeaders httpResponse) {
++    private Map<String, String> getHeaders(HttpHeaders httpResponse) {
+         Map<String, String> headers = new HashMap<>();
+-        for (Map.Entry<String, String> entry : httpResponse.getHeaders().entries()) {
++        for (Map.Entry<String, String> entry : httpResponse.entries()) {
+             headers.put(entry.getKey(), entry.getValue());
+         }
+         return headers;
+diff --git a/src/main/java/com/urbanairship/api/client/UrbanAirshipClient.java b/src/main/java/com/urbanairship/api/client/UrbanAirshipClient.java
+index e80f877..28d3e39 100644
+--- a/src/main/java/com/urbanairship/api/client/UrbanAirshipClient.java
++++ b/src/main/java/com/urbanairship/api/client/UrbanAirshipClient.java
+@@ -23,28 +23,37 @@ import java.util.concurrent.Future;
+ /**
+  * The UrbanAirshipClient class handles HTTP requests to the Urban Airship API.
+  */
+-public class UrbanAirshipClient implements Closeable{
++public class UrbanAirshipClient implements Closeable {
+ 
+     private static final Logger log = LoggerFactory.getLogger(UrbanAirshipClient.class);
+ 
+     private final RequestClient client;
++    private final String key;
++    private final Optional<String> secret;
++    private final Optional<String> bearerToken;
+ 
+     private String userAgent;
+ 
+     private UrbanAirshipClient(Builder builder) {
+         this.client = builder.client;
+         userAgent = getUserAgent();
++        this.key = builder.key;
++        this.secret = Optional.fromNullable(builder.secret);
++        this.bearerToken = Optional.fromNullable(builder.bearerToken);
+     }
+ 
++    /**
++     * New UrbanAirshipClient Builder.
++     *
++     * @return UrbanAirshipClient Builder.
++     */
+     public static Builder newBuilder() {
+         return new Builder();
+     }
+ 
+ 
+     public <T> Future<Response> executeAsync(final Request<T> request, ResponseCallback callback) {
+-        Map<String, String> headers = new HashMap<>();
+-        addHeaders(request, headers);
+-        return client.executeAsync(request, callback, headers);
++        return client.executeAsync(request, callback, createHeaders(request));
+     }
+ 
+     public <T> Future<Response> executeAsync(Request<T> request) {
+@@ -66,7 +75,9 @@ public class UrbanAirshipClient implements Closeable{
+         }
+     }
+ 
+-    private Map<String, String> addHeaders(Request request, Map<String, String> headers) {
++    private Map<String, String> createHeaders(Request request) {
++        Map<String, String> headers = new HashMap<>();
++
+         headers.put("User-Agent", userAgent);
+         Map<String, String> requestHeaders = request.getRequestHeaders();
+         if (requestHeaders != null) {
+@@ -78,15 +89,15 @@ public class UrbanAirshipClient implements Closeable{
+         String auth;
+ 
+         if (request.bearerTokenAuthRequired()) {
+-            Preconditions.checkNotNull(client.getBearerToken().get(), "Bearer token required for request: " + request);
+-            auth = "Bearer " + client.getBearerToken().get();
++            Preconditions.checkNotNull(bearerToken.get(), "Bearer token required for request: " + request);
++            auth = "Bearer " + getBearerToken().get();
+         } else {
+-            Preconditions.checkNotNull(client.getAppSecret().get(), "App secret required for request: " + request);
+-            auth = "Basic " + BaseEncoding.base64().encode((client.getAppKey() + ":" + client.getAppSecret().get()).getBytes());
++            Preconditions.checkNotNull(getAppSecret().get(), "App secret required for request: " + request);
++            auth = "Basic " + BaseEncoding.base64().encode((getAppKey() + ":" + getAppSecret().get()).getBytes());
+         }
+ 
+         headers.put("Authorization", auth);
+-        headers.put("X-UA-Appkey", client.getAppKey());
++        headers.put("X-UA-Appkey", getAppKey());
+ 
+         return headers;
+     }
+@@ -128,7 +139,7 @@ public class UrbanAirshipClient implements Closeable{
+      * @return The app key.
+      */
+     public String getAppKey() {
+-        return client.getAppKey();
++        return key;
+     }
+ 
+     /**
+@@ -136,7 +147,7 @@ public class UrbanAirshipClient implements Closeable{
+      * @return The app secret.
+      */
+     public Optional<String> getAppSecret() {
+-        return client.getAppSecret();
++        return secret;
+     }
+ 
+     /**
+@@ -144,7 +155,7 @@ public class UrbanAirshipClient implements Closeable{
+      * @return The bearer token.
+      */
+     public Optional<String> getBearerToken() {
+-        return client.getBearerToken();
++        return bearerToken;
+     }
+ 
+     /**
+@@ -155,8 +166,9 @@ public class UrbanAirshipClient implements Closeable{
+         return client;
+     }
+ 
+-    /* Builder for newAPIClient */
+-
++    /**
++     * UrbanAirshipClient builder.
++     */
+     public static class Builder {
+ 
+         private String key;
+@@ -219,15 +231,13 @@ public class UrbanAirshipClient implements Closeable{
+          * @return UrbanAirshipClient
+          */
+         public UrbanAirshipClient build() {
+-            if(client == null) {
+-                if (secret == null && bearerToken == null) {
+-                    throw new NullPointerException("secret or the bearer token must be set");
+-                }
++            Preconditions.checkNotNull(key, "app key needed to build APIClient");
++            if (secret == null && bearerToken == null) {
++                throw new NullPointerException("secret or the bearer token must be set");
++            }
+ 
++            if (client == null) {
+                 client = AsyncRequestClient.newBuilder()
+-                        .setKey(key)
+-                        .setSecret(secret)
+-                        .setBearerToken(bearerToken)
+                         .build();
+             }
+ 
+diff --git a/src/main/java/com/urbanairship/api/common/parse/DateFormats.java b/src/main/java/com/urbanairship/api/common/parse/DateFormats.java
+index 74027e4..b89e80d 100644
+--- a/src/main/java/com/urbanairship/api/common/parse/DateFormats.java
++++ b/src/main/java/com/urbanairship/api/common/parse/DateFormats.java
+@@ -16,7 +16,7 @@ public class DateFormats {
+ 
+     public static final DateTimeFormatter DATE_PARSER = new DateTimeFormatterBuilder()
+             .append(ISODateTimeFormat.date())
+-            .append(null, new DateTimeParser[] {SPACE_PARSER, T_PARSER})
++            .append(null, new DateTimeParser[]{SPACE_PARSER, T_PARSER})
+             .append(ISODateTimeFormat.hourMinuteSecond())
+             .toFormatter()
+             .withZoneUTC();
+@@ -27,21 +27,21 @@ public class DateFormats {
+ 
+     public static final DateTimeFormatter SECONDS_FORMAT = new DateTimeFormatterBuilder()
+             .append(ISODateTimeFormat.date())
+-            .append(null, new DateTimeParser[] {SPACE_PARSER, T_PARSER})
++            .append(null, new DateTimeParser[]{SPACE_PARSER, T_PARSER})
+             .append(ISODateTimeFormat.hourMinuteSecond())
+             .toFormatter()
+             .withZoneUTC();
+ 
+     public static final DateTimeFormatter MINUTES_FORMAT = new DateTimeFormatterBuilder()
+             .append(ISODateTimeFormat.date())
+-            .append(null, new DateTimeParser[] {SPACE_PARSER, T_PARSER})
++            .append(null, new DateTimeParser[]{SPACE_PARSER, T_PARSER})
+             .append(ISODateTimeFormat.hourMinute())
+             .toFormatter()
+             .withZoneUTC();
+ 
+     public static final DateTimeFormatter HOURS_FORMAT = new DateTimeFormatterBuilder()
+             .append(ISODateTimeFormat.date())
+-            .append(null, new DateTimeParser[] {SPACE_PARSER, T_PARSER})
++            .append(null, new DateTimeParser[]{SPACE_PARSER, T_PARSER})
+             .append(ISODateTimeFormat.hour())
+             .toFormatter()
+             .withZoneUTC();
+@@ -54,5 +54,6 @@ public class DateFormats {
+ 
+     public static final DateTimeFormatter YEARS_FORMAT = ISODateTimeFormat.year().withZoneUTC();
+ 
+-    private DateFormats() { }
++    private DateFormats() {
++    }
+ }
+diff --git a/src/main/java/com/urbanairship/api/experiments/ExperimentRequest.java b/src/main/java/com/urbanairship/api/experiments/ExperimentRequest.java
+index 0509c8b..fec2bc8 100644
+--- a/src/main/java/com/urbanairship/api/experiments/ExperimentRequest.java
++++ b/src/main/java/com/urbanairship/api/experiments/ExperimentRequest.java
+@@ -39,6 +39,7 @@ public class ExperimentRequest implements Request<ExperimentResponse> {
+     /**
+      * Create an experiment request.
+      *
++     * @param experiment Experiment
+      * @return ExperimentRequest
+      */
+     public static ExperimentRequest newRequest(Experiment experiment) {
+diff --git a/src/main/java/com/urbanairship/api/experiments/model/Experiment.java b/src/main/java/com/urbanairship/api/experiments/model/Experiment.java
+index 9958176..46b982c 100644
+--- a/src/main/java/com/urbanairship/api/experiments/model/Experiment.java
++++ b/src/main/java/com/urbanairship/api/experiments/model/Experiment.java
+@@ -97,7 +97,7 @@ public final class Experiment extends ExperimentModelObject {
+     /**
+      * Get the variants for the experiment. A variant defines a push that will be sent to a subset of the experiment's
+      * audience.
+-     * @return variants List<Variant>
++     * @return variants List&lt;Variant&gt;
+      */
+     public List<Variant> getVariants() {
+         return variants;
+@@ -206,7 +206,7 @@ public final class Experiment extends ExperimentModelObject {
+         /**
+          * Add a variant to the experiment. A variant defines a push that will be sent to a subset of the experiment's
+          * audience.
+-         * @param variant List<Variant>
++         * @param variant List&lt;Variant&gt;
+          * @return Builder
+          */
+         public Builder addVariant(Variant variant) {
+@@ -228,8 +228,8 @@ public final class Experiment extends ExperimentModelObject {
+          * 3. At least one variant must be present.
+          * </pre>
+          *
+-         * @throws IllegalArgumentException
+-         * @throws NullPointerException
++         * @throws IllegalArgumentException if illegal arguments are used
++         * @throws NullPointerException if audience, deviceTypes, or variants is not set
+          * @return Experiment
+          */
+         public Experiment build() {
+diff --git a/src/main/java/com/urbanairship/api/experiments/model/Variant.java b/src/main/java/com/urbanairship/api/experiments/model/Variant.java
+index c1403f8..02f3e90 100644
+--- a/src/main/java/com/urbanairship/api/experiments/model/Variant.java
++++ b/src/main/java/com/urbanairship/api/experiments/model/Variant.java
+@@ -184,7 +184,7 @@ public class Variant {
+          * 1. Partial push notification object must be specified.
+          * </pre>
+          *
+-         * @throws NullPointerException
++         * @throws NullPointerException if variantPushPayload is not set
+          * @return Variant
+          */
+         public Variant build() {
+diff --git a/src/main/java/com/urbanairship/api/location/model/Point.java b/src/main/java/com/urbanairship/api/location/model/Point.java
+index 0558d27..b8629d5 100644
+--- a/src/main/java/com/urbanairship/api/location/model/Point.java
++++ b/src/main/java/com/urbanairship/api/location/model/Point.java
+@@ -119,8 +119,8 @@ public final class Point {
+          * Build the Point object. Will fail if any of the following
+          * preconditions are not met.
+          * <pre>
+-         * 1. latitude >= -90d && latitude <= 90d.
+-         * 2. longitude >= -180d && longitude <= 180d.
++         * 1. latitude &gt;= -90d {@code &&} latitude &lt;= 90d.
++         * 2. longitude &gt;= -180d {@code &&} longitude &lt;= 180d.
+          * * </pre>
+          *
+          * @return Point
+diff --git a/src/main/java/com/urbanairship/api/nameduser/NamedUserRequest.java b/src/main/java/com/urbanairship/api/nameduser/NamedUserRequest.java
+index f7cd374..c578b35 100644
+--- a/src/main/java/com/urbanairship/api/nameduser/NamedUserRequest.java
++++ b/src/main/java/com/urbanairship/api/nameduser/NamedUserRequest.java
+@@ -65,6 +65,11 @@ public class NamedUserRequest implements Request<String> {
+      */
+     public NamedUserRequest setChannel(String channelId, ChannelType channelType) {
+         payload.put(CHANNEL_KEY, channelId);
++
++        if (channelType.equals(ChannelType.OPEN) || channelType.equals(ChannelType.WEB)) {
++            return this;
++        }
++
+         payload.put(DEVICE_TYPE_KEY, channelType.getIdentifier());
+         return this;
+     }
+@@ -102,7 +107,6 @@ public class NamedUserRequest implements Request<String> {
+     public String getRequestBody() {
+         Preconditions.checkArgument(!payload.isEmpty(), "Request payload cannot be empty");
+         Preconditions.checkArgument(payload.containsKey(CHANNEL_KEY), "Channel ID required for named user association or disassociation requests");
+-        Preconditions.checkArgument(payload.containsKey(DEVICE_TYPE_KEY), "Device type required for named user association or disassociation requests");
+ 
+         if (path.equals(API_NAMED_USERS_ASSOCIATE)) {
+             Preconditions.checkArgument(payload.containsKey(NAMED_USER_ID_KEY), "Named User ID required for named user association requests");
+diff --git a/src/main/java/com/urbanairship/api/nameduser/parse/NamedUserObjectMapper.java b/src/main/java/com/urbanairship/api/nameduser/parse/NamedUserObjectMapper.java
+index 7195239..500a440 100644
+--- a/src/main/java/com/urbanairship/api/nameduser/parse/NamedUserObjectMapper.java
++++ b/src/main/java/com/urbanairship/api/nameduser/parse/NamedUserObjectMapper.java
+@@ -12,9 +12,11 @@ import com.fasterxml.jackson.datatype.joda.JodaModule;
+ import com.urbanairship.api.channel.model.ChannelView;
+ import com.urbanairship.api.channel.model.ios.IosSettings;
+ import com.urbanairship.api.channel.model.ios.QuietTime;
++import com.urbanairship.api.channel.model.open.OpenChannel;
+ import com.urbanairship.api.channel.parse.ChannelViewDeserializer;
+ import com.urbanairship.api.channel.parse.ios.IosSettingsDeserializer;
+ import com.urbanairship.api.channel.parse.ios.QuietTimeDeserializer;
++import com.urbanairship.api.channel.parse.open.OpenChannelDeserializer;
+ import com.urbanairship.api.nameduser.model.NamedUserListingResponse;
+ import com.urbanairship.api.nameduser.model.NamedUserView;
+ import com.urbanairship.api.push.parse.PushObjectMapper;
+@@ -29,6 +31,7 @@ public class NamedUserObjectMapper {
+         MODULE.addDeserializer(ChannelView.class, new ChannelViewDeserializer());
+         MODULE.addDeserializer(NamedUserView.class, new NamedUserViewDeserializer());
+         MODULE.addDeserializer(NamedUserListingResponse.class, new NamedUserlListingResponseDeserializer());
++        MODULE.addDeserializer(OpenChannel.class, new OpenChannelDeserializer());
+ 
+         MAPPER.registerModule(MODULE);
+         MAPPER.registerModule(PushObjectMapper.getModule());
+diff --git a/src/main/java/com/urbanairship/api/push/PushRequest.java b/src/main/java/com/urbanairship/api/push/PushRequest.java
+index 2941691..c0c404f 100644
+--- a/src/main/java/com/urbanairship/api/push/PushRequest.java
++++ b/src/main/java/com/urbanairship/api/push/PushRequest.java
+@@ -62,7 +62,7 @@ public class PushRequest implements Request<PushResponse> {
+     /**
+      * Create a push request.
+      *
+-     * @param payloadList List<PushPayload>
++     * @param payloadList List of PushPayload objects
+      * @return PushRequest
+      */
+     public static PushRequest newRequest(List<PushPayload> payloadList) {
+@@ -72,7 +72,7 @@ public class PushRequest implements Request<PushResponse> {
+     /**
+      * Add additional payloads to a batch push request
+      *
+-     * @param newPayload
++     * @param newPayload PushPayload
+      * @return PushRequest
+      */
+     public PushRequest addPayload(PushPayload newPayload) {
+@@ -84,7 +84,7 @@ public class PushRequest implements Request<PushResponse> {
+     /**
+      * Add additional payloads to a batch push request
+      *
+-     * @param newPayloads
++     * @param newPayloads List of PushPayload objects
+      * @return PushRequest
+      */
+     public PushRequest addPayloads(List<PushPayload> newPayloads) {
+diff --git a/src/main/java/com/urbanairship/api/push/model/DeviceType.java b/src/main/java/com/urbanairship/api/push/model/DeviceType.java
+index db14396..f25d00b 100644
+--- a/src/main/java/com/urbanairship/api/push/model/DeviceType.java
++++ b/src/main/java/com/urbanairship/api/push/model/DeviceType.java
+@@ -4,49 +4,84 @@
+ 
+ package com.urbanairship.api.push.model;
+ 
+-import com.google.common.base.Function;
+ import com.google.common.base.Optional;
++import com.google.common.collect.ImmutableSet;
+ 
+-public enum DeviceType {
++import java.util.Objects;
+ 
+-    IOS("ios"),
+-    WNS("wns"),
+-    ANDROID("android"),
+-    AMAZON("amazon"),
+-    WEB("web");
++public final class DeviceType {
+ 
+-    public static DeviceType first() {
+-        return IOS;
++    public static final DeviceType AMAZON = new DeviceType(PlatformType.NATIVE, "amazon");
++    public static final DeviceType ANDROID = new DeviceType(PlatformType.NATIVE, "android");
++    public static final DeviceType IOS = new DeviceType(PlatformType.NATIVE, "ios");
++    public static final DeviceType WEB = new DeviceType(PlatformType.NATIVE, "web");
++    public static final DeviceType WNS = new DeviceType(PlatformType.NATIVE, "wns");
++
++    public static final ImmutableSet<DeviceType> TYPES = ImmutableSet.<DeviceType>builder()
++            .add(AMAZON)
++            .add(ANDROID)
++            .add(IOS)
++            .add(WEB)
++            .add(WNS)
++            .build();
++
++    private enum PlatformType {
++        NATIVE,
++        OPEN
+     }
+ 
+-    public static DeviceType last() {
+-        return WEB;
++    private static final String OPEN_PLATFORM_NAMESPACE = "open::";
++
++    public static DeviceType open(String platformName) {
++        return new DeviceType(PlatformType.OPEN, OPEN_PLATFORM_NAMESPACE + platformName);
+     }
+ 
+     private final String identifier;
++    private final PlatformType platformType;
+ 
+-    DeviceType(String identifier) {
++    private DeviceType(PlatformType platformType, String identifier) {
++        this.platformType = platformType;
+         this.identifier = identifier;
+     }
+ 
+-    public String getIdentifier() {
+-        return identifier;
++    public boolean isOpenPlatform() {
++        return platformType.equals(PlatformType.OPEN);
+     }
+ 
+-    public static Optional<DeviceType> find(String id) {
+-        return fromIdentifierFunction.apply(id);
++    public String getIdentifier() {
++        return identifier;
+     }
+ 
+-    public static final Function<String, Optional<DeviceType>> fromIdentifierFunction = new Function<String, Optional<DeviceType>>() {
+-        @Override
+-        public Optional<DeviceType> apply(String identifier) {
+-            for (DeviceType deviceType : values()) {
+-                if (deviceType.getIdentifier().equals(identifier)) {
+-                    return Optional.of(deviceType);
+-                }
++    public static Optional<DeviceType> find(String identifier) {
++        for (DeviceType deviceType : TYPES) {
++            if (deviceType.getIdentifier().equals(identifier)) {
++                return Optional.of(deviceType);
+             }
++        }
+ 
+-            return Optional.absent();
++        if (identifier.contains(OPEN_PLATFORM_NAMESPACE)) {
++            return Optional.of(new DeviceType(PlatformType.OPEN, identifier));
+         }
+-    };
++
++        return Optional.absent();
++    }
++
++    @Override
++    public String toString() {
++        return identifier;
++    }
++
++    @Override
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (o == null || getClass() != o.getClass()) return false;
++        DeviceType that = (DeviceType) o;
++        return Objects.equals(identifier, that.identifier) && platformType == that.platformType;
++    }
++
++    @Override
++    public int hashCode() {
++        return Objects.hash(identifier, platformType);
++    }
++
+ }
+diff --git a/src/main/java/com/urbanairship/api/push/model/PushExpiry.java b/src/main/java/com/urbanairship/api/push/model/PushExpiry.java
+index a9ab7e9..067fe0a 100644
+--- a/src/main/java/com/urbanairship/api/push/model/PushExpiry.java
++++ b/src/main/java/com/urbanairship/api/push/model/PushExpiry.java
+@@ -34,7 +34,7 @@ public class PushExpiry extends PushModelObject {
+ 
+     /**
+      * Get the expiry (TTL) as a long.  This is optional.
+-     * @return Optional<<T>ExpirySeconds</T>>
++     * @return Optional&lt;ExpirySeconds&gt;
+      */
+     public Optional<Integer> getExpirySeconds() {
+         return expirySeconds;
+@@ -42,7 +42,7 @@ public class PushExpiry extends PushModelObject {
+ 
+     /**
+      * Get the expiry (TTL) as a timestamp.  This is optional.
+-     * @return Optional<<T>ExpiryTimestamp</T>>
++     * @return Optional&lt;ExpiryTimestamp&gt;
+      */
+     public Optional<DateTime> getExpiryTimeStamp() {
+         return expiryTimeStamp;
+diff --git a/src/main/java/com/urbanairship/api/push/model/PushOptions.java b/src/main/java/com/urbanairship/api/push/model/PushOptions.java
+index 10597be..dc4ddcb 100644
+--- a/src/main/java/com/urbanairship/api/push/model/PushOptions.java
++++ b/src/main/java/com/urbanairship/api/push/model/PushOptions.java
+@@ -6,7 +6,6 @@ package com.urbanairship.api.push.model;
+ 
+ import com.google.common.base.Optional;
+ 
+-
+ /**
+  * Optional features for a Push payload for the Urban Airship API.
+  * Created for future optional features to be added.
+@@ -30,7 +29,7 @@ public class PushOptions extends PushModelObject {
+ 
+     /**
+      * Get the expiry (TTL).  This is optional.
+-     * @return Optional<<T>Expiry</T>>
++     * @return Optional&lt;Expiry&gt;
+      **/
+     public Optional<PushExpiry> getExpiry() {
+         return expiry;
+@@ -48,7 +47,6 @@ public class PushOptions extends PushModelObject {
+         PushOptions that = (PushOptions) o;
+ 
+         return !(expiry != null ? !expiry.equals(that.expiry) : that.expiry != null);
+-
+     }
+ 
+     @Override
+@@ -82,6 +80,4 @@ public class PushOptions extends PushModelObject {
+             return new PushOptions(Optional.fromNullable(expiry));
+         }
+     }
+-
+-
+ }
+diff --git a/src/main/java/com/urbanairship/api/push/model/PushPayload.java b/src/main/java/com/urbanairship/api/push/model/PushPayload.java
+index 98c2903..ca17ca8 100644
+--- a/src/main/java/com/urbanairship/api/push/model/PushPayload.java
++++ b/src/main/java/com/urbanairship/api/push/model/PushPayload.java
+@@ -58,7 +58,7 @@ public final class PushPayload extends PushModelObject {
+ 
+     /**
+      * Get the Notification. This is optional.
+-     * @return Optional<<T>Notification</T>>
++     * @return Optional Notification
+      */
+     public Optional<Notification> getNotification() {
+         return notification;
+@@ -66,7 +66,7 @@ public final class PushPayload extends PushModelObject {
+ 
+     /**
+      * Get the rich push message. This is optional
+-     * @return Optional<<T>RichPushMessage</T>>
++     * @return Optional RichPushMessage
+      */
+     public Optional<RichPushMessage> getMessage() {
+         return message;
+@@ -261,8 +261,8 @@ public final class PushPayload extends PushModelObject {
+          * 3. DeviceTypes (device types) must be set.
+          * </pre>
+          *
+-         * @throws IllegalArgumentException
+-         * @throws NullPointerException
++         * @throws IllegalArgumentException if an illegal argument is used
++         * @throws NullPointerException if required variables are not initialized
+          * @return PushPayload
+          */
+         public PushPayload build() {
+diff --git a/src/main/java/com/urbanairship/api/push/model/audience/SelectorType.java b/src/main/java/com/urbanairship/api/push/model/audience/SelectorType.java
+index b41a06d..68753b5 100644
+--- a/src/main/java/com/urbanairship/api/push/model/audience/SelectorType.java
++++ b/src/main/java/com/urbanairship/api/push/model/audience/SelectorType.java
+@@ -21,6 +21,7 @@ public enum SelectorType {
+     AMAZON_CHANNEL("amazon_channel", SelectorCategory.VALUE, true, true, DeviceType.AMAZON),
+     IOS_CHANNEL("ios_channel", SelectorCategory.VALUE, true, true, DeviceType.IOS),
+     ANDROID_CHANNEL("android_channel", SelectorCategory.VALUE, true, true, DeviceType.ANDROID),
++    OPEN_CHANNEL("open_channel", SelectorCategory.VALUE),
+     CHANNEL("channel", SelectorCategory.VALUE),
+ 
+     AND("and", SelectorCategory.COMPOUND),
+diff --git a/src/main/java/com/urbanairship/api/push/model/audience/Selectors.java b/src/main/java/com/urbanairship/api/push/model/audience/Selectors.java
+index 33fec62..899a82c 100644
+--- a/src/main/java/com/urbanairship/api/push/model/audience/Selectors.java
++++ b/src/main/java/com/urbanairship/api/push/model/audience/Selectors.java
+@@ -269,6 +269,20 @@ public class Selectors {
+         return compound(SelectorType.OR, SelectorType.AMAZON_CHANNEL, ids);
+     }
+ 
++    /* Open Channels */
++
++    public static final Selector open(String openChannel) {
++        return value(SelectorType.OPEN_CHANNEL, openChannel);
++    }
++
++    public static final Selector openChannelDevices(String ... ids) {
++        return compound(SelectorType.OR, SelectorType.OPEN_CHANNEL, ids);
++    }
++
++    public static final Selector openChannelDevices(Collection<String> ids) {
++        return compound(SelectorType.OR, SelectorType.OPEN_CHANNEL, ids);
++    }
++
+     /* Logical operators */
+ 
+     public static final Selector or(Selector ... children) {
+diff --git a/src/main/java/com/urbanairship/api/push/model/notification/Notifications.java b/src/main/java/com/urbanairship/api/push/model/notification/Notifications.java
+index ba49293..f296744 100644
+--- a/src/main/java/com/urbanairship/api/push/model/notification/Notifications.java
++++ b/src/main/java/com/urbanairship/api/push/model/notification/Notifications.java
+@@ -5,11 +5,14 @@
+ package com.urbanairship.api.push.model.notification;
+ 
+ import com.google.common.base.Optional;
++import com.urbanairship.api.channel.model.open.OpenChannelPayload;
+ import com.urbanairship.api.push.model.DeviceType;
+ import com.urbanairship.api.push.model.DeviceTypeData;
++import com.urbanairship.api.push.model.PushPayload;
+ import com.urbanairship.api.push.model.notification.adm.ADMDevicePayload;
+ import com.urbanairship.api.push.model.notification.android.AndroidDevicePayload;
+ import com.urbanairship.api.push.model.notification.ios.IOSDevicePayload;
++import com.urbanairship.api.push.model.notification.open.OpenPayload;
+ import com.urbanairship.api.push.model.notification.richpush.RichPushMessage;
+ import com.urbanairship.api.push.model.notification.web.WebDevicePayload;
+ import com.urbanairship.api.push.model.notification.wns.WNSDevicePayload;
+@@ -42,16 +45,20 @@ public class Notifications {
+     /* Simple alert deviceType overrides */
+ 
+     public static DevicePayloadOverride alert(DeviceType deviceType, String text) {
+-        switch (deviceType) {
+-        case IOS:
++        if (deviceType.isOpenPlatform()) {
++            return openPayloadAlert(text, deviceType);
++        }
++
++        switch (deviceType.getIdentifier()) {
++        case "ios":
+             return iosAlert(text);
+-        case ANDROID:
++        case "android":
+             return androidAlert(text);
+-        case WNS:
++        case "wns":
+             return wnsAlert(text);
+-        case AMAZON:
++        case "amazon":
+             return admAlert(text);
+-        case WEB:
++        case "web":
+             return webAlert(text);
+         default:
+             throw unknownDeviceType(deviceType.getIdentifier());
+@@ -88,6 +95,13 @@ public class Notifications {
+                 .build();
+     }
+ 
++    public static OpenPayload openPayloadAlert(String text, DeviceType deviceType) {
++        return OpenPayload.newBuilder()
++                .setAlert(text)
++                .setDeviceType(deviceType)
++                .build();
++    }
++
+     /* Platform selector (device_types) */
+ 
+     public static DeviceTypeData deviceTypes(String ... names) {
+diff --git a/src/main/java/com/urbanairship/api/push/model/notification/actions/Action.java b/src/main/java/com/urbanairship/api/push/model/notification/actions/Action.java
+index 950c799..deefb50 100644
+--- a/src/main/java/com/urbanairship/api/push/model/notification/actions/Action.java
++++ b/src/main/java/com/urbanairship/api/push/model/notification/actions/Action.java
+@@ -6,12 +6,12 @@ package com.urbanairship.api.push.model.notification.actions;
+ 
+ /**
+  * Notification actions.
+- * @param <A>
++ * @param <A> Action type
+  */
+ public interface Action<A> {
+     /**
+      * Content/parameters for the action.
+-     * @return <A>
++     * @return A
+      */
+     A getValue();
+ 
+@@ -24,7 +24,7 @@ public interface Action<A> {
+     /**
+      * A marker interface to distinguish "open" actions from vanilla
+      * actions.
+-     * @param <A>
++     * @param <A> OpenAction type
+      */
+     interface OpenAction<A> extends Action<A> { }
+ }
+diff --git a/src/main/java/com/urbanairship/api/push/model/notification/actions/ActionNameRegistry.java b/src/main/java/com/urbanairship/api/push/model/notification/actions/ActionNameRegistry.java
+index 8d3efb0..0c8765c 100644
+--- a/src/main/java/com/urbanairship/api/push/model/notification/actions/ActionNameRegistry.java
++++ b/src/main/java/com/urbanairship/api/push/model/notification/actions/ActionNameRegistry.java
+@@ -10,8 +10,8 @@ import com.google.common.collect.ImmutableMap;
+  * Every pre-defined action has a 'short name' and 'long name' on the
+  * mobile device. This class enables name lookup, based on the particular action's
+  * class.
+- * <p/>
+- * The mapping of actions to short & long names is maintained in the Push API v3 spec.
++ *
++ * The mapping of actions to short and long names is maintained in the Push API v3 spec.
+  */
+ public final class ActionNameRegistry {
+ 
+diff --git a/src/main/java/com/urbanairship/api/push/model/notification/android/Style.java b/src/main/java/com/urbanairship/api/push/model/notification/android/Style.java
+index 9f97587..0cf449d 100644
+--- a/src/main/java/com/urbanairship/api/push/model/notification/android/Style.java
++++ b/src/main/java/com/urbanairship/api/push/model/notification/android/Style.java
+@@ -10,7 +10,7 @@ import com.google.common.base.Optional;
+ /**
+  * Base Interface for the Android Style objects.
+  *
+- * @param <T>
++ * @param <T> Style Type
+  */
+ @JsonTypeInfo(
+         use = JsonTypeInfo.Id.NAME,
+diff --git a/src/main/java/com/urbanairship/api/push/model/notification/open/OpenPayload.java b/src/main/java/com/urbanairship/api/push/model/notification/open/OpenPayload.java
+new file mode 100644
+index 0000000..3a843ec
+--- /dev/null
++++ b/src/main/java/com/urbanairship/api/push/model/notification/open/OpenPayload.java
+@@ -0,0 +1,230 @@
++package com.urbanairship.api.push.model.notification.open;
++
++import com.google.common.base.Objects;
++import com.google.common.base.Optional;
++import com.google.common.base.Preconditions;
++import com.google.common.collect.ImmutableMap;
++import com.urbanairship.api.push.model.DeviceType;
++import com.urbanairship.api.push.model.PushModelObject;
++import com.urbanairship.api.push.model.notification.DevicePayloadOverride;
++import com.urbanairship.api.push.model.notification.Interactive;
++
++import java.util.Map;
++
++public final class OpenPayload extends PushModelObject implements DevicePayloadOverride {
++
++    private final Optional<String> alert;
++    private final Optional<String> title;
++    private final Optional<ImmutableMap<String,String>> extras;
++    private final Optional<String> summary;
++    private final Optional<String> mediaAttachment;
++    private final Optional<Interactive> interactive;
++    private final DeviceType deviceType;
++
++    private OpenPayload(Builder builder) {
++        this.alert = Optional.fromNullable(builder.alert);
++        this.title = Optional.fromNullable(builder.title);
++        if (builder.extras.build().isEmpty()) {
++            this.extras = Optional.absent();
++        } else {
++            this.extras = Optional.of(builder.extras.build());
++        }
++        this.summary = Optional.fromNullable(builder.summary);
++        this.mediaAttachment = Optional.fromNullable(builder.mediaAttachment);
++        this.interactive = Optional.fromNullable(builder.interactive);
++        this.deviceType = builder.deviceType;
++    }
++
++    public static Builder newBuilder() {
++        return new Builder();
++    }
++
++    @Override
++    public DeviceType getDeviceType() {
++        return deviceType;
++    }
++
++    /**
++     * Optional, override the alert value provided at the top level, if any.
++     *
++     * @return Optional String alert.
++     */
++    public Optional<String> getAlert() {
++        return alert;
++    }
++
++    /**
++     * Optional, a string representing the title of the notification.
++     *
++     * @return Optional String title.
++     */
++    public Optional<String> getTitle() {
++        return title;
++    }
++
++    /**
++     * A string to string map of additional values to deliver to the target.
++     *
++     * @return Optional ImmutableMap of Strings extras.
++     */
++    public Optional<ImmutableMap<String, String>> getExtras() {
++        return extras;
++    }
++
++    /**
++     * Optional, a string value for providing a content summary.
++     *
++     * @return Optional String summary
++     */
++    public Optional<String> getSummary() {
++        return summary;
++    }
++
++    /**
++     * Optional, a String representation of a URI for an image or video somewhere on the internet.
++     *
++     * @return Optional String mediaAttachment.
++     */
++    public Optional<String> getMediaAttachment() {
++        return mediaAttachment;
++    }
++
++    /**
++     * Optional. An Interactive object. Included button actions must be of type “add_tag”,
++     * “remove tag”, app_defined” or “open” with subtype “url”.
++     *
++     * @return Optional Interactive interactive.
++     */
++    public Optional<Interactive> getInteractive() {
++        return interactive;
++    }
++
++    @Override
++    public String toString() {
++        return "OpenPayload{" +
++                "alert=" + alert +
++                ", title=" + title +
++                ", extras=" + extras +
++                ", summary=" + summary +
++                ", mediaAttachment=" + mediaAttachment +
++                ", interactive=" + interactive +
++                '}';
++    }
++
++    @Override
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (o == null || getClass() != o.getClass()) return false;
++        OpenPayload that = (OpenPayload) o;
++        return Objects.equal(alert, that.alert) &&
++                Objects.equal(title, that.title) &&
++                Objects.equal(extras, that.extras) &&
++                Objects.equal(summary, that.summary) &&
++                Objects.equal(mediaAttachment, that.mediaAttachment) &&
++                Objects.equal(interactive, that.interactive);
++    }
++
++    @Override
++    public int hashCode() {
++        return Objects.hashCode(alert, title, extras, summary, mediaAttachment, interactive);
++    }
++
++
++    /**
++     * OpenPayload Builder.
++     */
++    public static class Builder {
++        private DeviceType deviceType = null;
++        private String alert = null;
++        private String title = null;
++        private ImmutableMap.Builder<String, String> extras = ImmutableMap.builder();
++        private String summary = null;
++        private String mediaAttachment = null;
++        private Interactive interactive = null;
++
++        private Builder() { }
++
++        /**
++         * Optional, override the alert value provided at the top level, if any.
++         *
++         * @param alert String.
++         * @return OpenPayload Builder
++         */
++        public Builder setAlert(String alert) {
++            this.alert = alert;
++            return this;
++        }
++
++        /**
++         * Optional, a string representing the title of the notification.
++         *
++         * @param title Optional String
++         * @return OpenPayload Builder
++         */
++        public Builder setTitle(String title) {
++            this.title = title;
++            return this;
++        }
++
++        /**
++         * A string to string map of additional values to deliver to the target.
++         *
++         * @param entries Optional Map of Strings.
++         * @return OpenPayload Builder
++         */
++        public Builder setExtras(Map<String, String> entries) {
++            this.extras.putAll(entries);
++            return this;
++        }
++
++        /**
++         * Optional, a string value for providing a content summary.
++         *
++         * @param summary Optional String
++         * @return OpenPayload Builder
++         */
++        public Builder setSummary(String summary) {
++            this.summary = summary;
++            return this;
++        }
++
++        /**
++         * Optional, a String representation of a URI for an image or video somewhere on the internet.
++         *
++         * @param mediaAttachment String
++         * @return OpenPayload Builder
++         */
++        public Builder setMediaAttachment(String mediaAttachment) {
++            this.mediaAttachment = mediaAttachment;
++            return this;
++        }
++
++        /**
++         * Set the device type for the open channel payload.
++         *
++         * @param deviceType DeviceType
++         * @return OpenPayload Builder
++         */
++        public Builder setDeviceType(DeviceType deviceType) {
++            this.deviceType = deviceType;
++            return this;
++        }
++
++        /**
++         * Optional. An Interactive object. Included button actions must be of type “add_tag”,
++         * “remove tag”, app_defined” or “open” with subtype “url”.
++         *
++         * @param interactive Interactive
++         * @return OpenPayload Builder
++         */
++        public Builder setInteractive(Interactive interactive) {
++            this.interactive = interactive;
++            return this;
++        }
++
++        public OpenPayload build() {
++            Preconditions.checkNotNull(deviceType, "DeviceType must be set.");
++            return new OpenPayload(this);
++        }
++    }
++}
+diff --git a/src/main/java/com/urbanairship/api/push/model/notification/web/WebDevicePayload.java b/src/main/java/com/urbanairship/api/push/model/notification/web/WebDevicePayload.java
+index 3b816b2..455992a 100644
+--- a/src/main/java/com/urbanairship/api/push/model/notification/web/WebDevicePayload.java
++++ b/src/main/java/com/urbanairship/api/push/model/notification/web/WebDevicePayload.java
+@@ -18,11 +18,13 @@ public final class WebDevicePayload extends PushModelObject implements DevicePay
+     private final Optional<String> title;
+     private final Optional<ImmutableMap<String, String>> extra;
+     private final Optional<WebIcon> webIcon;
++    private final Optional<Boolean> requireInteraction;
+ 
+     private WebDevicePayload(Builder builder) {
+         this.alert = Optional.fromNullable(builder.alert);
+         this.title = Optional.fromNullable(builder.title);
+         this.webIcon = Optional.fromNullable(builder.webIcon);
++        this.requireInteraction = Optional.fromNullable(builder.requireInteraction);
+ 
+         if (builder.extra.build().isEmpty()) {
+             this.extra = Optional.absent();
+@@ -87,6 +89,15 @@ public final class WebDevicePayload extends PushModelObject implements DevicePay
+         return webIcon;
+     }
+ 
++    /**
++     * Get the Require Interaction flag.
++     *
++     * @return Optional Boolean require interaction flag.
++     */
++    public Optional<Boolean> getRequireInteraction() {
++        return requireInteraction;
++    }
++
+     @Override
+     public boolean equals(Object o) {
+         if (this == o) {
+@@ -100,12 +111,14 @@ public final class WebDevicePayload extends PushModelObject implements DevicePay
+         return Objects.equal(alert, payload.alert) &&
+                 Objects.equal(title, payload.title) &&
+                 Objects.equal(extra, payload.extra) &&
+-                Objects.equal(webIcon, payload.webIcon);
++                Objects.equal(webIcon, payload.webIcon)&&
++                Objects.equal(requireInteraction, payload.requireInteraction);
+     }
+ 
+     @Override
+     public int hashCode() {
+-        return Objects.hashCode(alert, title, extra, webIcon);
++        return Objects.hashCode(alert, title, extra, webIcon,
++                requireInteraction);
+     }
+ 
+     @Override
+@@ -115,6 +128,7 @@ public final class WebDevicePayload extends PushModelObject implements DevicePay
+                 ", title=" + title +
+                 ", extra=" + extra +
+                 ", webIcon=" + webIcon +
++                ", requireInteraction=" + requireInteraction +
+                 '}';
+     }
+ 
+@@ -126,6 +140,7 @@ public final class WebDevicePayload extends PushModelObject implements DevicePay
+         private String title = null;
+         private ImmutableMap.Builder<String, String> extra = ImmutableMap.builder();
+         private WebIcon webIcon = null;
++        private Boolean requireInteraction = null;
+ 
+         private Builder() { }
+ 
+@@ -185,6 +200,22 @@ public final class WebDevicePayload extends PushModelObject implements DevicePay
+             return this;
+         }
+ 
++        /**
++         * Set the Require Interaction flag.
++         *
++         * @param value Boolean
++         * @return Builder
++         */
++        public Builder setRequireInteraction(boolean value){
++            this.requireInteraction = value;
++            return this;
++        }
++
++        /**
++         * Build the WebDevicePayload object.
++         *
++         * @return WebDevicePayload
++         */
+         public WebDevicePayload build() {
+             return new WebDevicePayload(this);
+         }
+diff --git a/src/main/java/com/urbanairship/api/push/parse/PlatformDeserializer.java b/src/main/java/com/urbanairship/api/push/parse/PlatformDeserializer.java
+index c6bf7be..96038bc 100644
+--- a/src/main/java/com/urbanairship/api/push/parse/PlatformDeserializer.java
++++ b/src/main/java/com/urbanairship/api/push/parse/PlatformDeserializer.java
+@@ -18,11 +18,10 @@ public class PlatformDeserializer extends JsonDeserializer<DeviceType> {
+     @Override
+     public DeviceType deserialize(JsonParser jp, DeserializationContext ctxt) throws IOException {
+         String deviceTypeString = jp.getText();
+-        Optional<DeviceType> platform = DeviceType.fromIdentifierFunction.apply(deviceTypeString);
++        Optional<DeviceType> platform = DeviceType.find(deviceTypeString);
+         if (!platform.isPresent()) {
+-            APIParsingException.raise(String.format("Unrecognized device type '%s'",deviceTypeString), jp);
++            APIParsingException.raise(String.format("Unrecognized device type '%s'", deviceTypeString), jp);
+         }
+-
+         return platform.get();
+     }
+ }
+diff --git a/src/main/java/com/urbanairship/api/push/parse/PushObjectMapper.java b/src/main/java/com/urbanairship/api/push/parse/PushObjectMapper.java
+index c90f6e3..1c178a8 100644
+--- a/src/main/java/com/urbanairship/api/push/parse/PushObjectMapper.java
++++ b/src/main/java/com/urbanairship/api/push/parse/PushObjectMapper.java
+@@ -9,8 +9,11 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
+ import com.fasterxml.jackson.databind.JsonDeserializer;
+ import com.fasterxml.jackson.databind.ObjectMapper;
+ import com.fasterxml.jackson.databind.module.SimpleModule;
+-import com.fasterxml.jackson.datatype.joda.JodaModule;
+ import com.google.common.collect.ImmutableMap;
++import com.urbanairship.api.channel.model.open.OpenChannel;
++import com.urbanairship.api.channel.model.open.Channel;
++import com.urbanairship.api.channel.parse.open.ChannelSerializer;
++import com.urbanairship.api.channel.parse.open.OpenChannelSerializer;
+ import com.urbanairship.api.common.parse.CommonObjectMapper;
+ import com.urbanairship.api.customevents.model.CustomEventPayload;
+ import com.urbanairship.api.customevents.model.CustomEventBody;
+@@ -57,6 +60,7 @@ import com.urbanairship.api.push.model.notification.android.InboxStyle;
+ import com.urbanairship.api.push.model.notification.android.PublicNotification;
+ import com.urbanairship.api.push.model.notification.android.Wearable;
+ import com.urbanairship.api.push.model.notification.ios.*;
++import com.urbanairship.api.push.model.notification.open.OpenPayload;
+ import com.urbanairship.api.push.model.notification.richpush.RichPushIcon;
+ import com.urbanairship.api.push.model.notification.richpush.RichPushMessage;
+ import com.urbanairship.api.push.model.notification.web.WebDevicePayload;
+@@ -110,6 +114,7 @@ import com.urbanairship.api.push.parse.notification.android.PublicNotificationSe
+ import com.urbanairship.api.push.parse.notification.android.WearableDeserializer;
+ import com.urbanairship.api.push.parse.notification.android.WearableSerializer;
+ import com.urbanairship.api.push.parse.notification.ios.*;
++import com.urbanairship.api.push.parse.notification.open.OpenPayloadSerializer;
+ import com.urbanairship.api.push.parse.notification.richpush.RichPushIconDeserializer;
+ import com.urbanairship.api.push.parse.notification.richpush.RichPushIconSerializer;
+ import com.urbanairship.api.push.parse.notification.richpush.RichPushMessageDeserializer;
+@@ -306,6 +311,11 @@ public class PushObjectMapper {
+ 
+                 .addDeserializer(CustomEventResponse.class, new CustomEventResponseDeserializer())
+ 
++            /* Open Channel */
++                .addSerializer(Channel.class, new ChannelSerializer())
++                .addSerializer(OpenChannel.class, new OpenChannelSerializer())
++                .addSerializer(OpenPayload.class, new OpenPayloadSerializer())
++
+             /* Segments */
+                 .addDeserializer(SegmentDefinition.class, new SegmentDefinitionDeserializer());
+ 
+diff --git a/src/main/java/com/urbanairship/api/push/parse/notification/open/OpenPayloadSerializer.java b/src/main/java/com/urbanairship/api/push/parse/notification/open/OpenPayloadSerializer.java
+new file mode 100644
+index 0000000..7da4a9c
+--- /dev/null
++++ b/src/main/java/com/urbanairship/api/push/parse/notification/open/OpenPayloadSerializer.java
+@@ -0,0 +1,41 @@
++package com.urbanairship.api.push.parse.notification.open;
++
++import com.fasterxml.jackson.core.JsonGenerator;
++import com.fasterxml.jackson.databind.JsonSerializer;
++import com.fasterxml.jackson.databind.SerializerProvider;
++import com.urbanairship.api.push.model.notification.open.OpenPayload;
++
++import java.io.IOException;
++
++public class OpenPayloadSerializer extends JsonSerializer<OpenPayload> {
++    @Override
++    public void serialize(OpenPayload payload, JsonGenerator jgen, SerializerProvider provider) throws IOException {
++        jgen.writeStartObject();
++
++        if (payload.getAlert().isPresent()) {
++            jgen.writeStringField("alert", payload.getAlert().get());
++        }
++
++        if (payload.getExtras().isPresent()) {
++            jgen.writeObjectField("extra", payload.getExtras().get());
++        }
++
++        if (payload.getInteractive().isPresent()) {
++            jgen.writeObjectField("interactive", payload.getInteractive().get());
++        }
++
++        if (payload.getMediaAttachment().isPresent()) {
++            jgen.writeStringField("media_attachment", payload.getMediaAttachment().get());
++        }
++
++        if (payload.getTitle().isPresent()) {
++            jgen.writeStringField("title", payload.getTitle().get());
++        }
++
++        if (payload.getSummary().isPresent()) {
++            jgen.writeStringField("summary", payload.getSummary().get());
++        }
++
++        jgen.writeEndObject();
++    }
++}
+diff --git a/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadDeserializer.java b/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadDeserializer.java
+index 1f88f9f..f0b2372 100644
+--- a/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadDeserializer.java
++++ b/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadDeserializer.java
+@@ -37,6 +37,11 @@ public class WebDevicePayloadDeserializer extends JsonDeserializer<WebDevicePayl
+                             reader.readWebIcon(json);
+                         }
+                     })
++                    .put("require_interaction", new FieldParser<WebDevicePayloadReader>() {
++                        public void parse(WebDevicePayloadReader reader, JsonParser json, DeserializationContext context) throws IOException {
++                            reader.readRequireInteraction(json);
++                        }
++                    })
+                     .build()
+     );
+ 
+diff --git a/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadReader.java b/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadReader.java
+index dac6b27..77d824e 100644
+--- a/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadReader.java
++++ b/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadReader.java
+@@ -2,6 +2,7 @@ package com.urbanairship.api.push.parse.notification.web;
+ 
+ import com.fasterxml.jackson.core.JsonParser;
+ import com.urbanairship.api.common.parse.APIParsingException;
++import com.urbanairship.api.common.parse.BooleanFieldDeserializer;
+ import com.urbanairship.api.common.parse.JsonObjectReader;
+ import com.urbanairship.api.common.parse.MapOfStringsDeserializer;
+ import com.urbanairship.api.common.parse.StringFieldDeserializer;
+@@ -34,6 +35,10 @@ public class WebDevicePayloadReader implements JsonObjectReader<WebDevicePayload
+         builder.setWebIcon(parser.readValueAs(WebIcon.class));
+     }
+ 
++    public void readRequireInteraction(JsonParser parser) throws IOException {
++        builder.setRequireInteraction(BooleanFieldDeserializer.INSTANCE.deserialize(parser, "require_interaction"));
++    }
++
+     @Override
+     public WebDevicePayload validateAndBuild() throws IOException {
+         try{
+diff --git a/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadSerializer.java b/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadSerializer.java
+index 4666f6d..1aea676 100644
+--- a/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadSerializer.java
++++ b/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadSerializer.java
+@@ -28,6 +28,10 @@ public class WebDevicePayloadSerializer extends JsonSerializer<WebDevicePayload>
+             jgen.writeStringField("title", payload.getTitle().get());
+         }
+ 
++        if (payload.getRequireInteraction().isPresent()) {
++            jgen.writeObjectField("require_interaction", payload.getRequireInteraction().get());
++        }
++
+         jgen.writeEndObject();
+     }
+ }
+diff --git a/src/main/java/com/urbanairship/api/reports/PlatformStatsRequest.java b/src/main/java/com/urbanairship/api/reports/PlatformStatsRequest.java
+index dc1f435..5702c71 100644
+--- a/src/main/java/com/urbanairship/api/reports/PlatformStatsRequest.java
++++ b/src/main/java/com/urbanairship/api/reports/PlatformStatsRequest.java
+@@ -39,6 +39,7 @@ public class PlatformStatsRequest implements Request<PlatformStatsResponse> {
+     /**
+      * Create a platform stats request.
+      *
++     * @param type PlatformStatsRequestType
+      * @return PlatformStatsRequest
+      */
+     public static PlatformStatsRequest newRequest(PlatformStatsRequestType type) {
+@@ -59,6 +60,7 @@ public class PlatformStatsRequest implements Request<PlatformStatsResponse> {
+     /**
+      * Set the request start date
+      *
++     * @param start DateTime
+      * @return PlatformStatsRequest
+      */
+     public PlatformStatsRequest setStart(DateTime start) {
+@@ -69,6 +71,7 @@ public class PlatformStatsRequest implements Request<PlatformStatsResponse> {
+     /**
+      * Set the request end date
+      *
++     * @param end DateTime
+      * @return PlatformStatsRequest
+      */
+     public PlatformStatsRequest setEnd(DateTime end) {
+@@ -79,6 +82,7 @@ public class PlatformStatsRequest implements Request<PlatformStatsResponse> {
+     /**
+      * Set the request precision
+      *
++     * @param precision Precision
+      * @return DateTime
+      */
+     public PlatformStatsRequest setPrecision(Precision precision) {
+diff --git a/src/main/java/com/urbanairship/api/reports/PushListingRequest.java b/src/main/java/com/urbanairship/api/reports/PushListingRequest.java
+index ed80748..05274a9 100644
+--- a/src/main/java/com/urbanairship/api/reports/PushListingRequest.java
++++ b/src/main/java/com/urbanairship/api/reports/PushListingRequest.java
+@@ -74,6 +74,7 @@ public class PushListingRequest implements Request<PushListingResponse> {
+     /**
+      * Set the request start date
+      *
++     * @param start DateTime
+      * @return PushListingRequest
+      */
+     public PushListingRequest setStart(DateTime start) {
+@@ -93,6 +94,7 @@ public class PushListingRequest implements Request<PushListingResponse> {
+     /**
+      * Set the request end date
+      *
++     * @param end DateTime
+      * @return PushListingRequest
+      */
+     public PushListingRequest setEnd(DateTime end) {
+@@ -112,6 +114,7 @@ public class PushListingRequest implements Request<PushListingResponse> {
+     /**
+      * Set the page limit
+      *
++     * @param limit Integer
+      * @return Integer
+      */
+     public PushListingRequest setLimit(Integer limit) {
+@@ -131,6 +134,7 @@ public class PushListingRequest implements Request<PushListingResponse> {
+     /**
+      * Set the starting push ID
+      *
++     * @param pushIdStart String
+      * @return String
+      */
+     public PushListingRequest setPushIdStart(String pushIdStart) {
+diff --git a/src/main/java/com/urbanairship/api/reports/StatisticsCsvRequest.java b/src/main/java/com/urbanairship/api/reports/StatisticsCsvRequest.java
+index 9b0b06a..5f3c79b 100644
+--- a/src/main/java/com/urbanairship/api/reports/StatisticsCsvRequest.java
++++ b/src/main/java/com/urbanairship/api/reports/StatisticsCsvRequest.java
+@@ -35,6 +35,7 @@ public class StatisticsCsvRequest implements Request<String> {
+      *
+      * @param start DateTime
+      * @param end DateTime
++     * @return StatisticsCsvRequest
+      */
+     public static StatisticsCsvRequest newRequest(DateTime start, DateTime end) {
+         return new StatisticsCsvRequest(start, end);
+diff --git a/src/main/java/com/urbanairship/api/reports/StatisticsRequest.java b/src/main/java/com/urbanairship/api/reports/StatisticsRequest.java
+index 80b4687..4ddc34f 100644
+--- a/src/main/java/com/urbanairship/api/reports/StatisticsRequest.java
++++ b/src/main/java/com/urbanairship/api/reports/StatisticsRequest.java
+@@ -38,6 +38,7 @@ public class StatisticsRequest implements Request<List<StatisticsResponse>> {
+      *
+      * @param start DateTime
+      * @param end DateTime
++     * @return StatisticsRequest
+      */
+     public static StatisticsRequest newRequest(DateTime start, DateTime end) {
+         return new StatisticsRequest(start, end);
+diff --git a/src/main/java/com/urbanairship/api/reports/model/PlatformStats.java b/src/main/java/com/urbanairship/api/reports/model/PlatformStats.java
+index 01621ff..ad9491c 100644
+--- a/src/main/java/com/urbanairship/api/reports/model/PlatformStats.java
++++ b/src/main/java/com/urbanairship/api/reports/model/PlatformStats.java
+@@ -119,7 +119,7 @@ public final class PlatformStats {
+          * Set the date.
+          *
+          * @param value DateTime
+-         * @return
++         * @return Builder
+          */
+         public Builder setDate(DateTime value) {
+             this.date = value;
+diff --git a/src/main/java/com/urbanairship/api/reports/model/PushListingResponse.java b/src/main/java/com/urbanairship/api/reports/model/PushListingResponse.java
+index 87182eb..6f10aae 100644
+--- a/src/main/java/com/urbanairship/api/reports/model/PushListingResponse.java
++++ b/src/main/java/com/urbanairship/api/reports/model/PushListingResponse.java
+@@ -109,7 +109,7 @@ public class PushListingResponse {
+          * Add all push info objects for push listing
+          *
+          * @param value Iterable of SinglePushInfoResponse objects
+-         * @return
++         * @return Builder
+          */
+         public Builder addPushInfoObjects(Iterable<? extends PushInfoResponse> value) {
+             this.pushInfoObjects.addAll(value);
+diff --git a/src/main/java/com/urbanairship/api/schedule/model/BestTime.java b/src/main/java/com/urbanairship/api/schedule/model/BestTime.java
+new file mode 100644
+index 0000000..82c7075
+--- /dev/null
++++ b/src/main/java/com/urbanairship/api/schedule/model/BestTime.java
+@@ -0,0 +1,85 @@
++package com.urbanairship.api.schedule.model;
++
++import com.google.common.base.Preconditions;
++import org.joda.time.DateTime;
++
++import java.util.Objects;
++
++/**
++ * Represents that a push will be sent on the scheduled day, at the best time determined by optimization.
++ */
++public final class BestTime {
++
++    private DateTime sendDate;
++
++    private BestTime() {}
++
++    private BestTime(DateTime sendDate) {
++        this.sendDate = sendDate;
++    }
++
++    @Override
++    public boolean equals(Object o) {
++        if (this == o) return true;
++        if (!(o instanceof BestTime)) return false;
++        BestTime bestTime = (BestTime) o;
++        return Objects.equals(getSendDate(), bestTime.getSendDate());
++    }
++
++    @Override
++    public int hashCode() {
++        return Objects.hash(getSendDate());
++    }
++
++    @Override
++    public String toString() {
++        return "BestTime{" +
++                ", sendDate=" + sendDate +
++                '}';
++    }
++
++    /**
++     * BestTime builder
++     * @return Builder
++     */
++    public static Builder newBuilder() {
++        return new Builder();
++    }
++
++    /**
++     * Get the scheduled day that push will be sent.
++     * @return DateTime
++     * */
++    public DateTime getSendDate() {
++        return sendDate;
++    }
++
++    /**
++     * BestTime Builder
++     */
++    public static class Builder {
++
++        private DateTime sendDate = null;
++
++        private Builder() { }
++
++        /**
++         * Set the day to send the push
++         * @param sendDate DateTime
++         * @return BestTime Builder
++         */
++        public Builder setSendDate(DateTime sendDate) {
++            this.sendDate = sendDate;
++            return this;
++        }
++
++        /**
++         * Build the Schedule object.
++         * @return Schedule
++         */
++        public BestTime build() {
++            Preconditions.checkArgument((sendDate != null),"sendDate cannot be null");
++            return new BestTime(sendDate);
++        }
++    }
++}
+diff --git a/src/main/java/com/urbanairship/api/schedule/model/Schedule.java b/src/main/java/com/urbanairship/api/schedule/model/Schedule.java
+index 79e70b8..c6ec46f 100644
+--- a/src/main/java/com/urbanairship/api/schedule/model/Schedule.java
++++ b/src/main/java/com/urbanairship/api/schedule/model/Schedule.java
+@@ -8,20 +8,28 @@ import com.google.common.base.Objects;
+ import com.google.common.base.Preconditions;
+ import org.joda.time.DateTime;
+ 
++import java.util.Optional;
++
++
++/**
++ * Represents the schedule details for a push. A Schedule defines when a push will be sent.
++ */
+ public final class Schedule extends ScheduleModelObject {
+ 
+     private final DateTime scheduledTimestamp;
+     private final Boolean localTimePresent;
++    private final Optional<BestTime> bestTime;
+ 
+     // TODO local, global, etc
+ 
+-    private Schedule(DateTime scheduledTimestamp, boolean localTimePresent) {
+-        this.scheduledTimestamp = scheduledTimestamp;
+-        this.localTimePresent = localTimePresent;
++    private Schedule(Builder builder) {
++        this.scheduledTimestamp = builder.scheduledTimestamp;
++        this.localTimePresent = builder.localTimePresent;
++        this.bestTime = Optional.ofNullable(builder.bestTime);
+     }
+ 
+     /**
+-     * Get the DateTime for this schedule
++     * Get the DateTime for this schedule.
+      * @return DateTime
+      */
+     public DateTime getScheduledTimestamp () {
+@@ -29,19 +37,27 @@ public final class Schedule extends ScheduleModelObject {
+     }
+ 
+     /**
+-     * Get the boolean indicating if the scheduled time is local
++     * Get the boolean indicating if the scheduled time is in local time.
+      * @return boolean
+      */
+     public Boolean getLocalTimePresent() {
+         return localTimePresent;
+     }
+ 
++    /**
++     * Get the BestTime for this schedule.
++     * @return
++     */
++    public Optional<BestTime> getBestTime() {
++        return bestTime;
++    }
+ 
+     @Override
+     public String toString() {
+         return "Schedule{" +
+                 "scheduledTimestamp=" + scheduledTimestamp +
+                 ", localTimePresent=" + localTimePresent +
++                ", scheduledBestTime=" + bestTime +
+                 '}';
+     }
+ 
+@@ -77,6 +93,7 @@ public final class Schedule extends ScheduleModelObject {
+     public static class Builder {
+         private DateTime scheduledTimestamp = null;
+         private Boolean localTimePresent = false;
++        private BestTime bestTime = null;
+ 
+         private Builder() { }
+ 
+@@ -96,7 +113,6 @@ public final class Schedule extends ScheduleModelObject {
+          * Set the DateTime for local scheduled delivery. This will be converted to
+          * UTC by the server.
+          * @param scheduledTimestamp DateTime.
+-
+          * @return Builder
+          */
+         public Builder setLocalScheduledTimestamp(DateTime scheduledTimestamp) {
+@@ -106,14 +122,41 @@ public final class Schedule extends ScheduleModelObject {
+         }
+ 
+         /**
++         * Set the best time ( aka Optimal Time) which is one of our predictive features. This sends push on a specified
++         * date for the optimal time for the user to receive.
++         * @param bestTime BestTime
++         * @return Builder
++         */
++        public Builder setBestTime(BestTime bestTime) {
++            this.bestTime = bestTime;
++            return this;
++        }
++
++        /**
+          * Build the Schedule object.
+          * @return Schedule
+          */
+         public Schedule build() {
+-            Preconditions.checkArgument((scheduledTimestamp != null),"" +
+-                    "Either scheduled_time or local_scheduled_time must be set.");
+ 
+-            return new Schedule(scheduledTimestamp, localTimePresent);
++            Preconditions.checkArgument(argumentValidator(scheduledTimestamp,bestTime),
++                    "Either scheduled_time or best_time must be set.");
++
++            return new Schedule(this);
+         }
++
++        // ensure that exactly one argument is set
++        private boolean argumentValidator(DateTime scheduledTimestamp, BestTime bestTime) {
++            int argumentSet = 0;
++            if (scheduledTimestamp != null) {
++                argumentSet++;
++            }
++
++            if (bestTime != null) {
++                argumentSet++;
++            }
++            return argumentSet == 1;
++        }
++
+     }
++
+ }
+diff --git a/src/main/java/com/urbanairship/api/schedule/parse/BestTimeDeserializer.java b/src/main/java/com/urbanairship/api/schedule/parse/BestTimeDeserializer.java
+new file mode 100644
+index 0000000..b5501d7
+--- /dev/null
++++ b/src/main/java/com/urbanairship/api/schedule/parse/BestTimeDeserializer.java
+@@ -0,0 +1,49 @@
++package com.urbanairship.api.schedule.parse;
++
++import com.fasterxml.jackson.core.JsonParser;
++import com.fasterxml.jackson.databind.DeserializationContext;
++import com.fasterxml.jackson.databind.JsonDeserializer;
++import com.google.common.base.Supplier;
++import com.google.common.collect.ImmutableMap;
++import com.urbanairship.api.common.parse.FieldParser;
++import com.urbanairship.api.common.parse.FieldParserRegistry;
++import com.urbanairship.api.common.parse.MapFieldParserRegistry;
++import com.urbanairship.api.common.parse.StandardObjectDeserializer;
++import com.urbanairship.api.schedule.model.BestTime;
++
++import java.io.IOException;
++
++public class BestTimeDeserializer extends JsonDeserializer<BestTime> {
++
++    private static final FieldParserRegistry<BestTime, BestTimeReader> FIELD_PARSERS = new MapFieldParserRegistry<BestTime, BestTimeReader>(
++            ImmutableMap.<String, FieldParser<BestTimeReader>>builder()
++                    .put("send_date", new FieldParser<BestTimeReader>() {
++                        @Override
++                        public void parse(BestTimeReader reader, JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
++                            reader.readSendDate(jsonParser);
++                        }
++                    })
++                    .build()
++    );
++
++    public static final BestTimeDeserializer INSTANCE = new BestTimeDeserializer();
++
++    private final StandardObjectDeserializer<BestTime, ?> deserializer;
++
++    public BestTimeDeserializer() {
++        deserializer = new StandardObjectDeserializer<BestTime, BestTimeReader>(
++                FIELD_PARSERS,
++                new Supplier<BestTimeReader>() {
++                    @Override
++                    public BestTimeReader get() {
++                        return new BestTimeReader();
++                    }
++                }
++        );
++    }
++
++    @Override
++    public BestTime deserialize(JsonParser parser, DeserializationContext deserializationContext) throws IOException {
++        return deserializer.deserialize(parser, deserializationContext);
++    }
++}
+diff --git a/src/main/java/com/urbanairship/api/schedule/parse/BestTimeReader.java b/src/main/java/com/urbanairship/api/schedule/parse/BestTimeReader.java
+new file mode 100644
+index 0000000..469b49e
+--- /dev/null
++++ b/src/main/java/com/urbanairship/api/schedule/parse/BestTimeReader.java
+@@ -0,0 +1,32 @@
++package com.urbanairship.api.schedule.parse;
++
++import com.fasterxml.jackson.core.JsonParser;
++import com.urbanairship.api.common.parse.APIParsingException;
++import com.urbanairship.api.common.parse.JsonObjectReader;
++import com.urbanairship.api.schedule.model.BestTime;
++import org.joda.time.DateTime;
++
++import java.io.IOException;
++
++public class BestTimeReader implements JsonObjectReader<BestTime> {
++
++    private final BestTime.Builder builder;
++
++    public BestTimeReader() {
++        this.builder = BestTime.newBuilder();
++    }
++
++    public void readSendDate(JsonParser jsonParser) throws IOException {
++        builder.setSendDate(jsonParser.readValueAs(DateTime.class));
++    }
++
++    @Override
++    public BestTime validateAndBuild() throws IOException {
++        try {
++            return builder.build();
++        }
++        catch (Exception e) {
++            throw new APIParsingException(e.getMessage(), e);
++        }
++    }
++}
+diff --git a/src/main/java/com/urbanairship/api/schedule/parse/BestTimeSerializer.java b/src/main/java/com/urbanairship/api/schedule/parse/BestTimeSerializer.java
+new file mode 100644
+index 0000000..7054351
+--- /dev/null
++++ b/src/main/java/com/urbanairship/api/schedule/parse/BestTimeSerializer.java
+@@ -0,0 +1,23 @@
++package com.urbanairship.api.schedule.parse;
++
++import com.fasterxml.jackson.core.JsonGenerator;
++import com.fasterxml.jackson.databind.JsonSerializer;
++import com.fasterxml.jackson.databind.SerializerProvider;
++import com.urbanairship.api.common.parse.DateFormats;
++import com.urbanairship.api.schedule.model.BestTime;
++
++import java.io.IOException;
++
++public class BestTimeSerializer extends JsonSerializer<BestTime> {
++
++    public static final ScheduleSerializer INSTANCE = new ScheduleSerializer();
++
++    @Override
++    public void serialize(BestTime value, JsonGenerator jgen, SerializerProvider provider) throws IOException {
++        jgen.writeStartObject();
++
++        jgen.writeStringField("send_date", DateFormats.DAYS_FORMAT.print(value.getSendDate()));
++
++        jgen.writeEndObject();
++    }
++}
+diff --git a/src/main/java/com/urbanairship/api/schedule/parse/ScheduleDeserializer.java b/src/main/java/com/urbanairship/api/schedule/parse/ScheduleDeserializer.java
+index 045f274..e14c39e 100644
+--- a/src/main/java/com/urbanairship/api/schedule/parse/ScheduleDeserializer.java
++++ b/src/main/java/com/urbanairship/api/schedule/parse/ScheduleDeserializer.java
+@@ -33,6 +33,12 @@ public final class ScheduleDeserializer extends JsonDeserializer<Schedule> {
+                     reader.readScheduledTime(jsonParser);
+                 }
+             })
++            .put("best_time", new FieldParser<ScheduleReader>() {
++                @Override
++                public void parse(ScheduleReader reader, JsonParser jsonParser, DeserializationContext deserializationContext) throws IOException {
++                    reader.readBestTime(jsonParser);
++                }
++            })
+             .build()
+     );
+ 
+diff --git a/src/main/java/com/urbanairship/api/schedule/parse/ScheduleObjectMapper.java b/src/main/java/com/urbanairship/api/schedule/parse/ScheduleObjectMapper.java
+index 2fe6770..8886489 100644
+--- a/src/main/java/com/urbanairship/api/schedule/parse/ScheduleObjectMapper.java
++++ b/src/main/java/com/urbanairship/api/schedule/parse/ScheduleObjectMapper.java
+@@ -6,12 +6,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
+ import com.fasterxml.jackson.databind.module.SimpleModule;
+ import com.fasterxml.jackson.datatype.joda.JodaModule;
+ import com.urbanairship.api.push.parse.PushObjectMapper;
++import com.urbanairship.api.schedule.model.BestTime;
+ import com.urbanairship.api.schedule.model.ListAllSchedulesResponse;
+ import com.urbanairship.api.schedule.model.Schedule;
+ import com.urbanairship.api.schedule.model.ScheduleDetails;
+ import com.urbanairship.api.schedule.model.SchedulePayload;
+ import com.urbanairship.api.schedule.model.ScheduleResponse;
+ 
++
+ public class ScheduleObjectMapper {
+ 
+     private static final ObjectMapper MAPPER = new ObjectMapper();
+@@ -19,13 +21,16 @@ public class ScheduleObjectMapper {
+ 
+     static {
+         MODULE
+-            .addDeserializer(SchedulePayload.class, SchedulePayloadDeserializer.INSTANCE)
+-            .addSerializer(SchedulePayload.class, ScheduledPayloadSerializer.INSTANCE)
+-            .addDeserializer(Schedule.class, ScheduleDeserializer.INSTANCE)
+-            .addSerializer(Schedule.class, ScheduleSerializer.INSTANCE)
+-            .addSerializer(ScheduleDetails.class, ScheduleDetailsSerializer.INSTANCE)
+-            .addDeserializer(ScheduleResponse.class, new ScheduleResponseDeserializer())
+-            .addDeserializer(ListAllSchedulesResponse.class, new ListSchedulesResponseDeserializer());
++                .addDeserializer(SchedulePayload.class, SchedulePayloadDeserializer.INSTANCE)
++                .addSerializer(SchedulePayload.class, ScheduledPayloadSerializer.INSTANCE)
++                .addDeserializer(Schedule.class, ScheduleDeserializer.INSTANCE)
++                .addSerializer(Schedule.class, ScheduleSerializer.INSTANCE)
++                .addSerializer(ScheduleDetails.class, ScheduleDetailsSerializer.INSTANCE)
++                .addDeserializer(ScheduleResponse.class, new ScheduleResponseDeserializer())
++                .addDeserializer(ListAllSchedulesResponse.class, new ListSchedulesResponseDeserializer())
++                .addDeserializer(BestTime.class, BestTimeDeserializer.INSTANCE)
++                .addSerializer(BestTime.class, new BestTimeSerializer());
++
+ 
+         MAPPER.registerModule(MODULE);
+         MAPPER.registerModule(PushObjectMapper.getModule());
+diff --git a/src/main/java/com/urbanairship/api/schedule/parse/ScheduleReader.java b/src/main/java/com/urbanairship/api/schedule/parse/ScheduleReader.java
+index b8cd19c..d64c2ec 100644
+--- a/src/main/java/com/urbanairship/api/schedule/parse/ScheduleReader.java
++++ b/src/main/java/com/urbanairship/api/schedule/parse/ScheduleReader.java
+@@ -7,6 +7,7 @@ package com.urbanairship.api.schedule.parse;
+ import com.fasterxml.jackson.core.JsonParser;
+ import com.urbanairship.api.common.parse.APIParsingException;
+ import com.urbanairship.api.common.parse.JsonObjectReader;
++import com.urbanairship.api.schedule.model.BestTime;
+ import com.urbanairship.api.schedule.model.Schedule;
+ import org.joda.time.DateTime;
+ 
+@@ -21,10 +22,13 @@ public final class ScheduleReader implements JsonObjectReader<Schedule> {
+     }
+ 
+     public void readScheduledTime(JsonParser jsonParser) throws IOException {
+-        String time = jsonParser.readValuesAs(DateTime.class).toString();
+         builder.setScheduledTimestamp(jsonParser.readValueAs(DateTime.class));
+     }
+ 
++    public void readBestTime(JsonParser jsonParser) throws IOException {
++        builder.setBestTime(jsonParser.readValueAs(BestTime.class));
++    }
++
+     @Override
+     public Schedule validateAndBuild() throws IOException {
+         try {
+diff --git a/src/main/java/com/urbanairship/api/schedule/parse/ScheduleSerializer.java b/src/main/java/com/urbanairship/api/schedule/parse/ScheduleSerializer.java
+index c8bad1f..4d8e60b 100644
+--- a/src/main/java/com/urbanairship/api/schedule/parse/ScheduleSerializer.java
++++ b/src/main/java/com/urbanairship/api/schedule/parse/ScheduleSerializer.java
+@@ -20,13 +20,14 @@ public class ScheduleSerializer extends JsonSerializer<Schedule> {
+     public void serialize(Schedule value, JsonGenerator jgen, SerializerProvider provider) throws IOException {
+         jgen.writeStartObject();
+ 
+-        if (!value.getLocalTimePresent()) {
+-            jgen.writeStringField("scheduled_time", DateFormats.DATE_FORMATTER.print(value.getScheduledTimestamp()));
+-        }
+-        if (value.getLocalTimePresent()) {
+-            jgen.writeStringField("local_scheduled_time", DateFormats.DATE_FORMATTER.print(value.getScheduledTimestamp()));
+-        }
+-
++        if (value.getBestTime().isPresent()) {
++            jgen.writeObjectField("best_time", value.getBestTime().get());
++        } else if (!value.getLocalTimePresent()){
++                jgen.writeStringField("scheduled_time", DateFormats.DATE_FORMATTER.print(value.getScheduledTimestamp()));
++            }
++            else {
++                jgen.writeStringField("local_scheduled_time", DateFormats.DATE_FORMATTER.print(value.getScheduledTimestamp()));
++            }
+         jgen.writeEndObject();
+     }
+ }
+diff --git a/src/main/java/com/urbanairship/api/segments/SegmentLookupRequest.java b/src/main/java/com/urbanairship/api/segments/SegmentLookupRequest.java
+index 1c47bf2..57f896e 100644
+--- a/src/main/java/com/urbanairship/api/segments/SegmentLookupRequest.java
++++ b/src/main/java/com/urbanairship/api/segments/SegmentLookupRequest.java
+@@ -34,7 +34,7 @@ public class SegmentLookupRequest implements Request<SegmentView> {
+     /**
+      * Create new request for segment lookup.
+      *
+-     * @param segmentId
++     * @param segmentId String
+      * @return SegmentRequest
+      */
+     public static SegmentLookupRequest newRequest(String segmentId) {
+diff --git a/src/main/java/com/urbanairship/api/segments/SegmentRequest.java b/src/main/java/com/urbanairship/api/segments/SegmentRequest.java
+index 105a132..6566c9d 100644
+--- a/src/main/java/com/urbanairship/api/segments/SegmentRequest.java
++++ b/src/main/java/com/urbanairship/api/segments/SegmentRequest.java
+@@ -45,7 +45,7 @@ public class SegmentRequest implements Request<String> {
+     /**
+      * Create a new segment update request.
+      *
+-     * @param segmentId
++     * @param segmentId String
+      * @return SegmentRequest
+      */
+     public static SegmentRequest newUpdateRequest(String segmentId) {
+@@ -56,7 +56,7 @@ public class SegmentRequest implements Request<String> {
+     /**
+      * Set the criteria for the segment request.
+      *
+-     * @param criteria
++     * @param criteria Selector
+      * @return SegmentRequest
+      */
+     public SegmentRequest setCriteria(Selector criteria) {
+@@ -67,7 +67,7 @@ public class SegmentRequest implements Request<String> {
+     /**
+      * Set the display name of the segment request.
+      *
+-     * @param displayName
++     * @param displayName String
+      * @return SegmentRequest
+      */
+     public SegmentRequest setDisplayName(String displayName) {
+@@ -75,6 +75,10 @@ public class SegmentRequest implements Request<String> {
+         return this;
+     }
+ 
++    /**
++     * Get the content type.
++     * @return ContentType
++     */
+     @Override
+     public ContentType getContentType() {
+         return ContentType.APPLICATION_JSON;
+diff --git a/src/main/java/com/urbanairship/api/segments/model/SegmentListingResponse.java b/src/main/java/com/urbanairship/api/segments/model/SegmentListingResponse.java
+index 6c4d0c3..10b77eb 100644
+--- a/src/main/java/com/urbanairship/api/segments/model/SegmentListingResponse.java
++++ b/src/main/java/com/urbanairship/api/segments/model/SegmentListingResponse.java
+@@ -78,7 +78,7 @@ public class SegmentListingResponse {
+         /**
+          * Set the next page.
+          *
+-         * @param nextPage
++         * @param nextPage String
+          * @return Builder
+          */
+         public Builder setNextPage(String nextPage) {
+diff --git a/src/main/java/com/urbanairship/api/staticlists/StaticListRequest.java b/src/main/java/com/urbanairship/api/staticlists/StaticListRequest.java
+index eb7271c..e4f52a4 100644
+--- a/src/main/java/com/urbanairship/api/staticlists/StaticListRequest.java
++++ b/src/main/java/com/urbanairship/api/staticlists/StaticListRequest.java
+@@ -63,7 +63,7 @@ public class StaticListRequest implements Request<String> {
+     /**
+      * Set the description of the static list.
+      *
+-     * @param description
++     * @param description String
+      * @return StaticListRequest
+      */
+     public StaticListRequest setDescription(String description) {
+@@ -74,8 +74,8 @@ public class StaticListRequest implements Request<String> {
+     /**
+      * Add a key-value pair to the extra mapping.
+      *
+-     * @param key
+-     * @param val
++     * @param key String
++     * @param val String
+      * @return StaticListRequest
+      */
+     public StaticListRequest addExtra(String key, String val) {
+@@ -86,7 +86,7 @@ public class StaticListRequest implements Request<String> {
+     /**
+      * Add all key-value pairs to the map of extras.
+      *
+-     * @param entries
++     * @param entries Map of Strings
+      * @return StaticListCreationRequest
+      */
+     public StaticListRequest addAllExtras(Map<String, String> entries) {
+diff --git a/src/main/java/com/urbanairship/api/staticlists/StaticListUploadRequest.java b/src/main/java/com/urbanairship/api/staticlists/StaticListUploadRequest.java
+index 073dadb..a0c0d05 100644
+--- a/src/main/java/com/urbanairship/api/staticlists/StaticListUploadRequest.java
++++ b/src/main/java/com/urbanairship/api/staticlists/StaticListUploadRequest.java
+@@ -63,7 +63,7 @@ public class StaticListUploadRequest implements Request<String> {
+     /**
+      * Set whether the request uses gzip encoding.
+      *
+-     * @param gzip
++     * @param gzip Boolean
+      * @return StaticListUploadRequest
+      */
+     public StaticListUploadRequest setGzipEnabled(Boolean gzip) {
+diff --git a/src/main/java/com/urbanairship/api/staticlists/model/StaticListView.java b/src/main/java/com/urbanairship/api/staticlists/model/StaticListView.java
+index f176b9f..8bab747 100644
+--- a/src/main/java/com/urbanairship/api/staticlists/model/StaticListView.java
++++ b/src/main/java/com/urbanairship/api/staticlists/model/StaticListView.java
+@@ -167,7 +167,7 @@ public class StaticListView {
+         /**
+          * Set ok.
+          *
+-         * @param ok
++         * @param ok Boolean
+          * @return Builder
+          */
+         public Builder setOk(Boolean ok) {
+@@ -178,7 +178,7 @@ public class StaticListView {
+         /**
+          * Set the name.
+          *
+-         * @param name
++         * @param name String
+          * @return Builder
+          */
+         public Builder setName(String name) {
+@@ -189,7 +189,7 @@ public class StaticListView {
+         /**
+          * Set the description.
+          *
+-         * @param description
++         * @param description String
+          * @return Builder
+          */
+         public Builder setDescription(String description) {
+@@ -200,7 +200,7 @@ public class StaticListView {
+         /**
+          * Set the creation date
+          *
+-         * @param created
++         * @param created DateTime
+          * @return Builder
+          */
+         public Builder setCreated(DateTime created) {
+@@ -211,7 +211,7 @@ public class StaticListView {
+         /**
+          * Set the last updated date.
+          *
+-         * @param lastUpdated
++         * @param lastUpdated DateTime
+          * @return Builder
+          */
+         public Builder setLastUpdated(DateTime lastUpdated) {
+@@ -222,7 +222,7 @@ public class StaticListView {
+         /**
+          * Set the channel count.
+          *
+-         * @param channelCount
++         * @param channelCount int
+          * @return Builder
+          */
+         public Builder setChannelCount(int channelCount) {
+@@ -233,7 +233,7 @@ public class StaticListView {
+         /**
+          * Set the status.
+          *
+-         * @param status
++         * @param status String
+          * @return Builder
+          */
+         public Builder setStatus(String status) {
+diff --git a/src/test/java/com/urbanairship/api/channel/OpenChannelRequestTest.java b/src/test/java/com/urbanairship/api/channel/OpenChannelRequestTest.java
+new file mode 100644
+index 0000000..c258665
+--- /dev/null
++++ b/src/test/java/com/urbanairship/api/channel/OpenChannelRequestTest.java
+@@ -0,0 +1,88 @@
++package com.urbanairship.api.channel;
++
++import com.google.common.net.HttpHeaders;
++import com.urbanairship.api.channel.model.ChannelType;
++import com.urbanairship.api.channel.model.OpenChannelResponse;
++import com.urbanairship.api.channel.model.open.Channel;
++import com.urbanairship.api.channel.model.open.OpenChannel;
++import com.urbanairship.api.channel.model.open.OpenChannelPayload;
++import com.urbanairship.api.channel.parse.ChannelObjectMapper;
++import com.urbanairship.api.client.Request;
++import com.urbanairship.api.client.ResponseParser;
++import org.apache.http.entity.ContentType;
++import org.junit.Test;
++
++import java.io.IOException;
++import java.net.URI;
++import java.util.HashMap;
++import java.util.Map;
++
++import static org.junit.Assert.assertEquals;
++
++public class OpenChannelRequestTest {
++    OpenChannel openChannel = OpenChannel.newBuilder()
++            .setOpenPlatformName("email")
++            .setOldAddress("old_email@example.come")
++            .addIdentifier("com.example.external_id", "df6a6b50-9843-7894-1235-12aed4489489")
++            .build();
++
++    Channel channel = Channel.newBuilder()
++            .setOpenChannel(openChannel)
++            .setChannelType(ChannelType.OPEN)
++            .setOptIn(true)
++            .setAddress("new_email@example.com")
++            .setTags(true)
++            .addTag("asdf")
++            .setTimeZone("America/Los_Angeles")
++            .setLocaleCountry("US")
++            .setLocaleLanguage("en")
++            .build();
++
++    OpenChannelPayload payload = new OpenChannelPayload(channel);
++    OpenChannelRequest openChannelRequest = OpenChannelRequest.newRequest(payload);
++
++    @Test
++    public void testHeaders() throws Exception {
++        Map<String, String> headers = new HashMap<String, String>();
++        headers.put(HttpHeaders.CONTENT_TYPE, Request.CONTENT_TYPE_JSON);
++        headers.put(HttpHeaders.ACCEPT, Request.UA_VERSION_JSON);
++
++        assertEquals(openChannelRequest.getRequestHeaders(), headers);
++    }
++
++    @Test
++    public void testBody() throws Exception {
++        assertEquals(openChannelRequest.getRequestBody(), payload.toJSON());
++    }
++
++    @Test
++    public void testMethod() throws Exception {
++        assertEquals(openChannelRequest.getHttpMethod(), Request.HttpMethod.POST);
++    }
++
++    @Test
++    public void testContentType() throws Exception {
++        assertEquals(openChannelRequest.getContentType(), ContentType.APPLICATION_JSON);
++    }
++
++    @Test
++    public void testURI() throws Exception {
++        URI baseURI = URI.create("https://go.urbanairship.com");
++
++        URI expextedURI = URI.create("https://go.urbanairship.com/api/channels/open/");
++        assertEquals(openChannelRequest.getUri(baseURI), expextedURI);
++    }
++
++    @Test
++    public void testCustomEventParser() throws Exception {
++        ResponseParser responseParser = new ResponseParser<OpenChannelResponse>() {
++            @Override
++            public OpenChannelResponse parse(String response) throws IOException {
++                return ChannelObjectMapper.getInstance().readValue(response, OpenChannelResponse.class);
++            }
++        };
++
++        String response = "{\"ok\" : true,\"channel_id\" : \"df6a6b50-9843-0304-d5a5-743f246a8567\"}";
++        assertEquals(openChannelRequest.getResponseParser().parse(response), responseParser.parse(response));
++    }
++}
+diff --git a/src/test/java/com/urbanairship/api/channel/open/OpenChannelPayloadSerializerTest.java b/src/test/java/com/urbanairship/api/channel/open/OpenChannelPayloadSerializerTest.java
+new file mode 100644
+index 0000000..36d1f25
+--- /dev/null
++++ b/src/test/java/com/urbanairship/api/channel/open/OpenChannelPayloadSerializerTest.java
+@@ -0,0 +1,70 @@
++package com.urbanairship.api.channel.open;
++
++import com.fasterxml.jackson.databind.JsonNode;
++import com.fasterxml.jackson.databind.ObjectMapper;
++import com.urbanairship.api.channel.model.ChannelType;
++import com.urbanairship.api.channel.model.open.Channel;
++import com.urbanairship.api.channel.model.open.OpenChannel;
++import com.urbanairship.api.channel.model.open.OpenChannelPayload;
++import com.urbanairship.api.push.parse.PushObjectMapper;
++import org.junit.Test;
++
++import java.io.IOException;
++
++import static org.junit.Assert.assertEquals;
++
++public class OpenChannelPayloadSerializerTest {
++    private static final ObjectMapper MAPPER = PushObjectMapper.getInstance();
++
++    @Test
++    public void testOpenChannelPayload() throws IOException {
++        OpenChannel openChannel = OpenChannel.newBuilder()
++                .setOpenPlatformName("email")
++                .setOldAddress("old_email@example.come")
++                .addIdentifier("com.example.external_id", "df6a6b50-9843-7894-1235-12aed4489489")
++                .build();
++
++        Channel channel = Channel.newBuilder()
++                .setOpenChannel(openChannel)
++                .setChannelType(ChannelType.OPEN)
++                .setOptIn(true)
++                .setAddress("new_email@example.com")
++                .setTags(true)
++                .addTag("asdf")
++                .setTimeZone("America/Los_Angeles")
++                .setLocaleCountry("US")
++                .setLocaleLanguage("en")
++                .build();
++
++        OpenChannelPayload payload = new OpenChannelPayload(channel);
++
++
++        String parsedJson = MAPPER.writeValueAsString(payload);
++        String jsonString = "{\n" +
++                "    \"channel\": {\n" +
++                "        \"type\": \"open\",\n" +
++                "        \"address\": \"new_email@example.com\",\n" +
++                "        \"open\": {\n" +
++                "            \"open_platform_name\": \"email\",\n" +
++                "            \"old_address\": \"old_email@example.come\",\n" +
++                "            \"identifiers\": {\n" +
++                "                \"com.example.external_id\": \"df6a6b50-9843-7894-1235-12aed4489489\"\n" +
++                "            }\n" +
++                "        },\n" +
++                "        \"opt_in\": true,\n" +
++                "        \"set_tags\": true,\n" +
++                "        \"tags\": [\n" +
++                "            \"asdf\"\n" +
++                "        ],\n" +
++                "        \"timezone\": \"America/Los_Angeles\",\n" +
++                "        \"locale_country\": \"US\",\n" +
++                "        \"locale_language\": \"en\"\n" +
++                "    }\n" +
++                "}";
++
++        JsonNode actual = MAPPER.readTree(parsedJson);
++        JsonNode expected = MAPPER.readTree(jsonString);
++
++        assertEquals(actual, expected);
++    }
++}
+diff --git a/src/test/java/com/urbanairship/api/client/UrbanAirshipClientTest.java b/src/test/java/com/urbanairship/api/client/UrbanAirshipClientTest.java
+index 65dcb78..4562abc 100644
+--- a/src/test/java/com/urbanairship/api/client/UrbanAirshipClientTest.java
++++ b/src/test/java/com/urbanairship/api/client/UrbanAirshipClientTest.java
+@@ -143,8 +143,6 @@ public class UrbanAirshipClientTest {
+     public void setup() {
+         asyncRequestClient = AsyncRequestClient.newBuilder()
+                 .setBaseUri("http://localhost:8080")
+-                .setKey("key")
+-                .setSecret("secret")
+                 .setMaxRetries(5)
+                 .setRetryPredicate(new Predicate<FilterContext>() {
+                     @Override
+@@ -155,6 +153,8 @@ public class UrbanAirshipClientTest {
+                 .build();
+ 
+         client = UrbanAirshipClient.newBuilder()
++                .setKey("key")
++                .setSecret("secret")
+                 .setClient(asyncRequestClient)
+                 .build();
+     }
+@@ -209,12 +209,11 @@ public class UrbanAirshipClientTest {
+                 .setScheme(Realm.AuthScheme.BASIC)
+                 .build();
+ 
+-        ProxyServer.Builder proxyServer = new ProxyServer.Builder("test.urbanairship.com", 8080)
+-                .setRealm(realm);
++        ProxyServer proxyServer = new ProxyServer.Builder("test.urbanairship.com", 8080)
++                .setRealm(realm)
++                .build();
+ 
+         AsyncRequestClient proxyClient = AsyncRequestClient.newBuilder()
+-                .setKey("key")
+-                .setSecret("secret")
+                 .setProxyServer(proxyServer)
+                 .build();
+ 
+@@ -244,8 +243,6 @@ public class UrbanAirshipClientTest {
+                 .setConnectTimeout(20);
+ 
+         AsyncRequestClient client = AsyncRequestClient.newBuilder()
+-                .setKey("key")
+-                .setSecret("secret")
+                 .setClientConfigBuilder(defualtClientBuilder)
+                 .build();
+ 
+@@ -442,8 +439,6 @@ public class UrbanAirshipClientTest {
+     public void testRetryIsNonBlocking() throws Exception {
+         asyncRequestClient = AsyncRequestClient.newBuilder()
+             .setBaseUri("http://localhost:8080")
+-            .setKey("key")
+-            .setSecret("secret")
+             .setMaxRetries(1000)
+             .build();
+ 
+@@ -497,8 +492,6 @@ public class UrbanAirshipClientTest {
+     public void testClose() throws Exception {
+         asyncRequestClient = AsyncRequestClient.newBuilder()
+             .setBaseUri("http://localhost:8080")
+-            .setKey("key")
+-            .setSecret("secret")
+             .setMaxRetries(1000)
+             .build();
+ 
+@@ -627,9 +620,11 @@ public class UrbanAirshipClientTest {
+                         .withStatus(500)));
+ 
+         final CountDownLatch latch = new CountDownLatch(1);
+-        asyncRequestClient.executeAsync(PushRequest.newRequest(payload), new ResponseCallback() {
++
++        client.executeAsync(PushRequest.newRequest(payload), new ResponseCallback() {
+             @Override
+             public void completed(Response response) {
++
+             }
+ 
+             @Override
+@@ -660,7 +655,8 @@ public class UrbanAirshipClientTest {
+                         .withStatus(500)));
+ 
+         final CountDownLatch latch = new CountDownLatch(1);
+-        asyncRequestClient.executeAsync(PushRequest.newRequest(payload), new ResponseCallback() {
++
++        client.executeAsync(PushRequest.newRequest(payload), new ResponseCallback() {
+             @Override
+             public void completed(Response response) {
+             }
+@@ -693,7 +689,7 @@ public class UrbanAirshipClientTest {
+                         .withStatus(503)));
+ 
+         final CountDownLatch latch = new CountDownLatch(1);
+-        asyncRequestClient.executeAsync(PushRequest.newRequest(payload), new ResponseCallback() {
++        client.executeAsync(PushRequest.newRequest(payload), new ResponseCallback() {
+             @Override
+             public void completed(Response response) {
+             }
+@@ -715,14 +711,13 @@ public class UrbanAirshipClientTest {
+                 .setScheme(Realm.AuthScheme.BASIC)
+                 .build();
+ 
+-        ProxyServer.Builder proxyServer = new ProxyServer.Builder("localhost", 8080)
+-            .setRealm(localRealm);
++        ProxyServer proxyServer = new ProxyServer.Builder("localhost", 8080)
++                .setRealm(localRealm)
++                .build();
+ 
+         // Setup a client and a push payload
+         AsyncRequestClient proxyClient = AsyncRequestClient.newBuilder()
+             .setBaseUri("http://localhost:8080")
+-            .setKey("key")
+-            .setSecret("secret")
+             .setProxyServer(proxyServer)
+             .build();
+ 
+diff --git a/src/test/java/com/urbanairship/api/nameduser/NamedUserRequestTest.java b/src/test/java/com/urbanairship/api/nameduser/NamedUserRequestTest.java
+index 425bcd9..ee989eb 100644
+--- a/src/test/java/com/urbanairship/api/nameduser/NamedUserRequestTest.java
++++ b/src/test/java/com/urbanairship/api/nameduser/NamedUserRequestTest.java
+@@ -91,5 +91,4 @@ public class NamedUserRequestTest {
+         assertEquals(response, associationRequest.getResponseParser().parse(response));
+         assertEquals(response, disassociationRequest.getResponseParser().parse(response));
+     }
+-
+ }
+diff --git a/src/test/java/com/urbanairship/api/push/model/notification/open/OpenPayloadTest.java b/src/test/java/com/urbanairship/api/push/model/notification/open/OpenPayloadTest.java
+new file mode 100644
+index 0000000..0392925
+--- /dev/null
++++ b/src/test/java/com/urbanairship/api/push/model/notification/open/OpenPayloadTest.java
+@@ -0,0 +1,39 @@
++package com.urbanairship.api.push.model.notification.open;
++
++import com.google.common.collect.ImmutableMap;
++import com.urbanairship.api.push.model.DeviceType;
++import org.junit.Test;
++
++import static org.junit.Assert.assertEquals;
++import static org.junit.Assert.assertTrue;
++
++public class OpenPayloadTest {
++
++    @Test
++    public void testBuilder() {
++        DeviceType deviceTypeEmail = DeviceType.open("email");
++
++        ImmutableMap<String, String> extras = ImmutableMap.<String, String>builder()
++                .put("key", "value")
++                .put("second_key", "second_value")
++                .build();
++
++        OpenPayload openPayloadEmail = OpenPayload.newBuilder()
++                .setAlert("alert")
++                .setExtras(extras)
++                .setTitle("title")
++                .setMediaAttachment("example.com")
++                .setSummary("summary")
++                .setDeviceType(deviceTypeEmail)
++                .build();
++
++        assertTrue(openPayloadEmail.getExtras().isPresent());
++
++        assertEquals(openPayloadEmail.getExtras().get().get("key"), "value");
++        assertEquals(openPayloadEmail.getExtras().get().get("second_key"), "second_value");
++        assertEquals(openPayloadEmail.getAlert().get(), "alert");
++        assertEquals(openPayloadEmail.getTitle().get(), "title");
++        assertEquals(openPayloadEmail.getSummary().get(), "summary");
++        assertEquals(openPayloadEmail.getDeviceType(), deviceTypeEmail);
++    }
++}
+diff --git a/src/test/java/com/urbanairship/api/push/model/notification/web/WebSettingsDevicePayloadTest.java b/src/test/java/com/urbanairship/api/push/model/notification/web/WebSettingsDevicePayloadTest.java
+index 3974d89..07a0f71 100644
+--- a/src/test/java/com/urbanairship/api/push/model/notification/web/WebSettingsDevicePayloadTest.java
++++ b/src/test/java/com/urbanairship/api/push/model/notification/web/WebSettingsDevicePayloadTest.java
+@@ -19,6 +19,7 @@ public class WebSettingsDevicePayloadTest {
+                 .addExtraEntry("key", "value")
+                 .addExtraEntry("key2", "value2")
+                 .setWebIcon(webIcon)
++                .setRequireInteraction(true)
+                 .build();
+ 
+         assertTrue(m.getExtra().isPresent());
+@@ -37,6 +38,9 @@ public class WebSettingsDevicePayloadTest {
+ 
+         assertTrue(m.getWebIcon().isPresent());
+         assertEquals(m.getWebIcon().get(), webIcon);
++
++        assertTrue(m.getRequireInteraction().isPresent());
++        assertEquals(true, m.getRequireInteraction().get());
+     }
+ }
+ 
+diff --git a/src/test/java/com/urbanairship/api/push/parse/ChannelTypeBasicSerializationTest.java b/src/test/java/com/urbanairship/api/push/parse/ChannelTypeBasicSerializationTest.java
+index 4589a0c..14c2c04 100644
+--- a/src/test/java/com/urbanairship/api/push/parse/ChannelTypeBasicSerializationTest.java
++++ b/src/test/java/com/urbanairship/api/push/parse/ChannelTypeBasicSerializationTest.java
+@@ -16,7 +16,7 @@ public class ChannelTypeBasicSerializationTest {
+ 
+     @Test
+     public void testRoundTrip() throws Exception {
+-        Set<DeviceType> deviceType = EnumSet.allOf(DeviceType.class);
++        Set<DeviceType> deviceType = DeviceType.TYPES;
+ 
+         String json = mapper.writeValueAsString(deviceType);
+         Set<DeviceType> parsed = mapper.readValue(json, new TypeReference<Set<DeviceType>>() {
+diff --git a/src/test/java/com/urbanairship/api/push/parse/NotificationBasicSerializationTest.java b/src/test/java/com/urbanairship/api/push/parse/NotificationBasicSerializationTest.java
+index 413b2da..7bf320c 100644
+--- a/src/test/java/com/urbanairship/api/push/parse/NotificationBasicSerializationTest.java
++++ b/src/test/java/com/urbanairship/api/push/parse/NotificationBasicSerializationTest.java
+@@ -31,15 +31,6 @@ public class NotificationBasicSerializationTest {
+         parsed = mapper.readValue(json, Notification.class);
+ 
+         assertEquals(notification, parsed);
+-
+-/*        notification = Notification.newBuilder()
+-            .addPlatformOverride(Platform.WNS, new WNSDevicePayload(null))
+-            .build();
+-
+-        json = mapper.writeValueAsString(notification);
+-        parsed = mapper.readValue(json, Notification.class);
+-
+-        assertEquals(notification, parsed); */
+     }
+ 
+     @Test(expected = APIParsingException.class)
+diff --git a/src/test/java/com/urbanairship/api/push/parse/PushPayloadBasicSerializationTest.java b/src/test/java/com/urbanairship/api/push/parse/PushPayloadBasicSerializationTest.java
+index 4c3c27e..1e86359 100644
+--- a/src/test/java/com/urbanairship/api/push/parse/PushPayloadBasicSerializationTest.java
++++ b/src/test/java/com/urbanairship/api/push/parse/PushPayloadBasicSerializationTest.java
+@@ -2,6 +2,7 @@ package com.urbanairship.api.push.parse;
+ 
+ import com.fasterxml.jackson.core.type.TypeReference;
+ import com.fasterxml.jackson.databind.JsonMappingException;
++import com.fasterxml.jackson.databind.JsonNode;
+ import com.fasterxml.jackson.databind.ObjectMapper;
+ import com.urbanairship.api.common.parse.APIParsingException;
+ import com.urbanairship.api.push.model.DeviceType;
+@@ -11,6 +12,7 @@ import com.urbanairship.api.push.model.Position;
+ import com.urbanairship.api.push.model.PushPayload;
+ import com.urbanairship.api.push.model.audience.Selectors;
+ import com.urbanairship.api.push.model.notification.Notification;
++import com.urbanairship.api.push.model.notification.Notifications;
+ import com.urbanairship.api.push.model.notification.adm.ADMDevicePayload;
+ import com.urbanairship.api.push.model.notification.android.AndroidDevicePayload;
+ import com.urbanairship.api.push.model.notification.ios.IOSDevicePayload;
+@@ -33,6 +35,58 @@ public class PushPayloadBasicSerializationTest {
+     private static final ObjectMapper mapper = PushObjectMapper.getInstance();
+ 
+     @Test
++    public void testOpenChannel() throws Exception {
++        PushPayload pushPayload = PushPayload.newBuilder()
++                .setNotification(Notifications.alert("alert"))
++                .setAudience(Selectors.open("open_channel"))
++                .setDeviceTypes(DeviceTypeData.of(DeviceType.open("sms")))
++                .build();
++
++        String json = "{\n" +
++                "    \"audience\": {\n" +
++                "        \"open_channel\": \"open_channel\"\n" +
++                "    },\n" +
++                "    \"device_types\": [\n" +
++                "        \"open::sms\"\n" +
++                "    ],\n" +
++                "    \"notification\": {\n" +
++                "        \"alert\": \"alert\"\n" +
++                "    }\n" +
++                "}";
++
++        PushPayload secondPush = PushPayload.newBuilder()
++                .setNotification(Notifications.alert("alert"))
++                .setAudience(Selectors.open("open_channel"))
++                .setDeviceTypes(DeviceTypeData.of(DeviceType.open("email")))
++                .build();
++
++        String secondPayloadJson = "{\n" +
++                "    \"audience\": {\n" +
++                "        \"open_channel\": \"open_channel\"\n" +
++                "    },\n" +
++                "    \"device_types\": [\n" +
++                "        \"open::email\"\n" +
++                "    ],\n" +
++                "    \"notification\": {\n" +
++                "        \"alert\": \"alert\"\n" +
++                "    }\n" +
++                "}";
++
++        String parsedJson = mapper.writeValueAsString(pushPayload);
++        String secondParsedJson = mapper.writeValueAsString(secondPush);
++
++        JsonNode actual = mapper.readTree(parsedJson);
++        JsonNode expected = mapper.readTree(json);
++
++        JsonNode actualSecondPush = mapper.readTree(secondParsedJson);
++        JsonNode expectedSecondPush = mapper.readTree(secondPayloadJson);
++
++        assertEquals(actual, expected);
++        assertEquals(actualSecondPush, expectedSecondPush);
++    }
++
++
++    @Test
+     public void testArrayOfPushes() throws Exception {
+         String json = "["
+                 + "  { "
+diff --git a/src/test/java/com/urbanairship/api/push/parse/notification/open/OpenPayloadSerializerTest.java b/src/test/java/com/urbanairship/api/push/parse/notification/open/OpenPayloadSerializerTest.java
+new file mode 100644
+index 0000000..499ed96
+--- /dev/null
++++ b/src/test/java/com/urbanairship/api/push/parse/notification/open/OpenPayloadSerializerTest.java
+@@ -0,0 +1,113 @@
++package com.urbanairship.api.push.parse.notification.open;
++
++import com.fasterxml.jackson.databind.JsonNode;
++import com.fasterxml.jackson.databind.ObjectMapper;
++import com.google.common.collect.ImmutableMap;
++import com.urbanairship.api.push.model.DeviceType;
++import com.urbanairship.api.push.model.DeviceTypeData;
++import com.urbanairship.api.push.model.PushPayload;
++import com.urbanairship.api.push.model.audience.Selectors;
++import com.urbanairship.api.push.model.notification.Interactive;
++import com.urbanairship.api.push.model.notification.Notifications;
++import com.urbanairship.api.push.model.notification.actions.Actions;
++import com.urbanairship.api.push.model.notification.actions.AddTagAction;
++import com.urbanairship.api.push.model.notification.actions.RemoveTagAction;
++import com.urbanairship.api.push.model.notification.actions.TagActionData;
++import com.urbanairship.api.push.model.notification.open.OpenPayload;
++import com.urbanairship.api.push.parse.PushObjectMapper;
++import org.junit.Test;
++
++import static org.junit.Assert.assertEquals;
++
++public class OpenPayloadSerializerTest {
++    private static final ObjectMapper MAPPER = PushObjectMapper.getInstance();
++
++    @Test
++    public void testOpenPayload() throws Exception {
++        DeviceType deviceTypeEmail = DeviceType.open("email");
++        DeviceType deviceTypeSms = DeviceType.open("sms");
++
++        AddTagAction butterTag = new AddTagAction(TagActionData.single("butter"));
++        RemoveTagAction coolTag = new RemoveTagAction(TagActionData.single("cool"));
++
++        ImmutableMap<String, Actions> buttonActions = ImmutableMap.<String,Actions>builder()
++                .put("yes", Actions.newBuilder().addTags(butterTag).build())
++                .put("no", Actions.newBuilder().removeTags(coolTag).build())
++                .build();
++
++        Interactive interactive = Interactive.newBuilder()
++                .setType("ua_yes_no_foreground")
++                .setButtonActions(buttonActions)
++                .build();
++
++        ImmutableMap<String, String> extras = ImmutableMap.<String, String>builder()
++                .put("key", "value")
++                .put("second_key", "second_value")
++                .build();
++
++        OpenPayload openPayloadEmail = OpenPayload.newBuilder()
++                .setAlert("alert")
++                .setExtras(extras)
++                .setInteractive(interactive)
++                .setTitle("title")
++                .setMediaAttachment("example.com")
++                .setSummary("summary")
++                .setDeviceType(deviceTypeEmail)
++                .build();
++
++        OpenPayload openPayloadSms = OpenPayload.newBuilder()
++                .setAlert("sms alert")
++                .setTitle("sms title")
++                .setDeviceType(deviceTypeSms)
++                .build();
++
++        PushPayload payload = PushPayload.newBuilder()
++                .setNotification(Notifications.notification(openPayloadEmail, openPayloadSms))
++                .setDeviceTypes(DeviceTypeData.of(deviceTypeEmail, deviceTypeSms))
++                .setAudience(Selectors.tag("tag1"))
++                .build();
++
++        String json = "{\n" +
++                "    \"audience\": {\n" +
++                "        \"tag\": \"tag1\"\n" +
++                "    },\n" +
++                "    \"device_types\": [\n" +
++                "        \"open::email\",\n" +
++                "        \"open::sms\"\n" +
++                "    ],\n" +
++                "    \"notification\": {\n" +
++                "        \"open::sms\": {\n" +
++                "            \"alert\": \"sms alert\",\n" +
++                "            \"title\": \"sms title\"\n" +
++                "        },\n" +
++                "        \"open::email\": {\n" +
++                "            \"alert\": \"alert\",\n" +
++                "            \"extra\": {\n" +
++                "                \"key\": \"value\",\n" +
++                "                \"second_key\": \"second_value\"\n" +
++                "            },\n" +
++                "            \"interactive\": {\n" +
++                "                \"type\": \"ua_yes_no_foreground\",\n" +
++                "                \"button_actions\": {\n" +
++                "                    \"yes\": {\n" +
++                "                        \"add_tag\": \"butter\"\n" +
++                "                    },\n" +
++                "                    \"no\": {\n" +
++                "                        \"remove_tag\": \"cool\"\n" +
++                "                    }\n" +
++                "                }\n" +
++                "            },\n" +
++                "            \"media_attachment\": \"example.com\",\n" +
++                "            \"title\": \"title\",\n" +
++                "            \"summary\": \"summary\"\n" +
++                "        }\n" +
++                "    }\n" +
++                "}";
++        String parsedJson = MAPPER.writeValueAsString(payload);
++
++        JsonNode actual = MAPPER.readTree(parsedJson);
++        JsonNode expected = MAPPER.readTree(json);
++
++        assertEquals(expected, actual);
++    }
++}
+diff --git a/src/test/java/com/urbanairship/api/push/parse/notification/web/PayloadDeserializerTest.java b/src/test/java/com/urbanairship/api/push/parse/notification/web/PayloadDeserializerTest.java
+index b60d73d..071441d 100644
+--- a/src/test/java/com/urbanairship/api/push/parse/notification/web/PayloadDeserializerTest.java
++++ b/src/test/java/com/urbanairship/api/push/parse/notification/web/PayloadDeserializerTest.java
+@@ -100,4 +100,21 @@ public class PayloadDeserializerTest {
+         assertNotNull(payload);
+         assertEquals(webIcon, payload.getWebIcon().get());
+     }
++
++    @Test
++    public void testRequireInteraction() throws Exception {
++        String json =
++                "{" +
++                        "\"require_interaction\":" +
++                        "true" +
++                        "}";
++
++        WebDevicePayload expected = WebDevicePayload.newBuilder()
++                .setRequireInteraction(true)
++                .build();
++
++        WebDevicePayload payload = MAPPER.readValue(json, WebDevicePayload.class);
++        assertNotNull(payload);
++        assertEquals(expected.getRequireInteraction().get(), payload.getRequireInteraction().get());
++    }
+ }
+diff --git a/src/test/java/com/urbanairship/api/push/parse/notification/web/PayloadSerializerTest.java b/src/test/java/com/urbanairship/api/push/parse/notification/web/PayloadSerializerTest.java
+index a8be15f..2793a03 100644
+--- a/src/test/java/com/urbanairship/api/push/parse/notification/web/PayloadSerializerTest.java
++++ b/src/test/java/com/urbanairship/api/push/parse/notification/web/PayloadSerializerTest.java
+@@ -24,14 +24,17 @@ public class PayloadSerializerTest {
+                 .setTitle("WebSettings title")
+                 .addExtraEntry("extrakey", "extravalue")
+                 .setWebIcon(webIcon)
++                .setRequireInteraction(true)
+                 .build();
+ 
+         String expected = "{" +
+                     "\"alert\":\"WebSettings specific alert\"," +
+                     "\"extra\":{\"extrakey\":\"extravalue\"}," +
+                     "\"icon\":{\"url\":\"https://i.ytimg.com/vi/PNgykntrIzE/maxresdefault.jpg\"}," +
+-                    "\"title\":\"WebSettings title\"" +
+-                "}";
++                    "\"title\":\"WebSettings title\"," +
++                    "\"require_interaction\":true" +
++
++        "}";
+ 
+         String parsedJson = MAPPER.writeValueAsString(webPayload);
+         WebDevicePayload roundTripWebPayload = MAPPER.readValue(parsedJson, WebDevicePayload.class);
+diff --git a/src/test/java/com/urbanairship/api/schedule/SchedulePayloadDeserializerTest.java b/src/test/java/com/urbanairship/api/schedule/SchedulePayloadDeserializerTest.java
+index 1d4ebed..0fd0dc7 100644
+--- a/src/test/java/com/urbanairship/api/schedule/SchedulePayloadDeserializerTest.java
++++ b/src/test/java/com/urbanairship/api/schedule/SchedulePayloadDeserializerTest.java
+@@ -5,18 +5,26 @@ import com.fasterxml.jackson.databind.ObjectMapper;
+ import com.google.common.base.Optional;
+ import com.urbanairship.api.common.parse.APIParsingException;
+ import com.urbanairship.api.common.parse.DateFormats;
++import com.urbanairship.api.push.model.DeviceTypeData;
++import com.urbanairship.api.push.model.PushPayload;
++import com.urbanairship.api.push.model.audience.Selectors;
++import com.urbanairship.api.push.model.notification.Notification;
+ import com.urbanairship.api.push.parse.PushObjectMapper;
++import com.urbanairship.api.schedule.model.BestTime;
++import com.urbanairship.api.schedule.model.Schedule;
+ import com.urbanairship.api.schedule.model.SchedulePayload;
+ import org.apache.commons.lang.RandomStringUtils;
++import org.joda.time.DateTime;
++import org.junit.Rule;
+ import org.junit.Test;
+-
++import org.junit.rules.ExpectedException;
+ import java.util.List;
+ 
+-import static org.junit.Assert.assertEquals;
+-import static org.junit.Assert.assertNotNull;
+-
+ public class SchedulePayloadDeserializerTest {
+ 
++    @Rule
++    public ExpectedException thrown = ExpectedException.none();
++
+     private static final ObjectMapper MAPPER = PushObjectMapper.getInstance();
+ 
+     @Test
+@@ -40,16 +48,41 @@ public class SchedulePayloadDeserializerTest {
+ 
+         SchedulePayload payload = MAPPER.readValue(json, SchedulePayload.class);
+ 
+-        assertNotNull(payload);
+-        assertEquals(payload.getName(), Optional.of(name));
+-        assertEquals(payload.getSchedule().getScheduledTimestamp(), DateFormats.DATE_PARSER.parseDateTime("2013-05-05 00:00:01"));
++        org.junit.Assert.assertNotNull(payload);
++        junit.framework.Assert.assertEquals(payload.getName(), Optional.of(name));
++        junit.framework.Assert.assertEquals(payload.getSchedule().getScheduledTimestamp(), DateFormats.DATE_PARSER.parseDateTime("2013-05-05 00:00:01"));
+ 
+         List<SchedulePayload> payloadList = MAPPER.readValue(json, new TypeReference<List<SchedulePayload>>() {
+         });
+ 
+-        assertNotNull(payloadList);
+-        assertEquals(payloadList.size(), 1);
++        org.junit.Assert.assertNotNull(payloadList);
++        junit.framework.Assert.assertEquals(payloadList.size(), 1);
++    }
+ 
++    @Test
++    public void testBestTimeDeserialization() throws Exception {
++
++        SchedulePayload payload = SchedulePayload.newBuilder()
++                .setSchedule(Schedule.newBuilder()
++                        .setBestTime(BestTime.newBuilder()
++                                .setSendDate(DateTime.now())
++                                .build())
++                        .build())
++                .setName("BestTimePushPayload")
++                .setPushPayload(PushPayload.newBuilder()
++                        .setAudience(Selectors.all())
++                        .setDeviceTypes(DeviceTypeData.all())
++                        .setNotification(Notification.newBuilder()
++                                .setAlert("Hello Everyone")
++                                .build())
++                        .build())
++                .build();
++
++        String json = MAPPER.writeValueAsString(payload);
++
++        SchedulePayload fromJson = MAPPER.readValue(json, SchedulePayload.class);
++
++        junit.framework.Assert.assertEquals(payload, fromJson);
+     }
+ 
+     @Test
+@@ -68,13 +101,14 @@ public class SchedulePayloadDeserializerTest {
+ 
+         SchedulePayload payload = MAPPER.readValue(json, SchedulePayload.class);
+ 
+-        assertNotNull(payload);
+-        assertEquals(payload.getName(), Optional.<String>absent());
+-        assertEquals(payload.getSchedule().getScheduledTimestamp(), DateFormats.DATE_PARSER.parseDateTime("2013-05-05 00:00:01"));
++        org.junit.Assert.assertNotNull(payload);
++        junit.framework.Assert.assertEquals(payload.getName(), Optional.<String>absent());
++        junit.framework.Assert.assertEquals(payload.getSchedule().getScheduledTimestamp(), DateFormats.DATE_PARSER.parseDateTime("2013-05-05 00:00:01"));
+     }
+ 
+-    @Test(expected = APIParsingException.class)
++    @Test
+     public void testInvalidScheduleObject() throws Exception {
++        thrown.expect(APIParsingException.class);
+         String json =
+                 "{" +
+                         "\"schedule\": {" +
+@@ -91,9 +125,9 @@ public class SchedulePayloadDeserializerTest {
+ 
+     }
+ 
+-    @Test(expected = APIParsingException.class)
++    @Test
+     public void testInvalidName() throws Exception {
+-
++        thrown.expect(APIParsingException .class);
+         String json =
+                 "{" +
+                         "\"schedule\": {" +
+@@ -110,6 +144,5 @@ public class SchedulePayloadDeserializerTest {
+                         "}";
+ 
+         MAPPER.readValue(json, SchedulePayload.class);
+-
+     }
+ }
+\ No newline at end of file
+diff --git a/src/test/java/com/urbanairship/api/schedule/SchedulePayloadSerializerTest.java b/src/test/java/com/urbanairship/api/schedule/SchedulePayloadSerializerTest.java
+index 8113640..8b0244e 100644
+--- a/src/test/java/com/urbanairship/api/schedule/SchedulePayloadSerializerTest.java
++++ b/src/test/java/com/urbanairship/api/schedule/SchedulePayloadSerializerTest.java
+@@ -8,20 +8,17 @@ import com.urbanairship.api.push.model.PushOptions;
+ import com.urbanairship.api.push.model.PushPayload;
+ import com.urbanairship.api.push.model.audience.Selectors;
+ import com.urbanairship.api.push.model.notification.Notification;
+-import com.urbanairship.api.push.parse.PushObjectMapper;
++import com.urbanairship.api.schedule.model.BestTime;
+ import com.urbanairship.api.schedule.model.Schedule;
+ import com.urbanairship.api.schedule.model.SchedulePayload;
++import com.urbanairship.api.schedule.parse.ScheduleObjectMapper;
+ import org.joda.time.DateTime;
+ import org.joda.time.DateTimeZone;
+ import org.junit.Test;
+ 
+-import static org.junit.Assert.assertEquals;
+-import static org.junit.Assert.assertFalse;
+-import static org.junit.Assert.assertTrue;
+-
+ public class SchedulePayloadSerializerTest {
+ 
+-    private static final ObjectMapper MAPPER = PushObjectMapper.getInstance();
++    private static final ObjectMapper MAPPER = ScheduleObjectMapper.getInstance();
+ 
+     @Test
+     public void testSerialization() throws Exception {
+@@ -43,7 +40,32 @@ public class SchedulePayloadSerializerTest {
+ 
+         String properJson = "{\"schedule\":{\"scheduled_time\":\"2013-05-05T00:00:01\"},\"push\":{\"audience\":{\"tag\":\"tag\"},\"device_types\":[\"ios\"],\"notification\":{\"alert\":\"alert\"},\"options\":{}}}";
+ 
+-        assertEquals(json, properJson);
++        org.junit.Assert.assertEquals(json, properJson);
++    }
++
++    @Test
++    public void testBestTimeSerialization() throws Exception {
++        BestTime bestTime = BestTime.newBuilder()
++                .setSendDate(new DateTime("2013-05-05T00:00:01", DateTimeZone.UTC))
++                .build();
++
++        PushPayload pushPayload = PushPayload.newBuilder()
++                .setAudience(Selectors.tag("tag"))
++                .setDeviceTypes(DeviceTypeData.newBuilder().addDeviceType(DeviceType.IOS).build())
++                .setNotification(Notification.newBuilder().setAlert("alert").build())
++                .setPushOptions(PushOptions.newBuilder().build())
++                .build();
++        SchedulePayload schedulePayload = SchedulePayload.newBuilder()
++                .setSchedule(Schedule.newBuilder()
++                        .setBestTime(bestTime)
++                        .build())
++                .setPushPayload(pushPayload)
++                .build();
++
++        String json = MAPPER.writeValueAsString(schedulePayload);
++
++        String properJson = "{\"schedule\":{\"best_time\":{\"send_date\":\"2013-05-05\"}},\"push\":{\"audience\":{\"tag\":\"tag\"},\"device_types\":[\"ios\"],\"notification\":{\"alert\":\"alert\"},\"options\":{}}}";
++        org.junit.Assert.assertEquals(json, properJson);
+     }
+ 
+     @Test(expected = Exception.class)
+@@ -63,7 +85,7 @@ public class SchedulePayloadSerializerTest {
+         String json = MAPPER.writeValueAsString(schedulePayload);
+         String properJson = "{\"schedule\":{},\"push\":{\"audience\":{\"tag\":\"tag\"},\"device_types\":[\"ios\"],\"notification\":{\"alert\":\"alert\"},\"options\":{\"present\":true}}}";
+ 
+-        assertEquals(json, properJson);
++        org.junit.Assert.assertEquals(json, properJson);
+ 
+     }
+ 
+@@ -83,7 +105,7 @@ public class SchedulePayloadSerializerTest {
+                 .setPushPayload(pushPayload)
+                 .build();
+ 
+-        assertFalse(schedulePayload.getSchedule().getLocalTimePresent());
++        org.junit.Assert.assertFalse(schedulePayload.getSchedule().getLocalTimePresent());
+ 
+         PushPayload pushPayloadLocal = PushPayload.newBuilder()
+                 .setAudience(Selectors.tag("tag"))
+@@ -107,8 +129,8 @@ public class SchedulePayloadSerializerTest {
+         JsonNode jsonNode = MAPPER.readTree(scheduleString);
+         JsonNode jsonNodeExpected = MAPPER.readTree(expectedScheduled);
+ 
+-        assertTrue(schedulePayloadLocal.getSchedule().getLocalTimePresent());
+-        assertEquals(jsonNodeExpected, jsonNode);
++        org.junit.Assert.assertTrue(schedulePayloadLocal.getSchedule().getLocalTimePresent());
++        org.junit.Assert.assertEquals(jsonNodeExpected, jsonNode);
+     }
+ 
+ }
+diff --git a/src/test/java/com/urbanairship/api/schedule/ScheduleSerializerTest.java b/src/test/java/com/urbanairship/api/schedule/ScheduleSerializerTest.java
+new file mode 100644
+index 0000000..5e54db3
+--- /dev/null
++++ b/src/test/java/com/urbanairship/api/schedule/ScheduleSerializerTest.java
+@@ -0,0 +1,61 @@
++package com.urbanairship.api.schedule;
++
++import com.fasterxml.jackson.databind.ObjectMapper;
++import com.urbanairship.api.push.model.DeviceType;
++import com.urbanairship.api.push.model.DeviceTypeData;
++import com.urbanairship.api.push.model.PushOptions;
++import com.urbanairship.api.push.model.PushPayload;
++import com.urbanairship.api.push.model.audience.Selectors;
++import com.urbanairship.api.push.model.notification.Notification;
++import com.urbanairship.api.push.parse.PushObjectMapper;
++import com.urbanairship.api.schedule.model.BestTime;
++import com.urbanairship.api.schedule.model.Schedule;
++import com.urbanairship.api.schedule.model.SchedulePayload;
++import com.urbanairship.api.schedule.parse.ScheduleObjectMapper;
++import org.joda.time.DateTime;
++import org.joda.time.DateTimeZone;
++import org.junit.Test;
++
++import static org.junit.Assert.assertEquals;
++
++public class ScheduleSerializerTest {
++
++    private static final ObjectMapper MAPPER = ScheduleObjectMapper.getInstance();
++
++    @Test
++    public void testSerialization() throws Exception {
++
++        PushPayload pushPayload = PushPayload.newBuilder()
++                .setAudience(Selectors.tag("tag"))
++                .setDeviceTypes(DeviceTypeData.newBuilder().addDeviceType(DeviceType.IOS).build())
++                .setNotification(Notification.newBuilder().setAlert("alert").build())
++                .setPushOptions(PushOptions.newBuilder().build())
++                .build();
++        SchedulePayload schedulePayload = SchedulePayload.newBuilder()
++                .setSchedule(Schedule.newBuilder()
++                        .setScheduledTimestamp(new DateTime("2013-05-05T00:00:01", DateTimeZone.UTC))
++                        .build())
++                .setPushPayload(pushPayload)
++                .build();
++
++        String json = MAPPER.writeValueAsString(schedulePayload);
++
++        String properJson = "{\"schedule\":{\"scheduled_time\":\"2013-05-05T00:00:01\"},\"push\":{\"audience\":{\"tag\":\"tag\"},\"device_types\":[\"ios\"],\"notification\":{\"alert\":\"alert\"},\"options\":{}}}";
++
++        assertEquals(json, properJson);
++
++        BestTime bestTime = BestTime.newBuilder()
++                .setSendDate(DateTime.now())
++                .build();
++
++        Schedule schedule = Schedule.newBuilder()
++                .setBestTime(bestTime)
++                .build();
++
++        String scheduledBestTimeJson = MAPPER.writeValueAsString(schedule);
++
++        System.out.println(scheduledBestTimeJson);
++
++    }
++
++}
+diff --git a/src/test/java/com/urbanairship/api/schedule/ScheduleTest.java b/src/test/java/com/urbanairship/api/schedule/ScheduleTest.java
+new file mode 100644
+index 0000000..d9d0918
+--- /dev/null
++++ b/src/test/java/com/urbanairship/api/schedule/ScheduleTest.java
+@@ -0,0 +1,76 @@
++package com.urbanairship.api.schedule;
++
++import com.urbanairship.api.schedule.model.BestTime;
++import com.urbanairship.api.schedule.model.Schedule;
++import org.joda.time.DateTime;
++import org.junit.Assert;
++import org.junit.Before;
++import org.junit.Rule;
++import org.junit.Test;
++import org.junit.rules.ExpectedException;
++
++public class ScheduleTest {
++
++    private DateTime dateTime;
++
++    @Before
++    public void setUp() {
++        dateTime = DateTime.now();
++    }
++
++    @Rule
++    public ExpectedException thrown = ExpectedException.none();
++
++    /**
++     * Neither setScheduledTimestamp nor setBestTime called
++     */
++    @Test
++    public void testScheduledTimeAndBestTimeBothAbsent() throws Exception {
++        thrown.expect(IllegalArgumentException.class);
++        Schedule schedule = Schedule.newBuilder()
++                .build();
++    }
++
++    /**
++     * Both setScheduledTimestamp and setBestTime called
++     */
++    @Test
++    public void testScheduledTimeAndBestTimeBothPresent() throws Exception {
++        thrown.expect(IllegalArgumentException.class);
++
++        Schedule schedule = Schedule.newBuilder()
++                .setScheduledTimestamp(dateTime)
++                .setBestTime(BestTime.newBuilder()
++                        .setSendDate(dateTime)
++                        .build())
++                .build();
++    }
++
++    /**
++     * Only setScheduledTimestamp, not setBestTime called
++     */
++    @Test
++    public void testScheduledTime() {
++
++        Schedule schedule = Schedule.newBuilder()
++                .setScheduledTimestamp(dateTime)
++                .build();
++
++        Assert.assertNotNull(schedule.getScheduledTimestamp() );
++    }
++
++    /**
++     * Only setBestTime called, not setScheduledTimestamp
++     */
++    @Test
++    public void testBestTime() {
++
++        Schedule schedule = Schedule.newBuilder()
++                .setBestTime(BestTime.newBuilder()
++                        .setSendDate(dateTime)
++                        .build())
++                .build();
++
++        Assert.assertNotNull(schedule.getBestTime());
++    }
++}

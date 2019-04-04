@@ -1,0 +1,45 @@
+diff --git a/src/main/java/org/apache/commons/io/serialization/ValidatingObjectInputStream.java b/src/main/java/org/apache/commons/io/serialization/ValidatingObjectInputStream.java
+index 24bb470..eb1aab5 100644
+--- a/src/main/java/org/apache/commons/io/serialization/ValidatingObjectInputStream.java
++++ b/src/main/java/org/apache/commons/io/serialization/ValidatingObjectInputStream.java
+@@ -93,7 +93,7 @@ public class ValidatingObjectInputStream extends ObjectInputStream {
+      * @throws InvalidClassException
+      */
+     protected void invalidClassNameFound(String className) throws InvalidClassException{
+-        throw new InvalidClassException("Class name not accepted: " + className);
++        throw new InvalidClassException("Class name not accepted");
+     }
+ 
+     @Override
+diff --git a/src/test/java/org/apache/commons/io/serialization/ValidatingObjectInputStreamTest.java b/src/test/java/org/apache/commons/io/serialization/ValidatingObjectInputStreamTest.java
+index 77725fc..940bfcc 100644
+--- a/src/test/java/org/apache/commons/io/serialization/ValidatingObjectInputStreamTest.java
++++ b/src/test/java/org/apache/commons/io/serialization/ValidatingObjectInputStreamTest.java
+@@ -18,8 +18,6 @@
+  */
+ package org.apache.commons.io.serialization;
+ 
+-import static org.junit.Assert.assertTrue;
+-import static org.junit.Assert.fail;
+ import static org.junit.Assert.assertEquals;
+ 
+ import java.io.ByteArrayInputStream;
+@@ -88,18 +86,6 @@ public class ValidatingObjectInputStreamTest {
+     }
+ 
+     @Test
+-    public void exceptionIncludesClassName() throws Exception {
+-        try {
+-            assertSerialization(
+-                    willClose(new ValidatingObjectInputStream(testStream)));
+-            fail("Expected an InvalidClassException");
+-        } catch(InvalidClassException ice) {
+-            final String name = OurTestClass.class.getName();
+-            assertTrue("Expecting message to contain " + name, ice.getMessage().contains(name));
+-        }
+-    }
+-
+-    @Test
+     public void acceptCustomMatcher() throws Exception {
+         assertSerialization(
+                 willClose(new ValidatingObjectInputStream(testStream))

@@ -1,0 +1,153 @@
+diff --git a/pom.xml b/pom.xml
+index cee13a1..c1c7c5d 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -100,7 +100,6 @@
+     <xwiki.enforcer.enforce-plugins.skip>${xwiki.enforcer.skip}</xwiki.enforcer.enforce-plugins.skip>
+     <xwiki.enforcer.enforce-jcl-log4j-isolation.skip>${xwiki.enforcer.skip}</xwiki.enforcer.enforce-jcl-log4j-isolation.skip>
+     <xwiki.enforcer.enforce-commons-lang3.skip>${xwiki.enforcer.skip}</xwiki.enforcer.enforce-commons-lang3.skip>
+-    <xwiki.enforcer.enforce-commons-configuration2.skip>${xwiki.enforcer.skip}</xwiki.enforcer.enforce-commons-configuration2.skip>
+     <xwiki.enforcer.enforce-upper-bounds.skip>${xwiki.enforcer.skip}</xwiki.enforcer.enforce-upper-bounds.skip>
+     <xwiki.enforcer.enforce-java.skip>${xwiki.enforcer.skip}</xwiki.enforcer.enforce-java.skip>
+     <xwiki.license.skip>false</xwiki.license.skip>
+@@ -347,23 +346,17 @@
+           </exclusion>
+         </exclusions>
+       </dependency>
+-      <!-- Old version of Commons Configuration, just making sure we end up with the last one -->
+       <dependency>
+-       <groupId>commons-configuration</groupId>
+-         <artifactId>commons-configuration</artifactId>
+-         <version>1.10</version>
+-         <!-- We want to choose the SLF4J binding only when XWiki is packaged. -->
+-         <exclusions>
+-           <exclusion>
+-             <groupId>commons-logging</groupId>
+-             <artifactId>commons-logging</artifactId>
+-           </exclusion>
+-         </exclusions>
+-      </dependency>
+-      <dependency>
+-        <groupId>org.apache.commons</groupId>
+-        <artifactId>commons-configuration2</artifactId>
+-        <version>2.1.1</version>
++        <groupId>commons-configuration</groupId>
++        <artifactId>commons-configuration</artifactId>
++        <version>1.10</version>
++        <!-- We want to choose the SLF4J binding only when XWiki is packaged. -->
++        <exclusions>
++          <exclusion>
++            <groupId>commons-logging</groupId>
++            <artifactId>commons-logging</artifactId>
++          </exclusion>
++        </exclusions>
+       </dependency>
+       <dependency>
+         <groupId>org.apache.commons</groupId>
+@@ -1152,27 +1145,6 @@
+               </rules>
+             </configuration>
+           </execution>
+-          <!-- Check that we're using commons-configuration3 and not commons-configuration -->
+-          <execution>
+-            <id>enforce-commons-configuration2</id>
+-            <goals>
+-              <goal>enforce</goal>
+-            </goals>
+-            <configuration>
+-              <skip>${xwiki.enforcer.enforce-commons-configuration2.skip}</skip>
+-              <rules>
+-                <bannedDependencies>
+-                  <searchTransitive>false</searchTransitive>
+-                  <message>
+-                    Best practice is to use Commons Configuration 2.x
+-                  </message>
+-                  <excludes>
+-                    <exclude>commons-configuration:commons-configuration</exclude>
+-                  </excludes>
+-                </bannedDependencies>
+-              </rules>
+-            </configuration>
+-          </execution>
+           <!-- Check dependency versions compatibility -->
+           <execution>
+             <id>enforce-upper-bounds</id>
+diff --git a/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-test/pom.xml b/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-test/pom.xml
+index fa83d90..b0f69c9 100644
+--- a/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-test/pom.xml
++++ b/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-test/pom.xml
+@@ -53,8 +53,8 @@
+       <artifactId>commons-io</artifactId>
+     </dependency>
+     <dependency>
+-      <groupId>org.apache.commons</groupId>
+-      <artifactId>commons-configuration2</artifactId>
++      <groupId>commons-configuration</groupId>
++      <artifactId>commons-configuration</artifactId>
+     </dependency>
+     <dependency>
+       <groupId>org.apache.commons</groupId>
+diff --git a/xwiki-commons-core/xwiki-commons-job/pom.xml b/xwiki-commons-core/xwiki-commons-job/pom.xml
+index 31dce3b..aa938e8 100644
+--- a/xwiki-commons-core/xwiki-commons-job/pom.xml
++++ b/xwiki-commons-core/xwiki-commons-job/pom.xml
+@@ -83,8 +83,8 @@
+       <artifactId>commons-lang3</artifactId>
+     </dependency>
+     <dependency>
+-      <groupId>org.apache.commons</groupId>
+-      <artifactId>commons-configuration2</artifactId>
++      <groupId>commons-configuration</groupId>
++      <artifactId>commons-configuration</artifactId>
+     </dependency>
+     <dependency>
+       <groupId>com.thoughtworks.xstream</groupId>
+diff --git a/xwiki-commons-core/xwiki-commons-job/src/main/java/org/xwiki/job/internal/DefaultJobStatusStore.java b/xwiki-commons-core/xwiki-commons-job/src/main/java/org/xwiki/job/internal/DefaultJobStatusStore.java
+index 343bb98..6edd7d7 100644
+--- a/xwiki-commons-core/xwiki-commons-job/src/main/java/org/xwiki/job/internal/DefaultJobStatusStore.java
++++ b/xwiki-commons-core/xwiki-commons-job/src/main/java/org/xwiki/job/internal/DefaultJobStatusStore.java
+@@ -32,9 +32,8 @@
+ import javax.inject.Inject;
+ import javax.inject.Singleton;
+ 
+-import org.apache.commons.configuration2.PropertiesConfiguration;
+-import org.apache.commons.configuration2.builder.FileBasedConfigurationBuilder;
+-import org.apache.commons.configuration2.builder.fluent.Parameters;
++import org.apache.commons.configuration.ConfigurationException;
++import org.apache.commons.configuration.PropertiesConfiguration;
+ import org.apache.commons.io.FileUtils;
+ import org.apache.commons.lang3.StringUtils;
+ import org.apache.commons.lang3.concurrent.BasicThreadFactory;
+@@ -141,15 +140,14 @@ public void initialize() throws InitializationException
+             this.serializer = new JobStatusSerializer();
+ 
+             // Check if the store need to be upgraded
+-            FileBasedConfigurationBuilder<PropertiesConfiguration> builder = getStoreProperties();
+-            PropertiesConfiguration properties = builder.getConfiguration();
++            PropertiesConfiguration properties = getStoreProperties();
+             int version = properties.getInt(INDEX_FILE_VERSION, 0);
+             if (VERSION > version) {
+                 repair();
+ 
+                 // Update version
+                 properties.setProperty(INDEX_FILE_VERSION, VERSION);
+-                builder.save();
++                properties.save();
+             }
+         } catch (Exception e) {
+             this.logger.error("Failed to load jobs", e);
+@@ -294,12 +292,11 @@ private File getJobFolder(List<String> id)
+         return folder;
+     }
+ 
+-    private FileBasedConfigurationBuilder<PropertiesConfiguration> getStoreProperties()
++    private PropertiesConfiguration getStoreProperties() throws ConfigurationException
+     {
+         File folder = this.configuration.getStorage();
+ 
+-        return new FileBasedConfigurationBuilder<PropertiesConfiguration>(PropertiesConfiguration.class)
+-            .configure(new Parameters().properties().setFile(new File(folder, INDEX_FILE)));
++        return new PropertiesConfiguration(new File(folder, INDEX_FILE));
+     }
+ 
+     /**

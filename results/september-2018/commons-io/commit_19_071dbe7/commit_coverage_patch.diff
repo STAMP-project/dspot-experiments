@@ -1,0 +1,91 @@
+diff --git a/src/main/java/org/apache/commons/io/input/UnixLineEndingInputStream.java b/src/main/java/org/apache/commons/io/input/UnixLineEndingInputStream.java
+index a34647a..6aa234d 100644
+--- a/src/main/java/org/apache/commons/io/input/UnixLineEndingInputStream.java
++++ b/src/main/java/org/apache/commons/io/input/UnixLineEndingInputStream.java
+@@ -29,6 +29,8 @@ public class UnixLineEndingInputStream extends InputStream {
+ 
+     private boolean slashNSeen = false;
+ 
++    private boolean slashRSeen = false;
++
+     private boolean eofSeen = false;
+ 
+     private final InputStream target;
+@@ -53,6 +55,7 @@ public class UnixLineEndingInputStream extends InputStream {
+             return target;
+         }
+         slashNSeen = target == '\n';
++        slashRSeen = target == '\r';
+         return target;
+     }
+ 
+@@ -62,23 +65,30 @@ public class UnixLineEndingInputStream extends InputStream {
+ 
+     @Override
+     public int read() throws IOException {
++        boolean previousWasSlashR = slashRSeen;
+         if ( eofSeen ) {
+-            return eofGame();
++            return eofGame(previousWasSlashR);
+         }
+         else {
+             int target = readWithUpdate();
+             if ( eofSeen ) {
+-                return eofGame();
++                return eofGame(previousWasSlashR);
++            }
++            if (slashRSeen)
++            {
++                return '\n';
+             }
+-            if ( target == '\r' ) {
+-                target = readWithUpdate();
++
++            if ( previousWasSlashR && slashNSeen){
++                return read();
+             }
++
+             return target;
+         }
+     }
+ 
+-    private int eofGame() {
+-        if ( !ensureLineFeedAtEndOfFile ) {
++    private int eofGame(boolean previousWasSlashR) {
++        if ( previousWasSlashR || !ensureLineFeedAtEndOfFile ) {
+             return -1;
+         }
+         if ( !slashNSeen ) {
+diff --git a/src/test/java/org/apache/commons/io/input/UnixLineEndingInputStreamTest.java b/src/test/java/org/apache/commons/io/input/UnixLineEndingInputStreamTest.java
+index 301630e..e3e0098 100644
+--- a/src/test/java/org/apache/commons/io/input/UnixLineEndingInputStreamTest.java
++++ b/src/test/java/org/apache/commons/io/input/UnixLineEndingInputStreamTest.java
+@@ -47,11 +47,26 @@ public class UnixLineEndingInputStreamTest
+     }
+ 
+     @Test
+-    public void malformed() throws Exception {
+-        assertEquals( "abc", roundtrip( "a\rbc", false ) );
++    public void crOnlyEnsureAtEof()
++        throws Exception
++    {
++        assertEquals( "a\nb\n", roundtrip( "a\rb" ) );
+     }
+ 
+     @Test
++    public void crOnlyNotAtEof()
++        throws Exception
++    {
++        assertEquals( "a\nb", roundtrip( "a\rb", false ) );
++    }
++
++    @Test
++    public void crAtEnd() throws Exception {
++        assertEquals( "a\n", roundtrip( "a\r" ) );
++    }
++
++
++    @Test
+     public void retainLineFeed() throws Exception {
+         assertEquals( "a\n\n", roundtrip( "a\r\n\r\n", false ) );
+         assertEquals( "a", roundtrip( "a", false ) );

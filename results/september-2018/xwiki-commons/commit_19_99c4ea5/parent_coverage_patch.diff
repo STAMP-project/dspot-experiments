@@ -1,0 +1,500 @@
+diff --git a/pom.xml b/pom.xml
+index c61bafb..87826d6 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -447,16 +447,6 @@
+         <artifactId>serializer</artifactId>
+         <version>2.7.2</version>
+       </dependency>
+-      <dependency>
+-        <groupId>org.codehaus.woodstox</groupId>
+-        <artifactId>stax2-api</artifactId>
+-        <version>3.1.4</version>
+-      </dependency>
+-      <dependency>
+-        <groupId>com.fasterxml.woodstox</groupId>
+-        <artifactId>woodstox-core</artifactId>
+-        <version>5.0.3</version>
+-      </dependency>
+ 
+       <!-- Json -->
+       <dependency>
+diff --git a/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-streams/xwiki-commons-filter-stream-xml/src/main/java/org/xwiki/filter/filterxml/input/FilterXMLInputProperties.java b/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-streams/xwiki-commons-filter-stream-xml/src/main/java/org/xwiki/filter/filterxml/input/FilterXMLInputProperties.java
+index 0a65b0e..110f9fc 100644
+--- a/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-streams/xwiki-commons-filter-stream-xml/src/main/java/org/xwiki/filter/filterxml/input/FilterXMLInputProperties.java
++++ b/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-streams/xwiki-commons-filter-stream-xml/src/main/java/org/xwiki/filter/filterxml/input/FilterXMLInputProperties.java
+@@ -29,4 +29,5 @@
+  */
+ public class FilterXMLInputProperties extends XMLInputProperties
+ {
++
+ }
+diff --git a/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-streams/xwiki-commons-filter-stream-xml/src/main/java/org/xwiki/filter/filterxml/internal/input/XMLInputFilterFactory.java b/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-streams/xwiki-commons-filter-stream-xml/src/main/java/org/xwiki/filter/filterxml/internal/input/XMLInputFilterFactory.java
+index 76feef8..2a6171e 100644
+--- a/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-streams/xwiki-commons-filter-stream-xml/src/main/java/org/xwiki/filter/filterxml/internal/input/XMLInputFilterFactory.java
++++ b/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-streams/xwiki-commons-filter-stream-xml/src/main/java/org/xwiki/filter/filterxml/internal/input/XMLInputFilterFactory.java
+@@ -52,7 +52,8 @@
+ @Component
+ @Named("filter+xml")
+ @Singleton
+-public class XMLInputFilterFactory extends AbstractXMLBeanInputFilterStreamFactory<FilterXMLInputProperties, Object>
++public class XMLInputFilterFactory extends
++    AbstractXMLBeanInputFilterStreamFactory<FilterXMLInputProperties, Object>
+ {
+     @Inject
+     private XMLParserFactory parserFactory;
+@@ -81,7 +82,7 @@ public XMLInputFilterFactory()
+             throw new FilterException("Failed to lookup OutputFilterFactory components instances", e);
+         }
+ 
+-        Set<Class<?>> filters = new HashSet<>();
++        Set<Class<?>> filters = new HashSet<Class<?>>();
+ 
+         filters.add(UnknownFilter.class);
+ 
+@@ -95,7 +96,7 @@ public XMLInputFilterFactory()
+     }
+ 
+     @Override
+-    protected XMLEventWriter createXMLEventWriter(Object filter, FilterXMLInputProperties properties)
++    protected XMLEventWriter createXMLEventWriter(Object filter, FilterXMLInputProperties parameters)
+     {
+         return this.parserFactory.createXMLEventWriter(filter, null);
+     }
+diff --git a/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-streams/xwiki-commons-filter-stream-xml/src/main/java/org/xwiki/filter/filterxml/internal/output/XMLOutputFilterFactory.java b/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-streams/xwiki-commons-filter-stream-xml/src/main/java/org/xwiki/filter/filterxml/internal/output/XMLOutputFilterFactory.java
+index 69a8b77..bd32aab 100644
+--- a/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-streams/xwiki-commons-filter-stream-xml/src/main/java/org/xwiki/filter/filterxml/internal/output/XMLOutputFilterFactory.java
++++ b/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-streams/xwiki-commons-filter-stream-xml/src/main/java/org/xwiki/filter/filterxml/internal/output/XMLOutputFilterFactory.java
+@@ -55,7 +55,8 @@
+ @Component
+ @Named("filter+xml")
+ @Singleton
+-public class XMLOutputFilterFactory extends AbstractXMLBeanOutputFilterStreamFactory<FilterXMLOutputProperties, Object>
++public class XMLOutputFilterFactory extends
++    AbstractXMLBeanOutputFilterStreamFactory<FilterXMLOutputProperties, Object>
+ {
+     @Inject
+     private XMLSerializerFactory serializerFactory;
+@@ -84,7 +85,7 @@ public XMLOutputFilterFactory()
+             throw new FilterException("Failed to lookup InputFilterFactory components instances", e);
+         }
+ 
+-        Set<Class<?>> filters = new HashSet<>();
++        Set<Class<?>> filters = new HashSet<Class<?>>();
+ 
+         filters.add(UnknownFilter.class);
+ 
+@@ -98,9 +99,10 @@ public XMLOutputFilterFactory()
+     }
+ 
+     @Override
+-    protected Object createListener(Result result, FilterXMLOutputProperties properties)
+-        throws XMLStreamException, FactoryConfigurationError, FilterException
++    protected Object createListener(Result result, FilterXMLOutputProperties properties) throws XMLStreamException,
++        FactoryConfigurationError, FilterException
+     {
++
+         return this.serializerFactory.createSerializer(getFilterInterfaces().toArray(ArrayUtils.EMPTY_CLASS_ARRAY),
+             result, null);
+     }
+diff --git a/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/pom.xml b/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/pom.xml
+index 256a0eb..0e07ba2 100644
+--- a/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/pom.xml
++++ b/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/pom.xml
+@@ -61,7 +61,10 @@
+       <groupId>com.thoughtworks.xstream</groupId>
+       <artifactId>xstream</artifactId>
+     </dependency>
+-
++    <dependency>
++      <groupId>net.java.dev.stax-utils</groupId>
++      <artifactId>stax-utils</artifactId>
++    </dependency>
+     <!-- Test dependencies -->
+     <dependency>
+       <groupId>org.xwiki.commons</groupId>
+diff --git a/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/main/java/org/xwiki/filter/xml/internal/output/AbstractXMLBeanOutputFilterStreamFactory.java b/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/main/java/org/xwiki/filter/xml/internal/output/AbstractXMLBeanOutputFilterStreamFactory.java
+index d90ca7f..80644ce 100644
+--- a/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/main/java/org/xwiki/filter/xml/internal/output/AbstractXMLBeanOutputFilterStreamFactory.java
++++ b/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/main/java/org/xwiki/filter/xml/internal/output/AbstractXMLBeanOutputFilterStreamFactory.java
+@@ -48,7 +48,7 @@ public AbstractXMLBeanOutputFilterStreamFactory(FilterStreamType type)
+     public BeanOutputFilterStream<P> createOutputFilterStream(P properties) throws FilterException
+     {
+         try {
+-            return new DefaultXMLOutputFilterStream<>(this, properties);
++            return new DefaultXMLOutputFilterStream<P, F>(this, properties);
+         } catch (Exception e) {
+             throw new FilterException("Failed to create output filter stream", e);
+         }
+diff --git a/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/main/java/org/xwiki/filter/xml/internal/output/AbstractXMLOutputFilterStream.java b/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/main/java/org/xwiki/filter/xml/internal/output/AbstractXMLOutputFilterStream.java
+index 2bd89dc..e68c101 100644
+--- a/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/main/java/org/xwiki/filter/xml/internal/output/AbstractXMLOutputFilterStream.java
++++ b/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/main/java/org/xwiki/filter/xml/internal/output/AbstractXMLOutputFilterStream.java
+@@ -67,7 +67,23 @@ protected Result createResult(P properties) throws FilterException, XMLStreamExc
+         if (target instanceof ResultOutputTarget) {
+             result = ((ResultOutputTarget) target).getResult();
+         } else {
+-            XMLStreamWriter xmlStreamWriter = XMLOutputFilterStreamUtils.createXMLStreamWriter(properties);
++            XMLOutputFactory factory = XMLOutputFactory.newInstance();
++
++            XMLStreamWriter xmlStreamWriter;
++
++            if (target instanceof WriterOutputTarget) {
++                xmlStreamWriter = factory.createXMLStreamWriter(((WriterOutputTarget) target).getWriter());
++            } else if (target instanceof OutputStreamOutputTarget) {
++                xmlStreamWriter =
++                    factory.createXMLStreamWriter(((OutputStreamOutputTarget) target).getOutputStream(),
++                        properties.getEncoding());
++            } else {
++                throw new FilterException("Unknown target type [" + target.getClass() + "]");
++            }
++
++            if (properties.isFormat()) {
++                xmlStreamWriter = new IndentingXMLStreamWriter(xmlStreamWriter);
++            }
+ 
+             result = new StAXResult(xmlStreamWriter);
+         }
+diff --git a/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/main/java/org/xwiki/filter/xml/internal/output/FilterStreamXMLStreamWriter.java b/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/main/java/org/xwiki/filter/xml/internal/output/FilterStreamXMLStreamWriter.java
+index 9e91755..9931a76 100644
+--- a/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/main/java/org/xwiki/filter/xml/internal/output/FilterStreamXMLStreamWriter.java
++++ b/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/main/java/org/xwiki/filter/xml/internal/output/FilterStreamXMLStreamWriter.java
+@@ -36,8 +36,6 @@
+  */
+ public class FilterStreamXMLStreamWriter
+ {
+-    private static final XMLOutputFactory XML_OUTPUT_FACTORY = XMLOutputFactory.newInstance();
+-
+     private final XMLStreamWriter writer;
+ 
+     private final boolean printNullValue;
+@@ -52,7 +50,7 @@ public FilterStreamXMLStreamWriter(OutputStream outputStream, String encoding, b
+         boolean printNullValue) throws FilterException
+     {
+         try {
+-            XMLStreamWriter streamWriter = XML_OUTPUT_FACTORY.createXMLStreamWriter(outputStream, encoding);
++            XMLStreamWriter streamWriter = XMLOutputFactory.newInstance().createXMLStreamWriter(outputStream, encoding);
+ 
+             if (format) {
+                 this.writer = new IndentingXMLStreamWriter(streamWriter);
+diff --git a/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/main/java/org/xwiki/filter/xml/internal/output/XMLOutputFilterStreamUtils.java b/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/main/java/org/xwiki/filter/xml/internal/output/XMLOutputFilterStreamUtils.java
+index f8b391d..4b475b3 100644
+--- a/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/main/java/org/xwiki/filter/xml/internal/output/XMLOutputFilterStreamUtils.java
++++ b/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/main/java/org/xwiki/filter/xml/internal/output/XMLOutputFilterStreamUtils.java
+@@ -41,20 +41,21 @@
+  */
+ public final class XMLOutputFilterStreamUtils
+ {
+-    private static final XMLOutputFactory XML_OUTPUT_FACTORY = XMLOutputFactory.newInstance();
+-
+-    public static XMLStreamWriter createXMLStreamWriter(XMLOutputProperties properties)
+-        throws XMLStreamException, IOException, FilterException
++    public static XMLStreamWriter createXMLStreamWriter(XMLOutputProperties properties) throws XMLStreamException,
++        IOException, FilterException
+     {
+         XMLStreamWriter xmlStreamWriter;
+ 
+         OutputTarget target = properties.getTarget();
+ 
++        XMLOutputFactory factory = XMLOutputFactory.newInstance();
++
+         if (target instanceof WriterOutputTarget) {
+-            xmlStreamWriter = XML_OUTPUT_FACTORY.createXMLStreamWriter(((WriterOutputTarget) target).getWriter());
++            xmlStreamWriter = factory.createXMLStreamWriter(((WriterOutputTarget) target).getWriter());
+         } else if (target instanceof OutputStreamOutputTarget) {
+-            xmlStreamWriter = XML_OUTPUT_FACTORY
+-                .createXMLStreamWriter(((OutputStreamOutputTarget) target).getOutputStream(), properties.getEncoding());
++            xmlStreamWriter =
++                factory.createXMLStreamWriter(((OutputStreamOutputTarget) target).getOutputStream(),
++                    properties.getEncoding());
+         } else if (target instanceof ResultOutputTarget) {
+             xmlStreamWriter = StAXUtils.getXMLStreamWriter(((ResultOutputTarget) target).getResult());
+         } else {
+diff --git a/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/main/java/org/xwiki/filter/xml/internal/parser/DefaultXMLParser.java b/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/main/java/org/xwiki/filter/xml/internal/parser/DefaultXMLParser.java
+index ed004ef..1edc718 100644
+--- a/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/main/java/org/xwiki/filter/xml/internal/parser/DefaultXMLParser.java
++++ b/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/main/java/org/xwiki/filter/xml/internal/parser/DefaultXMLParser.java
+@@ -24,9 +24,8 @@
+ import java.lang.reflect.Type;
+ import java.util.ArrayList;
+ import java.util.Arrays;
+-import java.util.Deque;
+-import java.util.LinkedList;
+ import java.util.List;
++import java.util.Stack;
+ import java.util.regex.Matcher;
+ 
+ import javax.xml.parsers.ParserConfigurationException;
+@@ -77,7 +76,7 @@
+ 
+     private Object filter;
+ 
+-    private Deque<Block> blockStack = new LinkedList<>();
++    private Stack<Block> blockStack = new Stack<Block>();
+ 
+     private int elementDepth = 0;
+ 
+@@ -313,17 +312,16 @@ private void setParameter(Block block, String name, Object value, boolean attrib
+                 block.setParameter(name, value);
+             }
+         } else if (!attribute || !isReservedBlockAttribute(name)) {
+-            if (block.filterElement != null) {
+-                FilterElementParameterDescriptor<?> filterParameter = block.filterElement.getParameter(name);
++            FilterElementParameterDescriptor<?> filterParameter =
++                block.filterElement != null ? block.filterElement.getParameter(name) : null;
+ 
+-                if (filterParameter != null) {
+-                    setParameter(block, filterParameter, value);
+-                } else {
+-                    LOGGER.warn("Unknown element parameter [{}] (=[{}]) in block [{}] (available parameters are {})",
+-                        name, value, block.name, Arrays.asList(block.filterElement.getParameters()));
++            if (filterParameter != null) {
++                setParameter(block, filterParameter, value);
++            } else {
++                LOGGER.warn("Unknown element parameter [{}] (=[{}]) in block [{}] (available parameters are {})", name,
++                    value, block.name, Arrays.asList(block.filterElement.getParameters()));
+ 
+-                    block.setParameter(name, value);
+-                }
++                block.setParameter(name, value);
+             }
+         }
+     }
+@@ -425,10 +423,10 @@ public void startElement(String uri, String localName, String qName, Attributes
+     @Override
+     public void endElement(String uri, String localName, String qName) throws SAXException
+     {
+-        --this.elementDepth;
+-
+         Block currentBlock = this.blockStack.isEmpty() ? null : this.blockStack.peek();
+ 
++        --this.elementDepth;
++
+         if (onBlockElement(qName)) {
+             Block block = this.blockStack.pop();
+ 
+diff --git a/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/main/java/org/xwiki/filter/xml/internal/serializer/DefaultXMLSerializer.java b/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/main/java/org/xwiki/filter/xml/internal/serializer/DefaultXMLSerializer.java
+index 2aca534..9657502 100644
+--- a/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/main/java/org/xwiki/filter/xml/internal/serializer/DefaultXMLSerializer.java
++++ b/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/main/java/org/xwiki/filter/xml/internal/serializer/DefaultXMLSerializer.java
+@@ -30,7 +30,6 @@
+ import java.util.regex.Pattern;
+ 
+ import javax.xml.stream.FactoryConfigurationError;
+-import javax.xml.stream.XMLOutputFactory;
+ import javax.xml.stream.XMLStreamException;
+ import javax.xml.stream.XMLStreamWriter;
+ import javax.xml.transform.Result;
+@@ -46,8 +45,6 @@
+ import org.xwiki.properties.ConverterManager;
+ import org.xwiki.xml.stax.StAXUtils;
+ 
+-import com.ctc.wstx.api.WstxOutputProperties;
+-
+ /**
+  * Proxy called as an event filter to produce SAX events.
+  *
+@@ -56,14 +53,6 @@
+  */
+ public class DefaultXMLSerializer implements InvocationHandler, Closeable
+ {
+-    private static final XMLOutputFactory XML_OUTPUT_FACTORY = XMLOutputFactory.newInstance();
+-
+-    static {
+-        // Allow producing XML with several root elements (there is no constraint on events to have a single root
+-        // begin/end event)
+-        XML_OUTPUT_FACTORY.setProperty(WstxOutputProperties.P_OUTPUT_VALIDATE_STRUCTURE, false);
+-    }
+-
+     private static final Pattern VALID_ELEMENTNAME = Pattern.compile("[A-Za-z][A-Za-z0-9:_.-]*");
+ 
+     private final XMLStreamWriter xmlStreamWriter;
+@@ -84,7 +73,7 @@ public DefaultXMLSerializer(Result result, ParameterManager parameterManager, Fi
+         this.converter = converter;
+         this.configuration = configuration != null ? configuration : new XMLConfiguration();
+ 
+-        this.xmlStreamWriter = StAXUtils.getXMLStreamWriter(XML_OUTPUT_FACTORY, result);
++        this.xmlStreamWriter = StAXUtils.getXMLStreamWriter(result);
+     }
+ 
+     private boolean isValidBlockElementName(String blockName)
+diff --git a/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/test/java/org/xwiki/filter/xml/XMLFilterTest.java b/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/test/java/org/xwiki/filter/xml/XMLFilterTest.java
+index 3f76717..e365718 100644
+--- a/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/test/java/org/xwiki/filter/xml/XMLFilterTest.java
++++ b/xwiki-commons-core/xwiki-commons-filter/xwiki-commons-filter-xml/src/test/java/org/xwiki/filter/xml/XMLFilterTest.java
+@@ -20,8 +20,6 @@
+ package org.xwiki.filter.xml;
+ 
+ import java.awt.Color;
+-import java.io.Closeable;
+-import java.io.IOException;
+ import java.io.StringReader;
+ import java.io.StringWriter;
+ import java.util.Collections;
+@@ -75,10 +73,6 @@ private void assertParseAndSerialize(String expect, String input) throws Excepti
+         XMLParserFactory parserFactory = this.componentManager.getInstance(XMLParserFactory.class);
+         parserFactory.parse(new StreamSource(new StringReader(input)), testFilter, null);
+ 
+-        if (testFilter instanceof Closeable) {
+-            ((Closeable) testFilter).close();
+-        }
+-
+         assertSerialized(expect);
+     }
+ 
+@@ -99,10 +93,6 @@ private void assertParseAndSerializeFromSAX(String expect, String input) throws
+         xmlReader.setContentHandler(parser);
+         xmlReader.parse(new InputSource(new StringReader(input)));
+ 
+-        if (testFilter instanceof Closeable) {
+-            ((Closeable) testFilter).close();
+-        }
+-
+         assertSerialized(expect);
+     }
+ 
+@@ -116,32 +106,31 @@ private void assertSerialized(String expect)
+     @Test
+     public void testContainer() throws Exception
+     {
+-        assertParseAndSerialize("<container/>");
++        assertParseAndSerialize("<container></container>");
+     }
+ 
+     @Test
+     public void testContainerAndChild() throws Exception
+     {
+-        assertParseAndSerialize("<container><child/></container>");
++        assertParseAndSerialize("<container><child></child></container>");
+     }
+ 
+     @Test
+     public void testContainerWithParameters() throws Exception
+     {
+-        assertParseAndSerialize("<containerWithParameters param0=\"value0\" param1=\"1\"/>");
++        assertParseAndSerialize("<containerWithParameters param0=\"value0\" param1=\"1\"></containerWithParameters>");
+     }
+ 
+     @Test
+     public void testContainerWithNamedParameters() throws Exception
+     {
+-        assertParseAndSerialize("<containerWithNamedParameters namedParam=\"value0\" param1=\"1\"/>");
++        assertParseAndSerialize("<containerWithNamedParameters namedParam=\"value0\" param1=\"1\"></containerWithNamedParameters>");
+     }
+ 
+     @Test
+     public void testContainerWithMap() throws Exception
+     {
+-        assertParseAndSerialize(
+-            "<containerWithMap><p><map><entry><string>key</string><int>1</int></entry></map></p></containerWithMap>");
++        assertParseAndSerialize("<containerWithMap><p><map><entry><string>key</string><int>1</int></entry></map></p></containerWithMap>");
+         assertParseAndSerialize(
+             "<containerWithMap><p><map><entry><string>key</string><int>1</int></entry></map></p></containerWithMap>",
+             "<containerWithMap><p><_0><entry><string>key</string><int>1</int></entry></_0></p></containerWithMap>");
+@@ -151,20 +140,20 @@ public void testContainerWithMap() throws Exception
+     public void testCustomData() throws Exception
+     {
+         assertParseAndSerializeFromSAX("<customData><p><custom><field1>5</field1></custom></p></customData>");
+-        assertParseAndSerializeFromSAX("<customData/>");
++        assertParseAndSerializeFromSAX("<customData></customData>");
+     }
+ 
+     @Test
+     public void testFromSAX() throws Exception
+     {
+-        assertParseAndSerializeFromSAX("<containerWithNamedParameters namedParam=\"value0\" param1=\"1\"/>");
++        assertParseAndSerializeFromSAX("<containerWithNamedParameters namedParam=\"value0\" param1=\"1\"></containerWithNamedParameters>");
+     }
+ 
+     // Serialize
+ 
+     @Test
+-    public void testSerializeExtendedTestData()
+-        throws ComponentLookupException, XMLStreamException, FactoryConfigurationError, IOException
++    public void testSerializeExtendedTestData() throws ComponentLookupException, XMLStreamException,
++        FactoryConfigurationError
+     {
+         TestFilter testFilter = createFilter();
+ 
+@@ -173,34 +162,28 @@ public void testSerializeExtendedTestData()
+         testFilter.beginCustomData(extendedTestData);
+         testFilter.endCustomData(extendedTestData);
+ 
+-        ((Closeable) testFilter).close();
+-
+         assertSerialized("<customData><p><custom><field1>1</field1></custom></p></customData>");
+     }
+ 
+     @Test
+-    public void testSerializeWithDefaultValue()
+-        throws ComponentLookupException, XMLStreamException, FactoryConfigurationError, IOException
++    public void testSerializeWithDefaultValue() throws ComponentLookupException, XMLStreamException,
++        FactoryConfigurationError
+     {
+         TestFilter testFilter = createFilter();
+ 
+         testFilter.onChildWithDefaultValue(42, "default value", Color.WHITE, Collections.EMPTY_MAP);
+ 
+-        ((Closeable) testFilter).close();
+-
+-        assertSerialized("<childWithDefaultValue/>");
++        assertSerialized("<childWithDefaultValue></childWithDefaultValue>");
+     }
+ 
+     @Test
+-    public void testSerializeWithNamedChild()
+-        throws ComponentLookupException, XMLStreamException, FactoryConfigurationError, IOException
++    public void testSerializeWithNamedChild() throws ComponentLookupException, XMLStreamException,
++        FactoryConfigurationError
+     {
+         TestFilter testFilter = createFilter();
+ 
+         testFilter.onNamedChild();
+ 
+-        ((Closeable) testFilter).close();
+-
+-        assertSerialized("<childwithname/>");
++        assertSerialized("<childwithname></childwithname>");
+     }
+ }
+diff --git a/xwiki-commons-core/xwiki-commons-xml/pom.xml b/xwiki-commons-core/xwiki-commons-xml/pom.xml
+index 636996d..c0dfd40 100644
+--- a/xwiki-commons-core/xwiki-commons-xml/pom.xml
++++ b/xwiki-commons-core/xwiki-commons-xml/pom.xml
+@@ -69,10 +69,6 @@
+       <groupId>net.java.dev.stax-utils</groupId>
+       <artifactId>stax-utils</artifactId>
+     </dependency>
+-    <dependency>
+-      <groupId>com.fasterxml.woodstox</groupId>
+-      <artifactId>woodstox-core</artifactId>
+-    </dependency>
+ 
+     <!-- Testing dependencies -->
+     <dependency>
+diff --git a/xwiki-commons-core/xwiki-commons-xml/src/main/java/org/xwiki/xml/stax/StAXUtils.java b/xwiki-commons-core/xwiki-commons-xml/src/main/java/org/xwiki/xml/stax/StAXUtils.java
+index 6b99ff9..25fc5b1 100644
+--- a/xwiki-commons-core/xwiki-commons-xml/src/main/java/org/xwiki/xml/stax/StAXUtils.java
++++ b/xwiki-commons-core/xwiki-commons-xml/src/main/java/org/xwiki/xml/stax/StAXUtils.java
+@@ -115,21 +115,6 @@ public static XMLEventReader getXMLEventReader(Source source) throws XMLStreamEx
+      */
+     public static XMLStreamWriter getXMLStreamWriter(Result result) throws XMLStreamException
+     {
+-        return getXMLStreamWriter(XML_OUTPUT_FACTORY, result);
+-    }
+-
+-    /**
+-     * Extract or create an instance of {@link XMLStreamWriter} from the provided {@link Result}.
+-     *
+-     * @param factory the {@link XMLOutputFactory} to use (if needed)
+-     * @param result the result
+-     * @return the {@link XMLStreamWriter}
+-     * @throws XMLStreamException when failing to extract xml stream writer
+-     * @since 9.5.2
+-     * @since 9.6RC1
+-     */
+-    public static XMLStreamWriter getXMLStreamWriter(XMLOutputFactory factory, Result result) throws XMLStreamException
+-    {
+         XMLStreamWriter xmlStreamWriter;
+ 
+         if (result instanceof SAXResult) {

@@ -1,0 +1,61 @@
+diff --git a/src/changes/changes.xml b/src/changes/changes.xml
+index d83bf15..69d194f 100644
+--- a/src/changes/changes.xml
++++ b/src/changes/changes.xml
+@@ -46,7 +46,6 @@ The <action> type attribute can be add,update,fix,remove.
+   <body>
+ 
+   <release version="3.8" date="2018-MM-DD" description="New features and bug fixes. Requires Java 7, supports Java 8, 9, 10.">
+-    <action issue="LANG-1395" type="fix" dev="sebb" due=to="Jim Gan">JsonToStringStyle does not escape double quote in a string value</action>
+     <action issue="LANG-1384" type="fix" dev="erans" due-to="Ian Young">New Java version ("11") must be handled</action>
+     <action issue="LANG-1364" type="fix" dev="pschumacher" due-to="Zheng Xie">ExceptionUtils#getRootCause(Throwable t) should return t if no lower level cause exists</action>
+     <action issue="LANG-1060" type="fix" dev="pschumacher" due-to="Piotr Kosmala">NumberUtils.isNumber assumes number starting with Zero</action>
+diff --git a/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java b/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java
+index 097332f..969812d 100644
+--- a/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java
++++ b/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java
+@@ -24,7 +24,6 @@
+ 
+ import org.apache.commons.lang3.ClassUtils;
+ import org.apache.commons.lang3.ObjectUtils;
+-import org.apache.commons.lang3.StringEscapeUtils;
+ import org.apache.commons.lang3.StringUtils;
+ 
+ /**
+@@ -63,7 +62,6 @@
+  *
+  * @since 1.0
+  */
+-@SuppressWarnings("deprecation") // StringEscapeUtils
+ public abstract class ToStringStyle implements Serializable {
+ 
+     /**
+@@ -2608,7 +2606,7 @@ private boolean isJsonObject(final String valueAsString) {
+          * @param value the value to append.
+          */
+         private void appendValueAsString(final StringBuffer buffer, final String value) {
+-            buffer.append('"').append(StringEscapeUtils.escapeJson(value)).append('"');
++            buffer.append('"').append(value).append('"');
+         }
+ 
+         @Override
+diff --git a/src/test/java/org/apache/commons/lang3/builder/JsonToStringStyleTest.java b/src/test/java/org/apache/commons/lang3/builder/JsonToStringStyleTest.java
+index 82467cb..d6bbc64 100644
+--- a/src/test/java/org/apache/commons/lang3/builder/JsonToStringStyleTest.java
++++ b/src/test/java/org/apache/commons/lang3/builder/JsonToStringStyleTest.java
+@@ -378,15 +378,6 @@ public String toString() {
+                         .toString());
+     }
+ 
+-    @Test
+-    public void testLANG1395() {
+-        assertEquals("{\"name\":\"value\"}",new ToStringBuilder(base).append("name","value").toString());
+-        assertEquals("{\"name\":\"\"}",new ToStringBuilder(base).append("name","").toString());
+-        assertEquals("{\"name\":\"\\\"\"}",new ToStringBuilder(base).append("name",'"').toString());
+-        assertEquals("{\"name\":\"\\\\\"}",new ToStringBuilder(base).append("name",'\\').toString());
+-        assertEquals("{\"name\":\"Let's \\\"quote\\\" this\"}",new ToStringBuilder(base).append("name","Let's \"quote\" this").toString());
+-    }
+-
+     /**
+      * An object with nested object structures used to test {@link ToStringStyle.JsonToStringStyle}.
+      *

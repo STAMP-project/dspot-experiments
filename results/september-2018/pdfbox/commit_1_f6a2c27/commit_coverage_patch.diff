@@ -1,0 +1,22 @@
+diff --git a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/form/AppearanceGeneratorHelper.java b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/form/AppearanceGeneratorHelper.java
+index 5941eb0..f1a2a75 100644
+--- a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/form/AppearanceGeneratorHelper.java
++++ b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/form/AppearanceGeneratorHelper.java
+@@ -427,7 +427,7 @@ class AppearanceGeneratorHelper
+             // options
+             if (field instanceof PDListBox)
+             {
+-                insertGeneratedSelectionHighlight(contents, appearanceStream, font, fontSize);
++                insertGeneratedListboxSelectionHighlight(contents, appearanceStream, font, fontSize);
+             }
+             
+             // start the text output
+@@ -610,7 +610,7 @@ class AppearanceGeneratorHelper
+         }
+     }
+     
+-    private void insertGeneratedSelectionHighlight(PDAppearanceContentStream contents, PDAppearanceStream appearanceStream,
++    private void insertGeneratedListboxSelectionHighlight(PDAppearanceContentStream contents, PDAppearanceStream appearanceStream,
+             PDFont font, float fontSize) throws IOException
+     {
+         List<Integer> indexEntries = ((PDListBox) field).getSelectedOptionsIndex();

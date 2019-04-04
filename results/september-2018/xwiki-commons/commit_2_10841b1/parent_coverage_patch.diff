@@ -1,0 +1,329 @@
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/internal/ExtensionUtils.java b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/internal/ExtensionUtils.java
+index 1b4f702..5de1eef 100644
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/internal/ExtensionUtils.java
++++ b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/internal/ExtensionUtils.java
+@@ -26,10 +26,8 @@
+ import java.util.Collection;
+ import java.util.Collections;
+ import java.util.HashMap;
+-import java.util.HashSet;
+ import java.util.List;
+ import java.util.Map;
+-import java.util.Set;
+ 
+ import org.apache.commons.lang3.StringUtils;
+ import org.xwiki.extension.CoreExtension;
+@@ -134,23 +132,6 @@ public static ExtensionDependency getDependency(ExtensionDependency dependency,
+     }
+ 
+     /**
+-     * "add" an object in a readonly {@link Set}. This method return a new Set which contains the passed set and object
+-     * to add.
+-     * 
+-     * @param readonly the {@link Set} to add an object to
+-     * @param obj the object to add
+-     * @return the new {@link Set}
+-     */
+-    public static <T> Set<T> append(Set<T> readonly, T obj)
+-    {
+-        Set<T> writable = readonly != null ? new HashSet<>(readonly) : new HashSet<>();
+-
+-        writable.add(obj);
+-
+-        return writable;
+-    }
+-
+-    /**
+      * Delete and return the value of the passed special property.
+      * 
+      * @param <T> type of the property value
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/job/internal/AbstractInstallPlanJob.java b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/job/internal/AbstractInstallPlanJob.java
+index f7696e7..aa602b3 100644
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/job/internal/AbstractInstallPlanJob.java
++++ b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/job/internal/AbstractInstallPlanJob.java
+@@ -494,21 +494,18 @@ private ExtensionDependency checkInstalledDependency(ExtensionDependency extensi
+      * @param namespace the namespace where to install the extension
+      * @param parentBranch the children of the parent {@link DefaultExtensionPlanNode}
+      * @param managedDependencies the managed dependencies
+-     * @param parents the parents extensions (which triggered this extension install)
+      * @throws InstallException error when trying to install provided extension
+      * @throws ResolveException
+      * @throws IncompatibleVersionConstraintException
+      */
+     private void installExtensionDependency(ExtensionDependency extensionDependency, String namespace,
+-        List<ModifableExtensionPlanNode> parentBranch, Map<String, ExtensionDependency> managedDependencies,
+-        Set<String> parents) throws InstallException, IncompatibleVersionConstraintException, ResolveException
++        List<ModifableExtensionPlanNode> parentBranch, Map<String, ExtensionDependency> managedDependencies)
++        throws InstallException, IncompatibleVersionConstraintException, ResolveException
+     {
+         if (extensionDependency.isOptional()) {
+-            installOptionalExtensionDependency(extensionDependency, namespace, parentBranch, managedDependencies,
+-                parents);
++            installOptionalExtensionDependency(extensionDependency, namespace, parentBranch, managedDependencies);
+         } else {
+-            installMandatoryExtensionDependency(extensionDependency, namespace, parentBranch, managedDependencies,
+-                parents);
++            installMandatoryExtensionDependency(extensionDependency, namespace, parentBranch, managedDependencies);
+         }
+     }
+ 
+@@ -519,21 +516,18 @@ private void installExtensionDependency(ExtensionDependency extensionDependency,
+      * @param namespace the namespace where to install the extension
+      * @param parentBranch the children of the parent {@link DefaultExtensionPlanNode}
+      * @param managedDependencies the managed dependencies
+-     * @param parents the parents extensions (which triggered this extension install)
+      * @throws InstallException error when trying to install provided extension
+      * @throws ResolveException
+      * @throws IncompatibleVersionConstraintException
+      */
+     private boolean installOptionalExtensionDependency(ExtensionDependency extensionDependency, String namespace,
+-        List<ModifableExtensionPlanNode> parentBranch, Map<String, ExtensionDependency> managedDependencies,
+-        Set<String> parents)
++        List<ModifableExtensionPlanNode> parentBranch, Map<String, ExtensionDependency> managedDependencies)
+     {
+         // Save current plan
+         List<ModifableExtensionPlanNode> dependencyBranch = new ArrayList<>();
+ 
+         try {
+-            installMandatoryExtensionDependency(extensionDependency, namespace, dependencyBranch, managedDependencies,
+-                parents);
++            installMandatoryExtensionDependency(extensionDependency, namespace, dependencyBranch, managedDependencies);
+ 
+             parentBranch.addAll(dependencyBranch);
+ 
+@@ -555,14 +549,13 @@ private boolean installOptionalExtensionDependency(ExtensionDependency extension
+      * @param namespace the namespace where to install the extension
+      * @param parentBranch the children of the parent {@link DefaultExtensionPlanNode}
+      * @param managedDependencies the managed dependencies
+-     * @param parents the parents extensions (which triggered this extension install)
+      * @throws InstallException error when trying to install provided extension
+      * @throws ResolveException
+      * @throws IncompatibleVersionConstraintException
+      */
+     protected void installMandatoryExtensionDependency(ExtensionDependency extensionDependency, String namespace,
+-        List<ModifableExtensionPlanNode> parentBranch, Map<String, ExtensionDependency> managedDependencies,
+-        Set<String> parents) throws InstallException, IncompatibleVersionConstraintException, ResolveException
++        List<ModifableExtensionPlanNode> parentBranch, Map<String, ExtensionDependency> managedDependencies)
++        throws InstallException, IncompatibleVersionConstraintException, ResolveException
+     {
+         // Make sure the dependency have a version constraint
+         if (extensionDependency.getVersionConstraint() == null) {
+@@ -592,7 +585,7 @@ protected void installMandatoryExtensionDependency(ExtensionDependency extension
+         // upgrade/downgrade/replace it)
+         if (namespace != null && getRequest().isRootModificationsAllowed()
+             && hasIncompatileRootDependency(extensionDependency)) {
+-            installMandatoryExtensionDependency(extensionDependency, null, parentBranch, managedDependencies, parents);
++            installMandatoryExtensionDependency(extensionDependency, null, parentBranch, managedDependencies);
+ 
+             return;
+         }
+@@ -623,7 +616,7 @@ protected void installMandatoryExtensionDependency(ExtensionDependency extension
+ 
+         // Not found locally, search it remotely
+         ModifableExtensionPlanNode node =
+-            installExtensionDependency(targetDependency, true, namespace, managedDependencies, parents);
++            installExtensionDependency(targetDependency, true, namespace, managedDependencies);
+ 
+         node.versionConstraint = versionConstraint;
+ 
+@@ -638,12 +631,11 @@ protected void installMandatoryExtensionDependency(ExtensionDependency extension
+      * @param dependency indicate if the extension is installed as a dependency
+      * @param namespace the namespace where to install the extension
+      * @param managedDependencies the managed dependencies
+-     * @param parents the parents extensions (which triggered this extension install)
+      * @return the install plan node for the provided extension
+      * @throws InstallException error when trying to install provided extension
+      */
+     private ModifableExtensionPlanNode installExtensionDependency(ExtensionDependency targetDependency,
+-        boolean dependency, String namespace, Map<String, ExtensionDependency> managedDependencies, Set<String> parents)
++        boolean dependency, String namespace, Map<String, ExtensionDependency> managedDependencies)
+         throws InstallException
+     {
+         this.progressManager.pushLevelProgress(2, this);
+@@ -668,7 +660,7 @@ private ModifableExtensionPlanNode installExtensionDependency(ExtensionDependenc
+ 
+             try {
+                 return installExtension(extension, rewrittenExtension, dependency, namespace, targetDependency,
+-                    managedDependencies, parents);
++                    managedDependencies);
+             } catch (Exception e) {
+                 throw new InstallException(
+                     String.format("Failed to create an install plan for extension dependency [%s]", targetDependency),
+@@ -771,7 +763,7 @@ private ModifableExtensionPlanNode installExtension(ExtensionId extensionId, boo
+ 
+             try {
+                 return installExtension(extension, rewrittenExtension, dependency, namespace, null,
+-                    Collections.emptyMap(), null);
++                    Collections.emptyMap());
+             } catch (Exception e) {
+                 throw new InstallException("Failed to resolve extension", e);
+             }
+@@ -857,7 +849,6 @@ protected void checkTypeInstall(Extension extension, String namespace) throws In
+      * @param namespace the namespace where to install the extension
+      * @param initialDependency the initial dependency used to resolve the extension
+      * @param managedDependencies the managed dependencies
+-     * @param parents the parents extensions (which triggered this extension install)
+      * @return the install plan node for the provided extension
+      * @throws InstallException error when trying to install provided extension
+      * @throws IncompatibleVersionConstraintException
+@@ -866,8 +857,8 @@ protected void checkTypeInstall(Extension extension, String namespace) throws In
+      */
+     private ModifableExtensionPlanNode installExtension(Extension sourceExtension, Extension rewrittenExtension,
+         boolean dependency, String namespace, ExtensionDependency initialDependency,
+-        Map<String, ExtensionDependency> managedDependencies, Set<String> parents) throws InstallException,
+-        ResolveException, IncompatibleVersionConstraintException, UninstallException, NamespaceNotAllowedException
++        Map<String, ExtensionDependency> managedDependencies) throws InstallException, ResolveException,
++        IncompatibleVersionConstraintException, UninstallException, NamespaceNotAllowedException
+     {
+         boolean allowed = isNamespaceAllowed(rewrittenExtension, namespace);
+ 
+@@ -877,7 +868,7 @@ private ModifableExtensionPlanNode installExtension(Extension sourceExtension, E
+                 if (getRequest().isRootModificationsAllowed()) {
+                     // Try to install it on root namespace
+                     return installExtension(sourceExtension, rewrittenExtension, dependency, null, initialDependency,
+-                        managedDependencies, parents);
++                        managedDependencies);
+                 }
+             }
+ 
+@@ -896,7 +887,7 @@ private ModifableExtensionPlanNode installExtension(Extension sourceExtension, E
+             if (checkRootExtension(rewrittenExtension)) {
+                 // Restart install on root
+                 return installExtension(sourceExtension, rewrittenExtension, dependency, null, initialDependency,
+-                    managedDependencies, parents);
++                    managedDependencies);
+             }
+         }
+ 
+@@ -961,8 +952,6 @@ private ModifableExtensionPlanNode installExtension(Extension sourceExtension, E
+ 
+             List<ModifableExtensionPlanNode> children = null;
+             if (!dependencies.isEmpty()) {
+-                parents = ExtensionUtils.append(parents, rewrittenExtension.getId().getId());
+-
+                 this.progressManager.pushLevelProgress(dependencies.size() + 1, this);
+ 
+                 try {
+@@ -970,11 +959,6 @@ private ModifableExtensionPlanNode installExtension(Extension sourceExtension, E
+                     for (ExtensionDependency extensionDependency : dependencies) {
+                         this.progressManager.startStep(this);
+ 
+-                        if (parents.contains(extensionDependency.getId())) {
+-                            // In case of cross dependency just ignore it
+-                            continue;
+-                        }
+-
+                         // Replace with managed dependency if any
+                         extensionDependency =
+                             ExtensionUtils.getDependency(extensionDependency, managedDependencies, rewrittenExtension);
+@@ -985,13 +969,13 @@ private ModifableExtensionPlanNode installExtension(Extension sourceExtension, E
+                             .getRecommendedDependency(extensionDependency, this.configuration, this.factory);
+                         if (recommendedDependency != null) {
+                             valid = installOptionalExtensionDependency(recommendedDependency, namespace, children,
+-                                ExtensionUtils.append(managedDependencies, rewrittenExtension), parents);
++                                ExtensionUtils.append(managedDependencies, rewrittenExtension));
+                         }
+ 
+                         // If recommended version is invalid, try the one provided by the extension
+                         if (!valid) {
+                             installExtensionDependency(extensionDependency, namespace, children,
+-                                ExtensionUtils.append(managedDependencies, rewrittenExtension), parents);
++                                ExtensionUtils.append(managedDependencies, rewrittenExtension));
+                         }
+ 
+                         this.progressManager.endStep(this);
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/TestResources.java b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/TestResources.java
+index ccd63de..9061732 100644
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/TestResources.java
++++ b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/TestResources.java
+@@ -119,10 +119,6 @@
+     public static final ExtensionId REMOTE_WITH_OVERWRITTEN_MANAGED_DEPENDENY_ID =
+         new ExtensionId("rwithoverwrittenmanageddependency", "version");
+ 
+-    public static final ExtensionId REMOTE_CROSSDEPENDENCY1 = new ExtensionId("crossdependency1", "version");
+-
+-    public static final ExtensionId REMOTE_CROSSDEPENDENCY2 = new ExtensionId("crossdependency2", "version");
+-
+     // Methods
+ 
+     public void init(InstalledExtensionRepository installedExtensionRepository) throws ResolveException
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/job/internal/InstallPlanJobTest.java b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/job/internal/InstallPlanJobTest.java
+index 4960b06..73212a4 100644
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/job/internal/InstallPlanJobTest.java
++++ b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/job/internal/InstallPlanJobTest.java
+@@ -750,29 +750,6 @@ public void testInstallWithInvalidOptionalDependency() throws Throwable
+         Assert.assertEquals(0, node.getChildren().size());
+     }
+ 
+-    @Test
+-    public void testInstallPlanWithCrossDependencies() throws Throwable
+-    {
+-        ExtensionPlan plan = installPlan(TestResources.REMOTE_CROSSDEPENDENCY1);
+-
+-        // Tree
+-
+-        Assert.assertEquals(1, plan.getTree().size());
+-
+-        ExtensionPlanNode node = plan.getTree().iterator().next();
+-
+-        ExtensionPlanAction action = node.getAction();
+-
+-        Assert.assertEquals(TestResources.REMOTE_CROSSDEPENDENCY1, action.getExtension().getId());
+-        Assert.assertEquals(Action.INSTALL, node.getAction().getAction());
+-        Assert.assertEquals(1, node.getChildren().size());
+-
+-        ExtensionPlanNode childnode = node.getChildren().iterator().next();
+-
+-        Assert.assertEquals(TestResources.REMOTE_CROSSDEPENDENCY2, childnode.getAction().getExtension().getId());
+-        Assert.assertEquals(Action.INSTALL, node.getAction().getAction());
+-    }
+-
+     // Failures
+ 
+     @Test(expected = InstallException.class)
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/resources/repository/remote/crossdependency1-version.test b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/resources/repository/remote/crossdependency1-version.test
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/resources/repository/remote/crossdependency1-version.xed b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/resources/repository/remote/crossdependency1-version.xed
+deleted file mode 100644
+index bc8fd44..0000000
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/resources/repository/remote/crossdependency1-version.xed
++++ /dev/null
+@@ -1,13 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<extension>
+-  <id>crossdependency1</id>
+-  <version>version</version>
+-  <type>test</type>
+-  <dependencies>
+-    <dependency>
+-      <id>crossdependency2</id>
+-      <version>version</version>
+-    </dependency>
+-  </dependencies>
+-</extension>
+\ No newline at end of file
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/resources/repository/remote/crossdependency2-version.test b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/resources/repository/remote/crossdependency2-version.test
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/resources/repository/remote/crossdependency2-version.xed b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/resources/repository/remote/crossdependency2-version.xed
+deleted file mode 100644
+index 04de5ef..0000000
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/resources/repository/remote/crossdependency2-version.xed
++++ /dev/null
+@@ -1,13 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-
+-<extension>
+-  <id>crossdependency2</id>
+-  <version>version</version>
+-  <type>test</type>
+-  <dependencies>
+-    <dependency>
+-      <id>crossdependency1</id>
+-      <version>version</version>
+-    </dependency>
+-  </dependencies>
+-</extension>
+\ No newline at end of file

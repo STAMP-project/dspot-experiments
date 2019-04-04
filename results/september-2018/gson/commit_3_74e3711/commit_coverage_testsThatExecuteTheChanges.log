@@ -1,0 +1,167 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.google.code.gson:gson-extras:jar:1.0-SNAPSHOT
+[WARNING] 'parent.relativePath' of POM com.google.code.gson:gson-extras:1.0-SNAPSHOT (/tmp/icst-2019/september-2018/dataset/gson/extras/pom.xml) points at com.google.code.gson:gson-parent instead of org.sonatype.oss:oss-parent, please verify your project structure @ line 9, column 11
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ------------------< com.google.code.gson:gson-extras >------------------
+[INFO] Building Gson Extras 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gson-extras ---
+[INFO] Deleting /tmp/icst-2019/september-2018/dataset/gson/extras/target
+[INFO] 
+[INFO] --- diff-test-selection:0.5-SNAPSHOT:list (default-cli) @ gson-extras ---
+[INFO] Computing coverage for /tmp/icst-2019/september-2018/dataset/gson/extras
+[WARN] Maven will be executed in interactive mode, but no input stream has been configured for this MavenInvoker instance.
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.google.code.gson:gson-extras:jar:1.0-SNAPSHOT
+[WARNING] 'parent.relativePath' of POM com.google.code.gson:gson-extras:1.0-SNAPSHOT (/tmp/icst-2019/september-2018/dataset/gson/extras/pom.xml) points at com.google.code.gson:gson-parent instead of org.sonatype.oss:oss-parent, please verify your project structure @ line 9, column 11
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ------------------< com.google.code.gson:gson-extras >------------------
+[INFO] Building Gson Extras 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gson-extras ---
+[INFO] 
+[INFO] --- clover-maven-plugin:4.2.0:setup (default-cli) @ gson-extras ---
+[INFO] No 'maven.clover.licenseLocation' configured. Using default license.
+[INFO] OpenClover Version 4.2.0, built on April 30 2017 (build-1000)
+[INFO] Loaded from: /home/spirals/danglot/.m2/repository/org/openclover/clover/4.2.0/clover-4.2.0.jar
+[INFO] Clover free edition.
+[INFO] Creating new database at '/tmp/icst-2019/september-2018/dataset/gson/extras/target/clover/clover.db'.
+[INFO] Processing files at 1.8 source level.
+[INFO] Clover all over. Instrumented 8 files (4 packages).
+[INFO] Elapsed time = 0.417 secs. (19.185 files/sec, 2,654.676 srclines/sec)
+[INFO] OpenClover Version 4.2.0, built on April 30 2017 (build-1000)
+[INFO] Loaded from: /home/spirals/danglot/.m2/repository/org/openclover/clover/4.2.0/clover-4.2.0.jar
+[INFO] Clover free edition.
+[INFO] Updating existing database at '/tmp/icst-2019/september-2018/dataset/gson/extras/target/clover/clover.db'.
+[INFO] Processing files at 1.8 source level.
+[INFO] Clover all over. Instrumented 5 files (3 packages).
+[INFO] 36 test methods detected.
+[INFO] Elapsed time = 0.229 secs. (21.834 files/sec, 3,366.812 srclines/sec)
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.2:enforce (enforce-maven) @ gson-extras ---
+[INFO] Skipping Rule Enforcement.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gson-extras ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /tmp/icst-2019/september-2018/dataset/gson/extras/src/main/resources
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ gson-extras ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 8 source files to /tmp/icst-2019/september-2018/dataset/gson/extras/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ gson-extras ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /tmp/icst-2019/september-2018/dataset/gson/extras/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ gson-extras ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /tmp/icst-2019/september-2018/dataset/gson/extras/target/test-classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /tmp/icst-2019/september-2018/dataset/gson/extras/target/clover/src-test-instrumented/com/google/gson/typeadapters/PostConstructAdapterFactoryTest.java:[25,17] package org.junit does not exist
+[ERROR] /tmp/icst-2019/september-2018/dataset/gson/extras/target/clover/src-test-instrumented/com/google/gson/typeadapters/PostConstructAdapterFactoryTest.java:[53,43] cannot find symbol
+  symbol:   variable Assert
+  location: class com.google.gson.typeadapters.PostConstructAdapterFactoryTest
+[ERROR] /tmp/icst-2019/september-2018/dataset/gson/extras/target/clover/src-test-instrumented/com/google/gson/typeadapters/PostConstructAdapterFactoryTest.java:[56,43] cannot find symbol
+  symbol:   variable Assert
+  location: class com.google.gson.typeadapters.PostConstructAdapterFactoryTest
+[INFO] 3 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 5.273 s
+[INFO] Finished at: 2018-10-10T10:29:12+02:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.5.1:testCompile (default-testCompile) on project gson-extras: Compilation failure: Compilation failure: 
+[ERROR] /tmp/icst-2019/september-2018/dataset/gson/extras/target/clover/src-test-instrumented/com/google/gson/typeadapters/PostConstructAdapterFactoryTest.java:[25,17] package org.junit does not exist
+[ERROR] /tmp/icst-2019/september-2018/dataset/gson/extras/target/clover/src-test-instrumented/com/google/gson/typeadapters/PostConstructAdapterFactoryTest.java:[53,43] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class com.google.gson.typeadapters.PostConstructAdapterFactoryTest
+[ERROR] /tmp/icst-2019/september-2018/dataset/gson/extras/target/clover/src-test-instrumented/com/google/gson/typeadapters/PostConstructAdapterFactoryTest.java:[56,43] cannot find symbol
+[ERROR]   symbol:   variable Assert
+[ERROR]   location: class com.google.gson.typeadapters.PostConstructAdapterFactoryTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+WARN: No coverage recordings found. No report will be generated.
+[INFO] /tmp/icst-2019/september-2018/dataset/gson/extras/src/main/java/com/google/gson/typeadapters/PostConstructAdapterFactory.java
+[INFO] /tmp/icst-2019/september-2018/dataset/gson_parent/extras/src/main/java/com/google/gson/typeadapters/PostConstructAdapterFactory.java
+[info] com.google.gson.typeadapters.PostConstructAdapterFactory:36 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactory:36 is modified.
+[INFO] /tmp/icst-2019/september-2018/dataset/gson/extras/src/test/java/com/google/gson/typeadapters/PostConstructAdapterFactoryTest.java
+[INFO] /tmp/icst-2019/september-2018/dataset/gson_parent/extras/src/test/java/com/google/gson/typeadapters/PostConstructAdapterFactoryTest.java
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:44 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:45 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:45 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:46 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:47 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:45 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:49 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:49 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:49 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:52 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:52 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:53 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:55 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:55 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:56 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:60 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:64 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:65 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:75 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:76 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:78 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:78 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:79 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:81 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:82 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:82 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:82 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:85 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:85 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:85 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:93 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:96 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:100 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:103 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:103 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:106 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:107 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:107 is modified.
+[info] com.google.gson.typeadapters.PostConstructAdapterFactoryTest:107 is modified.
+[INFO] Saving result in /tmp/icst-2019/september-2018/result/gson/commit_3_74e3711/commit_coverage_testsThatExecuteTheChanges.csv ...
+[INFO] 
+[INFO] Writing Coverage in /tmp/icst-2019/september-2018/result/gson/commit_3_74e3711/commit_coverage_testsThatExecuteTheChanges_coverage.csv
+[INFO] total;0;0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 11.891 s
+[INFO] Finished at: 2018-10-10T10:29:15+02:00
+[INFO] ------------------------------------------------------------------------
+2018-10-10 10:29:16,104 INFO icst.experiments.repositories.RepositoriesSetter - {/tmp/icst-2019/september-2018/dataset/gson} Cleaning local repository...
+2018-10-10 10:29:16,303 INFO icst.experiments.repositories.RepositoriesSetter - Checkout ada597e69a78b8b99f79f79493cbf51e16045202 revision...
+2018-10-10 10:29:16,418 INFO icst.experiments.repositories.RepositoriesSetter - {/tmp/icst-2019/september-2018/dataset/gson_parent} Cleaning local repository...
+2018-10-10 10:29:16,466 INFO icst.experiments.repositories.RepositoriesSetter - Checkout 0aaef0fd1bb1b9729543dc40168adfb829eb75a4 revision...

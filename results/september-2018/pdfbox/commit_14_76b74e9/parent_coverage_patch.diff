@@ -1,0 +1,15 @@
+diff --git a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/PDDocumentCatalog.java b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/PDDocumentCatalog.java
+index 6cd03f4..2f841fc 100644
+--- a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/PDDocumentCatalog.java
++++ b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/PDDocumentCatalog.java
+@@ -163,8 +163,8 @@ public class PDDocumentCatalog implements COSObjectable
+      */
+     public PDDocumentOutline getDocumentOutline()
+     {
+-        COSBase cosObj = root.getDictionaryObject(COSName.OUTLINES);
+-        return cosObj instanceof COSDictionary ? new PDDocumentOutline((COSDictionary)cosObj) : null;
++        COSDictionary dict = (COSDictionary)root.getDictionaryObject(COSName.OUTLINES);
++        return dict == null ? null : new PDDocumentOutline(dict);
+     }
+ 
+     /**

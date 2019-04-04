@@ -1,0 +1,2767 @@
+diff --git a/.gitignore b/.gitignore
+index a223e98..bd31ea1 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -7,3 +7,4 @@
+ /.pmdruleset.xml
+ /.project
+ /.checkstyle
++/bin/
+diff --git a/.travis.yml b/.travis.yml
+new file mode 100644
+index 0000000..b179f30
+--- /dev/null
++++ b/.travis.yml
+@@ -0,0 +1,3 @@
++language: java
++jdk:
++  - openjdk8
+diff --git a/CHANGELOG.md b/CHANGELOG.md
+index 4d54aa2..75579c5 100644
+--- a/CHANGELOG.md
++++ b/CHANGELOG.md
+@@ -1,7 +1,16 @@
+ # Change log
+ All notable changes to this project are documented in this file following the [Keep a CHANGELOG](http://keepachangelog.com) conventions. 
+ 
+-Issues reported on [GitHub](https://github.com/authzforce/core/issues) are referenced in the form of `[GH-N]`, where N is the issue number. Issues reported on [OW2](https://jira.ow2.org/browse/AUTHZFORCE/) are mentioned in the form of `[OW2-N]`, where N is the issue number.
++## Issue references
++- Issues reported on [GitHub](https://github.com/authzforce/core/issues) are referenced in the form of `[GH-N]`, where N is the issue number. 
++- Issues reported on [OW2's JIRA](https://jira.ow2.org/browse/AUTHZFORCE/) are referenced in the form of `[JIRA-N]`, where N is the issue number.
++- Issues reported on [OW2's GitLab](https://gitlab.ow2.org/authzforce/core/issues) are referenced in the form of `[GL-N]`, where N is the issue number.
++
++
++## 11.0.1
++### Fixed
++- [GL-6]: IllegalArgumentException when applying XACML 'map' function to substring with string bag as first arg
++- Dependency of pdp-testutils module - Jongo 1.3.0 - depends on jackson-databind 2.7.3 which is affected by CVE-2018-5968. Fixed by forcing version of jackson-databind to 2.9.4 in file 'pom.xml', until Jongo team fixes the issue (https://github.com/bguerout/jongo/issues/327)
+ 
+ 
+ ## 11.0.0
+@@ -118,10 +127,10 @@ XACML 3.0, and adapting to the PDP engine API; also provides automatic conversio
+ 
+ ## 7.1.0
+ ### Added
+-- [OW2-26] Simplify evaluation of Apply expression with commutative numeric function f (e.g. add and multiply): if multiple arguments are constants A, B..., then: `f(a1,...an, A, b1,...bn, B, c1,...) = f(C, a1,...an, b1,...bn, c1...)` where `C = f(A,B...)` and a1,...an, b1,...bn, c1,... are the other arguments (variables).
++- [JIRA-26] Simplify evaluation of Apply expression with commutative numeric function f (e.g. add and multiply): if multiple arguments are constants A, B..., then: `f(a1,...an, A, b1,...bn, B, c1,...) = f(C, a1,...an, b1,...bn, c1...)` where `C = f(A,B...)` and a1,...an, b1,...bn, c1,... are the other arguments (variables).
+ 
+ ### Fixed
+-- [OW2-25] - Reopened - NullPointerException when parsing Apply expressions using invalid/unsupported Function ID. This is the final fix addressing higher-order functions. (Initial fix only addressed first-order ones.)
++- [JIRA-25] - Reopened - NullPointerException when parsing Apply expressions using invalid/unsupported Function ID. This is the final fix addressing higher-order functions. (Initial fix only addressed first-order ones.)
+ - Artifact `authzforce-ce-core` with `tests` classifier: missing classes.
+ 
+ 
+@@ -174,10 +183,10 @@ XACML 3.0, and adapting to the PDP engine API; also provides automatic conversio
+ - Dependency on Koloboke, replaced by extension mechanism mentioned in *Added* section that would allow to switch from the default HashMap/HashSet implementation to Koloboke-based.
+ 
+ ### Fixed
+-- [OW2-23] Enforcement of RuleId/PolicyId/PolicySetId uniqueness:
++- [JIRA-23] Enforcement of RuleId/PolicyId/PolicySetId uniqueness:
+ 	- PolicyId (resp. PolicySetId) should be unique across all policies loaded by PDP so that PolicyIdReferences (resp. PolicySetIdReferences) in Responses' PolicyIdentifierList are absolute references to applicable policies (no ambiguity).
+  	- [RuleId should be unique within a policy](https://lists.oasis-open.org/archives/xacml/201310/msg00025.html) -> A rule is globally uniquely identified by the parent PolicyId and the RuleId.
+-- [OW2-25] NullPointerException when parsing Apply expressions using invalid/unsupported Function ID. Partial fix addressing only invalid first-order functions. See release 7.0.1 for final fix addressing higher-order functions too.
++- [JIRA-25] NullPointerException when parsing Apply expressions using invalid/unsupported Function ID. Partial fix addressing only invalid first-order functions. See release 7.0.1 for final fix addressing higher-order functions too.
+ 
+ 
+ ## 5.0.2
+@@ -187,7 +196,7 @@ XACML 3.0, and adapting to the PDP engine API; also provides automatic conversio
+ 
+ ## 5.0.1
+ ### Fixed
+-- [OW2-22] When handling the same XACML Request twice in the same JVM with the root PolicySet using deny-unless-permit algorithm over a Policy returning simple Deny (no status/obligation/advice) and a Policy returning Permit/Deny with obligations/advice, the obligation is duplicated in the final result at the second time this situation occurs. 
++- [JIRA-22] When handling the same XACML Request twice in the same JVM with the root PolicySet using deny-unless-permit algorithm over a Policy returning simple Deny (no status/obligation/advice) and a Policy returning Permit/Deny with obligations/advice, the obligation is duplicated in the final result at the second time this situation occurs. 
+ - XACML StatusCode XML serialization/marshalling error when Missing Attribute info that is no valid anyURI is returned by PDP in a Indeterminate Result
+ - Memory management issue: native RootPolicyProvider modules keeping a reference to static refPolicyProvider, even after policies have been resolved statically at initialization time, preventing garbage collection and memory saving.
+ - Calls to Logger impacted negatively by autoboxing
+diff --git a/pdp-cli/pom.xml b/pdp-cli/pom.xml
+index a907163..308c408 100644
+--- a/pdp-cli/pom.xml
++++ b/pdp-cli/pom.xml
+@@ -3,7 +3,7 @@
+    <parent>
+       <groupId>org.ow2.authzforce</groupId>
+       <artifactId>authzforce-ce-core</artifactId>
+-      <version>11.0.0</version>
++      <version>11.0.1</version>
+       <relativePath>..</relativePath>
+    </parent>
+    <artifactId>authzforce-ce-core-pdp-cli</artifactId>
+@@ -30,12 +30,12 @@
+       <dependency>
+          <groupId>org.ow2.authzforce</groupId>
+          <artifactId>authzforce-ce-core-pdp-engine</artifactId>
+-         <version>11.0.0</version>
++         <version>11.0.1</version>
+       </dependency>
+       <dependency>
+          <groupId>org.ow2.authzforce</groupId>
+          <artifactId>authzforce-ce-core-pdp-io-xacml-json</artifactId>
+-         <version>11.0.0</version>
++         <version>11.0.1</version>
+       </dependency>
+       <dependency>
+          <groupId>org.testng</groupId>
+@@ -46,7 +46,7 @@
+       <dependency>
+          <groupId>org.ow2.authzforce</groupId>
+          <artifactId>authzforce-ce-core-pdp-testutils</artifactId>
+-         <version>11.0.0</version>
++         <version>11.0.1</version>
+          <scope>test</scope>
+       </dependency>
+    </dependencies>
+diff --git a/pdp-engine/pom.xml b/pdp-engine/pom.xml
+index ace65a7..664e372 100644
+--- a/pdp-engine/pom.xml
++++ b/pdp-engine/pom.xml
+@@ -1,221 +1,234 @@
+ <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+-   <modelVersion>4.0.0</modelVersion>
+-   <parent>
+-      <groupId>org.ow2.authzforce</groupId>
+-      <artifactId>authzforce-ce-core</artifactId>
+-      <version>11.0.0</version>
+-      <relativePath>..</relativePath>
+-   </parent>
+-   <artifactId>authzforce-ce-core-pdp-engine</artifactId>
+-   <name>${project.groupId}:${project.artifactId}</name>
+-   <description>AuthzForce - XACML-compliant Core PDP Engine</description>
+-   <url>${project.url}</url>
+-   <scm>
+-<!--       Used by Jenkins - Maven release plugin -->
+-      <connection>scm:git:${git.url.base}/core.git/pdp-engine</connection>
+-      <developerConnection>scm:git:${git.url.base}/core.git/pdp-engine</developerConnection>
+-      <tag>HEAD</tag>
+-<!--       Publicly browsable repository URL. For example, via Gitlab web UI. -->
+-      <url>${git.url.base}/core/pdp-engine</url>
+-   </scm>
+-   <!-- distributionManagement defined in parent POM already -->
+-   <dependencies>
+-      <!-- Third-party dependencies -->
+-      <dependency>
+-         <!-- For redirecting Spring logs to slf4j -->
+-         <groupId>org.slf4j</groupId>
+-         <artifactId>jcl-over-slf4j</artifactId>
+-      </dependency>
+-      <dependency>
+-         <!-- Needed for org.springframework.util.ResourceUtils,SystemPropertyUtils,FileCopyUtils, etc. -->
+-         <groupId>org.springframework</groupId>
+-         <artifactId>spring-core</artifactId>
+-      </dependency>
+-      <dependency>
+-         <!-- For loading XML schemas with OASIS catalog (CatalogManager) -->
+-         <groupId>xml-resolver</groupId>
+-         <artifactId>xml-resolver</artifactId>
+-      </dependency>
+-      <!-- /Third-party dependencies -->
++	<modelVersion>4.0.0</modelVersion>
++	<parent>
++		<groupId>org.ow2.authzforce</groupId>
++		<artifactId>authzforce-ce-core</artifactId>
++		<version>11.0.1</version>
++		<relativePath>..</relativePath>
++	</parent>
++	<artifactId>authzforce-ce-core-pdp-engine</artifactId>
++	<name>${project.groupId}:${project.artifactId}</name>
++	<description>AuthzForce - XACML-compliant Core PDP Engine</description>
++	<url>${project.url}</url>
++	<scm>
++		<!-- Used by Jenkins - Maven release plugin -->
++		<connection>scm:git:${git.url.base}/core.git/pdp-engine</connection>
++		<developerConnection>scm:git:${git.url.base}/core.git/pdp-engine</developerConnection>
++		<tag>HEAD</tag>
++		<!-- Publicly browsable repository URL. For example, via Gitlab web UI. -->
++		<url>${git.url.base}/core/pdp-engine</url>
++	</scm>
++	<!-- distributionManagement defined in parent POM already -->
++	<dependencies>
++		<!-- Third-party dependencies -->
++		<dependency>
++			<!-- For redirecting Spring logs to slf4j -->
++			<groupId>org.slf4j</groupId>
++			<artifactId>jcl-over-slf4j</artifactId>
++		</dependency>
++		<dependency>
++			<!-- Needed for org.springframework.util.ResourceUtils,SystemPropertyUtils,FileCopyUtils, 
++				etc. -->
++			<groupId>org.springframework</groupId>
++			<artifactId>spring-core</artifactId>
++		</dependency>
++		<dependency>
++			<!-- For loading XML schemas with OASIS catalog (CatalogManager) -->
++			<groupId>xml-resolver</groupId>
++			<artifactId>xml-resolver</artifactId>
++		</dependency>
++		<!-- /Third-party dependencies -->
+ 
+-      <!-- Authzforce dependencies -->
+-      <dependency>
+-         <groupId>${project.groupId}</groupId>
+-         <artifactId>${artifactId.prefix}-core-pdp-api</artifactId>
+-      </dependency>
+-      <!-- /Authzforce dependencies -->
++		<!-- Authzforce dependencies -->
++		<dependency>
++			<groupId>${project.groupId}</groupId>
++			<artifactId>${artifactId.prefix}-core-pdp-api</artifactId>
++		</dependency>
++		<!-- /Authzforce dependencies -->
+ 
+-      <!-- Test dependencies -->
+-      <dependency>
+-         <groupId>ch.qos.logback</groupId>
+-         <artifactId>logback-classic</artifactId>
+-         <scope>test</scope>
+-      </dependency>
+-      <dependency>
+-         <groupId>junit</groupId>
+-         <artifactId>junit</artifactId>
+-         <scope>test</scope>
+-      </dependency>
+-      <!-- /Test dependencies -->
+-   </dependencies>
+-   <build>
+-      <plugins>
+-         <plugin>
+-            <!-- Consider combining with Red Hat Victims and OSS Index. More info on Victims vs. Dependency-check: https://bugzilla.redhat.com/show_bug.cgi?id=1388712 -->
+-            <groupId>org.owasp</groupId>
+-            <artifactId>dependency-check-maven</artifactId>
+-            <configuration>
+-               <cveValidForHours>24</cveValidForHours>
+-               <!-- The plugin has numerous issues with version matching, which triggers false positives so we need a "suppresion" file for those. More info: https://github.com/jeremylong/DependencyCheck/issues -->
+-               <suppressionFile>owasp-dependency-check-suppression.xml</suppressionFile>
+-               <failBuildOnAnyVulnerability>true</failBuildOnAnyVulnerability>
+-            </configuration>
+-            <executions>
+-               <execution>
+-                  <goals>
+-                     <goal>check</goal>
+-                  </goals>
+-               </execution>
+-            </executions>
+-         </plugin>
+-         <plugin>
+-            <groupId>org.apache.maven.plugins</groupId>
+-            <artifactId>maven-pmd-plugin</artifactId>
+-            <!-- target JDK already set by parent project's maven.compiler.target property -->
+-            <configuration>
+-               <verbose>true</verbose>
+-               <excludeRoots>
+-                  <excludeRoot>target/generated-sources/xjc</excludeRoot>
+-                  <excludeRoot>target/generated-test-sources/xjc</excludeRoot>
+-               </excludeRoots>
+-            </configuration>
+-            <executions>
+-               <execution>
+-                  <phase>verify</phase>
+-                  <goals>
+-                     <goal>check</goal>
+-                     <goal>cpd-check</goal>
+-                  </goals>
+-               </execution>
+-            </executions>
+-         </plugin>
+-         <plugin>
+-            <groupId>org.codehaus.mojo</groupId>
+-            <artifactId>findbugs-maven-plugin</artifactId>
+-            <configuration>
+-               <onlyAnalyze>org.ow2.authzforce.*</onlyAnalyze>
+-               <excludeFilterFile>findbugs-exclude-filter.xml</excludeFilterFile>
+-            </configuration>
+-            <executions>
+-               <execution>
+-                  <phase>verify</phase>
+-                  <goals>
+-                     <goal>check</goal>
+-                  </goals>
+-               </execution>
+-            </executions>
+-         </plugin>
+-         <plugin>
+-            <!-- Override license-maven-plugin configuration to exclude Sunxacml files from adding GPL license headers (different license) -->
+-            <groupId>com.mycila</groupId>
+-            <artifactId>license-maven-plugin</artifactId>
+-            <configuration>
+-               <header>license/alv2-header.txt</header>
+-               <includes>
+-                  <include>src/main/java/org/ow2/authzforce/**</include>
+-                  <!-- Include test files also -->
+-                  <include>src/test/java/org/ow2/authzforce/**</include>
+-               </includes>
+-            </configuration>
+-            <executions>
+-               <execution>
+-                  <id>format-sources-license</id>
+-                  <phase>process-sources</phase>
+-                  <goals>
+-                     <goal>format</goal>
+-                  </goals>
+-               </execution>
+-               <execution>
+-                  <id>format-test-sources-license</id>
+-                  <phase>process-test-sources</phase>
+-                  <goals>
+-                     <goal>format</goal>
+-                  </goals>
+-               </execution>
+-            </executions>
+-         </plugin>
+-         <plugin>
+-            <groupId>org.jvnet.jaxb2.maven2</groupId>
+-            <artifactId>maven-jaxb2-plugin</artifactId>
+-            <configuration>
+-               <!-- debug=true will generate JAXBDebug class. More info: https://github.com/highsource/maven-jaxb2-plugin/wiki/Miscellaneous -->
+-               <debug>false</debug>
+-               <strict>false</strict>
+-               <verbose>true</verbose>
+-               <removeOldOutput>true</removeOldOutput>
+-               <extension>true</extension>
+-               <args>
+-                  <arg>-Xvalue-constructor</arg>
+-               </args>
+-               <plugins>
+-                  <plugin>
+-                     <groupId>org.jvnet.jaxb2_commons</groupId>
+-                     <artifactId>jaxb2-value-constructor</artifactId>
+-                     <version>${jaxb2-value-constructor.version}</version>
+-                  </plugin>
+-               </plugins>
+-               <useDependenciesAsEpisodes>false</useDependenciesAsEpisodes>
+-               <episodes>
+-                  <episode>
+-                     <groupId>${project.groupId}</groupId>
+-                     <artifactId>${artifactId.prefix}-xmlns-model</artifactId>
+-                  </episode>
+-                  <episode>
+-                     <groupId>${project.groupId}</groupId>
+-                     <artifactId>${artifactId.prefix}-xacml-model</artifactId>
+-                  </episode>
+-                  <episode>
+-                     <groupId>${project.groupId}</groupId>
+-                     <artifactId>${artifactId.prefix}-pdp-ext-model</artifactId>
+-                  </episode>
+-               </episodes>
+-               <catalog>src/main/jaxb/catalog.xml</catalog>
+-               <bindingDirectory>src/main/jaxb</bindingDirectory>
+-               <bindingIncludes>
+-                  <include>bindings.xjb</include>
+-               </bindingIncludes>
+-            </configuration>
+-            <executions>
+-               <execution>
+-                  <id>jaxb-generate-compile-sources</id>
+-                  <goals>
+-                     <goal>generate</goal>
+-                  </goals>
+-                  <configuration>
+-                     <schemaDirectory>src/main/resources</schemaDirectory>
+-                     <schemaIncludes>
+-                        <include>pdp.xsd</include>
+-                     </schemaIncludes>
+-                     <generateDirectory>${project.build.directory}/generated-sources/xjc</generateDirectory>
+-                     <generatePackage>${project.groupId}.core.xmlns.pdp</generatePackage>
+-                     <addCompileSourceRoot>true</addCompileSourceRoot>
+-                     <addTestCompileSourceRoot>false</addTestCompileSourceRoot>
+-                  </configuration>
+-               </execution>
+-            </executions>
+-         </plugin>
+-         <plugin>
+-            <artifactId>maven-surefire-plugin</artifactId>
+-            <configuration>
+-               <skipTests>false</skipTests>
+-               <systemPropertyVariables>
+-                  <javax.xml.accessExternalSchema>all</javax.xml.accessExternalSchema>
+-               </systemPropertyVariables>
+-               <includes>
+-                  <include>**/MainTest.java</include>
+-               </includes>
+-            </configuration>
+-         </plugin>
+-      </plugins>
+-   </build>
++		<!-- Test dependencies -->
++		<dependency>
++			<groupId>ch.qos.logback</groupId>
++			<artifactId>logback-classic</artifactId>
++			<scope>test</scope>
++		</dependency>
++		<dependency>
++			<groupId>junit</groupId>
++			<artifactId>junit</artifactId>
++			<scope>test</scope>
++		</dependency>
++		<!-- /Test dependencies -->
++	</dependencies>
++	<build>
++		<plugins>
++			<plugin>
++				<!-- Consider combining with Red Hat Victims and OSS Index. More info 
++					on Victims vs. Dependency-check: https://bugzilla.redhat.com/show_bug.cgi?id=1388712 -->
++				<groupId>org.owasp</groupId>
++				<artifactId>dependency-check-maven</artifactId>
++				<configuration>
++					<cveValidForHours>24</cveValidForHours>
++					<!-- The plugin has numerous issues with version matching, which triggers 
++						false positives so we need a "suppresion" file for those. More info: https://github.com/jeremylong/DependencyCheck/issues -->
++					<suppressionFile>owasp-dependency-check-suppression.xml</suppressionFile>
++					<failBuildOnAnyVulnerability>true</failBuildOnAnyVulnerability>
++				</configuration>
++				<executions>
++					<execution>
++						<goals>
++							<goal>check</goal>
++						</goals>
++					</execution>
++				</executions>
++			</plugin>
++			<plugin>
++				<groupId>org.apache.maven.plugins</groupId>
++				<artifactId>maven-pmd-plugin</artifactId>
++				<!-- target JDK already set by parent project's maven.compiler.target 
++					property -->
++				<configuration>
++					<verbose>true</verbose>
++					<excludeRoots>
++						<excludeRoot>target/generated-sources/xjc</excludeRoot>
++						<excludeRoot>target/generated-test-sources/xjc</excludeRoot>
++					</excludeRoots>
++				</configuration>
++				<executions>
++					<execution>
++						<phase>verify</phase>
++						<goals>
++							<goal>check</goal>
++							<goal>cpd-check</goal>
++						</goals>
++					</execution>
++				</executions>
++			</plugin>
++			<plugin>
++				<groupId>org.codehaus.mojo</groupId>
++				<artifactId>findbugs-maven-plugin</artifactId>
++				<configuration>
++					<onlyAnalyze>org.ow2.authzforce.*</onlyAnalyze>
++					<excludeFilterFile>findbugs-exclude-filter.xml</excludeFilterFile>
++				</configuration>
++				<executions>
++					<execution>
++						<phase>verify</phase>
++						<goals>
++							<goal>check</goal>
++						</goals>
++					</execution>
++				</executions>
++			</plugin>
++			<plugin>
++				<!-- Override license-maven-plugin configuration to exclude Sunxacml 
++					files from adding GPL license headers (different license) -->
++				<groupId>com.mycila</groupId>
++				<artifactId>license-maven-plugin</artifactId>
++				<configuration>
++					<header>license/alv2-header.txt</header>
++					<includes>
++						<include>src/main/java/org/ow2/authzforce/**</include>
++						<!-- Include test files also -->
++						<include>src/test/java/org/ow2/authzforce/**</include>
++					</includes>
++				</configuration>
++				<executions>
++					<execution>
++						<id>format-sources-license</id>
++						<phase>process-sources</phase>
++						<goals>
++							<goal>format</goal>
++						</goals>
++					</execution>
++					<execution>
++						<id>format-test-sources-license</id>
++						<phase>process-test-sources</phase>
++						<goals>
++							<goal>format</goal>
++						</goals>
++					</execution>
++				</executions>
++			</plugin>
++			<plugin>
++				<groupId>org.jvnet.jaxb2.maven2</groupId>
++				<artifactId>maven-jaxb2-plugin</artifactId>
++				<configuration>
++					<!-- debug=true will generate JAXBDebug class. More info: https://github.com/highsource/maven-jaxb2-plugin/wiki/Miscellaneous -->
++					<debug>false</debug>
++					<strict>false</strict>
++					<verbose>true</verbose>
++					<removeOldOutput>true</removeOldOutput>
++					<extension>true</extension>
++					<args>
++						<arg>-Xvalue-constructor</arg>
++					</args>
++					<plugins>
++						<plugin>
++							<groupId>org.jvnet.jaxb2_commons</groupId>
++							<artifactId>jaxb2-value-constructor</artifactId>
++							<version>${jaxb2-value-constructor.version}</version>
++						</plugin>
++					</plugins>
++					<useDependenciesAsEpisodes>false</useDependenciesAsEpisodes>
++					<episodes>
++						<episode>
++							<groupId>${project.groupId}</groupId>
++							<artifactId>${artifactId.prefix}-xmlns-model</artifactId>
++						</episode>
++						<episode>
++							<groupId>${project.groupId}</groupId>
++							<artifactId>${artifactId.prefix}-xacml-model</artifactId>
++						</episode>
++						<episode>
++							<groupId>${project.groupId}</groupId>
++							<artifactId>${artifactId.prefix}-pdp-ext-model</artifactId>
++						</episode>
++					</episodes>
++					<catalog>src/main/jaxb/catalog.xml</catalog>
++					<bindingDirectory>src/main/jaxb</bindingDirectory>
++					<bindingIncludes>
++						<include>bindings.xjb</include>
++					</bindingIncludes>
++				</configuration>
++				<executions>
++					<execution>
++						<id>jaxb-generate-compile-sources</id>
++						<goals>
++							<goal>generate</goal>
++						</goals>
++						<configuration>
++							<schemaDirectory>src/main/resources</schemaDirectory>
++							<schemaIncludes>
++								<include>pdp.xsd</include>
++							</schemaIncludes>
++							<generateDirectory>${project.build.directory}/generated-sources/xjc</generateDirectory>
++							<generatePackage>${project.groupId}.core.xmlns.pdp</generatePackage>
++							<addCompileSourceRoot>true</addCompileSourceRoot>
++							<addTestCompileSourceRoot>false</addTestCompileSourceRoot>
++						</configuration>
++					</execution>
++				</executions>
++			</plugin>
++			<plugin>
++				<artifactId>maven-surefire-plugin</artifactId>
++				<configuration>
++					<skipTests>false</skipTests>
++					<systemPropertyVariables>
++						<javax.xml.accessExternalSchema>all</javax.xml.accessExternalSchema>
++					</systemPropertyVariables>
++					<properties>
++						<property>
++							<name>surefire.testng.verbose</name>
++							<!-- verbosity level from 0 to 10 (10 is the most detailed), or -1 
++								for debug. More info: http://maven.apache.org/surefire/maven-surefire-plugin/examples/testng.html -->
++							<value>3</value>
++						</property>
++					</properties>
++					<includes>
++						<include>**/MainTest.java</include>
++					</includes>
++				</configuration>
++			</plugin>
++		</plugins>
++	</build>
+ </project>
+diff --git a/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/BasePdpEngine.java b/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/BasePdpEngine.java
+index 925f432..2c15a12 100644
+--- a/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/BasePdpEngine.java
++++ b/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/BasePdpEngine.java
+@@ -177,14 +177,14 @@ public final class BasePdpEngine implements CloseablePdpEngine
+ 		}
+ 
+ 		@Override
+-		public Bag<?> putNamedAttributeIfAbsent(final AttributeFqn AttributeFqn, final AttributeBag<?> attributeValues)
++		public Bag<?> putNamedAttributeIfAbsent(final AttributeFqn attributeFqn, final AttributeBag<?> attributeValues)
+ 		{
+ 			/*
+ 			 * Put the non-issued version of the attribute first
+ 			 */
+-			final AttributeFqn nonAttributeFqn = AttributeFqns.newInstance(AttributeFqn.getCategory(), Optional.empty(), AttributeFqn.getId());
++			final AttributeFqn nonAttributeFqn = AttributeFqns.newInstance(attributeFqn.getCategory(), Optional.empty(), attributeFqn.getId());
+ 			super.putNamedAttributeIfAbsent(nonAttributeFqn, attributeValues);
+-			return super.putNamedAttributeIfAbsent(AttributeFqn, attributeValues);
++			return super.putNamedAttributeIfAbsent(attributeFqn, attributeValues);
+ 		}
+ 	}
+ 
+@@ -255,9 +255,9 @@ public final class BasePdpEngine implements CloseablePdpEngine
+ 
+ 		/** {@inheritDoc} */
+ 		@Override
+-		public <AV extends AttributeValue> AttributeBag<AV> getNamedAttributeValue(final AttributeFqn AttributeFqn, final BagDatatype<AV> attributeBagDatatype) throws IndeterminateEvaluationException
++		public <AV extends AttributeValue> AttributeBag<AV> getNamedAttributeValue(final AttributeFqn attributeFqn, final BagDatatype<AV> attributeBagDatatype) throws IndeterminateEvaluationException
+ 		{
+-			final AttributeBag<?> bagResult = namedAttributes.get(AttributeFqn);
++			final AttributeBag<?> bagResult = namedAttributes.get(attributeFqn);
+ 			if (bagResult == null)
+ 			{
+ 				return null;
+@@ -270,7 +270,7 @@ public final class BasePdpEngine implements CloseablePdpEngine
+ 						"Datatype ("
+ 								+ bagResult.getElementDatatype()
+ 								+ ") of AttributeDesignator "
+-								+ AttributeFqn
++								+ attributeFqn
+ 								+ " in context is different from expected/requested ("
+ 								+ expectedElementDatatype
+ 								+ "). May be caused by refering to the same Attribute Category/Id/Issuer with different Datatypes in different policy elements and/or attribute providers, which is not allowed.",
+@@ -281,14 +281,14 @@ public final class BasePdpEngine implements CloseablePdpEngine
+ 			 * If datatype classes match, bagResult should have same type as datatypeClass.
+ 			 */
+ 			final AttributeBag<AV> result = (AttributeBag<AV>) bagResult;
+-			this.listeners.forEach((lt, l) -> l.namedAttributeValueConsumed(AttributeFqn, result));
++			this.listeners.forEach((lt, l) -> l.namedAttributeValueConsumed(attributeFqn, result));
+ 			return result;
+ 		}
+ 
+ 		@Override
+-		public boolean putNamedAttributeValueIfAbsent(final AttributeFqn AttributeFqn, final AttributeBag<?> result)
++		public boolean putNamedAttributeValueIfAbsent(final AttributeFqn attributeFqn, final AttributeBag<?> result)
+ 		{
+-			final Bag<?> duplicate = namedAttributes.putIfAbsent(AttributeFqn, result);
++			final Bag<?> duplicate = namedAttributes.putIfAbsent(attributeFqn, result);
+ 			if (duplicate != null)
+ 			{
+ 				/*
+@@ -296,11 +296,11 @@ public final class BasePdpEngine implements CloseablePdpEngine
+ 				 * putAttributeDesignatorResultIfAbsent() in this case. In any case, we do not support setting a different result for same id (but different datatype URI/datatype class) in the same
+ 				 * context
+ 				 */
+-				LOGGER.warn("Attempt to override value of AttributeDesignator {} already set in evaluation context. Overriding value: {}", AttributeFqn, result);
++				LOGGER.warn("Attempt to override value of AttributeDesignator {} already set in evaluation context. Overriding value: {}", attributeFqn, result);
+ 				return false;
+ 			}
+ 
+-			this.listeners.forEach((lt, l) -> l.namedAttributeValueProduced(AttributeFqn, result));
++			this.listeners.forEach((lt, l) -> l.namedAttributeValueProduced(attributeFqn, result));
+ 			/*
+ 			 * Attribute value cannot change during evaluation context, so if old value already there, put it back
+ 			 */
+diff --git a/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/ModularAttributeProvider.java b/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/ModularAttributeProvider.java
+index d293c72..6c9e27b 100644
+--- a/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/ModularAttributeProvider.java
++++ b/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/ModularAttributeProvider.java
+@@ -42,7 +42,8 @@ import com.google.common.collect.ImmutableListMultimap;
+ import com.google.common.collect.ListMultimap;
+ 
+ /**
+- * AttributeProvider that tries to resolve attributes in current request context first, else delegates to {@link DesignatedAttributeProvider}s.
++ * AttributeProvider that tries to resolve attributes in current request context
++ * first, else delegates to {@link DesignatedAttributeProvider}s.
+  *
+  * @version $Id: $
+  */
+@@ -50,35 +51,39 @@ public class ModularAttributeProvider implements AttributeProvider
+ {
+ 
+ 	private static final IndeterminateEvaluationException INDETERMINATE_EXCEPTION_NO_VALUE_FROM_ATTRIBUTE_PROVIDERS = new IndeterminateEvaluationException(
+-			"No value found by any attribute provider module", XacmlStatusCode.PROCESSING_ERROR.value());
++	        "No value found by any attribute provider module", XacmlStatusCode.PROCESSING_ERROR.value());
+ 
+ 	private interface IssuedToNonIssuedAttributeCopyMode
+ 	{
+-		void process(AttributeFqn AttributeFqn, AttributeBag<?> result, EvaluationContext context);
++		void process(AttributeFqn attributeFqn, AttributeBag<?> result, EvaluationContext context);
+ 	}
+ 
+ 	private static final IssuedToNonIssuedAttributeCopyMode ISSUED_TO_NON_ISSUED_ATTRIBUTE_COPY_ENABLED_MODE = new IssuedToNonIssuedAttributeCopyMode()
+ 	{
+ 
+ 		@Override
+-		public void process(final AttributeFqn AttributeFqn, final AttributeBag<?> result, final EvaluationContext context)
+-		{
+-			if (!AttributeFqn.getIssuer().isPresent())
++		public void process(final AttributeFqn attributeFqn, final AttributeBag<?> result,
++		        final EvaluationContext context) {
++			if (!attributeFqn.getIssuer().isPresent())
+ 			{
+ 				// Attribute already without Issuer -> nothing to copy
+ 				return;
+ 			}
+ 			/*
+-			 * Attribute with Issuer -> make Issuer-less copy and put same result in context for match by Issuer-less AttributeDesignator
++			 * Attribute with Issuer -> make Issuer-less copy and put same result in context
++			 * for match by Issuer-less AttributeDesignator
+ 			 */
+-			final AttributeFqn issuerLessAttributeFqn = AttributeFqns.newInstance(AttributeFqn.getCategory(), Optional.empty(), AttributeFqn.getId());
++			final AttributeFqn issuerLessAttributeFqn = AttributeFqns.newInstance(attributeFqn.getCategory(),
++			        Optional.empty(), attributeFqn.getId());
+ 
+ 			/*
+-			 * Cache the attribute value(s) for the issuer-less attribute in context in case there is a matching Issuer-less AttributeDesignator to evaluate
++			 * Cache the attribute value(s) for the issuer-less attribute in context in case
++			 * there is a matching Issuer-less AttributeDesignator to evaluate
+ 			 */
+ 			context.putNamedAttributeValueIfAbsent(issuerLessAttributeFqn, result);
+-			LOGGER.debug("strictAttributeIssuerMatch=false -> Cached values of attribute {}, type={}, derived, by removing Issuer, from attribute {} provided by AttributeProvider module: values= {}",
+-					AttributeFqn, result.getElementDatatype(), AttributeFqn, result);
++			LOGGER.debug(
++			        "strictAttributeIssuerMatch=false -> Cached values of attribute {}, type={}, derived, by removing Issuer, from attribute {} provided by AttributeProvider module: values= {}",
++			        attributeFqn, result.getElementDatatype(), attributeFqn, result);
+ 		}
+ 
+ 	};
+@@ -87,8 +92,8 @@ public class ModularAttributeProvider implements AttributeProvider
+ 	{
+ 
+ 		@Override
+-		public void process(final AttributeFqn AttributeFqn, final AttributeBag<?> result, final EvaluationContext context)
+-		{
++		public void process(final AttributeFqn attributeFqn, final AttributeBag<?> result,
++		        final EvaluationContext context) {
+ 			// do not copy the result to any Issuer-less attribute
+ 		}
+ 
+@@ -97,34 +102,38 @@ public class ModularAttributeProvider implements AttributeProvider
+ 	private static final Logger LOGGER = LoggerFactory.getLogger(ModularAttributeProvider.class);
+ 
+ 	/*
+-	 * AttributeDesignator Provider modules by supported/provided attribute ID (global ID: category, issuer, AttributeId)
++	 * AttributeDesignator Provider modules by supported/provided attribute ID
++	 * (global ID: category, issuer, AttributeId)
+ 	 */
+ 	private final ImmutableListMultimap<AttributeFqn, DesignatedAttributeProvider> designatorModsByAttrId;
+ 
+ 	private final IssuedToNonIssuedAttributeCopyMode issuedToNonIssuedAttributeCopyMode;
+ 
+-	protected ModularAttributeProvider(final ImmutableListMultimap<AttributeFqn, DesignatedAttributeProvider> attributeProviderModulesByAttributeId,
+-			final Set<AttributeDesignatorType> selectedAttributeSupport, final boolean strictAttributeIssuerMatch)
++	protected ModularAttributeProvider(
++	        final ImmutableListMultimap<AttributeFqn, DesignatedAttributeProvider> attributeProviderModulesByAttributeId,
++	        final Set<AttributeDesignatorType> selectedAttributeSupport, final boolean strictAttributeIssuerMatch)
+ 	{
+ 		assert attributeProviderModulesByAttributeId != null;
+ 
+ 		if (selectedAttributeSupport == null)
+ 		{
+ 			designatorModsByAttrId = attributeProviderModulesByAttributeId;
+-		}
+-		else
++		} else
+ 		{
+-			final ListMultimap<AttributeFqn, DesignatedAttributeProvider> mutableModsByAttrIdMap = ArrayListMultimap.create(selectedAttributeSupport.size(), 1);
++			final ListMultimap<AttributeFqn, DesignatedAttributeProvider> mutableModsByAttrIdMap = ArrayListMultimap
++			        .create(selectedAttributeSupport.size(), 1);
+ 			for (final AttributeDesignatorType requiredAttr : selectedAttributeSupport)
+ 			{
+ 				final AttributeFqn requiredAttrGUID = AttributeFqns.newInstance(requiredAttr);
+-				final ImmutableList<DesignatedAttributeProvider> requiredAttrProviderMods = attributeProviderModulesByAttributeId.get(requiredAttrGUID);
++				final ImmutableList<DesignatedAttributeProvider> requiredAttrProviderMods = attributeProviderModulesByAttributeId
++				        .get(requiredAttrGUID);
+ 				/*
+ 				 * According to doc, a non-null empty list is returned if no mappings
+ 				 */
+ 				assert requiredAttrProviderMods != null;
+ 				/*
+-				 * Empty requiredAttrProviderMod means it should be provided by the request context (in the initial request from PEP)
++				 * Empty requiredAttrProviderMod means it should be provided by the request
++				 * context (in the initial request from PEP)
+ 				 */
+ 				if (!requiredAttrProviderMods.isEmpty())
+ 				{
+@@ -136,61 +145,84 @@ public class ModularAttributeProvider implements AttributeProvider
+ 			designatorModsByAttrId = ImmutableListMultimap.copyOf(mutableModsByAttrIdMap);
+ 		}
+ 
+-		this.issuedToNonIssuedAttributeCopyMode = strictAttributeIssuerMatch ? ISSUED_TO_NON_ISSUED_ATTRIBUTE_COPY_DISABLED_MODE : ISSUED_TO_NON_ISSUED_ATTRIBUTE_COPY_ENABLED_MODE;
++		this.issuedToNonIssuedAttributeCopyMode = strictAttributeIssuerMatch
++		        ? ISSUED_TO_NON_ISSUED_ATTRIBUTE_COPY_DISABLED_MODE
++		        : ISSUED_TO_NON_ISSUED_ATTRIBUTE_COPY_ENABLED_MODE;
+ 	}
+ 
+ 	/**
+-	 * Get instance of modular Attribute Provider that tries to find attribute values in evaluation context, then, if not there, query sub-modules providing the requested attribute ID, if any.
++	 * Get instance of modular Attribute Provider that tries to find attribute
++	 * values in evaluation context, then, if not there, query sub-modules providing
++	 * the requested attribute ID, if any.
+ 	 *
+ 	 * @param attributeProviderModulesByAttributeId
+-	 *            attribute Provider modules sorted by supported attribute ID; may be null if none
++	 *            attribute Provider modules sorted by supported attribute ID; may
++	 *            be null if none
+ 	 * @param selectedAttributeSupport
+-	 *            (optional) selection of attributes to be supported, i.e. only attributes from this set may be supported/resolved by this attribute Provider; therefore, only the part of
+-	 *            {@code attributeProviderModulesByAttributeId} matching these attributes are to be used by this Provider.
++	 *            (optional) selection of attributes to be supported, i.e. only
++	 *            attributes from this set may be supported/resolved by this
++	 *            attribute Provider; therefore, only the part of
++	 *            {@code attributeProviderModulesByAttributeId} matching these
++	 *            attributes are to be used by this Provider.
+ 	 * @param strictAttributeIssuerMatch
+-	 *            true iff it is required that AttributeDesignator without Issuer only match request Attributes without Issuer. This mode is not fully compliant with XACML 3.0, §5.29, in the case that
+-	 *            the Issuer is not present; but it performs better and is recommended when all AttributeDesignators have an Issuer (best practice). Set it to false, if you want full compliance with
+-	 *            the XACML 3.0 Attribute Evaluation: "If the Issuer is not present in the AttributeDesignator, then the matching of the attribute to the named attribute SHALL be governed by
+-	 *            AttributeId and DataType attributes alone."
+-	 * @return modular attribute provider instance; {@link #EVALUATION_CONTEXT_ONLY_SCOPED_ATTRIBUTE_PROVIDER} iff
++	 *            true iff it is required that AttributeDesignator without Issuer
++	 *            only match request Attributes without Issuer. This mode is not
++	 *            fully compliant with XACML 3.0, §5.29, in the case that the Issuer
++	 *            is not present; but it performs better and is recommended when all
++	 *            AttributeDesignators have an Issuer (best practice). Set it to
++	 *            false, if you want full compliance with the XACML 3.0 Attribute
++	 *            Evaluation: "If the Issuer is not present in the
++	 *            AttributeDesignator, then the matching of the attribute to the
++	 *            named attribute SHALL be governed by AttributeId and DataType
++	 *            attributes alone."
++	 * @return modular attribute provider instance;
++	 *         {@link #EVALUATION_CONTEXT_ONLY_SCOPED_ATTRIBUTE_PROVIDER} iff
+ 	 *         {@code attributeProviderModulesByAttributeId == null || attributeProviderModulesByAttributeId.isEmpty()},
+ 	 */
+-	public static ModularAttributeProvider getInstance(final ImmutableListMultimap<AttributeFqn, DesignatedAttributeProvider> attributeProviderModulesByAttributeId,
+-			final Set<AttributeDesignatorType> selectedAttributeSupport, final boolean strictAttributeIssuerMatch)
+-	{
++	public static ModularAttributeProvider getInstance(
++	        final ImmutableListMultimap<AttributeFqn, DesignatedAttributeProvider> attributeProviderModulesByAttributeId,
++	        final Set<AttributeDesignatorType> selectedAttributeSupport, final boolean strictAttributeIssuerMatch) {
+ 		if (attributeProviderModulesByAttributeId == null || attributeProviderModulesByAttributeId.isEmpty())
+ 		{
+ 			return EVALUATION_CONTEXT_ONLY_SCOPED_ATTRIBUTE_PROVIDER;
+ 		}
+ 
+-		return new ModularAttributeProvider(attributeProviderModulesByAttributeId, selectedAttributeSupport, strictAttributeIssuerMatch);
++		return new ModularAttributeProvider(attributeProviderModulesByAttributeId, selectedAttributeSupport,
++		        strictAttributeIssuerMatch);
+ 	}
+ 
+ 	/** {@inheritDoc} */
+ 	@Override
+-	public final <AV extends AttributeValue> AttributeBag<AV> get(final AttributeFqn AttributeFqn, final BagDatatype<AV> returnDatatype, final EvaluationContext context)
+-			throws IndeterminateEvaluationException
+-	{
++	public final <AV extends AttributeValue> AttributeBag<AV> get(final AttributeFqn attributeFqn,
++	        final BagDatatype<AV> returnDatatype, final EvaluationContext context)
++	        throws IndeterminateEvaluationException {
+ 		try
+ 		{
+-			final AttributeBag<AV> contextBag = context.getNamedAttributeValue(AttributeFqn, returnDatatype);
++			final AttributeBag<AV> contextBag = context.getNamedAttributeValue(attributeFqn, returnDatatype);
+ 			if (contextBag != null)
+ 			{
+-				LOGGER.debug("Values of attribute {}, type={} found in evaluation context: {}", AttributeFqn, returnDatatype, contextBag);
++				LOGGER.debug("Values of attribute {}, type={} found in evaluation context: {}", attributeFqn,
++				        returnDatatype, contextBag);
+ 				return contextBag;
+ 			}
+ 
+ 			// else attribute not found in context, ask the Provider modules, if any
+-			LOGGER.debug("Requesting attribute {} from Provider modules (by provided attribute ID): {}", AttributeFqn, designatorModsByAttrId);
+-			final ImmutableList<DesignatedAttributeProvider> attrProviders = designatorModsByAttrId.get(AttributeFqn);
++			LOGGER.debug("Requesting attribute {} from Provider modules (by provided attribute ID): {}", attributeFqn,
++			        designatorModsByAttrId);
++			final ImmutableList<DesignatedAttributeProvider> attrProviders = designatorModsByAttrId.get(attributeFqn);
+ 			/*
+ 			 * According to doc, a non-null empty list is returned if no mappings
+ 			 */
+ 			assert attrProviders != null;
+ 			if (attrProviders.isEmpty())
+ 			{
+-				LOGGER.debug("No value found for required attribute {}, type={} in evaluation context and not supported by any Attribute Provider module", AttributeFqn, returnDatatype);
+-				throw new IndeterminateEvaluationException("Not in context and no Attribute Provider module supporting requested attribute: " + AttributeFqn, XacmlStatusCode.MISSING_ATTRIBUTE.value());
++				LOGGER.debug(
++				        "No value found for required attribute {}, type={} in evaluation context and not supported by any Attribute Provider module",
++				        attributeFqn, returnDatatype);
++				throw new IndeterminateEvaluationException(
++				        "Not in context and no Attribute Provider module supporting requested attribute: "
++				                + attributeFqn,
++				        XacmlStatusCode.MISSING_ATTRIBUTE.value());
+ 			}
+ 
+ 			AttributeBag<AV> result = null;
+@@ -199,7 +231,7 @@ public class ModularAttributeProvider implements AttributeProvider
+ 			 */
+ 			for (final DesignatedAttributeProvider attrProvider : attrProviders)
+ 			{
+-				result = attrProvider.get(AttributeFqn, returnDatatype, context);
++				result = attrProvider.get(attributeFqn, returnDatatype, context);
+ 				if (result != null && !result.isEmpty())
+ 				{
+ 					break;
+@@ -208,36 +240,50 @@ public class ModularAttributeProvider implements AttributeProvider
+ 
+ 			if (result == null)
+ 			{
+-				result = Bags.emptyAttributeBag(returnDatatype.getElementType(), INDETERMINATE_EXCEPTION_NO_VALUE_FROM_ATTRIBUTE_PROVIDERS);
++				result = Bags.emptyAttributeBag(returnDatatype.getElementType(),
++				        INDETERMINATE_EXCEPTION_NO_VALUE_FROM_ATTRIBUTE_PROVIDERS);
+ 			}
+ 
+ 			/*
+-			 * Cache the attribute value(s) in context to avoid waste of time querying the module twice for same attribute
++			 * Cache the attribute value(s) in context to avoid waste of time querying the
++			 * module twice for same attribute
+ 			 */
+-			context.putNamedAttributeValueIfAbsent(AttributeFqn, result);
+-			LOGGER.debug("Values of attribute {}, type={} returned by attribute Provider module #{} (cached in context): {}", AttributeFqn, returnDatatype, attrProviders, result);
+-			issuedToNonIssuedAttributeCopyMode.process(AttributeFqn, result, context);
++			context.putNamedAttributeValueIfAbsent(attributeFqn, result);
++			LOGGER.debug(
++			        "Values of attribute {}, type={} returned by attribute Provider module #{} (cached in context): {}",
++			        attributeFqn, returnDatatype, attrProviders, result);
++			issuedToNonIssuedAttributeCopyMode.process(attributeFqn, result, context);
+ 			return result;
+-		}
+-		catch (final IndeterminateEvaluationException e)
++		} catch (final IndeterminateEvaluationException e)
+ 		{
+ 			/*
+-			 * This error does not necessarily matter, it depends on whether the attribute is required, i.e. MustBePresent=true for AttributeDesignator/Selector So we let
+-			 * AttributeDesignator/Select#evaluate() method log the errors if MustBePresent=true. Here debug level is enough
++			 * This error does not necessarily matter, it depends on whether the attribute
++			 * is required, i.e. MustBePresent=true for AttributeDesignator/Selector So we
++			 * let AttributeDesignator/Select#evaluate() method log the errors if
++			 * MustBePresent=true. Here debug level is enough
+ 			 */
+-			LOGGER.debug("Error finding attribute {}, type={}", AttributeFqn, returnDatatype, e);
++			LOGGER.debug("Error finding attribute {}, type={}", attributeFqn, returnDatatype, e);
+ 
+ 			/**
+-			 * If error occurred, we put the empty value to prevent retry in the same context, which may succeed at another time in the same context, resulting in different value of the same attribute
+-			 * at different times during evaluation within the same context, therefore inconsistencies. The value(s) must remain constant during the evaluation context, as explained in section 7.3.5
++			 * If error occurred, we put the empty value to prevent retry in the same
++			 * context, which may succeed at another time in the same context, resulting in
++			 * different value of the same attribute at different times during evaluation
++			 * within the same context, therefore inconsistencies. The value(s) must remain
++			 * constant during the evaluation context, as explained in section 7.3.5
+ 			 * Attribute Retrieval of XACML core spec:
+ 			 * <p>
+-			 * Regardless of any dynamic modifications of the request context during policy evaluation, the PDP SHALL behave as if each bag of attribute values is fully populated in the context before
+-			 * it is first tested, and is thereafter immutable during evaluation. (That is, every subsequent test of that attribute shall use 3313 the same bag of values that was initially tested.)
++			 * Regardless of any dynamic modifications of the request context during policy
++			 * evaluation, the PDP SHALL behave as if each bag of attribute values is fully
++			 * populated in the context before it is first tested, and is thereafter
++			 * immutable during evaluation. (That is, every subsequent test of that
++			 * attribute shall use 3313 the same bag of values that was initially tested.)
+ 			 * </p>
+-			 * Therefore, if no value found, we keep it that way until evaluation is done for the current request context.
++			 * Therefore, if no value found, we keep it that way until evaluation is done
++			 * for the current request context.
+ 			 * <p>
+-			 * We could put the null value to indicate the evaluation error, instead of an empty Bag, but it would make the result of the code used at the start of this method ambiguous/confusing:
++			 * We could put the null value to indicate the evaluation error, instead of an
++			 * empty Bag, but it would make the result of the code used at the start of this
++			 * method ambiguous/confusing:
+ 			 * <p>
+ 			 * <code>
+ 			 * final Bag<T> contextBag = context.getAttributeDesignatorResult(AttributeFqn,...)
+@@ -246,26 +292,46 @@ public class ModularAttributeProvider implements AttributeProvider
+ 			 * <p>
+ 			 * Indeed, contextBag could be null for one of these two reasons:
+ 			 * <ol>
+-			 * <li>The attribute ('AttributeFqn') has never been requested in this context;
+-			 * <li>It has been requested before in this context but could not be found: error occurred (IndeterminateEvaluationException)</li>
++			 * <li>The attribute ('attributeFqn') has never been requested in this context;
++			 * <li>It has been requested before in this context but could not be found:
++			 * error occurred (IndeterminateEvaluationException)</li>
+ 			 * </ol>
+-			 * To avoid this confusion, we put an empty Bag (with some error info saying why this is empty).
++			 * To avoid this confusion, we put an empty Bag (with some error info saying why
++			 * this is empty).
+ 			 * </p>
+ 			 */
+ 			final AttributeBag<AV> result = Bags.emptyAttributeBag(returnDatatype.getElementType(), e);
+ 			/*
+-			 * NOTE: It might happen - e.g. in conformance test IIB033 (Request's resource-id attribute datatype is different from datatype used in Policy) - that
+-			 * context.getAttributeDesignatorResult(AttributeFqn, bagDatatype) threw IndeterminateEvaluationException although a value for 'AttributeFqn' exists in context, because the existing
+-			 * datatype is different from requested 'bagDatatype'. In this case, the call below will return false (the value should not be overridden). We don't care about the result; what matters is
++			 * NOTE: It might happen - e.g. in conformance test IIB033 (Request's
++			 * resource-id attribute datatype is different from datatype used in Policy) -
++			 * that context.getAttributeDesignatorResult(AttributeFqn, bagDatatype) threw
++			 * IndeterminateEvaluationException although a value for 'attributeFqn' exists
++			 * in context, because the existing datatype is different from requested
++			 * 'bagDatatype'. In this case, the call below will return false (the value
++			 * should not be overridden). We don't care about the result; what matters is
+ 			 * that the value is set to an empty bag if there was no value.
+ 			 */
+-			context.putNamedAttributeValueIfAbsent(AttributeFqn, result);
++			context.putNamedAttributeValueIfAbsent(attributeFqn, result);
+ 			return result;
++		} catch (UnsupportedOperationException e)
++		{
++			/*
++			 * Should not happen, this is highly unexpected and should be considered a fatal
++			 * error (it means the AttributeProvider does not respect its contract)
++			 */
++			throw new RuntimeException(
++			        "Inconsistent AttributeProvider: throwing UnsupportedOperationException for an attribute (name="
++			                + attributeFqn + ", type=" + returnDatatype
++			                + ") that should be supported according to the provider's contract (getProvidedAttributes() result) ",
++			        e);
+ 		}
+ 	}
+ 
+ 	/**
+-	 * Attribute Provider based only on the evaluation context, i.e. it does not used any extra attribute provider module to get attribute values if not found in the context
++	 * Attribute Provider based only on the evaluation context, i.e. it does not
++	 * used any extra attribute provider module to get attribute values if not found
++	 * in the context
+ 	 */
+-	public static final ModularAttributeProvider EVALUATION_CONTEXT_ONLY_SCOPED_ATTRIBUTE_PROVIDER = new ModularAttributeProvider(ImmutableListMultimap.of(), null, true);
++	public static final ModularAttributeProvider EVALUATION_CONTEXT_ONLY_SCOPED_ATTRIBUTE_PROVIDER = new ModularAttributeProvider(
++	        ImmutableListMultimap.of(), null, true);
+ }
+diff --git a/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/StandardEnvironmentAttribute.java b/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/StandardEnvironmentAttribute.java
+index 7aad7c0..af8abc2 100644
+--- a/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/StandardEnvironmentAttribute.java
++++ b/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/StandardEnvironmentAttribute.java
+@@ -51,11 +51,11 @@ public enum StandardEnvironmentAttribute
+ 	 */
+ 	CURRENT_DATETIME(AttributeFqns.newInstance(XacmlAttributeCategory.XACML_3_0_ENVIRONMENT.value(), Optional.empty(), XacmlAttributeId.XACML_1_0_ENVIRONMENT_CURRENT_DATETIME.value()));
+ 
+-	private final AttributeFqn AttributeFqn;
++	private final AttributeFqn attributeFqn;
+ 
+-	private StandardEnvironmentAttribute(final AttributeFqn AttributeFqn)
++	private StandardEnvironmentAttribute(final AttributeFqn attributeFqn)
+ 	{
+-		this.AttributeFqn = AttributeFqn;
++		this.attributeFqn = attributeFqn;
+ 	}
+ 
+ 	/**
+@@ -65,7 +65,7 @@ public enum StandardEnvironmentAttribute
+ 	 */
+ 	public AttributeFqn getFQN()
+ 	{
+-		return this.AttributeFqn;
++		return this.attributeFqn;
+ 	}
+ 
+ 	private static final Map<AttributeFqn, StandardEnvironmentAttribute> ID_TO_STD_ATTR_MAP = Maps.uniqueIndex(Arrays.asList(StandardEnvironmentAttribute.values()),
+@@ -84,12 +84,12 @@ public enum StandardEnvironmentAttribute
+ 	/**
+ 	 * Get the standard environment attribute corresponding to the given ID
+ 	 * 
+-	 * @param AttributeFqn
++	 * @param attributeFqn
+ 	 *            standard attribute ID
+ 	 * @return StandardEnvironmentAttribute corresponding to given ID, or null if there is no standard environment attribute with such ID
+ 	 */
+-	public static StandardEnvironmentAttribute getInstance(final AttributeFqn AttributeFqn)
++	public static StandardEnvironmentAttribute getInstance(final AttributeFqn attributeFqn)
+ 	{
+-		return ID_TO_STD_ATTR_MAP.get(AttributeFqn);
++		return ID_TO_STD_ATTR_MAP.get(attributeFqn);
+ 	}
+ }
+diff --git a/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/combining/ImmutableCombiningAlgRegistry.java b/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/combining/ImmutableCombiningAlgRegistry.java
+index c2e5a2a..a200af9 100644
+--- a/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/combining/ImmutableCombiningAlgRegistry.java
++++ b/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/combining/ImmutableCombiningAlgRegistry.java
+@@ -22,7 +22,9 @@ import java.util.Set;
+ import org.ow2.authzforce.core.pdp.api.Decidable;
+ import org.ow2.authzforce.core.pdp.api.combining.CombiningAlg;
+ import org.ow2.authzforce.core.pdp.api.combining.CombiningAlgRegistry;
++import org.ow2.authzforce.core.pdp.api.policy.PolicyEvaluator;
+ import org.ow2.authzforce.core.pdp.impl.BasePdpExtensionRegistry;
++import org.ow2.authzforce.core.pdp.impl.rule.RuleEvaluator;
+ 
+ import com.google.common.base.Preconditions;
+ 
+@@ -31,8 +33,7 @@ import com.google.common.base.Preconditions;
+  *
+  * @version $Id: $
+  */
+-public final class ImmutableCombiningAlgRegistry extends BasePdpExtensionRegistry<CombiningAlg<?>>
+-		implements CombiningAlgRegistry
++public final class ImmutableCombiningAlgRegistry extends BasePdpExtensionRegistry<CombiningAlg<?>> implements CombiningAlgRegistry
+ {
+ 	/**
+ 	 * <p>
+@@ -44,15 +45,16 @@ public final class ImmutableCombiningAlgRegistry extends BasePdpExtensionRegistr
+ 	 */
+ 	public ImmutableCombiningAlgRegistry(Set<CombiningAlg<?>> algorithms)
+ 	{
+-		super(CombiningAlg.class,
+-				Preconditions.checkNotNull(algorithms, "Input Combining Algorithms undefined (algorithms == null)"));
++		super(CombiningAlg.class, Preconditions.checkNotNull(algorithms, "Input Combining Algorithms undefined (algorithms == null)"));
++	}
++
++	private static String toString(Class<? extends Decidable> combinedElementType) {
++		return combinedElementType == PolicyEvaluator.class ? "Policy(Set)" : combinedElementType == RuleEvaluator.class ? "Rule" : combinedElementType.getCanonicalName();
+ 	}
+ 
+ 	/** {@inheritDoc} */
+ 	@Override
+-	public <T extends Decidable> CombiningAlg<T> getAlgorithm(String algId, Class<T> combinedEltType)
+-			throws IllegalArgumentException
+-	{
++	public <T extends Decidable> CombiningAlg<T> getAlgorithm(String algId, Class<T> combinedEltType) throws IllegalArgumentException {
+ 		final CombiningAlg<? extends Decidable> alg = this.getExtension(algId);
+ 		if (alg == null)
+ 		{
+@@ -65,10 +67,9 @@ public final class ImmutableCombiningAlgRegistry extends BasePdpExtensionRegistr
+ 		}
+ 
+ 		// wrong type of alg
+-		throw new IllegalArgumentException("Registered combining algorithm for ID=" + algId
+-				+ " combines instances of type '" + alg.getCombinedElementType()
+-				+ "' which is not compatible (not same or supertype) with requested type of combined elements : "
+-				+ combinedEltType);
++		alg.getCombinedElementType();
++		throw new IllegalArgumentException(
++				"Combining algorithm '" + algId + "': invalid type of input elements (to be combined): " + toString(combinedEltType) + "; expected: " + toString(alg.getCombinedElementType()) + ".");
+ 	}
+ 
+ }
+diff --git a/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/func/LogicalNOfFunction.java b/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/func/LogicalNOfFunction.java
+index 73ff8f7..48b4197 100644
+--- a/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/func/LogicalNOfFunction.java
++++ b/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/func/LogicalNOfFunction.java
+@@ -54,8 +54,7 @@ import org.ow2.authzforce.xacml.identifiers.XacmlStatusCode;
+  */
+ final class LogicalNOfFunction extends MultiParameterTypedFirstOrderFunction<BooleanValue>
+ {
+-	private static String getInvalidArg0MessagePrefix(final FirstOrderFunctionSignature<?> funcsig)
+-	{
++	private static String getInvalidArg0MessagePrefix(final FirstOrderFunctionSignature<?> funcsig) {
+ 		return "Function " + funcsig.getName() + ": Invalid arg #0 (number of required Trues): expected: 0 <= (integer) <= number_of_remaining_arguments; actual: ";
+ 	}
+ 
+@@ -81,8 +80,7 @@ final class LogicalNOfFunction extends MultiParameterTypedFirstOrderFunction<Boo
+ 		}
+ 
+ 		protected BooleanValue evaluate(final EvaluationContext context, final int requiredMinOfTrues, final Iterator<? extends Expression<?>> remainingArgExpsIterator,
+-				final AttributeValue... checkedRemainingArgs) throws IndeterminateEvaluationException
+-		{
++				final AttributeValue... checkedRemainingArgs) throws IndeterminateEvaluationException {
+ 			assert requiredMinOfTrues <= this.numOfArgsAfterFirst;
+ 
+ 			int nOfRequiredTrues = requiredMinOfTrues;
+@@ -111,8 +109,7 @@ final class LogicalNOfFunction extends MultiParameterTypedFirstOrderFunction<Boo
+ 							return BooleanValue.TRUE;
+ 						}
+ 					}
+-				}
+-				catch (final IndeterminateEvaluationException e)
++				} catch (final IndeterminateEvaluationException e)
+ 				{
+ 					/*
+ 					 * Keep the indeterminate arg error to throw it later in exception, in case there was not enough TRUEs in the remaining args.
+@@ -174,8 +171,7 @@ final class LogicalNOfFunction extends MultiParameterTypedFirstOrderFunction<Boo
+ 					try
+ 					{
+ 						attrVal = BooleanValue.class.cast(arg);
+-					}
+-					catch (final ClassCastException e)
++					} catch (final ClassCastException e)
+ 					{
+ 						/*
+ 						 * Indicate arg index to help troubleshooting: argIndex (starting at 0) = max_index - number_of_args_remaining_to_evaluate = (totalArgCount - 1) - nOfRemainingArgs =
+@@ -253,8 +249,7 @@ final class LogicalNOfFunction extends MultiParameterTypedFirstOrderFunction<Boo
+ 		}
+ 
+ 		@Override
+-		public BooleanValue evaluate(final EvaluationContext context, final AttributeValue... remainingArgs) throws IndeterminateEvaluationException
+-		{
++		public BooleanValue evaluate(final EvaluationContext context, final AttributeValue... remainingArgs) throws IndeterminateEvaluationException {
+ 			return super.evaluate(context, requiredMinOfTrues, checkedArgExpressionsAfterFirst.iterator(), remainingArgs);
+ 		}
+ 
+@@ -274,8 +269,7 @@ final class LogicalNOfFunction extends MultiParameterTypedFirstOrderFunction<Boo
+ 		}
+ 
+ 		@Override
+-		public BooleanValue evaluate(final EvaluationContext context, final AttributeValue... checkedRemainingArgs) throws IndeterminateEvaluationException
+-		{
++		public BooleanValue evaluate(final EvaluationContext context, final AttributeValue... checkedRemainingArgs) throws IndeterminateEvaluationException {
+ 			/*
+ 			 * Arg datatypes and number is already checked in superclass but we need to do further checks specific to this function such as the first argument which must be a positive integer
+ 			 */
+@@ -290,8 +284,7 @@ final class LogicalNOfFunction extends MultiParameterTypedFirstOrderFunction<Boo
+ 			try
+ 			{
+ 				intAttrVal = Expressions.eval(input0, context, StandardDatatypes.INTEGER);
+-			}
+-			catch (final IndeterminateEvaluationException e)
++			} catch (final IndeterminateEvaluationException e)
+ 			{
+ 				throw new IndeterminateEvaluationException(indeterminateArgMsgPrefix + 0, e.getStatusCode(), e);
+ 			}
+@@ -334,13 +327,19 @@ final class LogicalNOfFunction extends MultiParameterTypedFirstOrderFunction<Boo
+ 
+ 	/** {@inheritDoc} */
+ 	@Override
+-	public FirstOrderFunctionCall<BooleanValue> newCall(final List<Expression<?>> argExpressions, final Datatype<?>... remainingArgTypes) throws IllegalArgumentException
+-	{
++	public FirstOrderFunctionCall<BooleanValue> newCall(final List<Expression<?>> argExpressions, final Datatype<?>... remainingArgTypes) throws IllegalArgumentException {
+ 		/*
+ 		 * Optimization: check whether the first arg ('n' = number of Trues to reach) is constant
+ 		 */
+ 		final Iterator<? extends Expression<?>> argExpsIterator = argExpressions.iterator();
+-		// Evaluate the first argument
++		/*
++		 * Evaluate the first argument if not in remainingArgTypes
++		 */
++		if (!argExpsIterator.hasNext())
++		{
++			return new CallWithVarArg0(functionSignature, argExpressions, remainingArgTypes);
++		}
++
+ 		final Optional<? extends Value> arg0 = argExpsIterator.next().getValue();
+ 		if (arg0.isPresent())
+ 		{
+diff --git a/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/func/MapFunctionFactory.java b/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/func/MapFunctionFactory.java
+index 3f7623e..fe4b563 100644
+--- a/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/func/MapFunctionFactory.java
++++ b/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/func/MapFunctionFactory.java
+@@ -24,6 +24,7 @@ import java.util.List;
+ import org.ow2.authzforce.core.pdp.api.EvaluationContext;
+ import org.ow2.authzforce.core.pdp.api.IndeterminateEvaluationException;
+ import org.ow2.authzforce.core.pdp.api.expression.Expression;
++import org.ow2.authzforce.core.pdp.api.expression.Expressions;
+ import org.ow2.authzforce.core.pdp.api.func.FirstOrderFunction;
+ import org.ow2.authzforce.core.pdp.api.func.GenericHigherOrderFunctionFactory;
+ import org.ow2.authzforce.core.pdp.api.func.HigherOrderBagFunction;
+@@ -62,28 +63,57 @@ final class MapFunctionFactory extends GenericHigherOrderFunctionFactory
+ 			private final Datatype<SUB_RETURN> returnBagElementType;
+ 			private final String indeterminateSubFuncEvalMessagePrefix;
+ 
+-			private Call(final String functionId, final Datatype<Bag<SUB_RETURN>> returnType, final FirstOrderFunction<SUB_RETURN> subFunction, final List<Expression<?>> primitiveInputs,
+-					final Expression<? extends Bag<?>> lastInputBag)
++			private Call(final String functionId, final Datatype<Bag<SUB_RETURN>> returnType, final FirstOrderFunction<SUB_RETURN> subFunction, final List<Expression<?>> primitiveInputsBeforeBag,
++					final Expression<? extends Bag<?>> bagInput, List<Expression<?>> primitiveInputsAfterBag)
+ 			{
+-				super(functionId, returnType, subFunction, primitiveInputs, lastInputBag);
++				super(functionId, returnType, subFunction, primitiveInputsBeforeBag, bagInput, primitiveInputsAfterBag);
+ 				this.returnBagElementType = subFunction.getReturnType();
+-				this.indeterminateSubFuncEvalMessagePrefix = "Function " + functionId + ": Error calling sub-function (first argument) with last arg=";
++				this.indeterminateSubFuncEvalMessagePrefix = "Function '" + functionId + "': Error calling sub-function (first argument) with bag arg (#" + this.bagArgIndex + ") = ";
+ 			}
+ 
+ 			@Override
+-			protected Bag<SUB_RETURN> evaluate(final Bag<?> lastArgBag, final EvaluationContext context) throws IndeterminateEvaluationException
+-			{
+-				final Collection<SUB_RETURN> results = new ArrayDeque<>(lastArgBag.size());
+-				for (final AttributeValue lastArgBagVal : lastArgBag)
++			protected Bag<SUB_RETURN> evaluate(final Bag<?> bagArg, final EvaluationContext context) throws IndeterminateEvaluationException {
++				/*
++				 * Prepare sub-function call's remaining args (bag arg and subsequent ones if any)
++				 */
++				final AttributeValue[] argsAfterBagInclusive = new AttributeValue[this.numOfArgsAfterBagInclusive];
++				/*
++				 * Index i=0 is for the bag element value, resolved in the second for loop below.
++				 */
++				int i = 1;
++				/*
++				 * See BaseFirstOrderFunctionCall#evalPrimitiveArgs(...)
++				 */
++				for (final Expression<?> primitiveArgExprAfterBag : this.primitiveArgExprsAfterBag)
+ 				{
+-					final SUB_RETURN subResult;
++					// get and evaluate the next parameter
++					/*
++					 * The types of arguments have already been checked with checkInputs(), so casting to returnType should work.
++					 */
++					final AttributeValue argVal;
+ 					try
+ 					{
+-						subResult = subFuncCall.evaluate(context, lastArgBagVal);
++						argVal = Expressions.evalPrimitive(primitiveArgExprAfterBag, context);
++					} catch (final IndeterminateEvaluationException e)
++					{
++						throw new IndeterminateEvaluationException("Indeterminate arg #" + (this.bagArgIndex + i), e.getStatusCode(), e);
+ 					}
+-					catch (final IndeterminateEvaluationException e)
++
++					argsAfterBagInclusive[i] = argVal;
++					i++;
++				}
++
++				final Collection<SUB_RETURN> results = new ArrayDeque<>(bagArg.size());
++				for (final AttributeValue bagElement : bagArg)
++				{
++					argsAfterBagInclusive[0] = bagElement;
++					final SUB_RETURN subResult;
++					try
++					{
++						subResult = subFuncCall.evaluate(context, argsAfterBagInclusive);
++					} catch (final IndeterminateEvaluationException e)
+ 					{
+-						throw new IndeterminateEvaluationException(indeterminateSubFuncEvalMessagePrefix + lastArgBagVal, e.getStatusCode(), e);
++						throw new IndeterminateEvaluationException(indeterminateSubFuncEvalMessagePrefix + bagElement, e.getStatusCode(), e);
+ 					}
+ 
+ 					results.add(subResult);
+@@ -105,10 +135,9 @@ final class MapFunctionFactory extends GenericHigherOrderFunctionFactory
+ 		}
+ 
+ 		@Override
+-		protected OneBagOnlyHigherOrderFunction.Call<Bag<SUB_RETURN_T>, SUB_RETURN_T> newFunctionCall(final FirstOrderFunction<SUB_RETURN_T> subFunc, final List<Expression<?>> primitiveInputs,
+-				final Expression<? extends Bag<?>> lastInputBag)
+-		{
+-			return new Call<>(this.getId(), this.getReturnType(), subFunc, primitiveInputs, lastInputBag);
++		protected OneBagOnlyHigherOrderFunction.Call<Bag<SUB_RETURN_T>, SUB_RETURN_T> newFunctionCall(final FirstOrderFunction<SUB_RETURN_T> subFunc,
++				final List<Expression<?>> primitiveInputsBeforeBag, final Expression<? extends Bag<?>> bagInput, final List<Expression<?>> primitiveInputsAfterBag) {
++			return new Call<>(this.getId(), this.getReturnType(), subFunc, primitiveInputsBeforeBag, bagInput, primitiveInputsAfterBag);
+ 		}
+ 
+ 	}
+@@ -121,14 +150,12 @@ final class MapFunctionFactory extends GenericHigherOrderFunctionFactory
+ 	}
+ 
+ 	@Override
+-	public String getId()
+-	{
++	public String getId() {
+ 		return functionId;
+ 	}
+ 
+ 	@Override
+-	public <SUB_RETURN extends AttributeValue> HigherOrderBagFunction<?, SUB_RETURN> getInstance(final Datatype<SUB_RETURN> subFunctionReturnType) throws IllegalArgumentException
+-	{
++	public <SUB_RETURN extends AttributeValue> HigherOrderBagFunction<?, SUB_RETURN> getInstance(final Datatype<SUB_RETURN> subFunctionReturnType) throws IllegalArgumentException {
+ 		if (subFunctionReturnType == null)
+ 		{
+ 			throw NULL_SUB_FUNCTION_RETURN_TYPE_ARG_EXCEPTION;
+@@ -136,8 +163,8 @@ final class MapFunctionFactory extends GenericHigherOrderFunctionFactory
+ 
+ 		if (!(subFunctionReturnType instanceof AttributeDatatype<?>))
+ 		{
+-			throw new IllegalArgumentException("Invalid sub-function's return type specified for function '" + functionId + "': " + subFunctionReturnType
+-					+ ". Expected: any primitive attribute datatype.");
++			throw new IllegalArgumentException(
++					"Invalid sub-function's return type specified for function '" + functionId + "': " + subFunctionReturnType + ". Expected: any primitive attribute datatype.");
+ 		}
+ 
+ 		return new MapFunction<>(functionId, (AttributeDatatype<SUB_RETURN>) subFunctionReturnType);
+diff --git a/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/func/NumericArithmeticFunction.java b/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/func/NumericArithmeticFunction.java
+index 26cf244..1633b28 100644
+--- a/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/func/NumericArithmeticFunction.java
++++ b/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/func/NumericArithmeticFunction.java
+@@ -52,8 +52,7 @@ final class NumericArithmeticFunction<AV extends NumericValue<?, AV>> extends Si
+ 
+ 	private static final IllegalArgumentException UNDEF_PARAMETER_TYPES_EXCEPTION = new IllegalArgumentException("Undefined function parameter types");
+ 
+-	private static <AV extends Value> List<Datatype<AV>> validate(final List<Datatype<AV>> paramTypes)
+-	{
++	private static <AV extends Value> List<Datatype<AV>> validate(final List<Datatype<AV>> paramTypes) {
+ 		if (paramTypes == null || paramTypes.isEmpty())
+ 		{
+ 			throw UNDEF_PARAMETER_TYPES_EXCEPTION;
+@@ -93,13 +92,11 @@ final class NumericArithmeticFunction<AV extends NumericValue<?, AV>> extends Si
+ 		}
+ 
+ 		@Override
+-		protected V evaluate(final Deque<V> args) throws IndeterminateEvaluationException
+-		{
++		protected V evaluate(final Deque<V> args) throws IndeterminateEvaluationException {
+ 			try
+ 			{
+ 				return op.eval(args);
+-			}
+-			catch (IllegalArgumentException | ArithmeticException e)
++			} catch (IllegalArgumentException | ArithmeticException e)
+ 			{
+ 				throw new IndeterminateEvaluationException(invalidArgsErrMsg, XacmlStatusCode.PROCESSING_ERROR.value(), e);
+ 			}
+@@ -128,12 +125,11 @@ final class NumericArithmeticFunction<AV extends NumericValue<?, AV>> extends Si
+ 
+ 	/** {@inheritDoc} */
+ 	@Override
+-	public FirstOrderFunctionCall<AV> newCall(final List<Expression<?>> argExpressions, final Datatype<?>... remainingArgTypes) throws IllegalArgumentException
+-	{
++	public FirstOrderFunctionCall<AV> newCall(final List<Expression<?>> argExpressions, final Datatype<?>... remainingArgTypes) throws IllegalArgumentException {
+ 		/**
+ 		 * If this.op is a commutative function (e.g. add or multiply function), we can simplify arguments if there are multiple constants. Indeed, if C1,...Cm are constants, then:
+ 		 * <p>
+-		 * op(x1,..., x_{n1-1}, C1, x_n1, ..., x_{n2-1} C2, x_n2, ..., Cm, x_nm...) = op( C, x1.., x_{n1-1}, x_n1, x_{n2-2}, x_n2...), where C (constant) = op(C1, C2..., Cm)
++		 * op(x1,..., x_{n1-1}, C1, x_n1, ..., x_{n2-1}, C2, x_n2, ..., Cm, x_nm...) = op( C, x1.., x_{n1-1}, x_n1, x_{n2-2}, x_n2...), where C (constant) = op(C1, C2..., Cm)
+ 		 * </p>
+ 		 * In this case, we can pre-compute constant C and replace all constant args with one: C
+ 		 * 
+@@ -159,18 +155,16 @@ final class NumericArithmeticFunction<AV extends NumericValue<?, AV>> extends Si
+ 				{
+ 					// variable
+ 					finalArgExpressions.add(argExp);
+-				}
+-				else
++				} else
+ 				{
+ 					// constant
+ 					try
+ 					{
+ 						constants.add(paramType.cast(v.get()));
+-					}
+-					catch (final ClassCastException e)
++					} catch (final ClassCastException e)
+ 					{
+-						throw new IllegalArgumentException("Function " + this.functionSignature + ": invalid arg #" + argIndex + ": bad type: " + argExp.getReturnType() + ". Expected type: "
+-								+ paramType, e);
++						throw new IllegalArgumentException(
++								"Function " + this.functionSignature + ": invalid arg #" + argIndex + ": bad type: " + argExp.getReturnType() + ". Expected type: " + paramType, e);
+ 					}
+ 				}
+ 
+diff --git a/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/func/StandardHigherOrderBagFunctions.java b/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/func/StandardHigherOrderBagFunctions.java
+index 10e2e07..208c498 100644
+--- a/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/func/StandardHigherOrderBagFunctions.java
++++ b/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/func/StandardHigherOrderBagFunctions.java
+@@ -60,7 +60,7 @@ final class StandardHigherOrderBagFunctions
+ 		private BooleanHigherOrderBagFunction(final String functionId)
+ 		{
+ 			super(functionId, StandardDatatypes.BOOLEAN, StandardDatatypes.BOOLEAN);
+-			this.subFunctionCallErrorMessagePrefix = "Function " + functionId + ": Error evaluating sub-function with arguments (evaluated to): ";
++			this.subFunctionCallErrorMessagePrefix = "Function '" + functionId + "': Error evaluating sub-function with arguments (evaluated to): ";
+ 		}
+ 	}
+ 
+@@ -78,8 +78,7 @@ final class StandardHigherOrderBagFunctions
+ 		}
+ 
+ 		@Override
+-		protected final void checkNumberOfArgs(final int numInputs)
+-		{
++		protected final void checkNumberOfArgs(final int numInputs) {
+ 			if (numInputs != 3)
+ 			{
+ 				throw new IllegalArgumentException("Function " + this + ": Invalid number of arguments (" + numInputs + "). Required: 3");
+@@ -101,24 +100,22 @@ final class StandardHigherOrderBagFunctions
+ 				assert bagElementType0.isPresent() && bagElementType1.isPresent();
+ 
+ 				final Datatype<?>[] subFuncArgTypes = { bagElementType0.get(), bagElementType1.get() };
+-				this.subFuncCall = subFunc.newCall(Collections.<Expression<?>> emptyList(), subFuncArgTypes);
++				this.subFuncCall = subFunc.newCall(Collections.<Expression<?>>emptyList(), subFuncArgTypes);
+ 				this.bagArgExpr0 = input0;
+ 				this.bagArgExpr1 = input1;
+-				this.errorEvalArg1Message = "Function " + functionId + ": Error evaluating second arg #1";
+-				this.errorEvalArg2Message = "Function " + functionId + ": Error evaluating arg #2";
++				this.errorEvalArg1Message = "Function '" + functionId + "': Error evaluating second arg #1";
++				this.errorEvalArg2Message = "Function '" + functionId + "': Error evaluating arg #2";
+ 			}
+ 
+ 			protected abstract BooleanValue evaluate(Bag<?> bag0, Bag<?> bag1, EvaluationContext context) throws IndeterminateEvaluationException;
+ 
+ 			@Override
+-			public final BooleanValue evaluate(final EvaluationContext context) throws IndeterminateEvaluationException
+-			{
++			public final BooleanValue evaluate(final EvaluationContext context) throws IndeterminateEvaluationException {
+ 				final Bag<?> bag0;
+ 				try
+ 				{
+ 					bag0 = bagArgExpr0.evaluate(context);
+-				}
+-				catch (final IndeterminateEvaluationException e)
++				} catch (final IndeterminateEvaluationException e)
+ 				{
+ 					throw new IndeterminateEvaluationException(errorEvalArg1Message, e.getStatusCode());
+ 				}
+@@ -136,8 +133,7 @@ final class StandardHigherOrderBagFunctions
+ 				try
+ 				{
+ 					bag1 = bagArgExpr1.evaluate(context);
+-				}
+-				catch (final IndeterminateEvaluationException e)
++				} catch (final IndeterminateEvaluationException e)
+ 				{
+ 					throw new IndeterminateEvaluationException(errorEvalArg2Message, e.getStatusCode());
+ 				}
+@@ -151,8 +147,7 @@ final class StandardHigherOrderBagFunctions
+ 			}
+ 
+ 			@Override
+-			public final Datatype<BooleanValue> getReturnType()
+-			{
++			public final Datatype<BooleanValue> getReturnType() {
+ 				return StandardDatatypes.BOOLEAN;
+ 			}
+ 
+@@ -161,8 +156,7 @@ final class StandardHigherOrderBagFunctions
+ 		protected abstract BooleanValue evaluate(FirstOrderFunctionCall<BooleanValue> subFunctionCall, Bag<?> bag0, Bag<?> bag1, EvaluationContext context) throws IndeterminateEvaluationException;
+ 
+ 		@Override
+-		protected final FunctionCall<BooleanValue> createFunctionCallFromSubFunction(final FirstOrderFunction<BooleanValue> subFunc, final List<Expression<?>> inputsAfterSubFunc)
+-		{
++		protected final FunctionCall<BooleanValue> createFunctionCallFromSubFunction(final FirstOrderFunction<BooleanValue> subFunc, final List<Expression<?>> inputsAfterSubFunc) {
+ 
+ 			final Iterator<Expression<?>> inputsAfterSubfuncIterator = inputsAfterSubFunc.iterator();
+ 			while (inputsAfterSubfuncIterator.hasNext())
+@@ -180,8 +174,7 @@ final class StandardHigherOrderBagFunctions
+ 			{
+ 
+ 				@Override
+-				protected BooleanValue evaluate(final Bag<?> bag0, final Bag<?> bag1, final EvaluationContext context) throws IndeterminateEvaluationException
+-				{
++				protected BooleanValue evaluate(final Bag<?> bag0, final Bag<?> bag1, final EvaluationContext context) throws IndeterminateEvaluationException {
+ 					return BooleanHigherOrderTwoBagFunction.this.evaluate(subFuncCall, bag0, bag1, context);
+ 				}
+ 			};
+@@ -189,79 +182,93 @@ final class StandardHigherOrderBagFunctions
+ 	}
+ 
+ 	/**
+-	 * one-bag-only functions (only last arg is bag): any-of, all-of, map.
++	 * one-bag-only functions (one and only one arg is bag): any-of, all-of, map. For the map function, the (only) bag argument can be any arg following the sub-function.
+ 	 * 
+ 	 */
+ 	static abstract class OneBagOnlyHigherOrderFunction<RETURN_T extends Value, SUB_RETURN_T extends AttributeValue> extends HigherOrderBagFunction<RETURN_T, SUB_RETURN_T>
+ 	{
+-		private final String invalidArityMsgPrefix = "Function " + this + ": Invalid number of arguments: expected: >= 2; actual: ";
+-		private final String unexpectedBagInputErrorMsg = " Function " + this + ": Invalid type (expected: primitive, actual: bag) of argument #";
+-		private final IllegalArgumentException invalidLastArgTypeException = new IllegalArgumentException(this + ": Invalid last argument type: expected: bag; actual: primitive");
++		private final String invalidArityMsgPrefix = "Function '" + this + "': Invalid number of arguments: expected: >= 2; actual: ";
++		private final IllegalArgumentException missingBagInputErrorMsg = new IllegalArgumentException("Function '" + this + "': Invalid args (expected: one and only one bag; actual: none)");
++		private final String invalidArgTypeErrorMsg = "Function '" + this + "': Invalid argument type (expected: primitive; actual: bag) for arg #";
+ 
+ 		static abstract class Call<RETURN extends Value, SUB_RETURN extends AttributeValue> implements FunctionCall<RETURN>
+ 		{
+-			private final String errorEvalLastArgMsg;
+-			protected final FirstOrderFunctionCall<SUB_RETURN> subFuncCall;
+-			private final Expression<?> lastArgBagExpr;
+-			private final BagDatatype<?> lastArgBagDatatype;
++			private final String errorEvalBagArgMsg;
++			private final Expression<?> bagArgExpr;
++			private final BagDatatype<?> bagArgDatatype;
+ 			private final Datatype<RETURN> returnType;
++			protected final int bagArgIndex;
++			protected final List<Expression<?>> primitiveArgExprsAfterBag;
++			protected final int numOfArgsAfterBagInclusive;
++			protected final FirstOrderFunctionCall<SUB_RETURN> subFuncCall;
+ 
+-			protected Call(final String functionId, final Datatype<RETURN> returnType, final FirstOrderFunction<SUB_RETURN> subFunction, final List<Expression<?>> primitiveInputs,
+-					final Expression<? extends Bag<?>> lastInputBag)
++			protected Call(final String functionId, final Datatype<RETURN> returnType, final FirstOrderFunction<SUB_RETURN> subFunction, final List<Expression<?>> primitiveInputsBeforeBag,
++					final Expression<? extends Bag<?>> bagInput, final List<Expression<?>> primitiveInputsAfterBag)
+ 			{
+-				final Datatype<? extends Bag<?>> lastArgExpDatatype = lastInputBag.getReturnType();
++				final Datatype<? extends Bag<?>> bagInputType = bagInput.getReturnType();
+ 				/*
+ 				 * BagDatatype is expected to be the only Datatype implementation for Datatype<Bag<?>>
+ 				 */
+-				assert lastArgExpDatatype instanceof BagDatatype;
++				assert bagInputType instanceof BagDatatype;
+ 
+-				lastArgBagDatatype = (BagDatatype<?>) lastArgExpDatatype;
+-				lastArgBagExpr = lastInputBag;
++				bagArgDatatype = (BagDatatype<?>) bagInputType;
++				bagArgExpr = bagInput;
++				bagArgIndex = 1 + primitiveInputsBeforeBag.size();
++				primitiveArgExprsAfterBag = primitiveInputsAfterBag;
++				/*
++				 * Number of args starting with the bag (inclusive)
++				 */
++				numOfArgsAfterBagInclusive = 1 + primitiveInputsAfterBag.size();
+ 
+ 				/*
+-				 * The actual expression passed as last argument to the sub-function is not yet known; but we know the expected datatype is the type of each element lastInputBag's evaluation result
+-				 * bag, therefore the element datatype, i.e. type parameter to the returned bag datatype
++				 * Prepare args to sub-function Each actual value that comes from the bag and that is passed to the sub-function is not yet known; but we know the expected datatype that is the type of
++				 * each element in the bag.
+ 				 */
++				final Datatype<?>[] typesOfArgsAfterBagInclusive = new Datatype<?>[numOfArgsAfterBagInclusive];
++				typesOfArgsAfterBagInclusive[0] = bagArgDatatype.getElementType();
++				int i = 1;
++				for (final Expression<?> primitiveInputAfterBag : primitiveInputsAfterBag)
++				{
++					typesOfArgsAfterBagInclusive[i] = primitiveInputAfterBag.getReturnType();
++					i++;
++				}
+ 
+-				this.subFuncCall = subFunction.newCall(primitiveInputs, lastArgBagDatatype.getElementType());
+-				this.errorEvalLastArgMsg = "Function " + functionId + ": Error evaluating last arg (bag)";
++				this.subFuncCall = subFunction.newCall(primitiveInputsBeforeBag, typesOfArgsAfterBagInclusive);
++				this.errorEvalBagArgMsg = "Function '" + functionId + "': Error evaluating bag arg (arg #" + bagArgIndex + ")";
+ 				this.returnType = returnType;
+ 			}
+ 
+ 			/**
+-			 * Evaluates the function call. The evaluation combines the results of <i>eval<sub>i</sub></i> for <i>i</i> in [0.. {@code lastArgBag.size()-1}], where <i>eval<sub>i</sub></i> is the
+-			 * evaluation of the sub-function (in this higher-order function call, i.e. first arg) with the n-1 first arguments defined in this function call - n being the arity of the sub-function -
+-			 * and the n-th/last argument is the <i>i</i>-th value in {@code lastArgBag} in parameter
++			 * Evaluates the function call. The evaluation combines the results of all <i>eval<sub>i</sub></i> for <i>i</i> in [0..p-1], where <i>eval<sub>i</sub></i> is the evaluation of the
++			 * sub-function (in this higher-order function call, i.e. first arg) with the following arguments, except for the one that is a bag, we take the i-th value in the bag as actual
++			 * sub-function arg, with p the size of the bag.
+ 			 * 
+-			 * @param lastArgBag
+-			 *            the bag of which each value is used successively as the last argument to the sub-function for each sub-function evaluation
++			 * @param bagArg
++			 *            the bag of which each value is used successively as the primitive argument to the sub-function in the same position
+ 			 * @param context
+ 			 *            evaluation context in which arguments are evaluated
+ 			 * @return result combined result (depending on the implementation)
+ 			 * @throws IndeterminateEvaluationException
+ 			 *             if any error occurred during evaluation
+ 			 */
+-			protected abstract RETURN evaluate(Bag<?> lastArgBag, EvaluationContext context) throws IndeterminateEvaluationException;
++			protected abstract RETURN evaluate(Bag<?> bagArg, EvaluationContext context) throws IndeterminateEvaluationException;
+ 
+ 			@Override
+-			public final RETURN evaluate(final EvaluationContext context) throws IndeterminateEvaluationException
+-			{
+-				final Bag<?> lastArgBag;
++			public final RETURN evaluate(final EvaluationContext context) throws IndeterminateEvaluationException {
++				final Bag<?> bagArg;
+ 				try
+ 				{
+-					lastArgBag = Expressions.eval(lastArgBagExpr, context, lastArgBagDatatype);
+-				}
+-				catch (final IndeterminateEvaluationException e)
++					bagArg = Expressions.eval(bagArgExpr, context, bagArgDatatype);
++				} catch (final IndeterminateEvaluationException e)
+ 				{
+-					throw new IndeterminateEvaluationException(errorEvalLastArgMsg, e.getStatusCode(), e);
++					throw new IndeterminateEvaluationException(errorEvalBagArgMsg, e.getStatusCode(), e);
+ 				}
+ 
+-				return evaluate(lastArgBag, context);
++				return evaluate(bagArg, context);
+ 			}
+ 
+ 			@Override
+-			public final Datatype<RETURN> getReturnType()
+-			{
++			public final Datatype<RETURN> getReturnType() {
+ 				return returnType;
+ 			}
+ 		}
+@@ -275,8 +282,7 @@ final class StandardHigherOrderBagFunctions
+ 		}
+ 
+ 		@Override
+-		protected final void checkNumberOfArgs(final int numInputs)
+-		{
++		protected final void checkNumberOfArgs(final int numInputs) {
+ 			if (numInputs < 2)
+ 			{
+ 				throw new IllegalArgumentException(invalidArityMsgPrefix + numInputs);
+@@ -288,59 +294,80 @@ final class StandardHigherOrderBagFunctions
+ 		 * 
+ 		 * @param subFunc
+ 		 *            sub-function
+-		 * @param primitiveInputs
+-		 *            all arguments before last, all primitive (datatype already checked).
+-		 * @param lastInputBag
+-		 *            last argument - bag (datatype already checked)
++		 * @param primitiveInputsBeforeBag
++		 *            all primitive arguments before bag (datatype already checked).
++		 * @param bagInput
++		 *            bag argument (datatype already checked)
++		 * @param primitiveInputsBeforeBag
++		 *            all primitive arguments after bag (datatype already checked).
+ 		 * @return function call
+ 		 */
+-		protected abstract Call<RETURN_T, SUB_RETURN_T> newFunctionCall(FirstOrderFunction<SUB_RETURN_T> subFunc, List<Expression<?>> primitiveInputs, Expression<? extends Bag<?>> lastInputBag);
++		protected abstract Call<RETURN_T, SUB_RETURN_T> newFunctionCall(FirstOrderFunction<SUB_RETURN_T> subFunc, List<Expression<?>> primitiveInputsBeforeBag, Expression<? extends Bag<?>> bagInput,
++				final List<Expression<?>> primitiveInputsAfterBag);
+ 
+ 		@Override
+-		protected final FunctionCall<RETURN_T> createFunctionCallFromSubFunction(final FirstOrderFunction<SUB_RETURN_T> subFunc, final List<Expression<?>> inputsAfterSubFunc)
+-		{
+-			final Iterator<Expression<?>> inputsAfterSubfuncIterator = inputsAfterSubFunc.iterator();
+-			// inputs that we can parse/validate for the sub-function are the primitive inputs, i.e.
+-			// all except last one which is a bag
+-			final List<Expression<?>> primitiveInputs = new ArrayList<>();
+-			int argIndex = 0;
+-			Expression<? extends Bag<?>> lastInputBag = null;
+-			boolean hasNextInput = true;
+-			while (hasNextInput)
++		protected final FunctionCall<RETURN_T> createFunctionCallFromSubFunction(final FirstOrderFunction<SUB_RETURN_T> subFunc, final List<Expression<?>> inputsAfterSubFunc) {
++			/*
++			 * Inputs that we can parse/validate for the sub-function are the primitive inputs, i.e. all except last one which is a bag
++			 */
++			final List<Expression<?>> primitiveInputsBeforeBag = new ArrayList<>();
++			Expression<? extends Bag<?>> bagInput = null;
++			final List<Expression<?>> primitiveInputsAfterBag = new ArrayList<>();
++			/*
++			 * Arg index of input after sub-function (= arg #0 of this higher-order function)
++			 */
++			int argIndex = 1;
++			for (final Expression<?> input : inputsAfterSubFunc)
+ 			{
+-				final Expression<?> input = inputsAfterSubfuncIterator.next();
+-				argIndex++;
+-				hasNextInput = inputsAfterSubfuncIterator.hasNext();
+ 				final Datatype<?> inputType = input.getReturnType();
+ 				final Optional<? extends Datatype<?>> typeParam = inputType.getTypeParameter();
+-				if (hasNextInput)
++				if (bagInput == null)
+ 				{
+-					// not the last input, must be primitive
++					/*
++					 * No bag arg found yet
++					 */
+ 					if (typeParam.isPresent())
+ 					{
+-						// not primitive but generic
+-						throw new IllegalArgumentException(unexpectedBagInputErrorMsg + argIndex);
++						/*
++						 * Not primitive but bag
++						 */
++						bagInput = (Expression<? extends Bag<?>>) input;
++					} else
++					{
++						/*
++						 * Primitive before the bag
++						 */
++						primitiveInputsBeforeBag.add(input);
+ 					}
+-
+-					primitiveInputs.add(input);
+-				}
+-				else
++				} else
+ 				{
+-					// last input, must be a bag
+-					if (!typeParam.isPresent())
++					/*
++					 * Bag arg already found -> this arg must be a primitive as there can be only one bag arg
++					 */
++					if (typeParam.isPresent())
+ 					{
+-						// primitive
+-						throw invalidLastArgTypeException;
++						/*
++						 * Bag again!
++						 */
++						throw new IllegalArgumentException(invalidArgTypeErrorMsg + argIndex);
+ 					}
+ 
+ 					/*
+-					 * BagDatatype expected to be the only bag Datatype
++					 * Primitive after the bag
+ 					 */
+-					lastInputBag = (Expression<? extends Bag<?>>) input;
++					primitiveInputsAfterBag.add(input);
++
+ 				}
++
++				argIndex++;
+ 			}
+ 
+-			return newFunctionCall(subFunc, primitiveInputs, lastInputBag);
++			if (bagInput == null)
++			{
++				throw missingBagInputErrorMsg;
++			}
++
++			return newFunctionCall(subFunc, primitiveInputsBeforeBag, bagInput, primitiveInputsAfterBag);
+ 		}
+ 
+ 	}
+@@ -355,7 +382,7 @@ final class StandardHigherOrderBagFunctions
+ 			private CallFactory(final String functionId)
+ 			{
+ 				this.functionId = functionId;
+-				this.subFuncCallWithLastArgErrMsgPrefix = "Function " + functionId + ": Error calling sub-function (specified as first argument) with last arg=";
++				this.subFuncCallWithLastArgErrMsgPrefix = "Function '" + functionId + "': Error calling sub-function (specified as first argument) with last arg=";
+ 			}
+ 
+ 			/**
+@@ -376,22 +403,19 @@ final class StandardHigherOrderBagFunctions
+ 			protected abstract BooleanValue defaultFinalResult();
+ 
+ 			private OneBagOnlyHigherOrderFunction.Call<BooleanValue, BooleanValue> getInstance(final FirstOrderFunction<BooleanValue> subFunc, final List<Expression<?>> primitiveInputs,
+-					final Expression<? extends Bag<?>> lastInputBag)
+-			{
+-				return new OneBagOnlyHigherOrderFunction.Call<BooleanValue, BooleanValue>(functionId, StandardDatatypes.BOOLEAN, subFunc, primitiveInputs, lastInputBag)
++					final Expression<? extends Bag<?>> lastInputBag) {
++				return new OneBagOnlyHigherOrderFunction.Call<BooleanValue, BooleanValue>(functionId, StandardDatatypes.BOOLEAN, subFunc, primitiveInputs, lastInputBag, Collections.emptyList())
+ 				{
+ 
+ 					@Override
+-					protected BooleanValue evaluate(final Bag<?> lastArgBag, final EvaluationContext context) throws IndeterminateEvaluationException
+-					{
++					protected BooleanValue evaluate(final Bag<?> lastArgBag, final EvaluationContext context) throws IndeterminateEvaluationException {
+ 						for (final AttributeValue attrVal : lastArgBag)
+ 						{
+ 							final BooleanValue subResult;
+ 							try
+ 							{
+ 								subResult = subFuncCall.evaluate(context, attrVal);
+-							}
+-							catch (final IndeterminateEvaluationException e)
++							} catch (final IndeterminateEvaluationException e)
+ 							{
+ 								throw new IndeterminateEvaluationException(subFuncCallWithLastArgErrMsgPrefix + attrVal, e.getStatusCode(), e);
+ 							}
+@@ -419,10 +443,9 @@ final class StandardHigherOrderBagFunctions
+ 		}
+ 
+ 		@Override
+-		protected OneBagOnlyHigherOrderFunction.Call<BooleanValue, BooleanValue> newFunctionCall(final FirstOrderFunction<BooleanValue> subFunc, final List<Expression<?>> primitiveInputs,
+-				final Expression<? extends Bag<?>> lastInputBag)
+-		{
+-			return funcCallFactory.getInstance(subFunc, primitiveInputs, lastInputBag);
++		protected OneBagOnlyHigherOrderFunction.Call<BooleanValue, BooleanValue> newFunctionCall(FirstOrderFunction<BooleanValue> subFunc, List<Expression<?>> primitiveInputsBeforeBag,
++				Expression<? extends Bag<?>> bagInput, final List<Expression<?>> primitiveInputsAfterBag) {
++			return funcCallFactory.getInstance(subFunc, primitiveInputsBeforeBag, bagInput);
+ 		}
+ 
+ 	}
+@@ -440,8 +463,7 @@ final class StandardHigherOrderBagFunctions
+ 		}
+ 
+ 		@Override
+-		protected BooleanValue getFinalResult(final BooleanValue subFunctionResult)
+-		{
++		protected BooleanValue getFinalResult(final BooleanValue subFunctionResult) {
+ 			if (subFunctionResult.getUnderlyingValue().booleanValue())
+ 			{
+ 				return BooleanValue.TRUE;
+@@ -451,8 +473,7 @@ final class StandardHigherOrderBagFunctions
+ 		}
+ 
+ 		@Override
+-		protected BooleanValue defaultFinalResult()
+-		{
++		protected BooleanValue defaultFinalResult() {
+ 			return BooleanValue.FALSE;
+ 		}
+ 
+@@ -471,8 +492,7 @@ final class StandardHigherOrderBagFunctions
+ 		}
+ 
+ 		@Override
+-		protected BooleanValue getFinalResult(final BooleanValue subFunctionResult)
+-		{
++		protected BooleanValue getFinalResult(final BooleanValue subFunctionResult) {
+ 			if (!subFunctionResult.getUnderlyingValue().booleanValue())
+ 			{
+ 				return BooleanValue.FALSE;
+@@ -482,8 +502,7 @@ final class StandardHigherOrderBagFunctions
+ 		}
+ 
+ 		@Override
+-		protected BooleanValue defaultFinalResult()
+-		{
++		protected BooleanValue defaultFinalResult() {
+ 			return BooleanValue.TRUE;
+ 		}
+ 
+@@ -505,12 +524,11 @@ final class StandardHigherOrderBagFunctions
+ 		AnyOfAny(final String functionId)
+ 		{
+ 			super(functionId);
+-			this.subFuncArgEvalErrMsg = "Function " + functionId + ": Error evaluating one of the arguments after sub-function";
++			this.subFuncArgEvalErrMsg = "Function '" + functionId + "': Error evaluating one of the arguments after sub-function";
+ 		}
+ 
+ 		@Override
+-		protected void checkNumberOfArgs(final int numInputs)
+-		{
++		protected void checkNumberOfArgs(final int numInputs) {
+ 			if (numInputs < 2)
+ 			{
+ 				throw new IllegalArgumentException("Function " + this + ": Invalid number of arguments (" + numInputs + "). Required: >= 2");
+@@ -518,8 +536,7 @@ final class StandardHigherOrderBagFunctions
+ 		}
+ 
+ 		@Override
+-		protected FunctionCall<BooleanValue> createFunctionCallFromSubFunction(final FirstOrderFunction<BooleanValue> subFunc, final List<Expression<?>> inputsAfterSubFunc)
+-		{
++		protected FunctionCall<BooleanValue> createFunctionCallFromSubFunction(final FirstOrderFunction<BooleanValue> subFunc, final List<Expression<?>> inputsAfterSubFunc) {
+ 			return new AnyOfAnyFunctionCall(subFunc, inputsAfterSubFunc);
+ 		}
+ 
+@@ -549,13 +566,12 @@ final class StandardHigherOrderBagFunctions
+ 					i++;
+ 				}
+ 
+-				this.subFuncCall = subFunc.newCall(Collections.<Expression<?>> emptyList(), subFuncArgTypes);
++				this.subFuncCall = subFunc.newCall(Collections.<Expression<?>>emptyList(), subFuncArgTypes);
+ 				this.inputsAfterSubFunc = inputsAfterSubFunc;
+ 			}
+ 
+ 			private BooleanValue eval(final Iterator<Expression<?>> argExpressionsAfterSubFuncIterator, final ListIterator<Value> argValuesAfterSubFuncIterator,
+-					final Deque<AttributeValue> subFuncArgsStack, final EvaluationContext context) throws IndeterminateEvaluationException
+-			{
++					final Deque<AttributeValue> subFuncArgsStack, final EvaluationContext context) throws IndeterminateEvaluationException {
+ 				final Value argVal;
+ 				if (argExpressionsAfterSubFuncIterator.hasNext())
+ 				{
+@@ -564,16 +580,14 @@ final class StandardHigherOrderBagFunctions
+ 					{
+ 						argVal = argExpressionsAfterSubFuncIterator.next().evaluate(context);
+ 
+-					}
+-					catch (final IndeterminateEvaluationException e)
++					} catch (final IndeterminateEvaluationException e)
+ 					{
+ 						throw new IndeterminateEvaluationException(subFuncArgEvalErrMsg, e.getStatusCode(), e);
+ 					}
+ 					// save the result for reuse when building the next list of sub-function
+ 					// arguments to avoid re-evaluation
+ 					argValuesAfterSubFuncIterator.add(argVal);
+-				}
+-				else
++				} else
+ 				{
+ 					/*
+ 					 * No more arg expression to evaluate, but we may have evaluated them all with results put in argValuesAfterSubFuncIterator, then started a new combination of arguments from the
+@@ -582,8 +596,7 @@ final class StandardHigherOrderBagFunctions
+ 					if (argValuesAfterSubFuncIterator.hasNext())
+ 					{
+ 						argVal = argValuesAfterSubFuncIterator.next();
+-					}
+-					else
++					} else
+ 					{
+ 						// no more argument to add to the list of sub-function arguments
+ 						argVal = null;
+@@ -598,8 +611,7 @@ final class StandardHigherOrderBagFunctions
+ 					try
+ 					{
+ 						return subFuncCall.evaluate(context, subFuncArgValues);
+-					}
+-					catch (final IndeterminateEvaluationException e)
++					} catch (final IndeterminateEvaluationException e)
+ 					{
+ 						throw new IndeterminateEvaluationException(subFunctionCallErrorMessagePrefix + subFuncArgsStack, e.getStatusCode(), e);
+ 					}
+@@ -637,8 +649,7 @@ final class StandardHigherOrderBagFunctions
+ 						subFuncArgsStack.removeLast();
+ 					}
+ 
+-				}
+-				else
++				} else
+ 				{
+ 					// arg value is primitive
+ 					// add it to the sub-function call's argument stack
+@@ -665,8 +676,7 @@ final class StandardHigherOrderBagFunctions
+ 			}
+ 
+ 			@Override
+-			public BooleanValue evaluate(final EvaluationContext context) throws IndeterminateEvaluationException
+-			{
++			public BooleanValue evaluate(final EvaluationContext context) throws IndeterminateEvaluationException {
+ 				/*
+ 				 * For each input expression coming from inputsAfterSubFunc, the evaluation result will be added to the following list, to avoid evaluating the same expression again as each one will
+ 				 * be reused in multiple combination of arguments:
+@@ -686,8 +696,7 @@ final class StandardHigherOrderBagFunctions
+ 			}
+ 
+ 			@Override
+-			public Datatype<BooleanValue> getReturnType()
+-			{
++			public Datatype<BooleanValue> getReturnType() {
+ 				return StandardDatatypes.BOOLEAN;
+ 			}
+ 
+@@ -725,14 +734,12 @@ final class StandardHigherOrderBagFunctions
+ 		{
+ 
+ 			@Override
+-			public Bag<?> getBagForAll(final Bag<?> bag0, final Bag<?> bag1)
+-			{
++			public Bag<?> getBagForAll(final Bag<?> bag0, final Bag<?> bag1) {
+ 				return bag0;
+ 			}
+ 
+ 			@Override
+-			public Bag<?> getBagForAny(final Bag<?> bag0, final Bag<?> bag1)
+-			{
++			public Bag<?> getBagForAny(final Bag<?> bag0, final Bag<?> bag1) {
+ 				return bag1;
+ 			}
+ 
+@@ -742,14 +749,12 @@ final class StandardHigherOrderBagFunctions
+ 		{
+ 
+ 			@Override
+-			public Bag<?> getBagForAll(final Bag<?> bag0, final Bag<?> bag1)
+-			{
++			public Bag<?> getBagForAll(final Bag<?> bag0, final Bag<?> bag1) {
+ 				return bag1;
+ 			}
+ 
+ 			@Override
+-			public Bag<?> getBagForAny(final Bag<?> bag0, final Bag<?> bag1)
+-			{
++			public Bag<?> getBagForAny(final Bag<?> bag0, final Bag<?> bag1) {
+ 				return bag0;
+ 			}
+ 
+@@ -768,8 +773,7 @@ final class StandardHigherOrderBagFunctions
+ 				bagForAllArgIndex = 0;
+ 				bagForAnyArgIndex = 1;
+ 				argSelector = FIRST_BAG_FOR_ALL_ARGSELECTOR;
+-			}
+-			else
++			} else
+ 			{
+ 				/*
+ 				 * the bag for "all" part is the second arg to the sub-function, so reverse
+@@ -782,8 +786,7 @@ final class StandardHigherOrderBagFunctions
+ 
+ 		@Override
+ 		protected BooleanValue evaluate(final FirstOrderFunctionCall<BooleanValue> subFunctionCall, final Bag<?> bag0, final Bag<?> bag1, final EvaluationContext context)
+-				throws IndeterminateEvaluationException
+-		{
++				throws IndeterminateEvaluationException {
+ 			final AttributeValue[] subFuncArgs = new AttributeValue[2];
+ 			for (final AttributeValue bagAllUsed : argSelector.getBagForAll(bag0, bag1))
+ 			{
+@@ -796,8 +799,7 @@ final class StandardHigherOrderBagFunctions
+ 					try
+ 					{
+ 						subResult = subFunctionCall.evaluate(context, subFuncArgs);
+-					}
+-					catch (final IndeterminateEvaluationException e)
++					} catch (final IndeterminateEvaluationException e)
+ 					{
+ 						throw new IndeterminateEvaluationException(subFunctionCallErrorMessagePrefix + Arrays.toString(subFuncArgs), e.getStatusCode());
+ 					}
+@@ -868,8 +870,7 @@ final class StandardHigherOrderBagFunctions
+ 
+ 		@Override
+ 		protected BooleanValue evaluate(final FirstOrderFunctionCall<BooleanValue> subFunctionCall, final Bag<?> bag0, final Bag<?> bag1, final EvaluationContext context)
+-				throws IndeterminateEvaluationException
+-		{
++				throws IndeterminateEvaluationException {
+ 			final AttributeValue[] subFuncArgs = new AttributeValue[2];
+ 			for (final AttributeValue bag0Val : bag0)
+ 			{
+@@ -882,8 +883,7 @@ final class StandardHigherOrderBagFunctions
+ 					try
+ 					{
+ 						subResult = subFunctionCall.evaluate(context, subFuncArgs);
+-					}
+-					catch (final IndeterminateEvaluationException e)
++					} catch (final IndeterminateEvaluationException e)
+ 					{
+ 						throw new IndeterminateEvaluationException(subFunctionCallErrorMessagePrefix + Arrays.toString(subFuncArgs), e.getStatusCode());
+ 					}
+diff --git a/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/func/SubstringFunction.java b/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/func/SubstringFunction.java
+index bf1755c..ebe36bc 100644
+--- a/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/func/SubstringFunction.java
++++ b/pdp-engine/src/main/java/org/ow2/authzforce/core/pdp/impl/func/SubstringFunction.java
+@@ -71,8 +71,7 @@ final class SubstringFunction<AV extends SimpleValue<String>> extends MultiParam
+ 		}
+ 
+ 		@Override
+-		protected StringValue evaluate(final Deque<AttributeValue> args) throws IndeterminateEvaluationException
+-		{
++		protected StringValue evaluate(final Deque<AttributeValue> args) throws IndeterminateEvaluationException {
+ 			final AttributeValue rawArg0 = args.poll();
+ 			final AttributeValue rawArg1 = args.poll();
+ 			final AttributeValue rawArg2 = args.poll();
+@@ -85,8 +84,7 @@ final class SubstringFunction<AV extends SimpleValue<String>> extends MultiParam
+ 				arg0 = param0Type.cast(rawArg0);
+ 				beginIndex = (IntegerValue) rawArg1;
+ 				endIndex = (IntegerValue) rawArg2;
+-			}
+-			catch (final ClassCastException e)
++			} catch (final ClassCastException e)
+ 			{
+ 				throw new IndeterminateEvaluationException(invalidArgTypesErrorMsg + rawArg0.getDataType() + "," + rawArg1.getDataType() + "," + rawArg2.getDataType(),
+ 						XacmlStatusCode.PROCESSING_ERROR.value(), e);
+@@ -115,8 +113,7 @@ final class SubstringFunction<AV extends SimpleValue<String>> extends MultiParam
+ 				final int beginIndexInt = beginIndex.intValueExact();
+ 				final int endIndexInt = endIndex.intValueExact();
+ 				substring = endIndexInt == -1 ? arg0.getUnderlyingValue().substring(beginIndexInt) : arg0.getUnderlyingValue().substring(beginIndexInt, endIndexInt);
+-			}
+-			catch (ArithmeticException | IndexOutOfBoundsException e)
++			} catch (ArithmeticException | IndexOutOfBoundsException e)
+ 			{
+ 				throw new IndeterminateEvaluationException(argsOutOfBoundsErrorMessage, XacmlStatusCode.PROCESSING_ERROR.value(), e);
+ 			}
+@@ -141,23 +138,21 @@ final class SubstringFunction<AV extends SimpleValue<String>> extends MultiParam
+ 		this.param0Type = param0Type;
+ 	}
+ 
+-	private static String getInvalidArg1MessagePrefix(final FirstOrderFunctionSignature<?> funcsig)
+-	{
++	private static String getInvalidArg1MessagePrefix(final FirstOrderFunctionSignature<?> funcsig) {
+ 		return "Function " + funcsig.getName() + ": Invalid arg #1 (beginIndex): expected: positive integer; actual: ";
+ 	}
+ 
+-	private static String getInvalidArg2MessagePrefix(final FirstOrderFunctionSignature<?> funcsig)
+-	{
++	private static String getInvalidArg2MessagePrefix(final FirstOrderFunctionSignature<?> funcsig) {
+ 		return "Function " + funcsig.getName() + ": Invalid arg #2 (endIndex): expected: -1 or positive integer >= beginIndex; actual: ";
+ 	}
+ 
+ 	/** {@inheritDoc} */
+ 	@Override
+-	public FirstOrderFunctionCall<StringValue> newCall(final List<Expression<?>> argExpressions, final Datatype<?>... remainingArgTypes)
+-	{
+-		if (argExpressions.size() != 3)
++	public FirstOrderFunctionCall<StringValue> newCall(final List<Expression<?>> argExpressions, final Datatype<?>... remainingArgTypes) {
++		final int numOfArgs = argExpressions.size() + remainingArgTypes.length;
++		if (numOfArgs != 3)
+ 		{
+-			throw new IllegalArgumentException("Function " + functionSignature.getName() + ": Invalid number of args: expected: 3; actual: " + argExpressions.size());
++			throw new IllegalArgumentException("Function " + functionSignature.getName() + ": Invalid number of args: expected: 3; actual: " + numOfArgs);
+ 		}
+ 
+ 		/*
+@@ -165,10 +160,20 @@ final class SubstringFunction<AV extends SimpleValue<String>> extends MultiParam
+ 		 * error
+ 		 */
+ 		final Iterator<? extends Expression<?>> argExpsIterator = argExpressions.iterator();
+-		// Skip the first argument which is the string
++		if (!argExpsIterator.hasNext())
++		{
++			return new Call(functionSignature, param0Type, argExpressions, remainingArgTypes);
++		}
++
++		// Skip the first argument (arg #0) which is the string
+ 		argExpsIterator.next();
+ 
+-		// Second arg
++		// Second arg (arg #1)
++		if (!argExpsIterator.hasNext())
++		{
++			return new Call(functionSignature, param0Type, argExpressions, remainingArgTypes);
++		}
++
+ 		final Expression<?> arg1Exp = argExpsIterator.next();
+ 		final Optional<? extends Value> arg1 = arg1Exp.getValue();
+ 		final int beginIndex;
+@@ -185,13 +190,17 @@ final class SubstringFunction<AV extends SimpleValue<String>> extends MultiParam
+ 			{
+ 				throw new IllegalArgumentException(getInvalidArg1MessagePrefix(functionSignature) + beginIndex);
+ 			}
+-		}
+-		else
++		} else
+ 		{
+ 			beginIndex = -1; // undefined
+ 		}
+ 
+ 		// Third arg
++		if (!argExpsIterator.hasNext())
++		{
++			return new Call(functionSignature, param0Type, argExpressions, remainingArgTypes);
++		}
++
+ 		final Expression<?> arg2Exp = argExpsIterator.next();
+ 		final Optional<? extends Value> arg2 = arg2Exp.getValue();
+ 		if (arg2.isPresent())
+diff --git a/pdp-engine/src/test/java/org/ow2/authzforce/core/pdp/impl/test/func/HigherOrderFunctionsTest.java b/pdp-engine/src/test/java/org/ow2/authzforce/core/pdp/impl/test/func/HigherOrderFunctionsTest.java
+index 05ebd64..59a6a22 100644
+--- a/pdp-engine/src/test/java/org/ow2/authzforce/core/pdp/impl/test/func/HigherOrderFunctionsTest.java
++++ b/pdp-engine/src/test/java/org/ow2/authzforce/core/pdp/impl/test/func/HigherOrderFunctionsTest.java
+@@ -53,102 +53,119 @@ public class HigherOrderFunctionsTest extends StandardFunctionTest
+ 	private static final String STRING_EQUAL_FUNCTION_ID = "urn:oasis:names:tc:xacml:1.0:function:string-equal";
+ 	private static final String INTEGER_GREATER_THAN_FUNCTION_ID = "urn:oasis:names:tc:xacml:1.0:function:integer-greater-than";
+ 	private static final String STRING_NORMALIZE_TO_LC_FUNCTION_ID = "urn:oasis:names:tc:xacml:1.0:function:string-normalize-to-lower-case";
++	private static final String STRING_SUBSTRING_FUNCTION_ID = "urn:oasis:names:tc:xacml:3.0:function:string-substring";
+ 
+ 	@Parameters(name = "{index}: {0}")
+-	public static Collection<Object[]> params() throws Exception
+-	{
++	public static Collection<Object[]> params() throws Exception {
+ 
+ 		return Arrays.asList(
+-		// urn:oasis:names:tc:xacml:3.0:function:any-of
+-				new Object[] { NAME_ANY_OF,//
+-						STRING_EQUAL_FUNCTION_ID,//
++				// urn:oasis:names:tc:xacml:3.0:function:any-of
++				new Object[] { NAME_ANY_OF, //
++						STRING_EQUAL_FUNCTION_ID, //
+ 						Arrays.asList(new StringValue("Paul"), //
+-								Bags.newBag(StandardDatatypes.STRING, Arrays.asList(new StringValue("John"), new StringValue("Paul"), new StringValue("George"), new StringValue("Ringo")))),//
++								Bags.newBag(StandardDatatypes.STRING, Arrays.asList(new StringValue("John"), new StringValue("Paul"), new StringValue("George"), new StringValue("Ringo")))), //
+ 						BooleanValue.TRUE },
+ 
+-				new Object[] { NAME_ANY_OF,//
+-						STRING_EQUAL_FUNCTION_ID,//
++				new Object[] { NAME_ANY_OF, //
++						STRING_EQUAL_FUNCTION_ID, //
+ 						Arrays.asList(new StringValue("Paul"), //
+-								Bags.newBag(StandardDatatypes.STRING, Arrays.asList(new StringValue("John"), new StringValue("George"), new StringValue("Ringo")))),//
++								Bags.newBag(StandardDatatypes.STRING, Arrays.asList(new StringValue("John"), new StringValue("George"), new StringValue("Ringo")))), //
+ 						BooleanValue.FALSE },
+ 
+ 				// urn:oasis:names:tc:xacml:3.0:function:all-of
+-				new Object[] { NAME_ALL_OF,//
+-						INTEGER_GREATER_THAN_FUNCTION_ID,//
++				new Object[] { NAME_ALL_OF, //
++						INTEGER_GREATER_THAN_FUNCTION_ID, //
+ 						Arrays.asList(IntegerValue.valueOf(10), //
+-								Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(9), IntegerValue.valueOf(3), IntegerValue.valueOf(4), IntegerValue.valueOf(2)))),//
++								Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(9), IntegerValue.valueOf(3), IntegerValue.valueOf(4), IntegerValue.valueOf(2)))), //
+ 						BooleanValue.TRUE },
+ 
+-				new Object[] { NAME_ALL_OF,//
+-						INTEGER_GREATER_THAN_FUNCTION_ID,//
++				new Object[] { NAME_ALL_OF, //
++						INTEGER_GREATER_THAN_FUNCTION_ID, //
+ 						Arrays.asList(IntegerValue.valueOf(10), //
+-								Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(9), IntegerValue.valueOf(3), IntegerValue.valueOf(14), IntegerValue.valueOf(2)))),//
++								Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(9), IntegerValue.valueOf(3), IntegerValue.valueOf(14), IntegerValue.valueOf(2)))), //
+ 						BooleanValue.FALSE },
+ 
+ 				// urn:oasis:names:tc:xacml:3.0:function:any-of-any
+-				new Object[] { NAME_ANY_OF_ANY,//
+-						STRING_EQUAL_FUNCTION_ID,//
+-						Arrays.asList(Bags.newBag(StandardDatatypes.STRING, Arrays.asList(new StringValue("Ringo"), new StringValue("Mary"))),//
+-								Bags.newBag(StandardDatatypes.STRING, Arrays.asList(new StringValue("John"), new StringValue("Paul"), new StringValue("George"), new StringValue("Ringo")))),//
+-						BooleanValue.TRUE },//
++				new Object[] { NAME_ANY_OF_ANY, //
++						STRING_EQUAL_FUNCTION_ID, //
++						Arrays.asList(Bags.newBag(StandardDatatypes.STRING, Arrays.asList(new StringValue("Ringo"), new StringValue("Mary"))), //
++								Bags.newBag(StandardDatatypes.STRING, Arrays.asList(new StringValue("John"), new StringValue("Paul"), new StringValue("George"), new StringValue("Ringo")))), //
++						BooleanValue.TRUE }, //
+ 				// Example with matching string in last position in first bag
+-				new Object[] { NAME_ANY_OF_ANY,//
+-						STRING_EQUAL_FUNCTION_ID,//
+-						Arrays.asList(Bags.newBag(StandardDatatypes.STRING, Arrays.asList(new StringValue("Ringo"), new StringValue("Mary"))),//
+-								Bags.newBag(StandardDatatypes.STRING, Arrays.asList(new StringValue("John"), new StringValue("Paul"), new StringValue("Mary"), new StringValue("Ringo")))),//
++				new Object[] { NAME_ANY_OF_ANY, //
++						STRING_EQUAL_FUNCTION_ID, //
++						Arrays.asList(Bags.newBag(StandardDatatypes.STRING, Arrays.asList(new StringValue("Ringo"), new StringValue("Mary"))), //
++								Bags.newBag(StandardDatatypes.STRING, Arrays.asList(new StringValue("John"), new StringValue("Paul"), new StringValue("Mary"), new StringValue("Ringo")))), //
+ 						BooleanValue.TRUE },
+ 
+-				new Object[] { NAME_ANY_OF_ANY,//
+-						STRING_EQUAL_FUNCTION_ID,//
+-						Arrays.asList(Bags.newBag(StandardDatatypes.STRING, Arrays.asList(new StringValue("Ringo"), new StringValue("Mary"))),//
+-								Bags.newBag(StandardDatatypes.STRING, Arrays.asList(new StringValue("John"), new StringValue("Paul"), new StringValue("George")))),//
++				new Object[] { NAME_ANY_OF_ANY, //
++						STRING_EQUAL_FUNCTION_ID, //
++						Arrays.asList(Bags.newBag(StandardDatatypes.STRING, Arrays.asList(new StringValue("Ringo"), new StringValue("Mary"))), //
++								Bags.newBag(StandardDatatypes.STRING, Arrays.asList(new StringValue("John"), new StringValue("Paul"), new StringValue("George")))), //
+ 						BooleanValue.FALSE },
+ 
+ 				// urn:oasis:names:tc:xacml:1.0:function:all-of-any
+-				new Object[] { NAME_ALL_OF_ANY,//
+-						INTEGER_GREATER_THAN_FUNCTION_ID,//
+-						Arrays.asList(Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(10), IntegerValue.valueOf(20))),//
+-								Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(1), IntegerValue.valueOf(3)))),//
++				new Object[] { NAME_ALL_OF_ANY, //
++						INTEGER_GREATER_THAN_FUNCTION_ID, //
++						Arrays.asList(Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(10), IntegerValue.valueOf(20))), //
++								Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(1), IntegerValue.valueOf(3)))), //
+ 						BooleanValue.TRUE },
+ 
+-				new Object[] { NAME_ALL_OF_ANY,//
+-						INTEGER_GREATER_THAN_FUNCTION_ID,//
+-						Arrays.asList(Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(10), IntegerValue.valueOf(20))),//
+-								Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(11), IntegerValue.valueOf(13), IntegerValue.valueOf(15), IntegerValue.valueOf(19)))),//
++				new Object[] { NAME_ALL_OF_ANY, //
++						INTEGER_GREATER_THAN_FUNCTION_ID, //
++						Arrays.asList(Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(10), IntegerValue.valueOf(20))), //
++								Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(11), IntegerValue.valueOf(13), IntegerValue.valueOf(15), IntegerValue.valueOf(19)))), //
+ 						BooleanValue.FALSE },
+ 
+ 				// urn:oasis:names:tc:xacml:1.0:function:any-of-all
+-				new Object[] { NAME_ANY_OF_ALL,//
+-						INTEGER_GREATER_THAN_FUNCTION_ID,//
++				new Object[] { NAME_ANY_OF_ALL, //
++						INTEGER_GREATER_THAN_FUNCTION_ID, //
+ 
+-						Arrays.asList(Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(3), IntegerValue.valueOf(5))),//
+-								Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(1), IntegerValue.valueOf(2), IntegerValue.valueOf(3), IntegerValue.valueOf(4)))),//
++						Arrays.asList(Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(3), IntegerValue.valueOf(5))), //
++								Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(1), IntegerValue.valueOf(2), IntegerValue.valueOf(3), IntegerValue.valueOf(4)))), //
+ 						BooleanValue.TRUE },
+ 
+-				new Object[] { NAME_ANY_OF_ALL,//
+-						INTEGER_GREATER_THAN_FUNCTION_ID,//
+-						Arrays.asList(Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(3), IntegerValue.valueOf(4))),//
+-								Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(1), IntegerValue.valueOf(2), IntegerValue.valueOf(3), IntegerValue.valueOf(4)))),//
++				new Object[] { NAME_ANY_OF_ALL, //
++						INTEGER_GREATER_THAN_FUNCTION_ID, //
++						Arrays.asList(Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(3), IntegerValue.valueOf(4))), //
++								Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(1), IntegerValue.valueOf(2), IntegerValue.valueOf(3), IntegerValue.valueOf(4)))), //
+ 						BooleanValue.FALSE },
+ 
+ 				// urn:oasis:names:tc:xacml:1.0:function:all-of-all
+-				new Object[] { NAME_ALL_OF_ALL,//
+-						INTEGER_GREATER_THAN_FUNCTION_ID,//
+-						Arrays.asList(Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(6), IntegerValue.valueOf(5))),//
+-								Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(1), IntegerValue.valueOf(2), IntegerValue.valueOf(3), IntegerValue.valueOf(4)))),//
++				new Object[] { NAME_ALL_OF_ALL, //
++						INTEGER_GREATER_THAN_FUNCTION_ID, //
++						Arrays.asList(Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(6), IntegerValue.valueOf(5))), //
++								Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(1), IntegerValue.valueOf(2), IntegerValue.valueOf(3), IntegerValue.valueOf(4)))), //
+ 						BooleanValue.TRUE },
+ 
+-				new Object[] { NAME_ALL_OF_ALL, INTEGER_GREATER_THAN_FUNCTION_ID,//
+-						Arrays.asList(Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(3), IntegerValue.valueOf(5))),//
+-								Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(1), IntegerValue.valueOf(2), IntegerValue.valueOf(3), IntegerValue.valueOf(4)))),//
++				new Object[] { NAME_ALL_OF_ALL, //
++						INTEGER_GREATER_THAN_FUNCTION_ID, //
++						Arrays.asList(Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(3), IntegerValue.valueOf(5))), //
++								Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(1), IntegerValue.valueOf(2), IntegerValue.valueOf(3), IntegerValue.valueOf(4)))), //
+ 						BooleanValue.FALSE },
+ 
+ 				// urn:oasis:names:tc:xacml:3.0:function:map
+-				new Object[] { NAME_MAP, //
+-						STRING_NORMALIZE_TO_LC_FUNCTION_ID,//
+-						Arrays.asList(Bags.newBag(StandardDatatypes.STRING, Arrays.asList(new StringValue("Hello"), new StringValue("World")))),//
+-						Bags.newBag(StandardDatatypes.STRING, Arrays.asList(new StringValue("hello"), new StringValue("world"))) }//
+-				);
++				new Object[] { NAME_MAP, // only one arg (bag)
++						STRING_NORMALIZE_TO_LC_FUNCTION_ID, //
++						Arrays.asList(Bags.newBag(StandardDatatypes.STRING, Arrays.asList(new StringValue("Hello"), new StringValue("World")))), //
++						Bags.newBag(StandardDatatypes.STRING, Arrays.asList(new StringValue("hello"), new StringValue("world"))) },
++
++				new Object[] { NAME_MAP, // multiple args starting with bag, but invalid primitive datatype
++						STRING_SUBSTRING_FUNCTION_ID, //
++						Arrays.asList(Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(0), IntegerValue.valueOf(0))), IntegerValue.valueOf(0), IntegerValue.valueOf(1)), //
++						null },
++
++				new Object[] { NAME_MAP, // multiple args starting with bag, with two bags (invalid)
++						STRING_SUBSTRING_FUNCTION_ID, //
++						Arrays.asList(Bags.newBag(StandardDatatypes.STRING, Arrays.asList(new StringValue("Hello"), new StringValue("World"))),
++								Bags.newBag(StandardDatatypes.INTEGER, Arrays.asList(IntegerValue.valueOf(0), IntegerValue.valueOf(0))), IntegerValue.valueOf(1)), //
++						null }, //
++
++				new Object[] { NAME_MAP, // multiple args starting with bag, with valid datatypes
++						STRING_SUBSTRING_FUNCTION_ID, //
++						Arrays.asList(Bags.newBag(StandardDatatypes.STRING, Arrays.asList(new StringValue("Hello"), new StringValue("World"))), IntegerValue.valueOf(0), IntegerValue.valueOf(1)), //
++						Bags.newBag(StandardDatatypes.STRING, Arrays.asList(new StringValue("H"), new StringValue("W"))) }//
++		);
+ 	}
+ 
+ }
+diff --git a/pdp-engine/src/test/java/org/ow2/authzforce/core/pdp/impl/test/func/StandardFunctionTest.java b/pdp-engine/src/test/java/org/ow2/authzforce/core/pdp/impl/test/func/StandardFunctionTest.java
+index 07e3cf2..3de4ed1 100644
+--- a/pdp-engine/src/test/java/org/ow2/authzforce/core/pdp/impl/test/func/StandardFunctionTest.java
++++ b/pdp-engine/src/test/java/org/ow2/authzforce/core/pdp/impl/test/func/StandardFunctionTest.java
+@@ -66,10 +66,9 @@ public abstract class StandardFunctionTest
+ 	{
+ 		try
+ 		{
+-			STD_EXPRESSION_FACTORY = new DepthLimitingExpressionFactory(StandardAttributeValueFactories.getRegistry(true, Optional.empty()), StandardFunction.getRegistry(true,
+-					StandardAttributeValueFactories.BIG_INTEGER), null, 0, false, false);
+-		}
+-		catch (IllegalArgumentException | IOException e)
++			STD_EXPRESSION_FACTORY = new DepthLimitingExpressionFactory(StandardAttributeValueFactories.getRegistry(true, Optional.empty()),
++					StandardFunction.getRegistry(true, StandardAttributeValueFactories.BIG_INTEGER), null, 0, false, false);
++		} catch (IllegalArgumentException | IOException e)
+ 		{
+ 			throw new RuntimeException(e);
+ 		}
+@@ -79,7 +78,7 @@ public abstract class StandardFunctionTest
+ 	private final Value expectedResult;
+ 	private final String toString;
+ 	private final boolean areBagsComparedAsSets;
+-	private boolean syntaxErrorRaised = false;
++	private boolean isTestOkBeforeFuncCall = false;
+ 
+ 	/**
+ 	 * Creates instance
+@@ -101,15 +100,13 @@ public abstract class StandardFunctionTest
+ 		if (inputs.isEmpty())
+ 		{
+ 			subFuncReturnType = null;
+-		}
+-		else
++		} else
+ 		{
+ 			final Expression<?> xpr0 = inputs.get(0);
+ 			if (xpr0 instanceof FunctionExpression)
+ 			{
+ 				subFuncReturnType = ((FunctionExpression) xpr0).getValue().get().getReturnType();
+-			}
+-			else
++			} else
+ 			{
+ 				subFuncReturnType = null;
+ 			}
+@@ -127,14 +124,30 @@ public abstract class StandardFunctionTest
+ 		try
+ 		{
+ 			funcCall = function.newCall(inputs);
+-		}
+-		catch (final IllegalArgumentException e)
++		} catch (final IllegalArgumentException e)
+ 		{
+-			funcCall = null;
+ 			/*
+ 			 * Some syntax errors might be caught at initialization time, which is expected if expectedResult == null
+ 			 */
+-			syntaxErrorRaised = true;
++			if (expectedResult != null)
++			{
++				/*
++				 * IllegalArgumentException should not have been thrown, since we expect a result of the function call
++				 */
++				throw new RuntimeException("expectedResult != null but invalid args in test definition prevented the function call", e);
++			}
++
++			funcCall = null;
++			// expectedResult == null
++			isTestOkBeforeFuncCall = true;
++		}
++
++		/*
++		 * If test not yet OK, we need to run the function call (funcCall.evaluate(...)), so funcCall must be defined
++		 */
++		if (!isTestOkBeforeFuncCall && funcCall == null)
++		{
++			throw new RuntimeException("Failed to initialize function call for unknown reason");
+ 		}
+ 
+ 		this.expectedResult = expectedResult;
+@@ -150,14 +163,12 @@ public abstract class StandardFunctionTest
+ 	// org.junit.Assume.assumeTrue(function == null);
+ 	// }
+ 
+-	private static <V extends AttributeValue> Expression<?> createValueExpression(final Datatype<V> datatype, final AttributeValue rawValue)
+-	{
++	private static <V extends AttributeValue> Expression<?> createValueExpression(final Datatype<V> datatype, final AttributeValue rawValue) {
+ 		// static expression only if not xpathExpression
+ 		return new ConstantPrimitiveAttributeValueExpression<>(datatype, datatype.cast(rawValue));
+ 	}
+ 
+-	private static <V extends Bag<?>> Expression<?> createValueExpression(final Datatype<V> datatype, final Bag<?> rawValue)
+-	{
++	private static <V extends Bag<?>> Expression<?> createValueExpression(final Datatype<V> datatype, final Bag<?> rawValue) {
+ 		return new BagValueExpression<>(datatype, datatype.cast(rawValue));
+ 	}
+ 
+@@ -171,20 +182,17 @@ public abstract class StandardFunctionTest
+ 		}
+ 
+ 		@Override
+-		public Datatype<V> getReturnType()
+-		{
++		public Datatype<V> getReturnType() {
+ 			return returnType;
+ 		}
+ 
+ 		@Override
+-		public V evaluate(final EvaluationContext context) throws IndeterminateEvaluationException
+-		{
++		public V evaluate(final EvaluationContext context) throws IndeterminateEvaluationException {
+ 			throw new IndeterminateEvaluationException("Missing attribute", XacmlStatusCode.MISSING_ATTRIBUTE.value());
+ 		}
+ 
+ 		@Override
+-		public Optional<V> getValue()
+-		{
++		public Optional<V> getValue() {
+ 			throw new UnsupportedOperationException("No constant defined for Indeterminate expression");
+ 		}
+ 
+@@ -192,8 +200,7 @@ public abstract class StandardFunctionTest
+ 
+ 	// private static <V extends Value> IndeterminateExpression<V> newIndeterminateExpression
+ 
+-	private static final List<Expression<?>> toExpressions(final String subFunctionName, final List<Value> values)
+-	{
++	private static final List<Expression<?>> toExpressions(final String subFunctionName, final List<Value> values) {
+ 		final List<Expression<?>> inputExpressions = new ArrayList<>();
+ 		if (subFunctionName != null)
+ 		{
+@@ -225,20 +232,17 @@ public abstract class StandardFunctionTest
+ 				}
+ 
+ 				valExpr = nullVal.isBag() ? new IndeterminateExpression<>(datatypeFactory.getDatatype().getBagDatatype()) : new IndeterminateExpression<>(datatypeFactory.getDatatype());
+-			}
+-			else if (val instanceof AttributeValue)
++			} else if (val instanceof AttributeValue)
+ 			{
+ 				final AttributeValue primVal = (AttributeValue) val;
+ 				final AttributeValueFactory<?> datatypeFactory = stdDatatypeFactoryRegistry.getExtension(primVal.getDataType());
+ 				valExpr = createValueExpression(datatypeFactory.getDatatype(), primVal);
+-			}
+-			else if (val instanceof Bag)
++			} else if (val instanceof Bag)
+ 			{
+ 				final Bag<?> bagVal = (Bag<?>) val;
+ 				final AttributeValueFactory<?> datatypeFactory = stdDatatypeFactoryRegistry.getExtension(bagVal.getElementDatatype().getId());
+ 				valExpr = createValueExpression(datatypeFactory.getDatatype().getBagDatatype(), bagVal);
+-			}
+-			else
++			} else
+ 			{
+ 				throw new UnsupportedOperationException("Unsupported type of Value: " + val.getClass());
+ 			}
+@@ -287,8 +291,7 @@ public abstract class StandardFunctionTest
+ 		this(functionName, subFunctionName, inputs, false, expectedResult);
+ 	}
+ 
+-	private static final Set<PrimitiveValue> bagToSet(final Bag<?> bag)
+-	{
++	private static final Set<PrimitiveValue> bagToSet(final Bag<?> bag) {
+ 		final Set<PrimitiveValue> set = new HashSet<>();
+ 		for (final PrimitiveValue val : bag)
+ 		{
+@@ -299,11 +302,12 @@ public abstract class StandardFunctionTest
+ 	}
+ 
+ 	@Test
+-	public void testEvaluate() throws IndeterminateEvaluationException
+-	{
+-		if (syntaxErrorRaised && expectedResult == null)
++	public void testEvaluate() throws IndeterminateEvaluationException {
++		if (isTestOkBeforeFuncCall)
+ 		{
+-			// syntax error already detected as expected -> test success
++			/*
++			 * Test already OK (syntax error was expected and occured when creating the function call already), no need to carry on the function call
++			 */
+ 			return;
+ 		}
+ 
+@@ -312,19 +316,20 @@ public abstract class StandardFunctionTest
+ 		 */
+ 		try
+ 		{
++			/*
++			 * funcCall != null (see constructor)
++			 */
+ 			final Value actualResult = funcCall.evaluate(null);
+ 			if (expectedResult instanceof Bag && actualResult instanceof Bag && areBagsComparedAsSets)
+ 			{
+ 				final Set<?> expectedSet = bagToSet((Bag<?>) expectedResult);
+ 				final Set<?> actualSet = bagToSet((Bag<?>) actualResult);
+ 				Assert.assertEquals(toString, expectedSet, actualSet);
+-			}
+-			else if (expectedResult != null)
++			} else if (expectedResult != null)
+ 			{
+ 				Assert.assertEquals(toString, expectedResult, actualResult);
+ 			}
+-		}
+-		catch (final IndeterminateEvaluationException e)
++		} catch (final IndeterminateEvaluationException e)
+ 		{
+ 			if (expectedResult != null)
+ 			{
+diff --git a/pdp-io-xacml-json/pom.xml b/pdp-io-xacml-json/pom.xml
+index cff4ac4..5fa2ace 100644
+--- a/pdp-io-xacml-json/pom.xml
++++ b/pdp-io-xacml-json/pom.xml
+@@ -3,7 +3,7 @@
+    <parent>
+       <groupId>org.ow2.authzforce</groupId>
+       <artifactId>authzforce-ce-core</artifactId>
+-      <version>11.0.0</version>
++      <version>11.0.1</version>
+       <relativePath>..</relativePath>
+    </parent>
+    <artifactId>authzforce-ce-core-pdp-io-xacml-json</artifactId>
+@@ -41,7 +41,7 @@
+       <dependency>
+          <groupId>org.ow2.authzforce</groupId>
+          <artifactId>authzforce-ce-core-pdp-testutils</artifactId>
+-         <version>11.0.0</version>
++         <version>11.0.1</version>
+          <scope>test</scope>
+       </dependency>
+    </dependencies>
+diff --git a/pdp-testutils/pom.xml b/pdp-testutils/pom.xml
+index 090ffea..fac0a17 100644
+--- a/pdp-testutils/pom.xml
++++ b/pdp-testutils/pom.xml
+@@ -3,7 +3,7 @@
+    <parent>
+       <groupId>org.ow2.authzforce</groupId>
+       <artifactId>authzforce-ce-core</artifactId>
+-      <version>11.0.0</version>
++      <version>11.0.1</version>
+       <relativePath>..</relativePath>
+    </parent>
+    <artifactId>authzforce-ce-core-pdp-testutils</artifactId>
+@@ -23,7 +23,7 @@
+       <dependency>
+          <groupId>${project.groupId}</groupId>
+          <artifactId>${artifactId.prefix}-core-pdp-engine</artifactId>
+-         <version>11.0.0</version>
++         <version>11.0.1</version>
+       </dependency>
+       <dependency>
+          <groupId>org.mongodb</groupId>
+@@ -31,6 +31,18 @@
+          <!-- See this issue for compatibility with Jongo: https://github.com/bguerout/jongo/issues/254 -->
+          <version>2.14.2</version>
+       </dependency>
++      <!-- Jongo 1.3.0 depends on Jackson-databind 2.7.3 which is affected by CVE:
++	   https://nvd.nist.gov/vuln/detail/CVE-2018-5968
++	The issue and pull request has been submitted to Jongo project:
++        https://github.com/bguerout/jongo/issues/327
++-->
++<!-- So let's force upgrade to 2.9.4 to fix it -->
++     <dependency>
++	     <groupId>com.fasterxml.jackson.core</groupId>
++	     <artifactId>jackson-databind</artifactId>
++	     <version>2.9.4</version>
++     </dependency>
++
+       <dependency>
+          <groupId>org.jongo</groupId>
+          <artifactId>jongo</artifactId>
+@@ -258,7 +270,7 @@
+                <properties>
+                   <property>
+                      <name>surefire.testng.verbose</name>
+-                     <!-- verbosity level from 0 to 10 (10 is the most detailed), or -1 for debug More info: http://maven.apache.org/surefire/maven-surefire-plugin/examples/testng.html -->
++                     <!-- verbosity level from 0 to 10 (10 is the most detailed), or -1 for debug. More info: http://maven.apache.org/surefire/maven-surefire-plugin/examples/testng.html -->
+                      <value>3</value>
+                   </property>
+                </properties>
+diff --git a/pdp-testutils/src/main/java/org/ow2/authzforce/core/pdp/testutil/ext/TestAttributeProvider.java b/pdp-testutils/src/main/java/org/ow2/authzforce/core/pdp/testutil/ext/TestAttributeProvider.java
+index 38297a1..7999a9f 100644
+--- a/pdp-testutils/src/main/java/org/ow2/authzforce/core/pdp/testutil/ext/TestAttributeProvider.java
++++ b/pdp-testutils/src/main/java/org/ow2/authzforce/core/pdp/testutil/ext/TestAttributeProvider.java
+@@ -21,11 +21,13 @@
+ package org.ow2.authzforce.core.pdp.testutil.ext;
+ 
+ import java.io.IOException;
++import java.util.Collections;
+ import java.util.HashMap;
+ import java.util.HashSet;
+ import java.util.Map;
+ import java.util.Map.Entry;
+ import java.util.Set;
++import java.util.stream.Collectors;
+ 
+ import oasis.names.tc.xacml._3_0.core.schema.wd_17.Attribute;
+ import oasis.names.tc.xacml._3_0.core.schema.wd_17.AttributeDesignatorType;
+@@ -58,7 +60,7 @@ import org.ow2.authzforce.xacml.identifiers.XacmlStatusCode;
+ public class TestAttributeProvider extends BaseDesignatedAttributeProvider
+ {
+ 	/**
+-	 * module factory
++	 * Module factory
+ 	 * 
+ 	 */
+ 	public static class Factory extends CloseableDesignatedAttributeProvider.FactoryBuilder<org.ow2.authzforce.core.pdp.testutil.ext.xmlns.TestAttributeProvider>
+@@ -92,9 +94,15 @@ public class TestAttributeProvider extends BaseDesignatedAttributeProvider
+ 		}
+ 
+ 	}
++	
++	private static AttributeDesignatorType newAttributeDesignator(Entry<AttributeFqn, AttributeBag<?>> attributeEntry) {
++		final AttributeFqn attrKey = attributeEntry.getKey();
++		final Bag<?> attrVals = attributeEntry.getValue();
++		return new AttributeDesignatorType(attrKey.getCategory(), attrKey.getId(), attrVals.getElementDatatype().getId(), attrKey.getIssuer().orElse(null), false);
++	}
+ 
+-	private final Set<AttributeDesignatorType> supportedDesignatorTypes = new HashSet<>();
+-	private final Map<AttributeFqn, AttributeBag<?>> attrMap = new HashMap<>();
++	private final Set<AttributeDesignatorType> supportedDesignatorTypes;
++	private final Map<AttributeFqn, AttributeBag<?>> attrMap;
+ 
+ 	private TestAttributeProvider(final org.ow2.authzforce.core.pdp.testutil.ext.xmlns.TestAttributeProvider conf, final AttributeValueFactoryRegistry attributeValueFactoryRegistry)
+ 			throws IllegalArgumentException
+@@ -103,6 +111,7 @@ public class TestAttributeProvider extends BaseDesignatedAttributeProvider
+ 		final NamedXacmlAttributeParser<Attribute> namedXacmlAttParser = new NamedXacmlJaxbAttributeParser(attributeValueFactoryRegistry);
+ 		final XacmlRequestAttributeParser<Attribute, AttributeBag<?>> xacmlAttributeParser = new NonIssuedLikeIssuedStrictXacmlAttributeParser<>(namedXacmlAttParser);
+ 		final Set<String> attrCategoryNames = new HashSet<>();
++		final Map<AttributeFqn, AttributeBag<?>> mutableAttMap = new HashMap<>();
+ 		for (final Attributes jaxbAttributes : conf.getAttributes())
+ 		{
+ 			final String categoryName = jaxbAttributes.getCategory();
+@@ -113,16 +122,13 @@ public class TestAttributeProvider extends BaseDesignatedAttributeProvider
+ 
+ 			for (final Attribute jaxbAttr : jaxbAttributes.getAttributes())
+ 			{
+-				xacmlAttributeParser.parseNamedAttribute(categoryName, jaxbAttr, null, attrMap);
++				xacmlAttributeParser.parseNamedAttribute(categoryName, jaxbAttr, null, mutableAttMap);
+ 			}
+ 		}
+ 
+-		for (final Entry<AttributeFqn, AttributeBag<?>> attrEntry : attrMap.entrySet())
+-		{
+-			final AttributeFqn attrKey = attrEntry.getKey();
+-			final Bag<?> attrVals = attrEntry.getValue();
+-			supportedDesignatorTypes.add(new AttributeDesignatorType(attrKey.getCategory(), attrKey.getId(), attrVals.getElementDatatype().getId(), attrKey.getIssuer().orElse(null), false));
+-		}
++		attrMap = Collections.unmodifiableMap(mutableAttMap);
++		final Set<AttributeDesignatorType> mutableSupportedAttDesignatorSet = attrMap.entrySet().stream().map(attEntry -> newAttributeDesignator(attEntry)).collect(Collectors.toSet());
++		this.supportedDesignatorTypes = Collections.unmodifiableSet(mutableSupportedAttDesignatorSet);
+ 	}
+ 
+ 	@Override
+diff --git a/pdp-testutils/src/test/resources/conformance/others/MapFunction.ArgsAfterBag/policy.xml b/pdp-testutils/src/test/resources/conformance/others/MapFunction.ArgsAfterBag/policy.xml
+new file mode 100644
+index 0000000..dca6c5c
+--- /dev/null
++++ b/pdp-testutils/src/test/resources/conformance/others/MapFunction.ArgsAfterBag/policy.xml
+@@ -0,0 +1,31 @@
++<?xml version="1.0" encoding="UTF-8" standalone="no"?>
++<Policy xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"
++	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" PolicyId="policy-with-args-after-bag-to-map-function"
++	RuleCombiningAlgId="urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-unless-permit"
++	Version="1.0">
++	<Description>
++		Policy for Conformance Test of map function with multiple
++		arguments, starting with bag (see also conformance test
++		IIC170 for
++		other map function tests).
++	</Description>
++	<Target />
++	<Rule Effect="Permit" RuleId="policy-with-args-after-bag-to-map-function:rule">
++		<Condition>
++			<Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-set-equals">
++				<Apply FunctionId="urn:oasis:names:tc:xacml:1.0:function:string-bag">
++					<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">H</AttributeValue>
++					<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">W</AttributeValue>
++				</Apply>
++				<Apply FunctionId="urn:oasis:names:tc:xacml:3.0:function:map">
++					<Function FunctionId="urn:oasis:names:tc:xacml:3.0:function:string-substring" />
++					<AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:2.0:conformance-test:test-attr"
++						Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
++						DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="true" />
++					<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">0</AttributeValue>
++					<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">1</AttributeValue>
++				</Apply>
++			</Apply>
++		</Condition>
++	</Rule>
++</Policy>
+diff --git a/pdp-testutils/src/test/resources/conformance/others/MapFunction.ArgsAfterBag/request.xml b/pdp-testutils/src/test/resources/conformance/others/MapFunction.ArgsAfterBag/request.xml
+new file mode 100644
+index 0000000..7be532d
+--- /dev/null
++++ b/pdp-testutils/src/test/resources/conformance/others/MapFunction.ArgsAfterBag/request.xml
+@@ -0,0 +1,25 @@
++<?xml version="1.0" encoding="utf-8"?>
++<Request  ReturnPolicyIdList="false" CombinedDecision="false" xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
++  <Attributes Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject">
++    <Attribute IncludeInResult="false" AttributeId="urn:oasis:names:tc:xacml:1.0:subject:subject-id">
++      <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Julius Hibbert</AttributeValue>
++    </Attribute>
++    <Attribute IncludeInResult="false" AttributeId="urn:oasis:names:tc:xacml:2.0:conformance-test:test-attr">
++      <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Hello</AttributeValue>
++    </Attribute>
++    <Attribute IncludeInResult="false" AttributeId="urn:oasis:names:tc:xacml:2.0:conformance-test:test-attr">
++      <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">World</AttributeValue>
++    </Attribute>
++  </Attributes>
++  <Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource">
++    <Attribute IncludeInResult="false" AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id">
++      <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#anyURI">http://medico.com/record/patient/BartSimpson</AttributeValue>
++    </Attribute>
++  </Attributes>
++  <Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action">
++    <Attribute IncludeInResult="false" AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id">
++      <AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">read</AttributeValue>
++    </Attribute>
++  </Attributes>
++  <Attributes Category="urn:oasis:names:tc:xacml:3.0:attribute-category:environment"/>
++</Request>
+diff --git a/pdp-testutils/src/test/resources/conformance/others/MapFunction.ArgsAfterBag/response.xml b/pdp-testutils/src/test/resources/conformance/others/MapFunction.ArgsAfterBag/response.xml
+new file mode 100644
+index 0000000..3630e34
+--- /dev/null
++++ b/pdp-testutils/src/test/resources/conformance/others/MapFunction.ArgsAfterBag/response.xml
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<Response
++      xmlns="urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"
++      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
++      >
++    <Result>
++        <Decision>Permit</Decision>
++        <Status>
++            <StatusCode
++                  Value="urn:oasis:names:tc:xacml:1.0:status:ok"/>
++        </Status>
++    </Result>
++</Response>
+diff --git a/pom.xml b/pom.xml
+index bad5f77..96a2056 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -6,7 +6,7 @@
+       <version>7.2.0</version>
+    </parent>
+    <artifactId>authzforce-ce-core</artifactId>
+-   <version>11.0.0</version>
++   <version>11.0.1</version>
+    <packaging>pom</packaging>
+    <name>${project.groupId}:${project.artifactId}</name>
+    <description>AuthzForce - XACML-compliant Core PDP Engine and associated test modules</description>

@@ -1,0 +1,91 @@
+diff --git a/src/main/java/org/apache/commons/io/FilenameUtils.java b/src/main/java/org/apache/commons/io/FilenameUtils.java
+index 8dd9cf2..f841908 100644
+--- a/src/main/java/org/apache/commons/io/FilenameUtils.java
++++ b/src/main/java/org/apache/commons/io/FilenameUtils.java
+@@ -757,7 +757,7 @@ public class FilenameUtils {
+      * ie. both Unix and Windows prefixes are matched regardless.
+      *
+      * @param filename  the filename to query, null returns null
+-     * @return the prefix of the file, null if invalid. Null bytes inside string will be removed
++     * @return the prefix of the file, null if invalid
+      */
+     public static String getPrefix(final String filename) {
+         if (filename == null) {
+@@ -768,9 +768,9 @@ public class FilenameUtils {
+             return null;
+         }
+         if (len > filename.length()) {
+-            return filterNullBytes(filename + UNIX_SEPARATOR);  // we know this only happens for unix
++            return filename + UNIX_SEPARATOR;  // we know this only happens for unix
+         }
+-        return filterNullBytes(filename.substring(0, len));
++        return filename.substring(0, len);
+     }
+ 
+     /**
+@@ -793,8 +793,7 @@ public class FilenameUtils {
+      * See {@link #getFullPath(String)} for the method that retains the prefix.
+      *
+      * @param filename  the filename to query, null returns null
+-     * @return the path of the file, an empty string if none exists, null if invalid.
+-     * Null bytes inside string will be removed
++     * @return the path of the file, an empty string if none exists, null if invalid
+      */
+     public static String getPath(final String filename) {
+         return doGetPath(filename, 1);
+@@ -821,8 +820,7 @@ public class FilenameUtils {
+      * See {@link #getFullPathNoEndSeparator(String)} for the method that retains the prefix.
+      *
+      * @param filename  the filename to query, null returns null
+-     * @return the path of the file, an empty string if none exists, null if invalid.
+-     * Null bytes inside string will be removed
++     * @return the path of the file, an empty string if none exists, null if invalid
+      */
+     public static String getPathNoEndSeparator(final String filename) {
+         return doGetPath(filename, 0);
+@@ -833,7 +831,7 @@ public class FilenameUtils {
+      *
+      * @param filename  the filename
+      * @param separatorAdd  0 to omit the end separator, 1 to return it
+-     * @return the path. Null bytes inside string will be removed
++     * @return the path
+      */
+     private static String doGetPath(final String filename, final int separatorAdd) {
+         if (filename == null) {
+@@ -848,7 +846,7 @@ public class FilenameUtils {
+         if (prefix >= filename.length() || index < 0 || prefix >= endIndex) {
+             return "";
+         }
+-        return filterNullBytes(filename.substring(prefix, endIndex));
++        return filename.substring(prefix, endIndex);
+     }
+ 
+     /**
+diff --git a/src/test/java/org/apache/commons/io/FilenameUtilsTestCase.java b/src/test/java/org/apache/commons/io/FilenameUtilsTestCase.java
+index 552129f..7ed36c9 100644
+--- a/src/test/java/org/apache/commons/io/FilenameUtilsTestCase.java
++++ b/src/test/java/org/apache/commons/io/FilenameUtilsTestCase.java
+@@ -565,7 +565,6 @@ public class FilenameUtilsTestCase extends FileBasedTestCase {
+         assertEquals("\\", FilenameUtils.getPrefix("\\a\\b\\c.txt"));
+         assertEquals("~\\", FilenameUtils.getPrefix("~\\a\\b\\c.txt"));
+         assertEquals("~user\\", FilenameUtils.getPrefix("~user\\a\\b\\c.txt"));
+-        assertEquals("~user\\", FilenameUtils.getPrefix("~u\u0000ser\\a\\b\\c.txt"));
+     }
+ 
+     public void testGetPath() {
+@@ -602,7 +601,6 @@ public class FilenameUtilsTestCase extends FileBasedTestCase {
+         assertEquals("a/b/", FilenameUtils.getPath("//server/a/b/c.txt"));
+         assertEquals("a/b/", FilenameUtils.getPath("~/a/b/c.txt"));
+         assertEquals("a/b/", FilenameUtils.getPath("~user/a/b/c.txt"));
+-        assertEquals("a/b/", FilenameUtils.getPath("~user/a/\u0000b/c.txt"));
+     }
+ 
+     public void testGetPathNoEndSeparator() {
+@@ -639,7 +637,6 @@ public class FilenameUtilsTestCase extends FileBasedTestCase {
+         assertEquals("a/b", FilenameUtils.getPathNoEndSeparator("//server/a/b/c.txt"));
+         assertEquals("a/b", FilenameUtils.getPathNoEndSeparator("~/a/b/c.txt"));
+         assertEquals("a/b", FilenameUtils.getPathNoEndSeparator("~user/a/b/c.txt"));
+-        assertEquals("a/b", FilenameUtils.getPathNoEndSeparator("~user/a\u0000/b/c.txt"));
+     }
+ 
+     public void testGetFullPath() {

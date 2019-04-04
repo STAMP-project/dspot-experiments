@@ -1,0 +1,175 @@
+diff --git a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/graphics/color/PDDeviceRGB.java b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/graphics/color/PDDeviceRGB.java
+index 719bc9a..0b0a9b2 100644
+--- a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/graphics/color/PDDeviceRGB.java
++++ b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/graphics/color/PDDeviceRGB.java
+@@ -20,7 +20,10 @@ import java.awt.color.ColorSpace;
+ import java.awt.image.BufferedImage;
+ import java.awt.image.WritableRaster;
+ import java.io.IOException;
++import java.util.StringTokenizer;
+ 
++import org.apache.commons.logging.Log;
++import org.apache.commons.logging.LogFactory;
+ import org.apache.pdfbox.cos.COSName;
+ 
+ /**
+@@ -38,6 +41,8 @@ public final class PDDeviceRGB extends PDDeviceColorSpace
+     private final PDColor initialColor = new PDColor(new float[] { 0, 0, 0 }, this);
+     private volatile ColorSpace awtColorSpace;
+ 
++    private static final Log LOG = LogFactory.getLog(PDDeviceRGB.class);
++
+     private PDDeviceRGB()
+     {
+     }
+@@ -53,6 +58,8 @@ public final class PDDeviceRGB extends PDDeviceColorSpace
+             return;
+         }
+ 
++        suggestKCMS();
++
+         synchronized (this)
+         {
+             // we might have been waiting for another thread, so check again
+@@ -117,4 +124,47 @@ public final class PDDeviceRGB extends PDDeviceColorSpace
+         image.setData(raster);
+         return image;
+     }
++
++    private static void suggestKCMS()
++    {
++        String cmmProperty = System.getProperty("sun.java2d.cmm");
++        if (isMinJdk8() && !"sun.java2d.cmm.kcms.KcmsServiceProvider".equals(cmmProperty))
++        {
++            try
++            {
++                // Make sure that class exists
++                Class.forName("sun.java2d.cmm.kcms.KcmsServiceProvider");
++
++                LOG.info("To get higher rendering speed on java 8 or 9,");
++                LOG.info("  use the option -Dsun.java2d.cmm=sun.java2d.cmm.kcms.KcmsServiceProvider");
++                LOG.info("  or call System.setProperty(\"sun.java2d.cmm\", \"sun.java2d.cmm.kcms.KcmsServiceProvider\")");
++            }
++            catch (ClassNotFoundException e)
++            {
++                LOG.debug("KCMS doesn't exist anymore. SO SAD!", e);
++            }
++        }
++    }
++
++    private static boolean isMinJdk8()
++    {
++        // strategy from lucene-solr/lucene/core/src/java/org/apache/lucene/util/Constants.java
++        String version = System.getProperty("java.specification.version");
++        final StringTokenizer st = new StringTokenizer(version, ".");
++        try
++        {
++            int major = Integer.parseInt(st.nextToken());
++            int minor = 0;
++            if (st.hasMoreTokens())
++            {
++                minor = Integer.parseInt(st.nextToken());
++            }
++            return major > 1 || (major == 1 && minor >= 8);
++        }
++        catch (NumberFormatException nfe)
++        {
++            // maybe some new numbering scheme in the 22nd century
++            return true;
++        }
++    }
+ }
+diff --git a/pdfbox/src/main/java/org/apache/pdfbox/rendering/PDFRenderer.java b/pdfbox/src/main/java/org/apache/pdfbox/rendering/PDFRenderer.java
+index af651c3..6c50da3 100644
+--- a/pdfbox/src/main/java/org/apache/pdfbox/rendering/PDFRenderer.java
++++ b/pdfbox/src/main/java/org/apache/pdfbox/rendering/PDFRenderer.java
+@@ -20,9 +20,6 @@ import java.awt.Color;
+ import java.awt.Graphics2D;
+ import java.awt.image.BufferedImage;
+ import java.io.IOException;
+-import java.util.StringTokenizer;
+-import org.apache.commons.logging.Log;
+-import org.apache.commons.logging.LogFactory;
+ import org.apache.pdfbox.cos.COSName;
+ import org.apache.pdfbox.pdmodel.PDDocument;
+ import org.apache.pdfbox.pdmodel.PDPage;
+@@ -41,8 +38,6 @@ import org.apache.pdfbox.pdmodel.interactive.annotation.PDAnnotation;
+  */
+ public class PDFRenderer
+ {
+-    private static final Log LOG = LogFactory.getLog(PDFRenderer.class);
+-
+     protected final PDDocument document;
+     // TODO keep rendering state such as caches here
+     
+@@ -62,8 +57,6 @@ public class PDFRenderer
+ 
+     private BufferedImage pageImage;
+ 
+-    private static boolean kcmsLogged = false;
+-
+     /**
+      * Creates a new PDFRenderer.
+      * @param document the document to render
+@@ -71,12 +64,6 @@ public class PDFRenderer
+     public PDFRenderer(PDDocument document)
+     {
+         this.document = document;
+-
+-        if (!kcmsLogged)
+-        {
+-            suggestKCMS();
+-            kcmsLogged = true;
+-        }
+     }
+     
+     /**
+@@ -387,48 +374,4 @@ public class PDFRenderer
+     {
+         return pageImage;
+     }
+-
+-    private static void suggestKCMS()
+-    {
+-        String cmmProperty = System.getProperty("sun.java2d.cmm");
+-        if (isMinJdk8() && !"sun.java2d.cmm.kcms.KcmsServiceProvider".equals(cmmProperty))
+-        {
+-            try
+-            {
+-                // Make sure that class exists
+-                Class.forName("sun.java2d.cmm.kcms.KcmsServiceProvider");
+-
+-                LOG.info("To get higher rendering speed on java 8 or 9,");
+-                LOG.info("  use the option -Dsun.java2d.cmm=sun.java2d.cmm.kcms.KcmsServiceProvider");
+-                LOG.info("  or call System.setProperty(\"sun.java2d.cmm\", \"sun.java2d.cmm.kcms.KcmsServiceProvider\")");
+-            }
+-            catch (ClassNotFoundException e)
+-            {
+-                // jdk 10 and higher
+-                LOG.debug("KCMS doesn't exist anymore. SO SAD!");
+-            }
+-        }
+-    }
+-
+-    private static boolean isMinJdk8()
+-    {
+-        // strategy from lucene-solr/lucene/core/src/java/org/apache/lucene/util/Constants.java
+-        String version = System.getProperty("java.specification.version");
+-        final StringTokenizer st = new StringTokenizer(version, ".");
+-        try
+-        {
+-            int major = Integer.parseInt(st.nextToken());
+-            int minor = 0;
+-            if (st.hasMoreTokens())
+-            {
+-                minor = Integer.parseInt(st.nextToken());
+-            }
+-            return major > 1 || (major == 1 && minor >= 8);
+-        }
+-        catch (NumberFormatException nfe)
+-        {
+-            // maybe some new numbering scheme in the 22nd century
+-            return true;
+-        }
+-    }
+ }

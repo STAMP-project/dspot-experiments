@@ -1,0 +1,277 @@
+diff --git a/CHANGELOG b/CHANGELOG
+index 9f9d6cc..e03efc6 100644
+--- a/CHANGELOG
++++ b/CHANGELOG
+@@ -1,4 +1,9 @@
+ -------------------------
++3.1.0 17SEPT18
++-------------------------
++- Added support for the Require Interaction web notify feature.
++
++-------------------------
+ 3.1.0 11SEPT18
+ -------------------------
+ - Added support for Predictive Send Time Optimization.
+diff --git a/VERSION.txt b/VERSION.txt
+index fd2a018..944880f 100644
+--- a/VERSION.txt
++++ b/VERSION.txt
+@@ -1 +1 @@
+-3.1.0
++3.2.0
+diff --git a/pom.xml b/pom.xml
+index 39518dc..ed7f59a 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -10,7 +10,7 @@
+ 
+     <groupId>com.urbanairship</groupId>
+     <artifactId>java-client</artifactId>
+-    <version>1.3.1-SNAPSHOT</version>
++    <version>3.2.1-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+     <name>Java Client</name>
+diff --git a/src/main/java/com/urbanairship/api/push/model/PushOptions.java b/src/main/java/com/urbanairship/api/push/model/PushOptions.java
+index 0128849..dc4ddcb 100644
+--- a/src/main/java/com/urbanairship/api/push/model/PushOptions.java
++++ b/src/main/java/com/urbanairship/api/push/model/PushOptions.java
+@@ -6,7 +6,6 @@ package com.urbanairship.api.push.model;
+ 
+ import com.google.common.base.Optional;
+ 
+-
+ /**
+  * Optional features for a Push payload for the Urban Airship API.
+  * Created for future optional features to be added.
+@@ -48,7 +47,6 @@ public class PushOptions extends PushModelObject {
+         PushOptions that = (PushOptions) o;
+ 
+         return !(expiry != null ? !expiry.equals(that.expiry) : that.expiry != null);
+-
+     }
+ 
+     @Override
+@@ -82,6 +80,4 @@ public class PushOptions extends PushModelObject {
+             return new PushOptions(Optional.fromNullable(expiry));
+         }
+     }
+-
+-
+ }
+diff --git a/src/main/java/com/urbanairship/api/push/model/notification/web/WebDevicePayload.java b/src/main/java/com/urbanairship/api/push/model/notification/web/WebDevicePayload.java
+index 3b816b2..455992a 100644
+--- a/src/main/java/com/urbanairship/api/push/model/notification/web/WebDevicePayload.java
++++ b/src/main/java/com/urbanairship/api/push/model/notification/web/WebDevicePayload.java
+@@ -18,11 +18,13 @@ public final class WebDevicePayload extends PushModelObject implements DevicePay
+     private final Optional<String> title;
+     private final Optional<ImmutableMap<String, String>> extra;
+     private final Optional<WebIcon> webIcon;
++    private final Optional<Boolean> requireInteraction;
+ 
+     private WebDevicePayload(Builder builder) {
+         this.alert = Optional.fromNullable(builder.alert);
+         this.title = Optional.fromNullable(builder.title);
+         this.webIcon = Optional.fromNullable(builder.webIcon);
++        this.requireInteraction = Optional.fromNullable(builder.requireInteraction);
+ 
+         if (builder.extra.build().isEmpty()) {
+             this.extra = Optional.absent();
+@@ -87,6 +89,15 @@ public final class WebDevicePayload extends PushModelObject implements DevicePay
+         return webIcon;
+     }
+ 
++    /**
++     * Get the Require Interaction flag.
++     *
++     * @return Optional Boolean require interaction flag.
++     */
++    public Optional<Boolean> getRequireInteraction() {
++        return requireInteraction;
++    }
++
+     @Override
+     public boolean equals(Object o) {
+         if (this == o) {
+@@ -100,12 +111,14 @@ public final class WebDevicePayload extends PushModelObject implements DevicePay
+         return Objects.equal(alert, payload.alert) &&
+                 Objects.equal(title, payload.title) &&
+                 Objects.equal(extra, payload.extra) &&
+-                Objects.equal(webIcon, payload.webIcon);
++                Objects.equal(webIcon, payload.webIcon)&&
++                Objects.equal(requireInteraction, payload.requireInteraction);
+     }
+ 
+     @Override
+     public int hashCode() {
+-        return Objects.hashCode(alert, title, extra, webIcon);
++        return Objects.hashCode(alert, title, extra, webIcon,
++                requireInteraction);
+     }
+ 
+     @Override
+@@ -115,6 +128,7 @@ public final class WebDevicePayload extends PushModelObject implements DevicePay
+                 ", title=" + title +
+                 ", extra=" + extra +
+                 ", webIcon=" + webIcon +
++                ", requireInteraction=" + requireInteraction +
+                 '}';
+     }
+ 
+@@ -126,6 +140,7 @@ public final class WebDevicePayload extends PushModelObject implements DevicePay
+         private String title = null;
+         private ImmutableMap.Builder<String, String> extra = ImmutableMap.builder();
+         private WebIcon webIcon = null;
++        private Boolean requireInteraction = null;
+ 
+         private Builder() { }
+ 
+@@ -185,6 +200,22 @@ public final class WebDevicePayload extends PushModelObject implements DevicePay
+             return this;
+         }
+ 
++        /**
++         * Set the Require Interaction flag.
++         *
++         * @param value Boolean
++         * @return Builder
++         */
++        public Builder setRequireInteraction(boolean value){
++            this.requireInteraction = value;
++            return this;
++        }
++
++        /**
++         * Build the WebDevicePayload object.
++         *
++         * @return WebDevicePayload
++         */
+         public WebDevicePayload build() {
+             return new WebDevicePayload(this);
+         }
+diff --git a/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadDeserializer.java b/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadDeserializer.java
+index 1f88f9f..f0b2372 100644
+--- a/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadDeserializer.java
++++ b/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadDeserializer.java
+@@ -37,6 +37,11 @@ public class WebDevicePayloadDeserializer extends JsonDeserializer<WebDevicePayl
+                             reader.readWebIcon(json);
+                         }
+                     })
++                    .put("require_interaction", new FieldParser<WebDevicePayloadReader>() {
++                        public void parse(WebDevicePayloadReader reader, JsonParser json, DeserializationContext context) throws IOException {
++                            reader.readRequireInteraction(json);
++                        }
++                    })
+                     .build()
+     );
+ 
+diff --git a/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadReader.java b/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadReader.java
+index dac6b27..77d824e 100644
+--- a/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadReader.java
++++ b/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadReader.java
+@@ -2,6 +2,7 @@ package com.urbanairship.api.push.parse.notification.web;
+ 
+ import com.fasterxml.jackson.core.JsonParser;
+ import com.urbanairship.api.common.parse.APIParsingException;
++import com.urbanairship.api.common.parse.BooleanFieldDeserializer;
+ import com.urbanairship.api.common.parse.JsonObjectReader;
+ import com.urbanairship.api.common.parse.MapOfStringsDeserializer;
+ import com.urbanairship.api.common.parse.StringFieldDeserializer;
+@@ -34,6 +35,10 @@ public class WebDevicePayloadReader implements JsonObjectReader<WebDevicePayload
+         builder.setWebIcon(parser.readValueAs(WebIcon.class));
+     }
+ 
++    public void readRequireInteraction(JsonParser parser) throws IOException {
++        builder.setRequireInteraction(BooleanFieldDeserializer.INSTANCE.deserialize(parser, "require_interaction"));
++    }
++
+     @Override
+     public WebDevicePayload validateAndBuild() throws IOException {
+         try{
+diff --git a/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadSerializer.java b/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadSerializer.java
+index 4666f6d..1aea676 100644
+--- a/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadSerializer.java
++++ b/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadSerializer.java
+@@ -28,6 +28,10 @@ public class WebDevicePayloadSerializer extends JsonSerializer<WebDevicePayload>
+             jgen.writeStringField("title", payload.getTitle().get());
+         }
+ 
++        if (payload.getRequireInteraction().isPresent()) {
++            jgen.writeObjectField("require_interaction", payload.getRequireInteraction().get());
++        }
++
+         jgen.writeEndObject();
+     }
+ }
+diff --git a/src/test/java/com/urbanairship/api/push/model/notification/web/WebSettingsDevicePayloadTest.java b/src/test/java/com/urbanairship/api/push/model/notification/web/WebSettingsDevicePayloadTest.java
+index 3974d89..07a0f71 100644
+--- a/src/test/java/com/urbanairship/api/push/model/notification/web/WebSettingsDevicePayloadTest.java
++++ b/src/test/java/com/urbanairship/api/push/model/notification/web/WebSettingsDevicePayloadTest.java
+@@ -19,6 +19,7 @@ public class WebSettingsDevicePayloadTest {
+                 .addExtraEntry("key", "value")
+                 .addExtraEntry("key2", "value2")
+                 .setWebIcon(webIcon)
++                .setRequireInteraction(true)
+                 .build();
+ 
+         assertTrue(m.getExtra().isPresent());
+@@ -37,6 +38,9 @@ public class WebSettingsDevicePayloadTest {
+ 
+         assertTrue(m.getWebIcon().isPresent());
+         assertEquals(m.getWebIcon().get(), webIcon);
++
++        assertTrue(m.getRequireInteraction().isPresent());
++        assertEquals(true, m.getRequireInteraction().get());
+     }
+ }
+ 
+diff --git a/src/test/java/com/urbanairship/api/push/parse/notification/web/PayloadDeserializerTest.java b/src/test/java/com/urbanairship/api/push/parse/notification/web/PayloadDeserializerTest.java
+index b60d73d..071441d 100644
+--- a/src/test/java/com/urbanairship/api/push/parse/notification/web/PayloadDeserializerTest.java
++++ b/src/test/java/com/urbanairship/api/push/parse/notification/web/PayloadDeserializerTest.java
+@@ -100,4 +100,21 @@ public class PayloadDeserializerTest {
+         assertNotNull(payload);
+         assertEquals(webIcon, payload.getWebIcon().get());
+     }
++
++    @Test
++    public void testRequireInteraction() throws Exception {
++        String json =
++                "{" +
++                        "\"require_interaction\":" +
++                        "true" +
++                        "}";
++
++        WebDevicePayload expected = WebDevicePayload.newBuilder()
++                .setRequireInteraction(true)
++                .build();
++
++        WebDevicePayload payload = MAPPER.readValue(json, WebDevicePayload.class);
++        assertNotNull(payload);
++        assertEquals(expected.getRequireInteraction().get(), payload.getRequireInteraction().get());
++    }
+ }
+diff --git a/src/test/java/com/urbanairship/api/push/parse/notification/web/PayloadSerializerTest.java b/src/test/java/com/urbanairship/api/push/parse/notification/web/PayloadSerializerTest.java
+index a8be15f..2793a03 100644
+--- a/src/test/java/com/urbanairship/api/push/parse/notification/web/PayloadSerializerTest.java
++++ b/src/test/java/com/urbanairship/api/push/parse/notification/web/PayloadSerializerTest.java
+@@ -24,14 +24,17 @@ public class PayloadSerializerTest {
+                 .setTitle("WebSettings title")
+                 .addExtraEntry("extrakey", "extravalue")
+                 .setWebIcon(webIcon)
++                .setRequireInteraction(true)
+                 .build();
+ 
+         String expected = "{" +
+                     "\"alert\":\"WebSettings specific alert\"," +
+                     "\"extra\":{\"extrakey\":\"extravalue\"}," +
+                     "\"icon\":{\"url\":\"https://i.ytimg.com/vi/PNgykntrIzE/maxresdefault.jpg\"}," +
+-                    "\"title\":\"WebSettings title\"" +
+-                "}";
++                    "\"title\":\"WebSettings title\"," +
++                    "\"require_interaction\":true" +
++
++        "}";
+ 
+         String parsedJson = MAPPER.writeValueAsString(webPayload);
+         WebDevicePayload roundTripWebPayload = MAPPER.readValue(parsedJson, WebDevicePayload.class);

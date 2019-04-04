@@ -1,0 +1,93 @@
+diff --git a/src/changes/changes.xml b/src/changes/changes.xml
+index 85f0f96..d2ae55e 100644
+--- a/src/changes/changes.xml
++++ b/src/changes/changes.xml
+@@ -20,10 +20,7 @@
+     <title>Commons Collections Changes</title>
+   </properties>
+   <body>
+-  <release version="4.2" date="2018-MM-DD" description="Update from Java 6 to Java 7, bug fixes, and small changes.">
+-    <action issue="COLLECTIONS-599" dev="ggregory" type="fix" due-to="Tejas Patel, Saleem Akbar, Gary Gregory">
+-      HashEntry array object naming data initialized with double the size during deserialization.
+-    </action>
++  <release version="4.2" date="YYYY-MM-DD" description="Update from Java 6 to Java 7 and small changes.">
+     <action issue="COLLECTIONS-662" dev="chtompki" type="fix" due-to="Vamsi Kavuri">
+       Unit tests MapUtilsTest and ListIteratorWrapperTest no longer fail on Java 9.
+     </action>
+diff --git a/src/main/java/org/apache/commons/collections4/map/AbstractReferenceMap.java b/src/main/java/org/apache/commons/collections4/map/AbstractReferenceMap.java
+index e0fa7e2..f114083 100644
+--- a/src/main/java/org/apache/commons/collections4/map/AbstractReferenceMap.java
++++ b/src/main/java/org/apache/commons/collections4/map/AbstractReferenceMap.java
+@@ -1045,15 +1045,6 @@ public abstract class AbstractReferenceMap<K, V> extends AbstractHashedMap<K, V>
+         final int capacity = in.readInt();
+         init();
+         data = new HashEntry[capacity];
+-
+-        // COLLECTIONS-599: Calculate threshold before populating, otherwise it will be 0 
+-        // when it hits AbstractHashedMap.checkCapacity() and so will unnecessarily 
+-        // double up the size of the "data" array during population.
+-        //
+-        // NB: AbstractHashedMap.doReadObject() DOES calculate the threshold before populating.
+-        //
+-        threshold = calculateThreshold(data.length, loadFactor);
+-        
+         while (true) {
+             final K key = (K) in.readObject();
+             if (key == null) {
+@@ -1062,6 +1053,7 @@ public abstract class AbstractReferenceMap<K, V> extends AbstractHashedMap<K, V>
+             final V value = (V) in.readObject();
+             put(key, value);
+         }
++        threshold = calculateThreshold(data.length, loadFactor);
+         // do not call super.doReadObject() as code there doesn't work for reference map
+     }
+ 
+diff --git a/src/test/java/org/apache/commons/collections4/map/ReferenceMapTest.java b/src/test/java/org/apache/commons/collections4/map/ReferenceMapTest.java
+index 3ea05e0..4ce341f 100644
+--- a/src/test/java/org/apache/commons/collections4/map/ReferenceMapTest.java
++++ b/src/test/java/org/apache/commons/collections4/map/ReferenceMapTest.java
+@@ -16,12 +16,6 @@
+  */
+ package org.apache.commons.collections4.map;
+ 
+-import java.io.ByteArrayInputStream;
+-import java.io.ByteArrayOutputStream;
+-import java.io.IOException;
+-import java.io.ObjectInputStream;
+-import java.io.ObjectOutputStream;
+-
+ import java.lang.ref.WeakReference;
+ import java.util.Map;
+ 
+@@ -255,31 +249,6 @@ public class ReferenceMapTest<K, V> extends AbstractIterableMapTest<K, V> {
+         }
+     }
+ 
+-    /**
+-     * Test whether after serialization the "data" HashEntry array is the same size as the original.<p>
+-     * 
+-     * See <a href="https://issues.apache.org/jira/browse/COLLECTIONS-599">COLLECTIONS-599: HashEntry array object naming data initialized with double the size during deserialization</a>
+-     */
+-    public void testDataSizeAfterSerialization() throws IOException, ClassNotFoundException {
+-        
+-        ReferenceMap<String,String> serialiseMap = new ReferenceMap<>(ReferenceStrength.WEAK, ReferenceStrength.WEAK, true);
+-        serialiseMap.put("KEY", "VALUE");
+-        
+-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+-        try (ObjectOutputStream out = new ObjectOutputStream(baos)) {
+-            out.writeObject(serialiseMap);
+-        }
+-        
+-        ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+-        try (ObjectInputStream in = new ObjectInputStream(bais)) {
+-            @SuppressWarnings("unchecked")
+-            ReferenceMap<String,String> deserialisedMap = (ReferenceMap<String,String>) in.readObject();
+-            assertEquals(1, deserialisedMap.size());
+-            assertEquals(serialiseMap.data.length, deserialisedMap.data.length);
+-        }
+-        
+-    }
+-    
+     @SuppressWarnings("unused")
+     private static void gc() {
+         try {

@@ -1,0 +1,64 @@
+diff --git a/xwiki-commons-core/xwiki-commons-xml/src/main/java/org/xwiki/xml/internal/html/filter/BodyFilter.java b/xwiki-commons-core/xwiki-commons-xml/src/main/java/org/xwiki/xml/internal/html/filter/BodyFilter.java
+index 5533b30..1a52d35 100644
+--- a/xwiki-commons-core/xwiki-commons-xml/src/main/java/org/xwiki/xml/internal/html/filter/BodyFilter.java
++++ b/xwiki-commons-core/xwiki-commons-xml/src/main/java/org/xwiki/xml/internal/html/filter/BodyFilter.java
+@@ -69,27 +69,20 @@ public void filter(Document document, Map<String, String> cleaningParameters)
+         Node body = document.getElementsByTagName(HTMLConstants.TAG_BODY).item(0);
+         Node currentNode = body.getFirstChild();
+         Node markerNode = null;
+-        boolean containsOnlySpacesSoFar = false;
++        boolean containsOnlySpaces = true;
+         while (currentNode != null) {
+             // Note: We ignore comment nodes since there's no need to wrap them.
+             if (currentNode.getNodeType() != Node.COMMENT_NODE) {
+                 if (!ALLOWED_BODY_TAGS.contains(currentNode.getNodeName())) {
+ 
+                     // Ensure that we don't wrap elements that contain only spaces or newlines.
+-                    boolean containsOnlySpaces = containsOnlySpaces(currentNode);
+-                    if (markerNode == null && !containsOnlySpacesSoFar && containsOnlySpaces) {
+-                        containsOnlySpacesSoFar = true;
+-                    } else if (containsOnlySpacesSoFar && !containsOnlySpaces) {
+-                        containsOnlySpacesSoFar = false;
+-                    }
++                    containsOnlySpaces = containsOnlySpaces(currentNode);
+ 
+-                    if (markerNode == null) {
++                    if (markerNode == null && !containsOnlySpaces) {
+                         markerNode = currentNode;
+                     }
+                 } else if (markerNode != null) {
+-                    if (!containsOnlySpacesSoFar) {
+-                        surroundWithParagraph(document, body, markerNode, currentNode);
+-                    }
++                    surroundWithParagraph(document, body, markerNode, currentNode);
+                     markerNode = null;
+                 }
+             }
+@@ -98,7 +91,7 @@ public void filter(Document document, Map<String, String> cleaningParameters)
+ 
+         // If the marker is still set it means we need to wrap all elements between the marker till
+         // the end of the body siblings with a paragraph.
+-        if (markerNode != null && !containsOnlySpacesSoFar) {
++        if (markerNode != null) {
+             surroundWithParagraph(document, body, markerNode, null);
+         }
+     }
+diff --git a/xwiki-commons-core/xwiki-commons-xml/src/test/java/org/xwiki/xml/internal/html/DefaultHTMLCleanerTest.java b/xwiki-commons-core/xwiki-commons-xml/src/test/java/org/xwiki/xml/internal/html/DefaultHTMLCleanerTest.java
+index 40fd399..3538a5f 100644
+--- a/xwiki-commons-core/xwiki-commons-xml/src/test/java/org/xwiki/xml/internal/html/DefaultHTMLCleanerTest.java
++++ b/xwiki-commons-core/xwiki-commons-xml/src/test/java/org/xwiki/xml/internal/html/DefaultHTMLCleanerTest.java
+@@ -417,14 +417,6 @@ public void verifyIFRAMECleaning() throws Exception
+         //          assertHTML("<iframe src=\"whatever\"></iframe>\r\n", "<iframe src=\"whatever\"/>\r\n");
+         assertHTML("<p><iframe src=\"whatever\"></iframe></p>", "<iframe src=\"whatever\"/>");
+         assertHTML("<p><iframe src=\"whatever\"></iframe>\r\n</p>", "<iframe src=\"whatever\"/>\r\n");
+-        assertHTML("<p>\r\n<iframe src=\"whatever\"></iframe></p>", "\r\n<iframe src=\"whatever\"/>");
+-        assertHTML("<p>\r\n<iframe src=\"whatever\"></iframe>\r\n</p>", "\r\n<iframe src=\"whatever\"/>\r\n");
+-        assertHTML("<p><iframe src=\"whatever\"></iframe><iframe src=\"whatever\"></iframe></p>",
+-            "<iframe src=\"whatever\"/><iframe src=\"whatever\"/>");
+-        assertHTML("<p><iframe src=\"whatever\"></iframe>\r\n<iframe src=\"whatever\"></iframe></p>",
+-            "<iframe src=\"whatever\"/>\r\n<iframe src=\"whatever\"/>");
+-        assertHTML("<p>\r\n<iframe src=\"whatever\"></iframe>\r\n<iframe src=\"whatever\"></iframe>\r\n</p>",
+-            "\r\n<iframe src=\"whatever\"/>\r\n<iframe src=\"whatever\"/>\r\n");
+     }
+ 
+     private void assertHTML(String expected, String actual) throws ComponentLookupException

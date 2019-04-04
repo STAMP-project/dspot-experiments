@@ -1,0 +1,63 @@
+diff --git a/src/changes/changes.xml b/src/changes/changes.xml
+index 3dc6362..3bcbcb6 100644
+--- a/src/changes/changes.xml
++++ b/src/changes/changes.xml
+@@ -23,9 +23,6 @@
+   <body>
+ 
+     <release version="1.4" date="tba" description="tba">
+-      <action type="fix" dev="britter" issue="CLI-252" due-to="Simon Harrer">
+-        LongOpt falsely detected as ambiguous
+-      </action>
+     </release>
+ 
+     <release version="1.3" date="2015-05-09" description="This is a feature and maintenance bug fix release.">
+diff --git a/src/main/java/org/apache/commons/cli/Options.java b/src/main/java/org/apache/commons/cli/Options.java
+index 798b176..5b73db6 100644
+--- a/src/main/java/org/apache/commons/cli/Options.java
++++ b/src/main/java/org/apache/commons/cli/Options.java
+@@ -235,12 +235,7 @@ public class Options implements Serializable
+         opt = Util.stripLeadingHyphens(opt);
+         
+         List<String> matchingOpts = new ArrayList<String>();
+-
+-        // for a perfect match return the single option only
+-        if(longOpts.keySet().contains(opt)) {
+-            return Collections.singletonList(opt);
+-        }
+-
++        
+         for (String longOpt : longOpts.keySet())
+         {
+             if (longOpt.startsWith(opt))
+diff --git a/src/test/java/org/apache/commons/cli/bug/BugCLI252Test.java b/src/test/java/org/apache/commons/cli/bug/BugCLI252Test.java
+deleted file mode 100644
+index 53b80ce..0000000
+--- a/src/test/java/org/apache/commons/cli/bug/BugCLI252Test.java
++++ /dev/null
+@@ -1,25 +0,0 @@
+-package org.apache.commons.cli.bug;
+-
+-import org.apache.commons.cli.*;
+-import org.junit.Test;
+-
+-public class BugCLI252Test extends DefaultParserTest {
+-
+-    @Test
+-    public void testExactOptionNameMatch() throws ParseException {
+-        new DefaultParser().parse(getOptions(), new String[]{"--prefix"});
+-    }
+-
+-    @Test(expected = AmbiguousOptionException.class)
+-    public void testAmbiquousOptionName() throws ParseException {
+-        new DefaultParser().parse(getOptions(), new String[]{"--pref"});
+-    }
+-
+-    private Options getOptions() {
+-        Options options = new Options();
+-        options.addOption(Option.builder().longOpt("prefix").build());
+-        options.addOption(Option.builder().longOpt("prefixplusplus").build());
+-        return options;
+-    }
+-
+-}

@@ -1,0 +1,116 @@
+diff --git a/CHANGELOG b/CHANGELOG
+index 9f9d6cc..e03efc6 100644
+--- a/CHANGELOG
++++ b/CHANGELOG
+@@ -1,4 +1,9 @@
+ -------------------------
++3.1.0 17SEPT18
++-------------------------
++- Added support for the Require Interaction web notify feature.
++
++-------------------------
+ 3.1.0 11SEPT18
+ -------------------------
+ - Added support for Predictive Send Time Optimization.
+diff --git a/VERSION.txt b/VERSION.txt
+index fd2a018..944880f 100644
+--- a/VERSION.txt
++++ b/VERSION.txt
+@@ -1 +1 @@
+-3.1.0
++3.2.0
+diff --git a/pom.xml b/pom.xml
+index 39518dc..ed7f59a 100644
+--- a/pom.xml
++++ b/pom.xml
+@@ -10,7 +10,7 @@
+ 
+     <groupId>com.urbanairship</groupId>
+     <artifactId>java-client</artifactId>
+-    <version>1.3.1-SNAPSHOT</version>
++    <version>3.2.1-SNAPSHOT</version>
+     <packaging>jar</packaging>
+ 
+     <name>Java Client</name>
+diff --git a/src/main/java/com/urbanairship/api/push/model/PushOptions.java b/src/main/java/com/urbanairship/api/push/model/PushOptions.java
+index 0128849..dc4ddcb 100644
+--- a/src/main/java/com/urbanairship/api/push/model/PushOptions.java
++++ b/src/main/java/com/urbanairship/api/push/model/PushOptions.java
+@@ -6,7 +6,6 @@ package com.urbanairship.api.push.model;
+ 
+ import com.google.common.base.Optional;
+ 
+-
+ /**
+  * Optional features for a Push payload for the Urban Airship API.
+  * Created for future optional features to be added.
+@@ -48,7 +47,6 @@ public class PushOptions extends PushModelObject {
+         PushOptions that = (PushOptions) o;
+ 
+         return !(expiry != null ? !expiry.equals(that.expiry) : that.expiry != null);
+-
+     }
+ 
+     @Override
+@@ -82,6 +80,4 @@ public class PushOptions extends PushModelObject {
+             return new PushOptions(Optional.fromNullable(expiry));
+         }
+     }
+-
+-
+ }
+diff --git a/src/main/java/com/urbanairship/api/push/model/notification/web/WebDevicePayload.java b/src/main/java/com/urbanairship/api/push/model/notification/web/WebDevicePayload.java
+index b2efd53..455992a 100644
+--- a/src/main/java/com/urbanairship/api/push/model/notification/web/WebDevicePayload.java
++++ b/src/main/java/com/urbanairship/api/push/model/notification/web/WebDevicePayload.java
+@@ -20,7 +20,6 @@ public final class WebDevicePayload extends PushModelObject implements DevicePay
+     private final Optional<WebIcon> webIcon;
+     private final Optional<Boolean> requireInteraction;
+ 
+-
+     private WebDevicePayload(Builder builder) {
+         this.alert = Optional.fromNullable(builder.alert);
+         this.title = Optional.fromNullable(builder.title);
+diff --git a/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadReader.java b/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadReader.java
+index 9bdb8e4..77d824e 100644
+--- a/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadReader.java
++++ b/src/main/java/com/urbanairship/api/push/parse/notification/web/WebDevicePayloadReader.java
+@@ -2,6 +2,7 @@ package com.urbanairship.api.push.parse.notification.web;
+ 
+ import com.fasterxml.jackson.core.JsonParser;
+ import com.urbanairship.api.common.parse.APIParsingException;
++import com.urbanairship.api.common.parse.BooleanFieldDeserializer;
+ import com.urbanairship.api.common.parse.JsonObjectReader;
+ import com.urbanairship.api.common.parse.MapOfStringsDeserializer;
+ import com.urbanairship.api.common.parse.StringFieldDeserializer;
+@@ -35,7 +36,7 @@ public class WebDevicePayloadReader implements JsonObjectReader<WebDevicePayload
+     }
+ 
+     public void readRequireInteraction(JsonParser parser) throws IOException {
+-        builder.setRequireInteraction(parser.readValueAs(boolean.class));
++        builder.setRequireInteraction(BooleanFieldDeserializer.INSTANCE.deserialize(parser, "require_interaction"));
+     }
+ 
+     @Override
+diff --git a/src/test/java/com/urbanairship/api/push/model/notification/web/WebSettingsDevicePayloadTest.java b/src/test/java/com/urbanairship/api/push/model/notification/web/WebSettingsDevicePayloadTest.java
+index 3974d89..07a0f71 100644
+--- a/src/test/java/com/urbanairship/api/push/model/notification/web/WebSettingsDevicePayloadTest.java
++++ b/src/test/java/com/urbanairship/api/push/model/notification/web/WebSettingsDevicePayloadTest.java
+@@ -19,6 +19,7 @@ public class WebSettingsDevicePayloadTest {
+                 .addExtraEntry("key", "value")
+                 .addExtraEntry("key2", "value2")
+                 .setWebIcon(webIcon)
++                .setRequireInteraction(true)
+                 .build();
+ 
+         assertTrue(m.getExtra().isPresent());
+@@ -37,6 +38,9 @@ public class WebSettingsDevicePayloadTest {
+ 
+         assertTrue(m.getWebIcon().isPresent());
+         assertEquals(m.getWebIcon().get(), webIcon);
++
++        assertTrue(m.getRequireInteraction().isPresent());
++        assertEquals(true, m.getRequireInteraction().get());
+     }
+ }
+ 

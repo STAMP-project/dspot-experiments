@@ -1,0 +1,114 @@
+diff --git a/xwiki-commons-core/xwiki-commons-xml/src/main/java/org/htmlcleaner/XWikiDOMSerializer.java b/xwiki-commons-core/xwiki-commons-xml/src/main/java/org/htmlcleaner/XWikiDOMSerializer.java
+index 91acb76..ba7c22e 100644
+--- a/xwiki-commons-core/xwiki-commons-xml/src/main/java/org/htmlcleaner/XWikiDOMSerializer.java
++++ b/xwiki-commons-core/xwiki-commons-xml/src/main/java/org/htmlcleaner/XWikiDOMSerializer.java
+@@ -155,7 +155,7 @@ public Document createDOM(DocumentBuilder documentDocumentBuilder, TagNode rootN
+             Map.Entry<String, String> entry = entryIterator.next();
+             String attrName = entry.getKey();
+             String attrValue = entry.getValue();
+-            if (shouldEscapeOrTranslateEntities()) {
++            if (escapeXml) {
+                 attrValue = Utils.escapeXml(attrValue, props, true);
+             }
+ 
+@@ -189,7 +189,7 @@ private void flushContent(Document document, Element element, StringBuilder buff
+             boolean specialCase = this.props.isUseCdataForScriptAndStyle() && isScriptOrStyle(element);
+             String content = bufferedContent.toString();
+ 
+-            if (shouldEscapeOrTranslateEntities() && !specialCase) {
++            if (this.escapeXml && !specialCase) {
+                 content = Utils.escapeXml(content, this.props, true);
+             } else if (specialCase) {
+                 content = processCDATABlocks(content);
+@@ -300,7 +300,7 @@ private void createSubnodes(Document document, Element element, List<? extends B
+                     for (Map.Entry<String, String> entry : attributes.entrySet()) {
+                         String attrName = entry.getKey();
+                         String attrValue = entry.getValue();
+-                        if (shouldEscapeOrTranslateEntities()) {
++                        if (this.escapeXml) {
+                             attrValue = Utils.escapeXml(attrValue, this.props, true);
+                         }
+                         subelement.setAttribute(attrName, attrValue);
+@@ -319,9 +319,4 @@ private void createSubnodes(Document document, Element element, List<? extends B
+             flushContent(document, element, bufferedContent, null);
+         }
+     }
+-
+-    private boolean shouldEscapeOrTranslateEntities()
+-    {
+-        return this.escapeXml || this.props.isRecognizeUnicodeChars() || this.props.isTranslateSpecialEntities();
+-    }
+ }
+diff --git a/xwiki-commons-core/xwiki-commons-xml/src/main/java/org/xwiki/xml/internal/html/DefaultHTMLCleaner.java b/xwiki-commons-core/xwiki-commons-xml/src/main/java/org/xwiki/xml/internal/html/DefaultHTMLCleaner.java
+index 0a40228..bb10fc6 100644
+--- a/xwiki-commons-core/xwiki-commons-xml/src/main/java/org/xwiki/xml/internal/html/DefaultHTMLCleaner.java
++++ b/xwiki-commons-core/xwiki-commons-xml/src/main/java/org/xwiki/xml/internal/html/DefaultHTMLCleaner.java
+@@ -175,7 +175,7 @@ public Document clean(Reader originalHtmlContent, HTMLCleanerConfiguration confi
+             cleanedNode.setDocType(new DoctypeToken("html", "PUBLIC", "-//W3C//DTD XHTML 1.0 Strict//EN",
+                 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"));
+             result =
+-                new XWikiDOMSerializer(cleanerProperties, true).createDOM(getAvailableDocumentBuilder(), cleanedNode);
++                new XWikiDOMSerializer(cleanerProperties, false).createDOM(getAvailableDocumentBuilder(), cleanedNode);
+         } catch (ParserConfigurationException ex) {
+             throw new RuntimeException("Error while serializing TagNode into w3c dom.", ex);
+         }
+@@ -232,10 +232,7 @@ private CleanerProperties getDefaultCleanerProperties(HTMLCleanerConfiguration c
+ 
+         // Set Cleaner transformations
+         defaultProperties.setCleanerTransformations(getDefaultCleanerTransformations(configuration));
+-
+-        // Don't convert special HTML entities (i.e. &ocirc;, &permil;, &times;) with unicode characters they represent.
+-        defaultProperties.setTranslateSpecialEntities(false);
+-
++        
+         // By default, we are cleaning XHTML 1.0 code, not HTML 5.
+         // Note: Tests are broken if we don't set the version 4, meaning that supporting HTML5 requires some work.
+         // TODO: handle HTML5 correctly (see: https://jira.xwiki.org/browse/XCOMMONS-901)
+diff --git a/xwiki-commons-core/xwiki-commons-xml/src/test/java/org/xwiki/xml/internal/html/DefaultHTMLCleanerTest.java b/xwiki-commons-core/xwiki-commons-xml/src/test/java/org/xwiki/xml/internal/html/DefaultHTMLCleanerTest.java
+index ba8c86f..3568783 100644
+--- a/xwiki-commons-core/xwiki-commons-xml/src/test/java/org/xwiki/xml/internal/html/DefaultHTMLCleanerTest.java
++++ b/xwiki-commons-core/xwiki-commons-xml/src/test/java/org/xwiki/xml/internal/html/DefaultHTMLCleanerTest.java
+@@ -88,12 +88,16 @@ public void elementExpansion()
+     @Test
+     public void specialCharacters()
+     {
++        // TODO: We still have a problem I think in that if there are characters such as "&" or quote in the source
++        // text they are not escaped. This is because we have use "false" in DefaultHTMLCleaner here:
++        // Document document = new JDomSerializer(this.cleanerProperties, false).createJDom(cleanedNode);
++        // See the problem described here: http://sourceforge.net/forum/forum.php?thread_id=2243880&forum_id=637246
+         assertHTML("<p>&quot;&amp;**notbold**&lt;notag&gt;&nbsp;</p>",
+             "<p>&quot;&amp;**notbold**&lt;notag&gt;&nbsp;</p>");
+-        assertHTML("<p>&quot;&amp;</p>", "<p>\"&</p>");
++        assertHTML("<p>\"&amp;</p>", "<p>\"&</p>");
+         assertHTML("<p><img src=\"http://host.com/a.gif?a=foo&amp;b=bar\" /></p>",
+             "<img src=\"http://host.com/a.gif?a=foo&b=bar\" />");
+-        assertHTML("<p>\n</p>", "<p>&#xA;</p>");
++        assertHTML("<p>&#xA;</p>", "<p>&#xA;</p>");
+ 
+         // Verify that double quotes are escaped in attribute values
+         assertHTML("<p value=\"script:&quot;&quot;\"></p>", "<p value='script:\"\"'");
+@@ -252,14 +256,14 @@ public void explicitFilterList()
+     public void restrictedHtml()
+     {
+         HTMLCleanerConfiguration configuration = this.cleaner.getDefaultConfiguration();
+-        Map<String, String> parameters = new HashMap<>();
++        Map<String, String> parameters = new HashMap<String, String>();
+         parameters.putAll(configuration.getParameters());
+         parameters.put("restricted", "true");
+         configuration.setParameters(parameters);
+ 
+         String result = HTMLUtils.toString(this.cleaner.clean(
+             new StringReader("<script>alert(\"foo\")</script>"), configuration));
+-        assertEquals(HEADER_FULL + "<pre>alert(&quot;foo&quot;)</pre>" + FOOTER, result);
++        assertEquals(HEADER_FULL + "<pre>alert(\"foo\")</pre>" + FOOTER, result);
+ 
+         result = HTMLUtils.toString(this.cleaner.clean(
+             new StringReader("<style>p {color:white;}</style>"), configuration));
+@@ -336,6 +340,7 @@ public void cleanTitleWithNamespace()
+      * {@link HTMLCleanerConfiguration#NAMESPACES_AWARE} is set to false.
+      */
+     @Test
++    @Disabled("See https://sourceforge.net/p/htmlcleaner/bugs/168/")
+     public void cleanHTMLTagWithNamespace()
+     {
+         String input = "<html xmlns=\"http://www.w3.org/1999/xhtml\"><head></head><body>";

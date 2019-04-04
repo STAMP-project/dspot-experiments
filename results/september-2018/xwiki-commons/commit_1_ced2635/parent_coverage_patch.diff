@@ -1,0 +1,72 @@
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/repository/internal/AbstractCachedExtensionRepository.java b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/repository/internal/AbstractCachedExtensionRepository.java
+index 6016a99..cecee05 100644
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/repository/internal/AbstractCachedExtensionRepository.java
++++ b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/repository/internal/AbstractCachedExtensionRepository.java
+@@ -215,25 +215,30 @@ public boolean exists(ExtensionId extensionId)
+     public IterableResult<Version> resolveVersions(String id, int offset, int nb) throws ResolveException
+     {
+         if (id == null) {
+-            return new CollectionIterableResult<>(0, offset, Collections.<Version>emptyList());
++            return new CollectionIterableResult<Version>(0, offset, Collections.<Version>emptyList());
+         }
+ 
+-        List<E> extensionVersions = this.extensionsVersions.get(id);
++        List<E> versions = this.extensionsVersions.get(id);
+ 
+-        if (extensionVersions == null) {
++        if (versions == null) {
+             throw new ExtensionNotFoundException("Can't find extension with id [" + id + "]");
+         }
+ 
+-        if (nb == 0 || offset >= extensionVersions.size()) {
+-            return new CollectionIterableResult<>(extensionVersions.size(), offset, Collections.<Version>emptyList());
++        if (nb == 0 || offset >= versions.size()) {
++            return new CollectionIterableResult<Version>(versions.size(), offset, Collections.<Version>emptyList());
+         }
+ 
+-        List<Version> versions = new ArrayList<>(extensionVersions.size());
+-        for (E extension : extensionVersions) {
+-            versions.add(extension.getId().getVersion());
++        int fromId = offset < 0 ? 0 : offset;
++        int toId = offset + nb > versions.size() || nb < 0 ? versions.size() - 1 : offset + nb;
++
++        List<Version> result = new ArrayList<Version>(toId - fromId);
++
++        // Invert to sort in ascendent order
++        for (int i = toId - 1; i >= fromId; --i) {
++            result.add(versions.get(i).getId().getVersion());
+         }
+ 
+-        return RepositoryUtils.getIterableResult(offset, nb, versions);
++        return new CollectionIterableResult<Version>(versions.size(), offset, result);
+     }
+ 
+     // Searchable
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/repository/local/DefaultLocalExtensionRepositoryTest.java b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/repository/local/DefaultLocalExtensionRepositoryTest.java
+index 167b8ba..0f30392 100644
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/repository/local/DefaultLocalExtensionRepositoryTest.java
++++ b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/repository/local/DefaultLocalExtensionRepositoryTest.java
+@@ -37,7 +37,6 @@
+ import org.xwiki.extension.repository.search.ExtensionQuery.COMPARISON;
+ import org.xwiki.extension.repository.search.SearchException;
+ import org.xwiki.extension.test.MockitoRepositoryUtilsRule;
+-import org.xwiki.extension.version.Version;
+ import org.xwiki.extension.version.internal.DefaultVersionConstraint;
+ import org.xwiki.test.annotation.AllComponents;
+ import org.xwiki.test.mockito.MockitoComponentManagerRule;
+@@ -264,15 +263,4 @@ public void testRemove() throws ResolveException
+         Assert.assertFalse(this.localExtensionRepository
+             .getLocalExtensionVersions(TestResources.INSTALLED_ID.getId() + "-feature").contains(localExtension));
+     }
+-
+-    @Test
+-    public void resolveVersions() throws ResolveException
+-    {
+-        IterableResult<Version> versions =
+-            this.localExtensionRepository.resolveVersions(TestResources.INSTALLED_ONNAMESPACE_ID.getId(), 0, -1);
+-
+-        assertEquals(1, versions.getTotalHits());
+-        assertEquals(1, versions.getSize());
+-        assertEquals(TestResources.INSTALLED_ONNAMESPACE_ID.getVersion(), versions.iterator().next());
+-    }
+ }

@@ -1,0 +1,758 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------< org.apache.commons:commons-collections4 >---------------
+[INFO] Building Apache Commons Collections 4.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ commons-collections4 ---
+[INFO] Deleting /tmp/icst-2019/september-2018/dataset/commons-collections_parent/target
+[INFO] 
+[INFO] --- diff-test-selection:0.5-SNAPSHOT:list (default-cli) @ commons-collections4 ---
+[INFO] Computing coverage for /tmp/icst-2019/september-2018/dataset/commons-collections_parent
+[WARN] Maven will be executed in interactive mode, but no input stream has been configured for this MavenInvoker instance.
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------< org.apache.commons:commons-collections4 >---------------
+[INFO] Building Apache Commons Collections 4.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ commons-collections4 ---
+[INFO] 
+[INFO] --- clover-maven-plugin:4.2.0:setup (default-cli) @ commons-collections4 ---
+[INFO] No 'maven.clover.licenseLocation' configured. Using default license.
+[INFO] OpenClover Version 4.2.0, built on April 30 2017 (build-1000)
+[INFO] Loaded from: /home/spirals/danglot/.m2/repository/org/openclover/clover/4.2.0/clover-4.2.0.jar
+[INFO] Clover free edition.
+[INFO] Creating new database at '/tmp/icst-2019/september-2018/dataset/commons-collections_parent/target/clover/clover.db'.
+[INFO] Processing files at 1.8 source level.
+[INFO] Clover all over. Instrumented 300 files (17 packages).
+[INFO] Elapsed time = 4.249 secs. (70.605 files/sec, 14,507.649 srclines/sec)
+[INFO] OpenClover Version 4.2.0, built on April 30 2017 (build-1000)
+[INFO] Loaded from: /home/spirals/danglot/.m2/repository/org/openclover/clover/4.2.0/clover-4.2.0.jar
+[INFO] Clover free edition.
+[INFO] Updating existing database at '/tmp/icst-2019/september-2018/dataset/commons-collections_parent/target/clover/clover.db'.
+[INFO] Processing files at 1.8 source level.
+[INFO] Clover all over. Instrumented 190 files (16 packages).
+[INFO] 1200 test methods detected.
+[INFO] Elapsed time = 3.133 secs. (60.645 files/sec, 14,465.688 srclines/sec)
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.7:run (javadoc.resources) @ commons-collections4 ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /tmp/icst-2019/september-2018/dataset/commons-collections_parent/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (default) @ commons-collections4 ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.2:create (default) @ commons-collections4 ---
+[INFO] Checking for local modifications: skipped.
+[INFO] Updating project files from SCM: skipped.
+[INFO] Executing: /bin/sh -c cd /tmp/icst-2019/september-2018/dataset/commons-collections_parent && svn --non-interactive info
+[INFO] Working directory: /tmp/icst-2019/september-2018/dataset/commons-collections_parent
+[INFO] Storing buildNumber: ?????? at timestamp: 1538288891786
+[INFO] Executing: /bin/sh -c cd /tmp/icst-2019/september-2018/dataset/commons-collections_parent && svn --non-interactive info
+[INFO] Working directory: /tmp/icst-2019/september-2018/dataset/commons-collections_parent
+[INFO] Storing buildScmBranch: UNKNOWN_BRANCH
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ commons-collections4 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /tmp/icst-2019/september-2018/dataset/commons-collections_parent/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ commons-collections4 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 300 source files to /tmp/icst-2019/september-2018/dataset/commons-collections_parent/target/classes
+[WARNING] /tmp/icst-2019/september-2018/dataset/commons-collections_parent/target/clover/src-instrumented/org/apache/commons/collections4/list/TreeList.java: Some input files use or override a deprecated API.
+[WARNING] /tmp/icst-2019/september-2018/dataset/commons-collections_parent/target/clover/src-instrumented/org/apache/commons/collections4/list/TreeList.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.4.0:manifest (bundle-manifest) @ commons-collections4 ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ commons-collections4 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 156 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ commons-collections4 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 190 source files to /tmp/icst-2019/september-2018/dataset/commons-collections_parent/target/test-classes
+[WARNING] /tmp/icst-2019/september-2018/dataset/commons-collections_parent/target/clover/src-test-instrumented/org/apache/commons/collections4/TransformerUtilsTest.java: /tmp/icst-2019/september-2018/dataset/commons-collections_parent/target/clover/src-test-instrumented/org/apache/commons/collections4/TransformerUtilsTest.java uses or overrides a deprecated API.
+[WARNING] /tmp/icst-2019/september-2018/dataset/commons-collections_parent/target/clover/src-test-instrumented/org/apache/commons/collections4/TransformerUtilsTest.java: Recompile with -Xlint:deprecation for details.
+[WARNING] /tmp/icst-2019/september-2018/dataset/commons-collections_parent/target/clover/src-test-instrumented/org/apache/commons/collections4/collection/AbstractCollectionTest.java: Some input files use unchecked or unsafe operations.
+[WARNING] /tmp/icst-2019/september-2018/dataset/commons-collections_parent/target/clover/src-test-instrumented/org/apache/commons/collections4/collection/AbstractCollectionTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.16:test (default-test) @ commons-collections4 ---
+[INFO] Surefire report directory: /tmp/icst-2019/september-2018/dataset/commons-collections_parent/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.apache.commons.collections4.SplitMapUtilsTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.081 sec - in org.apache.commons.collections4.SplitMapUtilsTest
+Running org.apache.commons.collections4.MultiMapUtilsTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec - in org.apache.commons.collections4.MultiMapUtilsTest
+Running org.apache.commons.collections4.IteratorUtilsTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.083 sec - in org.apache.commons.collections4.IteratorUtilsTest
+Running org.apache.commons.collections4.TrieUtilsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec - in org.apache.commons.collections4.TrieUtilsTest
+Running org.apache.commons.collections4.ArrayStackTest
+Tests run: 154, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.361 sec - in org.apache.commons.collections4.ArrayStackTest
+Running org.apache.commons.collections4.QueueUtilsTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.apache.commons.collections4.QueueUtilsTest
+Running org.apache.commons.collections4.SetUtilsTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in org.apache.commons.collections4.SetUtilsTest
+Running org.apache.commons.collections4.FactoryUtilsTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.07 sec - in org.apache.commons.collections4.FactoryUtilsTest
+Running org.apache.commons.collections4.TransformerUtilsTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 sec - in org.apache.commons.collections4.TransformerUtilsTest
+Running org.apache.commons.collections4.comparators.BooleanComparatorTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec - in org.apache.commons.collections4.comparators.BooleanComparatorTest
+Running org.apache.commons.collections4.comparators.ComparatorChainTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec - in org.apache.commons.collections4.comparators.ComparatorChainTest
+Running org.apache.commons.collections4.comparators.FixedOrderComparatorTest
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec - in org.apache.commons.collections4.comparators.FixedOrderComparatorTest
+Running org.apache.commons.collections4.comparators.ComparableComparatorTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.apache.commons.collections4.comparators.ComparableComparatorTest
+Running org.apache.commons.collections4.comparators.TransformingComparatorTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec - in org.apache.commons.collections4.comparators.TransformingComparatorTest
+Running org.apache.commons.collections4.comparators.ReverseComparatorTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in org.apache.commons.collections4.comparators.ReverseComparatorTest
+Running org.apache.commons.collections4.multimap.TransformedMultiValuedMapTest
+Tests run: 332, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.394 sec - in org.apache.commons.collections4.multimap.TransformedMultiValuedMapTest
+Running org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest
+Tests run: 338, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.221 sec - in org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest
+Running org.apache.commons.collections4.multimap.MultiValuedHashMapTest
+Tests run: 335, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.212 sec - in org.apache.commons.collections4.multimap.MultiValuedHashMapTest
+Running org.apache.commons.collections4.collection.CompositeCollectionTest
+Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 sec - in org.apache.commons.collections4.collection.CompositeCollectionTest
+Running org.apache.commons.collections4.collection.SynchronizedCollectionTest
+Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 sec - in org.apache.commons.collections4.collection.SynchronizedCollectionTest
+Running org.apache.commons.collections4.collection.UnmodifiableBoundedCollectionTest
+Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 sec - in org.apache.commons.collections4.collection.UnmodifiableBoundedCollectionTest
+Running org.apache.commons.collections4.collection.TransformedCollectionTest
+Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec - in org.apache.commons.collections4.collection.TransformedCollectionTest
+Running org.apache.commons.collections4.collection.PredicatedCollectionTest
+Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec - in org.apache.commons.collections4.collection.PredicatedCollectionTest
+Running org.apache.commons.collections4.collection.UnmodifiableCollectionTest
+Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec - in org.apache.commons.collections4.collection.UnmodifiableCollectionTest
+Running org.apache.commons.collections4.collection.IndexedCollectionTest
+Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec - in org.apache.commons.collections4.collection.IndexedCollectionTest
+Running org.apache.commons.collections4.sequence.SequencesComparatorTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.156 sec - in org.apache.commons.collections4.sequence.SequencesComparatorTest
+Running org.apache.commons.collections4.set.PredicatedSetTest
+Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec - in org.apache.commons.collections4.set.PredicatedSetTest
+Running org.apache.commons.collections4.set.UnmodifiableSortedSetTest
+Tests run: 115, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 sec - in org.apache.commons.collections4.set.UnmodifiableSortedSetTest
+Running org.apache.commons.collections4.set.CompositeSetTest
+Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 sec - in org.apache.commons.collections4.set.CompositeSetTest
+Running org.apache.commons.collections4.set.TransformedSetTest
+Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 sec - in org.apache.commons.collections4.set.TransformedSetTest
+Running org.apache.commons.collections4.set.MapBackedSetTest
+Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 sec - in org.apache.commons.collections4.set.MapBackedSetTest
+Running org.apache.commons.collections4.set.ListOrderedSetTest
+Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.119 sec - in org.apache.commons.collections4.set.ListOrderedSetTest
+Running org.apache.commons.collections4.set.PredicatedSortedSetTest
+Tests run: 116, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.125 sec - in org.apache.commons.collections4.set.PredicatedSortedSetTest
+Running org.apache.commons.collections4.set.TransformedSortedSetTest
+Tests run: 114, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.088 sec - in org.apache.commons.collections4.set.TransformedSortedSetTest
+Running org.apache.commons.collections4.set.MapBackedSet2Test
+Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 sec - in org.apache.commons.collections4.set.MapBackedSet2Test
+Running org.apache.commons.collections4.set.ListOrderedSet2Test
+Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 sec - in org.apache.commons.collections4.set.ListOrderedSet2Test
+Running org.apache.commons.collections4.set.UnmodifiableSetTest
+Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec - in org.apache.commons.collections4.set.UnmodifiableSetTest
+Running org.apache.commons.collections4.ClosureUtilsTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec - in org.apache.commons.collections4.ClosureUtilsTest
+Running org.apache.commons.collections4.list.SetUniqueListTest
+Tests run: 75, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.151 sec - in org.apache.commons.collections4.list.SetUniqueListTest
+Running org.apache.commons.collections4.list.FixedSizeListTest
+Tests run: 57, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.105 sec - in org.apache.commons.collections4.list.FixedSizeListTest
+Running org.apache.commons.collections4.list.GrowthListTest
+Tests run: 61, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.064 sec - in org.apache.commons.collections4.list.GrowthListTest
+Running org.apache.commons.collections4.list.CursorableLinkedListTest
+Tests run: 196, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.337 sec - in org.apache.commons.collections4.list.CursorableLinkedListTest
+Running org.apache.commons.collections4.list.TransformedListTest
+Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 sec - in org.apache.commons.collections4.list.TransformedListTest
+Running org.apache.commons.collections4.list.PredicatedListTest
+Tests run: 61, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 sec - in org.apache.commons.collections4.list.PredicatedListTest
+Running org.apache.commons.collections4.list.TreeListTest
+Tests run: 158, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.496 sec - in org.apache.commons.collections4.list.TreeListTest
+Running org.apache.commons.collections4.list.UnmodifiableListTest
+Tests run: 60, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec - in org.apache.commons.collections4.list.UnmodifiableListTest
+Running org.apache.commons.collections4.list.NodeCachingLinkedListTest
+Tests run: 156, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.184 sec - in org.apache.commons.collections4.list.NodeCachingLinkedListTest
+Running org.apache.commons.collections4.CollectionUtilsTest
+Tests run: 101, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.135 sec - in org.apache.commons.collections4.CollectionUtilsTest
+Running org.apache.commons.collections4.BagUtilsTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec - in org.apache.commons.collections4.BagUtilsTest
+Running org.apache.commons.collections4.map.MultiValueMapTest
+Tests run: 35, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec - in org.apache.commons.collections4.map.MultiValueMapTest
+Running org.apache.commons.collections4.map.ListOrderedMapTest
+Tests run: 487, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.565 sec - in org.apache.commons.collections4.map.ListOrderedMapTest
+Running org.apache.commons.collections4.map.UnmodifiableSortedMapTest
+Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 sec - in org.apache.commons.collections4.map.UnmodifiableSortedMapTest
+Running org.apache.commons.collections4.map.ReferenceIdentityMapTest
+Tests run: 156, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.819 sec - in org.apache.commons.collections4.map.ReferenceIdentityMapTest
+Running org.apache.commons.collections4.map.LRUMapTest
+Tests run: 188, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.419 sec - in org.apache.commons.collections4.map.LRUMapTest
+Running org.apache.commons.collections4.map.TransformedMapTest
+Tests run: 53, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 sec - in org.apache.commons.collections4.map.TransformedMapTest
+Running org.apache.commons.collections4.map.MultiKeyMapTest
+Tests run: 164, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.266 sec - in org.apache.commons.collections4.map.MultiKeyMapTest
+Running org.apache.commons.collections4.map.TransformedSortedMapTest
+Tests run: 546, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.514 sec - in org.apache.commons.collections4.map.TransformedSortedMapTest
+Running org.apache.commons.collections4.map.PassiveExpiringMapTest
+Tests run: 144, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.138 sec - in org.apache.commons.collections4.map.PassiveExpiringMapTest
+Running org.apache.commons.collections4.map.FixedSizeSortedMapTest
+Tests run: 543, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.368 sec - in org.apache.commons.collections4.map.FixedSizeSortedMapTest
+Running org.apache.commons.collections4.map.UnmodifiableOrderedMapTest
+Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 sec - in org.apache.commons.collections4.map.UnmodifiableOrderedMapTest
+Running org.apache.commons.collections4.map.PredicatedMapTest
+Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.057 sec - in org.apache.commons.collections4.map.PredicatedMapTest
+Running org.apache.commons.collections4.map.Flat3MapTest
+Tests run: 167, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.302 sec - in org.apache.commons.collections4.map.Flat3MapTest
+Running org.apache.commons.collections4.map.SingletonMapTest
+Tests run: 175, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.117 sec - in org.apache.commons.collections4.map.SingletonMapTest
+Running org.apache.commons.collections4.map.CaseInsensitiveMapTest
+Tests run: 158, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.288 sec - in org.apache.commons.collections4.map.CaseInsensitiveMapTest
+Running org.apache.commons.collections4.map.ReferenceMapTest
+Tests run: 154, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.413 sec - in org.apache.commons.collections4.map.ReferenceMapTest
+Running org.apache.commons.collections4.map.StaticBucketMapTest
+Tests run: 152, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.309 sec - in org.apache.commons.collections4.map.StaticBucketMapTest
+Running org.apache.commons.collections4.map.CompositeMapTest
+Tests run: 58, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.087 sec - in org.apache.commons.collections4.map.CompositeMapTest
+Running org.apache.commons.collections4.map.DefaultedMapTest
+Tests run: 53, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 sec - in org.apache.commons.collections4.map.DefaultedMapTest
+Running org.apache.commons.collections4.map.LinkedMapTest
+Tests run: 332, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.448 sec - in org.apache.commons.collections4.map.LinkedMapTest
+Running org.apache.commons.collections4.map.LazyMapTest
+Tests run: 50, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 sec - in org.apache.commons.collections4.map.LazyMapTest
+Running org.apache.commons.collections4.map.HashedMapTest
+Tests run: 155, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.268 sec - in org.apache.commons.collections4.map.HashedMapTest
+Running org.apache.commons.collections4.map.UnmodifiableMapTest
+Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec - in org.apache.commons.collections4.map.UnmodifiableMapTest
+Running org.apache.commons.collections4.map.LazySortedMapTest
+Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 sec - in org.apache.commons.collections4.map.LazySortedMapTest
+Running org.apache.commons.collections4.map.FixedSizeMapTest
+Tests run: 50, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 sec - in org.apache.commons.collections4.map.FixedSizeMapTest
+Running org.apache.commons.collections4.map.PredicatedSortedMapTest
+Tests run: 53, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 sec - in org.apache.commons.collections4.map.PredicatedSortedMapTest
+Running org.apache.commons.collections4.map.ListOrderedMap2Test
+Tests run: 328, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.416 sec - in org.apache.commons.collections4.map.ListOrderedMap2Test
+Running org.apache.commons.collections4.functors.AllPredicateTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in org.apache.commons.collections4.functors.AllPredicateTest
+Running org.apache.commons.collections4.functors.NullPredicateTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.collections4.functors.NullPredicateTest
+Running org.apache.commons.collections4.functors.EqualPredicateTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.collections4.functors.EqualPredicateTest
+Running org.apache.commons.collections4.functors.CatchAndRethrowClosureTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.collections4.functors.CatchAndRethrowClosureTest
+Running org.apache.commons.collections4.functors.ComparatorPredicateTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.collections4.functors.ComparatorPredicateTest
+Running org.apache.commons.collections4.splitmap.TransformedSplitMapTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.collections4.splitmap.TransformedSplitMapTest
+Running org.apache.commons.collections4.bidimap.UnmodifiableOrderedBidiMapTest
+Tests run: 385, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.789 sec - in org.apache.commons.collections4.bidimap.UnmodifiableOrderedBidiMapTest
+Running org.apache.commons.collections4.bidimap.UnmodifiableSortedBidiMapTest
+Tests run: 805, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.604 sec - in org.apache.commons.collections4.bidimap.UnmodifiableSortedBidiMapTest
+Running org.apache.commons.collections4.bidimap.DualLinkedHashBidiMapTest
+Tests run: 362, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.423 sec - in org.apache.commons.collections4.bidimap.DualLinkedHashBidiMapTest
+Running org.apache.commons.collections4.bidimap.TreeBidiMapTest
+Tests run: 383, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.29 sec - in org.apache.commons.collections4.bidimap.TreeBidiMapTest
+Running org.apache.commons.collections4.bidimap.DualTreeBidiMap2Test
+Tests run: 808, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.148 sec - in org.apache.commons.collections4.bidimap.DualTreeBidiMap2Test
+Running org.apache.commons.collections4.bidimap.DualHashBidiMapTest
+Tests run: 362, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.419 sec - in org.apache.commons.collections4.bidimap.DualHashBidiMapTest
+Running org.apache.commons.collections4.bidimap.DualTreeBidiMapTest
+Tests run: 803, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.937 sec - in org.apache.commons.collections4.bidimap.DualTreeBidiMapTest
+Running org.apache.commons.collections4.bidimap.UnmodifiableBidiMapTest
+Tests run: 364, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.298 sec - in org.apache.commons.collections4.bidimap.UnmodifiableBidiMapTest
+Running org.apache.commons.collections4.MapUtilsTest
+Tests run: 35, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 sec - in org.apache.commons.collections4.MapUtilsTest
+Running org.apache.commons.collections4.iterators.ObjectArrayListIterator2Test
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.apache.commons.collections4.iterators.ObjectArrayListIterator2Test
+Running org.apache.commons.collections4.iterators.SingletonListIteratorTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in org.apache.commons.collections4.iterators.SingletonListIteratorTest
+Running org.apache.commons.collections4.iterators.LoopingListIteratorTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.apache.commons.collections4.iterators.LoopingListIteratorTest
+Running org.apache.commons.collections4.iterators.UnmodifiableOrderedMapIteratorTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in org.apache.commons.collections4.iterators.UnmodifiableOrderedMapIteratorTest
+Running org.apache.commons.collections4.iterators.ArrayIteratorTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.apache.commons.collections4.iterators.ArrayIteratorTest
+Running org.apache.commons.collections4.iterators.ArrayListIteratorTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.apache.commons.collections4.iterators.ArrayListIteratorTest
+Running org.apache.commons.collections4.iterators.ListIteratorWrapperTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec - in org.apache.commons.collections4.iterators.ListIteratorWrapperTest
+Running org.apache.commons.collections4.iterators.NodeListIteratorTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 sec - in org.apache.commons.collections4.iterators.NodeListIteratorTest
+Running org.apache.commons.collections4.iterators.UniqueFilterIteratorTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.apache.commons.collections4.iterators.UniqueFilterIteratorTest
+Running org.apache.commons.collections4.iterators.ArrayIterator2Test
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.collections4.iterators.ArrayIterator2Test
+Running org.apache.commons.collections4.iterators.ArrayListIterator2Test
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.collections4.iterators.ArrayListIterator2Test
+Running org.apache.commons.collections4.iterators.ListIteratorWrapper2Test
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.apache.commons.collections4.iterators.ListIteratorWrapper2Test
+Running org.apache.commons.collections4.iterators.PushbackIteratorTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.apache.commons.collections4.iterators.PushbackIteratorTest
+Running org.apache.commons.collections4.iterators.UnmodifiableIteratorTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.collections4.iterators.UnmodifiableIteratorTest
+Running org.apache.commons.collections4.iterators.LoopingIteratorTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.collections4.iterators.LoopingIteratorTest
+Running org.apache.commons.collections4.iterators.FilterListIteratorTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 sec - in org.apache.commons.collections4.iterators.FilterListIteratorTest
+Running org.apache.commons.collections4.iterators.SingletonIteratorTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.apache.commons.collections4.iterators.SingletonIteratorTest
+Running org.apache.commons.collections4.iterators.ObjectArrayIteratorTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.collections4.iterators.ObjectArrayIteratorTest
+Running org.apache.commons.collections4.iterators.UnmodifiableMapIteratorTest
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in org.apache.commons.collections4.iterators.UnmodifiableMapIteratorTest
+Running org.apache.commons.collections4.iterators.PermutationIteratorTest
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.09 sec - in org.apache.commons.collections4.iterators.PermutationIteratorTest
+Running org.apache.commons.collections4.iterators.LazyIteratorChainTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.apache.commons.collections4.iterators.LazyIteratorChainTest
+Running org.apache.commons.collections4.iterators.SingletonIterator2Test
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.collections4.iterators.SingletonIterator2Test
+Running org.apache.commons.collections4.iterators.FilterIteratorTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in org.apache.commons.collections4.iterators.FilterIteratorTest
+Running org.apache.commons.collections4.iterators.CollatingIteratorTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec - in org.apache.commons.collections4.iterators.CollatingIteratorTest
+Running org.apache.commons.collections4.iterators.BoundedIteratorTest
+Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec - in org.apache.commons.collections4.iterators.BoundedIteratorTest
+Running org.apache.commons.collections4.iterators.UnmodifiableListIteratorTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in org.apache.commons.collections4.iterators.UnmodifiableListIteratorTest
+Running org.apache.commons.collections4.iterators.IteratorEnumerationTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.collections4.iterators.IteratorEnumerationTest
+Running org.apache.commons.collections4.iterators.IteratorIterableTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.collections4.iterators.IteratorIterableTest
+Running org.apache.commons.collections4.iterators.ReverseListIteratorTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in org.apache.commons.collections4.iterators.ReverseListIteratorTest
+Running org.apache.commons.collections4.iterators.ObjectArrayListIteratorTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.apache.commons.collections4.iterators.ObjectArrayListIteratorTest
+Running org.apache.commons.collections4.iterators.IteratorChainTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.apache.commons.collections4.iterators.IteratorChainTest
+Running org.apache.commons.collections4.iterators.ObjectGraphIteratorTest
+Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec - in org.apache.commons.collections4.iterators.ObjectGraphIteratorTest
+Running org.apache.commons.collections4.iterators.PeekingIteratorTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in org.apache.commons.collections4.iterators.PeekingIteratorTest
+Running org.apache.commons.collections4.EnumerationUtilsTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.collections4.EnumerationUtilsTest
+Running org.apache.commons.collections4.bag.HashBagTest
+Tests run: 74, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.085 sec - in org.apache.commons.collections4.bag.HashBagTest
+Running org.apache.commons.collections4.bag.PredicatedSortedBagTest
+Tests run: 76, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.155 sec - in org.apache.commons.collections4.bag.PredicatedSortedBagTest
+Running org.apache.commons.collections4.bag.TransformedSortedBagTest
+Tests run: 76, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.124 sec - in org.apache.commons.collections4.bag.TransformedSortedBagTest
+Running org.apache.commons.collections4.bag.SynchronizedBagTest
+Tests run: 74, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 sec - in org.apache.commons.collections4.bag.SynchronizedBagTest
+Running org.apache.commons.collections4.bag.UnmodifiableBagTest
+Tests run: 76, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 sec - in org.apache.commons.collections4.bag.UnmodifiableBagTest
+Running org.apache.commons.collections4.bag.TreeBagTest
+Tests run: 76, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.122 sec - in org.apache.commons.collections4.bag.TreeBagTest
+Running org.apache.commons.collections4.bag.PredicatedBagTest
+Tests run: 77, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 sec - in org.apache.commons.collections4.bag.PredicatedBagTest
+Running org.apache.commons.collections4.bag.CollectionSortedBagTest
+Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.062 sec - in org.apache.commons.collections4.bag.CollectionSortedBagTest
+Running org.apache.commons.collections4.bag.UnmodifiableSortedBagTest
+Tests run: 76, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 sec - in org.apache.commons.collections4.bag.UnmodifiableSortedBagTest
+Running org.apache.commons.collections4.bag.CollectionBagTest
+Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec - in org.apache.commons.collections4.bag.CollectionBagTest
+Running org.apache.commons.collections4.bag.TransformedBagTest
+Tests run: 76, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 sec - in org.apache.commons.collections4.bag.TransformedBagTest
+Running org.apache.commons.collections4.keyvalue.TiedMapEntryTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.collections4.keyvalue.TiedMapEntryTest
+Running org.apache.commons.collections4.keyvalue.MultiKeyTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.apache.commons.collections4.keyvalue.MultiKeyTest
+Running org.apache.commons.collections4.keyvalue.DefaultMapEntryTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.collections4.keyvalue.DefaultMapEntryTest
+Running org.apache.commons.collections4.keyvalue.UnmodifiableMapEntryTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.collections4.keyvalue.UnmodifiableMapEntryTest
+Running org.apache.commons.collections4.keyvalue.DefaultKeyValueTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.collections4.keyvalue.DefaultKeyValueTest
+Running org.apache.commons.collections4.trie.PatriciaTrieTest
+Tests run: 545, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.196 sec - in org.apache.commons.collections4.trie.PatriciaTrieTest
+Running org.apache.commons.collections4.trie.PatriciaTrie2Test
+Tests run: 174, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.761 sec - in org.apache.commons.collections4.trie.PatriciaTrie2Test
+Running org.apache.commons.collections4.trie.UnmodifiableTrieTest
+Tests run: 545, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.975 sec - in org.apache.commons.collections4.trie.UnmodifiableTrieTest
+Running org.apache.commons.collections4.PredicateUtilsTest
+Tests run: 65, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 sec - in org.apache.commons.collections4.PredicateUtilsTest
+Running org.apache.commons.collections4.queue.TransformedQueueTest
+Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.05 sec - in org.apache.commons.collections4.queue.TransformedQueueTest
+Running org.apache.commons.collections4.queue.CircularFifoQueueTest
+Tests run: 51, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.099 sec - in org.apache.commons.collections4.queue.CircularFifoQueueTest
+Running org.apache.commons.collections4.queue.UnmodifiableQueueTest
+Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 sec - in org.apache.commons.collections4.queue.UnmodifiableQueueTest
+Running org.apache.commons.collections4.queue.PredicatedQueueTest
+Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 sec - in org.apache.commons.collections4.queue.PredicatedQueueTest
+Running org.apache.commons.collections4.ListUtilsTest
+Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec - in org.apache.commons.collections4.ListUtilsTest
+
+Results :
+
+Tests run: 14723, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 01:04 min
+[INFO] Finished at: 2018-09-30T08:29:05+02:00
+[INFO] ------------------------------------------------------------------------
+Writing HTML report to '/tmp/icst-2019/september-2018/dataset/commons-collections_parent/target/clover/report'
+Done. Processed 17 packages in 87563ms (5150ms per package).
+[INFO] /tmp/icst-2019/september-2018/dataset/commons-collections_parent/src/main/java/org/apache/commons/collections4/multimap/AbstractListValuedMap.java
+[INFO] /tmp/icst-2019/september-2018/dataset/commons-collections/src/main/java/org/apache/commons/collections4/multimap/AbstractListValuedMap.java
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:105 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:108 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:111 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:114 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:115 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:118 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:119 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:130 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:135 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:136 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:137 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:143 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:114 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:118 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:118 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:119 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:120 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:121 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:122 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:123 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:126 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:135 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:136 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:136 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:137 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:138 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:139 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:140 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:141 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:224 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:225 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:228 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:231 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:234 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:235 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:238 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:243 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:244 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:247 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:106 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:109 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:112 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:115 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:115 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:116 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:118 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:120 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:120 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:121 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:121 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:122 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:122 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:136 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:138 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:138 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:139 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:139 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:140 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:140 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:224 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:224 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:231 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:234 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:243 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:243 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:247 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:124 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:126 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:127 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:136 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:141 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:224 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:226 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:229 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:232 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:235 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:236 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:243 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:245 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:141 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:226 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:245 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:226 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:245 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:106 covered.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:234 covered.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:235 covered.
+[info] org.apache.commons.collections4.multimap.AbstractListValuedMap:236 covered.
+[INFO] /tmp/icst-2019/september-2018/dataset/commons-collections_parent/src/main/java/org/apache/commons/collections4/multimap/AbstractMultiValuedMap.java
+[INFO] /tmp/icst-2019/september-2018/dataset/commons-collections/src/main/java/org/apache/commons/collections4/multimap/AbstractMultiValuedMap.java
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:431 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:432 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:433 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:422 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:431 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:432 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:432 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:433 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:434 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:435 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:436 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:437 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:438 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:447 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:594 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:595 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:598 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:601 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:604 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:605 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:613 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:618 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:619 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:628 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:629 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:630 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:622 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:437 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:437 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:434 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:434 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:435 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:435 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:436 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:436 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:437 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:608 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:629 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:629 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:630 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:631 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:632 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:422 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:439 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:440 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:616 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:631 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:631 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:439 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:439 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:440 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:441 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:442 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:447 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:633 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:441 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:441 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:633 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:443 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:443 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:423 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:423 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:423 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:426 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:426 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:427 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:427 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:428 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:427 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:426 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:605 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:605 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:606 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:622 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:608 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:609 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:609 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:609 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:608 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:432 covered.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:437 covered.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:604 covered.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:594 covered.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:595 covered.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:598 covered.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:601 covered.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:605 covered.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:613 covered.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:609 covered.
+[info] org.apache.commons.collections4.multimap.AbstractMultiValuedMap:608 covered.
+[INFO] /tmp/icst-2019/september-2018/dataset/commons-collections_parent/src/main/java/org/apache/commons/collections4/multimap/AbstractSetValuedMap.java
+[INFO] /tmp/icst-2019/september-2018/dataset/commons-collections/src/main/java/org/apache/commons/collections4/multimap/AbstractSetValuedMap.java
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:102 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:105 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:108 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:111 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:112 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:115 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:116 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:127 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:132 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:133 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:134 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:140 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:111 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:115 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:115 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:116 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:117 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:118 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:119 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:120 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:123 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:132 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:133 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:133 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:134 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:135 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:136 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:137 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:138 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:155 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:156 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:159 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:162 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:165 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:166 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:169 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:174 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:175 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:178 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:103 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:106 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:109 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:112 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:112 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:113 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:115 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:117 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:117 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:118 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:118 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:119 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:119 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:133 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:135 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:135 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:136 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:136 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:137 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:137 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:155 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:155 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:162 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:165 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:174 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:174 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:178 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:121 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:123 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:124 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:133 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:138 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:155 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:157 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:160 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:163 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:166 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:167 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:174 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:176 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:138 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:157 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:176 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:157 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:176 is modified.
+[info] org.apache.commons.collections4.multimap.AbstractSetValuedMap:103 covered.
+[INFO] /tmp/icst-2019/september-2018/dataset/commons-collections_parent/src/test/java/org/apache/commons/collections4/multimap/MultiValuedHashMapTest.java
+[INFO] /tmp/icst-2019/september-2018/dataset/commons-collections/src/test/java/org/apache/commons/collections4/multimap/MultiValuedHashMapTest.java
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:168 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:169 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:171 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:172 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:173 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:174 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:175 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:176 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:178 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:179 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:180 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:185 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:186 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:188 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:189 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:190 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:191 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:192 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:193 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:195 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:196 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:197 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:198 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:199 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:200 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:205 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:206 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:208 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:209 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:210 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:211 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:212 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:213 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:215 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:216 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:217 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:219 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:220 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:221 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:168 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:168 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:169 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:169 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:176 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:176 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:180 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:180 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:185 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:185 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:186 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:186 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:193 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:193 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:200 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:200 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:205 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:205 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:206 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:206 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:213 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:213 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:217 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:217 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:221 is modified.
+[info] org.apache.commons.collections4.multimap.MultiValuedHashMapTest:221 is modified.
+[INFO] Saving result in /tmp/icst-2019/september-2018/result/commons-collections/commit_3_b0580d5/parent_coverage_testsThatExecuteTheChanges.csv ...
+[INFO] org.apache.commons.collections4.multimap.MultiValuedHashMapTest;testSerializeDeserializeThenCompare;testListValuedMapAdd;testObjectHashCodeEqualsContract;testFullMapCompatibility;testObjectHashCodeEqualsSelfHashCode;testSetValuedMapAdd;testListValuedMapRemoveViaListIterator;testListValuedMapRemove;testSetValuedMapRemoveViaIterator;testListValuedMapAddViaListIterator;testSetValuedMapRemove;testMapEquals
+org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest;testSerializeDeserializeThenCompare;testObjectHashCodeEqualsContract;testFullMapCompatibility;testObjectHashCodeEqualsSelfHashCode
+org.apache.commons.collections4.multimap.TransformedMultiValuedMapTest;testSerializeDeserializeThenCompare;testObjectHashCodeEqualsContract;testFullMapCompatibility;testObjectHashCodeEqualsSelfHashCode;testMapEquals
+[INFO] Writing Coverage in /tmp/icst-2019/september-2018/result/commons-collections/commit_3_b0580d5/parent_coverage_testsThatExecuteTheChanges_coverage.csv
+[INFO] org.apache.commons.collections4.multimap.AbstractListValuedMap;4;42
+
+[INFO] org.apache.commons.collections4.multimap.AbstractMultiValuedMap;11;39
+
+[INFO] org.apache.commons.collections4.multimap.AbstractSetValuedMap;1;42
+
+[INFO] total;16;123
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 02:46 min
+[INFO] Finished at: 2018-09-30T08:30:42+02:00
+[INFO] ------------------------------------------------------------------------

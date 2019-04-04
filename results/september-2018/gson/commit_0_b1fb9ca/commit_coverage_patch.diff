@@ -1,0 +1,61 @@
+diff --git a/examples/android-proguard-example/AndroidManifest.xml b/examples/android-proguard-example/AndroidManifest.xml
+old mode 100755
+new mode 100644
+diff --git a/gson/src/main/java/com/google/gson/JsonParser.java b/gson/src/main/java/com/google/gson/JsonParser.java
+old mode 100755
+new mode 100644
+diff --git a/gson/src/main/java/com/google/gson/internal/$Gson$Types.java b/gson/src/main/java/com/google/gson/internal/$Gson$Types.java
+index f66ac15..adea605 100644
+--- a/gson/src/main/java/com/google/gson/internal/$Gson$Types.java
++++ b/gson/src/main/java/com/google/gson/internal/$Gson$Types.java
+@@ -275,6 +275,10 @@ public final class $Gson$Types {
+    * @param supertype a superclass of, or interface implemented by, this.
+    */
+   static Type getSupertype(Type context, Class<?> contextRawType, Class<?> supertype) {
++    if (context instanceof WildcardType) {
++      // wildcards are useless for resolving supertypes. As the upper bound has the same raw type, use it instead
++      context = ((WildcardType)context).getUpperBounds()[0];
++    }
+     checkArgument(supertype.isAssignableFrom(contextRawType));
+     return resolve(context, contextRawType,
+         $Gson$Types.getGenericSupertype(context, contextRawType, supertype));
+diff --git a/gson/src/test/java/com/google/gson/GsonBuilderTest.java b/gson/src/test/java/com/google/gson/GsonBuilderTest.java
+old mode 100755
+new mode 100644
+diff --git a/gson/src/test/java/com/google/gson/functional/CollectionTest.java b/gson/src/test/java/com/google/gson/functional/CollectionTest.java
+index 9a8f707..4ec7378 100644
+--- a/gson/src/test/java/com/google/gson/functional/CollectionTest.java
++++ b/gson/src/test/java/com/google/gson/functional/CollectionTest.java
+@@ -393,4 +393,23 @@ public class CollectionTest extends TestCase {
+       assertTrue(entry.value == 1 || entry.value == 2);
+     }
+   }
++
++  private class BigClass { private Map<String, ? extends List<SmallClass>> inBig; }
++
++  private class SmallClass { private String inSmall; }
++
++  public void testIssue1107() {
++    String json = "{\n" +
++            "  \"inBig\": {\n" +
++            "    \"key\": [\n" +
++            "      { \"inSmall\": \"hello\" }\n" +
++            "    ]\n" +
++            "  }\n" +
++            "}";
++    BigClass bigClass = new Gson().fromJson(json, BigClass.class);
++    SmallClass small = bigClass.inBig.get("key").get(0);
++    assertNotNull(small);
++    assertEquals("hello", small.inSmall);
++  }
++
+ }
+diff --git a/gson/src/test/java/com/google/gson/functional/ConcurrencyTest.java b/gson/src/test/java/com/google/gson/functional/ConcurrencyTest.java
+old mode 100755
+new mode 100644
+diff --git a/gson/src/test/java/com/google/gson/functional/MapTest.java b/gson/src/test/java/com/google/gson/functional/MapTest.java
+old mode 100755
+new mode 100644
+diff --git a/gson/src/test/java/com/google/gson/functional/NullObjectAndFieldTest.java b/gson/src/test/java/com/google/gson/functional/NullObjectAndFieldTest.java
+old mode 100755
+new mode 100644

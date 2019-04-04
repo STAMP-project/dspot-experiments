@@ -1,0 +1,48 @@
+diff --git a/src/main/java/org/apache/commons/io/input/Tailer.java b/src/main/java/org/apache/commons/io/input/Tailer.java
+index ade7cd8..36f4567 100644
+--- a/src/main/java/org/apache/commons/io/input/Tailer.java
++++ b/src/main/java/org/apache/commons/io/input/Tailer.java
+@@ -550,7 +550,9 @@ public class Tailer implements Runnable {
+         IOUtils.closeQuietly(lineBuf); // not strictly necessary
+         reader.seek(rePos); // Ensure we can re-read if necessary
+ 
+-        listener.endOfFileReached();
++        if (listener instanceof TailerListenerAdapter) {
++            ((TailerListenerAdapter) listener).endOfFileReached();
++        }
+ 
+         return rePos;
+     }
+diff --git a/src/main/java/org/apache/commons/io/input/TailerListener.java b/src/main/java/org/apache/commons/io/input/TailerListener.java
+index f3637ba..c58eb64 100644
+--- a/src/main/java/org/apache/commons/io/input/TailerListener.java
++++ b/src/main/java/org/apache/commons/io/input/TailerListener.java
+@@ -64,11 +64,4 @@ public interface TailerListener {
+      */
+     void handle(Exception ex);
+ 
+-    /**
+-     * Called each time the Tailer reaches the end of the file.
+-     * <p>
+-     * <b>Note:</b> this is called from the tailer thread.
+-     * @since 2.5
+-     */
+-    void endOfFileReached();
+ }
+diff --git a/src/main/java/org/apache/commons/io/input/TailerListenerAdapter.java b/src/main/java/org/apache/commons/io/input/TailerListenerAdapter.java
+index 1185f13..1ae624b 100644
+--- a/src/main/java/org/apache/commons/io/input/TailerListenerAdapter.java
++++ b/src/main/java/org/apache/commons/io/input/TailerListenerAdapter.java
+@@ -63,6 +63,12 @@ public class TailerListenerAdapter implements TailerListener {
+ 
+     /**
+      * Called each time the Tailer reaches the end of the file.
++     *
++     * <b>Note:</b> this is called from the tailer thread.
++     *
++     * Note: a future version of commons-io will pull this method up to the TailerListener interface,
++     * for now clients must subclass this class to use this feature.
++     *
+      * @since 2.5
+      */
+     public void endOfFileReached() {

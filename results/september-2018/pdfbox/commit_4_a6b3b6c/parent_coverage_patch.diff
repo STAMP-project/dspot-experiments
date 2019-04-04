@@ -1,0 +1,70 @@
+diff --git a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/graphics/image/LosslessFactory.java b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/graphics/image/LosslessFactory.java
+index 25eb83f..bb0e497 100644
+--- a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/graphics/image/LosslessFactory.java
++++ b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/graphics/image/LosslessFactory.java
+@@ -60,20 +60,11 @@ public final class LosslessFactory
+     }
+ 
+     /**
+-     * Creates a new lossless encoded image XObject from a BufferedImage.
+-     * <p>
+-     * <u>New for advanced users from 2.0.12 on:</u><br>
+-     * If you created your image with a non standard ICC colorspace, it will be
+-     * preserved. (If you load images in java using ImageIO then no need to read
+-     * this segment) However a new colorspace will be created for each image. So
+-     * if you create a PDF with several such images, consider replacing the
+-     * colorspace with a common object to save space. This is done with
+-     * {@link PDImageXObject#getColorSpace()} and
+-     * {@link PDImageXObject#setColorSpace(org.apache.pdfbox.pdmodel.graphics.color.PDColorSpace) PDImageXObject.setColorSpace()}
++     * Creates a new lossless encoded Image XObject from a Buffered Image.
+      *
+      * @param document the document where the image will be created
+-     * @param image the BufferedImage to embed
+-     * @return a new image XObject
++     * @param image the buffered image to embed
++     * @return a new Image XObject
+      * @throws IOException if something goes wrong
+      */
+     public static PDImageXObject createFromImage(PDDocument document, BufferedImage image)
+@@ -581,11 +572,6 @@ public final class LosslessFactory
+                     }
+                     pdProfile.getPDStream().getCOSObject().setInt(COSName.N,
+                             srcCspace.getNumComponents());
+-                    pdProfile.getPDStream().getCOSObject().setItem(COSName.ALTERNATE,
+-                            srcCspace.getType() == ColorSpace.TYPE_CMYK ?
+-                                    COSName.DEVICECMYK :
+-                                    COSName.DEVICERGB);
+-                    pdColorSpace = pdProfile;
+                 }
+             }
+ 
+diff --git a/pdfbox/src/test/java/org/apache/pdfbox/pdmodel/graphics/image/LosslessFactoryTest.java b/pdfbox/src/test/java/org/apache/pdfbox/pdmodel/graphics/image/LosslessFactoryTest.java
+index b606fbf..2cc7722 100644
+--- a/pdfbox/src/test/java/org/apache/pdfbox/pdmodel/graphics/image/LosslessFactoryTest.java
++++ b/pdfbox/src/test/java/org/apache/pdfbox/pdmodel/graphics/image/LosslessFactoryTest.java
+@@ -431,12 +431,21 @@ public class LosslessFactoryTest extends TestCase
+         BufferedImage imageCMYK = op.filter(image, null);
+ 
+         PDImageXObject ximage = LosslessFactory.createFromImage(document, imageCMYK);
+-        validate(ximage, 8, imageCMYK.getWidth(), imageCMYK.getHeight(), "png", "ICCBased");
++        validate(ximage, 8, imageCMYK.getWidth(), imageCMYK.getHeight(), "png", PDDeviceCMYK.INSTANCE.getName());
+ 
+         doWritePDF(document, ximage, testResultsDir, "cmyk.pdf");
+-        
+-        // still slight difference of 1 color level
+-        //checkIdent(imageCMYK, ximage.getImage());
++
++        // The image in CMYK got color-truncated because the ISO_Coated colorspace is way smaller 
++        // than the sRGB colorspace. The image is converted back to sRGB when calling PDImageXObject.getImage().
++        // So to be able to check the image data we must also convert our CMYK Image back to sRGB
++        //BufferedImage compareImageRGB = new BufferedImage(imageCMYK.getWidth(), imageCMYK.getHeight(),
++        //BufferedImage.TYPE_INT_BGR);
++        //Graphics2D graphics = compareImageRGB.createGraphics();
++        //graphics.drawImage(imageCMYK, 0, 0, null);
++        //graphics.dispose();
++        //ImageIO.write(compareImageRGB, "TIFF", new File("/tmp/compare.tiff"));
++        //ImageIO.write(ximage.getImage(), "TIFF", new File("/tmp/compare2.tiff"));
++        //checkIdent(compareImageRGB, ximage.getImage());
+     }
+ 
+     public void testCreateLosslessFrom16Bit() throws IOException

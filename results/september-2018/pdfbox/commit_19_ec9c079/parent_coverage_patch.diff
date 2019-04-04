@@ -1,0 +1,115 @@
+diff --git a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/PDAppearanceContentStream.java b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/PDAppearanceContentStream.java
+index 68ea521..f16140e 100644
+--- a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/PDAppearanceContentStream.java
++++ b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/PDAppearanceContentStream.java
+@@ -19,7 +19,6 @@ package org.apache.pdfbox.pdmodel;
+ import java.io.Closeable;
+ import java.io.IOException;
+ import java.io.OutputStream;
+-import org.apache.pdfbox.cos.COSArray;
+ 
+ import org.apache.pdfbox.cos.COSName;
+ import org.apache.pdfbox.pdmodel.graphics.color.PDColor;
+@@ -189,18 +188,7 @@ public final class PDAppearanceContentStream extends PDAbstractContentStream imp
+         //Or call the appropriate setNonStrokingColor() method from the base class?
+     }
+ 
+-    /**
+-     * Convenience method for annotations: sets the line with and dash style.
+-     *
+-     * @param lineWidth The line width.
+-     * @param bs The border style, may be null.
+-     * @param border The border array, must have at least three entries. This is
+-     * only used if the border style is null.
+-     *
+-     * @throws IOException If there is an error writing to the content stream.
+-     */
+-    public void setBorderLine(float lineWidth, PDBorderStyleDictionary bs,
+-                                               COSArray border) throws IOException
++    public void setBorderLine(float lineWidth, PDBorderStyleDictionary bs) throws IOException
+     {
+         // Can't use PDBorderStyleDictionary.getDashStyle() as
+         // this will return a default dash style if non is existing
+@@ -209,10 +197,6 @@ public final class PDAppearanceContentStream extends PDAbstractContentStream imp
+         {
+             setLineDashPattern(bs.getDashStyle().getDashArray(), 0);
+         }
+-        else if (bs == null && border.size() > 3 && border.getObject(3) instanceof COSArray)
+-        {
+-            setLineDashPattern(((COSArray) border.getObject(3)).toFloatArray(), 0);
+-        }
+         setLineWidthOnDemand(lineWidth);
+     }
+ 
+diff --git a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDCircleAppearanceHandler.java b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDCircleAppearanceHandler.java
+index df81219..42e73cd 100644
+--- a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDCircleAppearanceHandler.java
++++ b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDCircleAppearanceHandler.java
+@@ -65,7 +65,7 @@ public class PDCircleAppearanceHandler extends PDAbstractAppearanceHandler
+ 
+             setOpacity(contentStream, annotation.getConstantOpacity());
+ 
+-            contentStream.setBorderLine(lineWidth, annotation.getBorderStyle(), annotation.getBorder());
++            contentStream.setBorderLine(lineWidth, annotation.getBorderStyle());
+             PDBorderEffectDictionary borderEffect = annotation.getBorderEffect();
+ 
+             // Acrobat applies a padding to each side of the bbox so the line is completely within
+diff --git a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDLinkAppearanceHandler.java b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDLinkAppearanceHandler.java
+index 945aa32..37fe5eb 100644
+--- a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDLinkAppearanceHandler.java
++++ b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDLinkAppearanceHandler.java
+@@ -75,7 +75,17 @@ public class PDLinkAppearanceHandler extends PDAbstractAppearanceHandler
+             }
+             boolean hasStroke = contentStream.setStrokingColorOnDemand(color);
+ 
+-            contentStream.setBorderLine(lineWidth, annotation.getBorderStyle(), annotation.getBorder());
++            contentStream.setBorderLine(lineWidth, annotation.getBorderStyle());
++            //TODO find better way to do this. Either pass border array to
++            // setBorderLine(), or use AnnotationBorder class
++            if (annotation.getBorderStyle() == null)
++            {
++                COSArray border = annotation.getBorder();
++                if (border.size() > 3 && border.getObject(3) instanceof COSArray)
++                {
++                    contentStream.setLineDashPattern(((COSArray) border.getObject(3)).toFloatArray(), 0);
++                }
++            }
+ 
+             // the differences rectangle
+             // TODO: this only works for border effect solid. Cloudy needs a different approach.
+diff --git a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDPolygonAppearanceHandler.java b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDPolygonAppearanceHandler.java
+index fdc03dd..7b4c99e 100644
+--- a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDPolygonAppearanceHandler.java
++++ b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDPolygonAppearanceHandler.java
+@@ -100,7 +100,17 @@ public class PDPolygonAppearanceHandler extends PDAbstractAppearanceHandler
+ 
+             setOpacity(contentStream, annotation.getConstantOpacity());
+ 
+-            contentStream.setBorderLine(lineWidth, annotation.getBorderStyle(), annotation.getBorder());
++            contentStream.setBorderLine(lineWidth, annotation.getBorderStyle());
++            //TODO find better way to do this. Either pass border array to
++            // setBorderLine(), or use AnnotationBorder class
++            if (annotation.getBorderStyle() == null)
++            {
++                COSArray border = annotation.getBorder();
++                if (border.size() > 3 && border.getObject(3) instanceof COSArray)
++                {
++                    contentStream.setLineDashPattern(((COSArray) border.getObject(3)).toFloatArray(), 0);
++                }
++            }
+ 
+             PDBorderEffectDictionary borderEffect = annotation.getBorderEffect();
+             if (borderEffect != null && borderEffect.getStyle().equals(PDBorderEffectDictionary.STYLE_CLOUDY))
+diff --git a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDSquareAppearanceHandler.java b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDSquareAppearanceHandler.java
+index 3211b6f..6738ed7 100644
+--- a/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDSquareAppearanceHandler.java
++++ b/pdfbox/src/main/java/org/apache/pdfbox/pdmodel/interactive/annotation/handlers/PDSquareAppearanceHandler.java
+@@ -67,7 +67,7 @@ public class PDSquareAppearanceHandler extends PDAbstractAppearanceHandler
+ 
+             setOpacity(contentStream, annotation.getConstantOpacity());
+ 
+-            contentStream.setBorderLine(lineWidth, annotation.getBorderStyle(), annotation.getBorder());                
++            contentStream.setBorderLine(lineWidth, annotation.getBorderStyle());                
+             PDBorderEffectDictionary borderEffect = annotation.getBorderEffect();
+ 
+             if (borderEffect != null && borderEffect.getStyle().equals(PDBorderEffectDictionary.STYLE_CLOUDY))

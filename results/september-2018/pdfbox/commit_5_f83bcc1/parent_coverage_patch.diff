@@ -1,0 +1,18 @@
+diff --git a/pdfbox/src/main/java/org/apache/pdfbox/rendering/PDFRenderer.java b/pdfbox/src/main/java/org/apache/pdfbox/rendering/PDFRenderer.java
+index 8ca2056..af651c3 100644
+--- a/pdfbox/src/main/java/org/apache/pdfbox/rendering/PDFRenderer.java
++++ b/pdfbox/src/main/java/org/apache/pdfbox/rendering/PDFRenderer.java
+@@ -195,11 +195,8 @@ public class PDFRenderer
+         PDRectangle cropbBox = page.getCropBox();
+         float widthPt = cropbBox.getWidth();
+         float heightPt = cropbBox.getHeight();
+-
+-        // PDFBOX-4306 avoid single blank pixel line on the right or on the bottom
+-        int widthPx = (int) Math.max(Math.floor(widthPt * scale), 1);
+-        int heightPx = (int) Math.max(Math.floor(heightPt * scale), 1);
+-
++        int widthPx = Math.round(widthPt * scale);
++        int heightPx = Math.round(heightPt * scale);
+         int rotationAngle = page.getRotation();
+ 
+         int bimType = imageType.toBufferedImageType();

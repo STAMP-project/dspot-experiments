@@ -1,0 +1,163 @@
+diff --git a/xwiki-commons-core/xwiki-commons-job/src/main/java/org/xwiki/job/internal/DefaultJobStatusStore.java b/xwiki-commons-core/xwiki-commons-job/src/main/java/org/xwiki/job/internal/DefaultJobStatusStore.java
+index 343bb98..790af08 100644
+--- a/xwiki-commons-core/xwiki-commons-job/src/main/java/org/xwiki/job/internal/DefaultJobStatusStore.java
++++ b/xwiki-commons-core/xwiki-commons-job/src/main/java/org/xwiki/job/internal/DefaultJobStatusStore.java
+@@ -35,6 +35,7 @@
+ import org.apache.commons.configuration2.PropertiesConfiguration;
+ import org.apache.commons.configuration2.builder.FileBasedConfigurationBuilder;
+ import org.apache.commons.configuration2.builder.fluent.Parameters;
++import org.apache.commons.configuration2.builder.fluent.PropertiesBuilderParameters;
+ import org.apache.commons.io.FileUtils;
+ import org.apache.commons.lang3.StringUtils;
+ import org.apache.commons.lang3.concurrent.BasicThreadFactory;
+@@ -141,7 +142,17 @@ public void initialize() throws InitializationException
+             this.serializer = new JobStatusSerializer();
+ 
+             // Check if the store need to be upgraded
+-            FileBasedConfigurationBuilder<PropertiesConfiguration> builder = getStoreProperties();
++            File folder = this.configuration.getStorage();
++            File file = new File(folder, INDEX_FILE);
++
++            PropertiesBuilderParameters parameters = new Parameters().properties();
++            if (file.exists()) {
++                new Parameters().properties().setFile(file);
++            }
++
++            FileBasedConfigurationBuilder<PropertiesConfiguration> builder =
++                new FileBasedConfigurationBuilder<PropertiesConfiguration>(PropertiesConfiguration.class)
++                    .configure(parameters);
+             PropertiesConfiguration properties = builder.getConfiguration();
+             int version = properties.getInt(INDEX_FILE_VERSION, 0);
+             if (VERSION > version) {
+@@ -149,7 +160,7 @@ public void initialize() throws InitializationException
+ 
+                 // Update version
+                 properties.setProperty(INDEX_FILE_VERSION, VERSION);
+-                builder.save();
++                builder.getFileHandler().save(file);
+             }
+         } catch (Exception e) {
+             this.logger.error("Failed to load jobs", e);
+@@ -294,14 +305,6 @@ private File getJobFolder(List<String> id)
+         return folder;
+     }
+ 
+-    private FileBasedConfigurationBuilder<PropertiesConfiguration> getStoreProperties()
+-    {
+-        File folder = this.configuration.getStorage();
+-
+-        return new FileBasedConfigurationBuilder<PropertiesConfiguration>(PropertiesConfiguration.class)
+-            .configure(new Parameters().properties().setFile(new File(folder, INDEX_FILE)));
+-    }
+-
+     /**
+      * @param status the job status to save
+      * @throws IOException when falling to store the provided status
+diff --git a/xwiki-commons-core/xwiki-commons-job/src/test/java/org/xwiki/job/internal/DefaultJobStatusStoreTest.java b/xwiki-commons-core/xwiki-commons-job/src/test/java/org/xwiki/job/internal/DefaultJobStatusStoreTest.java
+index fc70525..9fda6b6 100644
+--- a/xwiki-commons-core/xwiki-commons-job/src/test/java/org/xwiki/job/internal/DefaultJobStatusStoreTest.java
++++ b/xwiki-commons-core/xwiki-commons-job/src/test/java/org/xwiki/job/internal/DefaultJobStatusStoreTest.java
+@@ -24,7 +24,6 @@
+ import java.util.List;
+ 
+ import org.apache.commons.io.FileUtils;
+-import org.junit.Assert;
+ import org.junit.Before;
+ import org.junit.Rule;
+ import org.junit.Test;
+@@ -38,7 +37,10 @@
+ import org.xwiki.job.event.status.JobStatus;
+ import org.xwiki.test.mockito.MockitoComponentMockingRule;
+ 
++import static org.junit.Assert.assertEquals;
++import static org.junit.Assert.assertNotNull;
+ import static org.junit.Assert.assertNull;
++import static org.junit.Assert.assertSame;
+ import static org.mockito.ArgumentMatchers.any;
+ import static org.mockito.Mockito.mock;
+ import static org.mockito.Mockito.verifyNoMoreInteractions;
+@@ -76,11 +78,11 @@ public void getJobStatusWithNullId() throws Exception
+     {
+         JobStatus jobStatus = this.componentManager.getComponentUnderTest().getJobStatus((List<String>) null);
+ 
+-        Assert.assertNotNull(jobStatus);
+-        Assert.assertNull(jobStatus.getRequest().getId());
+-        Assert.assertEquals(JobStatus.State.FINISHED, jobStatus.getState());
++        assertNotNull(jobStatus);
++        assertNull(jobStatus.getRequest().getId());
++        assertEquals(JobStatus.State.FINISHED, jobStatus.getState());
+ 
+-        Assert.assertSame(jobStatus, this.componentManager.getComponentUnderTest().getJobStatus((List<String>) null));
++        assertSame(jobStatus, this.componentManager.getComponentUnderTest().getJobStatus((List<String>) null));
+     }
+ 
+     @Test
+@@ -88,12 +90,11 @@ public void getJobStatusWithMultipleId() throws Exception
+     {
+         JobStatus jobStatus = this.componentManager.getComponentUnderTest().getJobStatus(Arrays.asList("id1", "id2"));
+ 
+-        Assert.assertNotNull(jobStatus);
+-        Assert.assertEquals(Arrays.asList("id1", "id2"), jobStatus.getRequest().getId());
+-        Assert.assertEquals(JobStatus.State.FINISHED, jobStatus.getState());
++        assertNotNull(jobStatus);
++        assertEquals(Arrays.asList("id1", "id2"), jobStatus.getRequest().getId());
++        assertEquals(JobStatus.State.FINISHED, jobStatus.getState());
+ 
+-        Assert.assertSame(jobStatus,
+-            this.componentManager.getComponentUnderTest().getJobStatus(Arrays.asList("id1", "id2")));
++        assertSame(jobStatus, this.componentManager.getComponentUnderTest().getJobStatus(Arrays.asList("id1", "id2")));
+     }
+ 
+     @Test
+@@ -102,9 +103,9 @@ public void getJobStatusInOldPlace() throws Exception
+         JobStatus jobStatus =
+             this.componentManager.getComponentUnderTest().getJobStatus(Arrays.asList("id1", "id2", "id3"));
+ 
+-        Assert.assertNotNull(jobStatus);
+-        Assert.assertEquals(Arrays.asList("id1", "id2", "id3"), jobStatus.getRequest().getId());
+-        Assert.assertEquals(JobStatus.State.FINISHED, jobStatus.getState());
++        assertNotNull(jobStatus);
++        assertEquals(Arrays.asList("id1", "id2", "id3"), jobStatus.getRequest().getId());
++        assertEquals(JobStatus.State.FINISHED, jobStatus.getState());
+     }
+ 
+     @Test
+@@ -113,7 +114,8 @@ public void getJobStatusInWrongPlaceAndWithInvalidLogArgument() throws Exception
+         JobStatus jobStatus =
+             this.componentManager.getComponentUnderTest().getJobStatus(Arrays.asList("invalidlogargument"));
+ 
+-        Assert.assertEquals(3, jobStatus.getLog().size());
++        assertNotNull(jobStatus);
++        assertEquals(3, jobStatus.getLog().size());
+     }
+ 
+     @Test
+@@ -139,15 +141,15 @@ public void removeJobStatus() throws ComponentLookupException
+ 
+         JobStatus jobStatus = this.componentManager.getComponentUnderTest().getJobStatus(id);
+ 
+-        Assert.assertNotNull(jobStatus);
+-        Assert.assertNull(jobStatus.getRequest().getId());
+-        Assert.assertEquals(JobStatus.State.FINISHED, jobStatus.getState());
++        assertNotNull(jobStatus);
++        assertNull(jobStatus.getRequest().getId());
++        assertEquals(JobStatus.State.FINISHED, jobStatus.getState());
+ 
+-        Assert.assertSame(jobStatus, this.componentManager.getComponentUnderTest().getJobStatus(id));
++        assertSame(jobStatus, this.componentManager.getComponentUnderTest().getJobStatus(id));
+ 
+         this.componentManager.getComponentUnderTest().remove(id);
+ 
+-        Assert.assertSame(null, this.componentManager.getComponentUnderTest().getJobStatus(id));
++        assertSame(null, this.componentManager.getComponentUnderTest().getJobStatus(id));
+     }
+ 
+     @Test
+@@ -161,6 +163,6 @@ public void storeJobStatus() throws ComponentLookupException
+ 
+         this.componentManager.getComponentUnderTest().store(jobStatus);
+ 
+-        Assert.assertSame(jobStatus, this.componentManager.getComponentUnderTest().getJobStatus(id));
++        assertSame(jobStatus, this.componentManager.getComponentUnderTest().getJobStatus(id));
+     }
+ }

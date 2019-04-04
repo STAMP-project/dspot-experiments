@@ -1,0 +1,4 @@
+======= REPORT =======
+2 amplified test fails on the new versions.
+testScheduledTimeAndBestTimeBothAbsent_failAssert1(com.urbanairship.api.schedule.model.ScheduleTest): expected:<...ither scheduled_time[, local_scheduled_time, or best ]time must be set.> but was:<...ither scheduled_time[ or best_]time must be set.>
+testScheduledTimeAndBestTimeBothPresent_failAssert0(com.urbanairship.api.schedule.model.ScheduleTest): expected:<[If bestTime is selected, scheduleTimestamp must be null and vice versa].> but was:<[Either scheduled_time or best_time must be set].>

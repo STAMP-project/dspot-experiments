@@ -1,0 +1,263 @@
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/version/internal/DefaultVersionConstraint.java b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/version/internal/DefaultVersionConstraint.java
+index c484890..b0fd909 100644
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/version/internal/DefaultVersionConstraint.java
++++ b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/version/internal/DefaultVersionConstraint.java
+@@ -103,12 +103,9 @@ public DefaultVersionConstraint(VersionConstraint versionConstraint)
+      */
+     public DefaultVersionConstraint(Collection<? extends VersionRangeCollection> ranges, Version version)
+     {
+-        if (ranges != null && !ranges.isEmpty()) {
+-            this.ranges = new ArrayList<>(ranges);
+-        } else {
+-            this.ranges = Collections.emptyList();
+-        }
+         this.version = version;
++
++        setRanges(ranges);
+     }
+ 
+     /**
+@@ -116,8 +113,41 @@ public DefaultVersionConstraint(Collection<? extends VersionRangeCollection> ran
+      */
+     public DefaultVersionConstraint(Version version)
+     {
+-        this.ranges = Collections.emptyList();
+         this.version = version;
++
++        this.ranges = Collections.emptyList();
++    }
++
++    private VersionRangeCollection getStrictVersion(Collection<? extends VersionRangeCollection> ranges)
++    {
++        for (VersionRangeCollection collection : ranges) {
++            if (collection.getRanges().size() == 1) {
++                VersionRange range = collection.getRanges().iterator().next();
++                if (range instanceof DefaultVersionRange && ((DefaultVersionRange) range).getLowerBound() != null
++                    && ((DefaultVersionRange) range).getLowerBound()
++                        .equals(((DefaultVersionRange) range).getUpperBound())) {
++                    return collection;
++                }
++
++            }
++        }
++
++        return null;
++    }
++
++    private void setRanges(Collection<? extends VersionRangeCollection> ranges)
++    {
++        if (ranges != null && !ranges.isEmpty()) {
++            // Optimize ranges in case there is range collection with a strict version
++            VersionRangeCollection strictVersion = getStrictVersion(ranges);
++            if (strictVersion != null) {
++                this.ranges = Collections.singletonList(strictVersion);
++            } else {
++                this.ranges = new ArrayList<>(ranges);
++            }
++        } else {
++            this.ranges = Collections.emptyList();
++        }
+     }
+ 
+     private void init()
+@@ -138,7 +168,7 @@ private void init()
+                 this.version = new DefaultVersion(this.value);
+                 this.ranges = Collections.emptyList();
+             } else {
+-                this.ranges = newRanges;
++                setRanges(newRanges);
+             }
+         }
+     }
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/version/internal/DefaultVersionRange.java b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/version/internal/DefaultVersionRange.java
+index b058997..e5c4508 100644
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/version/internal/DefaultVersionRange.java
++++ b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/main/java/org/xwiki/extension/version/internal/DefaultVersionRange.java
+@@ -107,6 +107,24 @@ public DefaultVersionRange(Version lowerBound, boolean lowerBoundInclusive, Vers
+     }
+ 
+     /**
++     * @return the minimum version
++     * @since 9.8RC1
++     */
++    public Version getLowerBound()
++    {
++        return this.lowerBound;
++    }
++
++    /**
++     * @return the maximum version
++     * @since 9.8RC1
++     */
++    public Version getUpperBound()
++    {
++        return this.upperBound;
++    }
++
++    /**
+      * @param rawRange the version range to parse
+      * @throws InvalidVersionRangeException error when parsing version range
+      */
+@@ -127,8 +145,8 @@ private void setRange(String rawRange) throws InvalidVersionRangeException
+ 
+         if (index < 0) {
+             if (!this.lowerBoundInclusive || !this.upperBoundInclusive) {
+-                throw new InvalidVersionRangeException(MessageFormat.format(
+-                    "Invalid version range [{0}], single version must be surrounded by []", rawRange));
++                throw new InvalidVersionRangeException(MessageFormat
++                    .format("Invalid version range [{0}], single version must be surrounded by []", rawRange));
+             }
+ 
+             this.upperBound = new DefaultVersion(range.trim());
+@@ -139,8 +157,8 @@ private void setRange(String rawRange) throws InvalidVersionRangeException
+ 
+             // more than two bounds, e.g. (1,2,3)
+             if (StringUtils.contains(parsedUpperBound, RANGE_SEPARATOR)) {
+-                throw new InvalidVersionRangeException(MessageFormat.format(
+-                    "Invalid version range [{0}], bounds may not contain additional ','", rawRange));
++                throw new InvalidVersionRangeException(MessageFormat
++                    .format("Invalid version range [{0}], bounds may not contain additional ','", rawRange));
+             }
+ 
+             this.lowerBound = parsedLowerBound.length() > 0 ? new DefaultVersion(parsedLowerBound) : null;
+@@ -167,8 +185,8 @@ private boolean findLowerBoundInclusive(String range) throws InvalidVersionRange
+         } else if (VersionUtils.startsWith(range, '(')) {
+             return false;
+         } else {
+-            throw new InvalidVersionRangeException(MessageFormat.format(
+-                "Invalid version range [{0}], a range must start with either [ or (", range));
++            throw new InvalidVersionRangeException(
++                MessageFormat.format("Invalid version range [{0}], a range must start with either [ or (", range));
+         }
+     }
+ 
+@@ -184,8 +202,8 @@ private boolean findUpperBoundInclusive(String range) throws InvalidVersionRange
+         } else if (VersionUtils.endsWith(range, ')')) {
+             return false;
+         } else {
+-            throw new InvalidVersionRangeException(MessageFormat.format(
+-                "Invalid version range [{0}], a range must end with either [ or (", range));
++            throw new InvalidVersionRangeException(
++                MessageFormat.format("Invalid version range [{0}], a range must end with either [ or (", range));
+         }
+     }
+ 
+@@ -282,12 +300,10 @@ public boolean isCompatible(VersionRange otherRange)
+      */
+     public boolean isCompatible(DefaultVersionRange otherRange)
+     {
+-        int lowerCompare =
+-            compareTo(this.lowerBound, this.lowerBoundInclusive, otherRange.lowerBound, otherRange.lowerBoundInclusive,
+-                false);
+-        int upperCompare =
+-            compareTo(this.upperBound, this.upperBoundInclusive, otherRange.upperBound, otherRange.upperBoundInclusive,
+-                true);
++        int lowerCompare = compareTo(this.lowerBound, this.lowerBoundInclusive, otherRange.lowerBound,
++            otherRange.lowerBoundInclusive, false);
++        int upperCompare = compareTo(this.upperBound, this.upperBoundInclusive, otherRange.upperBound,
++            otherRange.upperBoundInclusive, true);
+ 
+         // Both ranges have one bound in common
+         if (lowerCompare == 0 || upperCompare == 0) {
+@@ -305,9 +321,11 @@ public boolean isCompatible(DefaultVersionRange otherRange)
+         }
+ 
+         // Validate intersections
+-        return lowerCompare < 0 ? isCompatible(this.upperBound, this.upperBoundInclusive, otherRange.lowerBound,
+-            otherRange.lowerBoundInclusive) : isCompatible(otherRange.upperBound, otherRange.upperBoundInclusive,
+-                this.lowerBound, this.lowerBoundInclusive);
++        return lowerCompare < 0
++            ? isCompatible(this.upperBound, this.upperBoundInclusive, otherRange.lowerBound,
++                otherRange.lowerBoundInclusive)
++            : isCompatible(otherRange.upperBound, otherRange.upperBoundInclusive, this.lowerBound,
++                this.lowerBoundInclusive);
+     }
+ 
+     /**
+@@ -460,8 +478,8 @@ private void writeObject(ObjectOutputStream out) throws IOException
+      * @throws ClassNotFoundException error when unserializing the version
+      * @throws InvalidVersionRangeException error when unserializing the version
+      */
+-    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException,
+-        InvalidVersionRangeException
++    private void readObject(ObjectInputStream in)
++        throws IOException, ClassNotFoundException, InvalidVersionRangeException
+     {
+         setRange((String) in.readObject());
+     }
+diff --git a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/version/internal/DefaultVersionConstraintTest.java b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/version/internal/DefaultVersionConstraintTest.java
+index b719728..a4c57a0 100644
+--- a/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/version/internal/DefaultVersionConstraintTest.java
++++ b/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/version/internal/DefaultVersionConstraintTest.java
+@@ -26,18 +26,21 @@
+ import org.xwiki.extension.version.IncompatibleVersionConstraintException;
+ import org.xwiki.extension.version.InvalidVersionRangeException;
+ 
++import static org.junit.Assert.assertEquals;
++import static org.junit.Assert.assertFalse;
++import static org.junit.Assert.assertTrue;
++
+ public class DefaultVersionConstraintTest
+ {
+     @Test
+     public void testMerge() throws IncompatibleVersionConstraintException
+     {
+-        Assert.assertEquals("2.0",
+-            new DefaultVersionConstraint("1.0").merge(new DefaultVersionConstraint("2.0")).getValue());
+-        Assert.assertEquals("{[1.0,2.0]},{[2.0]}",
++        assertEquals("2.0", new DefaultVersionConstraint("1.0").merge(new DefaultVersionConstraint("2.0")).getValue());
++        assertEquals("[2.0]",
+             new DefaultVersionConstraint("[1.0,2.0]").merge(new DefaultVersionConstraint("[2.0]")).getValue());
+-        Assert.assertEquals("{[1.0,2.0]},{[2.0,]}",
++        assertEquals("{[1.0,2.0]},{[2.0,]}",
+             new DefaultVersionConstraint("[1.0,2.0]").merge(new DefaultVersionConstraint("2.0")).getValue());
+-        Assert.assertEquals("{[1.0,]},{[2.0]}",
++        assertEquals("[2.0]",
+             new DefaultVersionConstraint("1.0").merge(new DefaultVersionConstraint("[2.0]")).getValue());
+ 
+         // Invalid
+@@ -60,32 +63,32 @@ public void testMerge() throws IncompatibleVersionConstraintException
+     @Test
+     public void testParse() throws InvalidVersionRangeException
+     {
+-        Assert.assertEquals("1.0", new DefaultVersionConstraint("1.0").getVersion().getValue());
+-        Assert.assertEquals(Arrays.asList(new DefaultVersionRangeCollection("[1.0]")),
++        assertEquals("1.0", new DefaultVersionConstraint("1.0").getVersion().getValue());
++        assertEquals(Arrays.asList(new DefaultVersionRangeCollection("[1.0]")),
+             new DefaultVersionConstraint("[1.0]").getRanges());
+-        Assert.assertEquals(Arrays.asList(new DefaultVersionRangeCollection("[1.0]")),
++        assertEquals(Arrays.asList(new DefaultVersionRangeCollection("[1.0]")),
+             new DefaultVersionConstraint("{[1.0]}").getRanges());
+-        Assert.assertEquals(
+-            Arrays.asList(new DefaultVersionRangeCollection("[1.0]"),
+-                new DefaultVersionRangeCollection("[1.0,2.0],[1.0]")),
+-            new DefaultVersionConstraint("{[1.0]},{[1.0,2.0],[1.0]}").getRanges());
++        assertEquals(
++            Arrays.asList(new DefaultVersionRangeCollection("[1.0,3.0]"),
++                new DefaultVersionRangeCollection("[1.0,2.0],[1.0,3.0]")),
++            new DefaultVersionConstraint("{[1.0,3.0]},{[1.0,2.0],[1.0,3.0]}").getRanges());
+ 
+         // Invalid goes to version
+ 
+-        Assert.assertEquals("[1.0", new DefaultVersionConstraint("[1.0").getVersion().getValue());
++        assertEquals("[1.0", new DefaultVersionConstraint("[1.0").getVersion().getValue());
+     }
+ 
+     @Test
+     public void testContainsVersion()
+     {
+-        Assert.assertTrue(new DefaultVersionConstraint("1.0").containsVersion(new DefaultVersion("1.0")));
+-        Assert.assertFalse(new DefaultVersionConstraint("1.0").containsVersion(new DefaultVersion("2.0")));
++        assertTrue(new DefaultVersionConstraint("1.0").containsVersion(new DefaultVersion("1.0")));
++        assertFalse(new DefaultVersionConstraint("1.0").containsVersion(new DefaultVersion("2.0")));
+     }
+ 
+     @Test
+     public void testIsCompatible()
+     {
+-        Assert.assertTrue(new DefaultVersionConstraint("1.0").isCompatible(new DefaultVersion("1.0")));
+-        Assert.assertTrue(new DefaultVersionConstraint("1.0").isCompatible(new DefaultVersion("2.0")));
++        assertTrue(new DefaultVersionConstraint("1.0").isCompatible(new DefaultVersion("1.0")));
++        assertTrue(new DefaultVersionConstraint("1.0").isCompatible(new DefaultVersion("2.0")));
+     }
+ }

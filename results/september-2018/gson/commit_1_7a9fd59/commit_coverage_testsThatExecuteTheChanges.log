@@ -1,0 +1,328 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.google.code.gson:gson:jar:2.8.2-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-jar-plugin is missing. @ com.google.code.gson:gson:[unknown-version], /tmp/icst-2019/september-2018/dataset/gson/gson/pom.xml, line 46, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ---------------------< com.google.code.gson:gson >----------------------
+[INFO] Building Gson 2.8.2-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gson ---
+[INFO] Deleting /tmp/icst-2019/september-2018/dataset/gson/gson/target
+[INFO] 
+[INFO] --- diff-test-selection:0.5-SNAPSHOT:list (default-cli) @ gson ---
+[INFO] Computing coverage for /tmp/icst-2019/september-2018/dataset/gson/gson
+[WARN] Maven will be executed in interactive mode, but no input stream has been configured for this MavenInvoker instance.
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.google.code.gson:gson:jar:2.8.2-SNAPSHOT
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-jar-plugin is missing. @ com.google.code.gson:gson:[unknown-version], /tmp/icst-2019/september-2018/dataset/gson/gson/pom.xml, line 46, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ---------------------< com.google.code.gson:gson >----------------------
+[INFO] Building Gson 2.8.2-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gson ---
+[INFO] 
+[INFO] --- clover-maven-plugin:4.2.0:setup (default-cli) @ gson ---
+[INFO] No 'maven.clover.licenseLocation' configured. Using default license.
+[INFO] OpenClover Version 4.2.0, built on April 30 2017 (build-1000)
+[INFO] Loaded from: /home/spirals/danglot/.m2/repository/org/openclover/clover/4.2.0/clover-4.2.0.jar
+[INFO] Clover free edition.
+[INFO] Creating new database at '/tmp/icst-2019/september-2018/dataset/gson/gson/target/clover/clover.db'.
+[INFO] Processing files at 1.8 source level.
+[INFO] Clover all over. Instrumented 67 files (7 packages).
+[INFO] Elapsed time = 2.464 secs. (27.192 files/sec, 5,828.328 srclines/sec)
+[INFO] OpenClover Version 4.2.0, built on April 30 2017 (build-1000)
+[INFO] Loaded from: /home/spirals/danglot/.m2/repository/org/openclover/clover/4.2.0/clover-4.2.0.jar
+[INFO] Clover free edition.
+[INFO] Updating existing database at '/tmp/icst-2019/september-2018/dataset/gson/gson/target/clover/clover.db'.
+[INFO] Processing files at 1.8 source level.
+[INFO] Clover all over. Instrumented 97 files (9 packages).
+[INFO] 1023 test methods detected.
+[INFO] Elapsed time = 2.537 secs. (38.234 files/sec, 7,250.296 srclines/sec)
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ gson ---
+[INFO] Skipping Rule Enforcement.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ gson ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /tmp/icst-2019/september-2018/dataset/gson/gson/src/main/resources
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ gson ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 67 source files to /tmp/icst-2019/september-2018/dataset/gson/gson/target/classes
+[INFO] 
+[INFO] --- bnd-maven-plugin:3.1.0:bnd-process (default) @ gson ---
+[WARNING] Export com.google.gson,  has 1,  private references [com.google.gson.internal], 
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ gson ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /tmp/icst-2019/september-2018/dataset/gson/gson/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ gson ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 97 source files to /tmp/icst-2019/september-2018/dataset/gson/gson/target/test-classes
+[WARNING] /tmp/icst-2019/september-2018/dataset/gson/gson/target/clover/src-test-instrumented/com/google/gson/common/MoreAsserts.java: Some input files use or override a deprecated API.
+[WARNING] /tmp/icst-2019/september-2018/dataset/gson/gson/target/clover/src-test-instrumented/com/google/gson/common/MoreAsserts.java: Recompile with -Xlint:deprecation for details.
+[WARNING] /tmp/icst-2019/september-2018/dataset/gson/gson/target/clover/src-test-instrumented/com/google/gson/functional/ParameterizedTypesTest.java: Some input files use unchecked or unsafe operations.
+[WARNING] /tmp/icst-2019/september-2018/dataset/gson/gson/target/clover/src-test-instrumented/com/google/gson/functional/ParameterizedTypesTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ gson ---
+[INFO] Surefire report directory: /tmp/icst-2019/september-2018/dataset/gson/gson/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.google.gson.JavaSerializationTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.28 sec
+Running com.google.gson.JsonNullTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+Running com.google.gson.functional.RuntimeTypeAdapterFactoryFunctionalTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running com.google.gson.functional.TreeTypeAdaptersTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec
+Running com.google.gson.functional.PrettyPrintingTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 sec
+Running com.google.gson.functional.StreamingTypeAdaptersTest
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 sec
+Running com.google.gson.functional.StringTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 sec
+Running com.google.gson.functional.InternationalizationTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running com.google.gson.functional.JavaUtilTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running com.google.gson.functional.TypeHierarchyAdapterTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec
+Running com.google.gson.functional.JsonArrayTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+Running com.google.gson.functional.CustomSerializerTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+Running com.google.gson.functional.CustomTypeAdaptersTest
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 sec
+Running com.google.gson.functional.NullObjectAndFieldTest
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 sec
+Running com.google.gson.functional.MoreSpecificTypeSerializationTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec
+Running com.google.gson.functional.DefaultTypeAdaptersTest
+Tests run: 65, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.156 sec
+Running com.google.gson.functional.JsonAdapterAnnotationOnClassesTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 sec
+Running com.google.gson.functional.MapTest
+Tests run: 48, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.09 sec
+Running com.google.gson.functional.TypeVariableTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+Running com.google.gson.functional.CustomDeserializerTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec
+Running com.google.gson.functional.CollectionTest
+Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.049 sec
+Running com.google.gson.functional.FieldExclusionTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.gson.functional.ConcurrencyTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 sec
+Running com.google.gson.functional.ReadersWritersTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec
+Running com.google.gson.functional.EscapingTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+Running com.google.gson.functional.ExclusionStrategyFunctionalTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec
+Running com.google.gson.functional.NamingPolicyTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 sec
+Running com.google.gson.functional.RawSerializationTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+Running com.google.gson.functional.FieldNamingTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec
+Running com.google.gson.functional.EnumTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec
+Running com.google.gson.functional.DelegateTypeAdapterTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 sec
+Running com.google.gson.functional.JsonAdapterAnnotationOnFieldsTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec
+Running com.google.gson.functional.InheritanceTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 sec
+Running com.google.gson.functional.ArrayTest
+Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 sec
+Running com.google.gson.functional.JsonAdapterSerializerDeserializerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+Running com.google.gson.functional.InstanceCreatorTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+Running com.google.gson.functional.TypeAdapterPrecedenceTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+Running com.google.gson.functional.VersioningTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec
+Running com.google.gson.functional.JavaUtilConcurrentAtomicTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec
+Running com.google.gson.functional.JsonParserTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+Running com.google.gson.functional.MapAsArrayTypeAdapterTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running com.google.gson.functional.PrimitiveTest
+Tests run: 99, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.093 sec
+Running com.google.gson.functional.UncategorizedTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+Running com.google.gson.functional.SerializedNameTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running com.google.gson.functional.PrintFormattingTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running com.google.gson.functional.SecurityTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.gson.functional.PrimitiveCharacterTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running com.google.gson.functional.ObjectTest
+Tests run: 44, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 sec
+Running com.google.gson.functional.LeniencyTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+Running com.google.gson.functional.ParameterizedTypesTest
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 sec
+Running com.google.gson.functional.JsonTreeTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running com.google.gson.functional.ExposeFieldsTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+Running com.google.gson.functional.InterfaceTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running com.google.gson.functional.CircularReferenceTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 sec
+Running com.google.gson.functional.ThrowableFunctionalTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+Running com.google.gson.MixedStreamTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec
+Running com.google.gson.JsonArrayTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running com.google.gson.OverrideCoreTypeAdaptersTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running com.google.gson.InnerClassExclusionStrategyTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running com.google.gson.GenericArrayTypeTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running com.google.gson.JsonPrimitiveTest
+Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec
+Running com.google.gson.metrics.PerformanceTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running com.google.gson.stream.JsonReaderTest
+Tests run: 120, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.151 sec
+Running com.google.gson.stream.JsonReaderPathTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.085 sec
+Running com.google.gson.stream.JsonWriterTest
+Tests run: 39, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 sec
+Running com.google.gson.LongSerializationPolicyTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running com.google.gson.ParameterizedTypeTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running com.google.gson.GsonTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running com.google.gson.DefaultInetAddressTypeAdapterTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 sec
+Running com.google.gson.JsonStreamParserTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running com.google.gson.internal.UnsafeAllocatorInstantiationTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running com.google.gson.internal.LazilyParsedNumberTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+Running com.google.gson.internal.bind.RecursiveTypesResolveTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec
+Running com.google.gson.internal.bind.JsonElementReaderTest
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec
+Running com.google.gson.internal.bind.JsonTreeReaderTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+Running com.google.gson.internal.bind.JsonTreeWriterTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+Running com.google.gson.internal.GsonTypesTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.gson.internal.LinkedTreeMapTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 sec
+Running com.google.gson.internal.LinkedHashTreeMapTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 sec
+Running com.google.gson.JsonObjectTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+Running com.google.gson.ObjectTypeAdapterTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running com.google.gson.ExposeAnnotationExclusionStrategyTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.gson.reflect.TypeTokenTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+Running com.google.gson.JsonParserTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+Running com.google.gson.GsonBuilderTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running com.google.gson.GsonTypeAdapterTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+Running com.google.gson.FieldAttributesTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running com.google.gson.VersionExclusionStrategyTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running com.google.gson.regression.JsonAdapterNullSafeTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running com.google.gson.DefaultDateTypeAdapterTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 sec
+Running com.google.gson.DefaultMapJsonSerializerTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running com.google.gson.CommentsTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+
+Results :
+
+Tests run: 1033, Failures: 0, Errors: 0, Skipped: 1
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 19.894 s
+[INFO] Finished at: 2018-10-10T10:27:51+02:00
+[INFO] ------------------------------------------------------------------------
+Writing HTML report to '/tmp/icst-2019/september-2018/dataset/gson/gson/target/clover/report'
+Done. Processed 11 packages in 7219ms (656ms per package).
+[INFO] /tmp/icst-2019/september-2018/dataset/gson/gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java
+[INFO] /tmp/icst-2019/september-2018/dataset/gson_parent/gson/src/main/java/com/google/gson/DefaultDateTypeAdapter.java
+[info] com.google.gson.DefaultDateTypeAdapter:99 is modified.
+[info] com.google.gson.DefaultDateTypeAdapter:96 is modified.
+[info] com.google.gson.DefaultDateTypeAdapter:96 is modified.
+[info] com.google.gson.DefaultDateTypeAdapter:87 is modified.
+[info] com.google.gson.DefaultDateTypeAdapter:88 is modified.
+[info] com.google.gson.DefaultDateTypeAdapter:100 is modified.
+[info] com.google.gson.DefaultDateTypeAdapter:101 is modified.
+[info] com.google.gson.DefaultDateTypeAdapter:99 covered.
+[info] com.google.gson.DefaultDateTypeAdapter:87 covered.
+[info] com.google.gson.DefaultDateTypeAdapter:88 covered.
+[info] com.google.gson.DefaultDateTypeAdapter:100 covered.
+[info] com.google.gson.DefaultDateTypeAdapter:101 covered.
+[INFO] /tmp/icst-2019/september-2018/dataset/gson/gson/src/test/java/com/google/gson/DefaultDateTypeAdapterTest.java
+[INFO] /tmp/icst-2019/september-2018/dataset/gson_parent/gson/src/test/java/com/google/gson/DefaultDateTypeAdapterTest.java
+[info] com.google.gson.DefaultDateTypeAdapterTest:164 is modified.
+[info] com.google.gson.DefaultDateTypeAdapterTest:165 is modified.
+[info] com.google.gson.DefaultDateTypeAdapterTest:165 is modified.
+[info] com.google.gson.DefaultDateTypeAdapterTest:166 is modified.
+[info] com.google.gson.DefaultDateTypeAdapterTest:166 is modified.
+[info] com.google.gson.DefaultDateTypeAdapterTest:167 is modified.
+[info] com.google.gson.DefaultDateTypeAdapterTest:167 is modified.
+[info] com.google.gson.DefaultDateTypeAdapterTest:173 is modified.
+[info] com.google.gson.DefaultDateTypeAdapterTest:174 is modified.
+[info] com.google.gson.DefaultDateTypeAdapterTest:175 is modified.
+[INFO] Saving result in /tmp/icst-2019/september-2018/result/gson/commit_1_7a9fd59/commit_coverage_testsThatExecuteTheChanges.csv ...
+[INFO] com.google.gson.functional.DefaultTypeAdaptersTest;testDateSerializationWithPattern;testTimestampSerialization;testSqlDateSerialization;testDateSerializationWithPatternNotOverridenByTypeAdapter;testDateSerializationInCollection;testDateDeserializationWithPattern
+com.google.gson.DefaultDateTypeAdapterTest;testDatePattern;testFormatUsesDefaultTimezone;testParsingDatesFormattedWithUsLocale;testNullValue;testFormattingInFr;testUnexpectedToken;testParsingDatesFormattedWithSystemLocale;testFormattingInEnUs;testDateDeserializationISO8601;testDateSerialization
+[INFO] Writing Coverage in /tmp/icst-2019/september-2018/result/gson/commit_1_7a9fd59/commit_coverage_testsThatExecuteTheChanges_coverage.csv
+[INFO] com.google.gson.DefaultDateTypeAdapter;5;6
+
+[INFO] total;5;6
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 34.410 s
+[INFO] Finished at: 2018-10-10T10:28:01+02:00
+[INFO] ------------------------------------------------------------------------
+2018-10-10 10:28:02,239 INFO icst.experiments.repositories.RepositoriesSetter - {/tmp/icst-2019/september-2018/dataset/gson} Cleaning local repository...
+2018-10-10 10:28:02,441 INFO icst.experiments.repositories.RepositoriesSetter - Checkout 03a72e752ef68269990f984c9fd613cfd59224bc revision...
+2018-10-10 10:28:02,701 INFO icst.experiments.repositories.RepositoriesSetter - {/tmp/icst-2019/september-2018/dataset/gson_parent} Cleaning local repository...
+2018-10-10 10:28:02,765 INFO icst.experiments.repositories.RepositoriesSetter - Checkout ee691fba43663d1715752a7642f4b4ece1738567 revision...

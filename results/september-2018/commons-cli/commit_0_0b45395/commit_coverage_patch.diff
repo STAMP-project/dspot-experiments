@@ -1,0 +1,115 @@
+diff --git a/src/changes/changes.xml b/src/changes/changes.xml
+index 63e7f5f..d444805 100644
+--- a/src/changes/changes.xml
++++ b/src/changes/changes.xml
+@@ -23,6 +23,9 @@
+   <body>
+ 
+     <release version="1.5" date="tba" description="tba">
++      <action type="add" dev="britter" due-to="Béla Schaum" issue="CLI-274">
++        Option parser type EXISTING_FILE_VALUE not check file existing
++      </action>
+       <action type="add" dev="britter" due-to="Christoph Läubrich" issue="CLI-271">
+         CommandLine.getXXX and CommandLine.hasXXX should accept an Option as a parameter
+       </action>
+diff --git a/src/main/java/org/apache/commons/cli/TypeHandler.java b/src/main/java/org/apache/commons/cli/TypeHandler.java
+index f9c14dd..68b4f02 100644
+--- a/src/main/java/org/apache/commons/cli/TypeHandler.java
++++ b/src/main/java/org/apache/commons/cli/TypeHandler.java
+@@ -18,6 +18,8 @@
+ package org.apache.commons.cli;
+ 
+ import java.io.File;
++import java.io.FileInputStream;
++import java.io.FileNotFoundException;
+ 
+ import java.net.MalformedURLException;
+ import java.net.URL;
+@@ -87,7 +89,7 @@ public class TypeHandler
+         }
+         else if (PatternOptionBuilder.EXISTING_FILE_VALUE == clazz)
+         {
+-            return createFile(str);
++            return openFile(str);
+         }
+         else if (PatternOptionBuilder.FILES_VALUE == clazz)
+         {
+@@ -223,6 +225,25 @@ public class TypeHandler
+     }
+ 
+     /**
++     * Returns the opened FileInputStream represented by <code>str</code>.
++     *
++     * @param str the file location
++     * @return The file input stream represented by <code>str</code>.
++     * @throws ParseException if the file is not exist or not readable
++     */
++    public static FileInputStream openFile(String str) throws ParseException
++    {
++        try
++        {
++            return new FileInputStream(str);
++        }
++        catch (FileNotFoundException e)
++        {
++            throw new ParseException("Unable to find file: " + str);
++        }
++    }
++
++    /**
+      * Returns the File[] represented by <code>str</code>.
+      * <p>
+      * This method is not yet implemented and always throws an
+diff --git a/src/test/java/org/apache/commons/cli/PatternOptionBuilderTest.java b/src/test/java/org/apache/commons/cli/PatternOptionBuilderTest.java
+index b9e7a15..3a33eb7 100644
+--- a/src/test/java/org/apache/commons/cli/PatternOptionBuilderTest.java
++++ b/src/test/java/org/apache/commons/cli/PatternOptionBuilderTest.java
+@@ -19,11 +19,13 @@ package org.apache.commons.cli;
+ 
+ import static org.junit.Assert.assertEquals;
+ import static org.junit.Assert.assertFalse;
++import static org.junit.Assert.assertNotNull;
+ import static org.junit.Assert.assertNull;
+ import static org.junit.Assert.assertTrue;
+ import static org.junit.Assert.fail;
+ 
+ import java.io.File;
++import java.io.FileInputStream;
+ import java.net.URL;
+ import java.util.Calendar;
+ import java.util.Date;
+@@ -159,13 +161,23 @@ public class PatternOptionBuilderTest
+     @Test
+     public void testExistingFilePattern() throws Exception
+     {
+-        final Options options = PatternOptionBuilder.parsePattern("f<");
++        final Options options = PatternOptionBuilder.parsePattern("g<");
+         final CommandLineParser parser = new PosixParser();
+-        final CommandLine line = parser.parse(options, new String[] { "-f", "test.properties" });
++        final CommandLine line = parser.parse(options, new String[] { "-g", "src/test/resources/existing-readable.file" });
++
++        final Object parsedReadableFileStream = line.getOptionObject("g");
++
++        assertNotNull("option g not parsed", parsedReadableFileStream);
++        assertTrue("option g not FileInputStream", parsedReadableFileStream instanceof FileInputStream);
++    }
+ 
+-        assertEquals("f value", new File("test.properties"), line.getOptionObject("f"));
++    @Test
++    public void testExistingFilePatternFileNotExist() throws Exception {
++        final Options options = PatternOptionBuilder.parsePattern("f<");
++        final CommandLineParser parser = new PosixParser();
++        final CommandLine line = parser.parse(options, new String[] { "-f", "non-existing.file" });
+ 
+-        // todo test if an error is returned if the file doesn't exists (when it's implemented)
++        assertNull("option f parsed", line.getOptionObject("f"));
+     }
+ 
+     @Test
+diff --git a/src/test/resources/existing-readable.file b/src/test/resources/existing-readable.file
+new file mode 100644
+index 0000000..5c3118d
+--- /dev/null
++++ b/src/test/resources/existing-readable.file
+@@ -0,0 +1 @@
++dummy file

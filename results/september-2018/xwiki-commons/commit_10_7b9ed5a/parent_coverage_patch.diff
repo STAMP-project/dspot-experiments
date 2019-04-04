@@ -1,0 +1,54 @@
+diff --git a/xwiki-commons-core/xwiki-commons-xml/src/main/java/org/xwiki/xml/internal/html/filter/BodyFilter.java b/xwiki-commons-core/xwiki-commons-xml/src/main/java/org/xwiki/xml/internal/html/filter/BodyFilter.java
+index 319ed9e..eaee682 100644
+--- a/xwiki-commons-core/xwiki-commons-xml/src/main/java/org/xwiki/xml/internal/html/filter/BodyFilter.java
++++ b/xwiki-commons-core/xwiki-commons-xml/src/main/java/org/xwiki/xml/internal/html/filter/BodyFilter.java
+@@ -81,11 +81,7 @@ public void filter(Document document, Map<String, String> cleaningParameters)
+                     if (markerNode == null) {
+                         markerNode = currentNode;
+                     } else {
+-                        // If we find some text with only spaces we wrap the previous marker node.
+-                        if (containsOnlySpaces) {
+-                            surroundWithParagraph(document, body, markerNode, currentNode);
+-                            markerNode = null;
+-                        }
++                        // Do nothing, just go to the next node.
+                     }
+                 } else if (markerNode != null) {
+                     // surround all the nodes starting with the marker node with a paragraph unless there are only
+diff --git a/xwiki-commons-core/xwiki-commons-xml/src/test/java/org/xwiki/xml/internal/html/DefaultHTMLCleanerTest.java b/xwiki-commons-core/xwiki-commons-xml/src/test/java/org/xwiki/xml/internal/html/DefaultHTMLCleanerTest.java
+index 5ed6312..6bc5ef3 100644
+--- a/xwiki-commons-core/xwiki-commons-xml/src/test/java/org/xwiki/xml/internal/html/DefaultHTMLCleanerTest.java
++++ b/xwiki-commons-core/xwiki-commons-xml/src/test/java/org/xwiki/xml/internal/html/DefaultHTMLCleanerTest.java
+@@ -299,9 +299,9 @@ public void duplicateIds() throws Exception
+     public void cleanSVGTags() throws Exception
+     {
+         String input =
+-            "<p>before</p>\n" + "<p><svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\">\n"
++            "<p>before</p>\n" + "<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\">\n"
+                 + "<circle cx=\"100\" cy=\"50\" fill=\"red\" r=\"40\" stroke=\"black\" stroke-width=\"2\"></circle>\n"
+-                + "</svg></p>\n" + "<p>after</p>\n";
++                + "</svg>\n" + "<p>after</p>\n";
+         assertHTML(input, HEADER_FULL + input + FOOTER);
+     }
+ 
+@@ -405,20 +405,6 @@ public void verifyEntitiesAreNotBroken() throws Exception
+         assertHTML("<p>&Eacute;</p>", "&Eacute;");
+     }
+ 
+-    /**
+-     * @see <a href="https://jira.xwiki.org/browse/XCOMMONS-1293">XCOMMONS-1293</a>
+-     */
+-    @Test
+-    public void verifyIFRAMECleaning() throws Exception
+-    {
+-        // TODO: these 2 lines need to be changed to the following when https://jira.xwiki.org/browse/XCOMMONS-1292 is
+-        // fixed:
+-        //          assertHTML("<iframe src=\"whatever\"></iframe>", "<iframe src=\"whatever\"/>");
+-        //          assertHTML("<iframe src=\"whatever\"></iframe>", "<iframe src=\"whatever\"/>\r\n");
+-        assertHTML("<p><iframe src=\"whatever\"></iframe></p>", "<iframe src=\"whatever\"/>");
+-        assertHTML("<p><iframe src=\"whatever\"></iframe></p>\r\n", "<iframe src=\"whatever\"/>\r\n");
+-    }
+-
+     private void assertHTML(String expected, String actual) throws ComponentLookupException
+     {
+         Assert.assertEquals(HEADER_FULL + expected + FOOTER,
