@@ -26,6 +26,7 @@ public class ProjectJSON {
     public final String date;
     public final String masterSha;
     private int numberCommits;
+    public int LOC;
 
     public final List<CommitJSON> commits;
 

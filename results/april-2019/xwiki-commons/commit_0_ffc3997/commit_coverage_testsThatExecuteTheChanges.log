@@ -1,0 +1,1002 @@
+[1mApache Maven 3.6.0[m
+Maven home: /usr/share/maven
+Java version: 1.8.0_181, vendor: Oracle Corporation, runtime: /home/bdanglot/Documents/jdk1.8.0_181/jre
+Default locale: en_GB, platform encoding: UTF-8
+OS name: "linux", version: "4.19.0-4-amd64", arch: "amd64", family: "unix"
+[[1;36mDEBUG[m] Created new class realm maven.api
+[[1;36mDEBUG[m] Importing foreign packages into class realm maven.api
+[[1;36mDEBUG[m]   Imported: javax.annotation.* < plexus.core
+[[1;36mDEBUG[m]   Imported: javax.annotation.security.* < plexus.core
+[[1;36mDEBUG[m]   Imported: javax.enterprise.inject.* < plexus.core
+[[1;36mDEBUG[m]   Imported: javax.enterprise.util.* < plexus.core
+[[1;36mDEBUG[m]   Imported: javax.inject.* < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.* < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.artifact < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.classrealm < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.cli < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.configuration < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.exception < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.execution < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.execution.scope < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.lifecycle < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.model < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.monitor < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.plugin < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.profiles < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.project < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.reporting < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.repository < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.rtinfo < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.settings < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.toolchain < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.usability < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.wagon.* < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.wagon.authentication < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.wagon.authorization < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.wagon.events < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.wagon.observers < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.wagon.proxy < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.wagon.repository < plexus.core
+[[1;36mDEBUG[m]   Imported: org.apache.maven.wagon.resource < plexus.core
+[[1;36mDEBUG[m]   Imported: org.codehaus.classworlds < plexus.core
+[[1;36mDEBUG[m]   Imported: org.codehaus.plexus.* < plexus.core
+[[1;36mDEBUG[m]   Imported: org.codehaus.plexus.classworlds < plexus.core
+[[1;36mDEBUG[m]   Imported: org.codehaus.plexus.component < plexus.core
+[[1;36mDEBUG[m]   Imported: org.codehaus.plexus.configuration < plexus.core
+[[1;36mDEBUG[m]   Imported: org.codehaus.plexus.container < plexus.core
+[[1;36mDEBUG[m]   Imported: org.codehaus.plexus.context < plexus.core
+[[1;36mDEBUG[m]   Imported: org.codehaus.plexus.lifecycle < plexus.core
+[[1;36mDEBUG[m]   Imported: org.codehaus.plexus.logging < plexus.core
+[[1;36mDEBUG[m]   Imported: org.codehaus.plexus.personality < plexus.core
+[[1;36mDEBUG[m]   Imported: org.codehaus.plexus.util.xml.Xpp3Dom < plexus.core
+[[1;36mDEBUG[m]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParser < plexus.core
+[[1;36mDEBUG[m]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParserException < plexus.core
+[[1;36mDEBUG[m]   Imported: org.codehaus.plexus.util.xml.pull.XmlSerializer < plexus.core
+[[1;36mDEBUG[m]   Imported: org.eclipse.aether.* < plexus.core
+[[1;36mDEBUG[m]   Imported: org.eclipse.aether.artifact < plexus.core
+[[1;36mDEBUG[m]   Imported: org.eclipse.aether.collection < plexus.core
+[[1;36mDEBUG[m]   Imported: org.eclipse.aether.deployment < plexus.core
+[[1;36mDEBUG[m]   Imported: org.eclipse.aether.graph < plexus.core
+[[1;36mDEBUG[m]   Imported: org.eclipse.aether.impl < plexus.core
+[[1;36mDEBUG[m]   Imported: org.eclipse.aether.installation < plexus.core
+[[1;36mDEBUG[m]   Imported: org.eclipse.aether.internal.impl < plexus.core
+[[1;36mDEBUG[m]   Imported: org.eclipse.aether.metadata < plexus.core
+[[1;36mDEBUG[m]   Imported: org.eclipse.aether.repository < plexus.core
+[[1;36mDEBUG[m]   Imported: org.eclipse.aether.resolution < plexus.core
+[[1;36mDEBUG[m]   Imported: org.eclipse.aether.spi < plexus.core
+[[1;36mDEBUG[m]   Imported: org.eclipse.aether.transfer < plexus.core
+[[1;36mDEBUG[m]   Imported: org.eclipse.aether.version < plexus.core
+[[1;36mDEBUG[m]   Imported: org.fusesource.jansi.* < plexus.core
+[[1;36mDEBUG[m]   Imported: org.slf4j.* < plexus.core
+[[1;36mDEBUG[m]   Imported: org.slf4j.helpers.* < plexus.core
+[[1;36mDEBUG[m]   Imported: org.slf4j.spi.* < plexus.core
+[[1;36mDEBUG[m] Populating class realm maven.api
+[[1;34mINFO[m] Error stacktraces are turned on.
+[[1;36mDEBUG[m] Message scheme: color
+[[1;36mDEBUG[m] Message styles: [1;36mdebug[m [1;34minfo[m [1;33mwarning[m [1;31merror[m [1;32msuccess[m [1;31mfailure[m [1mstrong[m [32mmojo[m [36mproject[m
+[[1;36mDEBUG[m] Reading global settings from /usr/share/maven/conf/settings.xml
+[[1;36mDEBUG[m] Reading user settings from /home/bdanglot/.m2/settings.xml
+[[1;36mDEBUG[m] Reading global toolchains from /usr/share/maven/conf/toolchains.xml
+[[1;36mDEBUG[m] Reading user toolchains from /home/bdanglot/.m2/toolchains.xml
+[[1;36mDEBUG[m] Using local repository at /home/bdanglot/.m2/repository
+[[1;36mDEBUG[m] Using manager EnhancedLocalRepositoryManager with priority 10.0 for /home/bdanglot/.m2/repository
+[[1;34mINFO[m] Scanning for projects...
+[[1;36mDEBUG[m] Extension realms for project org.xwiki.commons:xwiki-commons-tool-xar-plugin:maven-plugin:10.8-SNAPSHOT: (none)
+[[1;36mDEBUG[m] Looking up lifecycle mappings for packaging maven-plugin from ClassRealm[plexus.core, parent: null]
+[[1;36mDEBUG[m] Extension realms for project org.xwiki.commons:xwiki-commons-tool-xar:pom:10.8-SNAPSHOT: (none)
+[[1;36mDEBUG[m] Looking up lifecycle mappings for packaging pom from ClassRealm[plexus.core, parent: null]
+[[1;36mDEBUG[m] Extension realms for project org.xwiki.commons:xwiki-commons-tools:pom:10.8-SNAPSHOT: (none)
+[[1;36mDEBUG[m] Looking up lifecycle mappings for packaging pom from ClassRealm[plexus.core, parent: null]
+[[1;36mDEBUG[m] Extension realms for project org.xwiki.commons:xwiki-commons:pom:10.8-SNAPSHOT: (none)
+[[1;36mDEBUG[m] Looking up lifecycle mappings for packaging pom from ClassRealm[plexus.core, parent: null]
+[[1;36mDEBUG[m] === REACTOR BUILD PLAN ================================================
+[[1;36mDEBUG[m] Project: org.xwiki.commons:xwiki-commons-tool-xar-plugin:maven-plugin:10.8-SNAPSHOT
+[[1;36mDEBUG[m] Tasks:   [clean, eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT:list]
+[[1;36mDEBUG[m] Style:   Regular
+[[1;36mDEBUG[m] =======================================================================
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m----------< [0;36morg.xwiki.commons:xwiki-commons-tool-xar-plugin[0;1m >-----------[m
+[[1;34mINFO[m] [1mBuilding XWiki Commons - Tools - XAR Tools - XAR Plugin 10.8-SNAPSHOT[m
+[[1;34mINFO[m] [1m----------------------------[ maven-plugin ]----------------------------[m
+[[1;36mDEBUG[m] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[[1;36mDEBUG[m] Lifecycle clean -> [pre-clean, clean, post-clean]
+[[1;36mDEBUG[m] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[[1;36mDEBUG[m] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[[1;36mDEBUG[m] Lifecycle clean -> [pre-clean, clean, post-clean]
+[[1;36mDEBUG[m] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[[1;36mDEBUG[m] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[[1;36mDEBUG[m] Lifecycle clean -> [pre-clean, clean, post-clean]
+[[1;36mDEBUG[m] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[[1;36mDEBUG[m] === PROJECT BUILD PLAN ================================================
+[[1;36mDEBUG[m] Project:       org.xwiki.commons:xwiki-commons-tool-xar-plugin:10.8-SNAPSHOT
+[[1;36mDEBUG[m] Dependencies (collect): []
+[[1;36mDEBUG[m] Dependencies (resolve): []
+[[1;36mDEBUG[m] Repositories (dependencies): [central (https://repo.maven.apache.org/maven2, default, releases)]
+[[1;36mDEBUG[m] Repositories (plugins)     : [central (https://repo.maven.apache.org/maven2, default, releases)]
+[[1;36mDEBUG[m] -----------------------------------------------------------------------
+[[1;36mDEBUG[m] Goal:          org.apache.maven.plugins:maven-clean-plugin:3.1.0:clean (default-clean)
+[[1;36mDEBUG[m] Style:         Regular
+[[1;36mDEBUG[m] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <directory default-value="${project.build.directory}"/>
+  <excludeDefaultDirectories default-value="false">${maven.clean.excludeDefaultDirectories}</excludeDefaultDirectories>
+  <failOnError default-value="true">${maven.clean.failOnError}</failOnError>
+  <followSymLinks default-value="false">${maven.clean.followSymLinks}</followSymLinks>
+  <outputDirectory default-value="${project.build.outputDirectory}"/>
+  <reportDirectory default-value="${project.build.outputDirectory}"/>
+  <retryOnError default-value="true">${maven.clean.retryOnError}</retryOnError>
+  <skip default-value="false">${maven.clean.skip}</skip>
+  <testOutputDirectory default-value="${project.build.testOutputDirectory}"/>
+  <verbose>${maven.clean.verbose}</verbose>
+</configuration>
+[[1;36mDEBUG[m] -----------------------------------------------------------------------
+[[1;36mDEBUG[m] Goal:          eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT:list (default-cli)
+[[1;36mDEBUG[m] Style:         Regular
+[[1;36mDEBUG[m] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <module default-value="">${module}</module>
+  <outputFormat default-value="CSV">${output-format}</outputFormat>
+  <outputPath default-value="">${output-path}</outputPath>
+  <pathDirSecondVersion>${path-dir-second-version}</pathDirSecondVersion>
+  <pathToDiff default-value="">${path-to-diff}</pathToDiff>
+  <project default-value="${project}"/>
+</configuration>
+[[1;36mDEBUG[m] =======================================================================
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-clean-plugin:3.1.0:clean[m [1m(default-clean)[m @ [36mxwiki-commons-tool-xar-plugin[0;1m ---[m
+[[1;36mDEBUG[m] Dependency collection stats: {ConflictMarker.analyzeTime=701988, ConflictMarker.markTime=449049, ConflictMarker.nodeCount=14, ConflictIdSorter.graphTime=452965, ConflictIdSorter.topsortTime=371343, ConflictIdSorter.conflictIdCount=12, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=3623616, ConflictResolver.conflictItemCount=14, DefaultDependencyCollector.collectTime=80416219, DefaultDependencyCollector.transformTime=7680102}
+[[1;36mDEBUG[m] org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0:
+[[1;36mDEBUG[m]    org.apache.maven:maven-plugin-api:jar:3.0:compile
+[[1;36mDEBUG[m]       org.apache.maven:maven-model:jar:3.0:compile
+[[1;36mDEBUG[m]          org.codehaus.plexus:plexus-utils:jar:2.0.4:compile
+[[1;36mDEBUG[m]       org.apache.maven:maven-artifact:jar:3.0:compile
+[[1;36mDEBUG[m]       org.sonatype.sisu:sisu-inject-plexus:jar:1.4.2:compile
+[[1;36mDEBUG[m]          org.codehaus.plexus:plexus-component-annotations:jar:1.7.1:compile
+[[1;36mDEBUG[m]          org.codehaus.plexus:plexus-classworlds:jar:2.2.3:compile
+[[1;36mDEBUG[m]          org.sonatype.sisu:sisu-inject-bean:jar:1.4.2:compile
+[[1;36mDEBUG[m]             org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7:compile
+[[1;36mDEBUG[m]    org.apache.maven.shared:maven-shared-utils:jar:3.2.1:compile
+[[1;36mDEBUG[m]       commons-io:commons-io:jar:2.5:compile
+[[1;36mDEBUG[m] Created new class realm plugin>org.apache.maven.plugins:maven-clean-plugin:3.1.0
+[[1;36mDEBUG[m] Importing foreign packages into class realm plugin>org.apache.maven.plugins:maven-clean-plugin:3.1.0
+[[1;36mDEBUG[m]   Imported:  < maven.api
+[[1;36mDEBUG[m] Populating class realm plugin>org.apache.maven.plugins:maven-clean-plugin:3.1.0
+[[1;36mDEBUG[m]   Included: org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0
+[[1;36mDEBUG[m]   Included: org.codehaus.plexus:plexus-utils:jar:2.0.4
+[[1;36mDEBUG[m]   Included: org.codehaus.plexus:plexus-component-annotations:jar:1.7.1
+[[1;36mDEBUG[m]   Included: org.sonatype.sisu:sisu-inject-bean:jar:1.4.2
+[[1;36mDEBUG[m]   Included: org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7
+[[1;36mDEBUG[m]   Included: org.apache.maven.shared:maven-shared-utils:jar:3.2.1
+[[1;36mDEBUG[m]   Included: commons-io:commons-io:jar:2.5
+[[1;36mDEBUG[m] Configuring mojo org.apache.maven.plugins:maven-clean-plugin:3.1.0:clean from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-clean-plugin:3.1.0, parent: sun.misc.Launcher$AppClassLoader@5c647e05]
+[[1;36mDEBUG[m] Configuring mojo 'org.apache.maven.plugins:maven-clean-plugin:3.1.0:clean' with basic configurator -->
+[[1;36mDEBUG[m]   (f) directory = /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target
+[[1;36mDEBUG[m]   (f) excludeDefaultDirectories = false
+[[1;36mDEBUG[m]   (f) failOnError = true
+[[1;36mDEBUG[m]   (f) followSymLinks = false
+[[1;36mDEBUG[m]   (f) outputDirectory = /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes
+[[1;36mDEBUG[m]   (f) reportDirectory = /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes
+[[1;36mDEBUG[m]   (f) retryOnError = true
+[[1;36mDEBUG[m]   (f) skip = false
+[[1;36mDEBUG[m]   (f) testOutputDirectory = /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/test-classes
+[[1;36mDEBUG[m] -- end configuration --
+[[1;34mINFO[m] Deleting /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/instrumentation.ser
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/XAREntry$__CLR4_2_0d4d4jujdl37q$1.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/Transformation.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/Transformation$Action.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/XWikiXMLWriter$__CLR4_2_0l6l6jujdl39r.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/VerifyMojo.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/VerifyMojo$__CLR4_2_09r9rjujdl37f.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/AbstractXARMojo$__CLR4_2_03g3gjujdl352$1.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/XARMojo$3.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/XWikiXMLWriter$__CLR4_2_0l6l6jujdl39r$1.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/XAREntry.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/XARMojo$2.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/XAREntry$__CLR4_2_0d4d4jujdl37q.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/AbstractVerifyMojo.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/AbstractVerifyMojo$__CLR4_2_000jujdl33f.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/FormatMojo.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/XARMojo$1.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/AbstractXARMojo.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/AbstractVerifyMojo$__CLR4_2_000jujdl33f$1.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/FormatMojo$__CLR4_2_05i5ijujdl35r.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/VerifyMojo$__CLR4_2_09r9rjujdl37f$1.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/FormatMojo$__CLR4_2_05i5ijujdl35r$1.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/XARMojo.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/UnXARMojo.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/internal/XWikiDocument$__CLR4_2_0mkmkjujdl3an.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/internal/XWikiDocument$__CLR4_2_0mkmkjujdl3an$1.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/internal/XWikiDocument.class
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/internal
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/XARMojo$__CLR4_2_0dcdcjujdl394.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/UnXARMojo$__CLR4_2_08w8wjujdl36k.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/AbstractXARMojo$__CLR4_2_03g3gjujdl352.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/Transformation$__CLR4_2_08888jujdl364$1.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/XWikiXMLWriter.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/UnXARMojo$__CLR4_2_08w8wjujdl36k$1.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/Transformation$__CLR4_2_08888jujdl364.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/XARMojo$__CLR4_2_0dcdcjujdl394$1.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar/XARMojo$1__CLR4_2_0$AC0.class
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool/xar
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki/tool
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org/xwiki
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/org
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/groverconfig2157824412745006912/instrumentation.ser
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/groverconfig2157824412745006912
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/META-INF/maven/plugin.xml
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/META-INF/maven/org.xwiki.commons/xwiki-commons-tool-xar-plugin/plugin-help.xml
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/META-INF/maven/org.xwiki.commons/xwiki-commons-tool-xar-plugin
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/META-INF/maven/org.xwiki.commons
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/META-INF/maven
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/META-INF
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/surefire-reports/TEST-org.xwiki.tool.xar.FormatMojoTest.xml
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/surefire-reports/org.xwiki.tool.xar.FormatMojoTest.txt
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/surefire-reports/org.xwiki.tool.xar.XWikiDocumentTest.txt
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/surefire-reports/TEST-org.xwiki.tool.xar.XWikiDocumentTest.xml
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/surefire-reports
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/generated-sources/annotations
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/generated-sources
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/clover.dbnphccdakv7i1_1_b1u2mx_jujdl74m.s
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/clover.dbnphccdakv7ij_2_b1u2mx_jujdl751.s
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/clover.dbj63uhw_jujdl710
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/clover.dbnphccbbjr5k2_0_j63uhw_jujdl70p.s
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/clover.dbnphccdakv7i7_3_b1u2mx_jujdl75y.s
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/clover.dbnphccdakv7id_4_b1u2mx_jujdl75z.s
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/top-risks.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/treemap.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/index.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/testsrc-agg-pkgs.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/dashboard.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/test-pkg-summary.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/aui-ie9.min.css
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/aui-icon-close.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/forms/icon-range.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/forms/icon-help.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/forms/icon-date.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/forms/icon-required.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/forms/icon-users.png
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/forms
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/messages/icon-close-inverted.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/messages/icon-success.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/messages/icon-warning.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/messages/icon-hint.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/messages/icon-error.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/messages/icon-info.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/messages/icon-close.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/messages/icon-generic.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/messages/icon-error-white.png
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/messages
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/aui-message-icon-sprite.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/aui-icon-tools.gif
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/core/icon-dropdown-d.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/core/icon-minimize.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/core/icon-dropdown-active-d.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/core/icon-maximize-d.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/core/icon-minimize-d.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/core/icon-move-d.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/core/icon-maximize.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/core/icon-dropdown-active.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/core/icon-dropdown.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/core/icon-move.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/core/icon-search.png
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons/core
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/icons
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/aui-icon-close.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/wait.gif
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/aui-experimental.min.css
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/fonts/atlassian-icons.ttf
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/fonts/atlassian-icons.woff
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/fonts/atlassian-icons.svg
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/fonts/atlassian-icons.eot
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/fonts
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/select2x2.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/select2-spinner.gif
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/aui-toolbar-24px.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/arrow.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/select2.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/forms/icon-range.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/forms/icon-help.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/forms/icons_form.gif
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/forms/icon-date.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/forms/icon-required.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/forms/icon-users.png
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/forms
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/atlassian-icons.ttf
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/messages/icon-close-inverted.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/messages/icon-close.png
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/messages
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/aui-icon-tools.gif
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/atlassian-icons.woff
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/atlassian-icons.svg
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/aui.min.css
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/bg-000-trans50.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/fav_on_16.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/bg-grippy.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/bg-000-trans20.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/atlassian-icons.eot
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/fav_off_16.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/core/icon-dropdown-d.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/core/icon-minimize.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/core/icon-dropdown-active-d.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/core/icon-maximize-d.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/core/icon-minimize-d.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/core/icon-move-d.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/core/icon-maximize.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/core/icon-dropdown-active.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/core/icon-dropdown.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/core/icon-move.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/core/icon-search.png
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/core
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/images/icons/messages/icon-close-inverted.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/images/icons/messages/icon-success.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/images/icons/messages/icon-warning.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/images/icons/messages/icon-hint.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/images/icons/messages/icon-error.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/images/icons/messages/icon-info.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/images/icons/messages/icon-close.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/images/icons/messages/icon-generic.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/images/icons/messages/icon-error-white.png
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/images/icons/messages
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/images/icons/aui-message-icon-sprite.png
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/images/icons
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/images/wait.gif
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/images/arrow.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/images/forms/icons_form.gif
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/images/forms
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/images/bg-000-trans50.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/images/fav_on_16.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/images/bg-000-trans20.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/images/fav_off_16.png
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/images
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/toolbar/aui-toolbar-24px.png
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css/toolbar
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/css
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/js/aui-experimental.min.js
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/js/aui.min.js
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/js/aui-datepicker.min.js
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/js/aui-soy.min.js
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui/js
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/aui
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/jit.js
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/img/clover.ico
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/img/expand.gif
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/img/failure_gutter.gif
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/img/srcFileCovDistChart0.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/img/srcFileCovDistChart5.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/img/clover_logo_large.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/img/srcFileCovDistChart2.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/img/srcFileCovDistChart7.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/img/back.gif
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/img/srcFileCovDistChart6.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/img/srcFileCovDistChart4.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/img/treemap.gif
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/img/classComplexityChart.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/img/srcFileCovDistChart9.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/img/srcFileCovDistChart1.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/img/spacer.gif
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/img/collapse.gif
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/img/srcFileCovDistChart3.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/img/srcFileCovDistChart8.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/img/classDistrubutionChart.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/img/srcFileCovDistChart10.png
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/img/ajax-loader.gif
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/img/logo.gif
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/img
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/tree.css
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/top-risks.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/FormatMojoTest_formatSpecialContentFailingWithXercesFromJDK8_1.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/XWikiXMLWriter.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/FormatMojo.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/UnXARMojo.js
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/test-pkg-summary.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/FormatMojoTest.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/VerifyMojo.js
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/XAREntry.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/FormatMojo.js
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/Transformation.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/XWikiXMLWriter.js
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/XARMojo.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/XWikiDocumentTest.js
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/XAREntry.js
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/UnXARMojo.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/AbstractXARMojo.js
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/testsrc-pkg-summary.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/XARMojo.js
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/FormatMojoTest_defaultLanguageForDefaultDocumentWhenTranslation_4.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/VerifyMojo.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/XWikiDocumentTest_createReference_0.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/FormatMojoTest_defaultLanguageForDocumentWhenNoTranslation_3.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/AbstractXARMojo.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/Transformation.js
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/internal/top-risks.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/internal/test-pkg-summary.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/internal/XWikiDocument.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/internal/XWikiDocument.js
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/internal/quick-wins.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/internal/pkg-summary.html
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/internal
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/XWikiDocumentTest.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/quick-wins.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/FormatMojoTest_defaultLanguageForTranslatedDocument_2.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/test-XWikiDocumentTest.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/AbstractVerifyMojo.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/test-FormatMojoTest.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/AbstractVerifyMojo.js
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/FormatMojoTest.js
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar/pkg-summary.html
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool/xar
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki/tool
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org/xwiki
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/org
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/package-nodes-tree.js
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/testsrc-pkg-summary.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/treemap-dash-json.js
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/cloud.js
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/treemap-json.js
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/project.js
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/jquery-1.8.3.min.js
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/quick-wins.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/clover-descriptions.js
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/pkg-summary.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/style.css
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/agg-pkgs.html
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/clover-tree.js
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report/clover.js
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-test-instrumented/org/xwiki/tool/xar/XWikiDocumentTest.java
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-test-instrumented/org/xwiki/tool/xar/FormatMojoTest.java
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-test-instrumented/org/xwiki/tool/xar
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-test-instrumented/org/xwiki/tool
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-test-instrumented/org/xwiki
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-test-instrumented/org
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-test-instrumented
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/clover.dbnphccbbjr5k2_0_b1u2mx_jujdl70p.s
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/clover.dbnphccdakv7ij_2_j63uhw_jujdl751.s
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/clover.dbnphccdakv7i1_1_j63uhw_jujdl74m.s
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/clover.db
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-instrumented/org/xwiki/tool/xar/XARMojo.java
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-instrumented/org/xwiki/tool/xar/XWikiXMLWriter.java
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-instrumented/org/xwiki/tool/xar/VerifyMojo.java
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-instrumented/org/xwiki/tool/xar/AbstractVerifyMojo.java
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-instrumented/org/xwiki/tool/xar/UnXARMojo.java
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-instrumented/org/xwiki/tool/xar/Transformation.java
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-instrumented/org/xwiki/tool/xar/XAREntry.java
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-instrumented/org/xwiki/tool/xar/internal/XWikiDocument.java
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-instrumented/org/xwiki/tool/xar/internal
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-instrumented/org/xwiki/tool/xar/AbstractXARMojo.java
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-instrumented/org/xwiki/tool/xar/FormatMojo.java
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-instrumented/org/xwiki/tool/xar
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-instrumented/org/xwiki/tool
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-instrumented/org/xwiki
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-instrumented/org
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-instrumented
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/clover.dbnphccdakv7id_4_j63uhw_jujdl75z.s
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/clover.dbnphccdakv7i7_3_j63uhw_jujdl75y.s
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/clover.dbb1u2mx_jujdl70o
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/generated-test-sources/test-annotations
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/generated-test-sources
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/test-classes/XWikiSyntaxLinks.it.xml
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/test-classes/org/xwiki/tool/xar/FormatMojoTest$__CLR4_2_0qhqhjujdl3dd$1.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/test-classes/org/xwiki/tool/xar/FormatMojoTest$__CLR4_2_0qhqhjujdl3dd.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/test-classes/org/xwiki/tool/xar/XWikiDocumentTest$__CLR4_2_0rerejujdl3ds.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/test-classes/org/xwiki/tool/xar/FormatMojoTest.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/test-classes/org/xwiki/tool/xar/XWikiDocumentTest$__CLR4_2_0rerejujdl3ds$1.class
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/test-classes/org/xwiki/tool/xar/XWikiDocumentTest.class
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/test-classes/org/xwiki/tool/xar
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/test-classes/org/xwiki/tool
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/test-classes/org/xwiki
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/test-classes/org
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/test-classes
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/maven-status/maven-compiler-plugin/testCompile
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+[[1;34mINFO[m] Deleting file /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/maven-status/maven-compiler-plugin/compile/default-compile
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/maven-status/maven-compiler-plugin/compile
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/maven-status/maven-compiler-plugin
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/maven-status
+[[1;34mINFO[m] Deleting directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target
+[[1;36mDEBUG[m] Skipping non-existing directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes
+[[1;36mDEBUG[m] Skipping non-existing directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/test-classes
+[[1;36mDEBUG[m] Skipping non-existing directory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mdspot-diff-test-selection:2.0.1-SNAPSHOT:list[m [1m(default-cli)[m @ [36mxwiki-commons-tool-xar-plugin[0;1m ---[m
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.text/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.text/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/bdanglot/.m2/repository)
+[[1;36mDEBUG[m] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[[1;36mDEBUG[m] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[[1;36mDEBUG[m] Dependency collection stats: {ConflictMarker.analyzeTime=4790962, ConflictMarker.markTime=1650538, ConflictMarker.nodeCount=990, ConflictIdSorter.graphTime=4413633, ConflictIdSorter.topsortTime=108600, ConflictIdSorter.conflictIdCount=70, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=8710465, ConflictResolver.conflictItemCount=274, DefaultDependencyCollector.collectTime=538665019, DefaultDependencyCollector.transformTime=19698942}
+[[1;36mDEBUG[m] eu.stamp-project:dspot-diff-test-selection:jar:2.0.1-SNAPSHOT:
+[[1;36mDEBUG[m]    org.slf4j:slf4j-api:jar:1.7.25:compile
+[[1;36mDEBUG[m]    org.slf4j:slf4j-log4j12:jar:1.7.25:compile
+[[1;36mDEBUG[m]       log4j:log4j:jar:1.2.17:compile
+[[1;36mDEBUG[m]    org.apache.maven.shared:maven-invoker:jar:3.0.0:compile
+[[1;36mDEBUG[m]       org.codehaus.plexus:plexus-utils:jar:3.0.24:compile
+[[1;36mDEBUG[m]       org.codehaus.plexus:plexus-component-annotations:jar:1.7:compile
+[[1;36mDEBUG[m]    org.openclover:clover:jar:4.2.1:compile
+[[1;36mDEBUG[m]    org.apache.maven:maven-plugin-api:jar:3.5.4:compile
+[[1;36mDEBUG[m]       org.apache.maven:maven-model:jar:3.5.4:compile
+[[1;36mDEBUG[m]       org.apache.maven:maven-artifact:jar:3.5.4:compile
+[[1;36mDEBUG[m]       org.eclipse.sisu:org.eclipse.sisu.plexus:jar:0.3.3:compile
+[[1;36mDEBUG[m]          javax.enterprise:cdi-api:jar:1.0:compile
+[[1;36mDEBUG[m]             javax.annotation:jsr250-api:jar:1.0:compile
+[[1;36mDEBUG[m]       org.codehaus.plexus:plexus-classworlds:jar:2.5.2:compile
+[[1;36mDEBUG[m]    org.apache.maven:maven-core:jar:3.5.4:compile
+[[1;36mDEBUG[m]       org.apache.maven:maven-settings:jar:3.5.4:compile
+[[1;36mDEBUG[m]       org.apache.maven:maven-settings-builder:jar:3.5.4:compile
+[[1;36mDEBUG[m]          org.codehaus.plexus:plexus-interpolation:jar:1.24:compile
+[[1;36mDEBUG[m]          org.sonatype.plexus:plexus-sec-dispatcher:jar:1.4:compile
+[[1;36mDEBUG[m]             org.sonatype.plexus:plexus-cipher:jar:1.4:compile
+[[1;36mDEBUG[m]       org.apache.maven:maven-builder-support:jar:3.5.4:compile
+[[1;36mDEBUG[m]       org.apache.maven:maven-repository-metadata:jar:3.5.4:compile
+[[1;36mDEBUG[m]       org.apache.maven:maven-model-builder:jar:3.5.4:compile
+[[1;36mDEBUG[m]       org.apache.maven:maven-resolver-provider:jar:3.5.4:compile
+[[1;36mDEBUG[m]       org.apache.maven.resolver:maven-resolver-impl:jar:1.1.1:compile
+[[1;36mDEBUG[m]       org.apache.maven.resolver:maven-resolver-api:jar:1.1.1:compile
+[[1;36mDEBUG[m]       org.apache.maven.resolver:maven-resolver-spi:jar:1.1.1:compile
+[[1;36mDEBUG[m]       org.apache.maven.resolver:maven-resolver-util:jar:1.1.1:compile
+[[1;36mDEBUG[m]       org.apache.maven.shared:maven-shared-utils:jar:3.2.1:compile
+[[1;36mDEBUG[m]          commons-io:commons-io:jar:2.5:compile
+[[1;36mDEBUG[m]       org.eclipse.sisu:org.eclipse.sisu.inject:jar:0.3.3:compile
+[[1;36mDEBUG[m]       com.google.inject:guice:jar:no_aop:4.2.0:compile
+[[1;36mDEBUG[m]          aopalliance:aopalliance:jar:1.0:compile
+[[1;36mDEBUG[m]       com.google.guava:guava:jar:20.0:compile
+[[1;36mDEBUG[m]       javax.inject:javax.inject:jar:1:compile
+[[1;36mDEBUG[m]       org.apache.commons:commons-lang3:jar:3.5:compile
+[[1;36mDEBUG[m]    fr.inria.gforge.spoon.labs:gumtree-spoon-ast-diff:jar:1.5:compile
+[[1;36mDEBUG[m]       fr.inria.gforge.spoon:spoon-core:jar:7.0.0:compile
+[[1;36mDEBUG[m]          org.eclipse.jdt:org.eclipse.jdt.core:jar:3.13.102:compile
+[[1;36mDEBUG[m]             org.eclipse.platform:org.eclipse.core.resources:jar:3.13.300:compile
+[[1;36mDEBUG[m]                org.eclipse.platform:org.eclipse.core.expressions:jar:3.6.300:compile
+[[1;36mDEBUG[m]             org.eclipse.platform:org.eclipse.core.runtime:jar:3.15.200:compile
+[[1;36mDEBUG[m]                org.eclipse.platform:org.eclipse.osgi:jar:3.13.300:compile
+[[1;36mDEBUG[m]                org.eclipse.platform:org.eclipse.equinox.common:jar:3.10.300:compile
+[[1;36mDEBUG[m]                org.eclipse.platform:org.eclipse.core.jobs:jar:3.10.300:compile
+[[1;36mDEBUG[m]                org.eclipse.platform:org.eclipse.equinox.registry:jar:3.8.300:compile
+[[1;36mDEBUG[m]                org.eclipse.platform:org.eclipse.equinox.preferences:jar:3.7.300:compile
+[[1;36mDEBUG[m]                org.eclipse.platform:org.eclipse.core.contenttype:jar:3.7.300:compile
+[[1;36mDEBUG[m]                org.eclipse.platform:org.eclipse.equinox.app:jar:1.4.100:compile
+[[1;36mDEBUG[m]             org.eclipse.platform:org.eclipse.core.filesystem:jar:1.7.300:compile
+[[1;36mDEBUG[m]             org.eclipse.platform:org.eclipse.text:jar:3.8.100:compile
+[[1;36mDEBUG[m]                org.eclipse.platform:org.eclipse.core.commands:jar:3.9.300:compile
+[[1;36mDEBUG[m]          com.martiansoftware:jsap:jar:2.1:compile
+[[1;36mDEBUG[m]          com.fasterxml.jackson.core:jackson-databind:jar:2.9.2:compile
+[[1;36mDEBUG[m]             com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0:compile
+[[1;36mDEBUG[m]             com.fasterxml.jackson.core:jackson-core:jar:2.9.2:compile
+[[1;36mDEBUG[m]       com.github.gumtreediff:core:jar:2.1.0:compile
+[[1;36mDEBUG[m]          com.github.mpkorstanje:simmetrics-core:jar:3.2.3:compile
+[[1;36mDEBUG[m]             commons-codec:commons-codec:jar:1.10:compile
+[[1;36mDEBUG[m]          net.sf.trove4j:trove4j:jar:3.0.3:compile
+[[1;36mDEBUG[m]          com.google.code.gson:gson:jar:2.8.2:compile
+[[1;36mDEBUG[m]          org.jgrapht:jgrapht-core:jar:1.0.1:compile
+[[1;36mDEBUG[m]    io.github.java-diff-utils:java-diff-utils:jar:4.0:compile
+[[1;36mDEBUG[m]       org.eclipse.jgit:org.eclipse.jgit:jar:4.4.1.201607150455-r:compile
+[[1;36mDEBUG[m] Created new class realm plugin>eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT
+[[1;36mDEBUG[m] Importing foreign packages into class realm plugin>eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT
+[[1;36mDEBUG[m]   Imported:  < maven.api
+[[1;36mDEBUG[m] Populating class realm plugin>eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT
+[[1;36mDEBUG[m]   Included: eu.stamp-project:dspot-diff-test-selection:jar:2.0.1-SNAPSHOT
+[[1;36mDEBUG[m]   Included: org.slf4j:slf4j-log4j12:jar:1.7.25
+[[1;36mDEBUG[m]   Included: log4j:log4j:jar:1.2.17
+[[1;36mDEBUG[m]   Included: org.apache.maven.shared:maven-invoker:jar:3.0.0
+[[1;36mDEBUG[m]   Included: org.codehaus.plexus:plexus-utils:jar:3.0.24
+[[1;36mDEBUG[m]   Included: org.codehaus.plexus:plexus-component-annotations:jar:1.7
+[[1;36mDEBUG[m]   Included: org.openclover:clover:jar:4.2.1
+[[1;36mDEBUG[m]   Included: javax.enterprise:cdi-api:jar:1.0
+[[1;36mDEBUG[m]   Included: org.codehaus.plexus:plexus-interpolation:jar:1.24
+[[1;36mDEBUG[m]   Included: org.sonatype.plexus:plexus-sec-dispatcher:jar:1.4
+[[1;36mDEBUG[m]   Included: org.sonatype.plexus:plexus-cipher:jar:1.4
+[[1;36mDEBUG[m]   Included: org.apache.maven:maven-builder-support:jar:3.5.4
+[[1;36mDEBUG[m]   Included: org.apache.maven.resolver:maven-resolver-util:jar:1.1.1
+[[1;36mDEBUG[m]   Included: org.apache.maven.shared:maven-shared-utils:jar:3.2.1
+[[1;36mDEBUG[m]   Included: commons-io:commons-io:jar:2.5
+[[1;36mDEBUG[m]   Included: org.eclipse.sisu:org.eclipse.sisu.inject:jar:0.3.3
+[[1;36mDEBUG[m]   Included: com.google.inject:guice:jar:no_aop:4.2.0
+[[1;36mDEBUG[m]   Included: aopalliance:aopalliance:jar:1.0
+[[1;36mDEBUG[m]   Included: com.google.guava:guava:jar:20.0
+[[1;36mDEBUG[m]   Included: org.apache.commons:commons-lang3:jar:3.5
+[[1;36mDEBUG[m]   Included: fr.inria.gforge.spoon.labs:gumtree-spoon-ast-diff:jar:1.5
+[[1;36mDEBUG[m]   Included: fr.inria.gforge.spoon:spoon-core:jar:7.0.0
+[[1;36mDEBUG[m]   Included: org.eclipse.jdt:org.eclipse.jdt.core:jar:3.13.102
+[[1;36mDEBUG[m]   Included: org.eclipse.platform:org.eclipse.core.resources:jar:3.13.300
+[[1;36mDEBUG[m]   Included: org.eclipse.platform:org.eclipse.core.expressions:jar:3.6.300
+[[1;36mDEBUG[m]   Included: org.eclipse.platform:org.eclipse.core.runtime:jar:3.15.200
+[[1;36mDEBUG[m]   Included: org.eclipse.platform:org.eclipse.osgi:jar:3.13.300
+[[1;36mDEBUG[m]   Included: org.eclipse.platform:org.eclipse.equinox.common:jar:3.10.300
+[[1;36mDEBUG[m]   Included: org.eclipse.platform:org.eclipse.core.jobs:jar:3.10.300
+[[1;36mDEBUG[m]   Included: org.eclipse.platform:org.eclipse.equinox.registry:jar:3.8.300
+[[1;36mDEBUG[m]   Included: org.eclipse.platform:org.eclipse.equinox.preferences:jar:3.7.300
+[[1;36mDEBUG[m]   Included: org.eclipse.platform:org.eclipse.core.contenttype:jar:3.7.300
+[[1;36mDEBUG[m]   Included: org.eclipse.platform:org.eclipse.equinox.app:jar:1.4.100
+[[1;36mDEBUG[m]   Included: org.eclipse.platform:org.eclipse.core.filesystem:jar:1.7.300
+[[1;36mDEBUG[m]   Included: org.eclipse.platform:org.eclipse.text:jar:3.8.100
+[[1;36mDEBUG[m]   Included: org.eclipse.platform:org.eclipse.core.commands:jar:3.9.300
+[[1;36mDEBUG[m]   Included: com.martiansoftware:jsap:jar:2.1
+[[1;36mDEBUG[m]   Included: com.fasterxml.jackson.core:jackson-databind:jar:2.9.2
+[[1;36mDEBUG[m]   Included: com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0
+[[1;36mDEBUG[m]   Included: com.fasterxml.jackson.core:jackson-core:jar:2.9.2
+[[1;36mDEBUG[m]   Included: com.github.gumtreediff:core:jar:2.1.0
+[[1;36mDEBUG[m]   Included: com.github.mpkorstanje:simmetrics-core:jar:3.2.3
+[[1;36mDEBUG[m]   Included: commons-codec:commons-codec:jar:1.10
+[[1;36mDEBUG[m]   Included: net.sf.trove4j:trove4j:jar:3.0.3
+[[1;36mDEBUG[m]   Included: com.google.code.gson:gson:jar:2.8.2
+[[1;36mDEBUG[m]   Included: org.jgrapht:jgrapht-core:jar:1.0.1
+[[1;36mDEBUG[m]   Included: io.github.java-diff-utils:java-diff-utils:jar:4.0
+[[1;36mDEBUG[m]   Included: org.eclipse.jgit:org.eclipse.jgit:jar:4.4.1.201607150455-r
+[[1;36mDEBUG[m] Configuring mojo eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT:list from plugin realm ClassRealm[plugin>eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT, parent: sun.misc.Launcher$AppClassLoader@5c647e05]
+[[1;36mDEBUG[m] Configuring mojo 'eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT:list' with basic configurator -->
+[[1;36mDEBUG[m]   (f) module = xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/
+[[1;36mDEBUG[m]   (f) outputFormat = CSV
+[[1;36mDEBUG[m]   (f) outputPath = /home/bdanglot/workspace/dspot-experiments/results/april-2019/xwiki-commons/commit_0_ffc3997/commit_coverage_testsThatExecuteTheChanges.csv
+[[1;36mDEBUG[m]   (f) pathDirSecondVersion = /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin
+[[1;36mDEBUG[m]   (f) project = MavenProject: org.xwiki.commons:xwiki-commons-tool-xar-plugin:10.8-SNAPSHOT @ /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/pom.xml
+[[1;36mDEBUG[m] -- end configuration --
+[[1;33mWARNING[m] No path to diff file has been specified.
+[[1;33mWARNING[m] I'll compute a diff file using the UNIX diff command
+[[1;33mWARNING[m] You may encounter troubles.
+[[1;33mWARNING[m] If so, please specify a path to a correct diff file
+[[1;33mWARNING[m] or implement a new way to compute a diff file.
+[[1;34mINFO[m] Computing the diff with diff commnd line
+[[1;34mINFO[m] The diff will be computed between:
+[[1;34mINFO[m] /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin and 
+[[1;34mINFO[m] /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin
+[[1;34mINFO[m] Executing: diff -ru /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin > patch.diff from /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin
+[[1;34mINFO[m] Computing coverage for /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin
+[WARN] Maven will be executed in interactive mode, but no input stream has been configured for this MavenInvoker instance.
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m----------< [0;36morg.xwiki.commons:xwiki-commons-tool-xar-plugin[0;1m >-----------[m
+[[1;34mINFO[m] [1mBuilding XWiki Commons - Tools - XAR Tools - XAR Plugin 10.8-SNAPSHOT[m
+[[1;34mINFO[m] [1m----------------------------[ maven-plugin ]----------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-clean-plugin:3.1.0:clean[m [1m(default-clean)[m @ [36mxwiki-commons-tool-xar-plugin[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mclover-maven-plugin:4.2.0:setup[m [1m(default-cli)[m @ [36mxwiki-commons-tool-xar-plugin[0;1m ---[m
+[[1;34mINFO[m] No 'maven.clover.licenseLocation' configured. Using default license.
+[[1;34mINFO[m] OpenClover Version 4.2.0, built on April 30 2017 (build-1000)
+[[1;34mINFO[m] Loaded from: /home/bdanglot/.m2/repository/org/openclover/clover/4.2.0/clover-4.2.0.jar
+[[1;34mINFO[m] Clover free edition.
+[[1;34mINFO[m] Creating new database at '/home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/clover.db'.
+[[1;34mINFO[m] Processing files at 1.8 source level.
+[[1;34mINFO[m] Clover all over. Instrumented 10 files (2 packages).
+[[1;34mINFO[m] Elapsed time = 0.443 secs. (22.573 files/sec, 6,259.594 srclines/sec)
+[[1;34mINFO[m] OpenClover Version 4.2.0, built on April 30 2017 (build-1000)
+[[1;34mINFO[m] Loaded from: /home/bdanglot/.m2/repository/org/openclover/clover/4.2.0/clover-4.2.0.jar
+[[1;34mINFO[m] Clover free edition.
+[[1;34mINFO[m] Updating existing database at '/home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/clover.db'.
+[[1;34mINFO[m] Processing files at 1.8 source level.
+[[1;34mINFO[m] Clover all over. Instrumented 2 files (1 package).
+[[1;34mINFO[m] 5 test methods detected.
+[[1;34mINFO[m] Elapsed time = 0.022 secs. (90.909 files/sec, 8,090.909 srclines/sec)
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:1.4.1:enforce[m [1m(enforce-plugins)[m @ [36mxwiki-commons-tool-xar-plugin[0;1m ---[m
+[[1;34mINFO[m] Skipping Rule Enforcement.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:1.4.1:enforce[m [1m(enforce-jcl-log4j-isolation)[m @ [36mxwiki-commons-tool-xar-plugin[0;1m ---[m
+[[1;34mINFO[m] Skipping Rule Enforcement.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:1.4.1:enforce[m [1m(enforce-glasshfish-jaxb)[m @ [36mxwiki-commons-tool-xar-plugin[0;1m ---[m
+[[1;34mINFO[m] Skipping Rule Enforcement.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:1.4.1:enforce[m [1m(enforce-open-json)[m @ [36mxwiki-commons-tool-xar-plugin[0;1m ---[m
+[[1;34mINFO[m] Skipping Rule Enforcement.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:1.4.1:enforce[m [1m(enforce-glassfish-el)[m @ [36mxwiki-commons-tool-xar-plugin[0;1m ---[m
+[[1;34mINFO[m] Skipping Rule Enforcement.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:1.4.1:enforce[m [1m(enforce-commons-lang3)[m @ [36mxwiki-commons-tool-xar-plugin[0;1m ---[m
+[[1;34mINFO[m] Skipping Rule Enforcement.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:1.4.1:enforce[m [1m(enforce-commons-configuration2)[m @ [36mxwiki-commons-tool-xar-plugin[0;1m ---[m
+[[1;34mINFO[m] Skipping Rule Enforcement.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:1.4.1:enforce[m [1m(enforce-bouncycastle-ids)[m @ [36mxwiki-commons-tool-xar-plugin[0;1m ---[m
+[[1;34mINFO[m] Skipping Rule Enforcement.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:1.4.1:enforce[m [1m(enforce-javase-dependencies)[m @ [36mxwiki-commons-tool-xar-plugin[0;1m ---[m
+[[1;34mINFO[m] Skipping Rule Enforcement.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:1.4.1:enforce[m [1m(enforce-upper-bounds)[m @ [36mxwiki-commons-tool-xar-plugin[0;1m ---[m
+[[1;34mINFO[m] Skipping Rule Enforcement.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.1.0:resources[m [1m(default-resources)[m @ [36mxwiki-commons-tool-xar-plugin[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/src/main/resources
+[[1;34mINFO[m] Copying 1 resource
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.0:compile[m [1m(default-compile)[m @ [36mxwiki-commons-tool-xar-plugin[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 10 source files to /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes
+[[1;34mINFO[m] /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-instrumented/org/xwiki/tool/xar/AbstractXARMojo.java: Some input files use or override a deprecated API.
+[[1;34mINFO[m] /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-instrumented/org/xwiki/tool/xar/AbstractXARMojo.java: Recompile with -Xlint:deprecation for details.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-plugin-plugin:3.5:descriptor[m [1m(default-descriptor)[m @ [36mxwiki-commons-tool-xar-plugin[0;1m ---[m
+[[1;33mWARNING[m] 
+
+Goal prefix is specified as: 'xar'. Maven currently expects it to be 'xwiki-commons-tool-xar'.
+
+[[1;34mINFO[m] Using 'UTF-8' encoding to read mojo source files.
+[[1;34mINFO[m] java-javadoc mojo extractor found 0 mojo descriptor.
+[[1;34mINFO[m] java-annotations mojo extractor found 4 mojo descriptors.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.1.0:testResources[m [1m(default-testResources)[m @ [36mxwiki-commons-tool-xar-plugin[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Copying 1 resource
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.0:testCompile[m [1m(default-testCompile)[m @ [36mxwiki-commons-tool-xar-plugin[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 2 source files to /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/test-classes
+[[1;34mINFO[m] /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-test-instrumented/org/xwiki/tool/xar/FormatMojoTest.java: /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-test-instrumented/org/xwiki/tool/xar/FormatMojoTest.java uses unchecked or unsafe operations.
+[[1;34mINFO[m] /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/src-test-instrumented/org/xwiki/tool/xar/FormatMojoTest.java: Recompile with -Xlint:unchecked for details.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.22.0:test[m [1m(default-test)[m @ [36mxwiki-commons-tool-xar-plugin[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] Running org.xwiki.tool.xar.[1mXWikiDocumentTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m1[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.154 s - in org.xwiki.tool.xar.[1mXWikiDocumentTest[m
+[[1;34mINFO[m] Running org.xwiki.tool.xar.[1mFormatMojoTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.xwiki.tool.xar.[1mFormatMojoTest[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1;32mTests run: 5, Failures: 0, Errors: 0, Skipped: 0[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  7.195 s
+[[1;34mINFO[m] Finished at: 2019-04-16T08:02:25+02:00
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+Writing HTML report to '/home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/clover/report'
+Done. Processed 2 packages in 1493ms (746ms per package).
+[[1;34mINFO[m] /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/src/main/java/org/xwiki/tool/xar/VerifyMojo.java
+[[1;34mINFO[m] /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/src/main/java/org/xwiki/tool/xar/VerifyMojo.java
+[[1;34mINFO[m] org.xwiki.tool.xar.VerifyMojo:89 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.VerifyMojo:197 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.VerifyMojo:197 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.VerifyMojo:198 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.VerifyMojo:226 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.VerifyMojo:226 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.VerifyMojo:226 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.VerifyMojo:226 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.VerifyMojo:227 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.VerifyMojo:227 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.VerifyMojo:228 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.VerifyMojo:231 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.VerifyMojo:231 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.VerifyMojo:232 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.VerifyMojo:235 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.VerifyMojo:235 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.VerifyMojo:236 is modified.
+[[1;34mINFO[m] /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/src/main/java/org/xwiki/tool/xar/internal/XWikiDocument.java
+[[1;34mINFO[m] /home/bdanglot/workspace/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/src/main/java/org/xwiki/tool/xar/internal/XWikiDocument.java
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:149 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:188 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:174 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:188 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:234 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:209 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:211 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:246 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:209 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:210 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:211 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:210 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:232 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:232 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:234 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:235 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:249 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:259 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:259 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:260 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:504 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:512 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:520 is modified.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:188 covered.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:234 covered.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:209 covered.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:211 covered.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:246 covered.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:210 covered.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:232 covered.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:235 covered.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:249 covered.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:259 covered.
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument:260 covered.
+[[1;34mINFO[m] Saving result in /home/bdanglot/workspace/dspot-experiments/results/april-2019/xwiki-commons/commit_0_ffc3997/commit_coverage_testsThatExecuteTheChanges.csv ...
+[[1;34mINFO[m] org.xwiki.tool.xar.XWikiDocumentTest;createReference
+[[1;34mINFO[m] Writing Coverage in /home/bdanglot/workspace/dspot-experiments/results/april-2019/xwiki-commons/commit_0_ffc3997/commit_coverage_testsThatExecuteTheChanges_coverage.csv
+[[1;34mINFO[m] org.xwiki.tool.xar.internal.XWikiDocument;11;16
+
+[[1;34mINFO[m] total;11;16
+
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  13.612 s
+[[1;34mINFO[m] Finished at: 2019-04-16T08:02:28+02:00
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
