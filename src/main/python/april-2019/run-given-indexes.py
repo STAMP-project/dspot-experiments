@@ -29,9 +29,11 @@ def run(project, indices, amplifiers):
             toolbox.prefix_dataset + project + "/" + commit["concernedModule"])
         path_to_concerned_module_parent = toolbox.get_absolute_path(
             toolbox.prefix_dataset + project + toolbox.suffix_parent + "/" + commit["concernedModule"])
-        path_to_test_that_executes_the_changes = toolbox.get_path_to_csv_file(
-            project , commit, commits
-        )
+
+        path_to_test_that_executes_the_changes = toolbox.get_absolute_path(
+            toolbox.prefix_result + project + "/" + toolbox.get_output_folder_for_commit(commit, commits)
+        ) + '/parent_' + toolbox.name_of_csv_with_list_of_test_that_execute_the_changes + ".csv"
+
         preparation.prepare(project)
         # run now dspot with maven plugin
         cmd = [
