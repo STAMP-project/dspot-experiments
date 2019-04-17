@@ -1,0 +1,40 @@
+diff --git a/src/main/java/org/apache/commons/io/IOUtils.java b/src/main/java/org/apache/commons/io/IOUtils.java
+index 70caf4f..daa9505 100644
+--- a/src/main/java/org/apache/commons/io/IOUtils.java
++++ b/src/main/java/org/apache/commons/io/IOUtils.java
+@@ -825,7 +825,7 @@ public static BufferedInputStream buffer(final InputStream inputStream, int size
+         }
+ 
+         if (offset != size) {
+-            throw new IOException("Unexpected read size. current: " + offset + ", expected: " + size);
++            throw new IOException("Unexpected readed size. current: " + offset + ", excepted: " + size);
+         }
+ 
+         return data;
+diff --git a/src/test/java/org/apache/commons/io/IOUtilsTestCase.java b/src/test/java/org/apache/commons/io/IOUtilsTestCase.java
+index 83870a8..a29a41e 100644
+--- a/src/test/java/org/apache/commons/io/IOUtilsTestCase.java
++++ b/src/test/java/org/apache/commons/io/IOUtilsTestCase.java
+@@ -926,10 +926,10 @@ public synchronized void close() throws IOException {
+ 
+         try (FileInputStream fin = new FileInputStream(m_testFile)) {
+             IOUtils.toByteArray(fin, m_testFile.length() + 1);
+-            fail("IOException expected");
++            fail("IOException excepted");
+         } catch (final IOException exc) {
+-            assertTrue("Exception message does not start with \"Unexpected read size\"",
+-                    exc.getMessage().startsWith("Unexpected read size"));
++            assertTrue("Exception message does not start with \"Unexpected readed size\"",
++                    exc.getMessage().startsWith("Unexpected readed size"));
+         }
+ 
+     }
+@@ -938,7 +938,7 @@ public synchronized void close() throws IOException {
+ 
+         try (FileInputStream fin = new FileInputStream(m_testFile)) {
+             IOUtils.toByteArray(fin, (long) Integer.MAX_VALUE + 1);
+-            fail("IOException expected");
++            fail("IOException excepted");
+         } catch (final IllegalArgumentException exc) {
+             assertTrue("Exception message does not start with \"Size cannot be greater than Integer max value\"", exc
+                     .getMessage().startsWith("Size cannot be greater than Integer max value"));
