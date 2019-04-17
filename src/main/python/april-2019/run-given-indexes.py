@@ -32,7 +32,7 @@ def run(project, indices, amplifiers):
 
         path_to_test_that_executes_the_changes = toolbox.get_absolute_path(
             toolbox.prefix_result + project + "/" + toolbox.get_output_folder_for_commit(commit, commits)
-        ) + '/parent_' + toolbox.name_of_csv_with_list_of_test_that_execute_the_changes + ".csv"
+        ) + '/parent_coverage' + toolbox.name_of_csv_with_list_of_test_that_execute_the_changes + ".csv"
 
         preparation.prepare(project)
         # run now dspot with maven plugin
