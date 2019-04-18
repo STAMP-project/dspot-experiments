@@ -1,0 +1,51 @@
+diff --git a/xwiki-commons-core/xwiki-commons-component/xwiki-commons-component-api/src/main/java/org/xwiki/component/namespace/NamespaceUtils.java b/xwiki-commons-core/xwiki-commons-component/xwiki-commons-component-api/src/main/java/org/xwiki/component/namespace/NamespaceUtils.java
+index c72e535..a964d07 100644
+--- a/xwiki-commons-core/xwiki-commons-component/xwiki-commons-component-api/src/main/java/org/xwiki/component/namespace/NamespaceUtils.java
++++ b/xwiki-commons-core/xwiki-commons-component/xwiki-commons-component-api/src/main/java/org/xwiki/component/namespace/NamespaceUtils.java
+@@ -19,6 +19,9 @@
+  */
+ package org.xwiki.component.namespace;
+ 
++import java.util.HashSet;
++import java.util.Set;
++
+ /**
+  * Various namespaces utilities.
+  *
+@@ -27,6 +30,14 @@
+  */
+ public final class NamespaceUtils
+ {
++    private static final Set<String> ROOT_NAMESPACES = new HashSet<>();
++
++    static {
++        ROOT_NAMESPACES.add("{root}");
++        ROOT_NAMESPACES.add("{}");
++        ROOT_NAMESPACES.add("");
++    };
++
+     /**
+      * Utility class.
+      */
+@@ -59,6 +70,10 @@ public static Namespace toNamespace(String namespace)
+             return null;
+         }
+ 
++        if (ROOT_NAMESPACES.contains(namespace)) {
++            return Namespace.ROOT;
++        }
++
+         boolean escaped = false;
+         StringBuilder typeBuilder = null;
+         for (int i = 0; i < namespace.length(); ++i) {
+diff --git a/xwiki-commons-core/xwiki-commons-component/xwiki-commons-component-api/src/test/java/org/xwiki/component/internal/namespace/NamespaceUtilsTest.java b/xwiki-commons-core/xwiki-commons-component/xwiki-commons-component-api/src/test/java/org/xwiki/component/internal/namespace/NamespaceUtilsTest.java
+index ace217d..30d3c45 100644
+--- a/xwiki-commons-core/xwiki-commons-component/xwiki-commons-component-api/src/test/java/org/xwiki/component/internal/namespace/NamespaceUtilsTest.java
++++ b/xwiki-commons-core/xwiki-commons-component/xwiki-commons-component-api/src/test/java/org/xwiki/component/internal/namespace/NamespaceUtilsTest.java
+@@ -51,5 +51,6 @@ public void toNamespace()
+         assertEquals(new Namespace("type", "value"), NamespaceUtils.toNamespace("type:value"));
+         assertEquals(new Namespace("t:pe", "val\\ue"), NamespaceUtils.toNamespace("t\\:pe:val\\ue"));
+         assertEquals(new Namespace("", "value"), NamespaceUtils.toNamespace(":value"));
++        assertEquals(Namespace.ROOT, NamespaceUtils.toNamespace("{}"));
+     }
+ }

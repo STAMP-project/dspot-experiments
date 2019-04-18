@@ -1,0 +1,50 @@
+diff --git a/xwiki-commons-core/xwiki-commons-xml/src/main/java/org/xwiki/xml/internal/html/filter/BodyFilter.java b/xwiki-commons-core/xwiki-commons-xml/src/main/java/org/xwiki/xml/internal/html/filter/BodyFilter.java
+index 1a52d35..319ed9e 100644
+--- a/xwiki-commons-core/xwiki-commons-xml/src/main/java/org/xwiki/xml/internal/html/filter/BodyFilter.java
++++ b/xwiki-commons-core/xwiki-commons-xml/src/main/java/org/xwiki/xml/internal/html/filter/BodyFilter.java
+@@ -78,11 +78,21 @@ public void filter(Document document, Map<String, String> cleaningParameters)
+                     // Ensure that we don't wrap elements that contain only spaces or newlines.
+                     containsOnlySpaces = containsOnlySpaces(currentNode);
+ 
+-                    if (markerNode == null && !containsOnlySpaces) {
++                    if (markerNode == null) {
+                         markerNode = currentNode;
++                    } else {
++                        // If we find some text with only spaces we wrap the previous marker node.
++                        if (containsOnlySpaces) {
++                            surroundWithParagraph(document, body, markerNode, currentNode);
++                            markerNode = null;
++                        }
+                     }
+                 } else if (markerNode != null) {
+-                    surroundWithParagraph(document, body, markerNode, currentNode);
++                    // surround all the nodes starting with the marker node with a paragraph unless there are only
++                    // whitespaces or newlines.
++                    if (!containsOnlySpaces) {
++                        surroundWithParagraph(document, body, markerNode, currentNode);
++                    }
+                     markerNode = null;
+                 }
+             }
+@@ -91,7 +101,7 @@ public void filter(Document document, Map<String, String> cleaningParameters)
+ 
+         // If the marker is still set it means we need to wrap all elements between the marker till
+         // the end of the body siblings with a paragraph.
+-        if (markerNode != null) {
++        if (markerNode != null && !containsOnlySpaces) {
+             surroundWithParagraph(document, body, markerNode, null);
+         }
+     }
+diff --git a/xwiki-commons-core/xwiki-commons-xml/src/test/java/org/xwiki/xml/internal/html/DefaultHTMLCleanerTest.java b/xwiki-commons-core/xwiki-commons-xml/src/test/java/org/xwiki/xml/internal/html/DefaultHTMLCleanerTest.java
+index d3f58f1..5ed6312 100644
+--- a/xwiki-commons-core/xwiki-commons-xml/src/test/java/org/xwiki/xml/internal/html/DefaultHTMLCleanerTest.java
++++ b/xwiki-commons-core/xwiki-commons-xml/src/test/java/org/xwiki/xml/internal/html/DefaultHTMLCleanerTest.java
+@@ -416,7 +416,7 @@ public void verifyIFRAMECleaning() throws Exception
+         //          assertHTML("<iframe src=\"whatever\"></iframe>", "<iframe src=\"whatever\"/>");
+         //          assertHTML("<iframe src=\"whatever\"></iframe>", "<iframe src=\"whatever\"/>\r\n");
+         assertHTML("<p><iframe src=\"whatever\"></iframe></p>", "<iframe src=\"whatever\"/>");
+-        assertHTML("<p><iframe src=\"whatever\"></iframe>\r\n</p>", "<iframe src=\"whatever\"/>\r\n");
++        assertHTML("<p><iframe src=\"whatever\"></iframe></p>\r\n", "<iframe src=\"whatever\"/>\r\n");
+     }
+ 
+     private void assertHTML(String expected, String actual) throws ComponentLookupException

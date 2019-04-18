@@ -1,0 +1,762 @@
+Apache Maven 3.5.4 (1edded0938998edf8bf061f1ceb3cfdeccf443fe; 2018-06-17T20:33:14+02:00)
+Maven home: /home/spirals/danglot/apache-maven-3.5.4
+Java version: 1.8.0_121, vendor: Oracle Corporation, runtime: /home/spirals/danglot/jdk1.8.0_121/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
+[DEBUG] Created new class realm maven.api
+[DEBUG] Importing foreign packages into class realm maven.api
+[DEBUG]   Imported: javax.annotation.* < plexus.core
+[DEBUG]   Imported: javax.annotation.security.* < plexus.core
+[DEBUG]   Imported: javax.enterprise.inject.* < plexus.core
+[DEBUG]   Imported: javax.enterprise.util.* < plexus.core
+[DEBUG]   Imported: javax.inject.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.artifact < plexus.core
+[DEBUG]   Imported: org.apache.maven.classrealm < plexus.core
+[DEBUG]   Imported: org.apache.maven.cli < plexus.core
+[DEBUG]   Imported: org.apache.maven.configuration < plexus.core
+[DEBUG]   Imported: org.apache.maven.exception < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution.scope < plexus.core
+[DEBUG]   Imported: org.apache.maven.lifecycle < plexus.core
+[DEBUG]   Imported: org.apache.maven.model < plexus.core
+[DEBUG]   Imported: org.apache.maven.monitor < plexus.core
+[DEBUG]   Imported: org.apache.maven.plugin < plexus.core
+[DEBUG]   Imported: org.apache.maven.profiles < plexus.core
+[DEBUG]   Imported: org.apache.maven.project < plexus.core
+[DEBUG]   Imported: org.apache.maven.reporting < plexus.core
+[DEBUG]   Imported: org.apache.maven.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.rtinfo < plexus.core
+[DEBUG]   Imported: org.apache.maven.settings < plexus.core
+[DEBUG]   Imported: org.apache.maven.toolchain < plexus.core
+[DEBUG]   Imported: org.apache.maven.usability < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authentication < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authorization < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.events < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.observers < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.proxy < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.resource < plexus.core
+[DEBUG]   Imported: org.codehaus.classworlds < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.* < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.classworlds < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.component < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.configuration < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.container < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.context < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.lifecycle < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.logging < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.personality < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.Xpp3Dom < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParser < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParserException < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlSerializer < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.* < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.artifact < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.collection < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.deployment < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.graph < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.impl < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.installation < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.internal.impl < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.metadata < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.repository < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.resolution < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.spi < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.transfer < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.version < plexus.core
+[DEBUG]   Imported: org.fusesource.jansi.* < plexus.core
+[DEBUG]   Imported: org.slf4j.* < plexus.core
+[DEBUG]   Imported: org.slf4j.helpers.* < plexus.core
+[DEBUG]   Imported: org.slf4j.spi.* < plexus.core
+[DEBUG] Populating class realm maven.api
+[INFO] Error stacktraces are turned on.
+[DEBUG] Message scheme: color
+[DEBUG] Message styles: debug info warning error success failure strong mojo project
+[DEBUG] Reading global settings from /home/spirals/danglot/apache-maven-3.5.4/conf/settings.xml
+[DEBUG] Reading user settings from /home/spirals/danglot/.m2/settings.xml
+[DEBUG] Reading global toolchains from /home/spirals/danglot/apache-maven-3.5.4/conf/toolchains.xml
+[DEBUG] Reading user toolchains from /home/spirals/danglot/.m2/toolchains.xml
+[DEBUG] Using local repository at /home/spirals/danglot/.m2/repository
+[DEBUG] Using manager EnhancedLocalRepositoryManager with priority 10.0 for /home/spirals/danglot/.m2/repository
+[INFO] Scanning for projects...
+[DEBUG] Extension realms for project org.xwiki.commons:xwiki-commons-diff-api:jar:10.0-SNAPSHOT: (none)
+[DEBUG] Looking up lifecycle mappings for packaging jar from ClassRealm[plexus.core, parent: null]
+[DEBUG] Extension realms for project org.xwiki.commons:xwiki-commons-diff:pom:10.0-SNAPSHOT: (none)
+[DEBUG] Looking up lifecycle mappings for packaging pom from ClassRealm[plexus.core, parent: null]
+[DEBUG] Extension realms for project org.xwiki.commons:xwiki-commons-core:pom:10.0-SNAPSHOT: (none)
+[DEBUG] Looking up lifecycle mappings for packaging pom from ClassRealm[plexus.core, parent: null]
+[DEBUG] Extension realms for project org.xwiki.commons:xwiki-commons-pom:pom:10.0-SNAPSHOT: (none)
+[DEBUG] Looking up lifecycle mappings for packaging pom from ClassRealm[plexus.core, parent: null]
+[DEBUG] Extension realms for project org.xwiki.commons:xwiki-commons:pom:10.0-SNAPSHOT: (none)
+[DEBUG] Looking up lifecycle mappings for packaging pom from ClassRealm[plexus.core, parent: null]
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.xwiki.commons:xwiki-commons-diff-api:jar:10.0-SNAPSHOT
+[WARNING] Reporting configuration should be done in <reporting> section, not in maven-site-plugin <configuration> as reportPlugins parameter.
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[DEBUG] === REACTOR BUILD PLAN ================================================
+[DEBUG] Project: org.xwiki.commons:xwiki-commons-diff-api:jar:10.0-SNAPSHOT
+[DEBUG] Tasks:   [clean, eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT:list]
+[DEBUG] Style:   Regular
+[DEBUG] =======================================================================
+[INFO] 
+[INFO] --------------< org.xwiki.commons:xwiki-commons-diff-api >--------------
+[INFO] Building XWiki Commons - Diff API 10.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] === PROJECT BUILD PLAN ================================================
+[DEBUG] Project:       org.xwiki.commons:xwiki-commons-diff-api:10.0-SNAPSHOT
+[DEBUG] Dependencies (collect): []
+[DEBUG] Dependencies (resolve): []
+[DEBUG] Repositories (dependencies): [central (https://repo.maven.apache.org/maven2, default, releases)]
+[DEBUG] Repositories (plugins)     : [central (https://repo.maven.apache.org/maven2, default, releases)]
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-clean-plugin:3.0.0:clean (default-clean)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <directory default-value="${project.build.directory}"/>
+  <excludeDefaultDirectories default-value="false">${maven.clean.excludeDefaultDirectories}</excludeDefaultDirectories>
+  <failOnError default-value="true">${maven.clean.failOnError}</failOnError>
+  <followSymLinks default-value="false">${maven.clean.followSymLinks}</followSymLinks>
+  <outputDirectory default-value="${project.build.outputDirectory}"/>
+  <reportDirectory default-value="${project.build.outputDirectory}"/>
+  <retryOnError default-value="true">${maven.clean.retryOnError}</retryOnError>
+  <skip default-value="false">${maven.clean.skip}</skip>
+  <testOutputDirectory default-value="${project.build.testOutputDirectory}"/>
+  <verbose>${maven.clean.verbose}</verbose>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT:list (default-cli)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <module default-value="">${module}</module>
+  <outputFormat default-value="CSV">${output-format}</outputFormat>
+  <outputPath default-value="">${output-path}</outputPath>
+  <pathDirSecondVersion>${path-dir-second-version}</pathDirSecondVersion>
+  <pathToDiff default-value="">${path-to-diff}</pathToDiff>
+  <project default-value="${project}"/>
+</configuration>
+[DEBUG] =======================================================================
+[INFO] 
+[INFO] --- maven-clean-plugin:3.0.0:clean (default-clean) @ xwiki-commons-diff-api ---
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=846899, ConflictMarker.markTime=551021, ConflictMarker.nodeCount=15, ConflictIdSorter.graphTime=509896, ConflictIdSorter.topsortTime=388494, ConflictIdSorter.conflictIdCount=13, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=3991172, ConflictResolver.conflictItemCount=15, DefaultDependencyCollector.collectTime=115294505, DefaultDependencyCollector.transformTime=8664882}
+[DEBUG] org.apache.maven.plugins:maven-clean-plugin:jar:3.0.0:
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-model:jar:3.0:compile
+[DEBUG]          org.codehaus.plexus:plexus-utils:jar:2.0.4:compile
+[DEBUG]       org.apache.maven:maven-artifact:jar:3.0:compile
+[DEBUG]       org.sonatype.sisu:sisu-inject-plexus:jar:1.4.2:compile
+[DEBUG]          org.codehaus.plexus:plexus-component-annotations:jar:1.5.5:compile
+[DEBUG]          org.codehaus.plexus:plexus-classworlds:jar:2.2.3:compile
+[DEBUG]          org.sonatype.sisu:sisu-inject-bean:jar:1.4.2:compile
+[DEBUG]             org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7:compile
+[DEBUG]    org.apache.maven.shared:maven-shared-utils:jar:3.0.0:compile
+[DEBUG]       commons-io:commons-io:jar:2.4:compile
+[DEBUG]       com.google.code.findbugs:jsr305:jar:2.0.1:compile
+[DEBUG] Created new class realm plugin>org.apache.maven.plugins:maven-clean-plugin:3.0.0
+[DEBUG] Importing foreign packages into class realm plugin>org.apache.maven.plugins:maven-clean-plugin:3.0.0
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>org.apache.maven.plugins:maven-clean-plugin:3.0.0
+[DEBUG]   Included: org.apache.maven.plugins:maven-clean-plugin:jar:3.0.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:2.0.4
+[DEBUG]   Included: org.codehaus.plexus:plexus-component-annotations:jar:1.5.5
+[DEBUG]   Included: org.sonatype.sisu:sisu-inject-bean:jar:1.4.2
+[DEBUG]   Included: org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7
+[DEBUG]   Included: org.apache.maven.shared:maven-shared-utils:jar:3.0.0
+[DEBUG]   Included: commons-io:commons-io:jar:2.4
+[DEBUG]   Included: com.google.code.findbugs:jsr305:jar:2.0.1
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-clean-plugin:3.0.0:clean from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-clean-plugin:3.0.0, parent: sun.misc.Launcher$AppClassLoader@55f96302]
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-clean-plugin:3.0.0:clean' with basic configurator -->
+[DEBUG]   (f) directory = /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target
+[DEBUG]   (f) excludeDefaultDirectories = false
+[DEBUG]   (f) failOnError = true
+[DEBUG]   (f) followSymLinks = false
+[DEBUG]   (f) outputDirectory = /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes
+[DEBUG]   (f) reportDirectory = /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes
+[DEBUG]   (f) retryOnError = true
+[DEBUG]   (f) skip = false
+[DEBUG]   (f) testOutputDirectory = /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/test-classes
+[DEBUG] -- end configuration --
+[INFO] Deleting /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/checkstyle-cachefile
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/.plxarc
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/maven-archiver/pom.properties
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/maven-archiver
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/xwiki-commons-diff-api-10.0-SNAPSHOT.jar
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/maven-shared-archive-resources/META-INF/NOTICE
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/maven-shared-archive-resources/META-INF/LICENSE
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/maven-shared-archive-resources/META-INF
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/maven-shared-archive-resources
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/generated-test-sources/test-annotations
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/generated-test-sources
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/maven-status/maven-compiler-plugin/compile/default-compile
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/maven-status/maven-compiler-plugin/compile
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/maven-status/maven-compiler-plugin/testCompile
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/maven-status/maven-compiler-plugin
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/maven-status
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/test-classes/META-INF/NOTICE
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/test-classes/META-INF/LICENSE
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/test-classes/META-INF
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/test-classes/org/xwiki/diff/internal/DefaultDiffManagerTest.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/test-classes/org/xwiki/diff/internal
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/test-classes/org/xwiki/diff
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/test-classes/org/xwiki
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/test-classes/org
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/test-classes
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/checkstyle-checker.xml
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/generated-sources/annotations
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/generated-sources
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/META-INF/components.txt
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/META-INF/MANIFEST.MF
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/META-INF/NOTICE
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/META-INF/LICENSE
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/META-INF
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org/xwiki/diff/DiffConfiguration.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org/xwiki/diff/MergeException.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org/xwiki/diff/DiffException.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org/xwiki/diff/MergeConfiguration$Version.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org/xwiki/diff/DiffResult.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org/xwiki/diff/MergeConfiguration.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org/xwiki/diff/Delta.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org/xwiki/diff/internal/DeleteDelta.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org/xwiki/diff/internal/DefaultDiffManager$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org/xwiki/diff/internal/InsertDelta.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org/xwiki/diff/internal/DefaultPatch$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org/xwiki/diff/internal/DefaultChunk.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org/xwiki/diff/internal/DefaultDiffResult.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org/xwiki/diff/internal/DefaultDiffManager.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org/xwiki/diff/internal/AbstractDelta.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org/xwiki/diff/internal/ChangeDelta.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org/xwiki/diff/internal/DefaultPatch.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org/xwiki/diff/internal/DefaultMergeResult.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org/xwiki/diff/internal
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org/xwiki/diff/Patch.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org/xwiki/diff/MergeResult.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org/xwiki/diff/Chunk.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org/xwiki/diff/PatchException.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org/xwiki/diff/Delta$Type.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org/xwiki/diff/DiffManager.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org/xwiki/diff
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org/xwiki
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/org
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/checkstyle-result.xml
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target
+[DEBUG] Skipping non-existing directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes
+[DEBUG] Skipping non-existing directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/test-classes
+[DEBUG] Skipping non-existing directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes
+[INFO] 
+[INFO] --- dspot-diff-test-selection:2.0.1-SNAPSHOT:list (default-cli) @ xwiki-commons-diff-api ---
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.text/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.text/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=6433511, ConflictMarker.markTime=1307453, ConflictMarker.nodeCount=990, ConflictIdSorter.graphTime=4344031, ConflictIdSorter.topsortTime=118435, ConflictIdSorter.conflictIdCount=70, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=13084651, ConflictResolver.conflictItemCount=274, DefaultDependencyCollector.collectTime=1131202591, DefaultDependencyCollector.transformTime=25339947}
+[DEBUG] eu.stamp-project:dspot-diff-test-selection:jar:2.0.1-SNAPSHOT:
+[DEBUG]    org.slf4j:slf4j-api:jar:1.7.25:compile
+[DEBUG]    org.slf4j:slf4j-log4j12:jar:1.7.25:compile
+[DEBUG]       log4j:log4j:jar:1.2.17:compile
+[DEBUG]    org.apache.maven.shared:maven-invoker:jar:3.0.0:compile
+[DEBUG]       org.codehaus.plexus:plexus-utils:jar:3.0.24:compile
+[DEBUG]       org.codehaus.plexus:plexus-component-annotations:jar:1.7:compile
+[DEBUG]    org.openclover:clover:jar:4.2.1:compile
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:3.5.4:compile
+[DEBUG]       org.apache.maven:maven-model:jar:3.5.4:compile
+[DEBUG]       org.apache.maven:maven-artifact:jar:3.5.4:compile
+[DEBUG]       org.eclipse.sisu:org.eclipse.sisu.plexus:jar:0.3.3:compile
+[DEBUG]          javax.enterprise:cdi-api:jar:1.0:compile
+[DEBUG]             javax.annotation:jsr250-api:jar:1.0:compile
+[DEBUG]       org.codehaus.plexus:plexus-classworlds:jar:2.5.2:compile
+[DEBUG]    org.apache.maven:maven-core:jar:3.5.4:compile
+[DEBUG]       org.apache.maven:maven-settings:jar:3.5.4:compile
+[DEBUG]       org.apache.maven:maven-settings-builder:jar:3.5.4:compile
+[DEBUG]          org.codehaus.plexus:plexus-interpolation:jar:1.24:compile
+[DEBUG]          org.sonatype.plexus:plexus-sec-dispatcher:jar:1.4:compile
+[DEBUG]             org.sonatype.plexus:plexus-cipher:jar:1.4:compile
+[DEBUG]       org.apache.maven:maven-builder-support:jar:3.5.4:compile
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:3.5.4:compile
+[DEBUG]       org.apache.maven:maven-model-builder:jar:3.5.4:compile
+[DEBUG]       org.apache.maven:maven-resolver-provider:jar:3.5.4:compile
+[DEBUG]       org.apache.maven.resolver:maven-resolver-impl:jar:1.1.1:compile
+[DEBUG]       org.apache.maven.resolver:maven-resolver-api:jar:1.1.1:compile
+[DEBUG]       org.apache.maven.resolver:maven-resolver-spi:jar:1.1.1:compile
+[DEBUG]       org.apache.maven.resolver:maven-resolver-util:jar:1.1.1:compile
+[DEBUG]       org.apache.maven.shared:maven-shared-utils:jar:3.2.1:compile
+[DEBUG]          commons-io:commons-io:jar:2.5:compile
+[DEBUG]       org.eclipse.sisu:org.eclipse.sisu.inject:jar:0.3.3:compile
+[DEBUG]       com.google.inject:guice:jar:no_aop:4.2.0:compile
+[DEBUG]          aopalliance:aopalliance:jar:1.0:compile
+[DEBUG]       com.google.guava:guava:jar:20.0:compile
+[DEBUG]       javax.inject:javax.inject:jar:1:compile
+[DEBUG]       org.apache.commons:commons-lang3:jar:3.5:compile
+[DEBUG]    fr.inria.gforge.spoon.labs:gumtree-spoon-ast-diff:jar:1.5:compile
+[DEBUG]       fr.inria.gforge.spoon:spoon-core:jar:7.0.0:compile
+[DEBUG]          org.eclipse.jdt:org.eclipse.jdt.core:jar:3.13.102:compile
+[DEBUG]             org.eclipse.platform:org.eclipse.core.resources:jar:3.13.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.core.expressions:jar:3.6.300:compile
+[DEBUG]             org.eclipse.platform:org.eclipse.core.runtime:jar:3.15.200:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.osgi:jar:3.13.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.equinox.common:jar:3.10.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.core.jobs:jar:3.10.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.equinox.registry:jar:3.8.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.equinox.preferences:jar:3.7.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.core.contenttype:jar:3.7.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.equinox.app:jar:1.4.100:compile
+[DEBUG]             org.eclipse.platform:org.eclipse.core.filesystem:jar:1.7.300:compile
+[DEBUG]             org.eclipse.platform:org.eclipse.text:jar:3.8.100:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.core.commands:jar:3.9.300:compile
+[DEBUG]          com.martiansoftware:jsap:jar:2.1:compile
+[DEBUG]          com.fasterxml.jackson.core:jackson-databind:jar:2.9.2:compile
+[DEBUG]             com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0:compile
+[DEBUG]             com.fasterxml.jackson.core:jackson-core:jar:2.9.2:compile
+[DEBUG]       com.github.gumtreediff:core:jar:2.1.0:compile
+[DEBUG]          com.github.mpkorstanje:simmetrics-core:jar:3.2.3:compile
+[DEBUG]             commons-codec:commons-codec:jar:1.10:compile
+[DEBUG]          net.sf.trove4j:trove4j:jar:3.0.3:compile
+[DEBUG]          com.google.code.gson:gson:jar:2.8.2:compile
+[DEBUG]          org.jgrapht:jgrapht-core:jar:1.0.1:compile
+[DEBUG]    io.github.java-diff-utils:java-diff-utils:jar:4.0:compile
+[DEBUG]       org.eclipse.jgit:org.eclipse.jgit:jar:4.4.1.201607150455-r:compile
+[DEBUG] Created new class realm plugin>eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT
+[DEBUG] Importing foreign packages into class realm plugin>eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT
+[DEBUG]   Included: eu.stamp-project:dspot-diff-test-selection:jar:2.0.1-SNAPSHOT
+[DEBUG]   Included: org.slf4j:slf4j-log4j12:jar:1.7.25
+[DEBUG]   Included: log4j:log4j:jar:1.2.17
+[DEBUG]   Included: org.apache.maven.shared:maven-invoker:jar:3.0.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:3.0.24
+[DEBUG]   Included: org.codehaus.plexus:plexus-component-annotations:jar:1.7
+[DEBUG]   Included: org.openclover:clover:jar:4.2.1
+[DEBUG]   Included: javax.enterprise:cdi-api:jar:1.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-interpolation:jar:1.24
+[DEBUG]   Included: org.sonatype.plexus:plexus-sec-dispatcher:jar:1.4
+[DEBUG]   Included: org.sonatype.plexus:plexus-cipher:jar:1.4
+[DEBUG]   Included: org.apache.maven:maven-builder-support:jar:3.5.4
+[DEBUG]   Included: org.apache.maven.resolver:maven-resolver-util:jar:1.1.1
+[DEBUG]   Included: org.apache.maven.shared:maven-shared-utils:jar:3.2.1
+[DEBUG]   Included: commons-io:commons-io:jar:2.5
+[DEBUG]   Included: org.eclipse.sisu:org.eclipse.sisu.inject:jar:0.3.3
+[DEBUG]   Included: com.google.inject:guice:jar:no_aop:4.2.0
+[DEBUG]   Included: aopalliance:aopalliance:jar:1.0
+[DEBUG]   Included: com.google.guava:guava:jar:20.0
+[DEBUG]   Included: org.apache.commons:commons-lang3:jar:3.5
+[DEBUG]   Included: fr.inria.gforge.spoon.labs:gumtree-spoon-ast-diff:jar:1.5
+[DEBUG]   Included: fr.inria.gforge.spoon:spoon-core:jar:7.0.0
+[DEBUG]   Included: org.eclipse.jdt:org.eclipse.jdt.core:jar:3.13.102
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.resources:jar:3.13.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.expressions:jar:3.6.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.runtime:jar:3.15.200
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.osgi:jar:3.13.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.equinox.common:jar:3.10.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.jobs:jar:3.10.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.equinox.registry:jar:3.8.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.equinox.preferences:jar:3.7.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.contenttype:jar:3.7.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.equinox.app:jar:1.4.100
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.filesystem:jar:1.7.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.text:jar:3.8.100
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.commands:jar:3.9.300
+[DEBUG]   Included: com.martiansoftware:jsap:jar:2.1
+[DEBUG]   Included: com.fasterxml.jackson.core:jackson-databind:jar:2.9.2
+[DEBUG]   Included: com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0
+[DEBUG]   Included: com.fasterxml.jackson.core:jackson-core:jar:2.9.2
+[DEBUG]   Included: com.github.gumtreediff:core:jar:2.1.0
+[DEBUG]   Included: com.github.mpkorstanje:simmetrics-core:jar:3.2.3
+[DEBUG]   Included: commons-codec:commons-codec:jar:1.10
+[DEBUG]   Included: net.sf.trove4j:trove4j:jar:3.0.3
+[DEBUG]   Included: com.google.code.gson:gson:jar:2.8.2
+[DEBUG]   Included: org.jgrapht:jgrapht-core:jar:1.0.1
+[DEBUG]   Included: io.github.java-diff-utils:java-diff-utils:jar:4.0
+[DEBUG]   Included: org.eclipse.jgit:org.eclipse.jgit:jar:4.4.1.201607150455-r
+[DEBUG] Configuring mojo eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT:list from plugin realm ClassRealm[plugin>eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT, parent: sun.misc.Launcher$AppClassLoader@55f96302]
+[DEBUG] Configuring mojo 'eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT:list' with basic configurator -->
+[DEBUG]   (f) module = xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/
+[DEBUG]   (f) outputFormat = CSV
+[DEBUG]   (f) outputPath = /tmp/dspot-experiments/results/april-2019/xwiki-commons/commit_6_a0e8b77/commit_coverage_testsThatExecuteTheChanges.csv
+[DEBUG]   (f) pathDirSecondVersion = /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api
+[DEBUG]   (f) project = MavenProject: org.xwiki.commons:xwiki-commons-diff-api:10.0-SNAPSHOT @ /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/pom.xml
+[DEBUG] -- end configuration --
+[WARNING] No path to diff file has been specified.
+[WARNING] I'll compute a diff file using the UNIX diff command
+[WARNING] You may encounter troubles.
+[WARNING] If so, please specify a path to a correct diff file
+[WARNING] or implement a new way to compute a diff file.
+[INFO] Computing the diff with diff commnd line
+[INFO] The diff will be computed between:
+[INFO] /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api and 
+[INFO] /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api
+[INFO] Executing: diff -ru /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api > patch.diff from /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api
+[INFO] Computing coverage for /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api
+[WARN] Maven will be executed in interactive mode, but no input stream has been configured for this MavenInvoker instance.
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.xwiki.commons:xwiki-commons-diff-api:jar:10.0-SNAPSHOT
+[WARNING] Reporting configuration should be done in <reporting> section, not in maven-site-plugin <configuration> as reportPlugins parameter.
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] --------------< org.xwiki.commons:xwiki-commons-diff-api >--------------
+[INFO] Building XWiki Commons - Diff API 10.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.0.0:clean (default-clean) @ xwiki-commons-diff-api ---
+[INFO] 
+[INFO] --- clover-maven-plugin:4.2.0:setup (default-cli) @ xwiki-commons-diff-api ---
+[INFO] No 'maven.clover.licenseLocation' configured. Using default license.
+[INFO] OpenClover Version 4.2.0, built on April 30 2017 (build-1000)
+[INFO] Loaded from: /home/spirals/danglot/.m2/repository/org/openclover/clover/4.2.0/clover-4.2.0.jar
+[INFO] Clover free edition.
+[INFO] Creating new database at '/tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/clover/clover.db'.
+[INFO] Processing files at 1.8 source level.
+[INFO] Clover all over. Instrumented 20 files (2 packages).
+[INFO] Elapsed time = 0.577 secs. (34.662 files/sec, 3,305.026 srclines/sec)
+[INFO] OpenClover Version 4.2.0, built on April 30 2017 (build-1000)
+[INFO] Loaded from: /home/spirals/danglot/.m2/repository/org/openclover/clover/4.2.0/clover-4.2.0.jar
+[INFO] Clover free edition.
+[INFO] Updating existing database at '/tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/clover/clover.db'.
+[INFO] Processing files at 1.8 source level.
+[INFO] Clover all over. Instrumented 1 file (1 package).
+[INFO] 7 test methods detected.
+[INFO] Elapsed time = 0.093 secs. (10.753 files/sec, 4,053.763 srclines/sec)
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-plugins) @ xwiki-commons-diff-api ---
+[INFO] Skipping Rule Enforcement.
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-jcl-log4j-isolation) @ xwiki-commons-diff-api ---
+[INFO] Skipping Rule Enforcement.
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-glasshfish-jaxb) @ xwiki-commons-diff-api ---
+[INFO] Skipping Rule Enforcement.
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-commons-lang3) @ xwiki-commons-diff-api ---
+[INFO] Skipping Rule Enforcement.
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-commons-configuration2) @ xwiki-commons-diff-api ---
+[INFO] Skipping Rule Enforcement.
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-bouncycastle-ids) @ xwiki-commons-diff-api ---
+[INFO] Skipping Rule Enforcement.
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-javase-dependencies) @ xwiki-commons-diff-api ---
+[INFO] Skipping Rule Enforcement.
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-upper-bounds) @ xwiki-commons-diff-api ---
+[INFO] Skipping Rule Enforcement.
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-no-legacy-dependencies) @ xwiki-commons-diff-api ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-valid-poms) @ xwiki-commons-diff-api ---
+[INFO] Skipping Rule Enforcement.
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-platform-rendering-isolation) @ xwiki-commons-diff-api ---
+[INFO] Skipping Rule Enforcement.
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (check-dependency-version) @ xwiki-commons-diff-api ---
+[INFO] Skipping Rule Enforcement.
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (xwiki-license-resources) @ xwiki-commons-diff-api ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ xwiki-commons-diff-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 1 resource
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ xwiki-commons-diff-api ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 20 source files to /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes
+[WARNING] /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/clover/src-instrumented/org/xwiki/diff/internal/DefaultDiffManager.java:[380,58] found raw type: java.util.List
+  missing type arguments for generic class java.util.List<E>
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.3:manifest (bundle-manifest) @ xwiki-commons-diff-api ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:testResources (default-testResources) @ xwiki-commons-diff-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/src/test/resources
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ xwiki-commons-diff-api ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ xwiki-commons-diff-api ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.xwiki.diff.internal.DefaultDiffManagerTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.298 sec - in org.xwiki.diff.internal.DefaultDiffManagerTest
+
+Results :
+
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 12.013 s
+[INFO] Finished at: 2019-04-18T15:51:24+02:00
+[INFO] ------------------------------------------------------------------------
+Writing HTML report to '/tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/clover/report'
+Done. Processed 2 packages in 1206ms (603ms per package).
+[INFO] /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/src/main/java/org/xwiki/diff/internal/DefaultDiffManager.java
+[INFO] /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/src/main/java/org/xwiki/diff/internal/DefaultDiffManager.java
+[INFO] org.xwiki.diff.internal.DefaultDiffManager:190 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManager:190 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManager:191 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManager:191 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManager:192 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManager:192 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManager:194 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManager:195 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManager:380 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManager:381 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManager:381 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManager:381 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManager:381 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManager:381 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManager:381 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManager:190 covered.
+[INFO] org.xwiki.diff.internal.DefaultDiffManager:191 covered.
+[INFO] org.xwiki.diff.internal.DefaultDiffManager:192 covered.
+[INFO] org.xwiki.diff.internal.DefaultDiffManager:194 covered.
+[INFO] org.xwiki.diff.internal.DefaultDiffManager:195 covered.
+[INFO] org.xwiki.diff.internal.DefaultDiffManager:381 covered.
+[INFO] /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/src/test/java/org/xwiki/diff/internal/DefaultDiffManagerTest.java
+[INFO] /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/src/test/java/org/xwiki/diff/internal/DefaultDiffManagerTest.java
+[INFO] org.xwiki.diff.internal.DefaultDiffManagerTest:270 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManagerTest:282 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManagerTest:267 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManagerTest:267 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManagerTest:279 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManagerTest:359 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManagerTest:361 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManagerTest:364 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManagerTest:364 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManagerTest:364 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManagerTest:364 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManagerTest:365 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManagerTest:366 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManagerTest:368 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManagerTest:368 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManagerTest:371 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManagerTest:371 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManagerTest:373 is modified.
+[INFO] org.xwiki.diff.internal.DefaultDiffManagerTest:375 is modified.
+[INFO] Saving result in /tmp/dspot-experiments/results/april-2019/xwiki-commons/commit_6_a0e8b77/commit_coverage_testsThatExecuteTheChanges.csv ...
+[INFO] org.xwiki.diff.internal.DefaultDiffManagerTest;testMergeStringList;testMergeCharList;testMergeWithEmptyNew;testMergeCharOnConflicts;testMergeWhenUserHasChangedAllContent
+[INFO] Writing Coverage in /tmp/dspot-experiments/results/april-2019/xwiki-commons/commit_6_a0e8b77/commit_coverage_testsThatExecuteTheChanges_coverage.csv
+[INFO] org.xwiki.diff.internal.DefaultDiffManager;6;7
+
+[INFO] total;6;7
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 19.919 s
+[INFO] Finished at: 2019-04-18T15:51:28+02:00
+[INFO] ------------------------------------------------------------------------
+2019-04-18 15:51:29,379 INFO eu.stamp_project.dci.repositories.RepositoriesSetter - {/tmp/dspot-experiments/dataset/april-2019/xwiki-commons} Cleaning local repository...
+2019-04-18 15:51:29,933 INFO eu.stamp_project.dci.repositories.RepositoriesSetter - Checkout 78ff0991d97c3148fc8c43aa5bd9e16b089323f0 revision...
+2019-04-18 15:51:30,382 INFO eu.stamp_project.dci.repositories.RepositoriesSetter - {/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent} Cleaning local repository...
+2019-04-18 15:51:30,661 INFO eu.stamp_project.dci.repositories.RepositoriesSetter - Checkout c37ead5f9152df88c17a854afc5f2ac89e9a3036 revision...
