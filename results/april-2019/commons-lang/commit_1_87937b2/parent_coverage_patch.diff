@@ -1,0 +1,150 @@
+diff --git a/src/main/java/org/apache/commons/lang3/StringUtils.java b/src/main/java/org/apache/commons/lang3/StringUtils.java
+index 9387376..495e4ec 100644
+--- a/src/main/java/org/apache/commons/lang3/StringUtils.java
++++ b/src/main/java/org/apache/commons/lang3/StringUtils.java
+@@ -4722,82 +4722,6 @@ public static String join(final Iterable<?> iterable, final String separator) {
+     }
+ 
+     /**
+-     * <p>Joins the elements of the provided {@code List} into a single String
+-     * containing the provided list of elements.</p>
+-     *
+-     * <p>No delimiter is added before or after the list.
+-     * Null objects or empty strings within the array are represented by
+-     * empty strings.</p>
+-     *
+-     * <pre>
+-     * StringUtils.join(null, *)               = null
+-     * StringUtils.join([], *)                 = ""
+-     * StringUtils.join([null], *)             = ""
+-     * StringUtils.join(["a", "b", "c"], ';')  = "a;b;c"
+-     * StringUtils.join(["a", "b", "c"], null) = "abc"
+-     * StringUtils.join([null, "", "a"], ';')  = ";;a"
+-     * </pre>
+-     *
+-     * @param list  the {@code List} of values to join together, may be null
+-     * @param separator  the separator character to use
+-     * @param startIndex the first index to start joining from.  It is
+-     * an error to pass in an end index past the end of the list
+-     * @param endIndex the index to stop joining from (exclusive). It is
+-     * an error to pass in an end index past the end of the list
+-     * @return the joined String, {@code null} if null list input
+-     * @since 3.8
+-     */
+-    public static String join(final List<?> list, final char separator, final int startIndex, final int endIndex) {
+-        if (list == null) {
+-            return null;
+-        }
+-        final int noOfItems = endIndex - startIndex;
+-        if (noOfItems <= 0) {
+-            return EMPTY;
+-        }
+-        final List<?> subList = list.subList(startIndex, endIndex);
+-        return join(subList.iterator(), separator);
+-    }
+-
+-    /**
+-     * <p>Joins the elements of the provided {@code List} into a single String
+-     * containing the provided list of elements.</p>
+-     *
+-     * <p>No delimiter is added before or after the list.
+-     * Null objects or empty strings within the array are represented by
+-     * empty strings.</p>
+-     *
+-     * <pre>
+-     * StringUtils.join(null, *)               = null
+-     * StringUtils.join([], *)                 = ""
+-     * StringUtils.join([null], *)             = ""
+-     * StringUtils.join(["a", "b", "c"], ';')  = "a;b;c"
+-     * StringUtils.join(["a", "b", "c"], null) = "abc"
+-     * StringUtils.join([null, "", "a"], ';')  = ";;a"
+-     * </pre>
+-     *
+-     * @param list  the {@code List} of values to join together, may be null
+-     * @param separator  the separator character to use
+-     * @param startIndex the first index to start joining from.  It is
+-     * an error to pass in an end index past the end of the list
+-     * @param endIndex the index to stop joining from (exclusive). It is
+-     * an error to pass in an end index past the end of the list
+-     * @return the joined String, {@code null} if null list input
+-     * @since 3.8
+-     */
+-    public static String join(final List<?> list, final String separator, final int startIndex, final int endIndex) {
+-        if (list == null) {
+-            return null;
+-        }
+-        final int noOfItems = endIndex - startIndex;
+-        if (noOfItems <= 0) {
+-            return EMPTY;
+-        }
+-        final List<?> subList = list.subList(startIndex, endIndex);
+-        return join(subList.iterator(), separator);
+-    }
+-
+-    /**
+      * <p>Joins the elements of the provided varargs into a
+      * single String containing the provided elements.</p>
+      *
+diff --git a/src/test/java/org/apache/commons/lang3/StringUtilsTest.java b/src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+index ee3beeb..c4299b8 100644
+--- a/src/test/java/org/apache/commons/lang3/StringUtilsTest.java
++++ b/src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+@@ -34,7 +34,6 @@
+ import java.util.Arrays;
+ import java.util.Collections;
+ import java.util.Iterator;
+-import java.util.List;
+ import java.util.Locale;
+ import java.util.Objects;
+ import java.util.regex.PatternSyntaxException;
+@@ -101,11 +100,6 @@ public String toString() {
+     private static final char[] CHAR_PRIM_LIST = {'1', '2'};
+     private static final float[] FLOAT_PRIM_LIST = {1, 2};
+     private static final double[] DOUBLE_PRIM_LIST = {1, 2};
+-    private static final List<String> MIXED_STRING_LIST = Arrays.asList(null, "", "foo");
+-    private static final List<Object> MIXED_TYPE_OBJECT_LIST = Arrays.<Object>asList("foo", Long.valueOf(2L));
+-    private static final List<String> STRING_LIST = Arrays.asList("foo", "bar", "baz");
+-    private static final List<String> EMPTY_STRING_LIST = Collections.emptyList();
+-    private static final List<String> NULL_STRING_LIST = Collections.singletonList(null);
+ 
+     private static final String SEPARATOR = ",";
+     private static final char SEPARATOR_CHAR = ';';
+@@ -373,38 +367,6 @@ public void testJoin_ArrayString() {
+     }
+ 
+     @Test
+-    public void testJoin_List() {
+-        assertNull(StringUtils.join((List<String>) null, null));
+-        assertEquals(TEXT_LIST_NOSEP, StringUtils.join(STRING_LIST, null));
+-        assertEquals(TEXT_LIST_NOSEP, StringUtils.join(STRING_LIST, ""));
+-
+-        assertEquals("", StringUtils.join(NULL_STRING_LIST, null));
+-
+-        assertEquals("", StringUtils.join(EMPTY_STRING_LIST, null));
+-        assertEquals("", StringUtils.join(EMPTY_STRING_LIST, ""));
+-        assertEquals("", StringUtils.join(EMPTY_STRING_LIST, SEPARATOR));
+-
+-        assertEquals(TEXT_LIST, StringUtils.join(STRING_LIST, SEPARATOR));
+-        assertEquals(",,foo", StringUtils.join(MIXED_STRING_LIST, SEPARATOR));
+-        assertEquals("foo,2", StringUtils.join(MIXED_TYPE_OBJECT_LIST, SEPARATOR));
+-
+-        assertEquals("/", StringUtils.join(MIXED_STRING_LIST, "/", 0, MIXED_STRING_LIST.size() - 1));
+-        assertEquals("", StringUtils.join(MIXED_STRING_LIST, "", 0, MIXED_STRING_LIST.size()- 1));
+-        assertEquals("foo", StringUtils.join(MIXED_TYPE_OBJECT_LIST, "/", 0, 1));
+-        assertEquals("foo/2", StringUtils.join(MIXED_TYPE_OBJECT_LIST, "/", 0, 2));
+-        assertEquals("2", StringUtils.join(MIXED_TYPE_OBJECT_LIST, "/", 1, 2));
+-        assertEquals("", StringUtils.join(MIXED_TYPE_OBJECT_LIST, "/", 2, 1));
+-        assertNull(null, StringUtils.join((List) null, "/", 0, 1));
+-
+-        assertEquals("/", StringUtils.join(MIXED_STRING_LIST, '/', 0, MIXED_STRING_LIST.size() - 1));
+-        assertEquals("foo", StringUtils.join(MIXED_TYPE_OBJECT_LIST, '/', 0, 1));
+-        assertEquals("foo/2", StringUtils.join(MIXED_TYPE_OBJECT_LIST, '/', 0, 2));
+-        assertEquals("2", StringUtils.join(MIXED_TYPE_OBJECT_LIST, '/', 1, 2));
+-        assertEquals("", StringUtils.join(MIXED_TYPE_OBJECT_LIST, '/', 2, 1));
+-        assertNull(null, StringUtils.join((List) null, '/', 0, 1));
+-    }
+-
+-    @Test
+     public void testJoin_IteratorChar() {
+         assertNull(StringUtils.join((Iterator<?>) null, ','));
+         assertEquals(TEXT_LIST_CHAR, StringUtils.join(Arrays.asList(ARRAY_LIST).iterator(), SEPARATOR_CHAR));
