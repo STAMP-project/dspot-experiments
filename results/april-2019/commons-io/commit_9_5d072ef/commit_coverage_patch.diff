@@ -1,0 +1,214 @@
+diff --git a/src/main/java/org/apache/commons/io/FilenameUtils.java b/src/main/java/org/apache/commons/io/FilenameUtils.java
+index 8dd9cf2..2035622 100644
+--- a/src/main/java/org/apache/commons/io/FilenameUtils.java
++++ b/src/main/java/org/apache/commons/io/FilenameUtils.java
+@@ -351,19 +351,19 @@ public class FilenameUtils {
+             return null;
+         }
+ 
+-        String cleanFileName = filterNullBytes(filename);
++        failIfNullBytePresent(filename);
+ 
+-        int size = cleanFileName.length();
++        int size = filename.length();
+         if (size == 0) {
+-            return cleanFileName;
++            return filename;
+         }
+-        final int prefix = getPrefixLength(cleanFileName);
++        final int prefix = getPrefixLength(filename);
+         if (prefix < 0) {
+             return null;
+         }
+ 
+         final char[] array = new char[size + 2];  // +1 for possible extra slash, +2 for arraycopy
+-        cleanFileName.getChars(0, cleanFileName.length(), array, 0);
++        filename.getChars(0, filename.length(), array, 0);
+ 
+         // fix separators throughout
+         final char otherSeparator = separator == SYSTEM_SEPARATOR ? OTHER_SEPARATOR : SYSTEM_SEPARATOR;
+@@ -768,9 +768,12 @@ public class FilenameUtils {
+             return null;
+         }
+         if (len > filename.length()) {
+-            return filterNullBytes(filename + UNIX_SEPARATOR);  // we know this only happens for unix
++            failIfNullBytePresent(filename + UNIX_SEPARATOR);
++            return filename + UNIX_SEPARATOR;
+         }
+-        return filterNullBytes(filename.substring(0, len));
++        String path = filename.substring(0, len);
++        failIfNullBytePresent(path);
++        return path;
+     }
+ 
+     /**
+@@ -848,7 +851,9 @@ public class FilenameUtils {
+         if (prefix >= filename.length() || index < 0 || prefix >= endIndex) {
+             return "";
+         }
+-        return filterNullBytes(filename.substring(prefix, endIndex));
++        String path = filename.substring(prefix, endIndex);
++        failIfNullBytePresent(path);
++        return path;
+     }
+ 
+     /**
+@@ -965,9 +970,9 @@ public class FilenameUtils {
+         if (filename == null) {
+             return null;
+         }
+-        String cleanFileName = filterNullBytes(filename);
+-        final int index = indexOfLastSeparator(cleanFileName);
+-        return cleanFileName.substring(index + 1);
++        failIfNullBytePresent(filename);
++        final int index = indexOfLastSeparator(filename);
++        return filename.substring(index + 1);
+     }
+ 
+     /**
+@@ -987,18 +992,6 @@ public class FilenameUtils {
+     }
+ 
+     /**
+-     * Filters the supplied path for null byte characters. Can be used for normalizations to avoid poison byte attacks.
+-     *
+-     * This mimicks behaviour of 1.7u40+. Once minimum java requirement is above this version, this code can be removed.
+-     *
+-     * @param path the path
+-     * @return the supplied string without any embedded null characters
+-     */
+-    private static String filterNullBytes(String path) {
+-        return path.contains("\u0000") ? path.replace("\u0000", "") : path;
+-    }
+-
+-    /**
+      * Gets the base name, minus the full path and extension, from a full filename.
+      * <p>
+      * This method will handle a file in either Unix or Windows format.
+@@ -1072,13 +1065,13 @@ public class FilenameUtils {
+         if (filename == null) {
+             return null;
+         }
+-        String cleanFileName = filterNullBytes(filename);
++        failIfNullBytePresent(filename);
+ 
+-        final int index = indexOfExtension(cleanFileName);
++        final int index = indexOfExtension(filename);
+         if (index == NOT_FOUND) {
+-            return cleanFileName;
++            return filename;
+         } else {
+-            return cleanFileName.substring(0, index);
++            return filename.substring(0, index);
+         }
+     }
+ 
+diff --git a/src/test/java/org/apache/commons/io/FilenameUtilsTestCase.java b/src/test/java/org/apache/commons/io/FilenameUtilsTestCase.java
+index 552129f..06fed64 100644
+--- a/src/test/java/org/apache/commons/io/FilenameUtilsTestCase.java
++++ b/src/test/java/org/apache/commons/io/FilenameUtilsTestCase.java
+@@ -216,8 +216,18 @@ public class FilenameUtilsTestCase extends FileBasedTestCase {
+         assertEquals(null, FilenameUtils.normalize("//server/../a"));
+         assertEquals(null, FilenameUtils.normalize("//server/.."));
+         assertEquals(SEP + SEP + "server" + SEP + "", FilenameUtils.normalize("//server/"));
+-        assertEquals("a" + SEP + "b" + SEP + "c.txt", FilenameUtils.normalize("a\\b/c\u0000.txt"));
+-        assertEquals("a" + SEP + "b" + SEP + "c.txt", FilenameUtils.normalize("\u0000a\\b/c.txt"));
++    }
++
++    public void testNormalize_with_nullbytes() throws Exception {
++        try {
++            assertEquals("a" + SEP + "b" + SEP + "c.txt", FilenameUtils.normalize("a\\b/c\u0000.txt"));
++        } catch (IllegalArgumentException ignore) {
++        }
++
++        try {
++            assertEquals("a" + SEP + "b" + SEP + "c.txt", FilenameUtils.normalize("\u0000a\\b/c.txt"));
++        } catch (IllegalArgumentException ignore) {
++        }
+     }
+ 
+     public void testNormalizeUnixWin() throws Exception {
+@@ -565,7 +575,14 @@ public class FilenameUtilsTestCase extends FileBasedTestCase {
+         assertEquals("\\", FilenameUtils.getPrefix("\\a\\b\\c.txt"));
+         assertEquals("~\\", FilenameUtils.getPrefix("~\\a\\b\\c.txt"));
+         assertEquals("~user\\", FilenameUtils.getPrefix("~user\\a\\b\\c.txt"));
+-        assertEquals("~user\\", FilenameUtils.getPrefix("~u\u0000ser\\a\\b\\c.txt"));
++    }
++
++    public void testGetPrefix_with_nullbyte() {
++        try {
++            assertEquals("~user\\", FilenameUtils.getPrefix("~u\u0000ser\\a\\b\\c.txt"));
++        } catch (IllegalArgumentException ignore) {
++
++        }
+     }
+ 
+     public void testGetPath() {
+@@ -602,9 +619,18 @@ public class FilenameUtilsTestCase extends FileBasedTestCase {
+         assertEquals("a/b/", FilenameUtils.getPath("//server/a/b/c.txt"));
+         assertEquals("a/b/", FilenameUtils.getPath("~/a/b/c.txt"));
+         assertEquals("a/b/", FilenameUtils.getPath("~user/a/b/c.txt"));
+-        assertEquals("a/b/", FilenameUtils.getPath("~user/a/\u0000b/c.txt"));
+     }
+ 
++    public void testGetPath_with_nullbyte() {
++        try {
++            assertEquals("a/b/", FilenameUtils.getPath("~user/a/\u0000b/c.txt"));
++        } catch (IllegalArgumentException ignore) {
++
++        }
++        ;
++    }
++
++
+     public void testGetPathNoEndSeparator() {
+         assertEquals(null, FilenameUtils.getPath(null));
+         assertEquals("", FilenameUtils.getPath("noseperator.inthispath"));
+@@ -639,7 +665,14 @@ public class FilenameUtilsTestCase extends FileBasedTestCase {
+         assertEquals("a/b", FilenameUtils.getPathNoEndSeparator("//server/a/b/c.txt"));
+         assertEquals("a/b", FilenameUtils.getPathNoEndSeparator("~/a/b/c.txt"));
+         assertEquals("a/b", FilenameUtils.getPathNoEndSeparator("~user/a/b/c.txt"));
+-        assertEquals("a/b", FilenameUtils.getPathNoEndSeparator("~user/a\u0000/b/c.txt"));
++    }
++
++    public void testGetPathNoEndSeparator_with_null_byte() {
++        try {
++            assertEquals("a/b", FilenameUtils.getPathNoEndSeparator("~user/a\u0000/b/c.txt"));
++        } catch (IllegalArgumentException ignore) {
++
++        }
+     }
+ 
+     public void testGetFullPath() {
+@@ -735,7 +768,14 @@ public class FilenameUtilsTestCase extends FileBasedTestCase {
+         assertEquals("c", FilenameUtils.getName("a/b/c"));
+         assertEquals("", FilenameUtils.getName("a/b/c/"));
+         assertEquals("c", FilenameUtils.getName("a\\b\\c"));
+-        assertEquals("c", FilenameUtils.getName("a\\b\\\u0000c"));
++    }
++
++    public void testInjectionFailure() {
++        try {
++            assertEquals("c", FilenameUtils.getName("a\\b\\\u0000c"));
++        } catch (IllegalArgumentException ignore) {
++
++        }
+     }
+ 
+     public void testGetBaseName() {
+@@ -746,7 +786,14 @@ public class FilenameUtilsTestCase extends FileBasedTestCase {
+         assertEquals("", FilenameUtils.getBaseName("a/b/c/"));
+         assertEquals("c", FilenameUtils.getBaseName("a\\b\\c"));
+         assertEquals("file.txt", FilenameUtils.getBaseName("file.txt.bak"));
+-        assertEquals("file.txt", FilenameUtils.getBaseName("fil\u0000e.txt.bak"));
++    }
++
++    public void testGetBaseName_with_nullByte() {
++        try {
++            assertEquals("file.txt", FilenameUtils.getBaseName("fil\u0000e.txt.bak"));
++        } catch (IllegalArgumentException ignore) {
++
++        }
+     }
+ 
+     public void testGetExtension() {
