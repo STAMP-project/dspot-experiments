@@ -115,4 +115,5 @@ def compute_diff_coverage_for_given_commit(path_to_concerned_module,
 
 if __name__ == '__main__':
     toolbox.init(sys.argv)
-    diff_coverage(sys.argv[1], sys.argv[2])
+    for i in range(2, len(sys.argv)):
+        diff_coverage(sys.argv[1], sys.argv[i])
