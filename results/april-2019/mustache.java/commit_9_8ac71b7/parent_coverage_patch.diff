@@ -1,0 +1,271 @@
+diff --git a/compiler/pom.xml b/compiler/pom.xml
+index ca276b9..62b6947 100644
+--- a/compiler/pom.xml
++++ b/compiler/pom.xml
+@@ -111,16 +111,6 @@
+           </execution>
+         </executions>
+       </plugin>
+-      <plugin>
+-        <groupId>org.apache.maven.plugins</groupId>
+-        <artifactId>maven-surefire-plugin</artifactId>
+-        <version>2.19.1</version>
+-        <configuration>
+-          <additionalClasspathElements>
+-            <additionalClasspathElement>${project.basedir}/src/test/resources/templates.jar</additionalClasspathElement>
+-          </additionalClasspathElements>
+-        </configuration>
+-      </plugin>
+     </plugins>
+   </build>
+ </project>
+diff --git a/compiler/src/main/java/com/github/mustachejava/resolver/ClasspathResolver.java b/compiler/src/main/java/com/github/mustachejava/resolver/ClasspathResolver.java
+index 264f91d..fbcbd18 100644
+--- a/compiler/src/main/java/com/github/mustachejava/resolver/ClasspathResolver.java
++++ b/compiler/src/main/java/com/github/mustachejava/resolver/ClasspathResolver.java
+@@ -9,56 +9,42 @@ import java.io.Reader;
+ import java.nio.charset.StandardCharsets;
+ 
+ /**
+- * MustacheResolver implementation that resolves mustache files from the classpath.
++ * MustacheResolver implementation that resolves
++ * mustache files from the classpath.
+  */
+ public class ClasspathResolver implements MustacheResolver {
+ 
+-    private final String resourceRoot;
++  private final String resourceRoot;
+ 
+-    public ClasspathResolver() {
+-        this.resourceRoot = null;
+-    }
++  public ClasspathResolver() {
++    this.resourceRoot = null;
++  }
+ 
+-    /**
+-     * Use the classpath to resolve mustache templates.
+-     *
+-     * @param resourceRoot where to find the templates
+-     */
+-    public ClasspathResolver(String resourceRoot) {
+-        this.resourceRoot = resourceRoot;
++  /**
++   * Use the classpath to resolve mustache templates.
++   *
++   * @param resourceRoot where to find the templates
++   */
++  public ClasspathResolver(String resourceRoot) {
++    if (!resourceRoot.endsWith("/")) {
++      resourceRoot += "/";
+     }
+-
+-    @Override
+-    public Reader getReader(String resourceName) {
+-        ClassLoader ccl = Thread.currentThread().getContextClassLoader();
+-
+-        String fullResourceName = concatResourceRootAndResourceName(resourceName);
+-
+-        InputStream is = ccl.getResourceAsStream(fullResourceName);
+-        if (is == null) {
+-            ClassLoader classLoader = ClasspathResolver.class.getClassLoader();
+-            is = classLoader.getResourceAsStream(fullResourceName);
+-        }
+-
+-        if (is != null) {
+-            return new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
+-        } else {
+-            return null;
+-        }
++    this.resourceRoot = resourceRoot;
++  }
++
++  @Override
++  public Reader getReader(String resourceName) {
++    ClassLoader ccl = Thread.currentThread().getContextClassLoader();
++    String name = (resourceRoot == null ? "" : resourceRoot) + resourceName;
++    InputStream is = ccl.getResourceAsStream(name);
++    if (is == null) {
++      is = ClasspathResolver.class.getClassLoader().getResourceAsStream(name);
+     }
+-
+-    private String concatResourceRootAndResourceName(String resourceName) {
+-        if ((resourceRoot == null) || (resourceName == null)) {
+-            return resourceName;
+-        } else {
+-            //Ensure there is only one (and only one) forward slash between the resourceRoot and resourceName paths
+-            if (resourceName.startsWith("/") && resourceRoot.endsWith("/")) {
+-                return resourceRoot.substring(0, resourceRoot.length() - 1) + resourceName;
+-            } else if ((resourceName.startsWith("/") && !resourceRoot.endsWith("/")) || (!resourceName.startsWith("/") && resourceRoot.endsWith("/"))) {
+-                return resourceRoot + resourceName;
+-            } else {
+-                return resourceRoot + "/" + resourceName;
+-            }
+-        }
++    if (is != null) {
++      return new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
++    } else {
++      return null;
+     }
++  }
++
+ }
+diff --git a/compiler/src/test/java/com/github/mustachejava/AbsolutePartialReferenceTest.java b/compiler/src/test/java/com/github/mustachejava/AbsolutePartialReferenceTest.java
+deleted file mode 100644
+index 124db93..0000000
+--- a/compiler/src/test/java/com/github/mustachejava/AbsolutePartialReferenceTest.java
++++ /dev/null
+@@ -1,41 +0,0 @@
+-package com.github.mustachejava;
+-
+-import org.junit.Test;
+-
+-import java.io.File;
+-import java.io.StringWriter;
+-import java.util.Arrays;
+-import java.util.List;
+-
+-import static org.junit.Assert.assertEquals;
+-
+-public final class AbsolutePartialReferenceTest {
+-
+-    private static final String TEMPLATE_FILE = "absolute_partials_template.html";
+-
+-    @Test
+-    public void should_load_teamplates_with_absolute_references_using_classloader() throws Exception {
+-        MustacheFactory factory = new DefaultMustacheFactory("templates");
+-        Mustache maven = factory.compile(TEMPLATE_FILE);
+-        StringWriter sw = new StringWriter();
+-        maven.execute(sw, new Object() {
+-            List<String> messages = Arrays.asList("w00pw00p", "mustache rocks");
+-        }).close();
+-        assertEquals("w00pw00p mustache rocks ", sw.toString());
+-    }
+-
+-    @Test
+-    public void should_load_teamplates_with_absolute_references_using_filepath() throws Exception {
+-        File file = new File("compiler/src/test/resources/templates_filepath");
+-        File root = new File(file, TEMPLATE_FILE).exists() ? file : new File("src/test/resources/templates_filepath");
+-
+-        MustacheFactory factory = new DefaultMustacheFactory(root);
+-        Mustache maven = factory.compile(TEMPLATE_FILE);
+-        StringWriter sw = new StringWriter();
+-        maven.execute(sw, new Object() {
+-            List<String> messages = Arrays.asList("w00pw00p", "mustache rocks");
+-        }).close();
+-        assertEquals("w00pw00p mustache rocks ", sw.toString());
+-    }
+-
+-}
+diff --git a/compiler/src/test/java/com/github/mustachejava/resolver/ClasspathResolverTest.java b/compiler/src/test/java/com/github/mustachejava/resolver/ClasspathResolverTest.java
+deleted file mode 100644
+index 3f0c29f..0000000
+--- a/compiler/src/test/java/com/github/mustachejava/resolver/ClasspathResolverTest.java
++++ /dev/null
+@@ -1,68 +0,0 @@
+-package com.github.mustachejava.resolver;
+-
+-import org.junit.Test;
+-
+-import java.io.Reader;
+-
+-import static org.hamcrest.CoreMatchers.notNullValue;
+-import static org.hamcrest.CoreMatchers.nullValue;
+-import static org.hamcrest.core.Is.is;
+-import static org.junit.Assert.assertThat;
+-
+-public class ClasspathResolverTest {
+-
+-    @Test
+-    public void getReaderNullRootAndResourceHasRelativePath() throws Exception {
+-        ClasspathResolver underTest = new ClasspathResolver();
+-        Reader reader = underTest.getReader("nested_partials_template.html");
+-        assertThat(reader, is(notNullValue()));
+-    }
+-
+-    @Test
+-    public void getReaderWithRootAndResourceHasRelativePath() throws Exception {
+-        ClasspathResolver underTest = new ClasspathResolver("templates");
+-        Reader reader = underTest.getReader("absolute_partials_template.html");
+-        assertThat(reader, is(notNullValue()));
+-    }
+-
+-    @Test
+-    public void getReaderWithRootThatHasTrailingForwardSlashAndResourceHasRelativePath() throws Exception {
+-        ClasspathResolver underTest = new ClasspathResolver("templates/");
+-        Reader reader = underTest.getReader("absolute_partials_template.html");
+-        assertThat(reader, is(notNullValue()));
+-    }
+-
+-    @Test
+-    public void getReaderWithRootAndResourceHasAbsolutePath() throws Exception {
+-        ClasspathResolver underTest = new ClasspathResolver("templates");
+-        Reader reader = underTest.getReader("/absolute_partials_template.html");
+-        assertThat(reader, is(notNullValue()));
+-    }
+-
+-    @Test
+-    public void getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePath() throws Exception {
+-        ClasspathResolver underTest = new ClasspathResolver("templates/");
+-        Reader reader = underTest.getReader("/absolute_partials_template.html");
+-        assertThat(reader, is(notNullValue()));
+-    }
+-
+-    @Test
+-    public void getReaderNullRootDoesNotFindFileWithAbsolutePath() throws Exception {
+-        ClasspathResolver underTest = new ClasspathResolver();
+-        Reader reader = underTest.getReader("/nested_partials_template.html");
+-        assertThat(reader, is(nullValue()));
+-    }
+-
+-    @Test (expected = NullPointerException.class)
+-    public void getReaderWithRootAndNullResource() throws Exception {
+-        ClasspathResolver underTest = new ClasspathResolver("templates");
+-        underTest.getReader(null);
+-    }
+-
+-    @Test (expected = NullPointerException.class)
+-    public void getReaderNullRootAndNullResourceThrowsNullPointer() throws Exception {
+-        ClasspathResolver underTest = new ClasspathResolver();
+-        underTest.getReader(null);
+-    }
+-
+-}
+\ No newline at end of file
+diff --git a/compiler/src/test/resources/nested_partials_template.html b/compiler/src/test/resources/nested_partials_template.html
+index b95b8e6..108fba7 100644
+--- a/compiler/src/test/resources/nested_partials_template.html
++++ b/compiler/src/test/resources/nested_partials_template.html
+@@ -1 +1 @@
+-{{>relative/nested_partials_sub}}
+\ No newline at end of file
++{{>/relative/nested_partials_sub}}
+\ No newline at end of file
+diff --git a/compiler/src/test/resources/templates.jar b/compiler/src/test/resources/templates.jar
+deleted file mode 100644
+index 8f3357f..0000000
+Binary files a/compiler/src/test/resources/templates.jar and /dev/null differ
+diff --git a/compiler/src/test/resources/templates_filepath/absolute/nested_partials_sub.html b/compiler/src/test/resources/templates_filepath/absolute/nested_partials_sub.html
+deleted file mode 100644
+index 8bd45c0..0000000
+--- a/compiler/src/test/resources/templates_filepath/absolute/nested_partials_sub.html
++++ /dev/null
+@@ -1 +0,0 @@
+-{{#messages}}{{>/absolute/nested_partials_subsub}} {{/messages}}
+\ No newline at end of file
+diff --git a/compiler/src/test/resources/templates_filepath/absolute/nested_partials_subsub.html b/compiler/src/test/resources/templates_filepath/absolute/nested_partials_subsub.html
+deleted file mode 100644
+index 91012a6..0000000
+--- a/compiler/src/test/resources/templates_filepath/absolute/nested_partials_subsub.html
++++ /dev/null
+@@ -1 +0,0 @@
+-{{.}}
+\ No newline at end of file
+diff --git a/compiler/src/test/resources/templates_filepath/absolute_partials_template.html b/compiler/src/test/resources/templates_filepath/absolute_partials_template.html
+deleted file mode 100644
+index 676122e..0000000
+--- a/compiler/src/test/resources/templates_filepath/absolute_partials_template.html
++++ /dev/null
+@@ -1 +0,0 @@
+-{{>/absolute/nested_partials_sub}}
+\ No newline at end of file

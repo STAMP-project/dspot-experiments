@@ -1,0 +1,87 @@
+diff --git a/compiler/src/main/java/com/github/mustachejava/MustacheParser.java b/compiler/src/main/java/com/github/mustachejava/MustacheParser.java
+index 1aa2382..b8b890f 100644
+--- a/compiler/src/main/java/com/github/mustachejava/MustacheParser.java
++++ b/compiler/src/main/java/com/github/mustachejava/MustacheParser.java
+@@ -90,28 +90,10 @@ public class MustacheParser {
+           if (c == sm.charAt(0)) {
+             br.mark(1);
+             if (sm.length() == 1 || br.read() == sm.charAt(1)) {
+-              // If it is a delimiter change we need to specially handle it
+               // Two mustaches, now capture command
+               StringBuilder sb = new StringBuilder();
+-              br.mark(1);
+-              c = br.read();
+-              boolean delimiter = c == '=';
+-              if (delimiter) {
+-                sb.append((char) c);
+-              } else {
+-                br.reset();
+-              }
+               while ((c = br.read()) != -1) {
+                 br.mark(1);
+-                if (delimiter) {
+-                  if (c == '=') {
+-                    // Reached the end of the definition
+-                    delimiter = false;
+-                  } else {
+-                    sb.append((char) c);
+-                  }
+-                  continue;
+-                }
+                 if (c == em.charAt(0)) {
+                   if (em.length() > 1) {
+                     if (br.read() == em.charAt(1)) {
+@@ -227,14 +209,14 @@ public class MustacheParser {
+                 case '=':
+                   // Change delimiters
+                   out = write(mv, out, file, currentLine.intValue(), startOfLine);
+-                  String trimmed = command.substring(1).trim();
+-                  String[] split = trimmed.split("\\s+");
+-                  if (split.length != 2) {
++                  String delimiters = command.replaceAll("\\s+", "");
++                  int length = delimiters.length();
++                  if (length > 6 || length / 2 * 2 != length) {
+                     TemplateContext tc = new TemplateContext(sm, em, file, currentLine.get(), startOfLine);
+-                    throw new MustacheException("Invalid delimiter string: " + trimmed, tc);
++                    throw new MustacheException("Invalid delimiter string: " + delimiters, tc);
+                   }
+-                  sm = split[0];
+-                  em = split[1];
++                  sm = delimiters.substring(1, length / 2);
++                  em = delimiters.substring(length / 2, length - 1);
+                   break;
+                 default: {
+                   if (c == -1) {
+diff --git a/compiler/src/test/java/com/github/mustachejava/DelimiterTest.java b/compiler/src/test/java/com/github/mustachejava/DelimiterTest.java
+index f57f1aa..28b81c6 100644
+--- a/compiler/src/test/java/com/github/mustachejava/DelimiterTest.java
++++ b/compiler/src/test/java/com/github/mustachejava/DelimiterTest.java
+@@ -56,28 +56,6 @@ public class DelimiterTest {
+     assertEquals("Hello, ${name}.", sw.toString());
+   }
+ 
+-  @Test
+-  public void testStrSubstitutor() throws IOException {
+-    DefaultMustacheFactory mf = new DefaultMustacheFactory();
+-    Mustache maven = mf.compile(new StringReader("Hello, $<foo>."), "maven", "$<", ">");
+-    StringWriter sw = new StringWriter();
+-    maven.execute(sw, new Object() {
+-      String foo = "Jason";
+-    }).close();
+-    assertEquals("Hello, Jason.", sw.toString());
+-  }
+-
+-  @Test
+-  public void testStrSubstitutor2() throws IOException {
+-    DefaultMustacheFactory mf = new DefaultMustacheFactory();
+-    Mustache maven = mf.compile(new StringReader("{{=$< >=}}Hello, $<foo>."), "maven");
+-    StringWriter sw = new StringWriter();
+-    maven.execute(sw, new Object() {
+-      String foo = "Jason";
+-    }).close();
+-    assertEquals("Hello, Jason.", sw.toString());
+-  }
+-
+   private static class NoEncodingMustacheFactory extends DefaultMustacheFactory {
+     @Override
+     public void encode(String value, Writer writer) {

@@ -1,0 +1,182 @@
+diff --git a/compiler/src/main/java/com/github/mustachejava/DefaultMustacheVisitor.java b/compiler/src/main/java/com/github/mustachejava/DefaultMustacheVisitor.java
+index 69b71cd..e79e025 100644
+--- a/compiler/src/main/java/com/github/mustachejava/DefaultMustacheVisitor.java
++++ b/compiler/src/main/java/com/github/mustachejava/DefaultMustacheVisitor.java
+@@ -59,11 +59,6 @@ public class DefaultMustacheVisitor implements MustacheVisitor {
+   }
+ 
+   @Override
+-  public void checkName(TemplateContext templateContext, String variable, Mustache mustache) {
+-      list.add(new ExtendCheckNameCode(templateContext, df, mustache, variable));
+-  }
+-
+-  @Override
+   public void partial(TemplateContext tc, final String variable) {
+     TemplateContext partialTC = new TemplateContext("{{", "}}", tc.file(), tc.line(), tc.startOfLine());
+     list.add(new PartialCode(partialTC, df, variable));
+diff --git a/compiler/src/main/java/com/github/mustachejava/MustacheParser.java b/compiler/src/main/java/com/github/mustachejava/MustacheParser.java
+index 9281323..1aa2382 100644
+--- a/compiler/src/main/java/com/github/mustachejava/MustacheParser.java
++++ b/compiler/src/main/java/com/github/mustachejava/MustacheParser.java
+@@ -136,7 +136,6 @@ public class MustacheParser {
+                 case '#':
+                 case '^':
+                 case '<':
+-                case '?':
+                 case '$': {
+                   boolean oldStartOfLine = startOfLine;
+                   startOfLine = startOfLine & onlywhitespace;
+@@ -160,9 +159,6 @@ public class MustacheParser {
+                     case '$':
+                       mv.name(new TemplateContext(sm, em, file, line, startOfLine), variable, mustache);
+                       break;
+-                    case '?':
+-                      mv.checkName(new TemplateContext(sm, em, file, line, startOfLine), variable, mustache);
+-                      break;
+                   }
+                   iterable = lines != 0;
+                   break;
+diff --git a/compiler/src/main/java/com/github/mustachejava/MustacheVisitor.java b/compiler/src/main/java/com/github/mustachejava/MustacheVisitor.java
+index a8083b7..56acda7 100644
+--- a/compiler/src/main/java/com/github/mustachejava/MustacheVisitor.java
++++ b/compiler/src/main/java/com/github/mustachejava/MustacheVisitor.java
+@@ -28,7 +28,5 @@ public interface MustacheVisitor {
+ 
+   void name(TemplateContext templateContext, String variable, Mustache mustache);
+ 
+-  void checkName(TemplateContext templateContext, String variable, Mustache mustache);
+-
+   void comment(TemplateContext templateContext, String comment);
+ }
+diff --git a/compiler/src/main/java/com/github/mustachejava/codes/ExtendCheckNameCode.java b/compiler/src/main/java/com/github/mustachejava/codes/ExtendCheckNameCode.java
+deleted file mode 100644
+index 1a3f741..0000000
+--- a/compiler/src/main/java/com/github/mustachejava/codes/ExtendCheckNameCode.java
++++ /dev/null
+@@ -1,23 +0,0 @@
+-package com.github.mustachejava.codes;
+-
+-import com.github.mustachejava.DefaultMustacheFactory;
+-import com.github.mustachejava.Mustache;
+-import com.github.mustachejava.TemplateContext;
+-
+-import java.io.Writer;
+-import java.util.List;
+-
+-/**
+- * Name a section: {{$name}}...{{/name}}
+- */
+-public class ExtendCheckNameCode extends DefaultCode {
+-  private boolean suppressed;
+-
+-  public ExtendCheckNameCode(TemplateContext templateContext, DefaultMustacheFactory df, Mustache mustache, String variable) {
+-    super(templateContext, df, mustache, variable, "$");
+-  }
+-
+-  public String getName() {
+-    return name;
+-  }
+-}
+diff --git a/compiler/src/main/java/com/github/mustachejava/codes/ExtendCode.java b/compiler/src/main/java/com/github/mustachejava/codes/ExtendCode.java
+index 224a73a..9edef3e 100644
+--- a/compiler/src/main/java/com/github/mustachejava/codes/ExtendCode.java
++++ b/compiler/src/main/java/com/github/mustachejava/codes/ExtendCode.java
+@@ -43,12 +43,6 @@ public class ExtendCode extends PartialCode {
+             enc.setCodes(replaceCodes(enc.getCodes(), replaceMap, seen));
+           }
+         } else {
+-          if (code instanceof ExtendCheckNameCode) {
+-            ExtendCheckNameCode ecnc = (ExtendCheckNameCode) code;
+-            if (!replaceMap.containsKey(ecnc.getName())) {
+-              code.setCodes(new Code[0]);
+-            }
+-          }
+           Code[] codes = code.getCodes();
+           if (codes != null) {
+             code.setCodes(replaceCodes(codes, replaceMap, seen));
+diff --git a/compiler/src/test/java/com/github/mustachejava/InterpreterTest.java b/compiler/src/test/java/com/github/mustachejava/InterpreterTest.java
+index 4edfef4..da5a419 100644
+--- a/compiler/src/test/java/com/github/mustachejava/InterpreterTest.java
++++ b/compiler/src/test/java/com/github/mustachejava/InterpreterTest.java
+@@ -926,7 +926,61 @@ public class InterpreterTest extends TestCase {
+   }
+ 
+   public void testVariableInhertiance() throws IOException {
+-    DefaultMustacheFactory mf = createMustacheFactory();
++    DefaultMustacheFactory mf = new DefaultMustacheFactory(root) {
++      @Override
++      public MustacheVisitor createMustacheVisitor() {
++        DefaultMustacheVisitor visitor = new DefaultMustacheVisitor(this) {
++          @Override
++          public void extend(TemplateContext templateContext, String variable, Mustache mustache) {
++            list.add(new ExtendCode(templateContext, df, mustache, variable) {
++              @Override
++              public synchronized void init() {
++                // Find the comments that the pragma generates
++                List<Code> comments = new ArrayList<>();
++                for (Code code : mustache.getCodes()) {
++                  if (code instanceof CommentCode) {
++                    comments.add(code);
++                  }
++                }
++                super.init();
++                // Put the comments at the start of the base codes
++                Code[] codes = partial.getCodes();
++                if (!comments.isEmpty()) {
++                  Code[] newcodes = new Code[comments.size() + codes.length];
++                  for (int i = 0; i < comments.size(); i++) {
++                    newcodes[i] = comments.get(i);
++                  }
++                  System.arraycopy(codes, 0, newcodes, comments.size(), codes.length);
++                  partial.setCodes(newcodes);
++                }
++
++              }
++            });
++          }
++        };
++        visitor.addPragmaHandler("set", (tc, pragma, args) -> {
++          // Create a comment code that sets variables
++          int index = args.indexOf("=");
++          if (index == -1) {
++            throw new MustacheException("Pragme 'set' must have varname=value as an argument");
++          }
++          String name = args.substring(0, index);
++          String value = args.substring(index + 1);
++          Map<String, String> variable = new HashMap<String, String>() {{
++            put(name, value);
++          }};
++          return new CommentCode(tc, null, "") {
++            @Override
++            public Writer execute(Writer writer, List<Object> scopes) {
++              scopes.add(variable);
++              return writer;
++            }
++          };
++        });
++        return visitor;
++      }
++    };
++
+     Mustache m = mf.compile("issue_201/chat.html");
+     StringWriter sw = new StringWriter();
+     m.execute(sw, new Object()).close();
+diff --git a/compiler/src/test/resources/issue_201/base.html b/compiler/src/test/resources/issue_201/base.html
+index 2ec676f..a419717 100644
+--- a/compiler/src/test/resources/issue_201/base.html
++++ b/compiler/src/test/resources/issue_201/base.html
+@@ -1 +1 @@
+-{{?jsUrl}}<script src="{{$jsUrl}}default{{/jsUrl}}"></script>{{/jsUrl}}{{?jsUrl2}}<script src="{{$jsUrl}}default{{/jsUrl}}"></script>{{/jsUrl2}}
+\ No newline at end of file
++{{#jsUrl}}<script src="{{jsUrl}}"></script>{{/jsUrl}}
+\ No newline at end of file
+diff --git a/compiler/src/test/resources/issue_201/chat.html b/compiler/src/test/resources/issue_201/chat.html
+index 96c7897..5a98596 100644
+--- a/compiler/src/test/resources/issue_201/chat.html
++++ b/compiler/src/test/resources/issue_201/chat.html
+@@ -1,3 +1,3 @@
+ {{<base.html}}
+-{{$jsUrl}}test{{/jsUrl}}
++{{%set jsUrl=test}}
+ {{/base.html}}
+\ No newline at end of file

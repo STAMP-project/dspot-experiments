@@ -1,0 +1,74 @@
+diff --git a/compiler/src/main/java/com/github/mustachejava/DefaultMustacheFactory.java b/compiler/src/main/java/com/github/mustachejava/DefaultMustacheFactory.java
+index b590da6..9140c05 100644
+--- a/compiler/src/main/java/com/github/mustachejava/DefaultMustacheFactory.java
++++ b/compiler/src/main/java/com/github/mustachejava/DefaultMustacheFactory.java
+@@ -92,8 +92,11 @@ public class DefaultMustacheFactory implements MustacheFactory {
+       filePath = dir + filePath;
+     }
+ 
+-    // Do not append extension if it is already defined
+-    if (!name.endsWith(extension)) {
++    int sepIndex = name.lastIndexOf("/");
++    name = sepIndex == -1 ? name : name.substring(sepIndex);
++    
++    // Do not append extension if it has the same extension or original one
++    if (!(name.endsWith(extension) || name.contains("."))) {
+       filePath = filePath + extension;
+     }
+ 
+diff --git a/compiler/src/test/java/com/github/mustachejava/ExtensionTest.java b/compiler/src/test/java/com/github/mustachejava/ExtensionTest.java
+index de010dd..4d2d1de 100644
+--- a/compiler/src/test/java/com/github/mustachejava/ExtensionTest.java
++++ b/compiler/src/test/java/com/github/mustachejava/ExtensionTest.java
+@@ -157,6 +157,15 @@ public class ExtensionTest {
+     m.execute(sw, new Object() {});
+     assertEquals(getContents(root, "nested_inheritance.txt"), sw.toString());
+   }
++  
++  @Test
++  public void testDiffExt() throws IOException {
++    MustacheFactory c = new DefaultMustacheFactory(root);
++    Mustache m = c.compile("diffext.mustache.parent");
++    StringWriter sw = new StringWriter();
++    m.execute(sw, new Object() {});
++    assertEquals(getContents(root, "diffext.txt"), sw.toString());
++  }
+ 
+   @BeforeClass
+   public static void setUp() throws Exception {
+diff --git a/compiler/src/test/resources/diffext.mustache.child b/compiler/src/test/resources/diffext.mustache.child
+new file mode 100644
+index 0000000..8026694
+--- /dev/null
++++ b/compiler/src/test/resources/diffext.mustache.child
+@@ -0,0 +1,2 @@
++child
++{{>diffext.mustache.grandchild}}
+\ No newline at end of file
+diff --git a/compiler/src/test/resources/diffext.mustache.grandchild b/compiler/src/test/resources/diffext.mustache.grandchild
+new file mode 100644
+index 0000000..bcb32af
+--- /dev/null
++++ b/compiler/src/test/resources/diffext.mustache.grandchild
+@@ -0,0 +1 @@
++grandchild
+\ No newline at end of file
+diff --git a/compiler/src/test/resources/diffext.mustache.parent b/compiler/src/test/resources/diffext.mustache.parent
+new file mode 100644
+index 0000000..a17d63b
+--- /dev/null
++++ b/compiler/src/test/resources/diffext.mustache.parent
+@@ -0,0 +1,2 @@
++parent
++{{>diffext.mustache.child}}
+\ No newline at end of file
+diff --git a/compiler/src/test/resources/diffext.txt b/compiler/src/test/resources/diffext.txt
+new file mode 100644
+index 0000000..d71a188
+--- /dev/null
++++ b/compiler/src/test/resources/diffext.txt
+@@ -0,0 +1,3 @@
++parent
++child
++grandchild
+\ No newline at end of file

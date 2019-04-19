@@ -1,0 +1,52 @@
+diff --git a/compiler/src/main/java/com/github/mustachejava/MustacheParser.java b/compiler/src/main/java/com/github/mustachejava/MustacheParser.java
+index b8b890f..aa1b5f6 100644
+--- a/compiler/src/main/java/com/github/mustachejava/MustacheParser.java
++++ b/compiler/src/main/java/com/github/mustachejava/MustacheParser.java
+@@ -213,7 +213,7 @@ public class MustacheParser {
+                   int length = delimiters.length();
+                   if (length > 6 || length / 2 * 2 != length) {
+                     TemplateContext tc = new TemplateContext(sm, em, file, currentLine.get(), startOfLine);
+-                    throw new MustacheException("Invalid delimiter string: " + delimiters, tc);
++                    throw new MustacheException("Invalid delimiter string", tc);
+                   }
+                   sm = delimiters.substring(1, length / 2);
+                   em = delimiters.substring(length / 2, length - 1);
+diff --git a/compiler/src/test/java/com/github/mustachejava/DelimiterTest.java b/compiler/src/test/java/com/github/mustachejava/DelimiterTest.java
+index 25853ee..3346474 100644
+--- a/compiler/src/test/java/com/github/mustachejava/DelimiterTest.java
++++ b/compiler/src/test/java/com/github/mustachejava/DelimiterTest.java
+@@ -32,34 +32,6 @@ public class DelimiterTest {
+     assertEquals("Hello, Jason.", sw.toString());
+   }
+ 
+-  @Test
+-  public void testWithTemplateFunction() throws IOException {
+-    DefaultMustacheFactory mf = new DefaultMustacheFactory();
+-    Mustache maven = mf.compile(new StringReader("Hello, ${#f}${foo}${/f}."), "maven", "${", "}");
+-    StringWriter sw = new StringWriter();
+-    maven.execute(sw, new Object() {
+-      TemplateFunction f = (s) -> {
+-        return s;
+-      };
+-      String foo = "Jason";
+-    }).close();
+-    assertEquals("Hello, Jason.", sw.toString());
+-  }
+-
+-  @Test
+-  public void testWithTemplateFunction2() throws IOException {
+-    DefaultMustacheFactory mf = new DefaultMustacheFactory();
+-    Mustache maven = mf.compile(new StringReader("Hello, ${foo}."), "maven", "${", "}");
+-    StringWriter sw = new StringWriter();
+-    maven.execute(sw, new Object() {
+-      TemplateFunction foo = (s) -> {
+-        return "${name}";
+-      };
+-      String name = "Jason";
+-    }).close();
+-    assertEquals("Hello, Jason.", sw.toString());
+-  }
+-
+   private static class NoEncodingMustacheFactory extends DefaultMustacheFactory {
+     @Override
+     public void encode(String value, Writer writer) {

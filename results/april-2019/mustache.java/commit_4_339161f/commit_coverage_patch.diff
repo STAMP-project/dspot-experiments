@@ -1,0 +1,97 @@
+diff --git a/compiler/src/main/java/com/github/mustachejava/reflect/ReflectionObjectHandler.java b/compiler/src/main/java/com/github/mustachejava/reflect/ReflectionObjectHandler.java
+index 369e10e..cd8d25a 100644
+--- a/compiler/src/main/java/com/github/mustachejava/reflect/ReflectionObjectHandler.java
++++ b/compiler/src/main/java/com/github/mustachejava/reflect/ReflectionObjectHandler.java
+@@ -1,19 +1,26 @@
+ package com.github.mustachejava.reflect;
+ 
++import static java.util.Collections.*;
++
++import java.lang.reflect.AccessibleObject;
++import java.lang.reflect.Method;
++import java.util.ArrayList;
++import java.util.List;
++import java.util.Map;
++
+ import com.github.mustachejava.Binding;
+ import com.github.mustachejava.Code;
+ import com.github.mustachejava.ObjectHandler;
+ import com.github.mustachejava.TemplateContext;
+-import com.github.mustachejava.reflect.guards.*;
++import com.github.mustachejava.reflect.guards.ClassGuard;
++import com.github.mustachejava.reflect.guards.DepthGuard;
++import com.github.mustachejava.reflect.guards.DotGuard;
++import com.github.mustachejava.reflect.guards.MapGuard;
++import com.github.mustachejava.reflect.guards.NullGuard;
++import com.github.mustachejava.reflect.guards.WrappedGuard;
+ import com.github.mustachejava.util.GuardException;
+ import com.github.mustachejava.util.Wrapper;
+ 
+-import java.lang.reflect.AccessibleObject;
+-import java.lang.reflect.Method;
+-import java.util.*;
+-
+-import static java.util.Collections.singletonList;
+-
+ /**
+  * Lookup objects using reflection and execute them the same way.
+  *
+@@ -144,7 +151,7 @@ public class ReflectionObjectHandler extends BaseObjectHandler {
+       }
+     }
+     AccessibleObject member = findMember(scope.getClass(), name);
+-    return member == null ? null : createWrapper(scopeIndex, wrappers, guards, member, null);
++    return member == null ? null : createWrapper(scopeIndex, wrappers, guards, member, new Object[0]);
+   }
+ 
+   // Factories
+diff --git a/compiler/src/main/java/com/github/mustachejava/resolver/ClasspathResolver.java b/compiler/src/main/java/com/github/mustachejava/resolver/ClasspathResolver.java
+index 264f91d..df695ff 100644
+--- a/compiler/src/main/java/com/github/mustachejava/resolver/ClasspathResolver.java
++++ b/compiler/src/main/java/com/github/mustachejava/resolver/ClasspathResolver.java
+@@ -6,6 +6,7 @@ import java.io.BufferedReader;
+ import java.io.InputStream;
+ import java.io.InputStreamReader;
+ import java.io.Reader;
++import java.net.URI;
+ import java.nio.charset.StandardCharsets;
+ 
+ /**
+@@ -33,11 +34,12 @@ public class ClasspathResolver implements MustacheResolver {
+         ClassLoader ccl = Thread.currentThread().getContextClassLoader();
+ 
+         String fullResourceName = concatResourceRootAndResourceName(resourceName);
++        String normalizeResourceName = URI.create(fullResourceName).normalize().getPath();
+ 
+-        InputStream is = ccl.getResourceAsStream(fullResourceName);
++        InputStream is = ccl.getResourceAsStream(normalizeResourceName);
+         if (is == null) {
+             ClassLoader classLoader = ClasspathResolver.class.getClassLoader();
+-            is = classLoader.getResourceAsStream(fullResourceName);
++            is = classLoader.getResourceAsStream(normalizeResourceName);
+         }
+ 
+         if (is != null) {
+diff --git a/compiler/src/test/java/com/github/mustachejava/resolver/ClasspathResolverTest.java b/compiler/src/test/java/com/github/mustachejava/resolver/ClasspathResolverTest.java
+index 3f0c29f..f9dea88 100644
+--- a/compiler/src/test/java/com/github/mustachejava/resolver/ClasspathResolverTest.java
++++ b/compiler/src/test/java/com/github/mustachejava/resolver/ClasspathResolverTest.java
+@@ -65,4 +65,17 @@ public class ClasspathResolverTest {
+         underTest.getReader(null);
+     }
+ 
++    @Test
++    public void getReaderWithRootAndResourceHasDoubleDotRelativePath() throws Exception {
++        ClasspathResolver underTest = new ClasspathResolver("templates");
++        Reader reader = underTest.getReader("absolute/../absolute_partials_template.html");
++        assertThat(reader, is(notNullValue()));
++    }
++
++    @Test
++    public void getReaderWithRootAndResourceHasDotRelativePath() throws Exception {
++        ClasspathResolver underTest = new ClasspathResolver("templates");
++        Reader reader = underTest.getReader("absolute/./nested_partials_sub.html");
++        assertThat(reader, is(notNullValue()));
++    }
+ }
+\ No newline at end of file
