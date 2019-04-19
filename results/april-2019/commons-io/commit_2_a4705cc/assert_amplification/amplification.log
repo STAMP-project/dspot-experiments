@@ -141,16 +141,16 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
   <workingDirectory default-value="false">${working-directory}</workingDirectory>
 </configuration>
 [DEBUG] =======================================================================
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=1038926, ConflictMarker.markTime=646049, ConflictMarker.nodeCount=3, ConflictIdSorter.graphTime=628983, ConflictIdSorter.topsortTime=573828, ConflictIdSorter.conflictIdCount=2, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=4693066, ConflictResolver.conflictItemCount=2, DefaultDependencyCollector.collectTime=25509663, DefaultDependencyCollector.transformTime=10449514}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=804810, ConflictMarker.markTime=479178, ConflictMarker.nodeCount=3, ConflictIdSorter.graphTime=475435, ConflictIdSorter.topsortTime=442013, ConflictIdSorter.conflictIdCount=2, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=3542945, ConflictResolver.conflictItemCount=2, DefaultDependencyCollector.collectTime=24394702, DefaultDependencyCollector.transformTime=7977572}
 [DEBUG] commons-io:commons-io:jar:2.7-SNAPSHOT
 [DEBUG]    junit:junit:jar:4.12:test
 [DEBUG]       org.hamcrest:hamcrest-core:jar:1.3:test
 [INFO] 
 [INFO] --- dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests (default-cli) @ commons-io ---
-[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
-[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
-[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
-[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
+[DEBUG] Failure to find eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
@@ -481,7 +481,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=13751812, ConflictMarker.markTime=3231311, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=11120660, ConflictIdSorter.topsortTime=254787, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=31353072, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=2457606729, DefaultDependencyCollector.transformTime=59923200}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=8020552, ConflictMarker.markTime=2312132, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=6336844, ConflictIdSorter.topsortTime=200600, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=15250530, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=2411004963, DefaultDependencyCollector.transformTime=32291572}
 [DEBUG] eu.stamp-project:dspot-maven:jar:2.0.1-SNAPSHOT:
 [DEBUG]    eu.stamp-project:dspot:jar:2.0.1-SNAPSHOT:compile
 [DEBUG]       fr.inria.gforge.spoon:spoon-core:jar:7.3.0:compile
@@ -746,7 +746,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-io ---
 [INFO] Executing: /bin/sh -c cd '/tmp/dspot-experiments/dataset/april-2019/commons-io_parent' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /tmp/dspot-experiments/dataset/april-2019/commons-io_parent
-[INFO] Storing buildNumber: e9eb2d8b5a858bb6810c941ee7891c3adcf9949d at timestamp: 1555607807989
+[INFO] Storing buildNumber: e9eb2d8b5a858bb6810c941ee7891c3adcf9949d at timestamp: 1555662103473
 [INFO] Storing buildScmBranch: master
 [INFO] 
 [INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ commons-io ---
@@ -782,63 +782,41 @@ main:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 12.962 s
-[INFO] Finished at: 2019-04-18T19:16:57+02:00
+[INFO] Total time: 10.217 s
+[INFO] Finished at: 2019-04-19T10:21:50+02:00
 [INFO] ------------------------------------------------------------------------
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time: 19.010 s
-[INFO] Finished at: 2019-04-18T19:16:57+02:00
-[INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests (default-cli) on project commons-io: Execution default-cli of goal eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests failed: java.io.FileNotFoundException: /tmp/dspot-experiments/results/april-2019/commons-io/commit_2_a4705cc/parent_coverage_testsThatExecuteTheChanges.csv (No such file or directory) -> [Help 1]
-org.apache.maven.lifecycle.LifecycleExecutionException: Failed to execute goal eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests (default-cli) on project commons-io: Execution default-cli of goal eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests failed: java.io.FileNotFoundException: /tmp/dspot-experiments/results/april-2019/commons-io/commit_2_a4705cc/parent_coverage_testsThatExecuteTheChanges.csv (No such file or directory)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:213)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:154)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:146)
-    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:117)
-    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:81)
-    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:56)
-    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:128)
-    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:305)
-    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:192)
-    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:105)
-    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:954)
-    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:288)
-    at org.apache.maven.cli.MavenCli.main (MavenCli.java:192)
-    at sun.reflect.NativeMethodAccessorImpl.invoke0 (Native Method)
-    at sun.reflect.NativeMethodAccessorImpl.invoke (NativeMethodAccessorImpl.java:62)
-    at sun.reflect.DelegatingMethodAccessorImpl.invoke (DelegatingMethodAccessorImpl.java:43)
-    at java.lang.reflect.Method.invoke (Method.java:498)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:289)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:229)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:415)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:356)
-Caused by: org.apache.maven.plugin.PluginExecutionException: Execution default-cli of goal eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests failed: java.io.FileNotFoundException: /tmp/dspot-experiments/results/april-2019/commons-io/commit_2_a4705cc/parent_coverage_testsThatExecuteTheChanges.csv (No such file or directory)
-    at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo (DefaultBuildPluginManager.java:148)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:208)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:154)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:146)
-    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:117)
-    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:81)
-    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:56)
-    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:128)
-    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:305)
-    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:192)
-    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:105)
-    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:954)
-    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:288)
-    at org.apache.maven.cli.MavenCli.main (MavenCli.java:192)
-    at sun.reflect.NativeMethodAccessorImpl.invoke0 (Native Method)
-    at sun.reflect.NativeMethodAccessorImpl.invoke (NativeMethodAccessorImpl.java:62)
-    at sun.reflect.DelegatingMethodAccessorImpl.invoke (DelegatingMethodAccessorImpl.java:43)
-    at java.lang.reflect.Method.invoke (Method.java:498)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:289)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:229)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:415)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:356)
-Caused by: java.lang.RuntimeException: java.io.FileNotFoundException: /tmp/dspot-experiments/results/april-2019/commons-io/commit_2_a4705cc/parent_coverage_testsThatExecuteTheChanges.csv (No such file or directory)
-    at eu.stamp_project.DSpotMojo.execute (DSpotMojo.java:308)
+[INFO] Amplification of org.apache.commons.io.monitor.FileAlterationMonitorTestCase (2 test(s))
+[INFO] Assertion amplification of org.apache.commons.io.monitor.FileAlterationMonitorTestCase (2 test(s))
+[DEBUG] Starting 15 Services...
+[DEBUG] All Services successfully started, 15 Services in 11ms
+[DEBUG] Creating Cache 'frameworkCache' in EhcacheManager.
+[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@714f1a44
+[DEBUG] Could not create serializers for frameworkCache
+org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for type 'eu.stamp_project.test_framework.TestFrameworkSupport'
+    at org.ehcache.impl.internal.spi.serialization.DefaultSerializationProvider.getSerializerClassFor (DefaultSerializationProvider.java:136)
+    at org.ehcache.impl.internal.spi.serialization.DefaultSerializationProvider.createSerializer (DefaultSerializationProvider.java:98)
+    at org.ehcache.impl.internal.spi.serialization.DefaultSerializationProvider.createValueSerializer (DefaultSerializationProvider.java:90)
+    at org.ehcache.core.EhcacheManager.getStore (EhcacheManager.java:478)
+    at org.ehcache.core.EhcacheManager.createNewEhcache (EhcacheManager.java:317)
+    at org.ehcache.core.EhcacheManager.createCache (EhcacheManager.java:266)
+    at org.ehcache.core.EhcacheManager.init (EhcacheManager.java:582)
+    at org.ehcache.config.builders.CacheManagerBuilder.build (CacheManagerBuilder.java:72)
+    at eu.stamp_project.utils.DSpotCache.<clinit> (DSpotCache.java:21)
+    at eu.stamp_project.test_framework.TestFramework.getTestFramework (TestFramework.java:128)
+    at eu.stamp_project.test_framework.TestFramework.isJUnit5 (TestFramework.java:67)
+    at eu.stamp_project.dspot.Amplification.amplification (Amplification.java:84)
+    at eu.stamp_project.dspot.DSpot._amplify (DSpot.java:273)
+    at eu.stamp_project.dspot.DSpot.lambda$amplifyTestClassesTestMethods$5 (DSpot.java:254)
+    at java.util.stream.ReferencePipeline$3$1.accept (ReferencePipeline.java:193)
+    at java.util.ArrayList$ArrayListSpliterator.forEachRemaining (ArrayList.java:1374)
+    at java.util.stream.AbstractPipeline.copyInto (AbstractPipeline.java:481)
+    at java.util.stream.AbstractPipeline.wrapAndCopyInto (AbstractPipeline.java:471)
+    at java.util.stream.ReduceOps$ReduceOp.evaluateSequential (ReduceOps.java:708)
+    at java.util.stream.AbstractPipeline.evaluate (AbstractPipeline.java:234)
+    at java.util.stream.ReferencePipeline.collect (ReferencePipeline.java:499)
+    at eu.stamp_project.dspot.DSpot.amplifyTestClassesTestMethods (DSpot.java:255)
+    at eu.stamp_project.Main.run (Main.java:65)
+    at eu.stamp_project.DSpotMojo.execute (DSpotMojo.java:306)
     at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo (DefaultBuildPluginManager.java:137)
     at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:208)
     at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:154)
@@ -861,36 +839,149 @@ Caused by: java.lang.RuntimeException: java.io.FileNotFoundException: /tmp/dspot
     at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:229)
     at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:415)
     at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:356)
-Caused by: java.io.FileNotFoundException: /tmp/dspot-experiments/results/april-2019/commons-io/commit_2_a4705cc/parent_coverage_testsThatExecuteTheChanges.csv (No such file or directory)
-    at java.io.FileInputStream.open0 (Native Method)
-    at java.io.FileInputStream.open (FileInputStream.java:195)
-    at java.io.FileInputStream.<init> (FileInputStream.java:138)
-    at java.io.FileInputStream.<init> (FileInputStream.java:93)
-    at java.io.FileReader.<init> (FileReader.java:58)
-    at eu.stamp_project.DSpotMojo.execute (DSpotMojo.java:295)
-    at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo (DefaultBuildPluginManager.java:137)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:208)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:154)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:146)
-    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:117)
-    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:81)
-    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:56)
-    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:128)
-    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:305)
-    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:192)
-    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:105)
-    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:954)
-    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:288)
-    at org.apache.maven.cli.MavenCli.main (MavenCli.java:192)
-    at sun.reflect.NativeMethodAccessorImpl.invoke0 (Native Method)
-    at sun.reflect.NativeMethodAccessorImpl.invoke (NativeMethodAccessorImpl.java:62)
-    at sun.reflect.DelegatingMethodAccessorImpl.invoke (DelegatingMethodAccessorImpl.java:43)
-    at java.lang.reflect.Method.invoke (Method.java:498)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:289)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:229)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:415)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:356)
-[ERROR] 
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/PluginExecutionException
+[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@3d3930fe
+[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@5e51ec2e
+[DEBUG] Initialize successful.
+[INFO] Cache 'frameworkCache' created in EhcacheManager.
+[DEBUG] Initialize successful.
+[WARNING] You gave an empty filter. To use PIT, it is recommend to specify a filter, at least, the top package of your program, otherwise, PIT may take a long time or could not be run.
+[INFO] A new filter has been computed on the fly: org.apache.commons.io.*
+[INFO] Using /tmp/dspot-experiments/dataset/april-2019/commons-io/pom.xml to run maven.
+[INFO] Using /home/spirals/danglot/apache-maven-3.5.4 for maven home
+[INFO] run maven: /home/spirals/danglot/apache-maven-3.5.4/bin/mvn clean test -DskipTests
+[WARN] Maven will be executed in interactive mode, but no input stream has been configured for this MavenInvoker instance.
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< commons-io:commons-io >------------------------
+[INFO] Building Apache Commons IO 2.7-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.0.0:clean (default-clean) @ commons-io ---
+[INFO] Deleting /tmp/dspot-experiments/dataset/april-2019/commons-io/target
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-maven-3) @ commons-io ---
+[INFO] Skipping Rule Enforcement.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.0.0:parse-version (parse-version) @ commons-io ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-io ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /tmp/dspot-experiments/dataset/april-2019/commons-io/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (process-resource-bundles) @ commons-io ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-io ---
+[INFO] Executing: /bin/sh -c cd '/tmp/dspot-experiments/dataset/april-2019/commons-io' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /tmp/dspot-experiments/dataset/april-2019/commons-io
+[INFO] Storing buildNumber: a4705cc3c310ffb422336b319891f63eef021f1c at timestamp: 1555662121018
+[INFO] Storing buildScmBranch: master
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ commons-io ---
+[INFO] Using 'iso-8859-1' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /tmp/dspot-experiments/dataset/april-2019/commons-io/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ commons-io ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 119 source files to /tmp/dspot-experiments/dataset/april-2019/commons-io/target/classes
+[INFO] 
+[INFO] --- maven-bundle-plugin:3.4.0:manifest (bundle-manifest) @ commons-io ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.16:check (checkAPIcompatibility) @ commons-io ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java17:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ commons-io ---
+[INFO] Using 'iso-8859-1' encoding to copy filtered resources.
+[INFO] Copying 20 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ commons-io ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 117 source files to /tmp/dspot-experiments/dataset/april-2019/commons-io/target/test-classes
+[INFO] /tmp/dspot-experiments/dataset/april-2019/commons-io/src/test/java/org/apache/commons/io/output/FileWriterWithEncodingTest.java: Some input files use or override a deprecated API.
+[INFO] /tmp/dspot-experiments/dataset/april-2019/commons-io/src/test/java/org/apache/commons/io/output/FileWriterWithEncodingTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.20.1:test (default-test) @ commons-io ---
+[INFO] Tests are skipped.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 8.788 s
+[INFO] Finished at: 2019-04-19T10:22:06+02:00
+[INFO] ------------------------------------------------------------------------
+[INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources/org/apache/commons/io/monitor/FileAlterationMonitorTestCase.java
+[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.io.monitor.FileAlterationMonitorTestCase --tests testMonitor:testThreadFactory 
+Parsing --class org.apache.commons.io.monitor.FileAlterationMonitorTestCase --tests testMonitor:testThreadFactory
+File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/TestResult.ser
+Loading /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/TestResult.ser
+[INFO] Test has been run: testMonitor,testThreadFactory
+[INFO] Run tests. (2)
+[INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources/org/apache/commons/io/monitor/FileAlterationMonitorTestCase.java
+[ERROR] Error(s) during compilation:
+[ERROR] Pb(50) file1 cannot be resolved
+[ERROR] Pb(50) file2 cannot be resolved
+[INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources/org/apache/commons/io/monitor/FileAlterationMonitorTestCase.java
+[WARNING] Error when executing tests before Assertion Amplification:
+eu.stamp_project.dspot.AmplificationException: Every test methods are uncompilable
+	at eu.stamp_project.utils.compilation.TestCompiler.compileAndDiscardUncompilableMethods(TestCompiler.java:124)
+	at eu.stamp_project.utils.compilation.TestCompiler.compileAndRun(TestCompiler.java:93)
+	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.innerAssertionAmplification(AssertGenerator.java:105)
+	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.assertionAmplification(AssertGenerator.java:72)
+	at eu.stamp_project.dspot.Amplification.assertionsAmplification(Amplification.java:187)
+	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:96)
+	at eu.stamp_project.dspot.DSpot._amplify(DSpot.java:273)
+	at eu.stamp_project.dspot.DSpot.lambda$amplifyTestClassesTestMethods$5(DSpot.java:254)
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1374)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at eu.stamp_project.dspot.DSpot.amplifyTestClassesTestMethods(DSpot.java:255)
+	at eu.stamp_project.Main.run(Main.java:65)
+	at eu.stamp_project.DSpotMojo.execute(DSpotMojo.java:306)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:137)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:154)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:146)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:56)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:305)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:192)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:105)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:954)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:288)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:192)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+[INFO] Could not generate any test with assertions
+[INFO] 0 amplified test methods has been selected to be kept. (global: 0)
+[INFO] elapsedTime 13467
+[DEBUG] OPTIMIZATION: GC invoked
+[WARNING] DSpot could not obtain any amplified test method.
+[WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
+[INFO] Amplification succeed.
+[INFO] Elapsed time 14587 ms
+[INFO] 
+0 amplified test fails on the new versions.
+[INFO] Writing report in /tmp/dspot-experiments/results/april-2019/commons-io/commit_2_a4705cc/assert_amplification/report.txt
+[INFO] DSpot amplified your test suite without errors. (no errors report will be outputted)
+[INFO] The amplification ends up with 0 amplified test methods over 0 test classes.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 34.725 s
+[INFO] Finished at: 2019-04-19T10:22:09+02:00
+[INFO] ------------------------------------------------------------------------

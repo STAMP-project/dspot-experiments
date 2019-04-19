@@ -1,0 +1,1182 @@
+Apache Maven 3.5.4 (1edded0938998edf8bf061f1ceb3cfdeccf443fe; 2018-06-17T20:33:14+02:00)
+Maven home: /home/spirals/danglot/apache-maven-3.5.4
+Java version: 1.8.0_121, vendor: Oracle Corporation, runtime: /home/spirals/danglot/jdk1.8.0_121/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
+[DEBUG] Created new class realm maven.api
+[DEBUG] Importing foreign packages into class realm maven.api
+[DEBUG]   Imported: javax.annotation.* < plexus.core
+[DEBUG]   Imported: javax.annotation.security.* < plexus.core
+[DEBUG]   Imported: javax.enterprise.inject.* < plexus.core
+[DEBUG]   Imported: javax.enterprise.util.* < plexus.core
+[DEBUG]   Imported: javax.inject.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.artifact < plexus.core
+[DEBUG]   Imported: org.apache.maven.classrealm < plexus.core
+[DEBUG]   Imported: org.apache.maven.cli < plexus.core
+[DEBUG]   Imported: org.apache.maven.configuration < plexus.core
+[DEBUG]   Imported: org.apache.maven.exception < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution.scope < plexus.core
+[DEBUG]   Imported: org.apache.maven.lifecycle < plexus.core
+[DEBUG]   Imported: org.apache.maven.model < plexus.core
+[DEBUG]   Imported: org.apache.maven.monitor < plexus.core
+[DEBUG]   Imported: org.apache.maven.plugin < plexus.core
+[DEBUG]   Imported: org.apache.maven.profiles < plexus.core
+[DEBUG]   Imported: org.apache.maven.project < plexus.core
+[DEBUG]   Imported: org.apache.maven.reporting < plexus.core
+[DEBUG]   Imported: org.apache.maven.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.rtinfo < plexus.core
+[DEBUG]   Imported: org.apache.maven.settings < plexus.core
+[DEBUG]   Imported: org.apache.maven.toolchain < plexus.core
+[DEBUG]   Imported: org.apache.maven.usability < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authentication < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authorization < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.events < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.observers < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.proxy < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.resource < plexus.core
+[DEBUG]   Imported: org.codehaus.classworlds < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.* < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.classworlds < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.component < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.configuration < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.container < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.context < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.lifecycle < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.logging < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.personality < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.Xpp3Dom < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParser < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParserException < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlSerializer < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.* < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.artifact < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.collection < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.deployment < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.graph < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.impl < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.installation < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.internal.impl < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.metadata < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.repository < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.resolution < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.spi < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.transfer < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.version < plexus.core
+[DEBUG]   Imported: org.fusesource.jansi.* < plexus.core
+[DEBUG]   Imported: org.slf4j.* < plexus.core
+[DEBUG]   Imported: org.slf4j.helpers.* < plexus.core
+[DEBUG]   Imported: org.slf4j.spi.* < plexus.core
+[DEBUG] Populating class realm maven.api
+[INFO] Error stacktraces are turned on.
+[DEBUG] Message scheme: color
+[DEBUG] Message styles: debug info warning error success failure strong mojo project
+[DEBUG] Reading global settings from /home/spirals/danglot/apache-maven-3.5.4/conf/settings.xml
+[DEBUG] Reading user settings from /home/spirals/danglot/.m2/settings.xml
+[DEBUG] Reading global toolchains from /home/spirals/danglot/apache-maven-3.5.4/conf/toolchains.xml
+[DEBUG] Reading user toolchains from /home/spirals/danglot/.m2/toolchains.xml
+[DEBUG] Using local repository at /home/spirals/danglot/.m2/repository
+[DEBUG] Using manager EnhancedLocalRepositoryManager with priority 10.0 for /home/spirals/danglot/.m2/repository
+[INFO] Scanning for projects...
+[DEBUG] Extension realms for project commons-io:commons-io:jar:2.7-SNAPSHOT: (none)
+[DEBUG] Looking up lifecycle mappings for packaging jar from ClassRealm[plexus.core, parent: null]
+[DEBUG] Extension realms for project org.apache.commons:commons-parent:pom:43: (none)
+[DEBUG] Looking up lifecycle mappings for packaging pom from ClassRealm[plexus.core, parent: null]
+[DEBUG] Extension realms for project org.apache:apache:pom:18: (none)
+[DEBUG] Looking up lifecycle mappings for packaging pom from ClassRealm[plexus.core, parent: null]
+[DEBUG] === REACTOR BUILD PLAN ================================================
+[DEBUG] Project: commons-io:commons-io:jar:2.7-SNAPSHOT
+[DEBUG] Tasks:   [clean, eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT:list]
+[DEBUG] Style:   Regular
+[DEBUG] =======================================================================
+[INFO] 
+[INFO] -----------------------< commons-io:commons-io >------------------------
+[INFO] Building Apache Commons IO 2.7-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] === PROJECT BUILD PLAN ================================================
+[DEBUG] Project:       commons-io:commons-io:2.7-SNAPSHOT
+[DEBUG] Dependencies (collect): []
+[DEBUG] Dependencies (resolve): []
+[DEBUG] Repositories (dependencies): [apache.snapshots (https://repository.apache.org/snapshots, default, snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[DEBUG] Repositories (plugins)     : [central (https://repo.maven.apache.org/maven2, default, releases)]
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-clean-plugin:3.0.0:clean (default-clean)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <directory default-value="${project.build.directory}"/>
+  <excludeDefaultDirectories default-value="false">${maven.clean.excludeDefaultDirectories}</excludeDefaultDirectories>
+  <failOnError default-value="true">${maven.clean.failOnError}</failOnError>
+  <followSymLinks default-value="false">${maven.clean.followSymLinks}</followSymLinks>
+  <outputDirectory default-value="${project.build.outputDirectory}"/>
+  <reportDirectory default-value="${project.build.outputDirectory}"/>
+  <retryOnError default-value="true">${maven.clean.retryOnError}</retryOnError>
+  <skip default-value="false">${maven.clean.skip}</skip>
+  <testOutputDirectory default-value="${project.build.testOutputDirectory}"/>
+  <verbose>${maven.clean.verbose}</verbose>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT:list (default-cli)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <module default-value="">${module}</module>
+  <outputFormat default-value="CSV">${output-format}</outputFormat>
+  <outputPath default-value="">${output-path}</outputPath>
+  <pathDirSecondVersion>${path-dir-second-version}</pathDirSecondVersion>
+  <pathToDiff default-value="">${path-to-diff}</pathToDiff>
+  <project default-value="${project}"/>
+</configuration>
+[DEBUG] =======================================================================
+[INFO] 
+[INFO] --- maven-clean-plugin:3.0.0:clean (default-clean) @ commons-io ---
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=916863, ConflictMarker.markTime=516054, ConflictMarker.nodeCount=15, ConflictIdSorter.graphTime=505286, ConflictIdSorter.topsortTime=437362, ConflictIdSorter.conflictIdCount=13, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=4259359, ConflictResolver.conflictItemCount=15, DefaultDependencyCollector.collectTime=129545677, DefaultDependencyCollector.transformTime=9159089}
+[DEBUG] org.apache.maven.plugins:maven-clean-plugin:jar:3.0.0:
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:3.0:compile
+[DEBUG]       org.apache.maven:maven-model:jar:3.0:compile
+[DEBUG]          org.codehaus.plexus:plexus-utils:jar:2.0.4:compile
+[DEBUG]       org.apache.maven:maven-artifact:jar:3.0:compile
+[DEBUG]       org.sonatype.sisu:sisu-inject-plexus:jar:1.4.2:compile
+[DEBUG]          org.codehaus.plexus:plexus-component-annotations:jar:1.5.5:compile
+[DEBUG]          org.codehaus.plexus:plexus-classworlds:jar:2.2.3:compile
+[DEBUG]          org.sonatype.sisu:sisu-inject-bean:jar:1.4.2:compile
+[DEBUG]             org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7:compile
+[DEBUG]    org.apache.maven.shared:maven-shared-utils:jar:3.0.0:compile
+[DEBUG]       commons-io:commons-io:jar:2.4:compile
+[DEBUG]       com.google.code.findbugs:jsr305:jar:2.0.1:compile
+[DEBUG] Created new class realm plugin>org.apache.maven.plugins:maven-clean-plugin:3.0.0
+[DEBUG] Importing foreign packages into class realm plugin>org.apache.maven.plugins:maven-clean-plugin:3.0.0
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>org.apache.maven.plugins:maven-clean-plugin:3.0.0
+[DEBUG]   Included: org.apache.maven.plugins:maven-clean-plugin:jar:3.0.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:2.0.4
+[DEBUG]   Included: org.codehaus.plexus:plexus-component-annotations:jar:1.5.5
+[DEBUG]   Included: org.sonatype.sisu:sisu-inject-bean:jar:1.4.2
+[DEBUG]   Included: org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7
+[DEBUG]   Included: org.apache.maven.shared:maven-shared-utils:jar:3.0.0
+[DEBUG]   Included: commons-io:commons-io:jar:2.4
+[DEBUG]   Included: com.google.code.findbugs:jsr305:jar:2.0.1
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-clean-plugin:3.0.0:clean from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-clean-plugin:3.0.0, parent: sun.misc.Launcher$AppClassLoader@55f96302]
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-clean-plugin:3.0.0:clean' with basic configurator -->
+[DEBUG]   (f) directory = /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target
+[DEBUG]   (f) excludeDefaultDirectories = false
+[DEBUG]   (f) failOnError = true
+[DEBUG]   (f) followSymLinks = false
+[DEBUG]   (f) outputDirectory = /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes
+[DEBUG]   (f) reportDirectory = /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes
+[DEBUG]   (f) retryOnError = true
+[DEBUG]   (f) skip = false
+[DEBUG]   (f) testOutputDirectory = /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes
+[DEBUG] -- end configuration --
+[INFO] Deleting /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/antrun/build-main.xml
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/antrun
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/generated-sources/annotations
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/generated-sources
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/META-INF/LICENSE.txt
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/META-INF/NOTICE.txt
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/META-INF
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/test-file-x-windows-949.bin
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/test-file-iso8859-1-shortlines-win-linebr.bin
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/test-file-shiftjis.bin
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/test-file-x-windows-950.bin
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/test-file-utf16be.bin
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/test-file-windows-31j.bin
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/test-file-iso8859-1.bin
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/test-file-gbk.bin
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/test-file-utf16le.bin
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/test-file-20byteslength.bin
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/test-file-simple-utf8.bin
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/test-file-utf8-win-linebr.bin
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/test-file-utf8-cr-only.bin
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/FileUtilsTestCase$ListDirectoryWalker.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/IOUtilsTestCase$11.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/DirectoryWalkerTestCaseJava4$TestFalseFileFinder.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/SelectorAdapter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/IOUtilsTestCase$12.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/FileCleaningTrackerTestCase.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/FileUtilsTestDataCRLF.dat
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/IOUtilsTestCase$3.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/IOUtilsTestCase$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/DemuxTestCase$WriterThread.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/EndianUtilsTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/FileUtilsTestCase$ShorterFile.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/DirectoryWalkerTestCaseJava4$TestFileFinder.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/DirectoryWalkerTestCaseJava4.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/IOUtilsTestCase$4.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/serialization/MockSerializedClass.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/serialization/ValidatingObjectInputStreamTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/serialization/MoreComplexObject.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/serialization/ValidatingObjectInputStreamTest$1CustomVOIS.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/serialization/ValidatingObjectInputStreamTest$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/serialization/RegexpClassNameMatcherTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/serialization/ClosingBase.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/serialization
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/IOUtilsTestCase$6.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/DirectoryWalkerTestCase.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/DirectoryWalkerTestCase$TestFalseFileFinder.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/TaggedIOExceptionTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/IOUtilsCopyTestCase.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/DirectoryWalkerTestCaseJava4$TestCancelWalker.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/HexDumpTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/FileDeleteStrategyTestCase.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/DemuxTestCase.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/FileUtilsFileNewerTestCase.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/comparator/CompositeFileComparatorTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/comparator/ComparatorAbstractTestCase.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/comparator/SizeFileComparatorTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/comparator/PathFileComparatorTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/comparator/NameFileComparatorTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/comparator/LastModifiedFileComparatorTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/comparator/DefaultFileComparatorTest.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/comparator
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/IOUtilsTestCase$7.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/FileSystemTestCase.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/IOUtilsTestCase$10.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/FileCleanerTestCase.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/IOUtilsTestCase$9.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/monitor/FileAlterationMonitorTestCase.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/monitor/FileAlterationObserverTestCase.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/monitor/AbstractMonitorTestCase.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/monitor/CollectionFileListener.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/monitor
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/IOUtilsTestCase$2.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/BrokenInputStreamTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/ObservableInputStreamTest$LastByteKeepingObserver.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/ClosedInputStreamTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/BoundedReaderTest$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/BOMInputStreamTest$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/TeeInputStreamTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/BoundedReaderTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/ReversedLinesFileReaderTestParamFile.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/UnixLineEndingInputStreamTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/TailerTest$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/CloseShieldInputStreamTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/ReaderInputStreamTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/BOMInputStreamTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/ClassLoaderObjectInputStreamTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/ObservableInputStreamTest$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/compatibility/XmlStreamReaderException.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/compatibility/XmlStreamReader.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/compatibility
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/XmlStreamReaderTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/CharSequenceInputStreamTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/ObservableInputStreamTest$LastBytesKeepingObserver.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/BOMInputStreamTest$ExpectCloseInputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/TailerTest$TestTailerListener.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/ClassLoaderObjectInputStreamTest$E.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/TaggedInputStreamTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/ClassLoaderObjectInputStreamTest$Test.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/CloseShieldInputStreamTest$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/TailerTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/MessageDigestCalculatingInputStreamTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input/ObservableInputStreamTest.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/input
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/FilenameUtilsTestCase.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/ByteOrderParserTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/ChunkedWriterTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/TeeOutputStreamTest$RecordCloseByteArrayOutputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/TeeOutputStreamTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/AppendableOutputStreamTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/ProxyWriterTest$5.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/StringBuilderWriterTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/NullWriterTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/ClosedOutputStreamTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/ProxyWriterTest$4.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/ProxyWriterTest$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/ProxyWriterTest$6.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/ChunkedWriterTest$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/ProxyWriterTest$2.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/ProxyOutputStreamTest$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/ChunkedOutputStreamTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/ProxyOutputStreamTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/ChunkedOutputStreamTest$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/ThresholdingOutputStreamTest$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/ProxyWriterTest$3.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/ProxyWriterTest$8.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/TaggedOutputStreamTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/ProxyWriterTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/TeeOutputStreamTest$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/TeeOutputStreamTest$ExceptionOnCloseByteArrayOutputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/CloseShieldOutputStreamTest$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/ProxyWriterTest$10.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/ProxyWriterTest$9.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/CloseShieldOutputStreamTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/XmlStreamWriterTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/ThresholdingOutputStreamTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output/ProxyWriterTest$7.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/output
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/IOUtilsTestCase.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/FileUtilsWaitForTestCase$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/testfileBOM.xml
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/FileUtilsTestDataCR.dat
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/DirectoryWalkerTestCase$TestMultiThreadCancelWalker.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/FileUtilsTestDataLF.dat
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/FileUtilsListFilesTestCase.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/DirectoryWalkerTestCaseJava4$TestMultiThreadCancelWalker.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/FileUtilsTestCase.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/FileUtilsTestCase$3.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/FileUtilsWaitForTestCase.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/DirectoryWalkerTestCase$TestCancelWalker.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/FileUtilsTestCase$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/filefilter/IOFileFilterAbstractTestCase$TesterTrueFileFilter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/filefilter/IOFileFilterAbstractTestCase.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/filefilter/AndFileFilterTestCase.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/filefilter/OrFileFilterTestCase.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/filefilter/ConditionalFileFilterAbstractTestCase.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/filefilter/IOFileFilterAbstractTestCase$TesterFalseFileFilter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/filefilter/RegexFileFilterTestCase.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/filefilter
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/DirectoryWalkerTestCase$TestFileFinder.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/testfileNoBOM.xml
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/DirectoryWalkerTestCase$TestFileFinderString.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/FilenameUtilsWildcardTestCase.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/IOUtilsTestCase$8.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/IOUtilsTestCase$13.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/IOUtilsTestCase$5.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/DemuxTestCase$ReaderThread.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/FileUtilsTestCase$2.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/testtools/TestUtils.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/testtools/YellOnCloseInputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/testtools/SystemDefaults.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/testtools/SystemDefaultsSwitch$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/testtools/SystemDefaultsSwitch.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io/testtools
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons/io
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache/commons
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org/apache
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/org
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/test-file-empty.bin
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/test-file-utf8.bin
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/apidocs/META-INF/LICENSE.txt
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/apidocs/META-INF/NOTICE.txt
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/apidocs/META-INF
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/apidocs
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/META-INF/LICENSE.txt
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/META-INF/NOTICE.txt
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/META-INF
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/FileDeleteStrategy$ForceFileDeleteStrategy.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/FileSystem.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/ThreadMonitor.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/DirectoryWalker$CancelException.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/FileCleaningTracker$Reaper.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/HexDump.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/FileSystemUtils.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/IOExceptionWithCause.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/Charsets.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/serialization/RegexpClassNameMatcher.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/serialization/WildcardClassNameMatcher.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/serialization/FullClassNameMatcher.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/serialization/ValidatingObjectInputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/serialization/ClassNameMatcher.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/serialization
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/EndianUtils.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/comparator/DirectoryFileComparator.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/comparator/DefaultFileComparator.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/comparator/NameFileComparator.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/comparator/SizeFileComparator.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/comparator/ReverseComparator.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/comparator/PathFileComparator.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/comparator/AbstractFileComparator.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/comparator/LastModifiedFileComparator.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/comparator/ExtensionFileComparator.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/comparator/CompositeFileComparator.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/comparator
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/TaggedIOException.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/FileCleaningTracker$Tracker.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/LineIterator.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/monitor/FileAlterationListenerAdaptor.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/monitor/FileAlterationObserver.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/monitor/FileAlterationListener.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/monitor/FileAlterationMonitor.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/monitor/FileEntry.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/monitor
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/IOCase.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/ProxyInputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/ReversedLinesFileReader$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/XmlStreamReaderException.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/TaggedInputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/CharSequenceInputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/BoundedInputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/TailerListener.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/Tailer.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/ReaderInputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/SwappedDataInputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/CharSequenceReader.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/UnixLineEndingInputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/CountingInputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/InfiniteCircularInputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/ClassLoaderObjectInputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/BOMInputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/CloseShieldInputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/DemuxInputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/WindowsLineEndingInputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/BrokenInputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/BoundedReader.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/ReversedLinesFileReader.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/ClosedInputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/BOMInputStream$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/XmlStreamReader.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/TailerListenerAdapter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/ReversedLinesFileReader$FilePart.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/MessageDigestCalculatingInputStream$MessageDigestMaintainingObserver.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/ObservableInputStream$Observer.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/AutoCloseInputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/TeeInputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/NullInputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/NullReader.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/MessageDigestCalculatingInputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/ProxyReader.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input/ObservableInputStream.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/input
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/output/ChunkedOutputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/output/DemuxOutputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/output/FileWriterWithEncoding.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/output/ByteArrayOutputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/output/ThresholdingOutputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/output/ProxyOutputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/output/ProxyWriter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/output/ChunkedWriter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/output/XmlStreamWriter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/output/StringBuilderWriter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/output/AppendableOutputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/output/TeeOutputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/output/WriterOutputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/output/ClosedOutputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/output/NullWriter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/output/LockableFileWriter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/output/TaggedOutputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/output/CountingOutputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/output/DeferredFileOutputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/output/BrokenOutputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/output/NullOutputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/output/CloseShieldOutputStream.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/output
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/DirectoryWalker.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/ByteOrderParser.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/FileUtils.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/FilenameUtils.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/FileCleaningTracker.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/FileExistsException.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/FileCleaner.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/filefilter/NameFileFilter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/filefilter/CanReadFileFilter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/filefilter/RegexFileFilter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/filefilter/SuffixFileFilter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/filefilter/WildcardFilter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/filefilter/WildcardFileFilter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/filefilter/AgeFileFilter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/filefilter/FalseFileFilter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/filefilter/HiddenFileFilter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/filefilter/AndFileFilter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/filefilter/EmptyFileFilter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/filefilter/CanWriteFileFilter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/filefilter/DirectoryFileFilter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/filefilter/OrFileFilter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/filefilter/ConditionalFileFilter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/filefilter/IOFileFilter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/filefilter/PrefixFileFilter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/filefilter/DelegateFileFilter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/filefilter/FileFilterUtils.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/filefilter/MagicNumberFileFilter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/filefilter/NotFileFilter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/filefilter/TrueFileFilter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/filefilter/FileFileFilter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/filefilter/SizeFileFilter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/filefilter/AbstractFileFilter.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/filefilter
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/CopyUtils.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/IOUtils.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/FileDeleteStrategy.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io/ByteOrderMark.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons/io
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache/commons
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org/apache
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/org
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/generated-test-sources/test-annotations
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/generated-test-sources
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/osgi/MANIFEST.MF
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/osgi
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/maven-status/maven-compiler-plugin/compile/default-compile
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/maven-status/maven-compiler-plugin/compile
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/maven-status/maven-compiler-plugin/testCompile
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/maven-status/maven-compiler-plugin
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/maven-status
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target
+[DEBUG] Skipping non-existing directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes
+[DEBUG] Skipping non-existing directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes
+[DEBUG] Skipping non-existing directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes
+[INFO] 
+[INFO] --- dspot-diff-test-selection:2.0.1-SNAPSHOT:list (default-cli) @ commons-io ---
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.text/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.text/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=4596562, ConflictMarker.markTime=1030117, ConflictMarker.nodeCount=990, ConflictIdSorter.graphTime=3636308, ConflictIdSorter.topsortTime=98322, ConflictIdSorter.conflictIdCount=70, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=8141373, ConflictResolver.conflictItemCount=274, DefaultDependencyCollector.collectTime=1212262702, DefaultDependencyCollector.transformTime=17540721}
+[DEBUG] eu.stamp-project:dspot-diff-test-selection:jar:2.0.1-SNAPSHOT:
+[DEBUG]    org.slf4j:slf4j-api:jar:1.7.25:compile
+[DEBUG]    org.slf4j:slf4j-log4j12:jar:1.7.25:compile
+[DEBUG]       log4j:log4j:jar:1.2.17:compile
+[DEBUG]    org.apache.maven.shared:maven-invoker:jar:3.0.0:compile
+[DEBUG]       org.codehaus.plexus:plexus-utils:jar:3.0.24:compile
+[DEBUG]       org.codehaus.plexus:plexus-component-annotations:jar:1.7:compile
+[DEBUG]    org.openclover:clover:jar:4.2.1:compile
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:3.5.4:compile
+[DEBUG]       org.apache.maven:maven-model:jar:3.5.4:compile
+[DEBUG]       org.apache.maven:maven-artifact:jar:3.5.4:compile
+[DEBUG]       org.eclipse.sisu:org.eclipse.sisu.plexus:jar:0.3.3:compile
+[DEBUG]          javax.enterprise:cdi-api:jar:1.0:compile
+[DEBUG]             javax.annotation:jsr250-api:jar:1.0:compile
+[DEBUG]       org.codehaus.plexus:plexus-classworlds:jar:2.5.2:compile
+[DEBUG]    org.apache.maven:maven-core:jar:3.5.4:compile
+[DEBUG]       org.apache.maven:maven-settings:jar:3.5.4:compile
+[DEBUG]       org.apache.maven:maven-settings-builder:jar:3.5.4:compile
+[DEBUG]          org.codehaus.plexus:plexus-interpolation:jar:1.24:compile
+[DEBUG]          org.sonatype.plexus:plexus-sec-dispatcher:jar:1.4:compile
+[DEBUG]             org.sonatype.plexus:plexus-cipher:jar:1.4:compile
+[DEBUG]       org.apache.maven:maven-builder-support:jar:3.5.4:compile
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:3.5.4:compile
+[DEBUG]       org.apache.maven:maven-model-builder:jar:3.5.4:compile
+[DEBUG]       org.apache.maven:maven-resolver-provider:jar:3.5.4:compile
+[DEBUG]       org.apache.maven.resolver:maven-resolver-impl:jar:1.1.1:compile
+[DEBUG]       org.apache.maven.resolver:maven-resolver-api:jar:1.1.1:compile
+[DEBUG]       org.apache.maven.resolver:maven-resolver-spi:jar:1.1.1:compile
+[DEBUG]       org.apache.maven.resolver:maven-resolver-util:jar:1.1.1:compile
+[DEBUG]       org.apache.maven.shared:maven-shared-utils:jar:3.2.1:compile
+[DEBUG]          commons-io:commons-io:jar:2.5:compile
+[DEBUG]       org.eclipse.sisu:org.eclipse.sisu.inject:jar:0.3.3:compile
+[DEBUG]       com.google.inject:guice:jar:no_aop:4.2.0:compile
+[DEBUG]          aopalliance:aopalliance:jar:1.0:compile
+[DEBUG]       com.google.guava:guava:jar:20.0:compile
+[DEBUG]       javax.inject:javax.inject:jar:1:compile
+[DEBUG]       org.apache.commons:commons-lang3:jar:3.5:compile
+[DEBUG]    fr.inria.gforge.spoon.labs:gumtree-spoon-ast-diff:jar:1.5:compile
+[DEBUG]       fr.inria.gforge.spoon:spoon-core:jar:7.0.0:compile
+[DEBUG]          org.eclipse.jdt:org.eclipse.jdt.core:jar:3.13.102:compile
+[DEBUG]             org.eclipse.platform:org.eclipse.core.resources:jar:3.13.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.core.expressions:jar:3.6.300:compile
+[DEBUG]             org.eclipse.platform:org.eclipse.core.runtime:jar:3.15.200:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.osgi:jar:3.13.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.equinox.common:jar:3.10.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.core.jobs:jar:3.10.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.equinox.registry:jar:3.8.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.equinox.preferences:jar:3.7.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.core.contenttype:jar:3.7.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.equinox.app:jar:1.4.100:compile
+[DEBUG]             org.eclipse.platform:org.eclipse.core.filesystem:jar:1.7.300:compile
+[DEBUG]             org.eclipse.platform:org.eclipse.text:jar:3.8.100:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.core.commands:jar:3.9.300:compile
+[DEBUG]          com.martiansoftware:jsap:jar:2.1:compile
+[DEBUG]          com.fasterxml.jackson.core:jackson-databind:jar:2.9.2:compile
+[DEBUG]             com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0:compile
+[DEBUG]             com.fasterxml.jackson.core:jackson-core:jar:2.9.2:compile
+[DEBUG]       com.github.gumtreediff:core:jar:2.1.0:compile
+[DEBUG]          com.github.mpkorstanje:simmetrics-core:jar:3.2.3:compile
+[DEBUG]             commons-codec:commons-codec:jar:1.10:compile
+[DEBUG]          net.sf.trove4j:trove4j:jar:3.0.3:compile
+[DEBUG]          com.google.code.gson:gson:jar:2.8.2:compile
+[DEBUG]          org.jgrapht:jgrapht-core:jar:1.0.1:compile
+[DEBUG]    io.github.java-diff-utils:java-diff-utils:jar:4.0:compile
+[DEBUG]       org.eclipse.jgit:org.eclipse.jgit:jar:4.4.1.201607150455-r:compile
+[DEBUG] Created new class realm plugin>eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT
+[DEBUG] Importing foreign packages into class realm plugin>eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT
+[DEBUG]   Included: eu.stamp-project:dspot-diff-test-selection:jar:2.0.1-SNAPSHOT
+[DEBUG]   Included: org.slf4j:slf4j-log4j12:jar:1.7.25
+[DEBUG]   Included: log4j:log4j:jar:1.2.17
+[DEBUG]   Included: org.apache.maven.shared:maven-invoker:jar:3.0.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:3.0.24
+[DEBUG]   Included: org.codehaus.plexus:plexus-component-annotations:jar:1.7
+[DEBUG]   Included: org.openclover:clover:jar:4.2.1
+[DEBUG]   Included: javax.enterprise:cdi-api:jar:1.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-interpolation:jar:1.24
+[DEBUG]   Included: org.sonatype.plexus:plexus-sec-dispatcher:jar:1.4
+[DEBUG]   Included: org.sonatype.plexus:plexus-cipher:jar:1.4
+[DEBUG]   Included: org.apache.maven:maven-builder-support:jar:3.5.4
+[DEBUG]   Included: org.apache.maven.resolver:maven-resolver-util:jar:1.1.1
+[DEBUG]   Included: org.apache.maven.shared:maven-shared-utils:jar:3.2.1
+[DEBUG]   Included: commons-io:commons-io:jar:2.5
+[DEBUG]   Included: org.eclipse.sisu:org.eclipse.sisu.inject:jar:0.3.3
+[DEBUG]   Included: com.google.inject:guice:jar:no_aop:4.2.0
+[DEBUG]   Included: aopalliance:aopalliance:jar:1.0
+[DEBUG]   Included: com.google.guava:guava:jar:20.0
+[DEBUG]   Included: org.apache.commons:commons-lang3:jar:3.5
+[DEBUG]   Included: fr.inria.gforge.spoon.labs:gumtree-spoon-ast-diff:jar:1.5
+[DEBUG]   Included: fr.inria.gforge.spoon:spoon-core:jar:7.0.0
+[DEBUG]   Included: org.eclipse.jdt:org.eclipse.jdt.core:jar:3.13.102
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.resources:jar:3.13.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.expressions:jar:3.6.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.runtime:jar:3.15.200
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.osgi:jar:3.13.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.equinox.common:jar:3.10.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.jobs:jar:3.10.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.equinox.registry:jar:3.8.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.equinox.preferences:jar:3.7.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.contenttype:jar:3.7.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.equinox.app:jar:1.4.100
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.filesystem:jar:1.7.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.text:jar:3.8.100
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.commands:jar:3.9.300
+[DEBUG]   Included: com.martiansoftware:jsap:jar:2.1
+[DEBUG]   Included: com.fasterxml.jackson.core:jackson-databind:jar:2.9.2
+[DEBUG]   Included: com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0
+[DEBUG]   Included: com.fasterxml.jackson.core:jackson-core:jar:2.9.2
+[DEBUG]   Included: com.github.gumtreediff:core:jar:2.1.0
+[DEBUG]   Included: com.github.mpkorstanje:simmetrics-core:jar:3.2.3
+[DEBUG]   Included: commons-codec:commons-codec:jar:1.10
+[DEBUG]   Included: net.sf.trove4j:trove4j:jar:3.0.3
+[DEBUG]   Included: com.google.code.gson:gson:jar:2.8.2
+[DEBUG]   Included: org.jgrapht:jgrapht-core:jar:1.0.1
+[DEBUG]   Included: io.github.java-diff-utils:java-diff-utils:jar:4.0
+[DEBUG]   Included: org.eclipse.jgit:org.eclipse.jgit:jar:4.4.1.201607150455-r
+[DEBUG] Configuring mojo eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT:list from plugin realm ClassRealm[plugin>eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT, parent: sun.misc.Launcher$AppClassLoader@55f96302]
+[DEBUG] Configuring mojo 'eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT:list' with basic configurator -->
+[DEBUG]   (f) module = 
+[DEBUG]   (f) outputFormat = CSV
+[DEBUG]   (f) outputPath = /tmp/dspot-experiments/results/april-2019/commons-io/commit_2_a4705cc/parent_coverage_testsThatExecuteTheChanges.csv
+[DEBUG]   (f) pathDirSecondVersion = /tmp/dspot-experiments/dataset/april-2019/commons-io
+[DEBUG]   (f) project = MavenProject: commons-io:commons-io:2.7-SNAPSHOT @ /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/pom.xml
+[DEBUG] -- end configuration --
+[WARNING] No path to diff file has been specified.
+[WARNING] I'll compute a diff file using the UNIX diff command
+[WARNING] You may encounter troubles.
+[WARNING] If so, please specify a path to a correct diff file
+[WARNING] or implement a new way to compute a diff file.
+[INFO] Computing the diff with diff commnd line
+[INFO] The diff will be computed between:
+[INFO] /tmp/dspot-experiments/dataset/april-2019/commons-io_parent and 
+[INFO] /tmp/dspot-experiments/dataset/april-2019/commons-io
+[INFO] Executing: diff -ru /tmp/dspot-experiments/dataset/april-2019/commons-io_parent /tmp/dspot-experiments/dataset/april-2019/commons-io > patch.diff from /tmp/dspot-experiments/dataset/april-2019/commons-io_parent
+[INFO] Computing coverage for /tmp/dspot-experiments/dataset/april-2019/commons-io_parent
+[WARN] Maven will be executed in interactive mode, but no input stream has been configured for this MavenInvoker instance.
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< commons-io:commons-io >------------------------
+[INFO] Building Apache Commons IO 2.7-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.0.0:clean (default-clean) @ commons-io ---
+[INFO] 
+[INFO] --- clover-maven-plugin:4.2.0:setup (default-cli) @ commons-io ---
+[INFO] No 'maven.clover.licenseLocation' configured. Using default license.
+[INFO] OpenClover Version 4.2.0, built on April 30 2017 (build-1000)
+[INFO] Loaded from: /home/spirals/danglot/.m2/repository/org/openclover/clover/4.2.0/clover-4.2.0.jar
+[INFO] Clover free edition.
+[INFO] Creating new database at '/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/clover/clover.db'.
+[INFO] Processing files at 1.8 source level.
+[INFO] Clover all over. Instrumented 119 files (7 packages).
+[INFO] Elapsed time = 1.854 secs. (64.186 files/sec, 15,653.722 srclines/sec)
+[INFO] OpenClover Version 4.2.0, built on April 30 2017 (build-1000)
+[INFO] Loaded from: /home/spirals/danglot/.m2/repository/org/openclover/clover/4.2.0/clover-4.2.0.jar
+[INFO] Clover free edition.
+[INFO] Updating existing database at '/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/clover/clover.db'.
+[INFO] Processing files at 1.8 source level.
+[INFO] Clover all over. Instrumented 117 files (9 packages).
+[INFO] 1051 test methods detected.
+[INFO] Elapsed time = 1.971 secs. (59.361 files/sec, 13,906.139 srclines/sec)
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-maven-3) @ commons-io ---
+[INFO] Skipping Rule Enforcement.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.0.0:parse-version (parse-version) @ commons-io ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-io ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (process-resource-bundles) @ commons-io ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-io ---
+[INFO] Executing: /bin/sh -c cd '/tmp/dspot-experiments/dataset/april-2019/commons-io_parent' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /tmp/dspot-experiments/dataset/april-2019/commons-io_parent
+[INFO] Storing buildNumber: e9eb2d8b5a858bb6810c941ee7891c3adcf9949d at timestamp: 1555661733383
+[INFO] Storing buildScmBranch: master
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ commons-io ---
+[INFO] Using 'iso-8859-1' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ commons-io ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 119 source files to /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes
+[INFO] 
+[INFO] --- maven-bundle-plugin:3.4.0:manifest (bundle-manifest) @ commons-io ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.16:check (checkAPIcompatibility) @ commons-io ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java17:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ commons-io ---
+[INFO] Using 'iso-8859-1' encoding to copy filtered resources.
+[INFO] Copying 20 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ commons-io ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 117 source files to /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes
+[INFO] /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/clover/src-test-instrumented/org/apache/commons/io/IOUtilsCopyTestCase.java: Some input files use or override a deprecated API.
+[INFO] /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/clover/src-test-instrumented/org/apache/commons/io/IOUtilsCopyTestCase.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.20.1:test (default-test) @ commons-io ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.io.FilenameUtilsWildcardTestCase
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.133 s - in org.apache.commons.io.FilenameUtilsWildcardTestCase
+[INFO] Running org.apache.commons.io.filefilter.RegexFileFilterTestCase
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.184 s - in org.apache.commons.io.filefilter.RegexFileFilterTestCase
+[INFO] Running org.apache.commons.io.filefilter.FileFilterTestCase
+[INFO] Tests run: 47, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.3 s - in org.apache.commons.io.filefilter.FileFilterTestCase
+[INFO] Running org.apache.commons.io.filefilter.OrFileFilterTestCase
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.12 s - in org.apache.commons.io.filefilter.OrFileFilterTestCase
+[INFO] Running org.apache.commons.io.filefilter.AndFileFilterTestCase
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.119 s - in org.apache.commons.io.filefilter.AndFileFilterTestCase
+[INFO] Running org.apache.commons.io.IOCaseTestCase
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.165 s - in org.apache.commons.io.IOCaseTestCase
+[INFO] Running org.apache.commons.io.FileUtilsWaitForTestCase
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.142 s - in org.apache.commons.io.FileUtilsWaitForTestCase
+[INFO] Running org.apache.commons.io.FileUtilsTestCase
+[WARNING] Tests run: 142, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 2.671 s - in org.apache.commons.io.FileUtilsTestCase
+[INFO] Running org.apache.commons.io.FileUtilsListFilesTestCase
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.173 s - in org.apache.commons.io.FileUtilsListFilesTestCase
+[INFO] Running org.apache.commons.io.CopyUtilsTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.148 s - in org.apache.commons.io.CopyUtilsTest
+[INFO] Running org.apache.commons.io.ThreadMonitorTestCase
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.514 s - in org.apache.commons.io.ThreadMonitorTestCase
+[INFO] Running org.apache.commons.io.IOUtilsTestCase
+[INFO] Tests run: 107, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.472 s - in org.apache.commons.io.IOUtilsTestCase
+[INFO] Running org.apache.commons.io.FileUtilsDirectoryContainsTestCase
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.186 s - in org.apache.commons.io.FileUtilsDirectoryContainsTestCase
+[INFO] Running org.apache.commons.io.output.ThresholdingOutputStreamTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s - in org.apache.commons.io.output.ThresholdingOutputStreamTest
+[INFO] Running org.apache.commons.io.output.XmlStreamWriterTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.185 s - in org.apache.commons.io.output.XmlStreamWriterTest
+[INFO] Running org.apache.commons.io.output.CloseShieldOutputStreamTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.133 s - in org.apache.commons.io.output.CloseShieldOutputStreamTest
+[INFO] Running org.apache.commons.io.output.CountingOutputStreamTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.37 s - in org.apache.commons.io.output.CountingOutputStreamTest
+[INFO] Running org.apache.commons.io.output.ByteArrayOutputStreamTestCase
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.138 s - in org.apache.commons.io.output.ByteArrayOutputStreamTestCase
+[INFO] Running org.apache.commons.io.output.NullOutputStreamTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.109 s - in org.apache.commons.io.output.NullOutputStreamTest
+[INFO] Running org.apache.commons.io.output.LockableFileWriterTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.183 s - in org.apache.commons.io.output.LockableFileWriterTest
+[INFO] Running org.apache.commons.io.output.ProxyWriterTest
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.153 s - in org.apache.commons.io.output.ProxyWriterTest
+[INFO] Running org.apache.commons.io.output.TaggedOutputStreamTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.136 s - in org.apache.commons.io.output.TaggedOutputStreamTest
+[INFO] Running org.apache.commons.io.output.BrokenOutputStreamTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.141 s - in org.apache.commons.io.output.BrokenOutputStreamTest
+[INFO] Running org.apache.commons.io.output.ProxyOutputStreamTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.115 s - in org.apache.commons.io.output.ProxyOutputStreamTest
+[INFO] Running org.apache.commons.io.output.ChunkedOutputStreamTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.15 s - in org.apache.commons.io.output.ChunkedOutputStreamTest
+[INFO] Running org.apache.commons.io.output.DeferredFileOutputStreamTest
+[INFO] Tests run: 130, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.371 s - in org.apache.commons.io.output.DeferredFileOutputStreamTest
+[INFO] Running org.apache.commons.io.output.ClosedOutputStreamTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.136 s - in org.apache.commons.io.output.ClosedOutputStreamTest
+[INFO] Running org.apache.commons.io.output.NullWriterTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.15 s - in org.apache.commons.io.output.NullWriterTest
+[INFO] Running org.apache.commons.io.output.StringBuilderWriterTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.136 s - in org.apache.commons.io.output.StringBuilderWriterTest
+[INFO] Running org.apache.commons.io.output.AppendableOutputStreamTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.113 s - in org.apache.commons.io.output.AppendableOutputStreamTest
+[INFO] Running org.apache.commons.io.output.TeeOutputStreamTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.111 s - in org.apache.commons.io.output.TeeOutputStreamTest
+[INFO] Running org.apache.commons.io.output.FileWriterWithEncodingTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.198 s - in org.apache.commons.io.output.FileWriterWithEncodingTest
+[INFO] Running org.apache.commons.io.output.ChunkedWriterTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.112 s - in org.apache.commons.io.output.ChunkedWriterTest
+[INFO] Running org.apache.commons.io.output.WriterOutputStreamTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.141 s - in org.apache.commons.io.output.WriterOutputStreamTest
+[INFO] Running org.apache.commons.io.ByteOrderParserTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.132 s - in org.apache.commons.io.ByteOrderParserTest
+[INFO] Running org.apache.commons.io.FilenameUtilsTestCase
+[INFO] Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.276 s - in org.apache.commons.io.FilenameUtilsTestCase
+[INFO] Running org.apache.commons.io.input.ObservableInputStreamTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.162 s - in org.apache.commons.io.input.ObservableInputStreamTest
+[INFO] Running org.apache.commons.io.input.MessageDigestCalculatingInputStreamTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.158 s - in org.apache.commons.io.input.MessageDigestCalculatingInputStreamTest
+[INFO] Running org.apache.commons.io.input.CountingInputStreamTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.39 s - in org.apache.commons.io.input.CountingInputStreamTest
+[INFO] Running org.apache.commons.io.input.ReversedLinesFileReaderTestParamBlockSize
+[INFO] Tests run: 85, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.642 s - in org.apache.commons.io.input.ReversedLinesFileReaderTestParamBlockSize
+[INFO] Running org.apache.commons.io.input.WindowsLineEndingInputStreamTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.121 s - in org.apache.commons.io.input.WindowsLineEndingInputStreamTest
+[INFO] Running org.apache.commons.io.input.TailerTest
+Elapsed: 607
+testMultiByteBreak() Default charset: US-ASCII
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.716 s - in org.apache.commons.io.input.TailerTest
+[INFO] Running org.apache.commons.io.input.CharSequenceReaderTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.12 s - in org.apache.commons.io.input.CharSequenceReaderTest
+[INFO] Running org.apache.commons.io.input.ProxyReaderTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.139 s - in org.apache.commons.io.input.ProxyReaderTest
+[INFO] Running org.apache.commons.io.input.TaggedInputStreamTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.123 s - in org.apache.commons.io.input.TaggedInputStreamTest
+[INFO] Running org.apache.commons.io.input.BoundedInputStreamTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.123 s - in org.apache.commons.io.input.BoundedInputStreamTest
+[INFO] Running org.apache.commons.io.input.XmlStreamReaderUtilitiesTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.171 s - in org.apache.commons.io.input.XmlStreamReaderUtilitiesTest
+[INFO] Running org.apache.commons.io.input.CharSequenceInputStreamTest
+[WARNING] Tests run: 30, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.651 s - in org.apache.commons.io.input.CharSequenceInputStreamTest
+[INFO] Running org.apache.commons.io.input.NullInputStreamTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.117 s - in org.apache.commons.io.input.NullInputStreamTest
+[INFO] Running org.apache.commons.io.input.XmlStreamReaderTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.709 s - in org.apache.commons.io.input.XmlStreamReaderTest
+[INFO] Running org.apache.commons.io.input.compatibility.XmlStreamReaderUtilitiesCompatibilityTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.162 s - in org.apache.commons.io.input.compatibility.XmlStreamReaderUtilitiesCompatibilityTest
+[INFO] Running org.apache.commons.io.input.ClassLoaderObjectInputStreamTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.154 s - in org.apache.commons.io.input.ClassLoaderObjectInputStreamTest
+[INFO] Running org.apache.commons.io.input.BOMInputStreamTest
+[WARNING] Tests run: 44, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.281 s - in org.apache.commons.io.input.BOMInputStreamTest
+[INFO] Running org.apache.commons.io.input.InfiniteCircularInputStreamTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s - in org.apache.commons.io.input.InfiniteCircularInputStreamTest
+[INFO] Running org.apache.commons.io.input.ReaderInputStreamTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.124 s - in org.apache.commons.io.input.ReaderInputStreamTest
+[INFO] Running org.apache.commons.io.input.CloseShieldInputStreamTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.109 s - in org.apache.commons.io.input.CloseShieldInputStreamTest
+[INFO] Running org.apache.commons.io.input.UnixLineEndingInputStreamTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.142 s - in org.apache.commons.io.input.UnixLineEndingInputStreamTest
+[INFO] Running org.apache.commons.io.input.AutoCloseInputStreamTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.11 s - in org.apache.commons.io.input.AutoCloseInputStreamTest
+[INFO] Running org.apache.commons.io.input.ReversedLinesFileReaderTestParamFile
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.275 s - in org.apache.commons.io.input.ReversedLinesFileReaderTestParamFile
+[INFO] Running org.apache.commons.io.input.BoundedReaderTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.144 s - in org.apache.commons.io.input.BoundedReaderTest
+[INFO] Running org.apache.commons.io.input.ReversedLinesFileReaderTestSimple
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.152 s - in org.apache.commons.io.input.ReversedLinesFileReaderTestSimple
+[INFO] Running org.apache.commons.io.input.TeeInputStreamTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.117 s - in org.apache.commons.io.input.TeeInputStreamTest
+[INFO] Running org.apache.commons.io.input.NullReaderTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.118 s - in org.apache.commons.io.input.NullReaderTest
+[INFO] Running org.apache.commons.io.input.ClosedInputStreamTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.125 s - in org.apache.commons.io.input.ClosedInputStreamTest
+[INFO] Running org.apache.commons.io.input.BrokenInputStreamTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.11 s - in org.apache.commons.io.input.BrokenInputStreamTest
+[INFO] Running org.apache.commons.io.input.SwappedDataInputStreamTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.131 s - in org.apache.commons.io.input.SwappedDataInputStreamTest
+[INFO] Running org.apache.commons.io.monitor.FileAlterationObserverTestCase
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.169 s - in org.apache.commons.io.monitor.FileAlterationObserverTestCase
+[INFO] Running org.apache.commons.io.monitor.FileAlterationMonitorTestCase
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.46 s - in org.apache.commons.io.monitor.FileAlterationMonitorTestCase
+[INFO] Running org.apache.commons.io.FileCleanerTestCase
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.441 s - in org.apache.commons.io.FileCleanerTestCase
+[INFO] Running org.apache.commons.io.FileSystemTestCase
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.142 s - in org.apache.commons.io.FileSystemTestCase
+[INFO] Running org.apache.commons.io.comparator.DefaultFileComparatorTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.127 s - in org.apache.commons.io.comparator.DefaultFileComparatorTest
+[INFO] Running org.apache.commons.io.comparator.LastModifiedFileComparatorTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.404 s - in org.apache.commons.io.comparator.LastModifiedFileComparatorTest
+[INFO] Running org.apache.commons.io.comparator.NameFileComparatorTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.148 s - in org.apache.commons.io.comparator.NameFileComparatorTest
+[INFO] Running org.apache.commons.io.comparator.PathFileComparatorTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.17 s - in org.apache.commons.io.comparator.PathFileComparatorTest
+[INFO] Running org.apache.commons.io.comparator.SizeFileComparatorTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.186 s - in org.apache.commons.io.comparator.SizeFileComparatorTest
+[INFO] Running org.apache.commons.io.comparator.ExtensionFileComparatorTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.149 s - in org.apache.commons.io.comparator.ExtensionFileComparatorTest
+[INFO] Running org.apache.commons.io.comparator.DirectoryFileComparatorTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.141 s - in org.apache.commons.io.comparator.DirectoryFileComparatorTest
+[INFO] Running org.apache.commons.io.comparator.CompositeFileComparatorTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.175 s - in org.apache.commons.io.comparator.CompositeFileComparatorTest
+[INFO] Running org.apache.commons.io.ByteOrderMarkTestCase
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.139 s - in org.apache.commons.io.ByteOrderMarkTestCase
+[INFO] Running org.apache.commons.io.FileUtilsCleanSymlinksTestCase
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.172 s - in org.apache.commons.io.FileUtilsCleanSymlinksTestCase
+[INFO] Running org.apache.commons.io.FileUtilsFileNewerTestCase
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.176 s - in org.apache.commons.io.FileUtilsFileNewerTestCase
+[INFO] Running org.apache.commons.io.DemuxTestCase
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.292 s - in org.apache.commons.io.DemuxTestCase
+[INFO] Running org.apache.commons.io.FileDeleteStrategyTestCase
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.161 s - in org.apache.commons.io.FileDeleteStrategyTestCase
+[INFO] Running org.apache.commons.io.HexDumpTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.13 s - in org.apache.commons.io.HexDumpTest
+[INFO] Running org.apache.commons.io.IOUtilsCopyTestCase
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.682 s - in org.apache.commons.io.IOUtilsCopyTestCase
+[INFO] Running org.apache.commons.io.TaggedIOExceptionTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.122 s - in org.apache.commons.io.TaggedIOExceptionTest
+[INFO] Running org.apache.commons.io.LineIteratorTestCase
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.273 s - in org.apache.commons.io.LineIteratorTestCase
+[INFO] Running org.apache.commons.io.DirectoryWalkerTestCase
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.164 s - in org.apache.commons.io.DirectoryWalkerTestCase
+[INFO] Running org.apache.commons.io.FileSystemUtilsTestCase
+[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.202 s - in org.apache.commons.io.FileSystemUtilsTestCase
+[INFO] Running org.apache.commons.io.IOUtilsWriteTestCase
+[INFO] Tests run: 53, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.283 s - in org.apache.commons.io.IOUtilsWriteTestCase
+[INFO] Running org.apache.commons.io.serialization.MoreComplexObjectTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.19 s - in org.apache.commons.io.serialization.MoreComplexObjectTest
+[INFO] Running org.apache.commons.io.serialization.RegexpClassNameMatcherTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.136 s - in org.apache.commons.io.serialization.RegexpClassNameMatcherTest
+[INFO] Running org.apache.commons.io.serialization.FullClassNameMatcherTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.109 s - in org.apache.commons.io.serialization.FullClassNameMatcherTest
+[INFO] Running org.apache.commons.io.serialization.WildcardClassNameMatcherTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.14 s - in org.apache.commons.io.serialization.WildcardClassNameMatcherTest
+[INFO] Running org.apache.commons.io.serialization.ValidatingObjectInputStreamTest
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.177 s - in org.apache.commons.io.serialization.ValidatingObjectInputStreamTest
+[INFO] Running org.apache.commons.io.DirectoryWalkerTestCaseJava4
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.185 s - in org.apache.commons.io.DirectoryWalkerTestCaseJava4
+[INFO] Running org.apache.commons.io.EndianUtilsTest
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.137 s - in org.apache.commons.io.EndianUtilsTest
+[INFO] Running org.apache.commons.io.FileUtilsCleanDirectoryTestCase
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.157 s - in org.apache.commons.io.FileUtilsCleanDirectoryTestCase
+[INFO] Running org.apache.commons.io.FileCleaningTrackerTestCase
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.427 s - in org.apache.commons.io.FileCleaningTrackerTestCase
+[INFO] Running org.apache.commons.io.IOExceptionWithCauseTestCase
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.119 s - in org.apache.commons.io.IOExceptionWithCauseTestCase
+[INFO] Running org.apache.commons.io.CharsetsTestCase
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.113 s - in org.apache.commons.io.CharsetsTestCase
+[INFO] 
+[INFO] Results:
+[INFO] 
+[WARNING] Tests run: 1327, Failures: 0, Errors: 0, Skipped: 4
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 02:40 min
+[INFO] Finished at: 2019-04-19T10:18:06+02:00
+[INFO] ------------------------------------------------------------------------
+Writing HTML report to '/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/clover/report'
+Done. Processed 9 packages in 4527ms (503ms per package).
+[INFO] /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/src/main/java/org/apache/commons/io/monitor/FileAlterationMonitor.java
+[INFO] /tmp/dspot-experiments/dataset/april-2019/commons-io/src/main/java/org/apache/commons/io/monitor/FileAlterationMonitor.java
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitor:167 is modified.
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitor:167 covered.
+[INFO] /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/src/test/java/org/apache/commons/io/monitor/FileAlterationMonitorTestCase.java
+[INFO] /tmp/dspot-experiments/dataset/april-2019/commons-io/src/test/java/org/apache/commons/io/monitor/FileAlterationMonitorTestCase.java
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitorTestCase:188 is modified.
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitorTestCase:189 is modified.
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitorTestCase:190 is modified.
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitorTestCase:202 is modified.
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitorTestCase:203 is modified.
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitorTestCase:205 is modified.
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitorTestCase:206 is modified.
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitorTestCase:208 is modified.
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitorTestCase:209 is modified.
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitorTestCase:211 is modified.
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitorTestCase:189 is modified.
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitorTestCase:190 is modified.
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitorTestCase:202 is modified.
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitorTestCase:206 is modified.
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitorTestCase:211 is modified.
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitorTestCase:212 is modified.
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitorTestCase:191 is modified.
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitorTestCase:212 is modified.
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitorTestCase:191 is modified.
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitorTestCase:195 is modified.
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitorTestCase:196 is modified.
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitorTestCase:197 is modified.
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitorTestCase:198 is modified.
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitorTestCase:195 is modified.
+[INFO] Saving result in /tmp/dspot-experiments/results/april-2019/commons-io/commit_2_a4705cc/parent_coverage_testsThatExecuteTheChanges.csv ...
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitorTestCase;testMonitor;testThreadFactory
+[INFO] Writing Coverage in /tmp/dspot-experiments/results/april-2019/commons-io/commit_2_a4705cc/parent_coverage_testsThatExecuteTheChanges_coverage.csv
+[INFO] org.apache.commons.io.monitor.FileAlterationMonitor;1;1
+
+[INFO] total;1;1
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 02:52 min
+[INFO] Finished at: 2019-04-19T10:18:14+02:00
+[INFO] ------------------------------------------------------------------------
