@@ -149,7 +149,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
   <workingDirectory default-value="false">${working-directory}</workingDirectory>
 </configuration>
 [DEBUG] =======================================================================
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=683196, ConflictMarker.markTime=463472, ConflictMarker.nodeCount=3, ConflictIdSorter.graphTime=423738, ConflictIdSorter.topsortTime=360867, ConflictIdSorter.conflictIdCount=2, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=3158033, ConflictResolver.conflictItemCount=2, DefaultDependencyCollector.collectTime=25717385, DefaultDependencyCollector.transformTime=7195994}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=760481, ConflictMarker.markTime=526481, ConflictMarker.nodeCount=3, ConflictIdSorter.graphTime=431002, ConflictIdSorter.topsortTime=376774, ConflictIdSorter.conflictIdCount=2, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=3327367, ConflictResolver.conflictItemCount=2, DefaultDependencyCollector.collectTime=26787212, DefaultDependencyCollector.transformTime=7790129}
 [DEBUG] com.google.code.gson:gson:jar:2.8.2-SNAPSHOT
 [DEBUG]    junit:junit:jar:4.12:test
 [DEBUG]       org.hamcrest:hamcrest-core:jar:1.3:test
@@ -489,7 +489,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=10332711, ConflictMarker.markTime=2100264, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=5733309, ConflictIdSorter.topsortTime=182819, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=16961852, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=2046621402, DefaultDependencyCollector.transformTime=35448021}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=11083488, ConflictMarker.markTime=2002289, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=6218523, ConflictIdSorter.topsortTime=184443, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=15573244, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=2120100529, DefaultDependencyCollector.transformTime=35211594}
 [DEBUG] eu.stamp-project:dspot-maven:jar:2.0.1-SNAPSHOT:
 [DEBUG]    eu.stamp-project:dspot:jar:2.0.1-SNAPSHOT:compile
 [DEBUG]       fr.inria.gforge.spoon:spoon-core:jar:7.3.0:compile
@@ -704,7 +704,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [DEBUG]   (f) keepOriginalTestMethods = false
 [DEBUG]   (f) maxTestAmplified = 200
 [DEBUG]   (f) noMinimize = false
-[DEBUG]   (f) outputPath = target/dspot/output
+[DEBUG]   (f) outputPath = /tmp/dspot-experiments/results/april-2019/gson/commit_4_ada597e/assert_amplification
 [DEBUG]   (f) pathToSecondVersion = /tmp/dspot-experiments/dataset/april-2019/gson/gson
 [DEBUG]   (f) pathToTestListCsv = /tmp/dspot-experiments/results/april-2019/gson/commit_4_ada597e/parent_coverage_testsThatExecuteTheChanges.csv
 [DEBUG]   (f) project = MavenProject: com.google.code.gson:gson:2.8.2-SNAPSHOT @ /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/pom.xml
@@ -777,16 +777,16 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 7.055 s
-[INFO] Finished at: 2019-04-18T16:02:56+02:00
+[INFO] Total time: 6.684 s
+[INFO] Finished at: 2019-04-18T19:32:39+02:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] 2019-04-18 16:03:00 JDTCommentBuilder - "// Field tag only annotation" cannot be added into the AST, with parent class spoon.support.reflect.declaration.CtAnnotationTypeImplplease report the bug by posting on https://github.com/INRIA/spoon/issues/2482
+[ERROR] 2019-04-18 19:32:44 JDTCommentBuilder - "// Field tag only annotation" cannot be added into the AST, with parent class spoon.support.reflect.declaration.CtAnnotationTypeImplplease report the bug by posting on https://github.com/INRIA/spoon/issues/2482
 [INFO] Amplification of com.google.gson.stream.JsonWriterTest (5 test(s))
 [INFO] Assertion amplification of com.google.gson.stream.JsonWriterTest (5 test(s))
 [DEBUG] Starting 15 Services...
-[DEBUG] All Services successfully started, 15 Services in 9ms
+[DEBUG] All Services successfully started, 15 Services in 10ms
 [DEBUG] Creating Cache 'frameworkCache' in EhcacheManager.
-[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@478530cb
+[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@177ddd24
 [DEBUG] Could not create serializers for frameworkCache
 org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for type 'eu.stamp_project.test_framework.TestFrameworkSupport'
     at org.ehcache.impl.internal.spi.serialization.DefaultSerializationProvider.getSerializerClassFor (DefaultSerializationProvider.java:136)
@@ -835,8 +835,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
     at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:229)
     at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:415)
     at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:356)
-[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@26865b57
-[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@46894dc5
+[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@6f240187
+[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@46a388cc
 [DEBUG] Initialize successful.
 [INFO] Cache 'frameworkCache' created in EhcacheManager.
 [DEBUG] Initialize successful.
@@ -892,8 +892,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 6.034 s
-[INFO] Finished at: 2019-04-18T16:03:09+02:00
+[INFO] Total time: 5.892 s
+[INFO] Finished at: 2019-04-18T19:32:53+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/stream/JsonWriterTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.stream.JsonWriterTest --tests testDoubles:testPrettyPrintObject:testPrettyPrintArray:testNonFiniteDoubles:testTopLevelValueTypes 
@@ -970,15 +970,15 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 	... 40 more
 
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 11215
+[INFO] elapsedTime 11254
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
 [INFO] Amplification succeed.
-[INFO] Elapsed time 12049 ms
+[INFO] Elapsed time 11944 ms
 [INFO] 
 0 amplified test fails on the new versions.
-[INFO] Writing report in target/dspot/output/report.txt
+[INFO] Writing report in /tmp/dspot-experiments/results/april-2019/gson/commit_4_ada597e/assert_amplification/report.txt
 [WARNING] DSpot encountered some errors during amplification.
 [WARNING] DSpot encountered 1 error(s) during amplification.
 Something bad happened during assertion amplification
@@ -1035,6 +1035,6 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 28.522 s
-[INFO] Finished at: 2019-04-18T16:03:13+02:00
+[INFO] Total time: 28.548 s
+[INFO] Finished at: 2019-04-18T19:32:56+02:00
 [INFO] ------------------------------------------------------------------------

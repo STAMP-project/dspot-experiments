@@ -43,7 +43,7 @@ def run(project, index_begin, index_end, amplifiers):
             "-Dpath-to-test-list-csv=" + path_to_test_that_executes_the_changes,
             "-Dverbose=true",
             "-Dtest-criterion=ChangeDetectorSelector",
-
+            "-Doutput-path=" + output_path,
             "-Dpath-to-second-version=" + path_to_concerned_module,
             "-Dgenerate-new-test-class=true",
             "-Dclean=true",

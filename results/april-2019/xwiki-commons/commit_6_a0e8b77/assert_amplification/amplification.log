@@ -153,7 +153,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
   <workingDirectory default-value="false">${working-directory}</workingDirectory>
 </configuration>
 [DEBUG] =======================================================================
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=1319886, ConflictMarker.markTime=773272, ConflictMarker.nodeCount=76, ConflictIdSorter.graphTime=580765, ConflictIdSorter.topsortTime=413544, ConflictIdSorter.conflictIdCount=42, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=9663992, ConflictResolver.conflictItemCount=71, DefaultDependencyCollector.collectTime=422964147, DefaultDependencyCollector.transformTime=15251855}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=1405640, ConflictMarker.markTime=726877, ConflictMarker.nodeCount=76, ConflictIdSorter.graphTime=646580, ConflictIdSorter.topsortTime=453494, ConflictIdSorter.conflictIdCount=42, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=10123897, ConflictResolver.conflictItemCount=71, DefaultDependencyCollector.collectTime=414693462, DefaultDependencyCollector.transformTime=37243985}
 [DEBUG] org.xwiki.commons:xwiki-commons-diff-api:jar:10.0-SNAPSHOT
 [DEBUG]    org.xwiki.commons:xwiki-commons-component-api:jar:10.0-SNAPSHOT:compile
 [DEBUG]       org.xwiki.commons:xwiki-commons-stability:jar:10.0-SNAPSHOT:compile
@@ -533,7 +533,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=7193192, ConflictMarker.markTime=1627817, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=3755344, ConflictIdSorter.topsortTime=183291, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=11500181, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=1932159196, DefaultDependencyCollector.transformTime=24428013}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=7387080, ConflictMarker.markTime=1641521, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=4509838, ConflictIdSorter.topsortTime=190375, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=11634998, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=1964406491, DefaultDependencyCollector.transformTime=25541658}
 [DEBUG] eu.stamp-project:dspot-maven:jar:2.0.1-SNAPSHOT:
 [DEBUG]    eu.stamp-project:dspot:jar:2.0.1-SNAPSHOT:compile
 [DEBUG]       fr.inria.gforge.spoon:spoon-core:jar:7.3.0:compile
@@ -748,7 +748,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [DEBUG]   (f) keepOriginalTestMethods = false
 [DEBUG]   (f) maxTestAmplified = 200
 [DEBUG]   (f) noMinimize = false
-[DEBUG]   (f) outputPath = target/dspot/output
+[DEBUG]   (f) outputPath = /tmp/dspot-experiments/results/april-2019/xwiki-commons/commit_6_a0e8b77/assert_amplification
 [DEBUG]   (f) pathToSecondVersion = /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api
 [DEBUG]   (f) pathToTestListCsv = /tmp/dspot-experiments/results/april-2019/xwiki-commons/commit_6_a0e8b77/parent_coverage_testsThatExecuteTheChanges.csv
 [DEBUG]   (f) project = MavenProject: org.xwiki.commons:xwiki-commons-diff-api:10.0-SNAPSHOT @ /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/pom.xml
@@ -854,15 +854,15 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 7.820 s
-[INFO] Finished at: 2019-04-18T16:16:24+02:00
+[INFO] Total time: 7.767 s
+[INFO] Finished at: 2019-04-18T19:25:46+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Amplification of org.xwiki.diff.internal.DefaultDiffManagerTest (4 test(s))
 [INFO] Assertion amplification of org.xwiki.diff.internal.DefaultDiffManagerTest (4 test(s))
 [DEBUG] Starting 15 Services...
 [DEBUG] All Services successfully started, 15 Services in 8ms
 [DEBUG] Creating Cache 'frameworkCache' in EhcacheManager.
-[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@5d152bcd
+[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@d7bbf12
 [DEBUG] Could not create serializers for frameworkCache
 org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for type 'eu.stamp_project.test_framework.TestFrameworkSupport'
     at org.ehcache.impl.internal.spi.serialization.DefaultSerializationProvider.getSerializerClassFor (DefaultSerializationProvider.java:136)
@@ -911,8 +911,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
     at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:229)
     at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:415)
     at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:356)
-[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@7061622
-[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@32d418a9
+[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@43ecfeb5
+[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@51efb731
 [DEBUG] Initialize successful.
 [INFO] Cache 'frameworkCache' created in EhcacheManager.
 [DEBUG] Initialize successful.
@@ -1003,8 +1003,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 6.832 s
-[INFO] Finished at: 2019-04-18T16:16:34+02:00
+[INFO] Total time: 6.975 s
+[INFO] Finished at: 2019-04-18T19:25:57+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-component-api/10.0-SNAPSHOT/xwiki-commons-component-api-10.0-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-stability/10.0-SNAPSHOT/xwiki-commons-stability-10.0-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-text/10.0-SNAPSHOT/xwiki-commons-text-10.0-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/home/spirals/danglot/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-logging-api/10.0-SNAPSHOT/xwiki-commons-logging-api-10.0-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-observation-api/10.0-SNAPSHOT/xwiki-commons-observation-api-10.0-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:/home/spirals/danglot/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar:/home/spirals/danglot/.m2/repository/com/googlecode/java-diff-utils/diffutils/1.3.0/diffutils-1.3.0.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-tool-test-component/10.0-SNAPSHOT/xwiki-commons-tool-test-component-10.0-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-tool-test-simple/10.0-SNAPSHOT/xwiki-commons-tool-test-simple-10.0-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.0.3/junit-jupiter-api-5.0.3.jar:/home/spirals/danglot/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/home/spirals/danglot/.m2/repository/org/opentest4j/opentest4j/1.0.0/opentest4j-1.0.0.jar:/home/spirals/danglot/.m2/repository/org/junit/platform/junit-platform-commons/1.0.3/junit-platform-commons-1.0.3.jar:/home/spirals/danglot/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.0.3/junit-jupiter-engine-5.0.3.jar:/home/spirals/danglot/.m2/repository/org/junit/platform/junit-platform-engine/1.0.3/junit-platform-engine-1.0.3.jar:/home/spirals/danglot/.m2/repository/org/junit/platform/junit-platform-launcher/1.0.3/junit-platform-launcher-1.0.3.jar:/home/spirals/danglot/.m2/repository/org/junit/vintage/junit-vintage-engine/4.12.3/junit-vintage-engine-4.12.3.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar:/home/spirals/danglot/.m2/repository/org/jmock/jmock/2.6.0/jmock-2.6.0.jar:/home/spirals/danglot/.m2/repository/org/jmock/jmock-junit4/2.6.0/jmock-junit4-2.6.0.jar:/home/spirals/danglot/.m2/repository/org/mockito/mockito-core/2.13.0/mockito-core-2.13.0.jar:/home/spirals/danglot/.m2/repository/net/bytebuddy/byte-buddy/1.7.9/byte-buddy-1.7.9.jar:/home/spirals/danglot/.m2/repository/net/bytebuddy/byte-buddy-agent/1.7.9/byte-buddy-agent-1.7.9.jar:/home/spirals/danglot/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/home/spirals/danglot/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar:/home/spirals/danglot/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar:/home/spirals/danglot/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.25/jcl-over-slf4j-1.7.25.jar:/home/spirals/danglot/.m2/repository/org/slf4j/log4j-over-slf4j/1.7.25/log4j-over-slf4j-1.7.25.jar:/home/spirals/danglot/.m2/repository/jmock/jmock/1.2.0/jmock-1.2.0.jar:/home/spirals/danglot/.m2/repository/jmock/jmock-cglib/1.2.0/jmock-cglib-1.2.0.jar:/home/spirals/danglot/.m2/repository/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-component-default/10.0-SNAPSHOT/xwiki-commons-component-default-10.0-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-component-observation/10.0-SNAPSHOT/xwiki-commons-component-observation-10.0-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-context/10.0-SNAPSHOT/xwiki-commons-context-10.0-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-configuration-api/10.0-SNAPSHOT/xwiki-commons-configuration-api-10.0-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/commons-beanutils/commons-beanutils/1.9.3/commons-beanutils-1.9.3.jar:/home/spirals/danglot/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/dspot/tmp_test_sources/org/xwiki/diff/internal/DefaultDiffManagerTest.java
 [INFO] run mvn test -Dtest=org.xwiki.diff.internal.DefaultDiffManagerTest#testMergeStringList+testMergeCharList+testMergeWithEmptyNew+testMergeCharOnConflicts
@@ -1084,7 +1084,7 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.xwiki.diff.internal.DefaultDiffManagerTest
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.282 sec - in org.xwiki.diff.internal.DefaultDiffManagerTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.241 sec - in org.xwiki.diff.internal.DefaultDiffManagerTest
 [INFO] 
 [INFO] Results :
 [INFO] 
@@ -1093,8 +1093,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] [INFO] BUILD SUCCESS
 [INFO] [INFO] ------------------------------------------------------------------------
-[INFO] [INFO] Total time: 8.682 s
-[INFO] [INFO] Finished at: 2019-04-18T16:16:45+02:00
+[INFO] [INFO] Total time: 8.675 s
+[INFO] [INFO] Finished at: 2019-04-18T19:26:08+02:00
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] Run tests. (4)
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-component-api/10.0-SNAPSHOT/xwiki-commons-component-api-10.0-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-stability/10.0-SNAPSHOT/xwiki-commons-stability-10.0-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-text/10.0-SNAPSHOT/xwiki-commons-text-10.0-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/home/spirals/danglot/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-logging-api/10.0-SNAPSHOT/xwiki-commons-logging-api-10.0-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-observation-api/10.0-SNAPSHOT/xwiki-commons-observation-api-10.0-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:/home/spirals/danglot/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar:/home/spirals/danglot/.m2/repository/com/googlecode/java-diff-utils/diffutils/1.3.0/diffutils-1.3.0.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-tool-test-component/10.0-SNAPSHOT/xwiki-commons-tool-test-component-10.0-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-tool-test-simple/10.0-SNAPSHOT/xwiki-commons-tool-test-simple-10.0-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.0.3/junit-jupiter-api-5.0.3.jar:/home/spirals/danglot/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/home/spirals/danglot/.m2/repository/org/opentest4j/opentest4j/1.0.0/opentest4j-1.0.0.jar:/home/spirals/danglot/.m2/repository/org/junit/platform/junit-platform-commons/1.0.3/junit-platform-commons-1.0.3.jar:/home/spirals/danglot/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.0.3/junit-jupiter-engine-5.0.3.jar:/home/spirals/danglot/.m2/repository/org/junit/platform/junit-platform-engine/1.0.3/junit-platform-engine-1.0.3.jar:/home/spirals/danglot/.m2/repository/org/junit/platform/junit-platform-launcher/1.0.3/junit-platform-launcher-1.0.3.jar:/home/spirals/danglot/.m2/repository/org/junit/vintage/junit-vintage-engine/4.12.3/junit-vintage-engine-4.12.3.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar:/home/spirals/danglot/.m2/repository/org/jmock/jmock/2.6.0/jmock-2.6.0.jar:/home/spirals/danglot/.m2/repository/org/jmock/jmock-junit4/2.6.0/jmock-junit4-2.6.0.jar:/home/spirals/danglot/.m2/repository/org/mockito/mockito-core/2.13.0/mockito-core-2.13.0.jar:/home/spirals/danglot/.m2/repository/net/bytebuddy/byte-buddy/1.7.9/byte-buddy-1.7.9.jar:/home/spirals/danglot/.m2/repository/net/bytebuddy/byte-buddy-agent/1.7.9/byte-buddy-agent-1.7.9.jar:/home/spirals/danglot/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/home/spirals/danglot/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar:/home/spirals/danglot/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar:/home/spirals/danglot/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.25/jcl-over-slf4j-1.7.25.jar:/home/spirals/danglot/.m2/repository/org/slf4j/log4j-over-slf4j/1.7.25/log4j-over-slf4j-1.7.25.jar:/home/spirals/danglot/.m2/repository/jmock/jmock/1.2.0/jmock-1.2.0.jar:/home/spirals/danglot/.m2/repository/jmock/jmock-cglib/1.2.0/jmock-cglib-1.2.0.jar:/home/spirals/danglot/.m2/repository/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-component-default/10.0-SNAPSHOT/xwiki-commons-component-default-10.0-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-component-observation/10.0-SNAPSHOT/xwiki-commons-component-observation-10.0-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-context/10.0-SNAPSHOT/xwiki-commons-context-10.0-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-configuration-api/10.0-SNAPSHOT/xwiki-commons-configuration-api-10.0-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/commons-beanutils/commons-beanutils/1.9.3/commons-beanutils-1.9.3.jar:/home/spirals/danglot/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes/:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/dspot/tmp_test_sources/org/xwiki/diff/internal/DefaultDiffManagerTest.java
@@ -1181,8 +1181,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] [INFO] BUILD SUCCESS
 [INFO] [INFO] ------------------------------------------------------------------------
-[INFO] [INFO] Total time: 8.600 s
-[INFO] [INFO] Finished at: 2019-04-18T16:16:57+02:00
+[INFO] [INFO] Total time: 8.802 s
+[INFO] [INFO] Finished at: 2019-04-18T19:26:20+02:00
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] 6 test pass, generating assertion...
 [INFO] Add observations points in passing tests.
@@ -1265,7 +1265,7 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] -------------------------------------------------------
 [INFO] Running org.xwiki.diff.internal.DefaultDiffManagerTest
 [INFO] File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/dspot/observations.ser
-[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.417 sec - in org.xwiki.diff.internal.DefaultDiffManagerTest
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.414 sec - in org.xwiki.diff.internal.DefaultDiffManagerTest
 [INFO] 
 [INFO] Results :
 [INFO] 
@@ -1274,8 +1274,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] [INFO] BUILD SUCCESS
 [INFO] [INFO] ------------------------------------------------------------------------
-[INFO] [INFO] Total time: 8.896 s
-[INFO] [INFO] Finished at: 2019-04-18T16:17:10+02:00
+[INFO] [INFO] Total time: 8.908 s
+[INFO] [INFO] Finished at: 2019-04-18T19:26:33+02:00
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] Generating assertions...
 [INFO] 4 new tests with assertions generated
@@ -1354,7 +1354,7 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.xwiki.diff.internal.DefaultDiffManagerTest
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.248 sec - in org.xwiki.diff.internal.DefaultDiffManagerTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.246 sec - in org.xwiki.diff.internal.DefaultDiffManagerTest
 [INFO] 
 [INFO] Results :
 [INFO] 
@@ -1363,13 +1363,13 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] [INFO] BUILD SUCCESS
 [INFO] [INFO] ------------------------------------------------------------------------
-[INFO] [INFO] Total time: 8.600 s
-[INFO] [INFO] Finished at: 2019-04-18T16:17:21+02:00
+[INFO] [INFO] Total time: 8.624 s
+[INFO] [INFO] Finished at: 2019-04-18T19:26:44+02:00
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] Assertion amplification: 4 test method(s) has been successfully amplified.
-[WARN] 2019-04-18 16:17:22 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-18 16:17:22 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-18 16:17:22 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-18 19:26:45 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-18 19:26:45 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-18 19:26:45 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
 [INFO] run mvn test -Dtest=org.xwiki.diff.internal.DefaultDiffManagerTest#testMergeStringList+testMergeCharList+testMergeWithEmptyNew+testMergeCharOnConflicts
 [WARN] Maven will be executed in interactive mode, but no input stream has been configured for this MavenInvoker instance.
 [INFO] [INFO] Scanning for projects...
@@ -1444,8 +1444,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.xwiki.diff.internal.DefaultDiffManagerTest
-[INFO] Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.241 sec <<< FAILURE! - in org.xwiki.diff.internal.DefaultDiffManagerTest
-[INFO] testMergeCharList  Time elapsed: 0.013 sec  <<< FAILURE!
+[INFO] Tests run: 4, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.246 sec <<< FAILURE! - in org.xwiki.diff.internal.DefaultDiffManagerTest
+[INFO] testMergeCharList  Time elapsed: 0.014 sec  <<< FAILURE!
 [INFO] java.lang.AssertionError: expected:<0> but was:<1>
 [INFO] 	at org.junit.Assert.fail(Assert.java:88)
 [INFO] 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -1476,8 +1476,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] [INFO] BUILD FAILURE
 [INFO] [INFO] ------------------------------------------------------------------------
-[INFO] [INFO] Total time: 8.589 s
-[INFO] [INFO] Finished at: 2019-04-18T16:17:35+02:00
+[INFO] [INFO] Total time: 8.747 s
+[INFO] [INFO] Finished at: 2019-04-18T19:26:58+02:00
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project xwiki-commons-diff-api: There are test failures.
 [INFO] [ERROR] 
@@ -1490,13 +1490,13 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] [ERROR] For more information about the errors and possible solutions, please read the following articles:
 [INFO] [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
 [INFO] 1 amplified test methods has been selected to be kept. (global: 1)
-[INFO] elapsedTime 69306
+[INFO] elapsedTime 69706
 [DEBUG] OPTIMIZATION: GC invoked
-[WARN] 2019-04-18 16:17:36 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-18 16:17:36 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-18 16:17:36 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-18 19:26:59 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-18 19:26:59 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-18 19:26:59 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-diff/xwiki-commons-diff-api/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
 [INFO] Amplification succeed.
-[INFO] Elapsed time 72660 ms
+[INFO] Elapsed time 73023 ms
 [INFO] 
 1 amplified test fails on the new versions.
 testMergeCharList(org.xwiki.diff.internal.DefaultDiffManagerTest): java.lang.AssertionError: expected:<0> but was:<1>
@@ -1518,13 +1518,13 @@ testMergeCharList(org.xwiki.diff.internal.DefaultDiffManagerTest): java.lang.Ass
 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
 	at java.lang.Thread.run(Thread.java:745)
 
-[INFO] Writing report in target/dspot/output/report.txt
+[INFO] Writing report in /tmp/dspot-experiments/results/april-2019/xwiki-commons/commit_6_a0e8b77/assert_amplification/report.txt
 [INFO] DSpot amplified your test suite without errors. (no errors report will be outputted)
 [INFO] The amplification ends up with 1 amplified test methods over 1 test classes.
-[INFO] Print org.xwiki.diff.internal.AmplDefaultDiffManagerTest.java with 1 amplified test cases in target/dspot/output
+[INFO] Print org.xwiki.diff.internal.AmplDefaultDiffManagerTest.java with 1 amplified test cases in /tmp/dspot-experiments/results/april-2019/xwiki-commons/commit_6_a0e8b77/assert_amplification
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
 [INFO] Total time: 01:27 min
-[INFO] Finished at: 2019-04-18T16:17:38+02:00
+[INFO] Finished at: 2019-04-18T19:27:01+02:00
 [INFO] ------------------------------------------------------------------------

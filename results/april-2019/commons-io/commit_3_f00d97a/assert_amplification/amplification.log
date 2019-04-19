@@ -141,7 +141,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
   <workingDirectory default-value="false">${working-directory}</workingDirectory>
 </configuration>
 [DEBUG] =======================================================================
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=1145774, ConflictMarker.markTime=681229, ConflictMarker.nodeCount=3, ConflictIdSorter.graphTime=686522, ConflictIdSorter.topsortTime=615329, ConflictIdSorter.conflictIdCount=2, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=5110840, ConflictResolver.conflictItemCount=2, DefaultDependencyCollector.collectTime=28906365, DefaultDependencyCollector.transformTime=11458696}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=1043968, ConflictMarker.markTime=643553, ConflictMarker.nodeCount=3, ConflictIdSorter.graphTime=621225, ConflictIdSorter.topsortTime=560389, ConflictIdSorter.conflictIdCount=2, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=4660238, ConflictResolver.conflictItemCount=2, DefaultDependencyCollector.collectTime=25086934, DefaultDependencyCollector.transformTime=10537063}
 [DEBUG] commons-io:commons-io:jar:2.6-SNAPSHOT
 [DEBUG]    junit:junit:jar:4.12:test
 [DEBUG]       org.hamcrest:hamcrest-core:jar:1.3:test
@@ -481,7 +481,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=10265983, ConflictMarker.markTime=2867397, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=7931796, ConflictIdSorter.topsortTime=281064, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=20789433, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=2390362947, DefaultDependencyCollector.transformTime=42377347}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=17941538, ConflictMarker.markTime=2715250, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=19716551, ConflictIdSorter.topsortTime=253931, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=48153643, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=2312157092, DefaultDependencyCollector.transformTime=89005949}
 [DEBUG] eu.stamp-project:dspot-maven:jar:2.0.1-SNAPSHOT:
 [DEBUG]    eu.stamp-project:dspot:jar:2.0.1-SNAPSHOT:compile
 [DEBUG]       fr.inria.gforge.spoon:spoon-core:jar:7.3.0:compile
@@ -696,7 +696,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [DEBUG]   (f) keepOriginalTestMethods = false
 [DEBUG]   (f) maxTestAmplified = 200
 [DEBUG]   (f) noMinimize = false
-[DEBUG]   (f) outputPath = target/dspot/output
+[DEBUG]   (f) outputPath = /tmp/dspot-experiments/results/april-2019/commons-io/commit_3_f00d97a/assert_amplification
 [DEBUG]   (f) pathToSecondVersion = /tmp/dspot-experiments/dataset/april-2019/commons-io
 [DEBUG]   (f) pathToTestListCsv = /tmp/dspot-experiments/results/april-2019/commons-io/commit_3_f00d97a/parent_coverage_testsThatExecuteTheChanges.csv
 [DEBUG]   (f) project = MavenProject: commons-io:commons-io:2.6-SNAPSHOT @ /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/pom.xml
@@ -746,7 +746,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-io ---
 [INFO] Executing: /bin/sh -c cd '/tmp/dspot-experiments/dataset/april-2019/commons-io_parent' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /tmp/dspot-experiments/dataset/april-2019/commons-io_parent
-[INFO] Storing buildNumber: c295a589777a35730c90b26f28f7cc938d4053e3 at timestamp: 1555578350892
+[INFO] Storing buildNumber: c295a589777a35730c90b26f28f7cc938d4053e3 at timestamp: 1555607830132
 [INFO] Storing buildScmBranch: master
 [INFO] 
 [INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ commons-io ---
@@ -784,15 +784,15 @@ main:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 10.221 s
-[INFO] Finished at: 2019-04-18T11:05:57+02:00
+[INFO] Total time: 14.454 s
+[INFO] Finished at: 2019-04-18T19:17:20+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Amplification of org.apache.commons.io.IOUtilsTestCase (2 test(s))
 [INFO] Assertion amplification of org.apache.commons.io.IOUtilsTestCase (2 test(s))
 [DEBUG] Starting 15 Services...
-[DEBUG] All Services successfully started, 15 Services in 9ms
+[DEBUG] All Services successfully started, 15 Services in 18ms
 [DEBUG] Creating Cache 'frameworkCache' in EhcacheManager.
-[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@55fb36de
+[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@2e29f28e
 [DEBUG] Could not create serializers for frameworkCache
 org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for type 'eu.stamp_project.test_framework.TestFrameworkSupport'
     at org.ehcache.impl.internal.spi.serialization.DefaultSerializationProvider.getSerializerClassFor (DefaultSerializationProvider.java:136)
@@ -841,8 +841,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
     at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:229)
     at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:415)
     at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:356)
-[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@3973b6d4
-[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@18dd7767
+[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@2f1f9515
+[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@5c8ab9de
 [DEBUG] Initialize successful.
 [INFO] Cache 'frameworkCache' created in EhcacheManager.
 [DEBUG] Initialize successful.
@@ -878,7 +878,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-io ---
 [INFO] Executing: /bin/sh -c cd '/tmp/dspot-experiments/dataset/april-2019/commons-io' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /tmp/dspot-experiments/dataset/april-2019/commons-io
-[INFO] Storing buildNumber: f00d97a6cea0a08c8112ffb8bd0b6847373899ae at timestamp: 1555578368429
+[INFO] Storing buildNumber: f00d97a6cea0a08c8112ffb8bd0b6847373899ae at timestamp: 1555607854815
 [INFO] Storing buildScmBranch: master
 [INFO] 
 [INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ commons-io ---
@@ -913,8 +913,8 @@ main:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 9.993 s
-[INFO] Finished at: 2019-04-18T11:06:15+02:00
+[INFO] Total time: 11.781 s
+[INFO] Finished at: 2019-04-18T19:17:42+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources/org/apache/commons/io/IOUtilsTestCase.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.io.IOUtilsTestCase --tests testToByteArray_InputStream_Size:testToByteArray_InputStream_SizeIllegal 
@@ -950,22 +950,22 @@ File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/comm
 Loading /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/TestResult.ser
 [INFO] Test has been run: testToByteArray_InputStream_Size,testToByteArray_InputStream_SizeIllegal
 [INFO] Assertion amplification: 2 test method(s) has been successfully amplified.
-[WARN] 2019-04-18 11:06:19 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-18 11:06:19 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-18 11:06:19 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-18 19:17:48 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-18 19:17:48 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-18 19:17:48 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-io/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io/target/test-classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.io.IOUtilsTestCase --tests testToByteArray_InputStream_Size:testToByteArray_InputStream_SizeIllegal 
 Parsing --class org.apache.commons.io.IOUtilsTestCase --tests testToByteArray_InputStream_Size:testToByteArray_InputStream_SizeIllegal
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/TestResult.ser
 [INFO] Test has been run: testToByteArray_InputStream_Size,testToByteArray_InputStream_SizeIllegal(org.apache.commons.io.IOUtilsTestCase): null
 [INFO] 1 amplified test methods has been selected to be kept. (global: 1)
-[INFO] elapsedTime 16742
+[INFO] elapsedTime 20649
 [DEBUG] OPTIMIZATION: GC invoked
-[WARN] 2019-04-18 11:06:20 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-18 11:06:20 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-18 11:06:20 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-18 19:17:49 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-18 19:17:49 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-18 19:17:49 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
 [INFO] Amplification succeed.
-[INFO] Elapsed time 18275 ms
+[INFO] Elapsed time 22703 ms
 [INFO] 
 1 amplified test fails on the new versions.
 testToByteArray_InputStream_SizeIllegal(org.apache.commons.io.IOUtilsTestCase): nulljava.lang.AssertionError
@@ -986,13 +986,13 @@ testToByteArray_InputStream_SizeIllegal(org.apache.commons.io.IOUtilsTestCase): 
 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
 	at java.lang.Thread.run(Thread.java:745)
 
-[INFO] Writing report in target/dspot/output/report.txt
+[INFO] Writing report in /tmp/dspot-experiments/results/april-2019/commons-io/commit_3_f00d97a/assert_amplification/report.txt
 [INFO] DSpot amplified your test suite without errors. (no errors report will be outputted)
 [INFO] The amplification ends up with 1 amplified test methods over 1 test classes.
-[INFO] Print org.apache.commons.io.AmplIOUtilsTestCase.java with 1 amplified test cases in target/dspot/output
+[INFO] Print org.apache.commons.io.AmplIOUtilsTestCase.java with 1 amplified test cases in /tmp/dspot-experiments/results/april-2019/commons-io/commit_3_f00d97a/assert_amplification
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 38.493 s
-[INFO] Finished at: 2019-04-18T11:06:21+02:00
+[INFO] Total time: 49.904 s
+[INFO] Finished at: 2019-04-18T19:17:50+02:00
 [INFO] ------------------------------------------------------------------------

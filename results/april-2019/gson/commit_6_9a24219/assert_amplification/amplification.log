@@ -149,7 +149,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
   <workingDirectory default-value="false">${working-directory}</workingDirectory>
 </configuration>
 [DEBUG] =======================================================================
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=733336, ConflictMarker.markTime=506014, ConflictMarker.nodeCount=3, ConflictIdSorter.graphTime=444929, ConflictIdSorter.topsortTime=412477, ConflictIdSorter.conflictIdCount=2, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=3431489, ConflictResolver.conflictItemCount=2, DefaultDependencyCollector.collectTime=25052052, DefaultDependencyCollector.transformTime=7975919}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=724179, ConflictMarker.markTime=498953, ConflictMarker.nodeCount=3, ConflictIdSorter.graphTime=432118, ConflictIdSorter.topsortTime=416011, ConflictIdSorter.conflictIdCount=2, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=3364712, ConflictResolver.conflictItemCount=2, DefaultDependencyCollector.collectTime=26243915, DefaultDependencyCollector.transformTime=7846161}
 [DEBUG] com.google.code.gson:gson:jar:2.8.1-SNAPSHOT
 [DEBUG]    junit:junit:jar:4.12:test
 [DEBUG]       org.hamcrest:hamcrest-core:jar:1.3:test
@@ -489,7 +489,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=10390142, ConflictMarker.markTime=1977316, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=7006339, ConflictIdSorter.topsortTime=198539, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=16655936, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=2285643677, DefaultDependencyCollector.transformTime=36403759}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=11451750, ConflictMarker.markTime=1895711, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=5372962, ConflictIdSorter.topsortTime=183432, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=15874037, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=2286945652, DefaultDependencyCollector.transformTime=34938539}
 [DEBUG] eu.stamp-project:dspot-maven:jar:2.0.1-SNAPSHOT:
 [DEBUG]    eu.stamp-project:dspot:jar:2.0.1-SNAPSHOT:compile
 [DEBUG]       fr.inria.gforge.spoon:spoon-core:jar:7.3.0:compile
@@ -704,7 +704,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [DEBUG]   (f) keepOriginalTestMethods = false
 [DEBUG]   (f) maxTestAmplified = 200
 [DEBUG]   (f) noMinimize = false
-[DEBUG]   (f) outputPath = target/dspot/output
+[DEBUG]   (f) outputPath = /tmp/dspot-experiments/results/april-2019/gson/commit_6_9a24219/assert_amplification
 [DEBUG]   (f) pathToSecondVersion = /tmp/dspot-experiments/dataset/april-2019/gson/gson
 [DEBUG]   (f) pathToTestListCsv = /tmp/dspot-experiments/results/april-2019/gson/commit_6_9a24219/parent_coverage_testsThatExecuteTheChanges.csv
 [DEBUG]   (f) project = MavenProject: com.google.code.gson:gson:2.8.1-SNAPSHOT @ /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/pom.xml
@@ -777,16 +777,16 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 7.130 s
-[INFO] Finished at: 2019-04-18T16:07:11+02:00
+[INFO] Total time: 7.334 s
+[INFO] Finished at: 2019-04-18T19:36:55+02:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] 2019-04-18 16:07:15 JDTCommentBuilder - "// Field tag only annotation" cannot be added into the AST, with parent class spoon.support.reflect.declaration.CtAnnotationTypeImplplease report the bug by posting on https://github.com/INRIA/spoon/issues/2482
+[ERROR] 2019-04-18 19:37:00 JDTCommentBuilder - "// Field tag only annotation" cannot be added into the AST, with parent class spoon.support.reflect.declaration.CtAnnotationTypeImplplease report the bug by posting on https://github.com/INRIA/spoon/issues/2482
 [INFO] Amplification of com.google.gson.functional.ParameterizedTypesTest (5 test(s))
 [INFO] Assertion amplification of com.google.gson.functional.ParameterizedTypesTest (5 test(s))
 [DEBUG] Starting 15 Services...
-[DEBUG] All Services successfully started, 15 Services in 8ms
+[DEBUG] All Services successfully started, 15 Services in 9ms
 [DEBUG] Creating Cache 'frameworkCache' in EhcacheManager.
-[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@16df9bde
+[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@5be7b749
 [DEBUG] Could not create serializers for frameworkCache
 org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for type 'eu.stamp_project.test_framework.TestFrameworkSupport'
     at org.ehcache.impl.internal.spi.serialization.DefaultSerializationProvider.getSerializerClassFor (DefaultSerializationProvider.java:136)
@@ -835,8 +835,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
     at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:229)
     at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:415)
     at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:356)
-[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@2520aa05
-[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@26865b57
+[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@46894dc5
+[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@596afb2f
 [DEBUG] Initialize successful.
 [INFO] Cache 'frameworkCache' created in EhcacheManager.
 [DEBUG] Initialize successful.
@@ -892,8 +892,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 6.000 s
-[INFO] Finished at: 2019-04-18T16:07:27+02:00
+[INFO] Total time: 6.043 s
+[INFO] Finished at: 2019-04-18T19:37:11+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/functional/ParameterizedTypesTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.functional.ParameterizedTypesTest --tests testParameterizedTypeGenericArraysDeserialization:testVariableTypeDeserialization:testVariableTypeFieldsAndGenericArraysDeserialization:testParameterizedTypeWithVariableTypeDeserialization:testVariableTypeArrayDeserialization 
@@ -970,7 +970,7 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 	... 40 more
 
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 13972
+[INFO] elapsedTime 13709
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
@@ -1026,8 +1026,8 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 6.080 s
-[INFO] Finished at: 2019-04-18T16:07:41+02:00
+[INFO] Total time: 5.927 s
+[INFO] Finished at: 2019-04-18T19:37:25+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/functional/EscapingTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.functional.EscapingTest --tests testGsonDoubleDeserialization:testGsonAcceptsEscapedAndNonEscapedJsonDeserialization:testEscapingObjectFields 
@@ -1104,7 +1104,7 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 	... 40 more
 
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 9436
+[INFO] elapsedTime 9395
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
@@ -1160,8 +1160,8 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 5.953 s
-[INFO] Finished at: 2019-04-18T16:07:50+02:00
+[INFO] Total time: 5.902 s
+[INFO] Finished at: 2019-04-18T19:37:34+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/functional/DefaultTypeAdaptersTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.functional.DefaultTypeAdaptersTest --tests testBitSetDeserialization 
@@ -1238,7 +1238,7 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 	... 40 more
 
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 10069
+[INFO] elapsedTime 10053
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
@@ -1294,8 +1294,8 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 6.216 s
-[INFO] Finished at: 2019-04-18T16:08:01+02:00
+[INFO] Total time: 5.986 s
+[INFO] Finished at: 2019-04-18T19:37:45+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/functional/NamingPolicyTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.functional.NamingPolicyTest --tests testComplexFieldNameStrategy 
@@ -1372,7 +1372,7 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 	... 40 more
 
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 9447
+[INFO] elapsedTime 9226
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
@@ -1428,8 +1428,8 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 6.048 s
-[INFO] Finished at: 2019-04-18T16:08:10+02:00
+[INFO] Total time: 6.100 s
+[INFO] Finished at: 2019-04-18T19:37:54+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/functional/ReadersWritersTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.functional.ReadersWritersTest --tests testReadWriteTwoObjects:testReadWriteTwoObjects 
@@ -1505,7 +1505,7 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 	... 40 more
 
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 9583
+[INFO] elapsedTime 9490
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
@@ -1561,8 +1561,8 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 5.931 s
-[INFO] Finished at: 2019-04-18T16:08:20+02:00
+[INFO] Total time: 5.999 s
+[INFO] Finished at: 2019-04-18T19:38:04+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/functional/CollectionTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.functional.CollectionTest --tests testWildcardCollectionField:testFieldIsArrayList:testStack:testVector:testPriorityQueue 
@@ -1639,7 +1639,7 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 	... 40 more
 
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 9953
+[INFO] elapsedTime 9997
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
@@ -1695,8 +1695,8 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 5.933 s
-[INFO] Finished at: 2019-04-18T16:08:30+02:00
+[INFO] Total time: 6.029 s
+[INFO] Finished at: 2019-04-18T19:38:14+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/GsonTypeAdapterTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.GsonTypeAdapterTest --tests testTypeAdapterThrowsException:testTypeAdapterProperlyConvertsTypes 
@@ -1773,7 +1773,7 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 	... 40 more
 
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 9233
+[INFO] elapsedTime 9110
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
@@ -1829,8 +1829,8 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 5.885 s
-[INFO] Finished at: 2019-04-18T16:08:39+02:00
+[INFO] Total time: 5.998 s
+[INFO] Finished at: 2019-04-18T19:38:24+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/functional/CustomTypeAdaptersTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.functional.CustomTypeAdaptersTest --tests testRegisterHierarchyAdapterForDate 
@@ -1907,7 +1907,7 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 	... 40 more
 
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 9882
+[INFO] elapsedTime 9911
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
@@ -1963,8 +1963,8 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 5.966 s
-[INFO] Finished at: 2019-04-18T16:08:50+02:00
+[INFO] Total time: 6.021 s
+[INFO] Finished at: 2019-04-18T19:38:34+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/functional/RuntimeTypeAdapterFactoryFunctionalTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.functional.RuntimeTypeAdapterFactoryFunctionalTest --tests testSubclassesAutomaticallySerialized 
@@ -2041,7 +2041,7 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 	... 40 more
 
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 9267
+[INFO] elapsedTime 9227
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
@@ -2097,8 +2097,8 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 5.995 s
-[INFO] Finished at: 2019-04-18T16:08:59+02:00
+[INFO] Total time: 5.954 s
+[INFO] Finished at: 2019-04-18T19:38:43+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/functional/UncategorizedTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.functional.UncategorizedTest --tests testGsonInstanceReusableForSerializationAndDeserialization 
@@ -2175,7 +2175,7 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 	... 40 more
 
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 9141
+[INFO] elapsedTime 9056
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
@@ -2231,8 +2231,8 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 5.962 s
-[INFO] Finished at: 2019-04-18T16:09:08+02:00
+[INFO] Total time: 5.982 s
+[INFO] Finished at: 2019-04-18T19:38:52+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/functional/JavaUtilConcurrentAtomicTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.functional.JavaUtilConcurrentAtomicTest --tests testAtomicLongArray:testAtomicIntegerArray:testAtomicInteger:testAtomicLong 
@@ -2309,7 +2309,7 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 	... 40 more
 
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 8970
+[INFO] elapsedTime 9098
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
@@ -2365,8 +2365,8 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 6.035 s
-[INFO] Finished at: 2019-04-18T16:09:18+02:00
+[INFO] Total time: 6.144 s
+[INFO] Finished at: 2019-04-18T19:39:02+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/functional/TypeVariableTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.functional.TypeVariableTest --tests testAdvancedTypeVariables:testTypeVariablesViaTypeParameter 
@@ -2443,7 +2443,7 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 	... 40 more
 
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 9206
+[INFO] elapsedTime 9387
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
@@ -2499,8 +2499,8 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 6.062 s
-[INFO] Finished at: 2019-04-18T16:09:27+02:00
+[INFO] Total time: 5.966 s
+[INFO] Finished at: 2019-04-18T19:39:11+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/functional/StreamingTypeAdaptersTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.functional.StreamingTypeAdaptersTest --tests testNullSafe 
@@ -2524,16 +2524,16 @@ File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/gson
 Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
 [INFO] Test has been run: testNullSafe_failAssert0
 [INFO] Assertion amplification: 1 test method(s) has been successfully amplified.
-[WARN] 2019-04-18 16:09:30 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-18 16:09:30 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-18 16:09:30 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-18 19:39:14 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-18 19:39:14 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-18 19:39:14 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson/gson/target/test-classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.functional.StreamingTypeAdaptersTest --tests testNullSafe_failAssert0 
 Parsing --class com.google.gson.functional.StreamingTypeAdaptersTest --tests testNullSafe_failAssert0
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
 [INFO] Test has been run: testNullSafe_failAssert0
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 11198
+[INFO] elapsedTime 11001
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
@@ -2589,8 +2589,8 @@ Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 6.070 s
-[INFO] Finished at: 2019-04-18T16:09:38+02:00
+[INFO] Total time: 5.992 s
+[INFO] Finished at: 2019-04-18T19:39:22+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/JsonParserTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.JsonParserTest --tests testReadWriteTwoObjects:testParseMixedArray:testReadWriteTwoObjects 
@@ -2666,7 +2666,7 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 	... 40 more
 
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 10348
+[INFO] elapsedTime 10222
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
@@ -2722,8 +2722,8 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 6.049 s
-[INFO] Finished at: 2019-04-18T16:09:49+02:00
+[INFO] Total time: 6.033 s
+[INFO] Finished at: 2019-04-18T19:39:33+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/functional/MapAsArrayTypeAdapterTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.functional.MapAsArrayTypeAdapterTest --tests testMultipleEnableComplexKeyRegistrationHasNoEffect:testSerializeComplexMapWithTypeAdapter 
@@ -2800,7 +2800,7 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 	... 40 more
 
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 9543
+[INFO] elapsedTime 9577
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
@@ -2856,8 +2856,8 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 5.965 s
-[INFO] Finished at: 2019-04-18T16:09:58+02:00
+[INFO] Total time: 5.876 s
+[INFO] Finished at: 2019-04-18T19:39:43+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/OverrideCoreTypeAdaptersTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.OverrideCoreTypeAdaptersTest --tests testOverrideWrapperBooleanAdapter:testOverridePrimitiveBooleanAdapter 
@@ -2934,7 +2934,7 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 	... 40 more
 
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 9015
+[INFO] elapsedTime 8999
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
@@ -2990,8 +2990,8 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 5.988 s
-[INFO] Finished at: 2019-04-18T16:10:08+02:00
+[INFO] Total time: 6.049 s
+[INFO] Finished at: 2019-04-18T19:39:52+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/functional/DelegateTypeAdapterTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.functional.DelegateTypeAdapterTest --tests testDelegateInvoked 
@@ -3068,7 +3068,7 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 	... 40 more
 
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 9013
+[INFO] elapsedTime 9032
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
@@ -3124,8 +3124,8 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 6.018 s
-[INFO] Finished at: 2019-04-18T16:10:17+02:00
+[INFO] Total time: 6.068 s
+[INFO] Finished at: 2019-04-18T19:40:01+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/functional/TypeHierarchyAdapterTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.functional.TypeHierarchyAdapterTest --tests testTypeHierarchy 
@@ -3202,12 +3202,12 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 	... 40 more
 
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 9638
+[INFO] elapsedTime 9932
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
 [INFO] Amplification succeed.
-[INFO] Elapsed time 183630 ms
+[INFO] Elapsed time 183460 ms
 [INFO] 
 0 amplified test fails on the new versions.
 0 amplified test fails on the new versions.
@@ -3227,7 +3227,7 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 0 amplified test fails on the new versions.
 0 amplified test fails on the new versions.
 0 amplified test fails on the new versions.
-[INFO] Writing report in target/dspot/output/report.txt
+[INFO] Writing report in /tmp/dspot-experiments/results/april-2019/gson/commit_6_9a24219/assert_amplification/report.txt
 [WARNING] DSpot encountered some errors during amplification.
 [WARNING] DSpot encountered 17 error(s) during amplification.
 Something bad happened during assertion amplification
@@ -4085,5 +4085,5 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
 [INFO] Total time: 03:20 min
-[INFO] Finished at: 2019-04-18T16:10:19+02:00
+[INFO] Finished at: 2019-04-18T19:40:04+02:00
 [INFO] ------------------------------------------------------------------------
