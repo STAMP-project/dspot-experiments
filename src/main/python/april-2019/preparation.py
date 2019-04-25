@@ -107,9 +107,11 @@ def set_true_include_test_roots(project):
                 i.text = "false"
     tree.write(path_to_root_pom)
 
-def add_needed_options(cmd, project):
+def add_needed_options(cmd, project, commit_index):
     if project == "xwiki-commons":
         cmd.append("-Duse-maven-to-exe-test=true")
+    if project == 'commons-lang' and commit_index == 2:
+        cmd.append('-Dmax-test-amplified=100')
     return cmd
 
 

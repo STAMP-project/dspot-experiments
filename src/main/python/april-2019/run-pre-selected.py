@@ -61,11 +61,11 @@ def run(project, index_begin, index_end, amplifiers):
                 cmd_final = cmd[:]
                 cmd_final.append("-Doutput-path=" + output_path_iteration)
                 cmd_final.append('-Diteration=' + current_iteration)
-                cmd_final = preparation.add_needed_options(cmd_final, project)
+                cmd_final = preparation.add_needed_options(cmd_final, project, commits.index(commit))
                 toolbox.print_and_call_in_a_file(" ".join(cmd_final), cwd=path_to_concerned_module_parent)
         else:
             toolbox.set_output_log_path(output_path + "/amplification.log")
-            cmd = preparation.add_needed_options(cmd, project)
+            cmd = preparation.add_needed_options(cmd, project, commits.index(commit))
             toolbox.print_and_call_in_a_file(" ".join(cmd), cwd=path_to_concerned_module_parent)
 
 if __name__ == '__main__':
