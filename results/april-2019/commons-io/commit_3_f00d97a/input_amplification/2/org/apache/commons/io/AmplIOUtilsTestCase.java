@@ -396,6 +396,19 @@ public class AmplIOUtilsTestCase extends FileBasedTestCase {
     }
 
     @Test(timeout = 10000)
+    public void testToByteArray_InputStream_SizeIllegal_add223_add450() throws Exception {
+        try (final FileInputStream fin = new FileInputStream(this.m_testFile)) {
+            IOUtils.toByteArray(fin, ((this.m_testFile.length()) + 1));
+            IOUtils.toByteArray(fin, ((this.m_testFile.length()) + 1));
+        } catch (final IOException exc) {
+            boolean o_testToByteArray_InputStream_SizeIllegal_add223_add450__10 = exc.getMessage().startsWith("Unexpected readed size");
+            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add223_add450__10);
+            boolean o_testToByteArray_InputStream_SizeIllegal_add223__10 = exc.getMessage().startsWith("Unexpected readed size");
+            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add223_add450__10);
+        }
+    }
+
+    @Test(timeout = 10000)
     public void testToByteArray_InputStream_SizeIllegal_add224() throws Exception {
         try (final FileInputStream fin = new FileInputStream(this.m_testFile)) {
             long o_testToByteArray_InputStream_SizeIllegal_add224__5 = this.m_testFile.length();
@@ -404,6 +417,19 @@ public class AmplIOUtilsTestCase extends FileBasedTestCase {
         } catch (final IOException exc) {
             boolean o_testToByteArray_InputStream_SizeIllegal_add224__9 = exc.getMessage().startsWith("Unexpected readed size");
             Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add224__9);
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testToByteArray_InputStream_SizeIllegal_add224_add455() throws Exception {
+        try (final FileInputStream fin = new FileInputStream(this.m_testFile)) {
+            long o_testToByteArray_InputStream_SizeIllegal_add224__5 = this.m_testFile.length();
+            IOUtils.toByteArray(fin, ((this.m_testFile.length()) + 1));
+        } catch (final IOException exc) {
+            boolean o_testToByteArray_InputStream_SizeIllegal_add224_add455__11 = exc.getMessage().startsWith("Unexpected readed size");
+            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add224_add455__11);
+            boolean o_testToByteArray_InputStream_SizeIllegal_add224__9 = exc.getMessage().startsWith("Unexpected readed size");
+            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add224_add455__11);
         }
     }
 
@@ -421,19 +447,6 @@ public class AmplIOUtilsTestCase extends FileBasedTestCase {
     }
 
     @Test(timeout = 10000)
-    public void testToByteArray_InputStream_SizeIllegal_add226_add410() throws Exception {
-        try (final FileInputStream fin = new FileInputStream(this.m_testFile)) {
-            IOUtils.toByteArray(fin, ((this.m_testFile.length()) + 1));
-        } catch (final IOException exc) {
-            exc.getMessage();
-            boolean o_testToByteArray_InputStream_SizeIllegal_add226_add410__9 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add226_add410__9);
-            boolean o_testToByteArray_InputStream_SizeIllegal_add226__9 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add226_add410__9);
-        }
-    }
-
-    @Test(timeout = 10000)
     public void testToByteArray_InputStream_SizeIllegal_add223() throws Exception {
         try (final FileInputStream fin = new FileInputStream(this.m_testFile)) {
             IOUtils.toByteArray(fin, ((this.m_testFile.length()) + 1));
@@ -445,40 +458,27 @@ public class AmplIOUtilsTestCase extends FileBasedTestCase {
     }
 
     @Test(timeout = 10000)
-    public void testToByteArray_InputStream_SizeIllegal_add225_add414() throws Exception {
+    public void testToByteArray_InputStream_SizeIllegal_add226_add438() throws Exception {
         try (final FileInputStream fin = new FileInputStream(this.m_testFile)) {
             IOUtils.toByteArray(fin, ((this.m_testFile.length()) + 1));
         } catch (final IOException exc) {
-            boolean o_testToByteArray_InputStream_SizeIllegal_add225_add414__8 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add225_add414__8);
-            boolean o_testToByteArray_InputStream_SizeIllegal_add225__8 = exc.getMessage().startsWith("Unexpected readed size");
-            boolean o_testToByteArray_InputStream_SizeIllegal_add225__10 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add225_add414__8);
+            exc.getMessage();
+            boolean o_testToByteArray_InputStream_SizeIllegal_add226_add438__9 = exc.getMessage().startsWith("Unexpected readed size");
+            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add226_add438__9);
+            boolean o_testToByteArray_InputStream_SizeIllegal_add226__9 = exc.getMessage().startsWith("Unexpected readed size");
+            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add226_add438__9);
         }
     }
 
     @Test(timeout = 10000)
-    public void testToByteArray_InputStream_SizeIllegal_add225_add416() throws Exception {
-        try (final FileInputStream fin = new FileInputStream(this.m_testFile)) {
-            IOUtils.toByteArray(fin, ((this.m_testFile.length()) + 1));
-        } catch (final IOException exc) {
-            boolean o_testToByteArray_InputStream_SizeIllegal_add225__8 = exc.getMessage().startsWith("Unexpected readed size");
-            boolean o_testToByteArray_InputStream_SizeIllegal_add225_add416__12 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add225_add416__12);
-            boolean o_testToByteArray_InputStream_SizeIllegal_add225__10 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add225_add416__12);
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testToByteArray_InputStream_SizeIllegal_literalMutationNumber213_add447() throws Exception {
+    public void testToByteArray_InputStream_SizeIllegal_literalMutationNumber213_add425() throws Exception {
         try (final FileInputStream fin = new FileInputStream(this.m_testFile)) {
             IOUtils.toByteArray(fin, ((this.m_testFile.length()) + 2));
         } catch (final IOException exc) {
-            boolean o_testToByteArray_InputStream_SizeIllegal_literalMutationNumber213_add447__9 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_literalMutationNumber213_add447__9);
+            boolean o_testToByteArray_InputStream_SizeIllegal_literalMutationNumber213_add425__9 = exc.getMessage().startsWith("Unexpected readed size");
+            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_literalMutationNumber213_add425__9);
             boolean o_testToByteArray_InputStream_SizeIllegal_literalMutationNumber213__9 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_literalMutationNumber213_add447__9);
+            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_literalMutationNumber213_add425__9);
         }
     }
 
@@ -514,28 +514,28 @@ public class AmplIOUtilsTestCase extends FileBasedTestCase {
     }
 
     @Test(timeout = 10000)
-    public void testToByteArray_InputStream_SizeIllegal_add223_add422() throws Exception {
+    public void testToByteArray_InputStream_SizeIllegal_add225_add444() throws Exception {
         try (final FileInputStream fin = new FileInputStream(this.m_testFile)) {
             IOUtils.toByteArray(fin, ((this.m_testFile.length()) + 1));
-            IOUtils.toByteArray(fin, ((this.m_testFile.length()) + 1));
         } catch (final IOException exc) {
-            boolean o_testToByteArray_InputStream_SizeIllegal_add223_add422__10 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add223_add422__10);
-            boolean o_testToByteArray_InputStream_SizeIllegal_add223__10 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add223_add422__10);
+            boolean o_testToByteArray_InputStream_SizeIllegal_add225__8 = exc.getMessage().startsWith("Unexpected readed size");
+            boolean o_testToByteArray_InputStream_SizeIllegal_add225_add444__12 = exc.getMessage().startsWith("Unexpected readed size");
+            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add225_add444__12);
+            boolean o_testToByteArray_InputStream_SizeIllegal_add225__10 = exc.getMessage().startsWith("Unexpected readed size");
+            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add225_add444__12);
         }
     }
 
     @Test(timeout = 10000)
-    public void testToByteArray_InputStream_SizeIllegal_add224_add427() throws Exception {
+    public void testToByteArray_InputStream_SizeIllegal_add225_add442() throws Exception {
         try (final FileInputStream fin = new FileInputStream(this.m_testFile)) {
-            long o_testToByteArray_InputStream_SizeIllegal_add224__5 = this.m_testFile.length();
             IOUtils.toByteArray(fin, ((this.m_testFile.length()) + 1));
         } catch (final IOException exc) {
-            boolean o_testToByteArray_InputStream_SizeIllegal_add224_add427__11 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add224_add427__11);
-            boolean o_testToByteArray_InputStream_SizeIllegal_add224__9 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add224_add427__11);
+            boolean o_testToByteArray_InputStream_SizeIllegal_add225_add442__8 = exc.getMessage().startsWith("Unexpected readed size");
+            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add225_add442__8);
+            boolean o_testToByteArray_InputStream_SizeIllegal_add225__8 = exc.getMessage().startsWith("Unexpected readed size");
+            boolean o_testToByteArray_InputStream_SizeIllegal_add225__10 = exc.getMessage().startsWith("Unexpected readed size");
+            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add225_add442__8);
         }
     }
 
