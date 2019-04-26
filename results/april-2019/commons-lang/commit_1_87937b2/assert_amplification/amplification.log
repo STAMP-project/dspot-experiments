@@ -141,7 +141,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
   <workingDirectory default-value="false">${working-directory}</workingDirectory>
 </configuration>
 [DEBUG] =======================================================================
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=841231, ConflictMarker.markTime=476447, ConflictMarker.nodeCount=11, ConflictIdSorter.graphTime=480498, ConflictIdSorter.topsortTime=406082, ConflictIdSorter.conflictIdCount=9, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=4177871, ConflictResolver.conflictItemCount=10, DefaultDependencyCollector.collectTime=89958099, DefaultDependencyCollector.transformTime=8760618}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=1013777, ConflictMarker.markTime=584141, ConflictMarker.nodeCount=11, ConflictIdSorter.graphTime=586775, ConflictIdSorter.topsortTime=488872, ConflictIdSorter.conflictIdCount=9, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=5499917, ConflictResolver.conflictItemCount=10, DefaultDependencyCollector.collectTime=94671798, DefaultDependencyCollector.transformTime=11005008}
 [DEBUG] org.apache.commons:commons-lang3:jar:3.8-SNAPSHOT
 [DEBUG]    junit:junit:jar:4.12:test
 [DEBUG]       org.hamcrest:hamcrest-core:jar:1.3:test
@@ -154,10 +154,10 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [DEBUG]    org.openjdk.jmh:jmh-generator-annprocess:jar:1.19:test
 [INFO] 
 [INFO] --- dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests (default-cli) @ commons-lang3 ---
-[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
-[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
-[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
-[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
+[DEBUG] Failure to find eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
@@ -488,7 +488,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=7232237, ConflictMarker.markTime=2369414, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=4898259, ConflictIdSorter.topsortTime=192003, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=14208740, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=2100083895, DefaultDependencyCollector.transformTime=29051811}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=9828049, ConflictMarker.markTime=2713032, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=7673289, ConflictIdSorter.topsortTime=279422, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=20083882, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=2450574993, DefaultDependencyCollector.transformTime=40781065}
 [DEBUG] eu.stamp-project:dspot-maven:jar:2.0.1-SNAPSHOT:
 [DEBUG]    eu.stamp-project:dspot:jar:2.0.1-SNAPSHOT:compile
 [DEBUG]       fr.inria.gforge.spoon:spoon-core:jar:7.3.0:compile
@@ -756,7 +756,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-lang3 ---
 [INFO] Executing: /bin/sh -c cd '/tmp/dspot-experiments/dataset/april-2019/commons-lang_parent' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /tmp/dspot-experiments/dataset/april-2019/commons-lang_parent
-[INFO] Storing buildNumber: 09ef69c5b51115300da6df43690cd455d83c8027 at timestamp: 1555607903970
+[INFO] Storing buildNumber: 09ef69c5b51115300da6df43690cd455d83c8027 at timestamp: 1556282333405
 [INFO] Storing buildScmBranch: master
 [INFO] 
 [INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ commons-lang3 ---
@@ -798,15 +798,15 @@ main:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 15.372 s
-[INFO] Finished at: 2019-04-18T19:18:36+02:00
+[INFO] Total time: 13.500 s
+[INFO] Finished at: 2019-04-26T14:39:03+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Amplification of org.apache.commons.lang3.StringUtilsTest (2 test(s))
 [INFO] Assertion amplification of org.apache.commons.lang3.StringUtilsTest (2 test(s))
 [DEBUG] Starting 15 Services...
-[DEBUG] All Services successfully started, 15 Services in 7ms
+[DEBUG] All Services successfully started, 15 Services in 10ms
 [DEBUG] Creating Cache 'frameworkCache' in EhcacheManager.
-[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@63e4bbf9
+[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@6a087c72
 [DEBUG] Could not create serializers for frameworkCache
 org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for type 'eu.stamp_project.test_framework.TestFrameworkSupport'
     at org.ehcache.impl.internal.spi.serialization.DefaultSerializationProvider.getSerializerClassFor (DefaultSerializationProvider.java:136)
@@ -855,8 +855,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
     at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:229)
     at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:415)
     at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:356)
-[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@35a81281
-[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@58829c2c
+[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@1f138b74
+[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@4c682826
 [DEBUG] Initialize successful.
 [INFO] Cache 'frameworkCache' created in EhcacheManager.
 [DEBUG] Initialize successful.
@@ -895,7 +895,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-lang3 ---
 [INFO] Executing: /bin/sh -c cd '/tmp/dspot-experiments/dataset/april-2019/commons-lang' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /tmp/dspot-experiments/dataset/april-2019/commons-lang
-[INFO] Storing buildNumber: 87937b2e7192524306aa58d74c90537eec997cfa at timestamp: 1555607933048
+[INFO] Storing buildNumber: 87937b2e7192524306aa58d74c90537eec997cfa at timestamp: 1556282359649
 [INFO] Storing buildScmBranch: master
 [INFO] 
 [INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ commons-lang3 ---
@@ -934,8 +934,8 @@ main:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 14.741 s
-[INFO] Finished at: 2019-04-18T19:19:05+02:00
+[INFO] Total time: 13.459 s
+[INFO] Finished at: 2019-04-26T14:39:30+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-all/1.3/hamcrest-all-1.3.jar:/home/spirals/danglot/.m2/repository/org/easymock/easymock/3.5.1/easymock-3.5.1.jar:/home/spirals/danglot/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/home/spirals/danglot/.m2/repository/org/openjdk/jmh/jmh-core/1.19/jmh-core-1.19.jar:/home/spirals/danglot/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar:/home/spirals/danglot/.m2/repository/org/apache/commons/commons-math3/3.2/commons-math3-3.2.jar:/home/spirals/danglot/.m2/repository/org/openjdk/jmh/jmh-generator-annprocess/1.19/jmh-generator-annprocess-1.19.jar:/tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/dspot/tmp_test_sources/org/apache/commons/lang3/StringUtilsTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-all/1.3/hamcrest-all-1.3.jar:/home/spirals/danglot/.m2/repository/org/easymock/easymock/3.5.1/easymock-3.5.1.jar:/home/spirals/danglot/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/home/spirals/danglot/.m2/repository/org/openjdk/jmh/jmh-core/1.19/jmh-core-1.19.jar:/home/spirals/danglot/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar:/home/spirals/danglot/.m2/repository/org/apache/commons/commons-math3/3.2/commons-math3-3.2.jar:/home/spirals/danglot/.m2/repository/org/openjdk/jmh/jmh-generator-annprocess/1.19/jmh-generator-annprocess-1.19.jar:/tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.lang3.StringUtilsTest --tests testDeleteWhitespace_String:testJoinWith 
@@ -971,16 +971,16 @@ File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/comm
 Loading /tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/dspot/TestResult.ser
 [INFO] Test has been run: testDeleteWhitespace_String,testJoinWith
 [INFO] Assertion amplification: 2 test method(s) has been successfully amplified.
-[WARN] 2019-04-18 19:19:10 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-lang/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-18 19:19:10 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-lang/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-18 19:19:10 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-lang/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-26 14:39:35 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-lang/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-26 14:39:35 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-lang/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-26 14:39:35 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-lang/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-lang/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-lang/target/test-classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-all/1.3/hamcrest-all-1.3.jar:/home/spirals/danglot/.m2/repository/org/easymock/easymock/3.5.1/easymock-3.5.1.jar:/home/spirals/danglot/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/home/spirals/danglot/.m2/repository/org/openjdk/jmh/jmh-core/1.19/jmh-core-1.19.jar:/home/spirals/danglot/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar:/home/spirals/danglot/.m2/repository/org/apache/commons/commons-math3/3.2/commons-math3-3.2.jar:/home/spirals/danglot/.m2/repository/org/openjdk/jmh/jmh-generator-annprocess/1.19/jmh-generator-annprocess-1.19.jar:/tmp/dspot-experiments/dataset/april-2019/commons-lang/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.lang3.StringUtilsTest --tests testDeleteWhitespace_String:testJoinWith 
 Parsing --class org.apache.commons.lang3.StringUtilsTest --tests testDeleteWhitespace_String:testJoinWith
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/dspot/TestResult.ser
 [INFO] Test has been run: testDeleteWhitespace_String,testJoinWith
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 22407
+[INFO] elapsedTime 21641
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
@@ -1019,7 +1019,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-lang3 ---
 [INFO] Executing: /bin/sh -c cd '/tmp/dspot-experiments/dataset/april-2019/commons-lang' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /tmp/dspot-experiments/dataset/april-2019/commons-lang
-[INFO] Storing buildNumber: 87937b2e7192524306aa58d74c90537eec997cfa at timestamp: 1555607956236
+[INFO] Storing buildNumber: 87937b2e7192524306aa58d74c90537eec997cfa at timestamp: 1556282381626
 [INFO] Storing buildScmBranch: master
 [INFO] 
 [INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ commons-lang3 ---
@@ -1058,8 +1058,8 @@ main:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 14.640 s
-[INFO] Finished at: 2019-04-18T19:19:28+02:00
+[INFO] Total time: 13.525 s
+[INFO] Finished at: 2019-04-26T14:39:52+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-all/1.3/hamcrest-all-1.3.jar:/home/spirals/danglot/.m2/repository/org/easymock/easymock/3.5.1/easymock-3.5.1.jar:/home/spirals/danglot/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/home/spirals/danglot/.m2/repository/org/openjdk/jmh/jmh-core/1.19/jmh-core-1.19.jar:/home/spirals/danglot/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar:/home/spirals/danglot/.m2/repository/org/apache/commons/commons-math3/3.2/commons-math3-3.2.jar:/home/spirals/danglot/.m2/repository/org/openjdk/jmh/jmh-generator-annprocess/1.19/jmh-generator-annprocess-1.19.jar:/tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/dspot/tmp_test_sources/org/apache/commons/lang3/ClassUtilsTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-all/1.3/hamcrest-all-1.3.jar:/home/spirals/danglot/.m2/repository/org/easymock/easymock/3.5.1/easymock-3.5.1.jar:/home/spirals/danglot/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/home/spirals/danglot/.m2/repository/org/openjdk/jmh/jmh-core/1.19/jmh-core-1.19.jar:/home/spirals/danglot/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar:/home/spirals/danglot/.m2/repository/org/apache/commons/commons-math3/3.2/commons-math3-3.2.jar:/home/spirals/danglot/.m2/repository/org/openjdk/jmh/jmh-generator-annprocess/1.19/jmh-generator-annprocess-1.19.jar:/tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.lang3.ClassUtilsTest --tests test_getShortCanonicalName_Object:testGetClassInvalidArguments:test_getShortCanonicalName_String:testGetClassByNormalNameArrays2D:testWithInterleavingWhitespace:testGetClassClassNotFound:testGetClassWithArrayClasses:test_getPackageCanonicalName_String:test_getPackageCanonicalName_Object:testGetClassWithArrayClasses2D:testGetClassByNormalNameArrays:test_getShortCanonicalName_Class:testGetInnerClass:test_getPackageCanonicalName_Class 
@@ -1095,21 +1095,21 @@ File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/comm
 Loading /tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/dspot/TestResult.ser
 [INFO] Test has been run: test_getPackageCanonicalName_Object,test_getPackageCanonicalName_String,test_getPackageCanonicalName_Class,test_getShortCanonicalName_Object,test_getShortCanonicalName_String,test_getShortCanonicalName_Class
 [INFO] Assertion amplification: 6 test method(s) has been successfully amplified.
-[WARN] 2019-04-18 19:19:35 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-lang/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-18 19:19:35 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-lang/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-18 19:19:35 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-lang/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-26 14:39:59 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-lang/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-26 14:39:59 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-lang/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-26 14:39:59 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-lang/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-lang/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-lang/target/test-classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-all/1.3/hamcrest-all-1.3.jar:/home/spirals/danglot/.m2/repository/org/easymock/easymock/3.5.1/easymock-3.5.1.jar:/home/spirals/danglot/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/home/spirals/danglot/.m2/repository/org/openjdk/jmh/jmh-core/1.19/jmh-core-1.19.jar:/home/spirals/danglot/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar:/home/spirals/danglot/.m2/repository/org/apache/commons/commons-math3/3.2/commons-math3-3.2.jar:/home/spirals/danglot/.m2/repository/org/openjdk/jmh/jmh-generator-annprocess/1.19/jmh-generator-annprocess-1.19.jar:/tmp/dspot-experiments/dataset/april-2019/commons-lang/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.lang3.ClassUtilsTest --tests test_getShortCanonicalName_Object:test_getShortCanonicalName_String:test_getPackageCanonicalName_String:test_getPackageCanonicalName_Object:test_getShortCanonicalName_Class:test_getPackageCanonicalName_Class 
 Parsing --class org.apache.commons.lang3.ClassUtilsTest --tests test_getShortCanonicalName_Object:test_getShortCanonicalName_String:test_getPackageCanonicalName_String:test_getPackageCanonicalName_Object:test_getShortCanonicalName_Class:test_getPackageCanonicalName_Class
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/dspot/TestResult.ser
 [INFO] Test has been run: test_getPackageCanonicalName_Object,test_getPackageCanonicalName_String,test_getPackageCanonicalName_Class,test_getShortCanonicalName_Object,test_getShortCanonicalName_String,test_getShortCanonicalName_Class
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 23935
+[INFO] elapsedTime 23594
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
 [INFO] Amplification succeed.
-[INFO] Elapsed time 51222 ms
+[INFO] Elapsed time 49174 ms
 [INFO] 
 0 amplified test fails on the new versions.
 0 amplified test fails on the new versions.
@@ -1119,6 +1119,6 @@ Loading /tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/dsp
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 01:22 min
-[INFO] Finished at: 2019-04-18T19:19:38+02:00
+[INFO] Total time: 01:16 min
+[INFO] Finished at: 2019-04-26T14:40:02+02:00
 [INFO] ------------------------------------------------------------------------

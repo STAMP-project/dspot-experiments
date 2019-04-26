@@ -141,7 +141,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
   <workingDirectory default-value="false">${working-directory}</workingDirectory>
 </configuration>
 [DEBUG] =======================================================================
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=933333, ConflictMarker.markTime=482933, ConflictMarker.nodeCount=11, ConflictIdSorter.graphTime=445231, ConflictIdSorter.topsortTime=383505, ConflictIdSorter.conflictIdCount=9, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=4130383, ConflictResolver.conflictItemCount=10, DefaultDependencyCollector.collectTime=81113624, DefaultDependencyCollector.transformTime=8543818}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=1146694, ConflictMarker.markTime=829060, ConflictMarker.nodeCount=11, ConflictIdSorter.graphTime=769478, ConflictIdSorter.topsortTime=624396, ConflictIdSorter.conflictIdCount=9, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=6006940, ConflictResolver.conflictItemCount=10, DefaultDependencyCollector.collectTime=89587073, DefaultDependencyCollector.transformTime=12498717}
 [DEBUG] org.apache.commons:commons-lang3:jar:3.8-SNAPSHOT
 [DEBUG]    junit:junit:jar:4.12:test
 [DEBUG]       org.hamcrest:hamcrest-core:jar:1.3:test
@@ -154,10 +154,10 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [DEBUG]    org.openjdk.jmh:jmh-generator-annprocess:jar:1.19:test
 [INFO] 
 [INFO] --- dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests (default-cli) @ commons-lang3 ---
-[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
-[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
-[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
-[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
+[DEBUG] Failure to find eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
@@ -488,7 +488,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=9835759, ConflictMarker.markTime=2942060, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=6877378, ConflictIdSorter.topsortTime=271016, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=21617397, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=2113684912, DefaultDependencyCollector.transformTime=41793238}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=10461836, ConflictMarker.markTime=2633978, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=7433736, ConflictIdSorter.topsortTime=306063, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=20868839, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=2292675641, DefaultDependencyCollector.transformTime=41955080}
 [DEBUG] eu.stamp-project:dspot-maven:jar:2.0.1-SNAPSHOT:
 [DEBUG]    eu.stamp-project:dspot:jar:2.0.1-SNAPSHOT:compile
 [DEBUG]       fr.inria.gforge.spoon:spoon-core:jar:7.3.0:compile
@@ -753,7 +753,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-lang3 ---
 [INFO] Executing: /bin/sh -c cd '/tmp/dspot-experiments/dataset/april-2019/commons-lang_parent' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /tmp/dspot-experiments/dataset/april-2019/commons-lang_parent
-[INFO] Storing buildNumber: 6049e77fdcd021544a60651fc6de4d80e2ef1c2d at timestamp: 1555608519185
+[INFO] Storing buildNumber: 6049e77fdcd021544a60651fc6de4d80e2ef1c2d at timestamp: 1556282909066
 [INFO] Storing buildScmBranch: master
 [INFO] 
 [INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ commons-lang3 ---
@@ -793,15 +793,15 @@ main:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 15.083 s
-[INFO] Finished at: 2019-04-18T19:28:51+02:00
+[INFO] Total time: 13.694 s
+[INFO] Finished at: 2019-04-26T14:48:39+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Amplification of org.apache.commons.lang3.concurrent.EventCountCircuitBreakerTest (8 test(s))
 [INFO] Assertion amplification of org.apache.commons.lang3.concurrent.EventCountCircuitBreakerTest (8 test(s))
 [DEBUG] Starting 15 Services...
-[DEBUG] All Services successfully started, 15 Services in 7ms
+[DEBUG] All Services successfully started, 15 Services in 8ms
 [DEBUG] Creating Cache 'frameworkCache' in EhcacheManager.
-[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@436103b1
+[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@52c68925
 [DEBUG] Could not create serializers for frameworkCache
 org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for type 'eu.stamp_project.test_framework.TestFrameworkSupport'
     at org.ehcache.impl.internal.spi.serialization.DefaultSerializationProvider.getSerializerClassFor (DefaultSerializationProvider.java:136)
@@ -850,8 +850,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
     at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:229)
     at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:415)
     at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:356)
-[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@7d31fb6c
-[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@48543f11
+[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@3984e2b3
+[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@35bb3fea
 [DEBUG] Initialize successful.
 [INFO] Cache 'frameworkCache' created in EhcacheManager.
 [DEBUG] Initialize successful.
@@ -887,7 +887,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-lang3 ---
 [INFO] Executing: /bin/sh -c cd '/tmp/dspot-experiments/dataset/april-2019/commons-lang' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /tmp/dspot-experiments/dataset/april-2019/commons-lang
-[INFO] Storing buildNumber: 7d061e33e59e23dc4b03378f35f50a7d70f033b3 at timestamp: 1555608548164
+[INFO] Storing buildNumber: 7d061e33e59e23dc4b03378f35f50a7d70f033b3 at timestamp: 1556282934539
 [INFO] Storing buildScmBranch: master
 [INFO] 
 [INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ commons-lang3 ---
@@ -924,8 +924,8 @@ main:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 15.108 s
-[INFO] Finished at: 2019-04-18T19:29:20+02:00
+[INFO] Total time: 13.163 s
+[INFO] Finished at: 2019-04-26T14:49:04+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-all/1.3/hamcrest-all-1.3.jar:/home/spirals/danglot/.m2/repository/org/easymock/easymock/3.5/easymock-3.5.jar:/home/spirals/danglot/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/home/spirals/danglot/.m2/repository/org/openjdk/jmh/jmh-core/1.19/jmh-core-1.19.jar:/home/spirals/danglot/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar:/home/spirals/danglot/.m2/repository/org/apache/commons/commons-math3/3.2/commons-math3-3.2.jar:/home/spirals/danglot/.m2/repository/org/openjdk/jmh/jmh-generator-annprocess/1.19/jmh-generator-annprocess-1.19.jar:/tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/dspot/tmp_test_sources/org/apache/commons/lang3/concurrent/EventCountCircuitBreakerTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-all/1.3/hamcrest-all-1.3.jar:/home/spirals/danglot/.m2/repository/org/easymock/easymock/3.5/easymock-3.5.jar:/home/spirals/danglot/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/home/spirals/danglot/.m2/repository/org/openjdk/jmh/jmh-core/1.19/jmh-core-1.19.jar:/home/spirals/danglot/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar:/home/spirals/danglot/.m2/repository/org/apache/commons/commons-math3/3.2/commons-math3-3.2.jar:/home/spirals/danglot/.m2/repository/org/openjdk/jmh/jmh-generator-annprocess/1.19/jmh-generator-annprocess-1.19.jar:/tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.lang3.concurrent.EventCountCircuitBreakerTest --tests testChangeEventsGeneratedByAutomaticTransitions:testNotClosingOverThreshold:testNotOpeningCheckIntervalExceeded:testNotOpeningUnderThreshold:testClosingWhenThresholdReached:testAutomaticOpenStartsNewCheckInterval:testClose:testOpeningWhenThresholdReached 
@@ -961,21 +961,21 @@ File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/comm
 Loading /tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/dspot/TestResult.ser
 [INFO] Test has been run: testNotClosingOverThreshold,testAutomaticOpenStartsNewCheckInterval,testClose,testNotOpeningCheckIntervalExceeded,testOpeningWhenThresholdReached,testChangeEventsGeneratedByAutomaticTransitions,testClosingWhenThresholdReached,testNotOpeningUnderThreshold
 [INFO] Assertion amplification: 8 test method(s) has been successfully amplified.
-[WARN] 2019-04-18 19:29:25 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-lang/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-18 19:29:25 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-lang/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-18 19:29:25 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-lang/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-26 14:49:09 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-lang/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-26 14:49:09 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-lang/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-26 14:49:09 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-lang/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-lang/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-lang/target/test-classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-all/1.3/hamcrest-all-1.3.jar:/home/spirals/danglot/.m2/repository/org/easymock/easymock/3.5/easymock-3.5.jar:/home/spirals/danglot/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/home/spirals/danglot/.m2/repository/org/openjdk/jmh/jmh-core/1.19/jmh-core-1.19.jar:/home/spirals/danglot/.m2/repository/net/sf/jopt-simple/jopt-simple/4.6/jopt-simple-4.6.jar:/home/spirals/danglot/.m2/repository/org/apache/commons/commons-math3/3.2/commons-math3-3.2.jar:/home/spirals/danglot/.m2/repository/org/openjdk/jmh/jmh-generator-annprocess/1.19/jmh-generator-annprocess-1.19.jar:/tmp/dspot-experiments/dataset/april-2019/commons-lang/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.lang3.concurrent.EventCountCircuitBreakerTest --tests testChangeEventsGeneratedByAutomaticTransitions:testNotClosingOverThreshold:testNotOpeningCheckIntervalExceeded:testNotOpeningUnderThreshold:testClosingWhenThresholdReached:testAutomaticOpenStartsNewCheckInterval:testClose:testOpeningWhenThresholdReached 
 Parsing --class org.apache.commons.lang3.concurrent.EventCountCircuitBreakerTest --tests testChangeEventsGeneratedByAutomaticTransitions:testNotClosingOverThreshold:testNotOpeningCheckIntervalExceeded:testNotOpeningUnderThreshold:testClosingWhenThresholdReached:testAutomaticOpenStartsNewCheckInterval:testClose:testOpeningWhenThresholdReached
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/dspot/TestResult.ser
 [INFO] Test has been run: testNotClosingOverThreshold,testAutomaticOpenStartsNewCheckInterval,testClose,testNotOpeningCheckIntervalExceeded,testOpeningWhenThresholdReached,testChangeEventsGeneratedByAutomaticTransitions,testClosingWhenThresholdReached,testNotOpeningUnderThreshold
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 23098
+[INFO] elapsedTime 21452
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
 [INFO] Amplification succeed.
-[INFO] Elapsed time 26054 ms
+[INFO] Elapsed time 22843 ms
 [INFO] 
 0 amplified test fails on the new versions.
 [INFO] Writing report in /tmp/dspot-experiments/results/april-2019/commons-lang/commit_9_7d061e3/assert_amplification/report.txt
@@ -984,6 +984,6 @@ Loading /tmp/dspot-experiments/dataset/april-2019/commons-lang_parent/target/dsp
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 56.414 s
-[INFO] Finished at: 2019-04-18T19:29:28+02:00
+[INFO] Total time: 50.144 s
+[INFO] Finished at: 2019-04-26T14:49:11+02:00
 [INFO] ------------------------------------------------------------------------
