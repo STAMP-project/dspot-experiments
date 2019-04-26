@@ -25,32 +25,50 @@ public class AmplBoundedReaderTest {
         Assert.assertEquals(3, ((int) (o_readMulti_add30__9)));
         final int read = mr.read(cbuf, 0, 4);
         Assert.assertEquals(0, ((int) (read)));
-        char char_8 = cbuf[0];
-        char char_9 = cbuf[1];
-        char char_10 = cbuf[2];
-        char char_11 = cbuf[3];
+        char char_124 = cbuf[0];
+        char char_125 = cbuf[1];
+        char char_126 = cbuf[2];
+        char char_127 = cbuf[3];
         mr.close();
         Assert.assertEquals(3, ((int) (o_readMulti_add30__9)));
         Assert.assertEquals(0, ((int) (read)));
     }
 
     @Test(timeout = 10000)
-    public void readMulti_add30_add1651() throws IOException {
+    public void readMulti_add30_add1699() throws IOException {
         BoundedReader mr = new BoundedReader(sr, 3);
         char[] cbuf = new char[4];
         for (int i = 0; i < (cbuf.length); i++) {
             cbuf[i] = 'X';
         }
         int o_readMulti_add30__9 = mr.read(cbuf, 0, 4);
-        int o_readMulti_add30_add1651__12 = mr.read(cbuf, 0, 4);
-        Assert.assertEquals(0, ((int) (o_readMulti_add30_add1651__12)));
+        int o_readMulti_add30_add1699__12 = mr.read(cbuf, 0, 4);
+        Assert.assertEquals(0, ((int) (o_readMulti_add30_add1699__12)));
         final int read = mr.read(cbuf, 0, 4);
-        char char_8 = cbuf[0];
-        char char_9 = cbuf[1];
-        char char_10 = cbuf[2];
-        char char_11 = cbuf[3];
+        char char_124 = cbuf[0];
+        char char_125 = cbuf[1];
+        char char_126 = cbuf[2];
+        char char_127 = cbuf[3];
         mr.close();
-        Assert.assertEquals(0, ((int) (o_readMulti_add30_add1651__12)));
+        Assert.assertEquals(0, ((int) (o_readMulti_add30_add1699__12)));
+    }
+
+    @Test(timeout = 10000)
+    public void readMulti_literalMutationNumber3_add1665() throws IOException {
+        BoundedReader mr = new BoundedReader(sr, 0);
+        char[] cbuf = new char[4];
+        for (int i = 0; i < (cbuf.length); i++) {
+            cbuf[i] = 'X';
+        }
+        int o_readMulti_literalMutationNumber3_add1665__10 = mr.read(cbuf, 0, 4);
+        Assert.assertEquals(0, ((int) (o_readMulti_literalMutationNumber3_add1665__10)));
+        final int read = mr.read(cbuf, 0, 4);
+        char char_40 = cbuf[0];
+        char char_41 = cbuf[1];
+        char char_42 = cbuf[2];
+        char char_43 = cbuf[3];
+        mr.close();
+        Assert.assertEquals(0, ((int) (o_readMulti_literalMutationNumber3_add1665__10)));
     }
 
     @Test(timeout = 10000)
@@ -62,30 +80,12 @@ public class AmplBoundedReaderTest {
         }
         final int read = mr.read(cbuf, 0, 4);
         Assert.assertEquals(0, ((int) (read)));
-        char char_52 = cbuf[0];
-        char char_53 = cbuf[1];
-        char char_54 = cbuf[2];
-        char char_55 = cbuf[3];
+        char char_40 = cbuf[0];
+        char char_41 = cbuf[1];
+        char char_42 = cbuf[2];
+        char char_43 = cbuf[3];
         mr.close();
         Assert.assertEquals(0, ((int) (read)));
-    }
-
-    @Test(timeout = 10000)
-    public void readMulti_literalMutationNumber3_add1671() throws IOException {
-        BoundedReader mr = new BoundedReader(sr, 0);
-        char[] cbuf = new char[4];
-        for (int i = 0; i < (cbuf.length); i++) {
-            cbuf[i] = 'X';
-        }
-        int o_readMulti_literalMutationNumber3_add1671__10 = mr.read(cbuf, 0, 4);
-        Assert.assertEquals(0, ((int) (o_readMulti_literalMutationNumber3_add1671__10)));
-        final int read = mr.read(cbuf, 0, 4);
-        char char_52 = cbuf[0];
-        char char_53 = cbuf[1];
-        char char_54 = cbuf[2];
-        char char_55 = cbuf[3];
-        mr.close();
-        Assert.assertEquals(0, ((int) (o_readMulti_literalMutationNumber3_add1671__10)));
     }
 }
 
