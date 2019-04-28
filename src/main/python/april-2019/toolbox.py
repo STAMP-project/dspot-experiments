@@ -67,7 +67,7 @@ not_enough_commits = [
 ]
 
 def create_diff(commit_id, cwd):
-    toolbox.delete_if_exists(
+    delete_if_exists(
         cwd + "/patch.diff"
     )
     cmd = [
