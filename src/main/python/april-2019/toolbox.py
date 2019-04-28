@@ -27,10 +27,10 @@ name_of_csv_with_list_of_test_that_execute_the_changes = "testsThatExecuteTheCha
 projects = [
     'commons-io',
     'commons-lang',
-    'gson',
-    'jsoup',
+    #'gson',
+    #'jsoup',
     #'pdfbox',
-    'xwiki-commons'
+    #'xwiki-commons'
 ]
 
 new_projects = [
@@ -139,6 +139,7 @@ def print_and_call_in_a_file(cmd, cwd=None):
     print cmd
     with open(path_to_script_to_run, "w") as f:
         f.write("export JAVA_OPTS=\"-XX:-OmitStackTraceInFastThrow -XX:-UseGCOverheadLimit\"\n")
+        f.write("export MAVEN_OPTS=\"-Xms2G -Xmx16G\"\n")
         f.write(cmd + " " + " ".join(["1>" + tmp_file_log, "2>&1"]))
         f.write("\n")
         f.close()
