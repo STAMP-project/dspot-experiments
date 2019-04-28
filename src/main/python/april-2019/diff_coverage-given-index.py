@@ -2,7 +2,6 @@ import sys
 import toolbox
 import commit_setter
 import preparation
-import run
 import shutil
 
 
@@ -44,11 +43,11 @@ def diff_coverage(project, index):
     toolbox.create(toolbox.prefix_result + project )
     toolbox.create(toolbox.prefix_result + project + "/" + toolbox.get_output_folder_for_commit(commit_json, commits))
 
-    run.create_diff(
+    toolbox.create_diff(
         commit_json["sha"],
         path_to_concerned_module_parent,
     )
-    run.create_diff(
+    toolbox.create_diff(
         commit_json["parent"],
         path_to_concerned_module,
     )

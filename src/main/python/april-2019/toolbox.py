@@ -66,6 +66,17 @@ not_enough_commits = [
     'eclipse/jgit' # not a classical maven hierarchy of files
 ]
 
+def create_diff(commit_id, cwd):
+    toolbox.delete_if_exists(
+        cwd + "/patch.diff"
+    )
+    cmd = [
+        "git", "diff",
+        commit_id,
+        ">", get_absolute_path(cwd + "/patch.diff")
+    ]
+    print_and_call_in_a_file_no_redirection(cmd, cwd=cwd)
+
 # input: commit from json array, and the array itself
 def get_output_folder_for_commit(commit, commits):
     return "commit_" + str(commits.index(commit)) + "_" + str(commit["sha"])[0:7]
