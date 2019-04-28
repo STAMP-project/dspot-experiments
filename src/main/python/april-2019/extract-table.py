@@ -12,9 +12,9 @@ def build_table(projects):
         nb_commit = project_json["numberCommits"]  # DATA 1
         commits = project_json["commits"]
         nb_test_to_be_amplified = 0  # DATA 2
-        nb_success = [0, 0]  # DATA 3
-        nb_test_amplified = [[], []]  # DATA 4
-        time = [[], []]
+        nb_success = [0, 0, 0, 0]  # DATA 3
+        nb_test_amplified = [[], [], [], []]  # DATA 4
+        time = [[], [], [], []]
         coverage = []
         nb_test_total_project = []
         print '\multirow{11}{*}{\\rotvertical{' + project + '}}'
@@ -28,10 +28,10 @@ def build_table(projects):
                 continue
             coverage.append(round(coverage_commit, 2))
             nb_test_to_be_amplified = nb_test_to_be_amplified + get_nb_test_to_be_amplified(path_to_commit_folder)
-            modes = ["assert_amplification", "input_amplification"]
-            nb_test_amplified_mode = [0, 0]
-            time_mode = [0, 0]
-            success_mode = [0, 0]
+            modes = ["assert_amplification", "input_amplification/1", "input_amplification/2", "input_amplification/3"]
+            nb_test_amplified_mode = [0, 0, 0, 0]
+            time_mode = [0, 0, 0, 0]
+            success_mode = [0, 0, 0, 0]
             size_diff = diff_size.size(path_to_commit_folder + "commit_coverage_patch.diff")
             date = commit_json['date']
             nb_test_modified_commit = commit_json['nbModifiedTest']
@@ -63,16 +63,26 @@ def build_table(projects):
                 '\\cmark(' + str(nb_test_amplified_mode[0]) + ')' if success_mode[0] == 1 else "0",
                 convert_time(time_mode[0]),
                 '\\cmark(' + str(nb_test_amplified_mode[1]) + ')' if success_mode[1] == 1 else "0",
-                convert_time(time_mode[1])
+                convert_time(time_mode[1]),
+                '\\cmark(' + str(nb_test_amplified_mode[2]) + ')' if success_mode[2] == 1 else "0",
+                convert_time(time_mode[2]),
+                '\\cmark(' + str(nb_test_amplified_mode[3]) + ')' if success_mode[3] == 1 else "0",
+                convert_time(time_mode[3])
             )
 
-            time[0].append(convert_time(time_mode[0]))
-            time[1].append(convert_time(time_mode[1]))
+            time[0].append(time_mode[0])
+            time[1].append(time_mode[1])
+            time[2].append(time_mode[2])
+            time[3].append(time_mode[3])
             nb_success[0] = nb_success[0] + success_mode[0]
             nb_success[1] = nb_success[1] + success_mode[1]
+            nb_success[2] = nb_success[2] + success_mode[2]
+            nb_success[3] = nb_success[3] + success_mode[3]
             nb_test_total_project.append(nb_test_total)
             nb_test_amplified[0].append(nb_test_amplified_mode[0])
             nb_test_amplified[1].append(nb_test_amplified_mode[1])
+            nb_test_amplified[2].append(nb_test_amplified_mode[2])
+            nb_test_amplified[3].append(nb_test_amplified_mode[3])
 
         # percentage_success_aampl = compute_percentage(nb_commit, nb_success[0])
         # percentage_success_iampl = compute_percentage(nb_commit, nb_success[1])
@@ -92,14 +102,22 @@ def build_table(projects):
             '\\xspace{}',
             nb_test_to_be_amplified,
             avg(nb_test_amplified[0]),
-            'avg(' + str(avg(time[0])) + ')',
+            'avg(' + str(convert_time(avg_value(time[0]))) + ')',
             avg(nb_test_amplified[1]),
-            'avg(' + str(avg(time[1])) + ')'
+            'avg(' + str(convert_time(avg_value(time[1]))) + ')',
+            avg(nb_test_amplified[2]),
+            'avg(' + str(convert_time(avg_value(time[2]))) + ')',
+            avg(nb_test_amplified[3]),
+            'avg(' + str(convert_time(avg_value(time[3]))) + ')'
         )
         print '\\hline'
 
 
 def avg(table):
+    return "{0:.2f}".format(avg_value(table))
+
+
+def avg_value(table):
     if len(table) == 0:
         return 0.0
     return sum(table) / float(len(table))
@@ -114,9 +132,13 @@ def print_line(id,
                number_test_to_be_amplified,
                number_aampl,
                time_aampl,
-               number_iampl,
-               time_iampl):
-    print "&  {}  &  {} &  {}  &  {}  &  {}  &  {}  &  {}  &  {}  &  {}  &  {}  &  {}\\\\".format(
+               number_iampl_it_1,
+               time_iampl_it_1,
+               number_iampl_it_2,
+               time_iampl_it_2,
+               number_iampl_it_3,
+               time_iampl_it_3):
+    print "&  {}  &  {} &  {}  &  {}  &  {}  &  {}  &  {}  &  {}  &  {}  &  {}  &  {}  &  {}  &  {}  &  {}  &  {}\\\\".format(
         id,
         date,
         nb_test,
@@ -126,8 +148,12 @@ def print_line(id,
         number_test_to_be_amplified,
         number_aampl,
         time_aampl,
-        number_iampl,
-        time_iampl
+        number_iampl_it_1,
+        time_iampl_it_1,
+        number_iampl_it_2,
+        time_iampl_it_2,
+        number_iampl_it_3,
+        time_iampl_it_3
     )
 
 
@@ -144,13 +170,28 @@ def convert_diff_size(size_diff):
 
 
 def print_header():
-    print '& id  &  date  &  \\#Test &  \\#ModifiedTest  &' + convert_diff_size(('+',
-                                                                                 '-')) + ' &  Cov  &  \\#SelectedTest  &  \\#Aampl Tests  &  Time(min)  &  \\#Iampl Tests  &  Time(min)\\\\'
-    print '\\hline'
-
+    header = [
+        '',
+        'id',
+        'date',
+        '\\#Test',
+        '\\#ModifiedTest',
+        convert_diff_size(('+', '-')),
+        'Cov',
+        '\\#SelectedTest',
+        '\\begin{tabular}{c}\\#\\aampl\\\\Tests\end{tabular}',
+        'Time',
+        '$it=1$',
+        'Time',
+        '$it=2$',
+        'Time',
+        '$it=3$',
+        'Time',
+    ]
+    print '&\n'.join(header) + '\\\\\n\\hline'
 
 def get_diff_coverage_commit(path_to_commit_folder):
-    with open(path_to_commit_folder + '/commit_coverage_testsThatExecuteTheChanges_coverage.csv') as coverage_cvs:
+    with open(path_to_commit_folder + '/parent_coverage_testsThatExecuteTheChanges_coverage.csv') as coverage_cvs:
         for line in coverage_cvs:
             if line.startswith('total;'):
                 splitted_line = line.split(';')
@@ -165,7 +206,16 @@ def compute_percentage(total, actual):
 
 
 def convert_time(time):
-    return time / 1000 / 60  # from ms to minute
+    time_in_second = time / 1000
+    if time_in_second > 120:
+        time_in_minute = float(time_in_second) / 60.0
+        if time_in_minute > 120:
+            time_in_hours = float(time_in_minute) / 60.0
+            return "{0:.1f}".format(time_in_hours) + 'h'
+        else:
+            return "{0:.1f}".format(time_in_minute) + 'm'
+    else:
+        return "{0:.1f}".format(time_in_second) + 's'
 
 
 def is_success(path_to_mode_result):
@@ -179,10 +229,11 @@ def is_success(path_to_mode_result):
 
 def get_nb_test_amplified(path_to_mode_result):
     nb_test_amplified = 0
-    for file in os.listdir(path_to_mode_result):
-        if file.endswith('_change_detector.json'):
-            file_json = toolbox.get_json_file(path_to_mode_result + "/" + file)
-            nb_test_amplified = nb_test_amplified + len(file_json['testCases'])
+    with open(path_to_mode_result + 'report.txt') as report_file:
+        lines = report_file.read()
+        for line in lines.split('\n'):
+            if line.endswith('amplified test fails on the new versions.'):
+                nb_test_amplified = nb_test_amplified + int(line.split(' ')[0])
     return nb_test_amplified
 
 
@@ -198,7 +249,7 @@ def get_time(path_to_mode_result, project):
 def get_nb_test_to_be_amplified(path_to_commit_folder):
     nb_test_to_be_amplified = 0
     with open(
-            path_to_commit_folder + toolbox.name_of_csv_with_list_of_test_that_execute_the_changes + ".csv") as csv_file:
+            path_to_commit_folder + 'parent_coverage_' + toolbox.name_of_csv_with_list_of_test_that_execute_the_changes + ".csv") as csv_file:
         for line in csv_file:
             nb_test_to_be_amplified = nb_test_to_be_amplified + len(line.split(';')[1:])
     return nb_test_to_be_amplified

@@ -163,7 +163,7 @@ def get_time(path_to_mode_result, project):
 def get_nb_test_to_be_amplified(path_to_commit_folder):
     nb_test_to_be_amplified = 0
     with open(
-            path_to_commit_folder + toolbox.name_of_csv_with_list_of_test_that_execute_the_changes + ".csv") as csv_file:
+            path_to_commit_folder + 'parent_coverage_' + toolbox.name_of_csv_with_list_of_test_that_execute_the_changes + ".csv") as csv_file:
         for line in csv_file:
             nb_test_to_be_amplified = nb_test_to_be_amplified + len(line.split(';')[1:])
     return nb_test_to_be_amplified
