@@ -7,57 +7,59 @@ import org.junit.Test;
 
 public class AmplJavaVersionTest {
     @Test(timeout = 10000)
-    public void testGetJavaVersionnull102null12943() throws Exception {
-        JavaVersion o_testGetJavaVersionnull102__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull102__1)).toString());
-        JavaVersion o_testGetJavaVersionnull102__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull102__2)).toString());
-        JavaVersion o_testGetJavaVersionnull102__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull102__3)).toString());
-        JavaVersion o_testGetJavaVersionnull102__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull102__4)).toString());
-        JavaVersion o_testGetJavaVersionnull102__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull102__5)).toString());
-        JavaVersion o_testGetJavaVersionnull102__6 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull102__6);
-        JavaVersion o_testGetJavaVersionnull102__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull102__7)).toString());
-        JavaVersion o_testGetJavaVersionnull102__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull102__8)).toString());
-        JavaVersion o_testGetJavaVersionnull102__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull102__9)).toString());
-        JavaVersion o_testGetJavaVersionnull102__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull102__10)).toString());
-        JavaVersion o_testGetJavaVersionnull102__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull102__11)).toString());
-        JavaVersion o_testGetJavaVersionnull102__12 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull102__12);
-        JavaVersion o_testGetJavaVersionnull102__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull102__13)).toString());
-        JavaVersion o_testGetJavaVersionnull102__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull102__14)).toString());
-        JavaVersion o_testGetJavaVersionnull102__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull102__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull102__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull102__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull102__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull102__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull102__5)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull102__6);
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull102__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull102__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull102__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull102__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull102__11)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull102__12);
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull102__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull102__14)).toString());
+    public void testGetJavaVersion_literalMutationString7_add10116() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString7__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString7__2 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString7__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString7__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString7__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString7__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString7__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString7__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString7__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString7__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString7__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString7__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString7__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString7__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString7__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__15)).toString());
+        o_testGetJavaVersion_literalMutationString7__13.toString();
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__1)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__14)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__15)).toString());
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString63_add10961() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString63__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__1)).toString());
+    public void testGetJavaVersion_literalMutationString63_literalMutationString3534() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString63__1 = JavaVersion.get("L.9");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__1)).toString());
         JavaVersion o_testGetJavaVersion_literalMutationString63__2 = JavaVersion.get("1.1");
         Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__2)).toString());
         JavaVersion o_testGetJavaVersion_literalMutationString63__3 = JavaVersion.get("1.2");
@@ -86,8 +88,7 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__14)).toString());
         JavaVersion o_testGetJavaVersion_literalMutationString63__15 = JavaVersion.get("11");
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__15)).toString());
-        o_testGetJavaVersion_literalMutationString63__8.toString();
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__1)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__1)).toString());
         Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__2)).toString());
         Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__3)).toString());
         Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__4)).toString());
@@ -101,263 +102,18 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__12)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__13)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__14)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__15)).toString());
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString78_literalMutationString3157() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString78__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__5 = JavaVersion.get("14");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__14 = JavaVersion.getJavaVersion("w.5");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__4)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__13)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString51null13357() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString51__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__2 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString51__2);
-        JavaVersion o_testGetJavaVersion_literalMutationString51__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__9 = JavaVersion.get("I.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__1)).toString());
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString51__2);
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersionnull110_add9670() throws Exception {
-        JavaVersion o_testGetJavaVersionnull110__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull110__1)).toString());
-        JavaVersion o_testGetJavaVersionnull110__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull110__2)).toString());
-        JavaVersion o_testGetJavaVersionnull110__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull110__3)).toString());
-        JavaVersion o_testGetJavaVersionnull110_add9670__10 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull110_add9670__10)).toString());
-        JavaVersion o_testGetJavaVersionnull110__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull110__4)).toString());
-        JavaVersion o_testGetJavaVersionnull110__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull110__5)).toString());
-        JavaVersion o_testGetJavaVersionnull110__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull110__6)).toString());
-        JavaVersion o_testGetJavaVersionnull110__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull110__7)).toString());
-        JavaVersion o_testGetJavaVersionnull110__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull110__8)).toString());
-        JavaVersion o_testGetJavaVersionnull110__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__9)).toString());
-        JavaVersion o_testGetJavaVersionnull110__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull110__10)).toString());
-        JavaVersion o_testGetJavaVersionnull110__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull110__11)).toString());
-        JavaVersion o_testGetJavaVersionnull110__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__12)).toString());
-        JavaVersion o_testGetJavaVersionnull110__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull110__13)).toString());
-        JavaVersion o_testGetJavaVersionnull110__14 = JavaVersion.getJavaVersion(null);
-        Assert.assertNull(o_testGetJavaVersionnull110__14);
-        JavaVersion o_testGetJavaVersionnull110__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull110__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull110__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull110__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull110_add9670__10)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull110__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull110__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull110__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull110__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull110__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull110__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull110__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull110__13)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull110__14);
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersionnull101_literalMutationString1497() throws Exception {
-        JavaVersion o_testGetJavaVersionnull101__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull101__1)).toString());
-        JavaVersion o_testGetJavaVersionnull101__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull101__2)).toString());
-        JavaVersion o_testGetJavaVersionnull101__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull101__3)).toString());
-        JavaVersion o_testGetJavaVersionnull101__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull101__4)).toString());
-        JavaVersion o_testGetJavaVersionnull101__5 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull101__5);
-        JavaVersion o_testGetJavaVersionnull101__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__6)).toString());
-        JavaVersion o_testGetJavaVersionnull101__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull101__7)).toString());
-        JavaVersion o_testGetJavaVersionnull101__8 = JavaVersion.get("17");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101__8)).toString());
-        JavaVersion o_testGetJavaVersionnull101__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101__9)).toString());
-        JavaVersion o_testGetJavaVersionnull101__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull101__10)).toString());
-        JavaVersion o_testGetJavaVersionnull101__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull101__11)).toString());
-        JavaVersion o_testGetJavaVersionnull101__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101__12)).toString());
-        JavaVersion o_testGetJavaVersionnull101__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__13)).toString());
-        JavaVersion o_testGetJavaVersionnull101__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__14)).toString());
-        JavaVersion o_testGetJavaVersionnull101__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull101__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull101__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull101__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull101__4)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull101__5);
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull101__7)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull101__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull101__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString4_add9959() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString4__1 = JavaVersion.get("09");
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString4__1);
-        JavaVersion o_testGetJavaVersion_literalMutationString4_add9959__4 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4_add9959__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__15)).toString());
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString4__1);
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4_add9959__4)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersionnull104_literalMutationString414() throws Exception {
+    public void testGetJavaVersionnull104_add11088() throws Exception {
         JavaVersion o_testGetJavaVersionnull104__1 = JavaVersion.get("0.9");
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull104__1)).toString());
+        JavaVersion o_testGetJavaVersionnull104_add11088__4 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull104_add11088__4)).toString());
         JavaVersion o_testGetJavaVersionnull104__2 = JavaVersion.get("1.1");
         Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull104__2)).toString());
-        JavaVersion o_testGetJavaVersionnull104__3 = JavaVersion.get("1a.2");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull104__3)).toString());
+        JavaVersion o_testGetJavaVersionnull104__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull104__3)).toString());
         JavaVersion o_testGetJavaVersionnull104__4 = JavaVersion.get("1.3");
         Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull104__4)).toString());
         JavaVersion o_testGetJavaVersionnull104__5 = JavaVersion.get("1.4");
@@ -383,8 +139,9 @@ public class AmplJavaVersionTest {
         JavaVersion o_testGetJavaVersionnull104__15 = JavaVersion.get("11");
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull104__15)).toString());
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull104__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull104_add11088__4)).toString());
         Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull104__2)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull104__3)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull104__3)).toString());
         Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull104__4)).toString());
         Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull104__5)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull104__6)).toString());
@@ -399,51 +156,294 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersionnull106null12910() throws Exception {
-        JavaVersion o_testGetJavaVersionnull106__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull106__1)).toString());
-        JavaVersion o_testGetJavaVersionnull106__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull106__2)).toString());
-        JavaVersion o_testGetJavaVersionnull106__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull106__3)).toString());
-        JavaVersion o_testGetJavaVersionnull106__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull106__4)).toString());
-        JavaVersion o_testGetJavaVersionnull106__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull106__5)).toString());
-        JavaVersion o_testGetJavaVersionnull106__6 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull106__6);
-        JavaVersion o_testGetJavaVersionnull106__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull106__7)).toString());
-        JavaVersion o_testGetJavaVersionnull106__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull106__8)).toString());
-        JavaVersion o_testGetJavaVersionnull106__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull106__9)).toString());
-        JavaVersion o_testGetJavaVersionnull106__10 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull106__10);
-        JavaVersion o_testGetJavaVersionnull106__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull106__11)).toString());
-        JavaVersion o_testGetJavaVersionnull106__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull106__12)).toString());
-        JavaVersion o_testGetJavaVersionnull106__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__13)).toString());
-        JavaVersion o_testGetJavaVersionnull106__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__14)).toString());
-        JavaVersion o_testGetJavaVersionnull106__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull106__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull106__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull106__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull106__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull106__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull106__5)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull106__6);
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull106__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull106__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull106__9)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull106__10);
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull106__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull106__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__14)).toString());
+    public void testGetJavaVersion_literalMutationString53null13384() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString53__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__9 = JavaVersion.get("18");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__14 = JavaVersion.getJavaVersion(null);
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString53__14);
+        JavaVersion o_testGetJavaVersion_literalMutationString53__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__13)).toString());
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString53__14);
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersionnull105null13676() throws Exception {
+        JavaVersion o_testGetJavaVersionnull105__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull105__1)).toString());
+        JavaVersion o_testGetJavaVersionnull105__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull105__2)).toString());
+        JavaVersion o_testGetJavaVersionnull105__3 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull105__3);
+        JavaVersion o_testGetJavaVersionnull105__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull105__4)).toString());
+        JavaVersion o_testGetJavaVersionnull105__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull105__5)).toString());
+        JavaVersion o_testGetJavaVersionnull105__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__6)).toString());
+        JavaVersion o_testGetJavaVersionnull105__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull105__7)).toString());
+        JavaVersion o_testGetJavaVersionnull105__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull105__8)).toString());
+        JavaVersion o_testGetJavaVersionnull105__9 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull105__9);
+        JavaVersion o_testGetJavaVersionnull105__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull105__10)).toString());
+        JavaVersion o_testGetJavaVersionnull105__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull105__11)).toString());
+        JavaVersion o_testGetJavaVersionnull105__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull105__12)).toString());
+        JavaVersion o_testGetJavaVersionnull105__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__13)).toString());
+        JavaVersion o_testGetJavaVersionnull105__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__14)).toString());
+        JavaVersion o_testGetJavaVersionnull105__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull105__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull105__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull105__2)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull105__3);
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull105__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull105__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull105__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull105__8)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull105__9);
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull105__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull105__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull105__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__14)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString69_literalMutationString2755() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString69__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__4 = JavaVersion.get("1<.3");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__13 = JavaVersion.get("1`.5");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__3)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__12)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__14)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString53null13383() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString53__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__9 = JavaVersion.get("18");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__13 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString53__13);
+        JavaVersion o_testGetJavaVersion_literalMutationString53__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__12)).toString());
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString53__13);
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__14)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString54_literalMutationString3423() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString54__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__9 = JavaVersion.get("1CN.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__14)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersionnull101_add11681() throws Exception {
+        JavaVersion o_testGetJavaVersionnull101__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull101__1)).toString());
+        JavaVersion o_testGetJavaVersionnull101__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull101__2)).toString());
+        JavaVersion o_testGetJavaVersionnull101__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull101__3)).toString());
+        JavaVersion o_testGetJavaVersionnull101_add11681__10 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull101_add11681__10)).toString());
+        JavaVersion o_testGetJavaVersionnull101__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull101__4)).toString());
+        JavaVersion o_testGetJavaVersionnull101__5 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull101__5);
+        JavaVersion o_testGetJavaVersionnull101__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__6)).toString());
+        JavaVersion o_testGetJavaVersionnull101__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull101__7)).toString());
+        JavaVersion o_testGetJavaVersionnull101__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull101__8)).toString());
+        JavaVersion o_testGetJavaVersionnull101__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101__9)).toString());
+        JavaVersion o_testGetJavaVersionnull101__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull101__10)).toString());
+        JavaVersion o_testGetJavaVersionnull101__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull101__11)).toString());
+        JavaVersion o_testGetJavaVersionnull101__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101__12)).toString());
+        JavaVersion o_testGetJavaVersionnull101__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__13)).toString());
+        JavaVersion o_testGetJavaVersionnull101__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__14)).toString());
+        JavaVersion o_testGetJavaVersionnull101__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull101__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull101__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull101__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull101_add11681__10)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull101__4)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull101__5);
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull101__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull101__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull101__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull101__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__14)).toString());
     }
 
     @Test(timeout = 10000)
@@ -495,6 +495,57 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString53_add10708() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString53__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__9 = JavaVersion.get("18");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53_add10708__28 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53_add10708__28)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53_add10708__28)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__14)).toString());
+    }
+
+    @Test(timeout = 10000)
     public void testGetJavaVersion_literalMutationString63() throws Exception {
         JavaVersion o_testGetJavaVersion_literalMutationString63__1 = JavaVersion.get("0.9");
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__1)).toString());
@@ -543,152 +594,51 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersionnull106_add9353() throws Exception {
-        JavaVersion o_testGetJavaVersionnull106__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull106__1)).toString());
-        JavaVersion o_testGetJavaVersionnull106__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull106__2)).toString());
-        JavaVersion o_testGetJavaVersionnull106__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull106__3)).toString());
-        JavaVersion o_testGetJavaVersionnull106__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull106__4)).toString());
-        JavaVersion o_testGetJavaVersionnull106__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull106__5)).toString());
-        JavaVersion o_testGetJavaVersionnull106__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__6)).toString());
-        JavaVersion o_testGetJavaVersionnull106__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull106__7)).toString());
-        JavaVersion o_testGetJavaVersionnull106__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull106__8)).toString());
-        JavaVersion o_testGetJavaVersionnull106__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull106__9)).toString());
-        JavaVersion o_testGetJavaVersionnull106__10 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull106__10);
-        JavaVersion o_testGetJavaVersionnull106__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull106__11)).toString());
-        JavaVersion o_testGetJavaVersionnull106__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull106__12)).toString());
-        JavaVersion o_testGetJavaVersionnull106__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__13)).toString());
-        JavaVersion o_testGetJavaVersionnull106__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__14)).toString());
-        o_testGetJavaVersionnull106__14.toString();
-        JavaVersion o_testGetJavaVersionnull106__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull106__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull106__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull106__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull106__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull106__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull106__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull106__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull106__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull106__9)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull106__10);
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull106__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull106__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString71_add11005() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString71__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString71__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString71__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString71__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString71__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString71__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString71__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString71__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString71__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString71__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString71__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString71__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString71__13 = JavaVersion.get("0.5");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString71__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString71__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__15)).toString());
-        o_testGetJavaVersion_literalMutationString71__8.toString();
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__12)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__14)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__15)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString63_add10958() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString63__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString63__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString63__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString63__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString63__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString63__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString63__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString63__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString63__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString63__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString63__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString63__12 = JavaVersion.get("1T.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString63__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString63__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString63__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__15)).toString());
-        o_testGetJavaVersion_literalMutationString63__5.toString();
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__14)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__15)).toString());
+    public void testGetJavaVersionnull105_literalMutationString4667() throws Exception {
+        JavaVersion o_testGetJavaVersionnull105__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull105__1)).toString());
+        JavaVersion o_testGetJavaVersionnull105__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull105__2)).toString());
+        JavaVersion o_testGetJavaVersionnull105__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull105__3)).toString());
+        JavaVersion o_testGetJavaVersionnull105__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull105__4)).toString());
+        JavaVersion o_testGetJavaVersionnull105__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull105__5)).toString());
+        JavaVersion o_testGetJavaVersionnull105__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__6)).toString());
+        JavaVersion o_testGetJavaVersionnull105__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull105__7)).toString());
+        JavaVersion o_testGetJavaVersionnull105__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull105__8)).toString());
+        JavaVersion o_testGetJavaVersionnull105__9 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull105__9);
+        JavaVersion o_testGetJavaVersionnull105__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull105__10)).toString());
+        JavaVersion o_testGetJavaVersionnull105__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull105__11)).toString());
+        JavaVersion o_testGetJavaVersionnull105__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull105__12)).toString());
+        JavaVersion o_testGetJavaVersionnull105__13 = JavaVersion.get("1T.5");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull105__13)).toString());
+        JavaVersion o_testGetJavaVersionnull105__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__14)).toString());
+        JavaVersion o_testGetJavaVersionnull105__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull105__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull105__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull105__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull105__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull105__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull105__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull105__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull105__8)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull105__9);
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull105__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull105__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull105__12)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull105__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__14)).toString());
     }
 
     @Test(timeout = 10000)
@@ -740,6 +690,107 @@ public class AmplJavaVersionTest {
         Assert.assertNull(o_testGetJavaVersion_literalMutationString64__12);
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString64__13)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString64__14)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString71_add11082() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString71__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString71__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString71__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString71__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString71__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString71__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString71__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString71__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString71__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString71__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString71__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString71__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString71__13 = JavaVersion.get("0.5");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString71__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString71__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__15)).toString());
+        o_testGetJavaVersion_literalMutationString71__11.toString();
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__12)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__14)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__15)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString47_add10522() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString47__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47_add10522__13 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47_add10522__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__8 = JavaVersion.get("17");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47_add10522__13)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__7)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__14)).toString());
     }
 
     @Test(timeout = 10000)
@@ -842,101 +893,51 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString47_add10483() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString47__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__8 = JavaVersion.get("17");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__15)).toString());
-        o_testGetJavaVersion_literalMutationString47__14.toString();
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__7)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__14)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__15)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersionnull110_literalMutationString1113() throws Exception {
-        JavaVersion o_testGetJavaVersionnull110__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull110__1)).toString());
-        JavaVersion o_testGetJavaVersionnull110__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull110__2)).toString());
-        JavaVersion o_testGetJavaVersionnull110__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull110__3)).toString());
-        JavaVersion o_testGetJavaVersionnull110__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull110__4)).toString());
-        JavaVersion o_testGetJavaVersionnull110__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull110__5)).toString());
-        JavaVersion o_testGetJavaVersionnull110__6 = JavaVersion.get("15");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__6)).toString());
-        JavaVersion o_testGetJavaVersionnull110__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull110__7)).toString());
-        JavaVersion o_testGetJavaVersionnull110__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull110__8)).toString());
-        JavaVersion o_testGetJavaVersionnull110__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__9)).toString());
-        JavaVersion o_testGetJavaVersionnull110__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull110__10)).toString());
-        JavaVersion o_testGetJavaVersionnull110__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull110__11)).toString());
-        JavaVersion o_testGetJavaVersionnull110__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__12)).toString());
-        JavaVersion o_testGetJavaVersionnull110__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull110__13)).toString());
-        JavaVersion o_testGetJavaVersionnull110__14 = JavaVersion.getJavaVersion(null);
-        Assert.assertNull(o_testGetJavaVersionnull110__14);
-        JavaVersion o_testGetJavaVersionnull110__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull110__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull110__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull110__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull110__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull110__5)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull110__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull110__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull110__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull110__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull110__13)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull110__14);
+    public void testGetJavaVersion_literalMutationString6null13185() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString6__1 = JavaVersion.get("0}.9");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString6__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString6__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString6__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString6__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString6__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString6__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString6__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString6__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString6__10 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString6__10);
+        JavaVersion o_testGetJavaVersion_literalMutationString6__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString6__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString6__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString6__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString6__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__15)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__9)).toString());
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString6__10);
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__14)).toString());
     }
 
     @Test(timeout = 10000)
@@ -988,6 +989,55 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
+    public void testGetJavaVersionnull109_add11185() throws Exception {
+        JavaVersion o_testGetJavaVersionnull109__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull109__1)).toString());
+        JavaVersion o_testGetJavaVersionnull109__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull109__2)).toString());
+        JavaVersion o_testGetJavaVersionnull109__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull109__3)).toString());
+        JavaVersion o_testGetJavaVersionnull109__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull109__4)).toString());
+        JavaVersion o_testGetJavaVersionnull109__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull109__5)).toString());
+        JavaVersion o_testGetJavaVersionnull109__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull109__6)).toString());
+        JavaVersion o_testGetJavaVersionnull109__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull109__7)).toString());
+        JavaVersion o_testGetJavaVersionnull109__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull109__8)).toString());
+        o_testGetJavaVersionnull109__8.toString();
+        JavaVersion o_testGetJavaVersionnull109__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull109__9)).toString());
+        JavaVersion o_testGetJavaVersionnull109__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull109__10)).toString());
+        JavaVersion o_testGetJavaVersionnull109__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull109__11)).toString());
+        JavaVersion o_testGetJavaVersionnull109__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull109__12)).toString());
+        JavaVersion o_testGetJavaVersionnull109__13 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull109__13);
+        JavaVersion o_testGetJavaVersionnull109__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull109__14)).toString());
+        JavaVersion o_testGetJavaVersionnull109__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull109__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull109__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull109__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull109__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull109__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull109__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull109__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull109__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull109__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull109__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull109__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull109__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull109__12)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull109__13);
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull109__14)).toString());
+    }
+
+    @Test(timeout = 10000)
     public void testGetJavaVersion_literalMutationString47() throws Exception {
         JavaVersion o_testGetJavaVersion_literalMutationString47__1 = JavaVersion.get("0.9");
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__1)).toString());
@@ -1036,54 +1086,51 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString48_add10136() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString48__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48_add10136__7 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48_add10136__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__8 = JavaVersion.get("1s.7");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48_add10136__7)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__7)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__14)).toString());
+    public void testGetJavaVersion_literalMutationString78null13444() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString78__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__14 = JavaVersion.getJavaVersion(null);
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString78__14);
+        JavaVersion o_testGetJavaVersion_literalMutationString78__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__13)).toString());
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString78__14);
     }
 
     @Test(timeout = 10000)
@@ -1135,6 +1182,54 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString3null13402() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString3__1 = JavaVersion.get("*.9");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__2 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString3__2);
+        JavaVersion o_testGetJavaVersion_literalMutationString3__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__15)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__1)).toString());
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString3__2);
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__14)).toString());
+    }
+
+    @Test(timeout = 10000)
     public void testGetJavaVersion_literalMutationString51() throws Exception {
         JavaVersion o_testGetJavaVersion_literalMutationString51__1 = JavaVersion.get("0.9");
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__1)).toString());
@@ -1183,51 +1278,52 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString69null13307() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString69__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__12 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString69__12);
-        JavaVersion o_testGetJavaVersion_literalMutationString69__13 = JavaVersion.get("1`.5");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__11)).toString());
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString69__12);
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__14)).toString());
+    public void testGetJavaVersion_literalMutationString3_add10805() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString3__1 = JavaVersion.get("*.9");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__14)).toString());
+        o_testGetJavaVersion_literalMutationString3__14.toString();
+        JavaVersion o_testGetJavaVersion_literalMutationString3__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__15)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__14)).toString());
     }
 
     @Test(timeout = 10000)
@@ -1279,503 +1375,64 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString30_add10320() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString30__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString30__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString30__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString30__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString30__5 = JavaVersion.get("14");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString30__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString30_add10320__19 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30_add10320__19)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString30__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString30__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString30__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString30__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString30__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString30__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString30__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString30__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString30__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__4)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30_add10320__19)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__14)).toString());
+    public void testGetJavaVersion_literalMutationString53_add10716() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString53__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__9 = JavaVersion.get("18");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53_add10716__40 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53_add10716__40)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53_add10716__40)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__14)).toString());
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersionnull107_add9783() throws Exception {
-        JavaVersion o_testGetJavaVersionnull107__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull107__1)).toString());
-        JavaVersion o_testGetJavaVersionnull107__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull107__2)).toString());
-        JavaVersion o_testGetJavaVersionnull107__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull107__3)).toString());
-        JavaVersion o_testGetJavaVersionnull107__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull107__4)).toString());
-        JavaVersion o_testGetJavaVersionnull107__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull107__5)).toString());
-        JavaVersion o_testGetJavaVersionnull107__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull107__6)).toString());
-        JavaVersion o_testGetJavaVersionnull107__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull107__7)).toString());
-        JavaVersion o_testGetJavaVersionnull107__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull107__8)).toString());
-        JavaVersion o_testGetJavaVersionnull107__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull107__9)).toString());
-        JavaVersion o_testGetJavaVersionnull107__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull107__10)).toString());
-        JavaVersion o_testGetJavaVersionnull107__11 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull107__11);
-        JavaVersion o_testGetJavaVersionnull107__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull107__12)).toString());
-        JavaVersion o_testGetJavaVersionnull107__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull107__13)).toString());
-        JavaVersion o_testGetJavaVersionnull107__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull107__14)).toString());
-        JavaVersion o_testGetJavaVersionnull107__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull107__15)).toString());
-        o_testGetJavaVersionnull107__7.toString();
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull107__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull107__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull107__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull107__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull107__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull107__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull107__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull107__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull107__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull107__10)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull107__11);
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull107__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull107__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull107__14)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull107__15)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString54_add10848() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString54__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54_add10848__19 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54_add10848__19)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__9 = JavaVersion.get("1C.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54_add10848__19)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersionnull108null12964() throws Exception {
-        JavaVersion o_testGetJavaVersionnull108__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull108__1)).toString());
-        JavaVersion o_testGetJavaVersionnull108__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull108__2)).toString());
-        JavaVersion o_testGetJavaVersionnull108__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull108__3)).toString());
-        JavaVersion o_testGetJavaVersionnull108__4 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull108__4);
-        JavaVersion o_testGetJavaVersionnull108__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull108__5)).toString());
-        JavaVersion o_testGetJavaVersionnull108__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__6)).toString());
-        JavaVersion o_testGetJavaVersionnull108__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull108__7)).toString());
-        JavaVersion o_testGetJavaVersionnull108__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull108__8)).toString());
-        JavaVersion o_testGetJavaVersionnull108__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull108__9)).toString());
-        JavaVersion o_testGetJavaVersionnull108__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull108__10)).toString());
-        JavaVersion o_testGetJavaVersionnull108__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull108__11)).toString());
-        JavaVersion o_testGetJavaVersionnull108__12 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull108__12);
-        JavaVersion o_testGetJavaVersionnull108__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__13)).toString());
-        JavaVersion o_testGetJavaVersionnull108__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__14)).toString());
-        JavaVersion o_testGetJavaVersionnull108__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull108__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull108__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull108__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull108__3)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull108__4);
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull108__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull108__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull108__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull108__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull108__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull108__11)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull108__12);
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString51_add10668() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString51__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51_add10668__13 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51_add10668__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__9 = JavaVersion.get("I.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51_add10668__13)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString48_literalMutationString1967() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString48__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__6 = JavaVersion.get("x.5");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__8 = JavaVersion.get("1s.7");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__5)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__7)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString69_literalMutationString2611() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString69__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__7 = JavaVersion.get("2.6");
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString69__7);
-        JavaVersion o_testGetJavaVersion_literalMutationString69__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__13 = JavaVersion.get("1`.5");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__6)).toString());
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString69__7);
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__12)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString54null13417() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString54__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__2 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString54__2);
-        JavaVersion o_testGetJavaVersion_literalMutationString54__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__9 = JavaVersion.get("1C.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__1)).toString());
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString54__2);
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString47_add10451() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString47__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__6)).toString());
-        o_testGetJavaVersion_literalMutationString47__6.toString();
-        JavaVersion o_testGetJavaVersion_literalMutationString47__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__8 = JavaVersion.get("17");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__7)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersionnull107null13047() throws Exception {
-        JavaVersion o_testGetJavaVersionnull107__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull107__1)).toString());
-        JavaVersion o_testGetJavaVersionnull107__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull107__2)).toString());
-        JavaVersion o_testGetJavaVersionnull107__3 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull107__3);
-        JavaVersion o_testGetJavaVersionnull107__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull107__4)).toString());
-        JavaVersion o_testGetJavaVersionnull107__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull107__5)).toString());
-        JavaVersion o_testGetJavaVersionnull107__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull107__6)).toString());
-        JavaVersion o_testGetJavaVersionnull107__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull107__7)).toString());
-        JavaVersion o_testGetJavaVersionnull107__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull107__8)).toString());
-        JavaVersion o_testGetJavaVersionnull107__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull107__9)).toString());
-        JavaVersion o_testGetJavaVersionnull107__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull107__10)).toString());
-        JavaVersion o_testGetJavaVersionnull107__11 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull107__11);
-        JavaVersion o_testGetJavaVersionnull107__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull107__12)).toString());
-        JavaVersion o_testGetJavaVersionnull107__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull107__13)).toString());
-        JavaVersion o_testGetJavaVersionnull107__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull107__14)).toString());
-        JavaVersion o_testGetJavaVersionnull107__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull107__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull107__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull107__2)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull107__3);
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull107__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull107__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull107__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull107__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull107__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull107__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull107__10)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull107__11);
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull107__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull107__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull107__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersionnull102_add9449() throws Exception {
+    public void testGetJavaVersionnull102_add11216() throws Exception {
         JavaVersion o_testGetJavaVersionnull102__1 = JavaVersion.get("0.9");
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull102__1)).toString());
         JavaVersion o_testGetJavaVersionnull102__2 = JavaVersion.get("1.1");
         Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull102__2)).toString());
+        JavaVersion o_testGetJavaVersionnull102_add11216__7 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull102_add11216__7)).toString());
         JavaVersion o_testGetJavaVersionnull102__3 = JavaVersion.get("1.2");
         Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull102__3)).toString());
         JavaVersion o_testGetJavaVersionnull102__4 = JavaVersion.get("1.3");
@@ -1802,9 +1459,9 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull102__14)).toString());
         JavaVersion o_testGetJavaVersionnull102__15 = JavaVersion.get("11");
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull102__15)).toString());
-        o_testGetJavaVersionnull102__11.toString();
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull102__1)).toString());
         Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull102__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull102_add11216__7)).toString());
         Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull102__3)).toString());
         Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull102__4)).toString());
         Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull102__5)).toString());
@@ -1817,113 +1474,58 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull102__12)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull102__13)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull102__14)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull102__15)).toString());
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString78_add10818() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString78__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78_add10818__40 = JavaVersion.getJavaVersion("w.5");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78_add10818__40)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__14 = JavaVersion.getJavaVersion("w.5");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString78__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__13)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78_add10818__40)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__14)).toString());
+    public void testGetJavaVersion_literalMutationString15_literalMutationString3473() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString15__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__3 = JavaVersion.get("12");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__4 = JavaVersion.get("B.3");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__2)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__3)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__14)).toString());
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString48_add10146() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString48__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48_add10146__22 = JavaVersion.get("1s.7");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48_add10146__22)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__8 = JavaVersion.get("1s.7");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__7)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48_add10146__22)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString6null13150() throws Exception {
+    public void testGetJavaVersion_literalMutationString6_add10161() throws Exception {
         JavaVersion o_testGetJavaVersion_literalMutationString6__1 = JavaVersion.get("0}.9");
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__1)).toString());
         JavaVersion o_testGetJavaVersion_literalMutationString6__2 = JavaVersion.get("1.1");
@@ -1932,8 +1534,8 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__3)).toString());
         JavaVersion o_testGetJavaVersion_literalMutationString6__4 = JavaVersion.get("1.3");
         Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__5 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString6__5);
+        JavaVersion o_testGetJavaVersion_literalMutationString6__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__5)).toString());
         JavaVersion o_testGetJavaVersion_literalMutationString6__6 = JavaVersion.get("1.5");
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__6)).toString());
         JavaVersion o_testGetJavaVersion_literalMutationString6__7 = JavaVersion.get("1.6");
@@ -1954,11 +1556,12 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__14)).toString());
         JavaVersion o_testGetJavaVersion_literalMutationString6__15 = JavaVersion.get("11");
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__15)).toString());
+        o_testGetJavaVersion_literalMutationString6__14.toString();
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__1)).toString());
         Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__2)).toString());
         Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__3)).toString());
         Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__4)).toString());
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString6__5);
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__5)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__6)).toString());
         Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__7)).toString());
         Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__8)).toString());
@@ -1968,109 +1571,111 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__12)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__13)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__14)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__15)).toString());
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersionnull101_add9901() throws Exception {
-        JavaVersion o_testGetJavaVersionnull101__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull101__1)).toString());
-        JavaVersion o_testGetJavaVersionnull101__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull101__2)).toString());
-        JavaVersion o_testGetJavaVersionnull101__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull101__3)).toString());
-        JavaVersion o_testGetJavaVersionnull101__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull101__4)).toString());
-        JavaVersion o_testGetJavaVersionnull101__5 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull101__5);
-        JavaVersion o_testGetJavaVersionnull101__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__6)).toString());
-        JavaVersion o_testGetJavaVersionnull101__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull101__7)).toString());
-        JavaVersion o_testGetJavaVersionnull101__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull101__8)).toString());
-        JavaVersion o_testGetJavaVersionnull101__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101__9)).toString());
-        JavaVersion o_testGetJavaVersionnull101__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull101__10)).toString());
-        JavaVersion o_testGetJavaVersionnull101__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull101__11)).toString());
-        JavaVersion o_testGetJavaVersionnull101__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101__12)).toString());
-        JavaVersion o_testGetJavaVersionnull101__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__13)).toString());
-        JavaVersion o_testGetJavaVersionnull101__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__14)).toString());
-        JavaVersion o_testGetJavaVersionnull101_add9901__43 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101_add9901__43)).toString());
-        JavaVersion o_testGetJavaVersionnull101__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull101__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull101__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull101__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull101__4)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull101__5);
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull101__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull101__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull101__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull101__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__14)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101_add9901__43)).toString());
+    public void testGetJavaVersion_literalMutationString54_add10940() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString54__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__9 = JavaVersion.get("1C.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__15)).toString());
+        o_testGetJavaVersion_literalMutationString54__1.toString();
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__14)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__15)).toString());
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString47null13282() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString47__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__2 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString47__2);
-        JavaVersion o_testGetJavaVersion_literalMutationString47__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__8 = JavaVersion.get("17");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__1)).toString());
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString47__2);
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__7)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__14)).toString());
+    public void testGetJavaVersion_literalMutationString69_add10588() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString69__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__13 = JavaVersion.get("1`.5");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__15)).toString());
+        o_testGetJavaVersion_literalMutationString69__1.toString();
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__12)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__14)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__15)).toString());
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersionnull100null12984() throws Exception {
+    public void testGetJavaVersionnull100_add11376() throws Exception {
         JavaVersion o_testGetJavaVersionnull100__1 = JavaVersion.get("0.9");
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull100__1)).toString());
         JavaVersion o_testGetJavaVersionnull100__2 = JavaVersion.get("1.1");
@@ -2091,8 +1696,8 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull100__9)).toString());
         JavaVersion o_testGetJavaVersionnull100__10 = JavaVersion.get("9");
         Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull100__10)).toString());
-        JavaVersion o_testGetJavaVersionnull100__11 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull100__11);
+        JavaVersion o_testGetJavaVersionnull100__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull100__11)).toString());
         JavaVersion o_testGetJavaVersionnull100__12 = JavaVersion.get("1.10");
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull100__12)).toString());
         JavaVersion o_testGetJavaVersionnull100__13 = JavaVersion.get("1.5");
@@ -2101,6 +1706,7 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull100__14)).toString());
         JavaVersion o_testGetJavaVersionnull100__15 = JavaVersion.get("11");
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull100__15)).toString());
+        o_testGetJavaVersionnull100__10.toString();
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull100__1)).toString());
         Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull100__2)).toString());
         Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull100__3)).toString());
@@ -2111,62 +1717,63 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull100__8)).toString());
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull100__9)).toString());
         Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull100__10)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull100__11);
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull100__11)).toString());
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull100__12)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull100__13)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull100__14)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull100__15)).toString());
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString75null13214() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString75__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString75__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString75__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString75__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString75__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString75__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString75__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString75__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString75__9 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString75__9);
-        JavaVersion o_testGetJavaVersion_literalMutationString75__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString75__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString75__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString75__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString75__14 = JavaVersion.getJavaVersion("1O.5");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString75__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__8)).toString());
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString75__9);
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__13)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__14)).toString());
+    public void testGetJavaVersion_literalMutationString69null13339() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString69__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__13 = JavaVersion.get("1`.5");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString69__14 = JavaVersion.getJavaVersion(null);
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString69__14);
+        JavaVersion o_testGetJavaVersion_literalMutationString69__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__12)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__13)).toString());
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString69__14);
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString4_literalMutationString1685() throws Exception {
+    public void testGetJavaVersion_literalMutationString4_literalMutationString1842() throws Exception {
         JavaVersion o_testGetJavaVersion_literalMutationString4__1 = JavaVersion.get("09");
         Assert.assertNull(o_testGetJavaVersion_literalMutationString4__1);
         JavaVersion o_testGetJavaVersion_literalMutationString4__2 = JavaVersion.get("1.1");
@@ -2191,10 +1798,10 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__11)).toString());
         JavaVersion o_testGetJavaVersion_literalMutationString4__12 = JavaVersion.get("1.10");
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__14 = JavaVersion.getJavaVersion("1!.5");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString4__13 = JavaVersion.get("15");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString4__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__14)).toString());
         JavaVersion o_testGetJavaVersion_literalMutationString4__15 = JavaVersion.get("11");
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__15)).toString());
         Assert.assertNull(o_testGetJavaVersion_literalMutationString4__1);
@@ -2209,104 +1816,8 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__10)).toString());
         Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__11)).toString());
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__13)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersionnull109null12930() throws Exception {
-        JavaVersion o_testGetJavaVersionnull109__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull109__1)).toString());
-        JavaVersion o_testGetJavaVersionnull109__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull109__2)).toString());
-        JavaVersion o_testGetJavaVersionnull109__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull109__3)).toString());
-        JavaVersion o_testGetJavaVersionnull109__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull109__4)).toString());
-        JavaVersion o_testGetJavaVersionnull109__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull109__5)).toString());
-        JavaVersion o_testGetJavaVersionnull109__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull109__6)).toString());
-        JavaVersion o_testGetJavaVersionnull109__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull109__7)).toString());
-        JavaVersion o_testGetJavaVersionnull109__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull109__8)).toString());
-        JavaVersion o_testGetJavaVersionnull109__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull109__9)).toString());
-        JavaVersion o_testGetJavaVersionnull109__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull109__10)).toString());
-        JavaVersion o_testGetJavaVersionnull109__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull109__11)).toString());
-        JavaVersion o_testGetJavaVersionnull109__12 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull109__12);
-        JavaVersion o_testGetJavaVersionnull109__13 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull109__13);
-        JavaVersion o_testGetJavaVersionnull109__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull109__14)).toString());
-        JavaVersion o_testGetJavaVersionnull109__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull109__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull109__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull109__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull109__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull109__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull109__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull109__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull109__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull109__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull109__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull109__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull109__11)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull109__12);
-        Assert.assertNull(o_testGetJavaVersionnull109__13);
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull109__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString17_literalMutationString5610() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString17__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString17__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString17__3 = JavaVersion.get("1_.2");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString17__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString17__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString17__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString17__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString17__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString17__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString17__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString17__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString17__12 = JavaVersion.get("110");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString17__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString17__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString17__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__2)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString17__14)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__14)).toString());
     }
 
     @Test(timeout = 10000)
@@ -2360,6 +1871,56 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString23_add10502() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString23__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString23__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString23__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString23__4 = JavaVersion.get("1[.3");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString23__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString23__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString23__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString23__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString23__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString23__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString23__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString23__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString23__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString23__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString23__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__15)).toString());
+        o_testGetJavaVersion_literalMutationString23__3.toString();
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__3)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__14)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__15)).toString());
+    }
+
+    @Test(timeout = 10000)
     public void testGetJavaVersion_literalMutationString7() throws Exception {
         JavaVersion o_testGetJavaVersion_literalMutationString7__1 = JavaVersion.get("0.9");
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__1)).toString());
@@ -2405,6 +1966,54 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__12)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__13)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__14)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString63null13483() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString63__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__8 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString63__8);
+        JavaVersion o_testGetJavaVersion_literalMutationString63__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__12 = JavaVersion.get("1T.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__7)).toString());
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString63__8);
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__14)).toString());
     }
 
     @Test(timeout = 10000)
@@ -2457,51 +2066,100 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString54null13423() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString54__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__8 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString54__8);
-        JavaVersion o_testGetJavaVersion_literalMutationString54__9 = JavaVersion.get("1C.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__7)).toString());
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString54__8);
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__14)).toString());
+    public void testGetJavaVersionnull109_literalMutationString3848() throws Exception {
+        JavaVersion o_testGetJavaVersionnull109__1 = JavaVersion.get("0i.9");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull109__1)).toString());
+        JavaVersion o_testGetJavaVersionnull109__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull109__2)).toString());
+        JavaVersion o_testGetJavaVersionnull109__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull109__3)).toString());
+        JavaVersion o_testGetJavaVersionnull109__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull109__4)).toString());
+        JavaVersion o_testGetJavaVersionnull109__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull109__5)).toString());
+        JavaVersion o_testGetJavaVersionnull109__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull109__6)).toString());
+        JavaVersion o_testGetJavaVersionnull109__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull109__7)).toString());
+        JavaVersion o_testGetJavaVersionnull109__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull109__8)).toString());
+        JavaVersion o_testGetJavaVersionnull109__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull109__9)).toString());
+        JavaVersion o_testGetJavaVersionnull109__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull109__10)).toString());
+        JavaVersion o_testGetJavaVersionnull109__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull109__11)).toString());
+        JavaVersion o_testGetJavaVersionnull109__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull109__12)).toString());
+        JavaVersion o_testGetJavaVersionnull109__13 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull109__13);
+        JavaVersion o_testGetJavaVersionnull109__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull109__14)).toString());
+        JavaVersion o_testGetJavaVersionnull109__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull109__15)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull109__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull109__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull109__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull109__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull109__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull109__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull109__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull109__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull109__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull109__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull109__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull109__12)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull109__13);
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull109__14)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString15_add10963() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString15__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__3 = JavaVersion.get("12");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__5)).toString());
+        o_testGetJavaVersion_literalMutationString15__5.toString();
+        JavaVersion o_testGetJavaVersion_literalMutationString15__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__2)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__14)).toString());
     }
 
     @Test(timeout = 10000)
@@ -2553,6 +2211,57 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString75_add10296() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString75__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75_add10296__4 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75_add10296__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75__14 = JavaVersion.getJavaVersion("1O.5");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75_add10296__4)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__13)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__14)).toString());
+    }
+
+    @Test(timeout = 10000)
     public void testGetJavaVersion_literalMutationString4() throws Exception {
         JavaVersion o_testGetJavaVersion_literalMutationString4__1 = JavaVersion.get("09");
         Assert.assertNull(o_testGetJavaVersion_literalMutationString4__1);
@@ -2598,104 +2307,6 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__12)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__13)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString7_add10029() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString7__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString7__2 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString7__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString7__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString7__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString7__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString7__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString7__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString7__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString7__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString7__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString7__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString7__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString7__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString7__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__15)).toString());
-        o_testGetJavaVersion_literalMutationString7__15.toString();
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__1)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__14)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__15)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersionnull101null13095() throws Exception {
-        JavaVersion o_testGetJavaVersionnull101__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull101__1)).toString());
-        JavaVersion o_testGetJavaVersionnull101__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull101__2)).toString());
-        JavaVersion o_testGetJavaVersionnull101__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull101__3)).toString());
-        JavaVersion o_testGetJavaVersionnull101__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull101__4)).toString());
-        JavaVersion o_testGetJavaVersionnull101__5 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull101__5);
-        JavaVersion o_testGetJavaVersionnull101__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__6)).toString());
-        JavaVersion o_testGetJavaVersionnull101__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull101__7)).toString());
-        JavaVersion o_testGetJavaVersionnull101__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull101__8)).toString());
-        JavaVersion o_testGetJavaVersionnull101__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101__9)).toString());
-        JavaVersion o_testGetJavaVersionnull101__10 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull101__10);
-        JavaVersion o_testGetJavaVersionnull101__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull101__11)).toString());
-        JavaVersion o_testGetJavaVersionnull101__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101__12)).toString());
-        JavaVersion o_testGetJavaVersionnull101__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__13)).toString());
-        JavaVersion o_testGetJavaVersionnull101__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__14)).toString());
-        JavaVersion o_testGetJavaVersionnull101__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull101__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull101__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull101__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull101__4)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull101__5);
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull101__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull101__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101__9)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull101__10);
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull101__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__14)).toString());
     }
 
     @Test(timeout = 10000)
@@ -2747,54 +2358,6 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersionnull102_literalMutationString691() throws Exception {
-        JavaVersion o_testGetJavaVersionnull102__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull102__1)).toString());
-        JavaVersion o_testGetJavaVersionnull102__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull102__2)).toString());
-        JavaVersion o_testGetJavaVersionnull102__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull102__3)).toString());
-        JavaVersion o_testGetJavaVersionnull102__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull102__4)).toString());
-        JavaVersion o_testGetJavaVersionnull102__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull102__5)).toString());
-        JavaVersion o_testGetJavaVersionnull102__6 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull102__6);
-        JavaVersion o_testGetJavaVersionnull102__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull102__7)).toString());
-        JavaVersion o_testGetJavaVersionnull102__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull102__8)).toString());
-        JavaVersion o_testGetJavaVersionnull102__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull102__9)).toString());
-        JavaVersion o_testGetJavaVersionnull102__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull102__10)).toString());
-        JavaVersion o_testGetJavaVersionnull102__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull102__11)).toString());
-        JavaVersion o_testGetJavaVersionnull102__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull102__12)).toString());
-        JavaVersion o_testGetJavaVersionnull102__13 = JavaVersion.get("15");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull102__13)).toString());
-        JavaVersion o_testGetJavaVersionnull102__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull102__14)).toString());
-        JavaVersion o_testGetJavaVersionnull102__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull102__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull102__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull102__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull102__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull102__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull102__5)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull102__6);
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull102__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull102__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull102__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull102__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull102__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull102__12)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull102__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull102__14)).toString());
-    }
-
-    @Test(timeout = 10000)
     public void testGetJavaVersionnull101() throws Exception {
         JavaVersion o_testGetJavaVersionnull101__1 = JavaVersion.get("0.9");
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull101__1)).toString());
@@ -2843,54 +2406,6 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString47null13290() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString47__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__8 = JavaVersion.get("17");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__10 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString47__10);
-        JavaVersion o_testGetJavaVersion_literalMutationString47__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__7)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__9)).toString());
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString47__10);
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__14)).toString());
-    }
-
-    @Test(timeout = 10000)
     public void testGetJavaVersionnull102() throws Exception {
         JavaVersion o_testGetJavaVersionnull102__1 = JavaVersion.get("0.9");
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull102__1)).toString());
@@ -2936,55 +2451,6 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull102__12)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull102__13)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull102__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString53_add10625() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString53__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__5)).toString());
-        o_testGetJavaVersion_literalMutationString53__5.toString();
-        JavaVersion o_testGetJavaVersion_literalMutationString53__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__9 = JavaVersion.get("18");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__14)).toString());
     }
 
     @Test(timeout = 10000)
@@ -3084,6 +2550,55 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
+    public void testGetJavaVersionnull107_add11558() throws Exception {
+        JavaVersion o_testGetJavaVersionnull107__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull107__1)).toString());
+        JavaVersion o_testGetJavaVersionnull107__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull107__2)).toString());
+        JavaVersion o_testGetJavaVersionnull107__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull107__3)).toString());
+        JavaVersion o_testGetJavaVersionnull107__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull107__4)).toString());
+        JavaVersion o_testGetJavaVersionnull107__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull107__5)).toString());
+        o_testGetJavaVersionnull107__5.toString();
+        JavaVersion o_testGetJavaVersionnull107__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull107__6)).toString());
+        JavaVersion o_testGetJavaVersionnull107__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull107__7)).toString());
+        JavaVersion o_testGetJavaVersionnull107__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull107__8)).toString());
+        JavaVersion o_testGetJavaVersionnull107__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull107__9)).toString());
+        JavaVersion o_testGetJavaVersionnull107__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull107__10)).toString());
+        JavaVersion o_testGetJavaVersionnull107__11 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull107__11);
+        JavaVersion o_testGetJavaVersionnull107__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull107__12)).toString());
+        JavaVersion o_testGetJavaVersionnull107__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull107__13)).toString());
+        JavaVersion o_testGetJavaVersionnull107__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull107__14)).toString());
+        JavaVersion o_testGetJavaVersionnull107__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull107__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull107__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull107__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull107__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull107__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull107__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull107__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull107__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull107__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull107__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull107__10)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull107__11);
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull107__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull107__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull107__14)).toString());
+    }
+
+    @Test(timeout = 10000)
     public void testGetJavaVersionnull105() throws Exception {
         JavaVersion o_testGetJavaVersionnull105__1 = JavaVersion.get("0.9");
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull105__1)).toString());
@@ -3129,54 +2644,6 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull105__12)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__13)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString54_literalMutationString3237() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString54__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__5 = JavaVersion.get("1A.4");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__9 = JavaVersion.get("1C.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString54__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__4)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__14)).toString());
     }
 
     @Test(timeout = 10000)
@@ -3420,6 +2887,102 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
+    public void testGetJavaVersionnull110null13635() throws Exception {
+        JavaVersion o_testGetJavaVersionnull110__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull110__1)).toString());
+        JavaVersion o_testGetJavaVersionnull110__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull110__2)).toString());
+        JavaVersion o_testGetJavaVersionnull110__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull110__3)).toString());
+        JavaVersion o_testGetJavaVersionnull110__4 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull110__4);
+        JavaVersion o_testGetJavaVersionnull110__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull110__5)).toString());
+        JavaVersion o_testGetJavaVersionnull110__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull110__6)).toString());
+        JavaVersion o_testGetJavaVersionnull110__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull110__7)).toString());
+        JavaVersion o_testGetJavaVersionnull110__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull110__8)).toString());
+        JavaVersion o_testGetJavaVersionnull110__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__9)).toString());
+        JavaVersion o_testGetJavaVersionnull110__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull110__10)).toString());
+        JavaVersion o_testGetJavaVersionnull110__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull110__11)).toString());
+        JavaVersion o_testGetJavaVersionnull110__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__12)).toString());
+        JavaVersion o_testGetJavaVersionnull110__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull110__13)).toString());
+        JavaVersion o_testGetJavaVersionnull110__14 = JavaVersion.getJavaVersion(null);
+        Assert.assertNull(o_testGetJavaVersionnull110__14);
+        JavaVersion o_testGetJavaVersionnull110__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull110__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull110__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull110__3)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull110__4);
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull110__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull110__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull110__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull110__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull110__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull110__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull110__13)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull110__14);
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersionnull103_literalMutationString4680() throws Exception {
+        JavaVersion o_testGetJavaVersionnull103__1 = JavaVersion.get("0U.9");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__1)).toString());
+        JavaVersion o_testGetJavaVersionnull103__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull103__2)).toString());
+        JavaVersion o_testGetJavaVersionnull103__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull103__3)).toString());
+        JavaVersion o_testGetJavaVersionnull103__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull103__4)).toString());
+        JavaVersion o_testGetJavaVersionnull103__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull103__5)).toString());
+        JavaVersion o_testGetJavaVersionnull103__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__6)).toString());
+        JavaVersion o_testGetJavaVersionnull103__7 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull103__7);
+        JavaVersion o_testGetJavaVersionnull103__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull103__8)).toString());
+        JavaVersion o_testGetJavaVersionnull103__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__9)).toString());
+        JavaVersion o_testGetJavaVersionnull103__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull103__10)).toString());
+        JavaVersion o_testGetJavaVersionnull103__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull103__11)).toString());
+        JavaVersion o_testGetJavaVersionnull103__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__12)).toString());
+        JavaVersion o_testGetJavaVersionnull103__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__13)).toString());
+        JavaVersion o_testGetJavaVersionnull103__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__14)).toString());
+        JavaVersion o_testGetJavaVersionnull103__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__15)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull103__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull103__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull103__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull103__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__6)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull103__7);
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull103__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull103__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull103__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__14)).toString());
+    }
+
+    @Test(timeout = 10000)
     public void testGetJavaVersion_literalMutationString18null13815() throws Exception {
         JavaVersion o_testGetJavaVersion_literalMutationString18__1 = JavaVersion.get("0.9");
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString18__1)).toString());
@@ -3564,54 +3127,6 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString15null13437() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString15__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15__3 = JavaVersion.get("12");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15__7 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString15__7);
-        JavaVersion o_testGetJavaVersion_literalMutationString15__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__2)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__6)).toString());
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString15__7);
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__14)).toString());
-    }
-
-    @Test(timeout = 10000)
     public void testGetJavaVersion_literalMutationString71() throws Exception {
         JavaVersion o_testGetJavaVersion_literalMutationString71__1 = JavaVersion.get("0.9");
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__1)).toString());
@@ -3657,6 +3172,54 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__12)).toString());
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__13)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__14)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersionnull104null13516() throws Exception {
+        JavaVersion o_testGetJavaVersionnull104__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull104__1)).toString());
+        JavaVersion o_testGetJavaVersionnull104__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull104__2)).toString());
+        JavaVersion o_testGetJavaVersionnull104__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull104__3)).toString());
+        JavaVersion o_testGetJavaVersionnull104__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull104__4)).toString());
+        JavaVersion o_testGetJavaVersionnull104__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull104__5)).toString());
+        JavaVersion o_testGetJavaVersionnull104__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull104__6)).toString());
+        JavaVersion o_testGetJavaVersionnull104__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull104__7)).toString());
+        JavaVersion o_testGetJavaVersionnull104__8 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull104__8);
+        JavaVersion o_testGetJavaVersionnull104__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull104__9)).toString());
+        JavaVersion o_testGetJavaVersionnull104__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull104__10)).toString());
+        JavaVersion o_testGetJavaVersionnull104__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull104__11)).toString());
+        JavaVersion o_testGetJavaVersionnull104__12 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull104__12);
+        JavaVersion o_testGetJavaVersionnull104__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull104__13)).toString());
+        JavaVersion o_testGetJavaVersionnull104__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull104__14)).toString());
+        JavaVersion o_testGetJavaVersionnull104__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull104__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull104__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull104__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull104__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull104__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull104__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull104__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull104__7)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull104__8);
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull104__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull104__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull104__11)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull104__12);
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull104__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull104__14)).toString());
     }
 
     @Test(timeout = 10000)
@@ -3708,102 +3271,198 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString7null13142() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString7__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString7__2 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString7__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString7__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString7__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString7__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString7__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString7__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString7__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString7__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString7__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString7__12 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString7__12);
-        JavaVersion o_testGetJavaVersion_literalMutationString7__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString7__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString7__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__1)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__11)).toString());
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString7__12);
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__14)).toString());
+    public void testGetJavaVersion_literalMutationString63null13488() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString63__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__12 = JavaVersion.get("1T.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__13 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString63__13);
+        JavaVersion o_testGetJavaVersion_literalMutationString63__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__12)).toString());
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString63__13);
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__14)).toString());
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersionnull103_add9845() throws Exception {
-        JavaVersion o_testGetJavaVersionnull103__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull103__1)).toString());
-        JavaVersion o_testGetJavaVersionnull103__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull103__2)).toString());
-        JavaVersion o_testGetJavaVersionnull103__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull103__3)).toString());
-        JavaVersion o_testGetJavaVersionnull103__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull103__4)).toString());
-        JavaVersion o_testGetJavaVersionnull103__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull103__5)).toString());
-        JavaVersion o_testGetJavaVersionnull103__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__6)).toString());
-        JavaVersion o_testGetJavaVersionnull103__7 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull103__7);
-        JavaVersion o_testGetJavaVersionnull103_add9845__22 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull103_add9845__22)).toString());
-        JavaVersion o_testGetJavaVersionnull103__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull103__8)).toString());
-        JavaVersion o_testGetJavaVersionnull103__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__9)).toString());
-        JavaVersion o_testGetJavaVersionnull103__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull103__10)).toString());
-        JavaVersion o_testGetJavaVersionnull103__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull103__11)).toString());
-        JavaVersion o_testGetJavaVersionnull103__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__12)).toString());
-        JavaVersion o_testGetJavaVersionnull103__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__13)).toString());
-        JavaVersion o_testGetJavaVersionnull103__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__14)).toString());
-        JavaVersion o_testGetJavaVersionnull103__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull103__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull103__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull103__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull103__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull103__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__6)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull103__7);
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull103_add9845__22)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull103__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull103__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull103__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__14)).toString());
+    public void testGetJavaVersion_literalMutationString48_literalMutationString2144() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString48__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__8 = JavaVersion.get("1s.7");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__9 = JavaVersion.get("18");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__7)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__14)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersionnull102null13558() throws Exception {
+        JavaVersion o_testGetJavaVersionnull102__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull102__1)).toString());
+        JavaVersion o_testGetJavaVersionnull102__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull102__2)).toString());
+        JavaVersion o_testGetJavaVersionnull102__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull102__3)).toString());
+        JavaVersion o_testGetJavaVersionnull102__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull102__4)).toString());
+        JavaVersion o_testGetJavaVersionnull102__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull102__5)).toString());
+        JavaVersion o_testGetJavaVersionnull102__6 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull102__6);
+        JavaVersion o_testGetJavaVersionnull102__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull102__7)).toString());
+        JavaVersion o_testGetJavaVersionnull102__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull102__8)).toString());
+        JavaVersion o_testGetJavaVersionnull102__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull102__9)).toString());
+        JavaVersion o_testGetJavaVersionnull102__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull102__10)).toString());
+        JavaVersion o_testGetJavaVersionnull102__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull102__11)).toString());
+        JavaVersion o_testGetJavaVersionnull102__12 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull102__12);
+        JavaVersion o_testGetJavaVersionnull102__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull102__13)).toString());
+        JavaVersion o_testGetJavaVersionnull102__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull102__14)).toString());
+        JavaVersion o_testGetJavaVersionnull102__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull102__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull102__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull102__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull102__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull102__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull102__5)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull102__6);
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull102__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull102__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull102__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull102__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull102__11)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull102__12);
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull102__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull102__14)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString48_add10206() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString48_add10206__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48_add10206__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__8 = JavaVersion.get("1s.7");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48_add10206__1)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__7)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__14)).toString());
     }
 
     @Test(timeout = 10000)
@@ -3951,6 +3610,248 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
+    public void testGetJavaVersionnull107null13664() throws Exception {
+        JavaVersion o_testGetJavaVersionnull107__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull107__1)).toString());
+        JavaVersion o_testGetJavaVersionnull107__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull107__2)).toString());
+        JavaVersion o_testGetJavaVersionnull107__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull107__3)).toString());
+        JavaVersion o_testGetJavaVersionnull107__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull107__4)).toString());
+        JavaVersion o_testGetJavaVersionnull107__5 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull107__5);
+        JavaVersion o_testGetJavaVersionnull107__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull107__6)).toString());
+        JavaVersion o_testGetJavaVersionnull107__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull107__7)).toString());
+        JavaVersion o_testGetJavaVersionnull107__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull107__8)).toString());
+        JavaVersion o_testGetJavaVersionnull107__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull107__9)).toString());
+        JavaVersion o_testGetJavaVersionnull107__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull107__10)).toString());
+        JavaVersion o_testGetJavaVersionnull107__11 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull107__11);
+        JavaVersion o_testGetJavaVersionnull107__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull107__12)).toString());
+        JavaVersion o_testGetJavaVersionnull107__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull107__13)).toString());
+        JavaVersion o_testGetJavaVersionnull107__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull107__14)).toString());
+        JavaVersion o_testGetJavaVersionnull107__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull107__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull107__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull107__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull107__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull107__4)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull107__5);
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull107__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull107__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull107__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull107__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull107__10)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull107__11);
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull107__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull107__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull107__14)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersionnull103null13691() throws Exception {
+        JavaVersion o_testGetJavaVersionnull103__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull103__1)).toString());
+        JavaVersion o_testGetJavaVersionnull103__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull103__2)).toString());
+        JavaVersion o_testGetJavaVersionnull103__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull103__3)).toString());
+        JavaVersion o_testGetJavaVersionnull103__4 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull103__4);
+        JavaVersion o_testGetJavaVersionnull103__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull103__5)).toString());
+        JavaVersion o_testGetJavaVersionnull103__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__6)).toString());
+        JavaVersion o_testGetJavaVersionnull103__7 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull103__7);
+        JavaVersion o_testGetJavaVersionnull103__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull103__8)).toString());
+        JavaVersion o_testGetJavaVersionnull103__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__9)).toString());
+        JavaVersion o_testGetJavaVersionnull103__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull103__10)).toString());
+        JavaVersion o_testGetJavaVersionnull103__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull103__11)).toString());
+        JavaVersion o_testGetJavaVersionnull103__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__12)).toString());
+        JavaVersion o_testGetJavaVersionnull103__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__13)).toString());
+        JavaVersion o_testGetJavaVersionnull103__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__14)).toString());
+        JavaVersion o_testGetJavaVersionnull103__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull103__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull103__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull103__3)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull103__4);
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull103__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__6)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull103__7);
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull103__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull103__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull103__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__14)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString23null13303() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString23__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString23__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString23__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString23__4 = JavaVersion.get("1[.3");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString23__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString23__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString23__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString23__8 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString23__8);
+        JavaVersion o_testGetJavaVersion_literalMutationString23__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString23__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString23__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString23__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString23__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString23__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString23__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__3)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__7)).toString());
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString23__8);
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__14)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersionnull106null13529() throws Exception {
+        JavaVersion o_testGetJavaVersionnull106__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull106__1)).toString());
+        JavaVersion o_testGetJavaVersionnull106__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull106__2)).toString());
+        JavaVersion o_testGetJavaVersionnull106__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull106__3)).toString());
+        JavaVersion o_testGetJavaVersionnull106__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull106__4)).toString());
+        JavaVersion o_testGetJavaVersionnull106__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull106__5)).toString());
+        JavaVersion o_testGetJavaVersionnull106__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__6)).toString());
+        JavaVersion o_testGetJavaVersionnull106__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull106__7)).toString());
+        JavaVersion o_testGetJavaVersionnull106__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull106__8)).toString());
+        JavaVersion o_testGetJavaVersionnull106__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull106__9)).toString());
+        JavaVersion o_testGetJavaVersionnull106__10 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull106__10);
+        JavaVersion o_testGetJavaVersionnull106__11 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull106__11);
+        JavaVersion o_testGetJavaVersionnull106__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull106__12)).toString());
+        JavaVersion o_testGetJavaVersionnull106__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__13)).toString());
+        JavaVersion o_testGetJavaVersionnull106__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__14)).toString());
+        JavaVersion o_testGetJavaVersionnull106__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull106__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull106__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull106__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull106__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull106__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull106__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull106__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull106__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull106__9)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull106__10);
+        Assert.assertNull(o_testGetJavaVersionnull106__11);
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull106__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__14)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString4_add10070() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString4__1 = JavaVersion.get("09");
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString4__1);
+        JavaVersion o_testGetJavaVersion_literalMutationString4__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString4__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString4__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString4__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString4__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString4__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString4__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString4__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString4__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString4__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString4__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString4__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString4__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString4__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__15)).toString());
+        o_testGetJavaVersion_literalMutationString4__11.toString();
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString4__1);
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__14)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__15)).toString());
+    }
+
+    @Test(timeout = 10000)
     public void testGetJavaVersion_literalMutationString64null13804() throws Exception {
         JavaVersion o_testGetJavaVersion_literalMutationString64__1 = JavaVersion.get("0.9");
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString64__1)).toString());
@@ -3996,105 +3897,6 @@ public class AmplJavaVersionTest {
         Assert.assertNull(o_testGetJavaVersion_literalMutationString64__12);
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString64__13)).toString());
         Assert.assertNull(o_testGetJavaVersion_literalMutationString64__14);
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString47_literalMutationString2553() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString47__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__8 = JavaVersion.get("17");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__12 = JavaVersion.get("`.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString47__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__7)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersionnull109_add9371() throws Exception {
-        JavaVersion o_testGetJavaVersionnull109__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull109__1)).toString());
-        JavaVersion o_testGetJavaVersionnull109_add9371__4 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull109_add9371__4)).toString());
-        JavaVersion o_testGetJavaVersionnull109__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull109__2)).toString());
-        JavaVersion o_testGetJavaVersionnull109__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull109__3)).toString());
-        JavaVersion o_testGetJavaVersionnull109__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull109__4)).toString());
-        JavaVersion o_testGetJavaVersionnull109__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull109__5)).toString());
-        JavaVersion o_testGetJavaVersionnull109__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull109__6)).toString());
-        JavaVersion o_testGetJavaVersionnull109__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull109__7)).toString());
-        JavaVersion o_testGetJavaVersionnull109__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull109__8)).toString());
-        JavaVersion o_testGetJavaVersionnull109__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull109__9)).toString());
-        JavaVersion o_testGetJavaVersionnull109__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull109__10)).toString());
-        JavaVersion o_testGetJavaVersionnull109__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull109__11)).toString());
-        JavaVersion o_testGetJavaVersionnull109__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull109__12)).toString());
-        JavaVersion o_testGetJavaVersionnull109__13 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull109__13);
-        JavaVersion o_testGetJavaVersionnull109__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull109__14)).toString());
-        JavaVersion o_testGetJavaVersionnull109__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull109__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull109__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull109_add9371__4)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull109__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull109__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull109__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull109__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull109__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull109__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull109__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull109__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull109__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull109__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull109__12)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull109__13);
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull109__14)).toString());
     }
 
     @Test(timeout = 10000)
@@ -4194,6 +3996,54 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString53_literalMutationString3012() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString53__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__8 = JavaVersion.get("h.7");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__9 = JavaVersion.get("18");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__7)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__14)).toString());
+    }
+
+    @Test(timeout = 10000)
     public void testGetJavaVersionnull107() throws Exception {
         JavaVersion o_testGetJavaVersionnull107__1 = JavaVersion.get("0.9");
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull107__1)).toString());
@@ -4290,6 +4140,102 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
+    public void testGetJavaVersionnull101null13707() throws Exception {
+        JavaVersion o_testGetJavaVersionnull101__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull101__1)).toString());
+        JavaVersion o_testGetJavaVersionnull101__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull101__2)).toString());
+        JavaVersion o_testGetJavaVersionnull101__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull101__3)).toString());
+        JavaVersion o_testGetJavaVersionnull101__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull101__4)).toString());
+        JavaVersion o_testGetJavaVersionnull101__5 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull101__5);
+        JavaVersion o_testGetJavaVersionnull101__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__6)).toString());
+        JavaVersion o_testGetJavaVersionnull101__7 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull101__7);
+        JavaVersion o_testGetJavaVersionnull101__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull101__8)).toString());
+        JavaVersion o_testGetJavaVersionnull101__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101__9)).toString());
+        JavaVersion o_testGetJavaVersionnull101__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull101__10)).toString());
+        JavaVersion o_testGetJavaVersionnull101__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull101__11)).toString());
+        JavaVersion o_testGetJavaVersionnull101__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101__12)).toString());
+        JavaVersion o_testGetJavaVersionnull101__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__13)).toString());
+        JavaVersion o_testGetJavaVersionnull101__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__14)).toString());
+        JavaVersion o_testGetJavaVersionnull101__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull101__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull101__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull101__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull101__4)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull101__5);
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__6)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull101__7);
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull101__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull101__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull101__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull101__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull101__14)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString53_literalMutationString3016() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString53__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__8 = JavaVersion.get("17");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__9 = JavaVersion.get("18");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString53__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__7)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__14)).toString());
+    }
+
+    @Test(timeout = 10000)
     public void testGetJavaVersion_literalMutationString23() throws Exception {
         JavaVersion o_testGetJavaVersion_literalMutationString23__1 = JavaVersion.get("0.9");
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__1)).toString());
@@ -4335,56 +4281,6 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__12)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__13)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString3_add10739() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString3__1 = JavaVersion.get("*.9");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString3__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString3__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString3__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString3__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString3__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString3__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString3__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString3__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString3__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString3__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString3__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString3__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString3__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString3__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__15)).toString());
-        o_testGetJavaVersion_literalMutationString3__6.toString();
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__14)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__15)).toString());
     }
 
     @Test(timeout = 10000)
@@ -4436,6 +4332,56 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
+    public void testGetJavaVersionnull105_add11620() throws Exception {
+        JavaVersion o_testGetJavaVersionnull105__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull105__1)).toString());
+        JavaVersion o_testGetJavaVersionnull105__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull105__2)).toString());
+        JavaVersion o_testGetJavaVersionnull105__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull105__3)).toString());
+        JavaVersion o_testGetJavaVersionnull105__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull105__4)).toString());
+        JavaVersion o_testGetJavaVersionnull105__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull105__5)).toString());
+        JavaVersion o_testGetJavaVersionnull105__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__6)).toString());
+        JavaVersion o_testGetJavaVersionnull105__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull105__7)).toString());
+        JavaVersion o_testGetJavaVersionnull105__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull105__8)).toString());
+        JavaVersion o_testGetJavaVersionnull105__9 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull105__9);
+        JavaVersion o_testGetJavaVersionnull105__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull105__10)).toString());
+        JavaVersion o_testGetJavaVersionnull105__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull105__11)).toString());
+        JavaVersion o_testGetJavaVersionnull105__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull105__12)).toString());
+        JavaVersion o_testGetJavaVersionnull105__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__13)).toString());
+        JavaVersion o_testGetJavaVersionnull105__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__14)).toString());
+        JavaVersion o_testGetJavaVersionnull105__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull105__15)).toString());
+        o_testGetJavaVersionnull105__1.toString();
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull105__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull105__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull105__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull105__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull105__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull105__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull105__8)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull105__9);
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull105__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull105__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull105__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__14)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull105__15)).toString());
+    }
+
+    @Test(timeout = 10000)
     public void testGetJavaVersion_literalMutationString21() throws Exception {
         JavaVersion o_testGetJavaVersion_literalMutationString21__1 = JavaVersion.get("0.9");
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString21__1)).toString());
@@ -4484,151 +4430,7 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString53null13346() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString53__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__6 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString53__6);
-        JavaVersion o_testGetJavaVersion_literalMutationString53__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__9 = JavaVersion.get("18");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__5)).toString());
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString53__6);
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersionnull110null13026() throws Exception {
-        JavaVersion o_testGetJavaVersionnull110__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull110__1)).toString());
-        JavaVersion o_testGetJavaVersionnull110__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull110__2)).toString());
-        JavaVersion o_testGetJavaVersionnull110__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull110__3)).toString());
-        JavaVersion o_testGetJavaVersionnull110__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull110__4)).toString());
-        JavaVersion o_testGetJavaVersionnull110__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull110__5)).toString());
-        JavaVersion o_testGetJavaVersionnull110__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull110__6)).toString());
-        JavaVersion o_testGetJavaVersionnull110__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull110__7)).toString());
-        JavaVersion o_testGetJavaVersionnull110__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull110__8)).toString());
-        JavaVersion o_testGetJavaVersionnull110__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__9)).toString());
-        JavaVersion o_testGetJavaVersionnull110__10 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull110__10);
-        JavaVersion o_testGetJavaVersionnull110__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull110__11)).toString());
-        JavaVersion o_testGetJavaVersionnull110__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__12)).toString());
-        JavaVersion o_testGetJavaVersionnull110__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull110__13)).toString());
-        JavaVersion o_testGetJavaVersionnull110__14 = JavaVersion.getJavaVersion(null);
-        Assert.assertNull(o_testGetJavaVersionnull110__14);
-        JavaVersion o_testGetJavaVersionnull110__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull110__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull110__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull110__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull110__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull110__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull110__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull110__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull110__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__9)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull110__10);
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull110__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull110__13)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull110__14);
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString53_literalMutationString2847() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString53__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__7 = JavaVersion.get("16");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__9 = JavaVersion.get("18");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__6)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString51_add10697() throws Exception {
+    public void testGetJavaVersion_literalMutationString51null13392() throws Exception {
         JavaVersion o_testGetJavaVersion_literalMutationString51__1 = JavaVersion.get("0.9");
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__1)).toString());
         JavaVersion o_testGetJavaVersion_literalMutationString51__2 = JavaVersion.get("1.1");
@@ -4637,6 +4439,152 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__3)).toString());
         JavaVersion o_testGetJavaVersion_literalMutationString51__4 = JavaVersion.get("1.3");
         Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__7 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString51__7);
+        JavaVersion o_testGetJavaVersion_literalMutationString51__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__9 = JavaVersion.get("I.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__6)).toString());
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString51__7);
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__14)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersionnull103_add11670() throws Exception {
+        JavaVersion o_testGetJavaVersionnull103__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull103__1)).toString());
+        JavaVersion o_testGetJavaVersionnull103__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull103__2)).toString());
+        JavaVersion o_testGetJavaVersionnull103__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull103__3)).toString());
+        JavaVersion o_testGetJavaVersionnull103__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull103__4)).toString());
+        JavaVersion o_testGetJavaVersionnull103__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull103__5)).toString());
+        JavaVersion o_testGetJavaVersionnull103__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__6)).toString());
+        JavaVersion o_testGetJavaVersionnull103__7 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull103__7);
+        JavaVersion o_testGetJavaVersionnull103__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull103__8)).toString());
+        JavaVersion o_testGetJavaVersionnull103__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__9)).toString());
+        JavaVersion o_testGetJavaVersionnull103__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull103__10)).toString());
+        JavaVersion o_testGetJavaVersionnull103__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull103__11)).toString());
+        JavaVersion o_testGetJavaVersionnull103__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__12)).toString());
+        JavaVersion o_testGetJavaVersionnull103__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__13)).toString());
+        JavaVersion o_testGetJavaVersionnull103__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__14)).toString());
+        JavaVersion o_testGetJavaVersionnull103__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__15)).toString());
+        o_testGetJavaVersionnull103__10.toString();
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull103__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull103__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull103__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull103__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull103__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__6)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull103__7);
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull103__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull103__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull103__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__14)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__15)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString48null13209() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString48__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__4 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString48__4);
+        JavaVersion o_testGetJavaVersion_literalMutationString48__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__8 = JavaVersion.get("1s.7");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__3)).toString());
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString48__4);
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__7)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__14)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString51null13389() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString51__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__4 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString51__4);
         JavaVersion o_testGetJavaVersion_literalMutationString51__5 = JavaVersion.get("1.4");
         Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__5)).toString());
         JavaVersion o_testGetJavaVersion_literalMutationString51__6 = JavaVersion.get("1.5");
@@ -4659,11 +4607,10 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__14)).toString());
         JavaVersion o_testGetJavaVersion_literalMutationString51__15 = JavaVersion.get("11");
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__15)).toString());
-        o_testGetJavaVersion_literalMutationString51__8.toString();
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__1)).toString());
         Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__2)).toString());
         Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__4)).toString());
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString51__4);
         Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__5)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__6)).toString());
         Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__7)).toString());
@@ -4674,55 +4621,6 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__12)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__13)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__14)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__15)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersionnull104null12898() throws Exception {
-        JavaVersion o_testGetJavaVersionnull104__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull104__1)).toString());
-        JavaVersion o_testGetJavaVersionnull104__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull104__2)).toString());
-        JavaVersion o_testGetJavaVersionnull104__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull104__3)).toString());
-        JavaVersion o_testGetJavaVersionnull104__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull104__4)).toString());
-        JavaVersion o_testGetJavaVersionnull104__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull104__5)).toString());
-        JavaVersion o_testGetJavaVersionnull104__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull104__6)).toString());
-        JavaVersion o_testGetJavaVersionnull104__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull104__7)).toString());
-        JavaVersion o_testGetJavaVersionnull104__8 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull104__8);
-        JavaVersion o_testGetJavaVersionnull104__9 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull104__9);
-        JavaVersion o_testGetJavaVersionnull104__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull104__10)).toString());
-        JavaVersion o_testGetJavaVersionnull104__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull104__11)).toString());
-        JavaVersion o_testGetJavaVersionnull104__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull104__12)).toString());
-        JavaVersion o_testGetJavaVersionnull104__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull104__13)).toString());
-        JavaVersion o_testGetJavaVersionnull104__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull104__14)).toString());
-        JavaVersion o_testGetJavaVersionnull104__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull104__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull104__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull104__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull104__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull104__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull104__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull104__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull104__7)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull104__8);
-        Assert.assertNull(o_testGetJavaVersionnull104__9);
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull104__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull104__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull104__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull104__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull104__14)).toString());
     }
 
     @Test(timeout = 10000)
@@ -4775,99 +4673,51 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString76_literalMutationString4943() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString76__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString76__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString76__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString76__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString76__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString76__6 = JavaVersion.get("1V.5");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString76__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString76__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString76__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString76__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString76__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString76__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString76__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString76__14 = JavaVersion.getJavaVersion("15");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString76__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__5)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__13)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString53null13353() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString53__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__9 = JavaVersion.get("18");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__13 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString53__13);
-        JavaVersion o_testGetJavaVersion_literalMutationString53__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__12)).toString());
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString53__13);
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__14)).toString());
+    public void testGetJavaVersion_literalMutationString47null13312() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString47__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__2 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString47__2);
+        JavaVersion o_testGetJavaVersion_literalMutationString47__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__8 = JavaVersion.get("17");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__1)).toString());
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString47__2);
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__7)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__14)).toString());
     }
 
     @Test(timeout = 10000)
@@ -4919,55 +4769,6 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_add87__13)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_add87__14)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_add87__15)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersionnull104_add9298() throws Exception {
-        JavaVersion o_testGetJavaVersionnull104__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull104__1)).toString());
-        JavaVersion o_testGetJavaVersionnull104__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull104__2)).toString());
-        JavaVersion o_testGetJavaVersionnull104__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull104__3)).toString());
-        JavaVersion o_testGetJavaVersionnull104__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull104__4)).toString());
-        JavaVersion o_testGetJavaVersionnull104__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull104__5)).toString());
-        JavaVersion o_testGetJavaVersionnull104__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull104__6)).toString());
-        JavaVersion o_testGetJavaVersionnull104__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull104__7)).toString());
-        o_testGetJavaVersionnull104__7.toString();
-        JavaVersion o_testGetJavaVersionnull104__8 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull104__8);
-        JavaVersion o_testGetJavaVersionnull104__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull104__9)).toString());
-        JavaVersion o_testGetJavaVersionnull104__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull104__10)).toString());
-        JavaVersion o_testGetJavaVersionnull104__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull104__11)).toString());
-        JavaVersion o_testGetJavaVersionnull104__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull104__12)).toString());
-        JavaVersion o_testGetJavaVersionnull104__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull104__13)).toString());
-        JavaVersion o_testGetJavaVersionnull104__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull104__14)).toString());
-        JavaVersion o_testGetJavaVersionnull104__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull104__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull104__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull104__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull104__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull104__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull104__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull104__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull104__7)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull104__8);
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull104__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull104__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull104__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull104__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull104__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull104__14)).toString());
     }
 
     @Test(timeout = 10000)
@@ -5175,56 +4976,6 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString69_add10519() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString69__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__13 = JavaVersion.get("1`.5");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString69__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__15)).toString());
-        o_testGetJavaVersion_literalMutationString69__6.toString();
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__12)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__14)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString69__15)).toString());
-    }
-
-    @Test(timeout = 10000)
     public void testGetJavaVersion_add84() throws Exception {
         JavaVersion o_testGetJavaVersion_add84__1 = JavaVersion.get("0.9");
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_add84__1)).toString());
@@ -5378,51 +5129,102 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString23null13273() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString23__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString23__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString23__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString23__4 = JavaVersion.get("1[.3");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString23__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString23__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString23__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString23__8 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString23__8);
-        JavaVersion o_testGetJavaVersion_literalMutationString23__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString23__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString23__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString23__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString23__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString23__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString23__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__3)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__7)).toString());
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString23__8);
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__14)).toString());
+    public void testGetJavaVersion_literalMutationString47_literalMutationString2683() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString47__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__5 = JavaVersion.get("1}.4");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__8 = JavaVersion.get("17");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__4)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__7)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__14)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersionnull106_add11128() throws Exception {
+        JavaVersion o_testGetJavaVersionnull106_add11128__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull106_add11128__1)).toString());
+        JavaVersion o_testGetJavaVersionnull106__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull106__1)).toString());
+        JavaVersion o_testGetJavaVersionnull106__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull106__2)).toString());
+        JavaVersion o_testGetJavaVersionnull106__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull106__3)).toString());
+        JavaVersion o_testGetJavaVersionnull106__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull106__4)).toString());
+        JavaVersion o_testGetJavaVersionnull106__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull106__5)).toString());
+        JavaVersion o_testGetJavaVersionnull106__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__6)).toString());
+        JavaVersion o_testGetJavaVersionnull106__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull106__7)).toString());
+        JavaVersion o_testGetJavaVersionnull106__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull106__8)).toString());
+        JavaVersion o_testGetJavaVersionnull106__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull106__9)).toString());
+        JavaVersion o_testGetJavaVersionnull106__10 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull106__10);
+        JavaVersion o_testGetJavaVersionnull106__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull106__11)).toString());
+        JavaVersion o_testGetJavaVersionnull106__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull106__12)).toString());
+        JavaVersion o_testGetJavaVersionnull106__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__13)).toString());
+        JavaVersion o_testGetJavaVersionnull106__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__14)).toString());
+        JavaVersion o_testGetJavaVersionnull106__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull106__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull106_add11128__1)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull106__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull106__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull106__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull106__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull106__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull106__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull106__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull106__9)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull106__10);
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull106__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull106__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__14)).toString());
     }
 
     @Test(timeout = 10000)
@@ -5474,6 +5276,54 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_add82__13)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_add82__14)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_add82__15)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString47_literalMutationString2728() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString47__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__8 = JavaVersion.get("17");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__14 = JavaVersion.getJavaVersion("15");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__7)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__13)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__14)).toString());
     }
 
     @Test(timeout = 10000)
@@ -5621,199 +5471,441 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersionnull105null13068() throws Exception {
-        JavaVersion o_testGetJavaVersionnull105__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull105__1)).toString());
-        JavaVersion o_testGetJavaVersionnull105__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull105__2)).toString());
-        JavaVersion o_testGetJavaVersionnull105__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull105__3)).toString());
-        JavaVersion o_testGetJavaVersionnull105__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull105__4)).toString());
-        JavaVersion o_testGetJavaVersionnull105__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull105__5)).toString());
-        JavaVersion o_testGetJavaVersionnull105__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__6)).toString());
-        JavaVersion o_testGetJavaVersionnull105__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull105__7)).toString());
-        JavaVersion o_testGetJavaVersionnull105__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull105__8)).toString());
-        JavaVersion o_testGetJavaVersionnull105__9 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull105__9);
-        JavaVersion o_testGetJavaVersionnull105__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull105__10)).toString());
-        JavaVersion o_testGetJavaVersionnull105__11 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull105__11);
-        JavaVersion o_testGetJavaVersionnull105__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull105__12)).toString());
-        JavaVersion o_testGetJavaVersionnull105__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__13)).toString());
-        JavaVersion o_testGetJavaVersionnull105__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__14)).toString());
-        JavaVersion o_testGetJavaVersionnull105__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull105__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull105__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull105__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull105__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull105__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull105__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull105__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull105__8)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull105__9);
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull105__10)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull105__11);
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull105__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__14)).toString());
+    public void testGetJavaVersion_literalMutationString76_literalMutationString4949() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString76__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString76__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString76__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString76__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString76__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString76__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString76__7 = JavaVersion.get("&.6");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString76__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString76__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString76__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString76__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString76__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString76__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString76__14 = JavaVersion.getJavaVersion("15");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString76__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__6)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__13)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__14)).toString());
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersionnull105_add9822() throws Exception {
-        JavaVersion o_testGetJavaVersionnull105__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull105__1)).toString());
-        JavaVersion o_testGetJavaVersionnull105__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull105__2)).toString());
-        JavaVersion o_testGetJavaVersionnull105__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull105__3)).toString());
-        JavaVersion o_testGetJavaVersionnull105__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull105__4)).toString());
-        JavaVersion o_testGetJavaVersionnull105__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull105__5)).toString());
-        JavaVersion o_testGetJavaVersionnull105__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__6)).toString());
-        JavaVersion o_testGetJavaVersionnull105__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull105__7)).toString());
-        JavaVersion o_testGetJavaVersionnull105__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull105__8)).toString());
-        JavaVersion o_testGetJavaVersionnull105__9 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull105__9);
-        JavaVersion o_testGetJavaVersionnull105__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull105__10)).toString());
-        JavaVersion o_testGetJavaVersionnull105__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull105__11)).toString());
-        JavaVersion o_testGetJavaVersionnull105__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull105__12)).toString());
-        JavaVersion o_testGetJavaVersionnull105__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__13)).toString());
-        JavaVersion o_testGetJavaVersionnull105__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__14)).toString());
-        JavaVersion o_testGetJavaVersionnull105__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull105__15)).toString());
-        o_testGetJavaVersionnull105__4.toString();
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull105__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull105__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull105__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull105__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull105__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull105__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull105__8)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull105__9);
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull105__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull105__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull105__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull105__14)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull105__15)).toString());
+    public void testGetJavaVersion_literalMutationString47null13315() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString47__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__5 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString47__5);
+        JavaVersion o_testGetJavaVersion_literalMutationString47__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__8 = JavaVersion.get("17");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__4)).toString());
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString47__5);
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__7)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__14)).toString());
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString6_add10086() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString6__1 = JavaVersion.get("0}.9");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__15)).toString());
-        o_testGetJavaVersion_literalMutationString6__13.toString();
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__14)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__15)).toString());
+    public void testGetJavaVersion_literalMutationString51_add10743() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString51__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__5)).toString());
+        o_testGetJavaVersion_literalMutationString51__5.toString();
+        JavaVersion o_testGetJavaVersion_literalMutationString51__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__9 = JavaVersion.get("I.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__14)).toString());
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString6_literalMutationString1817() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString6__1 = JavaVersion.get("0}.9");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__8 = JavaVersion.get("1A.7");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString6__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__15)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__7)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString6__14)).toString());
+    public void testGetJavaVersion_literalMutationString78_literalMutationString3336() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString78__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__8 = JavaVersion.get("y.7");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__14 = JavaVersion.getJavaVersion("w.5");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__7)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__13)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__14)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString47_add10534() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString47__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__8 = JavaVersion.get("17");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47_add10534__31 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47_add10534__31)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString47__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__7)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47_add10534__31)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString47__14)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString3_literalMutationString3146() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString3__1 = JavaVersion.get("*.9");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__3 = JavaVersion.get("18.2");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString3__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__15)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__2)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString3__14)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString54null13455() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString54__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__9 = JavaVersion.get("1C.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__10 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString54__10);
+        JavaVersion o_testGetJavaVersion_literalMutationString54__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__9)).toString());
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString54__10);
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__14)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString15null13467() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString15__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__3 = JavaVersion.get("12");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__7 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString15__7);
+        JavaVersion o_testGetJavaVersion_literalMutationString15__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString15__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__2)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__6)).toString());
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString15__7);
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__14)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString63_add11030() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString63__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__12 = JavaVersion.get("1T.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__15)).toString());
+        o_testGetJavaVersion_literalMutationString63__3.toString();
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__14)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__15)).toString());
     }
 
     @Test(timeout = 10000)
@@ -5916,6 +6008,55 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString48_add10223() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString48__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__8 = JavaVersion.get("1s.7");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__9)).toString());
+        o_testGetJavaVersion_literalMutationString48__9.toString();
+        JavaVersion o_testGetJavaVersion_literalMutationString48__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__7)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__14)).toString());
+    }
+
+    @Test(timeout = 10000)
     public void testGetJavaVersion_add95() throws Exception {
         JavaVersion o_testGetJavaVersion_add95__1 = JavaVersion.get("0.9");
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_add95__1)).toString());
@@ -5967,101 +6108,53 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString53_add10651() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString53__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__9 = JavaVersion.get("18");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString53__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__15)).toString());
-        o_testGetJavaVersion_literalMutationString53__6.toString();
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__14)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString53__15)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersionnull103null13076() throws Exception {
-        JavaVersion o_testGetJavaVersionnull103__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull103__1)).toString());
-        JavaVersion o_testGetJavaVersionnull103__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull103__2)).toString());
-        JavaVersion o_testGetJavaVersionnull103__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull103__3)).toString());
-        JavaVersion o_testGetJavaVersionnull103__4 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull103__4);
-        JavaVersion o_testGetJavaVersionnull103__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull103__5)).toString());
-        JavaVersion o_testGetJavaVersionnull103__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__6)).toString());
-        JavaVersion o_testGetJavaVersionnull103__7 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull103__7);
-        JavaVersion o_testGetJavaVersionnull103__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull103__8)).toString());
-        JavaVersion o_testGetJavaVersionnull103__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__9)).toString());
-        JavaVersion o_testGetJavaVersionnull103__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull103__10)).toString());
-        JavaVersion o_testGetJavaVersionnull103__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull103__11)).toString());
-        JavaVersion o_testGetJavaVersionnull103__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__12)).toString());
-        JavaVersion o_testGetJavaVersionnull103__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__13)).toString());
-        JavaVersion o_testGetJavaVersionnull103__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__14)).toString());
-        JavaVersion o_testGetJavaVersionnull103__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull103__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull103__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull103__3)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull103__4);
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull103__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__6)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull103__7);
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull103__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull103__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull103__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull103__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull103__14)).toString());
+    public void testGetJavaVersion_literalMutationString63_add11034() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString63__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__12 = JavaVersion.get("1T.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString63__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__15)).toString());
+        o_testGetJavaVersion_literalMutationString63__7.toString();
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__14)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__15)).toString());
     }
 
     @Test(timeout = 10000)
@@ -6113,55 +6206,6 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_add96__13)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_add96__14)).toString());
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_add96__15)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersionnull108_add9499() throws Exception {
-        JavaVersion o_testGetJavaVersionnull108__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull108__1)).toString());
-        JavaVersion o_testGetJavaVersionnull108__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull108__2)).toString());
-        o_testGetJavaVersionnull108__2.toString();
-        JavaVersion o_testGetJavaVersionnull108__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull108__3)).toString());
-        JavaVersion o_testGetJavaVersionnull108__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull108__4)).toString());
-        JavaVersion o_testGetJavaVersionnull108__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull108__5)).toString());
-        JavaVersion o_testGetJavaVersionnull108__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__6)).toString());
-        JavaVersion o_testGetJavaVersionnull108__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull108__7)).toString());
-        JavaVersion o_testGetJavaVersionnull108__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull108__8)).toString());
-        JavaVersion o_testGetJavaVersionnull108__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull108__9)).toString());
-        JavaVersion o_testGetJavaVersionnull108__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull108__10)).toString());
-        JavaVersion o_testGetJavaVersionnull108__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull108__11)).toString());
-        JavaVersion o_testGetJavaVersionnull108__12 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull108__12);
-        JavaVersion o_testGetJavaVersionnull108__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__13)).toString());
-        JavaVersion o_testGetJavaVersionnull108__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__14)).toString());
-        JavaVersion o_testGetJavaVersionnull108__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull108__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull108__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull108__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull108__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull108__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull108__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull108__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull108__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull108__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull108__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull108__11)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull108__12);
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__14)).toString());
     }
 
     @Test(timeout = 10000)
@@ -6261,6 +6305,54 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString42__12)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString42__13)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString42__14)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString51_literalMutationString3100() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString51__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__9 = JavaVersion.get("A.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__14)).toString());
     }
 
     @Test(timeout = 10000)
@@ -6561,21 +6653,117 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString48null13179() throws Exception {
+    public void testGetJavaVersionnull100null13597() throws Exception {
+        JavaVersion o_testGetJavaVersionnull100__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull100__1)).toString());
+        JavaVersion o_testGetJavaVersionnull100__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull100__2)).toString());
+        JavaVersion o_testGetJavaVersionnull100__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull100__3)).toString());
+        JavaVersion o_testGetJavaVersionnull100__4 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull100__4);
+        JavaVersion o_testGetJavaVersionnull100__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull100__5)).toString());
+        JavaVersion o_testGetJavaVersionnull100__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull100__6)).toString());
+        JavaVersion o_testGetJavaVersionnull100__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull100__7)).toString());
+        JavaVersion o_testGetJavaVersionnull100__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull100__8)).toString());
+        JavaVersion o_testGetJavaVersionnull100__9 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull100__9);
+        JavaVersion o_testGetJavaVersionnull100__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull100__10)).toString());
+        JavaVersion o_testGetJavaVersionnull100__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull100__11)).toString());
+        JavaVersion o_testGetJavaVersionnull100__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull100__12)).toString());
+        JavaVersion o_testGetJavaVersionnull100__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull100__13)).toString());
+        JavaVersion o_testGetJavaVersionnull100__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull100__14)).toString());
+        JavaVersion o_testGetJavaVersionnull100__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull100__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull100__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull100__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull100__3)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull100__4);
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull100__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull100__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull100__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull100__8)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull100__9);
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull100__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull100__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull100__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull100__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull100__14)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersionnull110_literalMutationString4380() throws Exception {
+        JavaVersion o_testGetJavaVersionnull110__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull110__1)).toString());
+        JavaVersion o_testGetJavaVersionnull110__2 = JavaVersion.get("1U.1");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__2)).toString());
+        JavaVersion o_testGetJavaVersionnull110__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull110__3)).toString());
+        JavaVersion o_testGetJavaVersionnull110__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull110__4)).toString());
+        JavaVersion o_testGetJavaVersionnull110__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull110__5)).toString());
+        JavaVersion o_testGetJavaVersionnull110__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull110__6)).toString());
+        JavaVersion o_testGetJavaVersionnull110__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull110__7)).toString());
+        JavaVersion o_testGetJavaVersionnull110__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull110__8)).toString());
+        JavaVersion o_testGetJavaVersionnull110__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__9)).toString());
+        JavaVersion o_testGetJavaVersionnull110__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull110__10)).toString());
+        JavaVersion o_testGetJavaVersionnull110__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull110__11)).toString());
+        JavaVersion o_testGetJavaVersionnull110__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__12)).toString());
+        JavaVersion o_testGetJavaVersionnull110__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull110__13)).toString());
+        JavaVersion o_testGetJavaVersionnull110__14 = JavaVersion.getJavaVersion(null);
+        Assert.assertNull(o_testGetJavaVersionnull110__14);
+        JavaVersion o_testGetJavaVersionnull110__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull110__1)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull110__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull110__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull110__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull110__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull110__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull110__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull110__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull110__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull110__13)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull110__14);
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString48null13212() throws Exception {
         JavaVersion o_testGetJavaVersion_literalMutationString48__1 = JavaVersion.get("0.9");
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__1)).toString());
         JavaVersion o_testGetJavaVersion_literalMutationString48__2 = JavaVersion.get("1.1");
         Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__2)).toString());
         JavaVersion o_testGetJavaVersion_literalMutationString48__3 = JavaVersion.get("1.2");
         Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__4 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString48__4);
+        JavaVersion o_testGetJavaVersion_literalMutationString48__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__4)).toString());
         JavaVersion o_testGetJavaVersion_literalMutationString48__5 = JavaVersion.get("1.4");
         Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__5)).toString());
         JavaVersion o_testGetJavaVersion_literalMutationString48__6 = JavaVersion.get("1.5");
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString48__7 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString48__7);
         JavaVersion o_testGetJavaVersion_literalMutationString48__8 = JavaVersion.get("1s.7");
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__8)).toString());
         JavaVersion o_testGetJavaVersion_literalMutationString48__9 = JavaVersion.get("1.8");
@@ -6595,10 +6783,10 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__1)).toString());
         Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__2)).toString());
         Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__3)).toString());
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString48__4);
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__4)).toString());
         Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__5)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__7)).toString());
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString48__7);
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__8)).toString());
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__9)).toString());
         Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__10)).toString());
@@ -6609,60 +6797,106 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersionnull100_add9565() throws Exception {
-        JavaVersion o_testGetJavaVersionnull100__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull100__1)).toString());
-        JavaVersion o_testGetJavaVersionnull100__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull100__2)).toString());
-        JavaVersion o_testGetJavaVersionnull100__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull100__3)).toString());
-        JavaVersion o_testGetJavaVersionnull100__4 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull100__4);
-        JavaVersion o_testGetJavaVersionnull100__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull100__5)).toString());
-        JavaVersion o_testGetJavaVersionnull100__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull100__6)).toString());
-        JavaVersion o_testGetJavaVersionnull100__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull100__7)).toString());
-        JavaVersion o_testGetJavaVersionnull100__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull100__8)).toString());
-        JavaVersion o_testGetJavaVersionnull100__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull100__9)).toString());
-        JavaVersion o_testGetJavaVersionnull100__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull100__10)).toString());
-        JavaVersion o_testGetJavaVersionnull100__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull100__11)).toString());
-        JavaVersion o_testGetJavaVersionnull100__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull100__12)).toString());
-        JavaVersion o_testGetJavaVersionnull100__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull100__13)).toString());
-        JavaVersion o_testGetJavaVersionnull100__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull100__14)).toString());
-        JavaVersion o_testGetJavaVersionnull100_add9565__43 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull100_add9565__43)).toString());
-        JavaVersion o_testGetJavaVersionnull100__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull100__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull100__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull100__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull100__3)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull100__4);
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull100__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull100__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull100__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull100__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull100__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull100__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull100__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull100__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull100__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull100__14)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull100_add9565__43)).toString());
+    public void testGetJavaVersion_literalMutationString7null13168() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString7__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString7__2 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString7__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString7__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString7__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString7__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString7__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString7__8 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString7__8);
+        JavaVersion o_testGetJavaVersion_literalMutationString7__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString7__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString7__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString7__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString7__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString7__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString7__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__1)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__7)).toString());
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString7__8);
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString7__14)).toString());
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString54_add10878() throws Exception {
+    public void testGetJavaVersion_literalMutationString54null13453() throws Exception {
         JavaVersion o_testGetJavaVersion_literalMutationString54__1 = JavaVersion.get("0.9");
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__8 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString54__8);
+        JavaVersion o_testGetJavaVersion_literalMutationString54__9 = JavaVersion.get("1C.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString54__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__7)).toString());
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString54__8);
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__14)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString54_add10911() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString54__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__1)).toString());
+        o_testGetJavaVersion_literalMutationString54__1.toString();
         JavaVersion o_testGetJavaVersion_literalMutationString54__2 = JavaVersion.get("1.1");
         Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__2)).toString());
         JavaVersion o_testGetJavaVersion_literalMutationString54__3 = JavaVersion.get("1.2");
@@ -6691,7 +6925,6 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__14)).toString());
         JavaVersion o_testGetJavaVersion_literalMutationString54__15 = JavaVersion.get("11");
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__15)).toString());
-        o_testGetJavaVersion_literalMutationString54__13.toString();
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__1)).toString());
         Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__2)).toString());
         Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__3)).toString());
@@ -6706,156 +6939,104 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__12)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__13)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__14)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString54__15)).toString());
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString51null13369() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString51__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__9 = JavaVersion.get("I.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString51__14 = JavaVersion.getJavaVersion(null);
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString51__14);
-        JavaVersion o_testGetJavaVersion_literalMutationString51__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__13)).toString());
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString51__14);
+    public void testGetJavaVersionnull108_add11329() throws Exception {
+        JavaVersion o_testGetJavaVersionnull108__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull108__1)).toString());
+        JavaVersion o_testGetJavaVersionnull108__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull108__2)).toString());
+        JavaVersion o_testGetJavaVersionnull108__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull108__3)).toString());
+        JavaVersion o_testGetJavaVersionnull108__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull108__4)).toString());
+        JavaVersion o_testGetJavaVersionnull108__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull108__5)).toString());
+        JavaVersion o_testGetJavaVersionnull108__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__6)).toString());
+        JavaVersion o_testGetJavaVersionnull108__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull108__7)).toString());
+        JavaVersion o_testGetJavaVersionnull108__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull108__8)).toString());
+        JavaVersion o_testGetJavaVersionnull108__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull108__9)).toString());
+        JavaVersion o_testGetJavaVersionnull108__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull108__10)).toString());
+        JavaVersion o_testGetJavaVersionnull108__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull108__11)).toString());
+        JavaVersion o_testGetJavaVersionnull108__12 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull108__12);
+        JavaVersion o_testGetJavaVersionnull108__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__13)).toString());
+        JavaVersion o_testGetJavaVersionnull108__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__14)).toString());
+        JavaVersion o_testGetJavaVersionnull108__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull108__15)).toString());
+        o_testGetJavaVersionnull108__4.toString();
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull108__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull108__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull108__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull108__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull108__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull108__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull108__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull108__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull108__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull108__11)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull108__12);
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__14)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull108__15)).toString());
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString75_add10251() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString75__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString75__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString75__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString75__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString75__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString75__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString75__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString75__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString75__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString75__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString75__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString75__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString75__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString75__14 = JavaVersion.getJavaVersion("1O.5");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString75__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__15)).toString());
-        o_testGetJavaVersion_literalMutationString75__2.toString();
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__13)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__14)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__15)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString15_add10882() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString15__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15_add10882__4 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15_add10882__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15__3 = JavaVersion.get("12");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString15__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15_add10882__4)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__2)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString15__14)).toString());
+    public void testGetJavaVersion_literalMutationString71null13501() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString71__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString71__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString71__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString71__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString71__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString71__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString71__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString71__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString71__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString71__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString71__11 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString71__11);
+        JavaVersion o_testGetJavaVersion_literalMutationString71__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString71__13 = JavaVersion.get("0.5");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString71__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString71__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__10)).toString());
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString71__11);
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__12)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__14)).toString());
     }
 
     @Test(timeout = 10000)
@@ -6907,54 +7088,6 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString71null13467() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString71__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString71__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString71__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString71__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString71__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString71__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString71__7 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString71__7);
-        JavaVersion o_testGetJavaVersion_literalMutationString71__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString71__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString71__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString71__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString71__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString71__13 = JavaVersion.get("0.5");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString71__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString71__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__6)).toString());
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString71__7);
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__12)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString71__14)).toString());
-    }
-
-    @Test(timeout = 10000)
     public void testGetJavaVersionnull99() throws Exception {
         JavaVersion o_testGetJavaVersionnull99__1 = JavaVersion.get("0.9");
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull99__1)).toString());
@@ -7000,54 +7133,6 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull99__12)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull99__13)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull99__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString4null13118() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString4__1 = JavaVersion.get("09");
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString4__1);
-        JavaVersion o_testGetJavaVersion_literalMutationString4__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__3 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString4__3);
-        JavaVersion o_testGetJavaVersion_literalMutationString4__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString4__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__15)).toString());
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString4__1);
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__2)).toString());
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString4__3);
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString4__14)).toString());
     }
 
     @Test(timeout = 10000)
@@ -7243,6 +7328,154 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
+    public void testGetJavaVersionnull110_add11495() throws Exception {
+        JavaVersion o_testGetJavaVersionnull110__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull110__1)).toString());
+        JavaVersion o_testGetJavaVersionnull110__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull110__2)).toString());
+        JavaVersion o_testGetJavaVersionnull110__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull110__3)).toString());
+        JavaVersion o_testGetJavaVersionnull110__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull110__4)).toString());
+        JavaVersion o_testGetJavaVersionnull110__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull110__5)).toString());
+        JavaVersion o_testGetJavaVersionnull110__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull110__6)).toString());
+        JavaVersion o_testGetJavaVersionnull110__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull110__7)).toString());
+        JavaVersion o_testGetJavaVersionnull110__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull110__8)).toString());
+        JavaVersion o_testGetJavaVersionnull110__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__9)).toString());
+        JavaVersion o_testGetJavaVersionnull110__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull110__10)).toString());
+        JavaVersion o_testGetJavaVersionnull110__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull110__11)).toString());
+        JavaVersion o_testGetJavaVersionnull110__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__12)).toString());
+        JavaVersion o_testGetJavaVersionnull110__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull110__13)).toString());
+        JavaVersion o_testGetJavaVersionnull110__14 = JavaVersion.getJavaVersion(null);
+        Assert.assertNull(o_testGetJavaVersionnull110__14);
+        JavaVersion o_testGetJavaVersionnull110__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__15)).toString());
+        o_testGetJavaVersionnull110__2.toString();
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull110__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull110__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull110__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull110__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull110__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull110__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull110__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull110__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull110__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull110__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull110__13)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull110__14);
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull110__15)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString78_add10905() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString78__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__14 = JavaVersion.getJavaVersion("w.5");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString78__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__15)).toString());
+        o_testGetJavaVersion_literalMutationString78__10.toString();
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__13)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__14)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString78__15)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersion_literalMutationString75null13249() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString75__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString75__14 = JavaVersion.getJavaVersion(null);
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString75__14);
+        JavaVersion o_testGetJavaVersion_literalMutationString75__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString75__13)).toString());
+        Assert.assertNull(o_testGetJavaVersion_literalMutationString75__14);
+    }
+
+    @Test(timeout = 10000)
     public void testGetJavaVersion_literalMutationString30() throws Exception {
         JavaVersion o_testGetJavaVersion_literalMutationString30__1 = JavaVersion.get("0.9");
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__1)).toString());
@@ -7288,6 +7521,54 @@ public class AmplJavaVersionTest {
         Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__12)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__13)).toString());
         Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString30__14)).toString());
+    }
+
+    @Test(timeout = 10000)
+    public void testGetJavaVersionnull106_literalMutationString3814() throws Exception {
+        JavaVersion o_testGetJavaVersionnull106__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull106__1)).toString());
+        JavaVersion o_testGetJavaVersionnull106__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull106__2)).toString());
+        JavaVersion o_testGetJavaVersionnull106__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull106__3)).toString());
+        JavaVersion o_testGetJavaVersionnull106__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull106__4)).toString());
+        JavaVersion o_testGetJavaVersionnull106__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull106__5)).toString());
+        JavaVersion o_testGetJavaVersionnull106__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__6)).toString());
+        JavaVersion o_testGetJavaVersionnull106__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull106__7)).toString());
+        JavaVersion o_testGetJavaVersionnull106__8 = JavaVersion.get("17");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull106__8)).toString());
+        JavaVersion o_testGetJavaVersionnull106__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull106__9)).toString());
+        JavaVersion o_testGetJavaVersionnull106__10 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull106__10);
+        JavaVersion o_testGetJavaVersionnull106__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull106__11)).toString());
+        JavaVersion o_testGetJavaVersionnull106__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull106__12)).toString());
+        JavaVersion o_testGetJavaVersionnull106__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__13)).toString());
+        JavaVersion o_testGetJavaVersionnull106__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__14)).toString());
+        JavaVersion o_testGetJavaVersionnull106__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull106__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull106__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull106__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull106__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull106__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull106__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull106__7)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull106__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull106__9)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull106__10);
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull106__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull106__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull106__14)).toString());
     }
 
     @Test(timeout = 10000)
@@ -7387,6 +7668,54 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
+    public void testGetJavaVersionnull108null13580() throws Exception {
+        JavaVersion o_testGetJavaVersionnull108__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull108__1)).toString());
+        JavaVersion o_testGetJavaVersionnull108__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull108__2)).toString());
+        JavaVersion o_testGetJavaVersionnull108__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull108__3)).toString());
+        JavaVersion o_testGetJavaVersionnull108__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull108__4)).toString());
+        JavaVersion o_testGetJavaVersionnull108__5 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull108__5);
+        JavaVersion o_testGetJavaVersionnull108__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__6)).toString());
+        JavaVersion o_testGetJavaVersionnull108__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull108__7)).toString());
+        JavaVersion o_testGetJavaVersionnull108__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull108__8)).toString());
+        JavaVersion o_testGetJavaVersionnull108__9 = JavaVersion.get("1.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull108__9)).toString());
+        JavaVersion o_testGetJavaVersionnull108__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull108__10)).toString());
+        JavaVersion o_testGetJavaVersionnull108__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull108__11)).toString());
+        JavaVersion o_testGetJavaVersionnull108__12 = JavaVersion.get(null);
+        Assert.assertNull(o_testGetJavaVersionnull108__12);
+        JavaVersion o_testGetJavaVersionnull108__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__13)).toString());
+        JavaVersion o_testGetJavaVersionnull108__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__14)).toString());
+        JavaVersion o_testGetJavaVersionnull108__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull108__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull108__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull108__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull108__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull108__4)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull108__5);
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull108__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersionnull108__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull108__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull108__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull108__11)).toString());
+        Assert.assertNull(o_testGetJavaVersionnull108__12);
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__14)).toString());
+    }
+
+    @Test(timeout = 10000)
     public void testGetJavaVersion_literalMutationString76null13739() throws Exception {
         JavaVersion o_testGetJavaVersion_literalMutationString76__1 = JavaVersion.get("0.9");
         Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString76__1)).toString());
@@ -7435,196 +7764,54 @@ public class AmplJavaVersionTest {
     }
 
     @Test(timeout = 10000)
-    public void testGetJavaVersionnull108_literalMutationString824() throws Exception {
-        JavaVersion o_testGetJavaVersionnull108__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull108__1)).toString());
-        JavaVersion o_testGetJavaVersionnull108__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull108__2)).toString());
-        JavaVersion o_testGetJavaVersionnull108__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull108__3)).toString());
-        JavaVersion o_testGetJavaVersionnull108__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull108__4)).toString());
-        JavaVersion o_testGetJavaVersionnull108__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull108__5)).toString());
-        JavaVersion o_testGetJavaVersionnull108__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__6)).toString());
-        JavaVersion o_testGetJavaVersionnull108__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull108__7)).toString());
-        JavaVersion o_testGetJavaVersionnull108__8 = JavaVersion.get("+.7");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull108__8)).toString());
-        JavaVersion o_testGetJavaVersionnull108__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull108__9)).toString());
-        JavaVersion o_testGetJavaVersionnull108__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull108__10)).toString());
-        JavaVersion o_testGetJavaVersionnull108__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull108__11)).toString());
-        JavaVersion o_testGetJavaVersionnull108__12 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersionnull108__12);
-        JavaVersion o_testGetJavaVersionnull108__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__13)).toString());
-        JavaVersion o_testGetJavaVersionnull108__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__14)).toString());
-        JavaVersion o_testGetJavaVersionnull108__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull108__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersionnull108__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersionnull108__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersionnull108__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersionnull108__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersionnull108__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersionnull108__7)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull108__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersionnull108__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersionnull108__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersionnull108__11)).toString());
-        Assert.assertNull(o_testGetJavaVersionnull108__12);
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersionnull108__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString63null13448() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString63__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString63__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString63__3 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString63__3);
-        JavaVersion o_testGetJavaVersion_literalMutationString63__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString63__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString63__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString63__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString63__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString63__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString63__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString63__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString63__12 = JavaVersion.get("1T.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString63__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString63__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString63__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__2)).toString());
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString63__3);
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString63__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString23_add10417() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString23__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString23__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString23__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString23__4 = JavaVersion.get("1[.3");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString23__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString23__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString23__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString23__8 = JavaVersion.get("1.7");
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString23__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString23__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString23__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__11)).toString());
-        o_testGetJavaVersion_literalMutationString23__11.toString();
-        JavaVersion o_testGetJavaVersion_literalMutationString23__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString23__13 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__13)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString23__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString23__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__3)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__7)).toString());
-        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__12)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__13)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString23__14)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testGetJavaVersion_literalMutationString48null13188() throws Exception {
-        JavaVersion o_testGetJavaVersion_literalMutationString48__1 = JavaVersion.get("0.9");
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__1)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__2 = JavaVersion.get("1.1");
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__2)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__3 = JavaVersion.get("1.2");
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__3)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__4 = JavaVersion.get("1.3");
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__4)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__5 = JavaVersion.get("1.4");
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__5)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__6 = JavaVersion.get("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__6)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__7 = JavaVersion.get("1.6");
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__7)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__8 = JavaVersion.get("1s.7");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__8)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__9 = JavaVersion.get("1.8");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__9)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__10 = JavaVersion.get("9");
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__10)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__11 = JavaVersion.get("10");
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__11)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__12 = JavaVersion.get("1.10");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__12)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__13 = JavaVersion.get(null);
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString48__13);
-        JavaVersion o_testGetJavaVersion_literalMutationString48__14 = JavaVersion.getJavaVersion("1.5");
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__14)).toString());
-        JavaVersion o_testGetJavaVersion_literalMutationString48__15 = JavaVersion.get("11");
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__15)).toString());
-        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__1)).toString());
-        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__2)).toString());
-        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__3)).toString());
-        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__4)).toString());
-        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__5)).toString());
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__6)).toString());
-        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__7)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__8)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__9)).toString());
-        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__10)).toString());
-        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__11)).toString());
-        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__12)).toString());
-        Assert.assertNull(o_testGetJavaVersion_literalMutationString48__13);
-        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString48__14)).toString());
+    public void testGetJavaVersion_literalMutationString51_add10762() throws Exception {
+        JavaVersion o_testGetJavaVersion_literalMutationString51__1 = JavaVersion.get("0.9");
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__1)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__2 = JavaVersion.get("1.1");
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__2)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__3 = JavaVersion.get("1.2");
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__3)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__4 = JavaVersion.get("1.3");
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__4)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__5 = JavaVersion.get("1.4");
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__5)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__6 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__6)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__7 = JavaVersion.get("1.6");
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__7)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__8 = JavaVersion.get("1.7");
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__8)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__9 = JavaVersion.get("I.8");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__9)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__10 = JavaVersion.get("9");
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__10)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__11 = JavaVersion.get("10");
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__11)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__12 = JavaVersion.get("1.10");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__12)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__13 = JavaVersion.get("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__13)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__14 = JavaVersion.getJavaVersion("1.5");
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__14)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51_add10762__43 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51_add10762__43)).toString());
+        JavaVersion o_testGetJavaVersion_literalMutationString51__15 = JavaVersion.get("11");
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__15)).toString());
+        Assert.assertEquals("0.9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__1)).toString());
+        Assert.assertEquals("1.1", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__2)).toString());
+        Assert.assertEquals("1.2", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__3)).toString());
+        Assert.assertEquals("1.3", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__4)).toString());
+        Assert.assertEquals("1.4", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__5)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__6)).toString());
+        Assert.assertEquals("1.6", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__7)).toString());
+        Assert.assertEquals("1.7", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__8)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__9)).toString());
+        Assert.assertEquals("9", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__10)).toString());
+        Assert.assertEquals("10", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__11)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__12)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__13)).toString());
+        Assert.assertEquals("1.5", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51__14)).toString());
+        Assert.assertEquals("1.8", ((JavaVersion) (o_testGetJavaVersion_literalMutationString51_add10762__43)).toString());
     }
 }
 
