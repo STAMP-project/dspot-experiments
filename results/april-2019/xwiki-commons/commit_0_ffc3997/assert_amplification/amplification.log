@@ -143,7 +143,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
   <workingDirectory default-value="false">${working-directory}</workingDirectory>
 </configuration>
 [DEBUG] =======================================================================
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=2619210, ConflictMarker.markTime=1201554, ConflictMarker.nodeCount=271, ConflictIdSorter.graphTime=1080488, ConflictIdSorter.topsortTime=478614, ConflictIdSorter.conflictIdCount=49, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=10583572, ConflictResolver.conflictItemCount=126, DefaultDependencyCollector.collectTime=553285794, DefaultDependencyCollector.transformTime=18599721}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=2621889, ConflictMarker.markTime=1144222, ConflictMarker.nodeCount=271, ConflictIdSorter.graphTime=1262030, ConflictIdSorter.topsortTime=626340, ConflictIdSorter.conflictIdCount=49, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=10538901, ConflictResolver.conflictItemCount=126, DefaultDependencyCollector.collectTime=620651755, DefaultDependencyCollector.transformTime=18949849}
 [DEBUG] org.xwiki.commons:xwiki-commons-tool-xar-plugin:maven-plugin:10.8-SNAPSHOT
 [DEBUG]    org.dom4j:dom4j:jar:2.1.1:compile
 [DEBUG]    org.codehaus.plexus:plexus-archiver:jar:3.6.0:compile
@@ -530,7 +530,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=7607259, ConflictMarker.markTime=1412666, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=2711731, ConflictIdSorter.topsortTime=182154, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=9991777, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=2423013241, DefaultDependencyCollector.transformTime=22087164}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=6084358, ConflictMarker.markTime=1893236, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=2936314, ConflictIdSorter.topsortTime=160138, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=8383453, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=2147848131, DefaultDependencyCollector.transformTime=19630675}
 [DEBUG] eu.stamp-project:dspot-maven:jar:2.0.1-SNAPSHOT:
 [DEBUG]    eu.stamp-project:dspot:jar:2.0.1-SNAPSHOT:compile
 [DEBUG]       fr.inria.gforge.spoon:spoon-core:jar:7.3.0:compile
@@ -776,7 +776,6 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [INFO] ----------------------------[ maven-plugin ]----------------------------
 [INFO] 
 [INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ xwiki-commons-tool-xar-plugin ---
-[INFO] Deleting /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target
 [INFO] 
 [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-plugins) @ xwiki-commons-tool-xar-plugin ---
 [INFO] Skipping Rule Enforcement.
@@ -845,15 +844,15 @@ Goal prefix is specified as: 'xar'. Maven currently expects it to be 'xwiki-comm
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 6.875 s
-[INFO] Finished at: 2019-04-18T19:13:19+02:00
+[INFO] Total time: 7.419 s
+[INFO] Finished at: 2019-04-29T19:21:03+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Amplification of org.xwiki.tool.xar.XWikiDocumentTest (1 test(s))
 [INFO] Assertion amplification of org.xwiki.tool.xar.XWikiDocumentTest (1 test(s))
 [DEBUG] Starting 15 Services...
-[DEBUG] All Services successfully started, 15 Services in 8ms
+[DEBUG] All Services successfully started, 15 Services in 9ms
 [DEBUG] Creating Cache 'frameworkCache' in EhcacheManager.
-[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@4e3f2908
+[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@6ad179b4
 [DEBUG] Could not create serializers for frameworkCache
 org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for type 'eu.stamp_project.test_framework.TestFrameworkSupport'
     at org.ehcache.impl.internal.spi.serialization.DefaultSerializationProvider.getSerializerClassFor (DefaultSerializationProvider.java:136)
@@ -902,8 +901,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
     at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:229)
     at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:415)
     at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:356)
-[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@6f9e08d4
-[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@390037e7
+[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@7d0100ea
+[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@357bc488
 [DEBUG] Initialize successful.
 [INFO] Cache 'frameworkCache' created in EhcacheManager.
 [DEBUG] Initialize successful.
@@ -920,7 +919,6 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] ----------------------------[ maven-plugin ]----------------------------
 [INFO] 
 [INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ xwiki-commons-tool-xar-plugin ---
-[INFO] Deleting /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target
 [INFO] 
 [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-plugins) @ xwiki-commons-tool-xar-plugin ---
 [INFO] Skipping Rule Enforcement.
@@ -986,8 +984,8 @@ Goal prefix is specified as: 'xar'. Maven currently expects it to be 'xwiki-comm
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 5.919 s
-[INFO] Finished at: 2019-04-18T19:13:29+02:00
+[INFO] Total time: 6.354 s
+[INFO] Finished at: 2019-04-29T19:21:14+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/org/dom4j/dom4j/2.1.1/dom4j-2.1.1.jar:/home/spirals/danglot/.m2/repository/org/codehaus/plexus/plexus-archiver/3.6.0/plexus-archiver-3.6.0.jar:/home/spirals/danglot/.m2/repository/org/codehaus/plexus/plexus-io/3.0.1/plexus-io-3.0.1.jar:/home/spirals/danglot/.m2/repository/org/apache/commons/commons-compress/1.18/commons-compress-1.18.jar:/home/spirals/danglot/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/home/spirals/danglot/.m2/repository/org/tukaani/xz/1.8/xz-1.8.jar:/home/spirals/danglot/.m2/repository/jaxen/jaxen/1.1.6/jaxen-1.1.6.jar:/home/spirals/danglot/.m2/repository/com/ibm/icu/icu4j/50.1.1/icu4j-50.1.1.jar:/home/spirals/danglot/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar:/home/spirals/danglot/.m2/repository/org/apache/commons/commons-lang3/3.8/commons-lang3-3.8.jar:/home/spirals/danglot/.m2/repository/org/codehaus/plexus/plexus-utils/3.1.0/plexus-utils-3.1.0.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/maven-artifact/3.5.4/maven-artifact-3.5.4.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/maven-plugin-api/3.5.4/maven-plugin-api-3.5.4.jar:/home/spirals/danglot/.m2/repository/org/eclipse/sisu/org.eclipse.sisu.plexus/0.3.3/org.eclipse.sisu.plexus-0.3.3.jar:/home/spirals/danglot/.m2/repository/javax/enterprise/cdi-api/1.0/cdi-api-1.0.jar:/home/spirals/danglot/.m2/repository/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.3/org.eclipse.sisu.inject-0.3.3.jar:/home/spirals/danglot/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.5.2/plexus-classworlds-2.5.2.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/maven-compat/3.5.4/maven-compat-3.5.4.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/maven-model-builder/3.5.4/maven-model-builder-3.5.4.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/maven-builder-support/3.5.4/maven-builder-support-3.5.4.jar:/home/spirals/danglot/.m2/repository/com/google/guava/guava/20.0/guava-20.0.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/maven-settings/3.5.4/maven-settings-3.5.4.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/maven-settings-builder/3.5.4/maven-settings-builder-3.5.4.jar:/home/spirals/danglot/.m2/repository/org/sonatype/plexus/plexus-sec-dispatcher/1.4/plexus-sec-dispatcher-1.4.jar:/home/spirals/danglot/.m2/repository/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/maven-core/3.5.4/maven-core-3.5.4.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/resolver/maven-resolver-spi/1.1.1/maven-resolver-spi-1.1.1.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/shared/maven-shared-utils/3.2.1/maven-shared-utils-3.2.1.jar:/home/spirals/danglot/.m2/repository/com/google/inject/guice/4.2.0/guice-4.2.0-no_aop.jar:/home/spirals/danglot/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/home/spirals/danglot/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/maven-resolver-provider/3.5.4/maven-resolver-provider-3.5.4.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/maven-repository-metadata/3.5.4/maven-repository-metadata-3.5.4.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/resolver/maven-resolver-api/1.1.1/maven-resolver-api-1.1.1.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/resolver/maven-resolver-util/1.1.1/maven-resolver-util-1.1.1.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/resolver/maven-resolver-impl/1.1.1/maven-resolver-impl-1.1.1.jar:/home/spirals/danglot/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.25/plexus-interpolation-1.25.jar:/home/spirals/danglot/.m2/repository/org/codehaus/plexus/plexus-component-annotations/1.7.1/plexus-component-annotations-1.7.1.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/wagon/wagon-provider-api/3.1.0/wagon-provider-api-3.1.0.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/maven-model/3.5.4/maven-model-3.5.4.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/plugin-tools/maven-plugin-annotations/3.5.2/maven-plugin-annotations-3.5.2.jar:/home/spirals/danglot/.m2/repository/org/codehaus/plexus/plexus-container-default/1.7.1/plexus-container-default-1.7.1.jar:/home/spirals/danglot/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/home/spirals/danglot/.m2/repository/com/google/collections/google-collections/1.0/google-collections-1.0.jar:/home/spirals/danglot/.m2/repository/org/twdata/maven/mojo-executor/2.2.0/mojo-executor-2.2.0.jar:/home/spirals/danglot/.m2/repository/xerces/xercesImpl/2.12.0/xercesImpl-2.12.0.jar:/home/spirals/danglot/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/dspot/tmp_test_sources/org/xwiki/tool/xar/XWikiDocumentTest.java
 [INFO] run mvn test -Dtest=org.xwiki.tool.xar.XWikiDocumentTest#createReference
@@ -1057,7 +1055,7 @@ Goal prefix is specified as: 'xar'. Maven currently expects it to be 'xwiki-comm
 [INFO] [INFO]  T E S T S
 [INFO] [INFO] -------------------------------------------------------
 [INFO] [INFO] Running org.xwiki.tool.xar.XWikiDocumentTest
-[INFO] [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.178 s - in org.xwiki.tool.xar.XWikiDocumentTest
+[INFO] [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.182 s - in org.xwiki.tool.xar.XWikiDocumentTest
 [INFO] [INFO] 
 [INFO] [INFO] Results:
 [INFO] [INFO] 
@@ -1066,8 +1064,8 @@ Goal prefix is specified as: 'xar'. Maven currently expects it to be 'xwiki-comm
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] [INFO] BUILD SUCCESS
 [INFO] [INFO] ------------------------------------------------------------------------
-[INFO] [INFO] Total time: 8.179 s
-[INFO] [INFO] Finished at: 2019-04-18T19:13:39+02:00
+[INFO] [INFO] Total time: 9.077 s
+[INFO] [INFO] Finished at: 2019-04-29T19:21:25+02:00
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] Run tests. (1)
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/org/dom4j/dom4j/2.1.1/dom4j-2.1.1.jar:/home/spirals/danglot/.m2/repository/org/codehaus/plexus/plexus-archiver/3.6.0/plexus-archiver-3.6.0.jar:/home/spirals/danglot/.m2/repository/org/codehaus/plexus/plexus-io/3.0.1/plexus-io-3.0.1.jar:/home/spirals/danglot/.m2/repository/org/apache/commons/commons-compress/1.18/commons-compress-1.18.jar:/home/spirals/danglot/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/home/spirals/danglot/.m2/repository/org/tukaani/xz/1.8/xz-1.8.jar:/home/spirals/danglot/.m2/repository/jaxen/jaxen/1.1.6/jaxen-1.1.6.jar:/home/spirals/danglot/.m2/repository/com/ibm/icu/icu4j/50.1.1/icu4j-50.1.1.jar:/home/spirals/danglot/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar:/home/spirals/danglot/.m2/repository/org/apache/commons/commons-lang3/3.8/commons-lang3-3.8.jar:/home/spirals/danglot/.m2/repository/org/codehaus/plexus/plexus-utils/3.1.0/plexus-utils-3.1.0.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/maven-artifact/3.5.4/maven-artifact-3.5.4.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/maven-plugin-api/3.5.4/maven-plugin-api-3.5.4.jar:/home/spirals/danglot/.m2/repository/org/eclipse/sisu/org.eclipse.sisu.plexus/0.3.3/org.eclipse.sisu.plexus-0.3.3.jar:/home/spirals/danglot/.m2/repository/javax/enterprise/cdi-api/1.0/cdi-api-1.0.jar:/home/spirals/danglot/.m2/repository/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.3/org.eclipse.sisu.inject-0.3.3.jar:/home/spirals/danglot/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.5.2/plexus-classworlds-2.5.2.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/maven-compat/3.5.4/maven-compat-3.5.4.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/maven-model-builder/3.5.4/maven-model-builder-3.5.4.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/maven-builder-support/3.5.4/maven-builder-support-3.5.4.jar:/home/spirals/danglot/.m2/repository/com/google/guava/guava/20.0/guava-20.0.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/maven-settings/3.5.4/maven-settings-3.5.4.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/maven-settings-builder/3.5.4/maven-settings-builder-3.5.4.jar:/home/spirals/danglot/.m2/repository/org/sonatype/plexus/plexus-sec-dispatcher/1.4/plexus-sec-dispatcher-1.4.jar:/home/spirals/danglot/.m2/repository/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/maven-core/3.5.4/maven-core-3.5.4.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/resolver/maven-resolver-spi/1.1.1/maven-resolver-spi-1.1.1.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/shared/maven-shared-utils/3.2.1/maven-shared-utils-3.2.1.jar:/home/spirals/danglot/.m2/repository/com/google/inject/guice/4.2.0/guice-4.2.0-no_aop.jar:/home/spirals/danglot/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/home/spirals/danglot/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/maven-resolver-provider/3.5.4/maven-resolver-provider-3.5.4.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/maven-repository-metadata/3.5.4/maven-repository-metadata-3.5.4.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/resolver/maven-resolver-api/1.1.1/maven-resolver-api-1.1.1.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/resolver/maven-resolver-util/1.1.1/maven-resolver-util-1.1.1.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/resolver/maven-resolver-impl/1.1.1/maven-resolver-impl-1.1.1.jar:/home/spirals/danglot/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.25/plexus-interpolation-1.25.jar:/home/spirals/danglot/.m2/repository/org/codehaus/plexus/plexus-component-annotations/1.7.1/plexus-component-annotations-1.7.1.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/wagon/wagon-provider-api/3.1.0/wagon-provider-api-3.1.0.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/maven-model/3.5.4/maven-model-3.5.4.jar:/home/spirals/danglot/.m2/repository/org/apache/maven/plugin-tools/maven-plugin-annotations/3.5.2/maven-plugin-annotations-3.5.2.jar:/home/spirals/danglot/.m2/repository/org/codehaus/plexus/plexus-container-default/1.7.1/plexus-container-default-1.7.1.jar:/home/spirals/danglot/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/home/spirals/danglot/.m2/repository/com/google/collections/google-collections/1.0/google-collections-1.0.jar:/home/spirals/danglot/.m2/repository/org/twdata/maven/mojo-executor/2.2.0/mojo-executor-2.2.0.jar:/home/spirals/danglot/.m2/repository/xerces/xercesImpl/2.12.0/xercesImpl-2.12.0.jar:/home/spirals/danglot/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/dspot/tmp_test_sources/org/xwiki/tool/xar/XWikiDocumentTest.java
@@ -1135,7 +1133,7 @@ Goal prefix is specified as: 'xar'. Maven currently expects it to be 'xwiki-comm
 [INFO] [INFO]  T E S T S
 [INFO] [INFO] -------------------------------------------------------
 [INFO] [INFO] Running org.xwiki.tool.xar.XWikiDocumentTest
-[INFO] [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.xwiki.tool.xar.XWikiDocumentTest
+[INFO] [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.xwiki.tool.xar.XWikiDocumentTest
 [INFO] [INFO] 
 [INFO] [INFO] Results:
 [INFO] [INFO] 
@@ -1144,8 +1142,8 @@ Goal prefix is specified as: 'xar'. Maven currently expects it to be 'xwiki-comm
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] [INFO] BUILD SUCCESS
 [INFO] [INFO] ------------------------------------------------------------------------
-[INFO] [INFO] Total time: 7.811 s
-[INFO] [INFO] Finished at: 2019-04-18T19:13:49+02:00
+[INFO] [INFO] Total time: 8.548 s
+[INFO] [INFO] Finished at: 2019-04-29T19:21:35+02:00
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] 1 test pass, generating assertion...
 [INFO] Add observations points in passing tests.
@@ -1154,12 +1152,12 @@ Goal prefix is specified as: 'xar'. Maven currently expects it to be 'xwiki-comm
 [WARNING] Could not continue the assertion amplification since all the instrumented test have an empty body.
 [INFO] Could not generate any test with assertions
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 27868
+[INFO] elapsedTime 29806
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
 [INFO] Amplification succeed.
-[INFO] Elapsed time 28178 ms
+[INFO] Elapsed time 30097 ms
 [INFO] 
 0 amplified test fails on the new versions.
 [INFO] Writing report in /tmp/dspot-experiments/results/april-2019/xwiki-commons/commit_0_ffc3997/assert_amplification/report.txt
@@ -1168,6 +1166,6 @@ Goal prefix is specified as: 'xar'. Maven currently expects it to be 'xwiki-comm
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 42.628 s
-[INFO] Finished at: 2019-04-18T19:13:49+02:00
+[INFO] Total time: 45.129 s
+[INFO] Finished at: 2019-04-29T19:21:35+02:00
 [INFO] ------------------------------------------------------------------------

@@ -145,7 +145,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
   <workingDirectory default-value="false">${working-directory}</workingDirectory>
 </configuration>
 [DEBUG] =======================================================================
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=1523533, ConflictMarker.markTime=879322, ConflictMarker.nodeCount=119, ConflictIdSorter.graphTime=685844, ConflictIdSorter.topsortTime=446465, ConflictIdSorter.conflictIdCount=59, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=13790600, ConflictResolver.conflictItemCount=114, DefaultDependencyCollector.collectTime=636206095, DefaultDependencyCollector.transformTime=19937374}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=1582148, ConflictMarker.markTime=871798, ConflictMarker.nodeCount=119, ConflictIdSorter.graphTime=899294, ConflictIdSorter.topsortTime=474178, ConflictIdSorter.conflictIdCount=59, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=11237779, ConflictResolver.conflictItemCount=114, DefaultDependencyCollector.collectTime=741392464, DefaultDependencyCollector.transformTime=17755490}
 [DEBUG] org.xwiki.commons:xwiki-commons-extension-api:jar:10.7-SNAPSHOT
 [DEBUG]    org.xwiki.commons:xwiki-commons-component-api:jar:10.7-SNAPSHOT:compile
 [DEBUG]       org.xwiki.commons:xwiki-commons-stability:jar:10.7-SNAPSHOT:compile
@@ -542,7 +542,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=7336972, ConflictMarker.markTime=1735057, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=4434481, ConflictIdSorter.topsortTime=183610, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=10674080, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=1868777521, DefaultDependencyCollector.transformTime=24588423}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=6630877, ConflictMarker.markTime=1677812, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=5101263, ConflictIdSorter.topsortTime=175105, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=10775908, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=2123393941, DefaultDependencyCollector.transformTime=24768223}
 [DEBUG] eu.stamp-project:dspot-maven:jar:2.0.1-SNAPSHOT:
 [DEBUG]    eu.stamp-project:dspot:jar:2.0.1-SNAPSHOT:compile
 [DEBUG]       fr.inria.gforge.spoon:spoon-core:jar:7.3.0:compile
@@ -788,9 +788,10 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
 [INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ xwiki-commons-extension-api ---
-[INFO] Deleting /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/target
 [INFO] 
 [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-plugins) @ xwiki-commons-extension-api ---
+Downloading from apache.snapshots: http://repository.apache.org/snapshots/org/xwiki/commons/xwiki-commons-tool-enforcer-dependencies/10.7-SNAPSHOT/maven-metadata.xml
+Downloading from apache.snapshots: http://repository.apache.org/snapshots/org/xwiki/commons/xwiki-commons-tool-enforcers/10.7-SNAPSHOT/maven-metadata.xml
 [INFO] Skipping Rule Enforcement.
 [INFO] 
 [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-jcl-log4j-isolation) @ xwiki-commons-extension-api ---
@@ -1114,6 +1115,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [WARNING] /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/src/test/java/org/xwiki/extension/repository/local/DefaultExtensionSerializerTest.java:[152,18] addFeature(java.lang.String) in org.xwiki.extension.AbstractExtension has been deprecated
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ xwiki-commons-extension-api ---
+Downloading from apache.snapshots: http://repository.apache.org/snapshots/org/xwiki/commons/xwiki-commons-tool-test-simple/10.7-SNAPSHOT/maven-metadata.xml
 [INFO] Tests are skipped.
 [INFO] 
 [INFO] --- maven-dependency-plugin:3.1.1:build-classpath (default-cli) @ xwiki-commons-extension-api ---
@@ -1121,15 +1123,15 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 28.445 s
-[INFO] Finished at: 2019-04-18T19:14:32+02:00
+[INFO] Total time: 13.445 s
+[INFO] Finished at: 2019-04-29T19:21:58+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Amplification of org.xwiki.extension.job.internal.UpgradePlanJobTest (5 test(s))
 [INFO] Assertion amplification of org.xwiki.extension.job.internal.UpgradePlanJobTest (5 test(s))
 [DEBUG] Starting 15 Services...
-[DEBUG] All Services successfully started, 15 Services in 11ms
+[DEBUG] All Services successfully started, 15 Services in 9ms
 [DEBUG] Creating Cache 'frameworkCache' in EhcacheManager.
-[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@3e39e0fb
+[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@2bdcfcf
 [DEBUG] Could not create serializers for frameworkCache
 org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for type 'eu.stamp_project.test_framework.TestFrameworkSupport'
     at org.ehcache.impl.internal.spi.serialization.DefaultSerializationProvider.getSerializerClassFor (DefaultSerializationProvider.java:136)
@@ -1178,8 +1180,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
     at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:229)
     at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:415)
     at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:356)
-[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@182cc69e
-[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@12f51a65
+[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@3d71e10b
+[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@71139e77
 [DEBUG] Initialize successful.
 [INFO] Cache 'frameworkCache' created in EhcacheManager.
 [DEBUG] Initialize successful.
@@ -1196,7 +1198,6 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
 [INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ xwiki-commons-extension-api ---
-[INFO] Deleting /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/target
 [INFO] 
 [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-plugins) @ xwiki-commons-extension-api ---
 [INFO] Skipping Rule Enforcement.
@@ -1529,8 +1530,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 12.196 s
-[INFO] Finished at: 2019-04-18T19:14:51+02:00
+[INFO] Total time: 10.907 s
+[INFO] Finished at: 2019-04-29T19:22:15+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-component-api/10.7-SNAPSHOT/xwiki-commons-component-api-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-stability/10.7-SNAPSHOT/xwiki-commons-stability-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-text/10.7-SNAPSHOT/xwiki-commons-text-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/home/spirals/danglot/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-configuration-api/10.7-SNAPSHOT/xwiki-commons-configuration-api-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/commons-beanutils/commons-beanutils/1.9.3/commons-beanutils-1.9.3.jar:/home/spirals/danglot/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-context/10.7-SNAPSHOT/xwiki-commons-context-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-observation-api/10.7-SNAPSHOT/xwiki-commons-observation-api-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-properties/10.7-SNAPSHOT/xwiki-commons-properties-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-logging-api/10.7-SNAPSHOT/xwiki-commons-logging-api-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-environment-api/10.7-SNAPSHOT/xwiki-commons-environment-api-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-job/10.7-SNAPSHOT/xwiki-commons-job-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-cache-api/10.7-SNAPSHOT/xwiki-commons-cache-api-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-script/10.7-SNAPSHOT/xwiki-commons-script-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/apache/commons/commons-collections4/4.1/commons-collections4-4.1.jar:/home/spirals/danglot/.m2/repository/org/apache/commons/commons-configuration2/2.2/commons-configuration2-2.2.jar:/home/spirals/danglot/.m2/repository/com/thoughtworks/xstream/xstream/1.4.10/xstream-1.4.10.jar:/home/spirals/danglot/.m2/repository/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar:/home/spirals/danglot/.m2/repository/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar:/home/spirals/danglot/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:/home/spirals/danglot/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar:/home/spirals/danglot/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/home/spirals/danglot/.m2/repository/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar:/home/spirals/danglot/.m2/repository/org/reflections/reflections/0.9.11/reflections-0.9.11.jar:/home/spirals/danglot/.m2/repository/com/google/guava/guava/20.0/guava-20.0.jar:/home/spirals/danglot/.m2/repository/org/javassist/javassist/3.21.0-GA/javassist-3.21.0-GA.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-observation-local/10.7-SNAPSHOT/xwiki-commons-observation-local-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-component-observation/10.7-SNAPSHOT/xwiki-commons-component-observation-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-logging-logback/10.7-SNAPSHOT/xwiki-commons-logging-logback-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar:/home/spirals/danglot/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-tool-test-component/10.7-SNAPSHOT/xwiki-commons-tool-test-component-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-tool-test-simple/10.7-SNAPSHOT/xwiki-commons-tool-test-simple-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.1.1/junit-jupiter-api-5.1.1.jar:/home/spirals/danglot/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/home/spirals/danglot/.m2/repository/org/opentest4j/opentest4j/1.0.0/opentest4j-1.0.0.jar:/home/spirals/danglot/.m2/repository/org/junit/platform/junit-platform-commons/1.1.1/junit-platform-commons-1.1.1.jar:/home/spirals/danglot/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.1.1/junit-jupiter-engine-5.1.1.jar:/home/spirals/danglot/.m2/repository/org/junit/platform/junit-platform-engine/1.1.1/junit-platform-engine-1.1.1.jar:/home/spirals/danglot/.m2/repository/org/junit/platform/junit-platform-launcher/1.1.1/junit-platform-launcher-1.1.1.jar:/home/spirals/danglot/.m2/repository/org/junit/vintage/junit-vintage-engine/5.1.1/junit-vintage-engine-5.1.1.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar:/home/spirals/danglot/.m2/repository/org/jmock/jmock/2.6.0/jmock-2.6.0.jar:/home/spirals/danglot/.m2/repository/org/jmock/jmock-junit4/2.6.0/jmock-junit4-2.6.0.jar:/home/spirals/danglot/.m2/repository/org/mockito/mockito-core/2.19.0/mockito-core-2.19.0.jar:/home/spirals/danglot/.m2/repository/net/bytebuddy/byte-buddy/1.8.10/byte-buddy-1.8.10.jar:/home/spirals/danglot/.m2/repository/net/bytebuddy/byte-buddy-agent/1.8.10/byte-buddy-agent-1.8.10.jar:/home/spirals/danglot/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/home/spirals/danglot/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.25/jcl-over-slf4j-1.7.25.jar:/home/spirals/danglot/.m2/repository/org/slf4j/log4j-over-slf4j/1.7.25/log4j-over-slf4j-1.7.25.jar:/home/spirals/danglot/.m2/repository/jmock/jmock/1.2.0/jmock-1.2.0.jar:/home/spirals/danglot/.m2/repository/jmock/jmock-cglib/1.2.0/jmock-cglib-1.2.0.jar:/home/spirals/danglot/.m2/repository/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-component-default/10.7-SNAPSHOT/xwiki-commons-component-default-10.7-SNAPSHOT.jar:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/target/classes/:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/target/dspot/tmp_test_sources/org/xwiki/extension/job/internal/UpgradePlanJobTest.java
 [INFO] run mvn test -Dtest=org.xwiki.extension.job.internal.UpgradePlanJobTest#testUpgradePlanWithDependencyOnNamespace+testUpgradePlanOnRootWithTargetDependencyExtension+testUpgradePlanWithDependencyOnRoot+testUpgradePlanOnNamespaceWithExtensionOnRoot+testUpgradePlanOnRoot
@@ -1608,17 +1609,17 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.xwiki.extension.job.internal.UpgradePlanJobTest
-[INFO] 19:15:04.151 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:04.156 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] 19:15:04.692 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:04.693 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] 19:15:04.801 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:04.802 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] 19:15:04.897 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:04.898 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] 19:15:05.018 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:05.018 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.947 sec - in org.xwiki.extension.job.internal.UpgradePlanJobTest
+[INFO] 19:22:28.044 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:22:28.050 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:22:28.585 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:22:28.586 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:22:28.697 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:22:28.699 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:22:28.800 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:22:28.801 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:22:28.894 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:22:28.896 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.97 sec - in org.xwiki.extension.job.internal.UpgradePlanJobTest
 [INFO] 
 [INFO] Results :
 [INFO] 
@@ -1627,8 +1628,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] [INFO] BUILD SUCCESS
 [INFO] [INFO] ------------------------------------------------------------------------
-[INFO] [INFO] Total time: 11.092 s
-[INFO] [INFO] Finished at: 2019-04-18T19:15:05+02:00
+[INFO] [INFO] Total time: 11.589 s
+[INFO] [INFO] Finished at: 2019-04-29T19:22:29+02:00
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] Run tests. (5)
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-component-api/10.7-SNAPSHOT/xwiki-commons-component-api-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-stability/10.7-SNAPSHOT/xwiki-commons-stability-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-text/10.7-SNAPSHOT/xwiki-commons-text-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/home/spirals/danglot/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-configuration-api/10.7-SNAPSHOT/xwiki-commons-configuration-api-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/commons-beanutils/commons-beanutils/1.9.3/commons-beanutils-1.9.3.jar:/home/spirals/danglot/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-context/10.7-SNAPSHOT/xwiki-commons-context-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-observation-api/10.7-SNAPSHOT/xwiki-commons-observation-api-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-properties/10.7-SNAPSHOT/xwiki-commons-properties-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/javax/validation/validation-api/1.1.0.Final/validation-api-1.1.0.Final.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-logging-api/10.7-SNAPSHOT/xwiki-commons-logging-api-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-environment-api/10.7-SNAPSHOT/xwiki-commons-environment-api-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-job/10.7-SNAPSHOT/xwiki-commons-job-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-cache-api/10.7-SNAPSHOT/xwiki-commons-cache-api-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-script/10.7-SNAPSHOT/xwiki-commons-script-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/apache/commons/commons-collections4/4.1/commons-collections4-4.1.jar:/home/spirals/danglot/.m2/repository/org/apache/commons/commons-configuration2/2.2/commons-configuration2-2.2.jar:/home/spirals/danglot/.m2/repository/com/thoughtworks/xstream/xstream/1.4.10/xstream-1.4.10.jar:/home/spirals/danglot/.m2/repository/xmlpull/xmlpull/1.1.3.1/xmlpull-1.1.3.1.jar:/home/spirals/danglot/.m2/repository/xpp3/xpp3_min/1.1.4c/xpp3_min-1.1.4c.jar:/home/spirals/danglot/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:/home/spirals/danglot/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar:/home/spirals/danglot/.m2/repository/commons-codec/commons-codec/1.11/commons-codec-1.11.jar:/home/spirals/danglot/.m2/repository/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1.jar:/home/spirals/danglot/.m2/repository/org/reflections/reflections/0.9.11/reflections-0.9.11.jar:/home/spirals/danglot/.m2/repository/com/google/guava/guava/20.0/guava-20.0.jar:/home/spirals/danglot/.m2/repository/org/javassist/javassist/3.21.0-GA/javassist-3.21.0-GA.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-observation-local/10.7-SNAPSHOT/xwiki-commons-observation-local-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-component-observation/10.7-SNAPSHOT/xwiki-commons-component-observation-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-logging-logback/10.7-SNAPSHOT/xwiki-commons-logging-logback-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar:/home/spirals/danglot/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-tool-test-component/10.7-SNAPSHOT/xwiki-commons-tool-test-component-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-tool-test-simple/10.7-SNAPSHOT/xwiki-commons-tool-test-simple-10.7-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.1.1/junit-jupiter-api-5.1.1.jar:/home/spirals/danglot/.m2/repository/org/apiguardian/apiguardian-api/1.0.0/apiguardian-api-1.0.0.jar:/home/spirals/danglot/.m2/repository/org/opentest4j/opentest4j/1.0.0/opentest4j-1.0.0.jar:/home/spirals/danglot/.m2/repository/org/junit/platform/junit-platform-commons/1.1.1/junit-platform-commons-1.1.1.jar:/home/spirals/danglot/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.1.1/junit-jupiter-engine-5.1.1.jar:/home/spirals/danglot/.m2/repository/org/junit/platform/junit-platform-engine/1.1.1/junit-platform-engine-1.1.1.jar:/home/spirals/danglot/.m2/repository/org/junit/platform/junit-platform-launcher/1.1.1/junit-platform-launcher-1.1.1.jar:/home/spirals/danglot/.m2/repository/org/junit/vintage/junit-vintage-engine/5.1.1/junit-vintage-engine-5.1.1.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar:/home/spirals/danglot/.m2/repository/org/jmock/jmock/2.6.0/jmock-2.6.0.jar:/home/spirals/danglot/.m2/repository/org/jmock/jmock-junit4/2.6.0/jmock-junit4-2.6.0.jar:/home/spirals/danglot/.m2/repository/org/mockito/mockito-core/2.19.0/mockito-core-2.19.0.jar:/home/spirals/danglot/.m2/repository/net/bytebuddy/byte-buddy/1.8.10/byte-buddy-1.8.10.jar:/home/spirals/danglot/.m2/repository/net/bytebuddy/byte-buddy-agent/1.8.10/byte-buddy-agent-1.8.10.jar:/home/spirals/danglot/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/home/spirals/danglot/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.25/jcl-over-slf4j-1.7.25.jar:/home/spirals/danglot/.m2/repository/org/slf4j/log4j-over-slf4j/1.7.25/log4j-over-slf4j-1.7.25.jar:/home/spirals/danglot/.m2/repository/jmock/jmock/1.2.0/jmock-1.2.0.jar:/home/spirals/danglot/.m2/repository/jmock/jmock-cglib/1.2.0/jmock-cglib-1.2.0.jar:/home/spirals/danglot/.m2/repository/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-component-default/10.7-SNAPSHOT/xwiki-commons-component-default-10.7-SNAPSHOT.jar:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/target/classes/:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/target/dspot/tmp_test_sources/org/xwiki/extension/job/internal/UpgradePlanJobTest.java
@@ -1704,17 +1705,17 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.xwiki.extension.job.internal.UpgradePlanJobTest
-[INFO] 19:15:17.317 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:17.322 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] 19:15:17.881 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:17.882 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] 19:15:17.994 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:17.995 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] 19:15:18.095 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:18.097 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] 19:15:18.218 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:18.219 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.966 sec - in org.xwiki.extension.job.internal.UpgradePlanJobTest
+[INFO] 19:22:41.931 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:22:41.936 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:22:42.472 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:22:42.473 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:22:42.590 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:22:42.591 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:22:42.685 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:22:42.686 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:22:42.813 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:22:42.814 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.923 sec - in org.xwiki.extension.job.internal.UpgradePlanJobTest
 [INFO] 
 [INFO] Results :
 [INFO] 
@@ -1723,8 +1724,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] [INFO] BUILD SUCCESS
 [INFO] [INFO] ------------------------------------------------------------------------
-[INFO] [INFO] Total time: 11.104 s
-[INFO] [INFO] Finished at: 2019-04-18T19:15:18+02:00
+[INFO] [INFO] Total time: 11.761 s
+[INFO] [INFO] Finished at: 2019-04-29T19:22:43+02:00
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] 5 test pass, generating assertion...
 [INFO] Add observations points in passing tests.
@@ -1804,38 +1805,38 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.xwiki.extension.job.internal.UpgradePlanJobTest
-[INFO] 19:15:30.398 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:30.402 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] 19:15:31.293 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:31.294 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] 19:15:31.688 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:31.689 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] 19:15:32.061 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:32.062 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] 19:15:32.673 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:32.674 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] 19:15:33.204 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:33.205 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] 19:15:33.740 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:33.741 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] 19:15:33.950 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:33.950 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] 19:15:34.155 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:34.156 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] 19:15:34.351 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:34.351 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] 19:15:34.507 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:34.507 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] 19:15:34.662 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:34.662 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] 19:15:34.813 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:34.814 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] 19:15:34.963 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:34.963 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] 19:15:35.119 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:35.119 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:22:55.714 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:22:55.718 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:22:56.560 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:22:56.560 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:22:56.924 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:22:56.925 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:22:57.296 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:22:57.297 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:22:57.916 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:22:57.917 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:22:58.445 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:22:58.446 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:22:58.908 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:22:58.909 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:22:59.157 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:22:59.158 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:22:59.369 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:22:59.369 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:22:59.553 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:22:59.556 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:22:59.699 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:22:59.699 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:22:59.905 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:22:59.905 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:23:00.053 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:23:00.054 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:23:00.210 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:23:00.210 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:23:00.374 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:23:00.374 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
 [INFO] File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/target/dspot/observations.ser
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.882 sec - in org.xwiki.extension.job.internal.UpgradePlanJobTest
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.808 sec - in org.xwiki.extension.job.internal.UpgradePlanJobTest
 [INFO] 
 [INFO] Results :
 [INFO] 
@@ -1844,8 +1845,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] [INFO] BUILD SUCCESS
 [INFO] [INFO] ------------------------------------------------------------------------
-[INFO] [INFO] Total time: 15.076 s
-[INFO] [INFO] Finished at: 2019-04-18T19:15:35+02:00
+[INFO] [INFO] Total time: 15.677 s
+[INFO] [INFO] Finished at: 2019-04-29T19:23:00+02:00
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] Generating assertions...
 [INFO] 5 new tests with assertions generated
@@ -1922,24 +1923,20 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.xwiki.extension.job.internal.UpgradePlanJobTest
-[INFO] 19:15:49.420 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:49.427 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] 19:15:49.968 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:49.970 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] 19:15:50.076 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:50.077 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] 19:15:50.183 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:50.184 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] 19:15:50.275 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
-[INFO] 19:15:50.279 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
-[INFO] Tests run: 5, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 1.919 sec <<< FAILURE! - in org.xwiki.extension.job.internal.UpgradePlanJobTest
-[INFO] testUpgradePlanWithDependencyOnRoot  Time elapsed: 1.288 sec  <<< FAILURE!
-[INFO] java.lang.AssertionError: expected:<-1441082060> but was:<-957047722>
-[INFO] 	at org.junit.Assert.fail(Assert.java:88)
-[INFO] 	at org.junit.Assert.failNotEquals(Assert.java:834)
-[INFO] 	at org.junit.Assert.assertEquals(Assert.java:645)
-[INFO] 	at org.junit.Assert.assertEquals(Assert.java:631)
-[INFO] 	at org.xwiki.extension.job.internal.UpgradePlanJobTest.testUpgradePlanWithDependencyOnRoot(UpgradePlanJobTest.java:324)
+[INFO] 19:23:15.216 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:23:15.220 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:23:15.738 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:23:15.738 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:23:15.860 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:23:15.874 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:23:15.965 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:23:15.965 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:23:16.057 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:23:16.057 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 1.886 sec <<< FAILURE! - in org.xwiki.extension.job.internal.UpgradePlanJobTest
+[INFO] testUpgradePlanWithDependencyOnRoot  Time elapsed: 1.255 sec  <<< ERROR!
+[INFO] java.lang.ClassCastException: java.util.Collections$UnmodifiableMap cannot be cast to java.util.Collection
+[INFO] 	at org.xwiki.extension.job.internal.UpgradePlanJobTest.testUpgradePlanWithDependencyOnRoot(UpgradePlanJobTest.java:311)
 [INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 [INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 [INFO] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1953,13 +1950,9 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
 [INFO] 	at java.lang.Thread.run(Thread.java:745)
 [INFO] 
-[INFO] testUpgradePlanOnRootWithTargetDependencyExtension  Time elapsed: 0.123 sec  <<< FAILURE!
-[INFO] java.lang.AssertionError: expected:<-1441082060> but was:<-957047722>
-[INFO] 	at org.junit.Assert.fail(Assert.java:88)
-[INFO] 	at org.junit.Assert.failNotEquals(Assert.java:834)
-[INFO] 	at org.junit.Assert.assertEquals(Assert.java:645)
-[INFO] 	at org.junit.Assert.assertEquals(Assert.java:631)
-[INFO] 	at org.xwiki.extension.job.internal.UpgradePlanJobTest.testUpgradePlanOnRootWithTargetDependencyExtension(UpgradePlanJobTest.java:1271)
+[INFO] testUpgradePlanOnRootWithTargetDependencyExtension  Time elapsed: 0.124 sec  <<< ERROR!
+[INFO] java.lang.ClassCastException: java.util.Collections$UnmodifiableMap cannot be cast to java.util.Collection
+[INFO] 	at org.xwiki.extension.job.internal.UpgradePlanJobTest.testUpgradePlanOnRootWithTargetDependencyExtension(UpgradePlanJobTest.java:1258)
 [INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 [INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 [INFO] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1973,13 +1966,9 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
 [INFO] 	at java.lang.Thread.run(Thread.java:745)
 [INFO] 
-[INFO] testUpgradePlanOnNamespaceWithExtensionOnRoot  Time elapsed: 0.115 sec  <<< FAILURE!
-[INFO] java.lang.AssertionError: expected:<145703190> but was:<629737528>
-[INFO] 	at org.junit.Assert.fail(Assert.java:88)
-[INFO] 	at org.junit.Assert.failNotEquals(Assert.java:834)
-[INFO] 	at org.junit.Assert.assertEquals(Assert.java:645)
-[INFO] 	at org.junit.Assert.assertEquals(Assert.java:631)
-[INFO] 	at org.xwiki.extension.job.internal.UpgradePlanJobTest.testUpgradePlanOnNamespaceWithExtensionOnRoot(UpgradePlanJobTest.java:200)
+[INFO] testUpgradePlanOnNamespaceWithExtensionOnRoot  Time elapsed: 0.122 sec  <<< ERROR!
+[INFO] java.lang.ClassCastException: java.util.Collections$UnmodifiableMap cannot be cast to java.util.Collection
+[INFO] 	at org.xwiki.extension.job.internal.UpgradePlanJobTest.testUpgradePlanOnNamespaceWithExtensionOnRoot(UpgradePlanJobTest.java:187)
 [INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 [INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 [INFO] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -1993,13 +1982,9 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
 [INFO] 	at java.lang.Thread.run(Thread.java:745)
 [INFO] 
-[INFO] testUpgradePlanWithDependencyOnNamespace  Time elapsed: 0.1 sec  <<< FAILURE!
-[INFO] java.lang.AssertionError: expected:<-1441082060> but was:<-957047722>
-[INFO] 	at org.junit.Assert.fail(Assert.java:88)
-[INFO] 	at org.junit.Assert.failNotEquals(Assert.java:834)
-[INFO] 	at org.junit.Assert.assertEquals(Assert.java:645)
-[INFO] 	at org.junit.Assert.assertEquals(Assert.java:631)
-[INFO] 	at org.xwiki.extension.job.internal.UpgradePlanJobTest.testUpgradePlanWithDependencyOnNamespace(UpgradePlanJobTest.java:495)
+[INFO] testUpgradePlanWithDependencyOnNamespace  Time elapsed: 0.097 sec  <<< ERROR!
+[INFO] java.lang.ClassCastException: java.util.Collections$UnmodifiableMap cannot be cast to java.util.Collection
+[INFO] 	at org.xwiki.extension.job.internal.UpgradePlanJobTest.testUpgradePlanWithDependencyOnNamespace(UpgradePlanJobTest.java:482)
 [INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 [INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 [INFO] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -2013,13 +1998,9 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
 [INFO] 	at java.lang.Thread.run(Thread.java:745)
 [INFO] 
-[INFO] testUpgradePlanOnRoot  Time elapsed: 0.105 sec  <<< FAILURE!
-[INFO] java.lang.AssertionError: expected:<145703190> but was:<629737528>
-[INFO] 	at org.junit.Assert.fail(Assert.java:88)
-[INFO] 	at org.junit.Assert.failNotEquals(Assert.java:834)
-[INFO] 	at org.junit.Assert.assertEquals(Assert.java:645)
-[INFO] 	at org.junit.Assert.assertEquals(Assert.java:631)
-[INFO] 	at org.xwiki.extension.job.internal.UpgradePlanJobTest.testUpgradePlanOnRoot(UpgradePlanJobTest.java:25)
+[INFO] testUpgradePlanOnRoot  Time elapsed: 0.099 sec  <<< ERROR!
+[INFO] java.lang.ClassCastException: java.util.Collections$UnmodifiableMap cannot be cast to java.util.Collection
+[INFO] 	at org.xwiki.extension.job.internal.UpgradePlanJobTest.testUpgradePlanOnRoot(UpgradePlanJobTest.java:12)
 [INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 [INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 [INFO] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -2036,20 +2017,20 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] 
 [INFO] Results :
 [INFO] 
-[INFO] Failed tests: 
-[INFO]   UpgradePlanJobTest.testUpgradePlanOnNamespaceWithExtensionOnRoot:200 expected:<145703190> but was:<629737528>
-[INFO]   UpgradePlanJobTest.testUpgradePlanOnRoot:25 expected:<145703190> but was:<629737528>
-[INFO]   UpgradePlanJobTest.testUpgradePlanOnRootWithTargetDependencyExtension:1271 expected:<-1441082060> but was:<-957047722>
-[INFO]   UpgradePlanJobTest.testUpgradePlanWithDependencyOnNamespace:495 expected:<-1441082060> but was:<-957047722>
-[INFO]   UpgradePlanJobTest.testUpgradePlanWithDependencyOnRoot:324 expected:<-1441082060> but was:<-957047722>
+[INFO] Tests in error: 
+[INFO]   UpgradePlanJobTest.testUpgradePlanOnNamespaceWithExtensionOnRoot:187 ClassCast
+[INFO]   UpgradePlanJobTest.testUpgradePlanOnRoot:12 ClassCast java.util.Collections$Un...
+[INFO]   UpgradePlanJobTest.testUpgradePlanOnRootWithTargetDependencyExtension:1258 ClassCast
+[INFO]   UpgradePlanJobTest.testUpgradePlanWithDependencyOnNamespace:482 ClassCast java...
+[INFO]   UpgradePlanJobTest.testUpgradePlanWithDependencyOnRoot:311 ClassCast java.util...
 [INFO] 
-[INFO] Tests run: 5, Failures: 5, Errors: 0, Skipped: 0
+[INFO] Tests run: 5, Failures: 0, Errors: 5, Skipped: 0
 [INFO] 
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] [INFO] BUILD FAILURE
 [INFO] [INFO] ------------------------------------------------------------------------
-[INFO] [INFO] Total time: 11.187 s
-[INFO] [INFO] Finished at: 2019-04-18T19:15:50+02:00
+[INFO] [INFO] Total time: 11.644 s
+[INFO] [INFO] Finished at: 2019-04-29T19:23:16+02:00
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project xwiki-commons-extension-api: There are test failures.
 [INFO] [ERROR] 
@@ -2061,14 +2042,208 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] [ERROR] 
 [INFO] [ERROR] For more information about the errors and possible solutions, please read the following articles:
 [INFO] [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
-[INFO] Assertion amplification: 0 test method(s) has been successfully amplified.
+[INFO] Assertion amplification: 5 test method(s) has been successfully amplified.
+[WARN] 2019-04-29 19:23:17 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-29 19:23:17 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-29 19:23:17 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[INFO] run mvn test -Dtest=org.xwiki.extension.job.internal.UpgradePlanJobTest#testUpgradePlanWithDependencyOnNamespace+testUpgradePlanOnRootWithTargetDependencyExtension+testUpgradePlanWithDependencyOnRoot+testUpgradePlanOnNamespaceWithExtensionOnRoot+testUpgradePlanOnRoot
+[WARN] Maven will be executed in interactive mode, but no input stream has been configured for this MavenInvoker instance.
+[INFO] [INFO] Scanning for projects...
+[INFO] [INFO] 
+[INFO] [INFO] -----------< org.xwiki.commons:xwiki-commons-extension-api >------------
+[INFO] [INFO] Building XWiki Commons - Extension - API 10.7-SNAPSHOT
+[INFO] [INFO] --------------------------------[ jar ]---------------------------------
+[INFO] [INFO] 
+[INFO] [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-plugins) @ xwiki-commons-extension-api ---
+[INFO] [INFO] Skipping Rule Enforcement.
+[INFO] [INFO] 
+[INFO] [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-jcl-log4j-isolation) @ xwiki-commons-extension-api ---
+[INFO] [INFO] Skipping Rule Enforcement.
+[INFO] [INFO] 
+[INFO] [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-glasshfish-jaxb) @ xwiki-commons-extension-api ---
+[INFO] [INFO] Skipping Rule Enforcement.
+[INFO] [INFO] 
+[INFO] [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-open-json) @ xwiki-commons-extension-api ---
+[INFO] [INFO] Skipping Rule Enforcement.
+[INFO] [INFO] 
+[INFO] [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-glassfish-el) @ xwiki-commons-extension-api ---
+[INFO] [INFO] Skipping Rule Enforcement.
+[INFO] [INFO] 
+[INFO] [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-commons-lang3) @ xwiki-commons-extension-api ---
+[INFO] [INFO] Skipping Rule Enforcement.
+[INFO] [INFO] 
+[INFO] [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-commons-configuration2) @ xwiki-commons-extension-api ---
+[INFO] [INFO] Skipping Rule Enforcement.
+[INFO] [INFO] 
+[INFO] [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-bouncycastle-ids) @ xwiki-commons-extension-api ---
+[INFO] [INFO] Skipping Rule Enforcement.
+[INFO] [INFO] 
+[INFO] [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-javase-dependencies) @ xwiki-commons-extension-api ---
+[INFO] [INFO] Skipping Rule Enforcement.
+[INFO] [INFO] 
+[INFO] [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-upper-bounds) @ xwiki-commons-extension-api ---
+[INFO] [INFO] Skipping Rule Enforcement.
+[INFO] [INFO] 
+[INFO] [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-no-legacy-dependencies) @ xwiki-commons-extension-api ---
+[INFO] [INFO] 
+[INFO] [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-valid-poms) @ xwiki-commons-extension-api ---
+[INFO] [INFO] Skipping Rule Enforcement.
+[INFO] [INFO] 
+[INFO] [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-platform-rendering-isolation) @ xwiki-commons-extension-api ---
+[INFO] [INFO] Skipping Rule Enforcement.
+[INFO] [INFO] 
+[INFO] [INFO] --- maven-enforcer-plugin:1.4.1:enforce (check-dependency-version) @ xwiki-commons-extension-api ---
+[INFO] [INFO] Skipping Rule Enforcement.
+[INFO] [INFO] 
+[INFO] [INFO] --- xwiki-commons-tool-remote-resource-plugin:10.7-SNAPSHOT:process (xwiki-license-resources) @ xwiki-commons-extension-api ---
+[INFO] [INFO] 
+[INFO] [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ xwiki-commons-extension-api ---
+[INFO] [INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] [INFO] Copying 39 resources
+[INFO] [INFO] Copying 2 resources
+[INFO] [INFO] 
+[INFO] [INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ xwiki-commons-extension-api ---
+[INFO] [INFO] Nothing to compile - all classes are up to date
+[INFO] [INFO] 
+[INFO] [INFO] --- maven-bundle-plugin:3.5.0:manifest (bundle-manifest) @ xwiki-commons-extension-api ---
+[INFO] [INFO] 
+[INFO] [INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ xwiki-commons-extension-api ---
+[INFO] [INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] [INFO] Copying 89 resources
+[INFO] [INFO] Copying 2 resources
+[INFO] [INFO] 
+[INFO] [INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ xwiki-commons-extension-api ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.xwiki.extension.job.internal.UpgradePlanJobTest
+[INFO] 19:23:35.146 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:23:35.151 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:23:35.677 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:23:35.679 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:23:35.787 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:23:35.789 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:23:35.888 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:23:35.890 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] 19:23:35.993 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedextensioninvalid/version] (InvalidExtensionException: No compatible extension is installed for dependency [invaliddependency-version])
+[INFO] 19:23:35.995 [main] WARN  o.x.e.r.i.i.DefaultInstalledExtensionRepository - Invalid extension [installedwithmissingdependency/version] (InvalidExtensionException: No compatible extension is installed for dependency [missingdependency-version])
+[INFO] Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 1.88 sec <<< FAILURE! - in org.xwiki.extension.job.internal.UpgradePlanJobTest
+[INFO] testUpgradePlanWithDependencyOnRoot  Time elapsed: 1.234 sec  <<< ERROR!
+[INFO] java.lang.ClassCastException: java.util.Collections$UnmodifiableMap cannot be cast to java.util.Collection
+[INFO] 	at org.xwiki.extension.job.internal.UpgradePlanJobTest.testUpgradePlanWithDependencyOnRoot(UpgradePlanJobTest.java:311)
+[INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[INFO] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[INFO] 	at java.lang.reflect.Method.invoke(Method.java:498)
+[INFO] 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+[INFO] 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+[INFO] 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+[INFO] 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+[INFO] 	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+[INFO] 	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+[INFO] 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+[INFO] 	at java.lang.Thread.run(Thread.java:745)
+[INFO] 
+[INFO] testUpgradePlanOnRootWithTargetDependencyExtension  Time elapsed: 0.12 sec  <<< ERROR!
+[INFO] java.lang.ClassCastException: java.util.Collections$UnmodifiableMap cannot be cast to java.util.Collection
+[INFO] 	at org.xwiki.extension.job.internal.UpgradePlanJobTest.testUpgradePlanOnRootWithTargetDependencyExtension(UpgradePlanJobTest.java:1258)
+[INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[INFO] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[INFO] 	at java.lang.reflect.Method.invoke(Method.java:498)
+[INFO] 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+[INFO] 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+[INFO] 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+[INFO] 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+[INFO] 	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+[INFO] 	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+[INFO] 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+[INFO] 	at java.lang.Thread.run(Thread.java:745)
+[INFO] 
+[INFO] testUpgradePlanOnNamespaceWithExtensionOnRoot  Time elapsed: 0.11 sec  <<< ERROR!
+[INFO] java.lang.ClassCastException: java.util.Collections$UnmodifiableMap cannot be cast to java.util.Collection
+[INFO] 	at org.xwiki.extension.job.internal.UpgradePlanJobTest.testUpgradePlanOnNamespaceWithExtensionOnRoot(UpgradePlanJobTest.java:187)
+[INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[INFO] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[INFO] 	at java.lang.reflect.Method.invoke(Method.java:498)
+[INFO] 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+[INFO] 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+[INFO] 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+[INFO] 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+[INFO] 	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+[INFO] 	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+[INFO] 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+[INFO] 	at java.lang.Thread.run(Thread.java:745)
+[INFO] 
+[INFO] testUpgradePlanWithDependencyOnNamespace  Time elapsed: 0.112 sec  <<< ERROR!
+[INFO] java.lang.ClassCastException: java.util.Collections$UnmodifiableMap cannot be cast to java.util.Collection
+[INFO] 	at org.xwiki.extension.job.internal.UpgradePlanJobTest.testUpgradePlanWithDependencyOnNamespace(UpgradePlanJobTest.java:482)
+[INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[INFO] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[INFO] 	at java.lang.reflect.Method.invoke(Method.java:498)
+[INFO] 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+[INFO] 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+[INFO] 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+[INFO] 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+[INFO] 	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+[INFO] 	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+[INFO] 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+[INFO] 	at java.lang.Thread.run(Thread.java:745)
+[INFO] 
+[INFO] testUpgradePlanOnRoot  Time elapsed: 0.127 sec  <<< ERROR!
+[INFO] java.lang.ClassCastException: java.util.Collections$UnmodifiableMap cannot be cast to java.util.Collection
+[INFO] 	at org.xwiki.extension.job.internal.UpgradePlanJobTest.testUpgradePlanOnRoot(UpgradePlanJobTest.java:12)
+[INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[INFO] 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[INFO] 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[INFO] 	at java.lang.reflect.Method.invoke(Method.java:498)
+[INFO] 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+[INFO] 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+[INFO] 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+[INFO] 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+[INFO] 	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+[INFO] 	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+[INFO] 	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+[INFO] 	at java.lang.Thread.run(Thread.java:745)
+[INFO] 
+[INFO] 
+[INFO] Results :
+[INFO] 
+[INFO] Tests in error: 
+[INFO]   UpgradePlanJobTest.testUpgradePlanOnNamespaceWithExtensionOnRoot:187 ClassCast
+[INFO]   UpgradePlanJobTest.testUpgradePlanOnRoot:12 ClassCast java.util.Collections$Un...
+[INFO]   UpgradePlanJobTest.testUpgradePlanOnRootWithTargetDependencyExtension:1258 ClassCast
+[INFO]   UpgradePlanJobTest.testUpgradePlanWithDependencyOnNamespace:482 ClassCast java...
+[INFO]   UpgradePlanJobTest.testUpgradePlanWithDependencyOnRoot:311 ClassCast java.util...
+[INFO] 
+[INFO] Tests run: 5, Failures: 0, Errors: 5, Skipped: 0
+[INFO] 
+[INFO] [INFO] ------------------------------------------------------------------------
+[INFO] [INFO] BUILD FAILURE
+[INFO] [INFO] ------------------------------------------------------------------------
+[INFO] [INFO] Total time: 11.679 s
+[INFO] [INFO] Finished at: 2019-04-29T19:23:36+02:00
+[INFO] [INFO] ------------------------------------------------------------------------
+[INFO] [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project xwiki-commons-extension-api: There are test failures.
+[INFO] [ERROR] 
+[INFO] [ERROR] Please refer to /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-extension/xwiki-commons-extension-api/target/surefire-reports for the individual test results.
+[INFO] [ERROR] -> [Help 1]
+[INFO] [ERROR] 
+[INFO] [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[INFO] [ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[INFO] [ERROR] 
+[INFO] [ERROR] For more information about the errors and possible solutions, please read the following articles:
+[INFO] [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 73292
+[INFO] elapsedTime 93646
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
 [INFO] Amplification succeed.
-[INFO] Elapsed time 74068 ms
+[INFO] Elapsed time 94326 ms
 [INFO] 
 0 amplified test fails on the new versions.
 [INFO] Writing report in /tmp/dspot-experiments/results/april-2019/xwiki-commons/commit_1_ced2635/assert_amplification/report.txt
@@ -2077,6 +2252,6 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 01:52 min
-[INFO] Finished at: 2019-04-18T19:15:51+02:00
+[INFO] Total time: 01:57 min
+[INFO] Finished at: 2019-04-29T19:23:36+02:00
 [INFO] ------------------------------------------------------------------------

@@ -151,7 +151,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
   <workingDirectory default-value="false">${working-directory}</workingDirectory>
 </configuration>
 [DEBUG] =======================================================================
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=1336188, ConflictMarker.markTime=713869, ConflictMarker.nodeCount=75, ConflictIdSorter.graphTime=630720, ConflictIdSorter.topsortTime=466517, ConflictIdSorter.conflictIdCount=47, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=10001216, ConflictResolver.conflictItemCount=70, DefaultDependencyCollector.collectTime=442325843, DefaultDependencyCollector.transformTime=15633379}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=1268010, ConflictMarker.markTime=711793, ConflictMarker.nodeCount=75, ConflictIdSorter.graphTime=691783, ConflictIdSorter.topsortTime=425620, ConflictIdSorter.conflictIdCount=47, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=9844047, ConflictResolver.conflictItemCount=70, DefaultDependencyCollector.collectTime=519274066, DefaultDependencyCollector.transformTime=15581556}
 [DEBUG] org.xwiki.commons:xwiki-commons-xml:jar:9.10-SNAPSHOT
 [DEBUG]    org.jdom:jdom:jar:1.1.3:compile
 [DEBUG]    org.xwiki.commons:xwiki-commons-component-api:jar:9.10-SNAPSHOT:compile
@@ -536,7 +536,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=7548075, ConflictMarker.markTime=1696996, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=4819023, ConflictIdSorter.topsortTime=194967, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=11375881, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=2047241231, DefaultDependencyCollector.transformTime=25837562}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=6971110, ConflictMarker.markTime=1591060, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=3880050, ConflictIdSorter.topsortTime=160285, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=8814562, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=2338494942, DefaultDependencyCollector.transformTime=21579217}
 [DEBUG] eu.stamp-project:dspot-maven:jar:2.0.1-SNAPSHOT:
 [DEBUG]    eu.stamp-project:dspot:jar:2.0.1-SNAPSHOT:compile
 [DEBUG]       fr.inria.gforge.spoon:spoon-core:jar:7.3.0:compile
@@ -793,6 +793,8 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [INFO] Deleting /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-xml/target
 [INFO] 
 [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-plugins) @ xwiki-commons-xml ---
+Downloading from apache.snapshots: http://repository.apache.org/snapshots/org/xwiki/commons/xwiki-commons-tool-enforcer-dependencies/9.10-SNAPSHOT/maven-metadata.xml
+Downloading from apache.snapshots: http://repository.apache.org/snapshots/org/xwiki/commons/xwiki-commons-tool-enforcers/9.10-SNAPSHOT/maven-metadata.xml
 [INFO] Skipping Rule Enforcement.
 [INFO] 
 [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-jcl-log4j-isolation) @ xwiki-commons-xml ---
@@ -828,6 +830,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [INFO] Skipping Rule Enforcement.
 [INFO] 
 [INFO] --- maven-remote-resources-plugin:1.5:process (xwiki-license-resources) @ xwiki-commons-xml ---
+Downloading from apache.snapshots: http://repository.apache.org/snapshots/org/xwiki/commons/xwiki-commons-tool-license-resources/9.10-SNAPSHOT/maven-metadata.xml
 [INFO] 
 [INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ xwiki-commons-xml ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -853,6 +856,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [INFO] Compiling 4 source files to /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-xml/target/test-classes
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ xwiki-commons-xml ---
+Downloading from apache.snapshots: http://repository.apache.org/snapshots/org/xwiki/commons/xwiki-commons-tool-test-simple/9.10-SNAPSHOT/maven-metadata.xml
 [INFO] Tests are skipped.
 [INFO] 
 [INFO] --- maven-dependency-plugin:3.0.2:build-classpath (default-cli) @ xwiki-commons-xml ---
@@ -860,15 +864,15 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 9.608 s
-[INFO] Finished at: 2019-04-18T19:28:47+02:00
+[INFO] Total time: 10.618 s
+[INFO] Finished at: 2019-04-29T19:37:15+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Amplification of org.xwiki.xml.internal.html.DefaultHTMLCleanerTest (20 test(s))
 [INFO] Assertion amplification of org.xwiki.xml.internal.html.DefaultHTMLCleanerTest (20 test(s))
 [DEBUG] Starting 15 Services...
-[DEBUG] All Services successfully started, 15 Services in 8ms
+[DEBUG] All Services successfully started, 15 Services in 9ms
 [DEBUG] Creating Cache 'frameworkCache' in EhcacheManager.
-[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@5b202ff
+[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@750ed637
 [DEBUG] Could not create serializers for frameworkCache
 org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for type 'eu.stamp_project.test_framework.TestFrameworkSupport'
     at org.ehcache.impl.internal.spi.serialization.DefaultSerializationProvider.getSerializerClassFor (DefaultSerializationProvider.java:136)
@@ -917,8 +921,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
     at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:229)
     at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:415)
     at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:356)
-[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@738d37fc
-[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@6fa2448b
+[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@3fde8f7c
+[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@11d86b9d
 [DEBUG] Initialize successful.
 [INFO] Cache 'frameworkCache' created in EhcacheManager.
 [DEBUG] Initialize successful.
@@ -1010,8 +1014,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 7.048 s
-[INFO] Finished at: 2019-04-18T19:28:58+02:00
+[INFO] Total time: 7.563 s
+[INFO] Finished at: 2019-04-29T19:37:27+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-xml/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/org/jdom/jdom/1.1.3/jdom-1.1.3.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-component-api/9.10-SNAPSHOT/xwiki-commons-component-api-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-stability/9.10-SNAPSHOT/xwiki-commons-stability-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-text/9.10-SNAPSHOT/xwiki-commons-text-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/home/spirals/danglot/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-context/9.10-SNAPSHOT/xwiki-commons-context-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.jar:/home/spirals/danglot/.m2/repository/net/sourceforge/htmlcleaner/htmlcleaner/2.16/htmlcleaner-2.16.jar:/home/spirals/danglot/.m2/repository/org/jdom/jdom2/2.0.6/jdom2-2.0.6.jar:/home/spirals/danglot/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar:/home/spirals/danglot/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/home/spirals/danglot/.m2/repository/net/java/dev/stax-utils/stax-utils/20070216/stax-utils-20070216.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/woodstox/woodstox-core/5.0.3/woodstox-core-5.0.3.jar:/home/spirals/danglot/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-tool-test-component/9.10-SNAPSHOT/xwiki-commons-tool-test-component-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-tool-test-simple/9.10-SNAPSHOT/xwiki-commons-tool-test-simple-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.0.1/junit-jupiter-api-5.0.1.jar:/home/spirals/danglot/.m2/repository/org/opentest4j/opentest4j/1.0.0/opentest4j-1.0.0.jar:/home/spirals/danglot/.m2/repository/org/junit/platform/junit-platform-commons/1.0.1/junit-platform-commons-1.0.1.jar:/home/spirals/danglot/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.0.1/junit-jupiter-engine-5.0.1.jar:/home/spirals/danglot/.m2/repository/org/junit/platform/junit-platform-engine/1.0.1/junit-platform-engine-1.0.1.jar:/home/spirals/danglot/.m2/repository/org/junit/platform/junit-platform-launcher/1.0.1/junit-platform-launcher-1.0.1.jar:/home/spirals/danglot/.m2/repository/org/junit/vintage/junit-vintage-engine/4.12.1/junit-vintage-engine-4.12.1.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar:/home/spirals/danglot/.m2/repository/org/jmock/jmock/2.6.0/jmock-2.6.0.jar:/home/spirals/danglot/.m2/repository/org/jmock/jmock-junit4/2.6.0/jmock-junit4-2.6.0.jar:/home/spirals/danglot/.m2/repository/commons-io/commons-io/2.5/commons-io-2.5.jar:/home/spirals/danglot/.m2/repository/org/mockito/mockito-core/2.10.0/mockito-core-2.10.0.jar:/home/spirals/danglot/.m2/repository/net/bytebuddy/byte-buddy/1.7.4/byte-buddy-1.7.4.jar:/home/spirals/danglot/.m2/repository/net/bytebuddy/byte-buddy-agent/1.7.4/byte-buddy-agent-1.7.4.jar:/home/spirals/danglot/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/home/spirals/danglot/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar:/home/spirals/danglot/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar:/home/spirals/danglot/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.25/jcl-over-slf4j-1.7.25.jar:/home/spirals/danglot/.m2/repository/org/slf4j/log4j-over-slf4j/1.7.25/log4j-over-slf4j-1.7.25.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-observation-api/9.10-SNAPSHOT/xwiki-commons-observation-api-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/jmock/jmock/1.2.0/jmock-1.2.0.jar:/home/spirals/danglot/.m2/repository/jmock/jmock-cglib/1.2.0/jmock-cglib-1.2.0.jar:/home/spirals/danglot/.m2/repository/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-component-default/9.10-SNAPSHOT/xwiki-commons-component-default-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-component-observation/9.10-SNAPSHOT/xwiki-commons-component-observation-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-configuration-api/9.10-SNAPSHOT/xwiki-commons-configuration-api-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/commons-beanutils/commons-beanutils/1.9.3/commons-beanutils-1.9.3.jar:/home/spirals/danglot/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-xml/target/classes/:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-xml/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-xml/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-xml/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-xml/target/dspot/tmp_test_sources/org/xwiki/xml/internal/html/DefaultHTMLCleanerTest.java
 [INFO] run mvn test -Dtest=org.xwiki.xml.internal.html.DefaultHTMLCleanerTest#convertImplicitParagraphs+explicitFilterList+specialCharacters+convertImageAlignment+cleanEmptyDIV+fullXHTMLHeader+scriptAndCData+verifySpanIsExpanded+verifyLegendTagNotStripped+restrictedHtml+duplicateIds+closeUnbalancedTags+elementExpansion+cleanNonXHTMLLists+verifyEntitiesAreNotBroken+conversionsFromHTML+cleanSVGTags+verifyIFRAMECleaning+verifyExternalLinksAreSecure+styleAndCData
@@ -1091,7 +1095,7 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.xwiki.xml.internal.html.DefaultHTMLCleanerTest
-[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 1.133 sec - in org.xwiki.xml.internal.html.DefaultHTMLCleanerTest
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 1.153 sec - in org.xwiki.xml.internal.html.DefaultHTMLCleanerTest
 [INFO] 
 [INFO] Results :
 [INFO] 
@@ -1100,8 +1104,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] [INFO] BUILD SUCCESS
 [INFO] [INFO] ------------------------------------------------------------------------
-[INFO] [INFO] Total time: 9.499 s
-[INFO] [INFO] Finished at: 2019-04-18T19:29:10+02:00
+[INFO] [INFO] Total time: 9.867 s
+[INFO] [INFO] Finished at: 2019-04-29T19:37:39+02:00
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] Run tests. (20)
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-xml/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/org/jdom/jdom/1.1.3/jdom-1.1.3.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-component-api/9.10-SNAPSHOT/xwiki-commons-component-api-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-stability/9.10-SNAPSHOT/xwiki-commons-stability-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-text/9.10-SNAPSHOT/xwiki-commons-text-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/home/spirals/danglot/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-context/9.10-SNAPSHOT/xwiki-commons-context-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.jar:/home/spirals/danglot/.m2/repository/net/sourceforge/htmlcleaner/htmlcleaner/2.16/htmlcleaner-2.16.jar:/home/spirals/danglot/.m2/repository/org/jdom/jdom2/2.0.6/jdom2-2.0.6.jar:/home/spirals/danglot/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar:/home/spirals/danglot/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/home/spirals/danglot/.m2/repository/net/java/dev/stax-utils/stax-utils/20070216/stax-utils-20070216.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/woodstox/woodstox-core/5.0.3/woodstox-core-5.0.3.jar:/home/spirals/danglot/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-tool-test-component/9.10-SNAPSHOT/xwiki-commons-tool-test-component-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-tool-test-simple/9.10-SNAPSHOT/xwiki-commons-tool-test-simple-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.0.1/junit-jupiter-api-5.0.1.jar:/home/spirals/danglot/.m2/repository/org/opentest4j/opentest4j/1.0.0/opentest4j-1.0.0.jar:/home/spirals/danglot/.m2/repository/org/junit/platform/junit-platform-commons/1.0.1/junit-platform-commons-1.0.1.jar:/home/spirals/danglot/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.0.1/junit-jupiter-engine-5.0.1.jar:/home/spirals/danglot/.m2/repository/org/junit/platform/junit-platform-engine/1.0.1/junit-platform-engine-1.0.1.jar:/home/spirals/danglot/.m2/repository/org/junit/platform/junit-platform-launcher/1.0.1/junit-platform-launcher-1.0.1.jar:/home/spirals/danglot/.m2/repository/org/junit/vintage/junit-vintage-engine/4.12.1/junit-vintage-engine-4.12.1.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar:/home/spirals/danglot/.m2/repository/org/jmock/jmock/2.6.0/jmock-2.6.0.jar:/home/spirals/danglot/.m2/repository/org/jmock/jmock-junit4/2.6.0/jmock-junit4-2.6.0.jar:/home/spirals/danglot/.m2/repository/commons-io/commons-io/2.5/commons-io-2.5.jar:/home/spirals/danglot/.m2/repository/org/mockito/mockito-core/2.10.0/mockito-core-2.10.0.jar:/home/spirals/danglot/.m2/repository/net/bytebuddy/byte-buddy/1.7.4/byte-buddy-1.7.4.jar:/home/spirals/danglot/.m2/repository/net/bytebuddy/byte-buddy-agent/1.7.4/byte-buddy-agent-1.7.4.jar:/home/spirals/danglot/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/home/spirals/danglot/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar:/home/spirals/danglot/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar:/home/spirals/danglot/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.25/jcl-over-slf4j-1.7.25.jar:/home/spirals/danglot/.m2/repository/org/slf4j/log4j-over-slf4j/1.7.25/log4j-over-slf4j-1.7.25.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-observation-api/9.10-SNAPSHOT/xwiki-commons-observation-api-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/jmock/jmock/1.2.0/jmock-1.2.0.jar:/home/spirals/danglot/.m2/repository/jmock/jmock-cglib/1.2.0/jmock-cglib-1.2.0.jar:/home/spirals/danglot/.m2/repository/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-component-default/9.10-SNAPSHOT/xwiki-commons-component-default-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-component-observation/9.10-SNAPSHOT/xwiki-commons-component-observation-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-configuration-api/9.10-SNAPSHOT/xwiki-commons-configuration-api-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/commons-beanutils/commons-beanutils/1.9.3/commons-beanutils-1.9.3.jar:/home/spirals/danglot/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-xml/target/classes/:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-xml/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-xml/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-xml/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-xml/target/dspot/tmp_test_sources/org/xwiki/xml/internal/html/DefaultHTMLCleanerTest.java
@@ -1179,7 +1183,7 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.xwiki.xml.internal.html.DefaultHTMLCleanerTest
-[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.934 sec - in org.xwiki.xml.internal.html.DefaultHTMLCleanerTest
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.881 sec - in org.xwiki.xml.internal.html.DefaultHTMLCleanerTest
 [INFO] 
 [INFO] Results :
 [INFO] 
@@ -1188,8 +1192,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] [INFO] BUILD SUCCESS
 [INFO] [INFO] ------------------------------------------------------------------------
-[INFO] [INFO] Total time: 9.291 s
-[INFO] [INFO] Finished at: 2019-04-18T19:29:21+02:00
+[INFO] [INFO] Total time: 9.747 s
+[INFO] [INFO] Finished at: 2019-04-29T19:37:50+02:00
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] 20 test pass, generating assertion...
 [INFO] Add observations points in passing tests.
@@ -1272,7 +1276,7 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] -------------------------------------------------------
 [INFO] Running org.xwiki.xml.internal.html.DefaultHTMLCleanerTest
 [INFO] File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-xml/target/dspot/observations.ser
-[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 1.123 sec - in org.xwiki.xml.internal.html.DefaultHTMLCleanerTest
+[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 1.093 sec - in org.xwiki.xml.internal.html.DefaultHTMLCleanerTest
 [INFO] 
 [INFO] Results :
 [INFO] 
@@ -1281,8 +1285,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] [INFO] BUILD SUCCESS
 [INFO] [INFO] ------------------------------------------------------------------------
-[INFO] [INFO] Total time: 9.512 s
-[INFO] [INFO] Finished at: 2019-04-18T19:29:33+02:00
+[INFO] [INFO] Total time: 10.283 s
+[INFO] [INFO] Finished at: 2019-04-29T19:38:03+02:00
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] Generating assertions...
 [INFO] 10 new tests with assertions generated
@@ -1361,7 +1365,7 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.xwiki.xml.internal.html.DefaultHTMLCleanerTest
-[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 1.057 sec - in org.xwiki.xml.internal.html.DefaultHTMLCleanerTest
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 1.03 sec - in org.xwiki.xml.internal.html.DefaultHTMLCleanerTest
 [INFO] 
 [INFO] Results :
 [INFO] 
@@ -1370,13 +1374,13 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] [INFO] BUILD SUCCESS
 [INFO] [INFO] ------------------------------------------------------------------------
-[INFO] [INFO] Total time: 9.471 s
-[INFO] [INFO] Finished at: 2019-04-18T19:29:44+02:00
+[INFO] [INFO] Total time: 9.900 s
+[INFO] [INFO] Finished at: 2019-04-29T19:38:14+02:00
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] Assertion amplification: 10 test method(s) has been successfully amplified.
-[WARN] 2019-04-18 19:29:44 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-xml/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-18 19:29:44 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-xml/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-18 19:29:44 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-xml/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-29 19:38:14 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-xml/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-29 19:38:14 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-xml/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-29 19:38:14 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/xwiki-commons/xwiki-commons-core/xwiki-commons-xml/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
 [INFO] run mvn test -Dtest=org.xwiki.xml.internal.html.DefaultHTMLCleanerTest#explicitFilterList+cleanEmptyDIV+fullXHTMLHeader+scriptAndCData+verifyLegendTagNotStripped+restrictedHtml+duplicateIds+cleanNonXHTMLLists+conversionsFromHTML+cleanSVGTags
 [WARN] Maven will be executed in interactive mode, but no input stream has been configured for this MavenInvoker instance.
 [INFO] [INFO] Scanning for projects...
@@ -1451,7 +1455,7 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.xwiki.xml.internal.html.DefaultHTMLCleanerTest
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.908 sec - in org.xwiki.xml.internal.html.DefaultHTMLCleanerTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.906 sec - in org.xwiki.xml.internal.html.DefaultHTMLCleanerTest
 [INFO] 
 [INFO] Results :
 [INFO] 
@@ -1460,11 +1464,11 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] [INFO] BUILD SUCCESS
 [INFO] [INFO] ------------------------------------------------------------------------
-[INFO] [INFO] Total time: 9.181 s
-[INFO] [INFO] Finished at: 2019-04-18T19:29:55+02:00
+[INFO] [INFO] Total time: 10.280 s
+[INFO] [INFO] Finished at: 2019-04-29T19:38:27+02:00
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 65816
+[INFO] elapsedTime 69411
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
@@ -1556,8 +1560,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 7.141 s
-[INFO] Finished at: 2019-04-18T19:30:04+02:00
+[INFO] Total time: 7.559 s
+[INFO] Finished at: 2019-04-29T19:38:36+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-xml/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/org/jdom/jdom/1.1.3/jdom-1.1.3.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-component-api/9.10-SNAPSHOT/xwiki-commons-component-api-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-stability/9.10-SNAPSHOT/xwiki-commons-stability-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-text/9.10-SNAPSHOT/xwiki-commons-text-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/home/spirals/danglot/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-context/9.10-SNAPSHOT/xwiki-commons-context-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6.jar:/home/spirals/danglot/.m2/repository/net/sourceforge/htmlcleaner/htmlcleaner/2.16/htmlcleaner-2.16.jar:/home/spirals/danglot/.m2/repository/org/jdom/jdom2/2.0.6/jdom2-2.0.6.jar:/home/spirals/danglot/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar:/home/spirals/danglot/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/home/spirals/danglot/.m2/repository/net/java/dev/stax-utils/stax-utils/20070216/stax-utils-20070216.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/woodstox/woodstox-core/5.0.3/woodstox-core-5.0.3.jar:/home/spirals/danglot/.m2/repository/org/codehaus/woodstox/stax2-api/3.1.4/stax2-api-3.1.4.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-tool-test-component/9.10-SNAPSHOT/xwiki-commons-tool-test-component-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-tool-test-simple/9.10-SNAPSHOT/xwiki-commons-tool-test-simple-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.0.1/junit-jupiter-api-5.0.1.jar:/home/spirals/danglot/.m2/repository/org/opentest4j/opentest4j/1.0.0/opentest4j-1.0.0.jar:/home/spirals/danglot/.m2/repository/org/junit/platform/junit-platform-commons/1.0.1/junit-platform-commons-1.0.1.jar:/home/spirals/danglot/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.0.1/junit-jupiter-engine-5.0.1.jar:/home/spirals/danglot/.m2/repository/org/junit/platform/junit-platform-engine/1.0.1/junit-platform-engine-1.0.1.jar:/home/spirals/danglot/.m2/repository/org/junit/platform/junit-platform-launcher/1.0.1/junit-platform-launcher-1.0.1.jar:/home/spirals/danglot/.m2/repository/org/junit/vintage/junit-vintage-engine/4.12.1/junit-vintage-engine-4.12.1.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-library/1.3/hamcrest-library-1.3.jar:/home/spirals/danglot/.m2/repository/org/jmock/jmock/2.6.0/jmock-2.6.0.jar:/home/spirals/danglot/.m2/repository/org/jmock/jmock-junit4/2.6.0/jmock-junit4-2.6.0.jar:/home/spirals/danglot/.m2/repository/commons-io/commons-io/2.5/commons-io-2.5.jar:/home/spirals/danglot/.m2/repository/org/mockito/mockito-core/2.10.0/mockito-core-2.10.0.jar:/home/spirals/danglot/.m2/repository/net/bytebuddy/byte-buddy/1.7.4/byte-buddy-1.7.4.jar:/home/spirals/danglot/.m2/repository/net/bytebuddy/byte-buddy-agent/1.7.4/byte-buddy-agent-1.7.4.jar:/home/spirals/danglot/.m2/repository/org/objenesis/objenesis/2.6/objenesis-2.6.jar:/home/spirals/danglot/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar:/home/spirals/danglot/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar:/home/spirals/danglot/.m2/repository/org/slf4j/jcl-over-slf4j/1.7.25/jcl-over-slf4j-1.7.25.jar:/home/spirals/danglot/.m2/repository/org/slf4j/log4j-over-slf4j/1.7.25/log4j-over-slf4j-1.7.25.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-observation-api/9.10-SNAPSHOT/xwiki-commons-observation-api-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/jmock/jmock/1.2.0/jmock-1.2.0.jar:/home/spirals/danglot/.m2/repository/jmock/jmock-cglib/1.2.0/jmock-cglib-1.2.0.jar:/home/spirals/danglot/.m2/repository/cglib/cglib-nodep/2.1_3/cglib-nodep-2.1_3.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-component-default/9.10-SNAPSHOT/xwiki-commons-component-default-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-component-observation/9.10-SNAPSHOT/xwiki-commons-component-observation-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/org/xwiki/commons/xwiki-commons-configuration-api/9.10-SNAPSHOT/xwiki-commons-configuration-api-9.10-SNAPSHOT.jar:/home/spirals/danglot/.m2/repository/commons-beanutils/commons-beanutils/1.9.3/commons-beanutils-1.9.3.jar:/home/spirals/danglot/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-xml/target/classes/:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-xml/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-xml/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-xml/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-core/xwiki-commons-xml/target/dspot/tmp_test_sources/org/xwiki/xml/html/HTMLUtilsTest.java
 [ERROR] Error(s) during compilation:
@@ -1604,12 +1608,12 @@ eu.stamp_project.dspot.AmplificationException: Every test methods are uncompilab
 	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
 	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 8919
+[INFO] elapsedTime 9307
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
 [INFO] Amplification succeed.
-[INFO] Elapsed time 75396 ms
+[INFO] Elapsed time 79298 ms
 [INFO] 
 0 amplified test fails on the new versions.
 0 amplified test fails on the new versions.
@@ -1619,6 +1623,6 @@ eu.stamp_project.dspot.AmplificationException: Every test methods are uncompilab
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 01:32 min
-[INFO] Finished at: 2019-04-18T19:30:04+02:00
+[INFO] Total time: 01:37 min
+[INFO] Finished at: 2019-04-29T19:38:36+02:00
 [INFO] ------------------------------------------------------------------------
