@@ -141,7 +141,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
   <workingDirectory default-value="false">${working-directory}</workingDirectory>
 </configuration>
 [DEBUG] =======================================================================
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=757142, ConflictMarker.markTime=503253, ConflictMarker.nodeCount=3, ConflictIdSorter.graphTime=455907, ConflictIdSorter.topsortTime=426906, ConflictIdSorter.conflictIdCount=2, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=3517962, ConflictResolver.conflictItemCount=2, DefaultDependencyCollector.collectTime=24964810, DefaultDependencyCollector.transformTime=8060820}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=679216, ConflictMarker.markTime=696261, ConflictMarker.nodeCount=3, ConflictIdSorter.graphTime=423640, ConflictIdSorter.topsortTime=343145, ConflictIdSorter.conflictIdCount=2, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=3011310, ConflictResolver.conflictItemCount=2, DefaultDependencyCollector.collectTime=24752258, DefaultDependencyCollector.transformTime=7331247}
 [DEBUG] com.google.code.gson:gson:jar:2.8.1-SNAPSHOT
 [DEBUG]    junit:junit:jar:4.12:test
 [DEBUG]       org.hamcrest:hamcrest-core:jar:1.3:test
@@ -481,7 +481,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=10799108, ConflictMarker.markTime=1903302, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=5429932, ConflictIdSorter.topsortTime=212317, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=14221109, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=2216882590, DefaultDependencyCollector.transformTime=32766411}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=8307844, ConflictMarker.markTime=2492003, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=5864532, ConflictIdSorter.topsortTime=161222, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=14840586, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=2697408769, DefaultDependencyCollector.transformTime=31826548}
 [DEBUG] eu.stamp-project:dspot-maven:jar:2.0.1-SNAPSHOT:
 [DEBUG]    eu.stamp-project:dspot:jar:2.0.1-SNAPSHOT:compile
 [DEBUG]       fr.inria.gforge.spoon:spoon-core:jar:7.3.0:compile
@@ -727,7 +727,6 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
 [INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gson ---
-[INFO] Deleting /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target
 [INFO] 
 [INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ gson ---
 [INFO] Skipping Rule Enforcement.
@@ -761,16 +760,16 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 6.999 s
-[INFO] Finished at: 2019-04-19T14:09:33+02:00
+[INFO] Total time: 7.180 s
+[INFO] Finished at: 2019-04-29T13:11:39+02:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] 2019-04-19 14:09:38 JDTCommentBuilder - "// Field tag only annotation" cannot be added into the AST, with parent class spoon.support.reflect.declaration.CtAnnotationTypeImplplease report the bug by posting on https://github.com/INRIA/spoon/issues/2482
+[ERROR] 2019-04-29 13:11:43 JDTCommentBuilder - "// Field tag only annotation" cannot be added into the AST, with parent class spoon.support.reflect.declaration.CtAnnotationTypeImplplease report the bug by posting on https://github.com/INRIA/spoon/issues/2482
 [INFO] Amplification of com.google.gson.functional.PrimitiveTest (1 test(s))
 [INFO] Assertion amplification of com.google.gson.functional.PrimitiveTest (1 test(s))
 [DEBUG] Starting 15 Services...
 [DEBUG] All Services successfully started, 15 Services in 9ms
 [DEBUG] Creating Cache 'frameworkCache' in EhcacheManager.
-[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@b86cb18
+[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@9f2376f
 [DEBUG] Could not create serializers for frameworkCache
 org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for type 'eu.stamp_project.test_framework.TestFrameworkSupport'
     at org.ehcache.impl.internal.spi.serialization.DefaultSerializationProvider.getSerializerClassFor (DefaultSerializationProvider.java:136)
@@ -819,8 +818,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
     at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:229)
     at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:415)
     at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:356)
-[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@349f3ff7
-[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@2487e20
+[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@6a2badb1
+[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@14201a90
 [DEBUG] Initialize successful.
 [INFO] Cache 'frameworkCache' created in EhcacheManager.
 [DEBUG] Initialize successful.
@@ -837,7 +836,6 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
 [INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ gson ---
-[INFO] Deleting /tmp/dspot-experiments/dataset/april-2019/gson/gson/target
 [INFO] 
 [INFO] --- maven-enforcer-plugin:1.0:enforce (enforce-maven) @ gson ---
 [INFO] Skipping Rule Enforcement.
@@ -868,8 +866,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 5.816 s
-[INFO] Finished at: 2019-04-19T14:09:47+02:00
+[INFO] Total time: 6.486 s
+[INFO] Finished at: 2019-04-29T13:11:53+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/functional/PrimitiveTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.functional.PrimitiveTest --tests testNumberDeserialization 
@@ -892,59 +890,27 @@ Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/functional/PrimitiveTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.functional.PrimitiveTest --tests testNumberDeserialization_withlog0:testNumberDeserialization_withlog1:testNumberDeserialization_withlog2 
 Parsing --class com.google.gson.functional.PrimitiveTest --tests testNumberDeserialization_withlog0:testNumberDeserialization_withlog1:testNumberDeserialization_withlog2
+File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/observations.ser
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
-[INFO] Test has been run: testNumberDeserialization_withlog0,testNumberDeserialization_withlog1,testNumberDeserialization_withlog2
-[WARNING] Something bad happened during assertion amplification
-java.lang.RuntimeException: java.io.FileNotFoundException: target/dspot/observations.ser (No such file or directory)
-	at eu.stamp_project.compare.ObjectLog.load(ObjectLog.java:254)
-	at eu.stamp_project.compare.ObjectLog.getObservations(ObjectLog.java:216)
-	at eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator.addAssertions(MethodsAssertGenerator.java:125)
-	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.innerAssertionAmplification(AssertGenerator.java:132)
-	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.assertionAmplification(AssertGenerator.java:72)
-	at eu.stamp_project.dspot.Amplification.assertionsAmplification(Amplification.java:187)
-	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:96)
-	at eu.stamp_project.dspot.DSpot._amplify(DSpot.java:273)
-	at eu.stamp_project.dspot.DSpot.lambda$amplifyTestClassesTestMethods$5(DSpot.java:254)
-	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
-	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1374)
-	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
-	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
-	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
-	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
-	at eu.stamp_project.dspot.DSpot.amplifyTestClassesTestMethods(DSpot.java:255)
-	at eu.stamp_project.Main.run(Main.java:65)
-	at eu.stamp_project.DSpotMojo.execute(DSpotMojo.java:306)
-	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:137)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:154)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:146)
-	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)
-	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)
-	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:56)
-	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
-	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:305)
-	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:192)
-	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:105)
-	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:954)
-	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:288)
-	at org.apache.maven.cli.MavenCli.main(MavenCli.java:192)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
-Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such file or directory)
-	at java.io.FileInputStream.open0(Native Method)
-	at java.io.FileInputStream.open(FileInputStream.java:195)
-	at java.io.FileInputStream.<init>(FileInputStream.java:138)
-	at eu.stamp_project.compare.ObjectLog.load(ObjectLog.java:246)
-	... 40 more
-
+[INFO] Test has been run: testDeserializeJsonArrayAsBigDecimal,testDeserializingBigIntegerAsLong,testLongAsStringDeserialization,testBigDecimalPreservePrecisionSerialization,testSmallValueForBigDecimalDeserialization,testFloatNaNSerializationNotSupportedByDefault,testDeserializeJsonArrayAsLongWrapper,testDeserializeJsonArrayAsShortWrapper,testDeserializeJsonObjectAsDoubleWrapper,testDeserializingBigDecimalAsFloat,testNumberDeserialization,testMoreSpecificSerialization,testUnquotedStringDeserializationFails,testDeserializingBigIntegerAsBigDecimal,testQuotedStringSerializationAndDeserialization,testDeserializingBigDecimalAsIntegerFails,testDeserializeJsonArrayAsBigInteger,testBigDecimalNaNDeserializationNotSupported,testDeserializingBigDecimalAsBigIntegerFails,testDeserializeJsonArrayAsFloatWrapper,testDeserializeJsonArrayAsInt,testReallyLongValuesDeserialization,testNegativeInfinityFloatSerializationNotSupportedByDefault,testBigDecimalInASingleElementArraySerialization,testDeserializeJsonObjectAsInteger,testDeserializingBigIntegerAsInteger,testSmallValueForBigIntegerDeserialization,testNegativeInfinityFloatDeserialization,testBadValueForBigIntegerDeserialization,testHtmlCharacterSerialization,testLargeDoubleDeserialization,testDoubleNaNSerializationNotSupportedByDefault,testPrimitiveBooleanAutoboxedInASingleElementArraySerialization,testDeserializeJsonObjectAsFloatPrimitive,testValueVeryCloseToZeroIsZero,testPrimitiveBooleanAutoboxedSerialization,testBigDecimalDeserialization,testPrimitiveLongAutoboxedDeserialization,testDoubleInfinitySerializationNotSupportedByDefault,testNegativeInfinityDeserialization,testSmallValueForBigIntegerSerialization,testNegativeInfinitySerializationNotSupportedByDefault,testBigDecimalNegativeInfinityDeserializationNotSupported,testDeserializeJsonArrayAsDoublePrimitive,testSmallValueForBigDecimalSerialization,testNumberSerialization,testBigDecimalAsStringRepresentationDeserialization,testDeserializeJsonArrayAsByteWrapper,testBigDecimalInfinityDeserializationNotSupported,testFloatNaNSerialization,testDeserializeJsonObjectAsBooleanPrimitive,testByteDeserialization,testPrimitiveIntegerAutoboxedDeserialization,testDeserializeJsonArrayAsBooleanWrapper,testDoubleNoFractAsStringRepresentationDeserialization,testDeserializingBigDecimalAsDouble,testBigIntegerDeserialization,testBigDecimalNoFractAsStringRepresentationDeserialization,testReallyLongValuesSerialization,testDeserializeJsonObjectAsBytePrimitive,testPrimitiveDoubleAutoboxedSerialization,testDeserializeJsonObjectAsBigDecimal,testNegativeInfinitySerialization,testFloatInfinitySerialization,testFloatNaNDeserialization,testDoubleNaNDeserialization,testBigIntegerInASingleElementArraySerialization,testPrimitiveDoubleAutoboxedDeserialization,testStringsAsBooleans,testBigIntegerSerialization,testDeserializingDecimalPointValueZeroSucceeds,testLongAsStringSerialization,testDoubleArrayDeserialization,testDeserializeJsonObjectAsBigInteger,testDeserializePrimitiveWrapperAsObjectField,testPrimitiveClassLiteral,testBigDecimalSerialization,testByteSerialization,testNegativeInfinityFloatSerialization,testPrimitiveIntegerAutoboxedSerialization,testShortSerialization,testPrimitiveIntegerAutoboxedInASingleElementArraySerialization,testFloatInfinitySerializationNotSupportedByDefault,testNumberDeserialization_withlog0,testNumberDeserialization_withlog1,testNumberDeserialization_withlog2,testDoubleInfinityDeserialization,testBigDecimalPreservePrecisionDeserialization,testDeserializeJsonArrayAsNumber,testDoubleNaNSerialization,testBooleanDeserialization,testPrimitiveLongAutoboxedInASingleElementArraySerialization,testDeserializingNonZeroDecimalPointValuesAsIntegerFails,testFloatInfinityDeserialization,testDeserializeJsonObjectAsNumber,testDoubleInfinitySerialization,testPrimitiveDoubleAutoboxedInASingleElementArraySerialization,testDeserializeJsonObjectAsShortPrimitive,testPrimitiveLongAutoboxedSerialization,testDoubleAsStringRepresentationDeserialization,testDeserializeJsonObjectAsLongPrimitive
+[INFO] Generating assertions...
+[INFO] 1 new tests with assertions generated
+[INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/functional/PrimitiveTest.java
+[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.functional.PrimitiveTest --tests testNumberDeserialization 
+Parsing --class com.google.gson.functional.PrimitiveTest --tests testNumberDeserialization
+File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
+Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
+[INFO] Test has been run: testNumberDeserialization
+[INFO] Assertion amplification: 1 test method(s) has been successfully amplified.
+[WARN] 2019-04-29 13:11:56 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-29 13:11:56 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-29 13:11:56 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson/gson/target/test-classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.functional.PrimitiveTest --tests testNumberDeserialization 
+Parsing --class com.google.gson.functional.PrimitiveTest --tests testNumberDeserialization
+File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
+Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
+[INFO] Test has been run: testNumberDeserialization
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
 [INFO] Applying Input-amplification and Assertion-amplification test by test.
 [INFO] Amplification of testNumberDeserialization, (1/1)
@@ -960,8 +926,8 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 [ERROR] Pb(102) The method fromJson(String, Class<Number>) is ambiguous for the type Gson
 [ERROR] Pb(102) The method fromJson(String, Class<Number>) is ambiguous for the type Gson
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/functional/PrimitiveTest.java
-[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.functional.PrimitiveTest --tests testNumberDeserialization_literalMutationString4:testNumberDeserialization_literalMutationString2:testNumberDeserialization_literalMutationString8:testNumberDeserialization_literalMutationString9:testNumberDeserialization_literalMutationString1:testNumberDeserialization_literalMutationString6:testNumberDeserialization_literalMutationString3:testNumberDeserialization_literalMutationString5:testNumberDeserialization_literalMutationString7:testNumberDeserializationnull19:testNumberDeserialization_add13:testNumberDeserialization_add14:testNumberDeserialization_add15:testNumberDeserialization_add16:testNumberDeserialization_add12:testNumberDeserialization_add10:testNumberDeserialization_add11:testNumberDeserialization_add18:testNumberDeserialization_add17 
-Parsing --class com.google.gson.functional.PrimitiveTest --tests testNumberDeserialization_literalMutationString4:testNumberDeserialization_literalMutationString2:testNumberDeserialization_literalMutationString8:testNumberDeserialization_literalMutationString9:testNumberDeserialization_literalMutationString1:testNumberDeserialization_literalMutationString6:testNumberDeserialization_literalMutationString3:testNumberDeserialization_literalMutationString5:testNumberDeserialization_literalMutationString7:testNumberDeserializationnull19:testNumberDeserialization_add13:testNumberDeserialization_add14:testNumberDeserialization_add15:testNumberDeserialization_add16:testNumberDeserialization_add12:testNumberDeserialization_add10:testNumberDeserialization_add11:testNumberDeserialization_add18:testNumberDeserialization_add17
+[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.functional.PrimitiveTest --tests testNumberDeserializationnull19:testNumberDeserialization_literalMutationString4:testNumberDeserialization_literalMutationString2:testNumberDeserialization_literalMutationString8:testNumberDeserialization_literalMutationString9:testNumberDeserialization_literalMutationString1:testNumberDeserialization_literalMutationString6:testNumberDeserialization_literalMutationString3:testNumberDeserialization_literalMutationString5:testNumberDeserialization_literalMutationString7:testNumberDeserialization_add13:testNumberDeserialization_add14:testNumberDeserialization_add15:testNumberDeserialization_add16:testNumberDeserialization_add12:testNumberDeserialization_add10:testNumberDeserialization_add11:testNumberDeserialization_add18:testNumberDeserialization_add17 
+Parsing --class com.google.gson.functional.PrimitiveTest --tests testNumberDeserializationnull19:testNumberDeserialization_literalMutationString4:testNumberDeserialization_literalMutationString2:testNumberDeserialization_literalMutationString8:testNumberDeserialization_literalMutationString9:testNumberDeserialization_literalMutationString1:testNumberDeserialization_literalMutationString6:testNumberDeserialization_literalMutationString3:testNumberDeserialization_literalMutationString5:testNumberDeserialization_literalMutationString7:testNumberDeserialization_add13:testNumberDeserialization_add14:testNumberDeserialization_add15:testNumberDeserialization_add16:testNumberDeserialization_add12:testNumberDeserialization_add10:testNumberDeserialization_add11:testNumberDeserialization_add18:testNumberDeserialization_add17
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
 [INFO] Test has been run: testNumberDeserialization_literalMutationString9,testNumberDeserialization_add10,testNumberDeserialization_add11,testNumberDeserialization_add12,testNumberDeserialization_add13,testNumberDeserialization_add14,testNumberDeserialization_add15,testNumberDeserialization_add16,testNumberDeserialization_add17,testNumberDeserialization_add18,testNumberDeserialization_literalMutationString1(com.google.gson.functional.PrimitiveTest): For input string: "",testNumberDeserialization_literalMutationString2(com.google.gson.functional.PrimitiveTest): For input string: "{'name3':'v3'}",testNumberDeserialization_literalMutationString3(com.google.gson.functional.PrimitiveTest): For input string: "-",testNumberDeserialization_literalMutationString4(com.google.gson.functional.PrimitiveTest): null,testNumberDeserialization_literalMutationString5(com.google.gson.functional.PrimitiveTest): Expecting number, got: BEGIN_OBJECT,testNumberDeserialization_literalMutationString6(com.google.gson.functional.PrimitiveTest): com.google.gson.stream.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 1 column 3 path $,testNumberDeserialization_literalMutationString7(com.google.gson.functional.PrimitiveTest): Expecting number, got: STRING,testNumberDeserialization_literalMutationString8(com.google.gson.functional.PrimitiveTest): Expecting number, got: STRING,testNumberDeserializationnull19(com.google.gson.functional.PrimitiveTest): null
@@ -973,65 +939,36 @@ Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/functional/PrimitiveTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.functional.PrimitiveTest --tests testNumberDeserialization_literalMutationString9_withlog0:testNumberDeserialization_add13_withlog0:testNumberDeserialization_add14_withlog0:testNumberDeserialization_add15_withlog0:testNumberDeserialization_add16_withlog0:testNumberDeserialization_add12_withlog0:testNumberDeserialization_add10_withlog0:testNumberDeserialization_add11_withlog0:testNumberDeserialization_add18_withlog0:testNumberDeserialization_add17_withlog0:testNumberDeserialization_literalMutationString9_withlog1:testNumberDeserialization_add13_withlog1:testNumberDeserialization_add14_withlog1:testNumberDeserialization_add15_withlog1:testNumberDeserialization_add16_withlog1:testNumberDeserialization_add12_withlog1:testNumberDeserialization_add10_withlog1:testNumberDeserialization_add11_withlog1:testNumberDeserialization_add18_withlog1:testNumberDeserialization_add17_withlog1:testNumberDeserialization_literalMutationString9_withlog2:testNumberDeserialization_add13_withlog2:testNumberDeserialization_add14_withlog2:testNumberDeserialization_add15_withlog2:testNumberDeserialization_add16_withlog2:testNumberDeserialization_add12_withlog2:testNumberDeserialization_add10_withlog2:testNumberDeserialization_add11_withlog2:testNumberDeserialization_add18_withlog2:testNumberDeserialization_add17_withlog2 
 Parsing --class com.google.gson.functional.PrimitiveTest --tests testNumberDeserialization_literalMutationString9_withlog0:testNumberDeserialization_add13_withlog0:testNumberDeserialization_add14_withlog0:testNumberDeserialization_add15_withlog0:testNumberDeserialization_add16_withlog0:testNumberDeserialization_add12_withlog0:testNumberDeserialization_add10_withlog0:testNumberDeserialization_add11_withlog0:testNumberDeserialization_add18_withlog0:testNumberDeserialization_add17_withlog0:testNumberDeserialization_literalMutationString9_withlog1:testNumberDeserialization_add13_withlog1:testNumberDeserialization_add14_withlog1:testNumberDeserialization_add15_withlog1:testNumberDeserialization_add16_withlog1:testNumberDeserialization_add12_withlog1:testNumberDeserialization_add10_withlog1:testNumberDeserialization_add11_withlog1:testNumberDeserialization_add18_withlog1:testNumberDeserialization_add17_withlog1:testNumberDeserialization_literalMutationString9_withlog2:testNumberDeserialization_add13_withlog2:testNumberDeserialization_add14_withlog2:testNumberDeserialization_add15_withlog2:testNumberDeserialization_add16_withlog2:testNumberDeserialization_add12_withlog2:testNumberDeserialization_add10_withlog2:testNumberDeserialization_add11_withlog2:testNumberDeserialization_add18_withlog2:testNumberDeserialization_add17_withlog2
+File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/observations.ser
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
-[INFO] Test has been run: testNumberDeserialization_add18_withlog0,testNumberDeserialization_add18_withlog1,testNumberDeserialization_add18_withlog2,testNumberDeserialization_add17_withlog0,testNumberDeserialization_add17_withlog1,testNumberDeserialization_add17_withlog2,testNumberDeserialization_add16_withlog0,testNumberDeserialization_add16_withlog1,testNumberDeserialization_add16_withlog2,testNumberDeserialization_add15_withlog0,testNumberDeserialization_add15_withlog1,testNumberDeserialization_add15_withlog2,testNumberDeserialization_add14_withlog0,testNumberDeserialization_add14_withlog1,testNumberDeserialization_add14_withlog2,testNumberDeserialization_add13_withlog0,testNumberDeserialization_add13_withlog1,testNumberDeserialization_add13_withlog2,testNumberDeserialization_add12_withlog0,testNumberDeserialization_add12_withlog1,testNumberDeserialization_add12_withlog2,testNumberDeserialization_literalMutationString9_withlog0,testNumberDeserialization_literalMutationString9_withlog1,testNumberDeserialization_literalMutationString9_withlog2,testNumberDeserialization_add11_withlog0,testNumberDeserialization_add11_withlog1,testNumberDeserialization_add11_withlog2,testNumberDeserialization_add10_withlog0,testNumberDeserialization_add10_withlog1,testNumberDeserialization_add10_withlog2
-[WARNING] Something bad happened during assertion amplification
-java.lang.RuntimeException: java.io.FileNotFoundException: target/dspot/observations.ser (No such file or directory)
-	at eu.stamp_project.compare.ObjectLog.load(ObjectLog.java:254)
-	at eu.stamp_project.compare.ObjectLog.getObservations(ObjectLog.java:216)
-	at eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator.addAssertions(MethodsAssertGenerator.java:125)
-	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.innerAssertionAmplification(AssertGenerator.java:132)
-	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.assertionAmplification(AssertGenerator.java:72)
-	at eu.stamp_project.dspot.Amplification.assertionsAmplification(Amplification.java:187)
-	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:164)
-	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:115)
-	at eu.stamp_project.dspot.DSpot._amplify(DSpot.java:273)
-	at eu.stamp_project.dspot.DSpot.lambda$amplifyTestClassesTestMethods$5(DSpot.java:254)
-	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
-	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1374)
-	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
-	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
-	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
-	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
-	at eu.stamp_project.dspot.DSpot.amplifyTestClassesTestMethods(DSpot.java:255)
-	at eu.stamp_project.Main.run(Main.java:65)
-	at eu.stamp_project.DSpotMojo.execute(DSpotMojo.java:306)
-	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:137)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:154)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:146)
-	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)
-	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)
-	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:56)
-	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
-	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:305)
-	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:192)
-	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:105)
-	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:954)
-	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:288)
-	at org.apache.maven.cli.MavenCli.main(MavenCli.java:192)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
-Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such file or directory)
-	at java.io.FileInputStream.open0(Native Method)
-	at java.io.FileInputStream.open(FileInputStream.java:195)
-	at java.io.FileInputStream.<init>(FileInputStream.java:138)
-	at eu.stamp_project.compare.ObjectLog.load(ObjectLog.java:246)
-	... 41 more
-
-[INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 14550
+[INFO] Test has been run: testDeserializeJsonArrayAsBigDecimal,testDeserializingBigIntegerAsLong,testLongAsStringDeserialization,testBigDecimalPreservePrecisionSerialization,testSmallValueForBigDecimalDeserialization,testFloatNaNSerializationNotSupportedByDefault,testDeserializeJsonArrayAsLongWrapper,testDeserializeJsonArrayAsShortWrapper,testDeserializeJsonObjectAsDoubleWrapper,testDeserializingBigDecimalAsFloat,testNumberDeserialization,testMoreSpecificSerialization,testUnquotedStringDeserializationFails,testDeserializingBigIntegerAsBigDecimal,testQuotedStringSerializationAndDeserialization,testDeserializingBigDecimalAsIntegerFails,testDeserializeJsonArrayAsBigInteger,testBigDecimalNaNDeserializationNotSupported,testDeserializingBigDecimalAsBigIntegerFails,testDeserializeJsonArrayAsFloatWrapper,testNumberDeserialization_add18_withlog0,testNumberDeserialization_add18_withlog1,testNumberDeserialization_add18_withlog2,testDeserializeJsonArrayAsInt,testReallyLongValuesDeserialization,testNegativeInfinityFloatSerializationNotSupportedByDefault,testBigDecimalInASingleElementArraySerialization,testNumberDeserialization_add17_withlog0,testNumberDeserialization_add17_withlog1,testNumberDeserialization_add17_withlog2,testDeserializeJsonObjectAsInteger,testDeserializingBigIntegerAsInteger,testNumberDeserialization_literalMutationString9,testSmallValueForBigIntegerDeserialization,testNegativeInfinityFloatDeserialization,testNumberDeserialization_add16_withlog0,testNumberDeserialization_add16_withlog1,testNumberDeserialization_add16_withlog2,testBadValueForBigIntegerDeserialization,testHtmlCharacterSerialization,testLargeDoubleDeserialization,testNumberDeserialization_add15_withlog0,testNumberDeserialization_add15_withlog1,testNumberDeserialization_add15_withlog2,testDoubleNaNSerializationNotSupportedByDefault,testPrimitiveBooleanAutoboxedInASingleElementArraySerialization,testDeserializeJsonObjectAsFloatPrimitive,testValueVeryCloseToZeroIsZero,testPrimitiveBooleanAutoboxedSerialization,testNumberDeserialization_add14_withlog0,testNumberDeserialization_add14_withlog1,testNumberDeserialization_add14_withlog2,testBigDecimalDeserialization,testPrimitiveLongAutoboxedDeserialization,testDoubleInfinitySerializationNotSupportedByDefault,testNegativeInfinityDeserialization,testSmallValueForBigIntegerSerialization,testNumberDeserialization_add13_withlog0,testNumberDeserialization_add13_withlog1,testNumberDeserialization_add13_withlog2,testNegativeInfinitySerializationNotSupportedByDefault,testBigDecimalNegativeInfinityDeserializationNotSupported,testDeserializeJsonArrayAsDoublePrimitive,testSmallValueForBigDecimalSerialization,testNumberSerialization,testBigDecimalAsStringRepresentationDeserialization,testNumberDeserialization_add12_withlog0,testNumberDeserialization_add12_withlog1,testNumberDeserialization_add12_withlog2,testNumberDeserialization_add10,testNumberDeserialization_add11,testNumberDeserialization_add12,testNumberDeserialization_add13,testNumberDeserialization_add14,testNumberDeserialization_add15,testNumberDeserialization_add16,testNumberDeserialization_add17,testNumberDeserialization_add18,testDeserializeJsonArrayAsByteWrapper,testBigDecimalInfinityDeserializationNotSupported,testFloatNaNSerialization,testDeserializeJsonObjectAsBooleanPrimitive,testNumberDeserialization_literalMutationString9_withlog0,testNumberDeserialization_literalMutationString9_withlog1,testNumberDeserialization_literalMutationString9_withlog2,testByteDeserialization,testNumberDeserialization_add11_withlog0,testNumberDeserialization_add11_withlog1,testNumberDeserialization_add11_withlog2,testPrimitiveIntegerAutoboxedDeserialization,testDeserializeJsonArrayAsBooleanWrapper,testDoubleNoFractAsStringRepresentationDeserialization,testDeserializingBigDecimalAsDouble,testNumberDeserialization_add10_withlog0,testNumberDeserialization_add10_withlog1,testNumberDeserialization_add10_withlog2,testBigIntegerDeserialization,testBigDecimalNoFractAsStringRepresentationDeserialization,testReallyLongValuesSerialization,testDeserializeJsonObjectAsBytePrimitive,testPrimitiveDoubleAutoboxedSerialization,testDeserializeJsonObjectAsBigDecimal,testNegativeInfinitySerialization,testFloatInfinitySerialization,testFloatNaNDeserialization,testDoubleNaNDeserialization,testBigIntegerInASingleElementArraySerialization,testPrimitiveDoubleAutoboxedDeserialization,testStringsAsBooleans,testBigIntegerSerialization,testDeserializingDecimalPointValueZeroSucceeds,testLongAsStringSerialization,testDoubleArrayDeserialization,testDeserializeJsonObjectAsBigInteger,testDeserializePrimitiveWrapperAsObjectField,testPrimitiveClassLiteral,testBigDecimalSerialization,testByteSerialization,testNegativeInfinityFloatSerialization,testPrimitiveIntegerAutoboxedSerialization,testShortSerialization,testPrimitiveIntegerAutoboxedInASingleElementArraySerialization,testFloatInfinitySerializationNotSupportedByDefault,testDoubleInfinityDeserialization,testBigDecimalPreservePrecisionDeserialization,testDeserializeJsonArrayAsNumber,testDoubleNaNSerialization,testBooleanDeserialization,testPrimitiveLongAutoboxedInASingleElementArraySerialization,testDeserializingNonZeroDecimalPointValuesAsIntegerFails,testFloatInfinityDeserialization,testDeserializeJsonObjectAsNumber,testDoubleInfinitySerialization,testPrimitiveDoubleAutoboxedInASingleElementArraySerialization,testDeserializeJsonObjectAsShortPrimitive,testPrimitiveLongAutoboxedSerialization,testDoubleAsStringRepresentationDeserialization,testDeserializeJsonObjectAsLongPrimitive,testNumberDeserialization_literalMutationString1(com.google.gson.functional.PrimitiveTest): For input string: "",testNumberDeserialization_literalMutationString2(com.google.gson.functional.PrimitiveTest): For input string: "{'name3':'v3'}",testNumberDeserialization_literalMutationString3(com.google.gson.functional.PrimitiveTest): For input string: "-",testNumberDeserialization_literalMutationString4(com.google.gson.functional.PrimitiveTest): null,testNumberDeserialization_literalMutationString5(com.google.gson.functional.PrimitiveTest): Expecting number, got: BEGIN_OBJECT,testNumberDeserialization_literalMutationString6(com.google.gson.functional.PrimitiveTest): com.google.gson.stream.MalformedJsonException: Use JsonReader.setLenient(true) to accept malformed JSON at line 1 column 3 path $,testNumberDeserialization_literalMutationString7(com.google.gson.functional.PrimitiveTest): Expecting number, got: STRING,testNumberDeserialization_literalMutationString8(com.google.gson.functional.PrimitiveTest): Expecting number, got: STRING,testNumberDeserializationnull19(com.google.gson.functional.PrimitiveTest): null
+[WARNING] Some instrumented test failed!
+[INFO] Generating assertions...
+[INFO] 9 test fail, generating try/catch/fail blocks...
+[INFO] 19 new tests with assertions generated
+[INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/functional/PrimitiveTest.java
+[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.functional.PrimitiveTest --tests testNumberDeserialization_literalMutationString9:testNumberDeserialization_add13:testNumberDeserialization_add14:testNumberDeserialization_add15:testNumberDeserialization_add16:testNumberDeserialization_add12:testNumberDeserialization_add10:testNumberDeserialization_add11:testNumberDeserialization_add18:testNumberDeserialization_add17:testNumberDeserializationnull19_failAssert0:testNumberDeserialization_literalMutationString4_failAssert0:testNumberDeserialization_literalMutationString2_failAssert0:testNumberDeserialization_literalMutationString8_failAssert0:testNumberDeserialization_literalMutationString1_failAssert0:testNumberDeserialization_literalMutationString6_failAssert0:testNumberDeserialization_literalMutationString3_failAssert0:testNumberDeserialization_literalMutationString5_failAssert0:testNumberDeserialization_literalMutationString7_failAssert0 
+Parsing --class com.google.gson.functional.PrimitiveTest --tests testNumberDeserialization_literalMutationString9:testNumberDeserialization_add13:testNumberDeserialization_add14:testNumberDeserialization_add15:testNumberDeserialization_add16:testNumberDeserialization_add12:testNumberDeserialization_add10:testNumberDeserialization_add11:testNumberDeserialization_add18:testNumberDeserialization_add17:testNumberDeserializationnull19_failAssert0:testNumberDeserialization_literalMutationString4_failAssert0:testNumberDeserialization_literalMutationString2_failAssert0:testNumberDeserialization_literalMutationString8_failAssert0:testNumberDeserialization_literalMutationString1_failAssert0:testNumberDeserialization_literalMutationString6_failAssert0:testNumberDeserialization_literalMutationString3_failAssert0:testNumberDeserialization_literalMutationString5_failAssert0:testNumberDeserialization_literalMutationString7_failAssert0
+File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
+Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
+[INFO] Test has been run: testNumberDeserialization_literalMutationString7_failAssert0,testNumberDeserialization_literalMutationString6_failAssert0,testNumberDeserialization_literalMutationString5_failAssert0,testNumberDeserialization_literalMutationString9,testNumberDeserialization_literalMutationString4_failAssert0,testNumberDeserialization_literalMutationString3_failAssert0,testNumberDeserialization_literalMutationString2_failAssert0,testNumberDeserialization_add10,testNumberDeserialization_add11,testNumberDeserialization_add12,testNumberDeserialization_add13,testNumberDeserialization_add14,testNumberDeserialization_add15,testNumberDeserialization_add16,testNumberDeserialization_add17,testNumberDeserialization_add18,testNumberDeserialization_literalMutationString1_failAssert0,testNumberDeserializationnull19_failAssert0,testNumberDeserialization_literalMutationString8_failAssert0
+[INFO] Assertion amplification: 19 test method(s) has been successfully amplified.
+[WARN] 2019-04-29 13:12:02 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-29 13:12:02 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-29 13:12:02 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson/gson/target/test-classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.functional.PrimitiveTest --tests testNumberDeserialization_literalMutationString9:testNumberDeserialization_add13:testNumberDeserialization_add14:testNumberDeserialization_add15:testNumberDeserialization_add16:testNumberDeserialization_add12:testNumberDeserialization_add10:testNumberDeserialization_add11:testNumberDeserialization_add18:testNumberDeserialization_add17:testNumberDeserializationnull19_failAssert0:testNumberDeserialization_literalMutationString4_failAssert0:testNumberDeserialization_literalMutationString2_failAssert0:testNumberDeserialization_literalMutationString8_failAssert0:testNumberDeserialization_literalMutationString1_failAssert0:testNumberDeserialization_literalMutationString6_failAssert0:testNumberDeserialization_literalMutationString3_failAssert0:testNumberDeserialization_literalMutationString5_failAssert0:testNumberDeserialization_literalMutationString7_failAssert0 
+Parsing --class com.google.gson.functional.PrimitiveTest --tests testNumberDeserialization_literalMutationString9:testNumberDeserialization_add13:testNumberDeserialization_add14:testNumberDeserialization_add15:testNumberDeserialization_add16:testNumberDeserialization_add12:testNumberDeserialization_add10:testNumberDeserialization_add11:testNumberDeserialization_add18:testNumberDeserialization_add17:testNumberDeserializationnull19_failAssert0:testNumberDeserialization_literalMutationString4_failAssert0:testNumberDeserialization_literalMutationString2_failAssert0:testNumberDeserialization_literalMutationString8_failAssert0:testNumberDeserialization_literalMutationString1_failAssert0:testNumberDeserialization_literalMutationString6_failAssert0:testNumberDeserialization_literalMutationString3_failAssert0:testNumberDeserialization_literalMutationString5_failAssert0:testNumberDeserialization_literalMutationString7_failAssert0
+File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
+Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
+[INFO] Test has been run: testNumberDeserialization_literalMutationString6_failAssert0,testNumberDeserialization_literalMutationString5_failAssert0,testNumberDeserialization_literalMutationString9,testNumberDeserialization_literalMutationString4_failAssert0,testNumberDeserialization_literalMutationString3_failAssert0,testNumberDeserialization_literalMutationString2_failAssert0,testNumberDeserialization_add10,testNumberDeserialization_add11,testNumberDeserialization_add12,testNumberDeserialization_add13,testNumberDeserialization_add14,testNumberDeserialization_add15,testNumberDeserialization_add16,testNumberDeserialization_add17,testNumberDeserialization_add18,testNumberDeserialization_literalMutationString1_failAssert0,testNumberDeserializationnull19_failAssert0,testNumberDeserialization_literalMutationString7_failAssert0(com.google.gson.functional.PrimitiveTest): null,testNumberDeserialization_literalMutationString8_failAssert0(com.google.gson.functional.PrimitiveTest): null
+[INFO] 2 amplified test methods has been selected to be kept.
+[INFO] 0 amplified test methods has been selected to be kept. (global: 2)
+[INFO] elapsedTime 18365
 [DEBUG] OPTIMIZATION: GC invoked
-[WARNING] DSpot could not obtain any amplified test method.
-[WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
+[WARN] 2019-04-29 13:12:03 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-29 13:12:03 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-29 13:12:03 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
 [INFO] Amplification of com.google.gson.JavaSerializationTest (1 test(s))
 [INFO] Assertion amplification of com.google.gson.JavaSerializationTest (1 test(s))
 [INFO] Using /tmp/dspot-experiments/dataset/april-2019/gson/gson/pom.xml to run maven.
@@ -1076,8 +1013,8 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 5.991 s
-[INFO] Finished at: 2019-04-19T14:10:02+02:00
+[INFO] Total time: 6.100 s
+[INFO] Finished at: 2019-04-29T13:12:11+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/JavaSerializationTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.JavaSerializationTest --tests testNumberIsSerializable 
@@ -1100,74 +1037,42 @@ Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/JavaSerializationTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.JavaSerializationTest --tests testNumberIsSerializable_withlog0:testNumberIsSerializable_withlog1:testNumberIsSerializable_withlog2 
 Parsing --class com.google.gson.JavaSerializationTest --tests testNumberIsSerializable_withlog0:testNumberIsSerializable_withlog1:testNumberIsSerializable_withlog2
+File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/observations.ser
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
-[INFO] Test has been run: testNumberIsSerializable_withlog0,testNumberIsSerializable_withlog1,testNumberIsSerializable_withlog2
-[WARNING] Something bad happened during assertion amplification
-java.lang.RuntimeException: java.io.FileNotFoundException: target/dspot/observations.ser (No such file or directory)
-	at eu.stamp_project.compare.ObjectLog.load(ObjectLog.java:254)
-	at eu.stamp_project.compare.ObjectLog.getObservations(ObjectLog.java:216)
-	at eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator.addAssertions(MethodsAssertGenerator.java:125)
-	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.innerAssertionAmplification(AssertGenerator.java:132)
-	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.assertionAmplification(AssertGenerator.java:72)
-	at eu.stamp_project.dspot.Amplification.assertionsAmplification(Amplification.java:187)
-	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:96)
-	at eu.stamp_project.dspot.DSpot._amplify(DSpot.java:273)
-	at eu.stamp_project.dspot.DSpot.lambda$amplifyTestClassesTestMethods$5(DSpot.java:254)
-	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
-	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1374)
-	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
-	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
-	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
-	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
-	at eu.stamp_project.dspot.DSpot.amplifyTestClassesTestMethods(DSpot.java:255)
-	at eu.stamp_project.Main.run(Main.java:65)
-	at eu.stamp_project.DSpotMojo.execute(DSpotMojo.java:306)
-	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:137)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:154)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:146)
-	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)
-	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)
-	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:56)
-	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
-	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:305)
-	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:192)
-	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:105)
-	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:954)
-	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:288)
-	at org.apache.maven.cli.MavenCli.main(MavenCli.java:192)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
-Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such file or directory)
-	at java.io.FileInputStream.open0(Native Method)
-	at java.io.FileInputStream.open(FileInputStream.java:195)
-	at java.io.FileInputStream.<init>(FileInputStream.java:138)
-	at eu.stamp_project.compare.ObjectLog.load(ObjectLog.java:246)
-	... 40 more
-
+[INFO] Test has been run: testNumberIsSerializable,testNumberIsSerializable_withlog0,testNumberIsSerializable_withlog1,testNumberIsSerializable_withlog2,testMapIsSerializable,testListIsSerializable
+[INFO] Generating assertions...
+[INFO] 1 new tests with assertions generated
+[INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/JavaSerializationTest.java
+[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.JavaSerializationTest --tests testNumberIsSerializable 
+Parsing --class com.google.gson.JavaSerializationTest --tests testNumberIsSerializable
+File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
+Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
+[INFO] Test has been run: testNumberIsSerializable
+[INFO] Assertion amplification: 1 test method(s) has been successfully amplified.
+[WARN] 2019-04-29 13:12:13 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-29 13:12:13 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-29 13:12:13 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson/gson/target/test-classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.JavaSerializationTest --tests testNumberIsSerializable 
+Parsing --class com.google.gson.JavaSerializationTest --tests testNumberIsSerializable
+File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
+Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
+[INFO] Test has been run: testNumberIsSerializable
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
 [INFO] Applying Input-amplification and Assertion-amplification test by test.
 [INFO] Amplification of testNumberIsSerializable, (1/1)
 [INFO] iteration 0 / 1
 [INFO] 1 tests selected to be amplified over 1 available tests
 [INFO] Amplification of inputs...
-[INFO] Time to amplify: 47ms
+[INFO] Time to amplify: 43ms
   0% | ]/[INFO] 33 new tests generated
 [INFO] Run tests. (33)
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/JavaSerializationTest.java
 [ERROR] Error(s) during compilation:
 [ERROR] Pb(102) The method fromJson(String, Type) is ambiguous for the type Gson
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/JavaSerializationTest.java
-[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.JavaSerializationTest --tests testNumberIsSerializable_literalMutationNumber14:testNumberIsSerializable_literalMutationNumber11:testNumberIsSerializable_literalMutationNumber19:testNumberIsSerializable_literalMutationNumber9:testNumberIsSerializable_literalMutationNumber16:testNumberIsSerializable_literalMutationString4:testNumberIsSerializable_literalMutationString2:testNumberIsSerializable_literalMutationNumber7:testNumberIsSerializable_literalMutationNumber20:testNumberIsSerializable_literalMutationString3:testNumberIsSerializable_literalMutationNumber12:testNumberIsSerializable_literalMutationNumber13:testNumberIsSerializable_literalMutationNumber18:testNumberIsSerializable_literalMutationNumber8:testNumberIsSerializable_literalMutationString5:testNumberIsSerializable_literalMutationString6:testNumberIsSerializable_literalMutationNumber10:testNumberIsSerializable_literalMutationNumber17:testNumberIsSerializable_literalMutationNumber15:testNumberIsSerializable_literalMutationString1:testNumberIsSerializable_remove30:testNumberIsSerializablenull32:testNumberIsSerializablenull33:testNumberIsSerializable_add25:testNumberIsSerializable_add29:testNumberIsSerializable_add24:testNumberIsSerializable_add28:testNumberIsSerializable_add27:testNumberIsSerializable_add26:testNumberIsSerializable_add22:testNumberIsSerializable_add23:testNumberIsSerializable_add21 
-Parsing --class com.google.gson.JavaSerializationTest --tests testNumberIsSerializable_literalMutationNumber14:testNumberIsSerializable_literalMutationNumber11:testNumberIsSerializable_literalMutationNumber19:testNumberIsSerializable_literalMutationNumber9:testNumberIsSerializable_literalMutationNumber16:testNumberIsSerializable_literalMutationString4:testNumberIsSerializable_literalMutationString2:testNumberIsSerializable_literalMutationNumber7:testNumberIsSerializable_literalMutationNumber20:testNumberIsSerializable_literalMutationString3:testNumberIsSerializable_literalMutationNumber12:testNumberIsSerializable_literalMutationNumber13:testNumberIsSerializable_literalMutationNumber18:testNumberIsSerializable_literalMutationNumber8:testNumberIsSerializable_literalMutationString5:testNumberIsSerializable_literalMutationString6:testNumberIsSerializable_literalMutationNumber10:testNumberIsSerializable_literalMutationNumber17:testNumberIsSerializable_literalMutationNumber15:testNumberIsSerializable_literalMutationString1:testNumberIsSerializable_remove30:testNumberIsSerializablenull32:testNumberIsSerializablenull33:testNumberIsSerializable_add25:testNumberIsSerializable_add29:testNumberIsSerializable_add24:testNumberIsSerializable_add28:testNumberIsSerializable_add27:testNumberIsSerializable_add26:testNumberIsSerializable_add22:testNumberIsSerializable_add23:testNumberIsSerializable_add21
+[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.JavaSerializationTest --tests testNumberIsSerializable_remove30:testNumberIsSerializablenull32:testNumberIsSerializablenull33:testNumberIsSerializable_literalMutationNumber14:testNumberIsSerializable_literalMutationNumber11:testNumberIsSerializable_literalMutationNumber19:testNumberIsSerializable_literalMutationNumber9:testNumberIsSerializable_literalMutationNumber16:testNumberIsSerializable_literalMutationString4:testNumberIsSerializable_literalMutationString2:testNumberIsSerializable_literalMutationNumber7:testNumberIsSerializable_literalMutationNumber20:testNumberIsSerializable_literalMutationString3:testNumberIsSerializable_literalMutationNumber12:testNumberIsSerializable_literalMutationNumber13:testNumberIsSerializable_literalMutationNumber18:testNumberIsSerializable_literalMutationNumber8:testNumberIsSerializable_literalMutationString5:testNumberIsSerializable_literalMutationString6:testNumberIsSerializable_literalMutationNumber10:testNumberIsSerializable_literalMutationNumber17:testNumberIsSerializable_literalMutationNumber15:testNumberIsSerializable_literalMutationString1:testNumberIsSerializable_add25:testNumberIsSerializable_add29:testNumberIsSerializable_add24:testNumberIsSerializable_add28:testNumberIsSerializable_add27:testNumberIsSerializable_add26:testNumberIsSerializable_add22:testNumberIsSerializable_add23:testNumberIsSerializable_add21 
+Parsing --class com.google.gson.JavaSerializationTest --tests testNumberIsSerializable_remove30:testNumberIsSerializablenull32:testNumberIsSerializablenull33:testNumberIsSerializable_literalMutationNumber14:testNumberIsSerializable_literalMutationNumber11:testNumberIsSerializable_literalMutationNumber19:testNumberIsSerializable_literalMutationNumber9:testNumberIsSerializable_literalMutationNumber16:testNumberIsSerializable_literalMutationString4:testNumberIsSerializable_literalMutationString2:testNumberIsSerializable_literalMutationNumber7:testNumberIsSerializable_literalMutationNumber20:testNumberIsSerializable_literalMutationString3:testNumberIsSerializable_literalMutationNumber12:testNumberIsSerializable_literalMutationNumber13:testNumberIsSerializable_literalMutationNumber18:testNumberIsSerializable_literalMutationNumber8:testNumberIsSerializable_literalMutationString5:testNumberIsSerializable_literalMutationString6:testNumberIsSerializable_literalMutationNumber10:testNumberIsSerializable_literalMutationNumber17:testNumberIsSerializable_literalMutationNumber15:testNumberIsSerializable_literalMutationString1:testNumberIsSerializable_add25:testNumberIsSerializable_add29:testNumberIsSerializable_add24:testNumberIsSerializable_add28:testNumberIsSerializable_add27:testNumberIsSerializable_add26:testNumberIsSerializable_add22:testNumberIsSerializable_add23:testNumberIsSerializable_add21
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
 [INFO] Test has been run: testNumberIsSerializable_literalMutationNumber7,testNumberIsSerializable_literalMutationNumber9,testNumberIsSerializable_literalMutationString3,testNumberIsSerializable_literalMutationNumber10,testNumberIsSerializable_literalMutationNumber11,testNumberIsSerializable_literalMutationNumber12,testNumberIsSerializable_literalMutationNumber13,testNumberIsSerializable_literalMutationNumber14,testNumberIsSerializable_literalMutationNumber15,testNumberIsSerializable_literalMutationNumber16,testNumberIsSerializable_literalMutationNumber18,testNumberIsSerializable_literalMutationNumber19,testNumberIsSerializable_add21,testNumberIsSerializable_add22,testNumberIsSerializable_add23,testNumberIsSerializable_add24,testNumberIsSerializable_add25,testNumberIsSerializable_add26,testNumberIsSerializable_add27,testNumberIsSerializable_add28,testNumberIsSerializable_add29,testNumberIsSerializable_remove30,testNumberIsSerializablenull32(com.google.gson.JavaSerializationTest): null,testNumberIsSerializablenull33(com.google.gson.JavaSerializationTest): null,testNumberIsSerializable_literalMutationNumber8(com.google.gson.JavaSerializationTest): -1,testNumberIsSerializable_literalMutationString1(com.google.gson.JavaSerializationTest): null,testNumberIsSerializable_literalMutationString2(com.google.gson.JavaSerializationTest): null,testNumberIsSerializable_literalMutationString4(com.google.gson.JavaSerializationTest): Expecting number, got: BEGIN_OBJECT,testNumberIsSerializable_literalMutationString5(com.google.gson.JavaSerializationTest): Expecting number, got: STRING,testNumberIsSerializable_literalMutationString6(com.google.gson.JavaSerializationTest): Expecting number, got: STRING,testNumberIsSerializable_literalMutationNumber17(com.google.gson.JavaSerializationTest): Index: 4, Size: 3,testNumberIsSerializable_literalMutationNumber20(com.google.gson.JavaSerializationTest): Index: 3, Size: 3
@@ -1177,281 +1082,207 @@ Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/
   4% |== ]/  9% |==== ]- 13% |====== ]\ 18% |========= ]| 22% |=========== ]/ 27% |============= ]- 31% |=============== ]\ 36% |================== ]| 40% |==================== ]/ 45% |====================== ]- 50% |========================= ]\ 54% |=========================== ]| 59% |============================= ]/ 63% |=============================== ]- 68% |================================== ]\ 72% |==================================== ]| 77% |====================================== ]/ 81% |======================================== ]- 86% |=========================================== ]\ 90% |============================================= ]| 95% |=============================================== ]/100% |================================================== ]-
 [INFO] Run instrumented tests. (66)
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/JavaSerializationTest.java
-[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.JavaSerializationTest --tests testNumberIsSerializable_literalMutationNumber14_withlog0:testNumberIsSerializable_literalMutationNumber11_withlog0:testNumberIsSerializable_literalMutationNumber19_withlog0:testNumberIsSerializable_literalMutationNumber9_withlog0:testNumberIsSerializable_literalMutationNumber16_withlog0:testNumberIsSerializable_literalMutationNumber7_withlog0:testNumberIsSerializable_literalMutationString3_withlog0:testNumberIsSerializable_literalMutationNumber12_withlog0:testNumberIsSerializable_literalMutationNumber13_withlog0:testNumberIsSerializable_literalMutationNumber18_withlog0:testNumberIsSerializable_literalMutationNumber10_withlog0:testNumberIsSerializable_literalMutationNumber15_withlog0:testNumberIsSerializable_remove30_withlog0:testNumberIsSerializable_add25_withlog0:testNumberIsSerializable_add29_withlog0:testNumberIsSerializable_add24_withlog0:testNumberIsSerializable_add28_withlog0:testNumberIsSerializable_add27_withlog0:testNumberIsSerializable_add26_withlog0:testNumberIsSerializable_add22_withlog0:testNumberIsSerializable_add23_withlog0:testNumberIsSerializable_add21_withlog0:testNumberIsSerializable_literalMutationNumber14_withlog1:testNumberIsSerializable_literalMutationNumber11_withlog1:testNumberIsSerializable_literalMutationNumber19_withlog1:testNumberIsSerializable_literalMutationNumber9_withlog1:testNumberIsSerializable_literalMutationNumber16_withlog1:testNumberIsSerializable_literalMutationNumber7_withlog1:testNumberIsSerializable_literalMutationString3_withlog1:testNumberIsSerializable_literalMutationNumber12_withlog1:testNumberIsSerializable_literalMutationNumber13_withlog1:testNumberIsSerializable_literalMutationNumber18_withlog1:testNumberIsSerializable_literalMutationNumber10_withlog1:testNumberIsSerializable_literalMutationNumber15_withlog1:testNumberIsSerializable_remove30_withlog1:testNumberIsSerializable_add25_withlog1:testNumberIsSerializable_add29_withlog1:testNumberIsSerializable_add24_withlog1:testNumberIsSerializable_add28_withlog1:testNumberIsSerializable_add27_withlog1:testNumberIsSerializable_add26_withlog1:testNumberIsSerializable_add22_withlog1:testNumberIsSerializable_add23_withlog1:testNumberIsSerializable_add21_withlog1:testNumberIsSerializable_literalMutationNumber14_withlog2:testNumberIsSerializable_literalMutationNumber11_withlog2:testNumberIsSerializable_literalMutationNumber19_withlog2:testNumberIsSerializable_literalMutationNumber9_withlog2:testNumberIsSerializable_literalMutationNumber16_withlog2:testNumberIsSerializable_literalMutationNumber7_withlog2:testNumberIsSerializable_literalMutationString3_withlog2:testNumberIsSerializable_literalMutationNumber12_withlog2:testNumberIsSerializable_literalMutationNumber13_withlog2:testNumberIsSerializable_literalMutationNumber18_withlog2:testNumberIsSerializable_literalMutationNumber10_withlog2:testNumberIsSerializable_literalMutationNumber15_withlog2:testNumberIsSerializable_remove30_withlog2:testNumberIsSerializable_add25_withlog2:testNumberIsSerializable_add29_withlog2:testNumberIsSerializable_add24_withlog2:testNumberIsSerializable_add28_withlog2:testNumberIsSerializable_add27_withlog2:testNumberIsSerializable_add26_withlog2:testNumberIsSerializable_add22_withlog2:testNumberIsSerializable_add23_withlog2:testNumberIsSerializable_add21_withlog2 
-Parsing --class com.google.gson.JavaSerializationTest --tests testNumberIsSerializable_literalMutationNumber14_withlog0:testNumberIsSerializable_literalMutationNumber11_withlog0:testNumberIsSerializable_literalMutationNumber19_withlog0:testNumberIsSerializable_literalMutationNumber9_withlog0:testNumberIsSerializable_literalMutationNumber16_withlog0:testNumberIsSerializable_literalMutationNumber7_withlog0:testNumberIsSerializable_literalMutationString3_withlog0:testNumberIsSerializable_literalMutationNumber12_withlog0:testNumberIsSerializable_literalMutationNumber13_withlog0:testNumberIsSerializable_literalMutationNumber18_withlog0:testNumberIsSerializable_literalMutationNumber10_withlog0:testNumberIsSerializable_literalMutationNumber15_withlog0:testNumberIsSerializable_remove30_withlog0:testNumberIsSerializable_add25_withlog0:testNumberIsSerializable_add29_withlog0:testNumberIsSerializable_add24_withlog0:testNumberIsSerializable_add28_withlog0:testNumberIsSerializable_add27_withlog0:testNumberIsSerializable_add26_withlog0:testNumberIsSerializable_add22_withlog0:testNumberIsSerializable_add23_withlog0:testNumberIsSerializable_add21_withlog0:testNumberIsSerializable_literalMutationNumber14_withlog1:testNumberIsSerializable_literalMutationNumber11_withlog1:testNumberIsSerializable_literalMutationNumber19_withlog1:testNumberIsSerializable_literalMutationNumber9_withlog1:testNumberIsSerializable_literalMutationNumber16_withlog1:testNumberIsSerializable_literalMutationNumber7_withlog1:testNumberIsSerializable_literalMutationString3_withlog1:testNumberIsSerializable_literalMutationNumber12_withlog1:testNumberIsSerializable_literalMutationNumber13_withlog1:testNumberIsSerializable_literalMutationNumber18_withlog1:testNumberIsSerializable_literalMutationNumber10_withlog1:testNumberIsSerializable_literalMutationNumber15_withlog1:testNumberIsSerializable_remove30_withlog1:testNumberIsSerializable_add25_withlog1:testNumberIsSerializable_add29_withlog1:testNumberIsSerializable_add24_withlog1:testNumberIsSerializable_add28_withlog1:testNumberIsSerializable_add27_withlog1:testNumberIsSerializable_add26_withlog1:testNumberIsSerializable_add22_withlog1:testNumberIsSerializable_add23_withlog1:testNumberIsSerializable_add21_withlog1:testNumberIsSerializable_literalMutationNumber14_withlog2:testNumberIsSerializable_literalMutationNumber11_withlog2:testNumberIsSerializable_literalMutationNumber19_withlog2:testNumberIsSerializable_literalMutationNumber9_withlog2:testNumberIsSerializable_literalMutationNumber16_withlog2:testNumberIsSerializable_literalMutationNumber7_withlog2:testNumberIsSerializable_literalMutationString3_withlog2:testNumberIsSerializable_literalMutationNumber12_withlog2:testNumberIsSerializable_literalMutationNumber13_withlog2:testNumberIsSerializable_literalMutationNumber18_withlog2:testNumberIsSerializable_literalMutationNumber10_withlog2:testNumberIsSerializable_literalMutationNumber15_withlog2:testNumberIsSerializable_remove30_withlog2:testNumberIsSerializable_add25_withlog2:testNumberIsSerializable_add29_withlog2:testNumberIsSerializable_add24_withlog2:testNumberIsSerializable_add28_withlog2:testNumberIsSerializable_add27_withlog2:testNumberIsSerializable_add26_withlog2:testNumberIsSerializable_add22_withlog2:testNumberIsSerializable_add23_withlog2:testNumberIsSerializable_add21_withlog2
+[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.JavaSerializationTest --tests testNumberIsSerializable_remove30_withlog0:testNumberIsSerializable_literalMutationNumber14_withlog0:testNumberIsSerializable_literalMutationNumber11_withlog0:testNumberIsSerializable_literalMutationNumber19_withlog0:testNumberIsSerializable_literalMutationNumber9_withlog0:testNumberIsSerializable_literalMutationNumber16_withlog0:testNumberIsSerializable_literalMutationNumber7_withlog0:testNumberIsSerializable_literalMutationString3_withlog0:testNumberIsSerializable_literalMutationNumber12_withlog0:testNumberIsSerializable_literalMutationNumber13_withlog0:testNumberIsSerializable_literalMutationNumber18_withlog0:testNumberIsSerializable_literalMutationNumber10_withlog0:testNumberIsSerializable_literalMutationNumber15_withlog0:testNumberIsSerializable_add25_withlog0:testNumberIsSerializable_add29_withlog0:testNumberIsSerializable_add24_withlog0:testNumberIsSerializable_add28_withlog0:testNumberIsSerializable_add27_withlog0:testNumberIsSerializable_add26_withlog0:testNumberIsSerializable_add22_withlog0:testNumberIsSerializable_add23_withlog0:testNumberIsSerializable_add21_withlog0:testNumberIsSerializable_remove30_withlog1:testNumberIsSerializable_literalMutationNumber14_withlog1:testNumberIsSerializable_literalMutationNumber11_withlog1:testNumberIsSerializable_literalMutationNumber19_withlog1:testNumberIsSerializable_literalMutationNumber9_withlog1:testNumberIsSerializable_literalMutationNumber16_withlog1:testNumberIsSerializable_literalMutationNumber7_withlog1:testNumberIsSerializable_literalMutationString3_withlog1:testNumberIsSerializable_literalMutationNumber12_withlog1:testNumberIsSerializable_literalMutationNumber13_withlog1:testNumberIsSerializable_literalMutationNumber18_withlog1:testNumberIsSerializable_literalMutationNumber10_withlog1:testNumberIsSerializable_literalMutationNumber15_withlog1:testNumberIsSerializable_add25_withlog1:testNumberIsSerializable_add29_withlog1:testNumberIsSerializable_add24_withlog1:testNumberIsSerializable_add28_withlog1:testNumberIsSerializable_add27_withlog1:testNumberIsSerializable_add26_withlog1:testNumberIsSerializable_add22_withlog1:testNumberIsSerializable_add23_withlog1:testNumberIsSerializable_add21_withlog1:testNumberIsSerializable_remove30_withlog2:testNumberIsSerializable_literalMutationNumber14_withlog2:testNumberIsSerializable_literalMutationNumber11_withlog2:testNumberIsSerializable_literalMutationNumber19_withlog2:testNumberIsSerializable_literalMutationNumber9_withlog2:testNumberIsSerializable_literalMutationNumber16_withlog2:testNumberIsSerializable_literalMutationNumber7_withlog2:testNumberIsSerializable_literalMutationString3_withlog2:testNumberIsSerializable_literalMutationNumber12_withlog2:testNumberIsSerializable_literalMutationNumber13_withlog2:testNumberIsSerializable_literalMutationNumber18_withlog2:testNumberIsSerializable_literalMutationNumber10_withlog2:testNumberIsSerializable_literalMutationNumber15_withlog2:testNumberIsSerializable_add25_withlog2:testNumberIsSerializable_add29_withlog2:testNumberIsSerializable_add24_withlog2:testNumberIsSerializable_add28_withlog2:testNumberIsSerializable_add27_withlog2:testNumberIsSerializable_add26_withlog2:testNumberIsSerializable_add22_withlog2:testNumberIsSerializable_add23_withlog2:testNumberIsSerializable_add21_withlog2 
+Parsing --class com.google.gson.JavaSerializationTest --tests testNumberIsSerializable_remove30_withlog0:testNumberIsSerializable_literalMutationNumber14_withlog0:testNumberIsSerializable_literalMutationNumber11_withlog0:testNumberIsSerializable_literalMutationNumber19_withlog0:testNumberIsSerializable_literalMutationNumber9_withlog0:testNumberIsSerializable_literalMutationNumber16_withlog0:testNumberIsSerializable_literalMutationNumber7_withlog0:testNumberIsSerializable_literalMutationString3_withlog0:testNumberIsSerializable_literalMutationNumber12_withlog0:testNumberIsSerializable_literalMutationNumber13_withlog0:testNumberIsSerializable_literalMutationNumber18_withlog0:testNumberIsSerializable_literalMutationNumber10_withlog0:testNumberIsSerializable_literalMutationNumber15_withlog0:testNumberIsSerializable_add25_withlog0:testNumberIsSerializable_add29_withlog0:testNumberIsSerializable_add24_withlog0:testNumberIsSerializable_add28_withlog0:testNumberIsSerializable_add27_withlog0:testNumberIsSerializable_add26_withlog0:testNumberIsSerializable_add22_withlog0:testNumberIsSerializable_add23_withlog0:testNumberIsSerializable_add21_withlog0:testNumberIsSerializable_remove30_withlog1:testNumberIsSerializable_literalMutationNumber14_withlog1:testNumberIsSerializable_literalMutationNumber11_withlog1:testNumberIsSerializable_literalMutationNumber19_withlog1:testNumberIsSerializable_literalMutationNumber9_withlog1:testNumberIsSerializable_literalMutationNumber16_withlog1:testNumberIsSerializable_literalMutationNumber7_withlog1:testNumberIsSerializable_literalMutationString3_withlog1:testNumberIsSerializable_literalMutationNumber12_withlog1:testNumberIsSerializable_literalMutationNumber13_withlog1:testNumberIsSerializable_literalMutationNumber18_withlog1:testNumberIsSerializable_literalMutationNumber10_withlog1:testNumberIsSerializable_literalMutationNumber15_withlog1:testNumberIsSerializable_add25_withlog1:testNumberIsSerializable_add29_withlog1:testNumberIsSerializable_add24_withlog1:testNumberIsSerializable_add28_withlog1:testNumberIsSerializable_add27_withlog1:testNumberIsSerializable_add26_withlog1:testNumberIsSerializable_add22_withlog1:testNumberIsSerializable_add23_withlog1:testNumberIsSerializable_add21_withlog1:testNumberIsSerializable_remove30_withlog2:testNumberIsSerializable_literalMutationNumber14_withlog2:testNumberIsSerializable_literalMutationNumber11_withlog2:testNumberIsSerializable_literalMutationNumber19_withlog2:testNumberIsSerializable_literalMutationNumber9_withlog2:testNumberIsSerializable_literalMutationNumber16_withlog2:testNumberIsSerializable_literalMutationNumber7_withlog2:testNumberIsSerializable_literalMutationString3_withlog2:testNumberIsSerializable_literalMutationNumber12_withlog2:testNumberIsSerializable_literalMutationNumber13_withlog2:testNumberIsSerializable_literalMutationNumber18_withlog2:testNumberIsSerializable_literalMutationNumber10_withlog2:testNumberIsSerializable_literalMutationNumber15_withlog2:testNumberIsSerializable_add25_withlog2:testNumberIsSerializable_add29_withlog2:testNumberIsSerializable_add24_withlog2:testNumberIsSerializable_add28_withlog2:testNumberIsSerializable_add27_withlog2:testNumberIsSerializable_add26_withlog2:testNumberIsSerializable_add22_withlog2:testNumberIsSerializable_add23_withlog2:testNumberIsSerializable_add21_withlog2
+File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/observations.ser
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
-[INFO] Test has been run: testNumberIsSerializable_literalMutationNumber19_withlog0,testNumberIsSerializable_literalMutationNumber19_withlog1,testNumberIsSerializable_literalMutationNumber19_withlog2,testNumberIsSerializable_literalMutationNumber18_withlog0,testNumberIsSerializable_literalMutationNumber18_withlog1,testNumberIsSerializable_literalMutationNumber18_withlog2,testNumberIsSerializable_literalMutationNumber16_withlog0,testNumberIsSerializable_literalMutationNumber16_withlog1,testNumberIsSerializable_literalMutationNumber16_withlog2,testNumberIsSerializable_literalMutationNumber15_withlog0,testNumberIsSerializable_literalMutationNumber15_withlog1,testNumberIsSerializable_literalMutationNumber15_withlog2,testNumberIsSerializable_literalMutationNumber14_withlog0,testNumberIsSerializable_literalMutationNumber14_withlog1,testNumberIsSerializable_literalMutationNumber14_withlog2,testNumberIsSerializable_literalMutationNumber13_withlog0,testNumberIsSerializable_literalMutationNumber13_withlog1,testNumberIsSerializable_literalMutationNumber13_withlog2,testNumberIsSerializable_literalMutationNumber12_withlog0,testNumberIsSerializable_literalMutationNumber12_withlog1,testNumberIsSerializable_literalMutationNumber12_withlog2,testNumberIsSerializable_literalMutationNumber11_withlog0,testNumberIsSerializable_literalMutationNumber11_withlog1,testNumberIsSerializable_literalMutationNumber11_withlog2,testNumberIsSerializable_literalMutationNumber9_withlog0,testNumberIsSerializable_literalMutationNumber9_withlog1,testNumberIsSerializable_literalMutationNumber9_withlog2,testNumberIsSerializable_literalMutationNumber10_withlog0,testNumberIsSerializable_literalMutationNumber10_withlog1,testNumberIsSerializable_literalMutationNumber10_withlog2,testNumberIsSerializable_add29_withlog0,testNumberIsSerializable_add29_withlog1,testNumberIsSerializable_add29_withlog2,testNumberIsSerializable_literalMutationNumber7_withlog0,testNumberIsSerializable_literalMutationNumber7_withlog1,testNumberIsSerializable_literalMutationNumber7_withlog2,testNumberIsSerializable_add28_withlog0,testNumberIsSerializable_add28_withlog1,testNumberIsSerializable_add28_withlog2,testNumberIsSerializable_literalMutationString3_withlog0,testNumberIsSerializable_literalMutationString3_withlog1,testNumberIsSerializable_literalMutationString3_withlog2,testNumberIsSerializable_add27_withlog0,testNumberIsSerializable_add27_withlog1,testNumberIsSerializable_add27_withlog2,testNumberIsSerializable_add26_withlog0,testNumberIsSerializable_add26_withlog1,testNumberIsSerializable_add26_withlog2,testNumberIsSerializable_add25_withlog0,testNumberIsSerializable_add25_withlog1,testNumberIsSerializable_add25_withlog2,testNumberIsSerializable_add24_withlog0,testNumberIsSerializable_add24_withlog1,testNumberIsSerializable_add24_withlog2,testNumberIsSerializable_add23_withlog0,testNumberIsSerializable_add23_withlog1,testNumberIsSerializable_add23_withlog2,testNumberIsSerializable_add22_withlog0,testNumberIsSerializable_add22_withlog1,testNumberIsSerializable_add22_withlog2,testNumberIsSerializable_remove30_withlog0,testNumberIsSerializable_remove30_withlog1,testNumberIsSerializable_remove30_withlog2,testNumberIsSerializable_add21_withlog0,testNumberIsSerializable_add21_withlog1,testNumberIsSerializable_add21_withlog2
-[WARNING] Something bad happened during assertion amplification
-java.lang.RuntimeException: java.io.FileNotFoundException: target/dspot/observations.ser (No such file or directory)
-	at eu.stamp_project.compare.ObjectLog.load(ObjectLog.java:254)
-	at eu.stamp_project.compare.ObjectLog.getObservations(ObjectLog.java:216)
-	at eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator.addAssertions(MethodsAssertGenerator.java:125)
-	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.innerAssertionAmplification(AssertGenerator.java:132)
-	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.assertionAmplification(AssertGenerator.java:72)
-	at eu.stamp_project.dspot.Amplification.assertionsAmplification(Amplification.java:187)
-	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:164)
-	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:115)
-	at eu.stamp_project.dspot.DSpot._amplify(DSpot.java:273)
-	at eu.stamp_project.dspot.DSpot.lambda$amplifyTestClassesTestMethods$5(DSpot.java:254)
-	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
-	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1374)
-	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
-	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
-	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
-	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
-	at eu.stamp_project.dspot.DSpot.amplifyTestClassesTestMethods(DSpot.java:255)
-	at eu.stamp_project.Main.run(Main.java:65)
-	at eu.stamp_project.DSpotMojo.execute(DSpotMojo.java:306)
-	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:137)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:154)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:146)
-	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)
-	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)
-	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:56)
-	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
-	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:305)
-	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:192)
-	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:105)
-	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:954)
-	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:288)
-	at org.apache.maven.cli.MavenCli.main(MavenCli.java:192)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
-Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such file or directory)
-	at java.io.FileInputStream.open0(Native Method)
-	at java.io.FileInputStream.open(FileInputStream.java:195)
-	at java.io.FileInputStream.<init>(FileInputStream.java:138)
-	at eu.stamp_project.compare.ObjectLog.load(ObjectLog.java:246)
-	... 41 more
-
-[INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 12203
+[INFO] Test has been run: testNumberIsSerializable,testNumberIsSerializable_literalMutationNumber19_withlog0,testNumberIsSerializable_literalMutationNumber19_withlog1,testNumberIsSerializable_literalMutationNumber19_withlog2,testNumberIsSerializable_literalMutationNumber7,testNumberIsSerializable_literalMutationNumber9,testNumberIsSerializable_literalMutationString3,testNumberIsSerializable_literalMutationNumber18_withlog0,testNumberIsSerializable_literalMutationNumber18_withlog1,testNumberIsSerializable_literalMutationNumber18_withlog2,testNumberIsSerializable_literalMutationNumber16_withlog0,testNumberIsSerializable_literalMutationNumber16_withlog1,testNumberIsSerializable_literalMutationNumber16_withlog2,testNumberIsSerializable_literalMutationNumber10,testNumberIsSerializable_literalMutationNumber11,testNumberIsSerializable_literalMutationNumber12,testNumberIsSerializable_literalMutationNumber13,testNumberIsSerializable_literalMutationNumber14,testNumberIsSerializable_literalMutationNumber15,testNumberIsSerializable_literalMutationNumber16,testNumberIsSerializable_literalMutationNumber18,testNumberIsSerializable_literalMutationNumber19,testNumberIsSerializable_literalMutationNumber15_withlog0,testNumberIsSerializable_literalMutationNumber15_withlog1,testNumberIsSerializable_literalMutationNumber15_withlog2,testNumberIsSerializable_literalMutationNumber14_withlog0,testNumberIsSerializable_literalMutationNumber14_withlog1,testNumberIsSerializable_literalMutationNumber14_withlog2,testNumberIsSerializable_literalMutationNumber13_withlog0,testNumberIsSerializable_literalMutationNumber13_withlog1,testNumberIsSerializable_literalMutationNumber13_withlog2,testNumberIsSerializable_literalMutationNumber12_withlog0,testNumberIsSerializable_literalMutationNumber12_withlog1,testNumberIsSerializable_literalMutationNumber12_withlog2,testNumberIsSerializable_literalMutationNumber11_withlog0,testNumberIsSerializable_literalMutationNumber11_withlog1,testNumberIsSerializable_literalMutationNumber11_withlog2,testNumberIsSerializable_literalMutationNumber9_withlog0,testNumberIsSerializable_literalMutationNumber9_withlog1,testNumberIsSerializable_literalMutationNumber9_withlog2,testNumberIsSerializable_literalMutationNumber10_withlog0,testNumberIsSerializable_literalMutationNumber10_withlog1,testNumberIsSerializable_literalMutationNumber10_withlog2,testNumberIsSerializable_add29_withlog0,testNumberIsSerializable_add29_withlog1,testNumberIsSerializable_add29_withlog2,testNumberIsSerializable_literalMutationNumber7_withlog0,testNumberIsSerializable_literalMutationNumber7_withlog1,testNumberIsSerializable_literalMutationNumber7_withlog2,testNumberIsSerializable_add28_withlog0,testNumberIsSerializable_add28_withlog1,testNumberIsSerializable_add28_withlog2,testNumberIsSerializable_literalMutationString3_withlog0,testNumberIsSerializable_literalMutationString3_withlog1,testNumberIsSerializable_literalMutationString3_withlog2,testNumberIsSerializable_add27_withlog0,testNumberIsSerializable_add27_withlog1,testNumberIsSerializable_add27_withlog2,testNumberIsSerializable_add26_withlog0,testNumberIsSerializable_add26_withlog1,testNumberIsSerializable_add26_withlog2,testNumberIsSerializable_add25_withlog0,testNumberIsSerializable_add25_withlog1,testNumberIsSerializable_add25_withlog2,testNumberIsSerializable_add24_withlog0,testNumberIsSerializable_add24_withlog1,testNumberIsSerializable_add24_withlog2,testNumberIsSerializable_add23_withlog0,testNumberIsSerializable_add23_withlog1,testNumberIsSerializable_add23_withlog2,testNumberIsSerializable_add22_withlog0,testNumberIsSerializable_add22_withlog1,testNumberIsSerializable_add22_withlog2,testNumberIsSerializable_remove30_withlog0,testNumberIsSerializable_remove30_withlog1,testNumberIsSerializable_remove30_withlog2,testNumberIsSerializable_add21_withlog0,testNumberIsSerializable_add21_withlog1,testNumberIsSerializable_add21_withlog2,testMapIsSerializable,testNumberIsSerializable_add21,testNumberIsSerializable_add22,testNumberIsSerializable_add23,testNumberIsSerializable_add24,testNumberIsSerializable_add25,testNumberIsSerializable_add26,testNumberIsSerializable_add27,testNumberIsSerializable_add28,testNumberIsSerializable_add29,testListIsSerializable,testNumberIsSerializable_remove30,testNumberIsSerializablenull32(com.google.gson.JavaSerializationTest): null,testNumberIsSerializablenull33(com.google.gson.JavaSerializationTest): null,testNumberIsSerializable_literalMutationNumber8(com.google.gson.JavaSerializationTest): -1,testNumberIsSerializable_literalMutationString1(com.google.gson.JavaSerializationTest): null,testNumberIsSerializable_literalMutationString2(com.google.gson.JavaSerializationTest): null,testNumberIsSerializable_literalMutationString4(com.google.gson.JavaSerializationTest): Expecting number, got: BEGIN_OBJECT,testNumberIsSerializable_literalMutationString5(com.google.gson.JavaSerializationTest): Expecting number, got: STRING,testNumberIsSerializable_literalMutationString6(com.google.gson.JavaSerializationTest): Expecting number, got: STRING,testNumberIsSerializable_literalMutationNumber17(com.google.gson.JavaSerializationTest): Index: 4, Size: 3,testNumberIsSerializable_literalMutationNumber20(com.google.gson.JavaSerializationTest): Index: 3, Size: 3
+[WARNING] Some instrumented test failed!
+[INFO] Generating assertions...
+[INFO] 10 test fail, generating try/catch/fail blocks...
+[INFO] 32 new tests with assertions generated
+[INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/JavaSerializationTest.java
+[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.JavaSerializationTest --tests testNumberIsSerializable_remove30:testNumberIsSerializable_literalMutationNumber14:testNumberIsSerializable_literalMutationNumber11:testNumberIsSerializable_literalMutationNumber19:testNumberIsSerializable_literalMutationNumber9:testNumberIsSerializable_literalMutationNumber16:testNumberIsSerializable_literalMutationNumber7:testNumberIsSerializable_literalMutationString3:testNumberIsSerializable_literalMutationNumber12:testNumberIsSerializable_literalMutationNumber13:testNumberIsSerializable_literalMutationNumber18:testNumberIsSerializable_literalMutationNumber10:testNumberIsSerializable_literalMutationNumber15:testNumberIsSerializable_add25:testNumberIsSerializable_add29:testNumberIsSerializable_add24:testNumberIsSerializable_add28:testNumberIsSerializable_add27:testNumberIsSerializable_add26:testNumberIsSerializable_add22:testNumberIsSerializable_add23:testNumberIsSerializable_add21:testNumberIsSerializablenull32_failAssert0:testNumberIsSerializablenull33_failAssert0:testNumberIsSerializable_literalMutationString4_failAssert0:testNumberIsSerializable_literalMutationString2_failAssert0:testNumberIsSerializable_literalMutationNumber20_failAssert0:testNumberIsSerializable_literalMutationNumber8_failAssert0:testNumberIsSerializable_literalMutationString5_failAssert0:testNumberIsSerializable_literalMutationString6_failAssert0:testNumberIsSerializable_literalMutationNumber17_failAssert0:testNumberIsSerializable_literalMutationString1_failAssert0 
+Parsing --class com.google.gson.JavaSerializationTest --tests testNumberIsSerializable_remove30:testNumberIsSerializable_literalMutationNumber14:testNumberIsSerializable_literalMutationNumber11:testNumberIsSerializable_literalMutationNumber19:testNumberIsSerializable_literalMutationNumber9:testNumberIsSerializable_literalMutationNumber16:testNumberIsSerializable_literalMutationNumber7:testNumberIsSerializable_literalMutationString3:testNumberIsSerializable_literalMutationNumber12:testNumberIsSerializable_literalMutationNumber13:testNumberIsSerializable_literalMutationNumber18:testNumberIsSerializable_literalMutationNumber10:testNumberIsSerializable_literalMutationNumber15:testNumberIsSerializable_add25:testNumberIsSerializable_add29:testNumberIsSerializable_add24:testNumberIsSerializable_add28:testNumberIsSerializable_add27:testNumberIsSerializable_add26:testNumberIsSerializable_add22:testNumberIsSerializable_add23:testNumberIsSerializable_add21:testNumberIsSerializablenull32_failAssert0:testNumberIsSerializablenull33_failAssert0:testNumberIsSerializable_literalMutationString4_failAssert0:testNumberIsSerializable_literalMutationString2_failAssert0:testNumberIsSerializable_literalMutationNumber20_failAssert0:testNumberIsSerializable_literalMutationNumber8_failAssert0:testNumberIsSerializable_literalMutationString5_failAssert0:testNumberIsSerializable_literalMutationString6_failAssert0:testNumberIsSerializable_literalMutationNumber17_failAssert0:testNumberIsSerializable_literalMutationString1_failAssert0
+File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
+Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
+[INFO] Test has been run: testNumberIsSerializablenull33_failAssert0,testNumberIsSerializable_literalMutationNumber7,testNumberIsSerializable_literalMutationNumber9,testNumberIsSerializable_literalMutationString3,testNumberIsSerializablenull32_failAssert0,testNumberIsSerializable_literalMutationString6_failAssert0,testNumberIsSerializable_literalMutationString5_failAssert0,testNumberIsSerializable_literalMutationNumber10,testNumberIsSerializable_literalMutationNumber11,testNumberIsSerializable_literalMutationNumber12,testNumberIsSerializable_literalMutationNumber13,testNumberIsSerializable_literalMutationNumber14,testNumberIsSerializable_literalMutationNumber15,testNumberIsSerializable_literalMutationNumber16,testNumberIsSerializable_literalMutationNumber18,testNumberIsSerializable_literalMutationNumber19,testNumberIsSerializable_literalMutationString4_failAssert0,testNumberIsSerializable_literalMutationString2_failAssert0,testNumberIsSerializable_literalMutationNumber17_failAssert0,testNumberIsSerializable_literalMutationString1_failAssert0,testNumberIsSerializable_literalMutationNumber8_failAssert0,testNumberIsSerializable_literalMutationNumber20_failAssert0,testNumberIsSerializable_add21,testNumberIsSerializable_add22,testNumberIsSerializable_add23,testNumberIsSerializable_add24,testNumberIsSerializable_add25,testNumberIsSerializable_add26,testNumberIsSerializable_add27,testNumberIsSerializable_add28,testNumberIsSerializable_add29,testNumberIsSerializable_remove30
+[INFO] Assertion amplification: 32 test method(s) has been successfully amplified.
+[WARN] 2019-04-29 13:12:18 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-29 13:12:18 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-29 13:12:18 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson/gson/target/test-classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson/gson/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.JavaSerializationTest --tests testNumberIsSerializable_remove30:testNumberIsSerializable_literalMutationNumber14:testNumberIsSerializable_literalMutationNumber11:testNumberIsSerializable_literalMutationNumber19:testNumberIsSerializable_literalMutationNumber9:testNumberIsSerializable_literalMutationNumber16:testNumberIsSerializable_literalMutationNumber7:testNumberIsSerializable_literalMutationString3:testNumberIsSerializable_literalMutationNumber12:testNumberIsSerializable_literalMutationNumber13:testNumberIsSerializable_literalMutationNumber18:testNumberIsSerializable_literalMutationNumber10:testNumberIsSerializable_literalMutationNumber15:testNumberIsSerializable_add25:testNumberIsSerializable_add29:testNumberIsSerializable_add24:testNumberIsSerializable_add28:testNumberIsSerializable_add27:testNumberIsSerializable_add26:testNumberIsSerializable_add22:testNumberIsSerializable_add23:testNumberIsSerializable_add21:testNumberIsSerializablenull32_failAssert0:testNumberIsSerializablenull33_failAssert0:testNumberIsSerializable_literalMutationString4_failAssert0:testNumberIsSerializable_literalMutationString2_failAssert0:testNumberIsSerializable_literalMutationNumber20_failAssert0:testNumberIsSerializable_literalMutationNumber8_failAssert0:testNumberIsSerializable_literalMutationString5_failAssert0:testNumberIsSerializable_literalMutationString6_failAssert0:testNumberIsSerializable_literalMutationNumber17_failAssert0:testNumberIsSerializable_literalMutationString1_failAssert0 
+Parsing --class com.google.gson.JavaSerializationTest --tests testNumberIsSerializable_remove30:testNumberIsSerializable_literalMutationNumber14:testNumberIsSerializable_literalMutationNumber11:testNumberIsSerializable_literalMutationNumber19:testNumberIsSerializable_literalMutationNumber9:testNumberIsSerializable_literalMutationNumber16:testNumberIsSerializable_literalMutationNumber7:testNumberIsSerializable_literalMutationString3:testNumberIsSerializable_literalMutationNumber12:testNumberIsSerializable_literalMutationNumber13:testNumberIsSerializable_literalMutationNumber18:testNumberIsSerializable_literalMutationNumber10:testNumberIsSerializable_literalMutationNumber15:testNumberIsSerializable_add25:testNumberIsSerializable_add29:testNumberIsSerializable_add24:testNumberIsSerializable_add28:testNumberIsSerializable_add27:testNumberIsSerializable_add26:testNumberIsSerializable_add22:testNumberIsSerializable_add23:testNumberIsSerializable_add21:testNumberIsSerializablenull32_failAssert0:testNumberIsSerializablenull33_failAssert0:testNumberIsSerializable_literalMutationString4_failAssert0:testNumberIsSerializable_literalMutationString2_failAssert0:testNumberIsSerializable_literalMutationNumber20_failAssert0:testNumberIsSerializable_literalMutationNumber8_failAssert0:testNumberIsSerializable_literalMutationString5_failAssert0:testNumberIsSerializable_literalMutationString6_failAssert0:testNumberIsSerializable_literalMutationNumber17_failAssert0:testNumberIsSerializable_literalMutationString1_failAssert0
+File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
+Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
+[INFO] Test has been run: testNumberIsSerializablenull33_failAssert0,testNumberIsSerializable_literalMutationNumber7,testNumberIsSerializable_literalMutationNumber9,testNumberIsSerializable_literalMutationString3,testNumberIsSerializablenull32_failAssert0,testNumberIsSerializable_literalMutationNumber10,testNumberIsSerializable_literalMutationNumber11,testNumberIsSerializable_literalMutationNumber12,testNumberIsSerializable_literalMutationNumber13,testNumberIsSerializable_literalMutationNumber14,testNumberIsSerializable_literalMutationNumber15,testNumberIsSerializable_literalMutationNumber16,testNumberIsSerializable_literalMutationNumber18,testNumberIsSerializable_literalMutationNumber19,testNumberIsSerializable_literalMutationString4_failAssert0,testNumberIsSerializable_literalMutationString2_failAssert0,testNumberIsSerializable_literalMutationNumber17_failAssert0,testNumberIsSerializable_literalMutationString1_failAssert0,testNumberIsSerializable_literalMutationNumber8_failAssert0,testNumberIsSerializable_literalMutationNumber20_failAssert0,testNumberIsSerializable_add21,testNumberIsSerializable_add22,testNumberIsSerializable_add23,testNumberIsSerializable_add24,testNumberIsSerializable_add25,testNumberIsSerializable_add26,testNumberIsSerializable_add27,testNumberIsSerializable_add28,testNumberIsSerializable_add29,testNumberIsSerializable_remove30,testNumberIsSerializable_literalMutationString6_failAssert0(com.google.gson.JavaSerializationTest): null,testNumberIsSerializable_literalMutationString5_failAssert0(com.google.gson.JavaSerializationTest): null
+[INFO] 2 amplified test methods has been selected to be kept.
+[INFO] 0 amplified test methods has been selected to be kept. (global: 2)
+[INFO] elapsedTime 15084
 [DEBUG] OPTIMIZATION: GC invoked
-[WARNING] DSpot could not obtain any amplified test method.
-[WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
+[WARN] 2019-04-29 13:12:19 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-29 13:12:19 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-04-29 13:12:19 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
 [INFO] Amplification succeed.
-[INFO] Elapsed time 28552 ms
+[INFO] Elapsed time 35531 ms
 [INFO] 
-0 amplified test fails on the new versions.
-0 amplified test fails on the new versions.
+2 amplified test fails on the new versions.
+testNumberDeserialization_literalMutationString7_failAssert0(com.google.gson.functional.PrimitiveTest): null
+testNumberDeserialization_literalMutationString8_failAssert0(com.google.gson.functional.PrimitiveTest): nulljava.lang.NumberFormatException
+	at java.math.BigDecimal.<init>(BigDecimal.java:494)
+	at java.math.BigDecimal.<init>(BigDecimal.java:383)
+	at java.math.BigDecimal.<init>(BigDecimal.java:806)
+	at com.google.gson.internal.LazilyParsedNumber.longValue(LazilyParsedNumber.java:52)
+	at com.google.gson.functional.PrimitiveTest.testNumberDeserialization_literalMutationString7_failAssert0(PrimitiveTest.java:538)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at junit.framework.TestCase.runTest(TestCase.java:176)
+	at junit.framework.TestCase.runBare(TestCase.java:141)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at junit.framework.TestSuite.runTest(TestSuite.java:252)
+	at junit.framework.TestSuite.run(TestSuite.java:247)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:86)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at eu.stamp_project.testrunner.runner.JUnit4Runner.run(JUnit4Runner.java:63)
+	at eu.stamp_project.testrunner.runner.JUnit4Runner.main(JUnit4Runner.java:27)
+java.lang.NumberFormatException
+	at java.math.BigDecimal.<init>(BigDecimal.java:494)
+	at java.math.BigDecimal.<init>(BigDecimal.java:383)
+	at java.math.BigDecimal.<init>(BigDecimal.java:806)
+	at com.google.gson.internal.LazilyParsedNumber.longValue(LazilyParsedNumber.java:52)
+	at com.google.gson.functional.PrimitiveTest.testNumberDeserialization_literalMutationString8_failAssert0(PrimitiveTest.java:433)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at junit.framework.TestCase.runTest(TestCase.java:176)
+	at junit.framework.TestCase.runBare(TestCase.java:141)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at junit.framework.TestSuite.runTest(TestSuite.java:252)
+	at junit.framework.TestSuite.run(TestSuite.java:247)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:86)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at eu.stamp_project.testrunner.runner.JUnit4Runner.run(JUnit4Runner.java:63)
+	at eu.stamp_project.testrunner.runner.JUnit4Runner.main(JUnit4Runner.java:27)
+
+2 amplified test fails on the new versions.
+testNumberIsSerializable_literalMutationString6_failAssert0(com.google.gson.JavaSerializationTest): null
+testNumberIsSerializable_literalMutationString5_failAssert0(com.google.gson.JavaSerializationTest): nulljava.lang.NumberFormatException
+	at java.math.BigDecimal.<init>(BigDecimal.java:494)
+	at java.math.BigDecimal.<init>(BigDecimal.java:383)
+	at java.math.BigDecimal.<init>(BigDecimal.java:806)
+	at com.google.gson.internal.LazilyParsedNumber.writeReplace(LazilyParsedNumber.java:77)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at java.io.ObjectStreamClass.invokeWriteReplace(ObjectStreamClass.java:1118)
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1136)
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348)
+	at java.util.ArrayList.writeObject(ArrayList.java:762)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at java.io.ObjectStreamClass.invokeWriteObject(ObjectStreamClass.java:1028)
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1496)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432)
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178)
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348)
+	at com.google.gson.JavaSerializationTest.serializedCopy(JavaSerializationTest.java:490)
+	at com.google.gson.JavaSerializationTest.testNumberIsSerializable_literalMutationString6_failAssert0(JavaSerializationTest.java:448)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at junit.framework.TestCase.runTest(TestCase.java:176)
+	at junit.framework.TestCase.runBare(TestCase.java:141)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at junit.framework.TestSuite.runTest(TestSuite.java:252)
+	at junit.framework.TestSuite.run(TestSuite.java:247)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:86)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at eu.stamp_project.testrunner.runner.JUnit4Runner.run(JUnit4Runner.java:63)
+	at eu.stamp_project.testrunner.runner.JUnit4Runner.main(JUnit4Runner.java:27)
+java.lang.NumberFormatException
+	at java.math.BigDecimal.<init>(BigDecimal.java:494)
+	at java.math.BigDecimal.<init>(BigDecimal.java:383)
+	at java.math.BigDecimal.<init>(BigDecimal.java:806)
+	at com.google.gson.internal.LazilyParsedNumber.writeReplace(LazilyParsedNumber.java:77)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at java.io.ObjectStreamClass.invokeWriteReplace(ObjectStreamClass.java:1118)
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1136)
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348)
+	at java.util.ArrayList.writeObject(ArrayList.java:762)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at java.io.ObjectStreamClass.invokeWriteObject(ObjectStreamClass.java:1028)
+	at java.io.ObjectOutputStream.writeSerialData(ObjectOutputStream.java:1496)
+	at java.io.ObjectOutputStream.writeOrdinaryObject(ObjectOutputStream.java:1432)
+	at java.io.ObjectOutputStream.writeObject0(ObjectOutputStream.java:1178)
+	at java.io.ObjectOutputStream.writeObject(ObjectOutputStream.java:348)
+	at com.google.gson.JavaSerializationTest.serializedCopy(JavaSerializationTest.java:490)
+	at com.google.gson.JavaSerializationTest.testNumberIsSerializable_literalMutationString5_failAssert0(JavaSerializationTest.java:434)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at junit.framework.TestCase.runTest(TestCase.java:176)
+	at junit.framework.TestCase.runBare(TestCase.java:141)
+	at junit.framework.TestResult$1.protect(TestResult.java:122)
+	at junit.framework.TestResult.runProtected(TestResult.java:142)
+	at junit.framework.TestResult.run(TestResult.java:125)
+	at junit.framework.TestCase.run(TestCase.java:129)
+	at junit.framework.TestSuite.runTest(TestSuite.java:252)
+	at junit.framework.TestSuite.run(TestSuite.java:247)
+	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:86)
+	at org.junit.runners.Suite.runChild(Suite.java:128)
+	at org.junit.runners.Suite.runChild(Suite.java:27)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at eu.stamp_project.testrunner.runner.JUnit4Runner.run(JUnit4Runner.java:63)
+	at eu.stamp_project.testrunner.runner.JUnit4Runner.main(JUnit4Runner.java:27)
+
 [INFO] Writing report in /tmp/dspot-experiments/results/april-2019/gson/commit_8_44cad04/input_amplification/1/report.txt
-[WARNING] DSpot encountered some errors during amplification.
-[WARNING] DSpot encountered 4 error(s) during amplification.
-Something bad happened during assertion amplification
-java.lang.RuntimeException: java.io.FileNotFoundException: target/dspot/observations.ser (No such file or directory)
-	at eu.stamp_project.compare.ObjectLog.load(ObjectLog.java:254)
-	at eu.stamp_project.compare.ObjectLog.getObservations(ObjectLog.java:216)
-	at eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator.addAssertions(MethodsAssertGenerator.java:125)
-	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.innerAssertionAmplification(AssertGenerator.java:132)
-	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.assertionAmplification(AssertGenerator.java:72)
-	at eu.stamp_project.dspot.Amplification.assertionsAmplification(Amplification.java:187)
-	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:96)
-	at eu.stamp_project.dspot.DSpot._amplify(DSpot.java:273)
-	at eu.stamp_project.dspot.DSpot.lambda$amplifyTestClassesTestMethods$5(DSpot.java:254)
-	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
-	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1374)
-	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
-	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
-	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
-	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
-	at eu.stamp_project.dspot.DSpot.amplifyTestClassesTestMethods(DSpot.java:255)
-	at eu.stamp_project.Main.run(Main.java:65)
-	at eu.stamp_project.DSpotMojo.execute(DSpotMojo.java:306)
-	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:137)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:154)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:146)
-	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)
-	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)
-	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:56)
-	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
-	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:305)
-	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:192)
-	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:105)
-	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:954)
-	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:288)
-	at org.apache.maven.cli.MavenCli.main(MavenCli.java:192)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
-Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such file or directory)
-	at java.io.FileInputStream.open0(Native Method)
-	at java.io.FileInputStream.open(FileInputStream.java:195)
-	at java.io.FileInputStream.<init>(FileInputStream.java:138)
-	at eu.stamp_project.compare.ObjectLog.load(ObjectLog.java:246)
-	... 40 more
-
-Something bad happened during assertion amplification
-java.lang.RuntimeException: java.io.FileNotFoundException: target/dspot/observations.ser (No such file or directory)
-	at eu.stamp_project.compare.ObjectLog.load(ObjectLog.java:254)
-	at eu.stamp_project.compare.ObjectLog.getObservations(ObjectLog.java:216)
-	at eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator.addAssertions(MethodsAssertGenerator.java:125)
-	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.innerAssertionAmplification(AssertGenerator.java:132)
-	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.assertionAmplification(AssertGenerator.java:72)
-	at eu.stamp_project.dspot.Amplification.assertionsAmplification(Amplification.java:187)
-	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:164)
-	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:115)
-	at eu.stamp_project.dspot.DSpot._amplify(DSpot.java:273)
-	at eu.stamp_project.dspot.DSpot.lambda$amplifyTestClassesTestMethods$5(DSpot.java:254)
-	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
-	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1374)
-	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
-	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
-	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
-	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
-	at eu.stamp_project.dspot.DSpot.amplifyTestClassesTestMethods(DSpot.java:255)
-	at eu.stamp_project.Main.run(Main.java:65)
-	at eu.stamp_project.DSpotMojo.execute(DSpotMojo.java:306)
-	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:137)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:154)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:146)
-	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)
-	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)
-	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:56)
-	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
-	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:305)
-	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:192)
-	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:105)
-	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:954)
-	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:288)
-	at org.apache.maven.cli.MavenCli.main(MavenCli.java:192)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
-Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such file or directory)
-	at java.io.FileInputStream.open0(Native Method)
-	at java.io.FileInputStream.open(FileInputStream.java:195)
-	at java.io.FileInputStream.<init>(FileInputStream.java:138)
-	at eu.stamp_project.compare.ObjectLog.load(ObjectLog.java:246)
-	... 41 more
-
-Something bad happened during assertion amplification
-java.lang.RuntimeException: java.io.FileNotFoundException: target/dspot/observations.ser (No such file or directory)
-	at eu.stamp_project.compare.ObjectLog.load(ObjectLog.java:254)
-	at eu.stamp_project.compare.ObjectLog.getObservations(ObjectLog.java:216)
-	at eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator.addAssertions(MethodsAssertGenerator.java:125)
-	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.innerAssertionAmplification(AssertGenerator.java:132)
-	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.assertionAmplification(AssertGenerator.java:72)
-	at eu.stamp_project.dspot.Amplification.assertionsAmplification(Amplification.java:187)
-	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:96)
-	at eu.stamp_project.dspot.DSpot._amplify(DSpot.java:273)
-	at eu.stamp_project.dspot.DSpot.lambda$amplifyTestClassesTestMethods$5(DSpot.java:254)
-	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
-	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1374)
-	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
-	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
-	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
-	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
-	at eu.stamp_project.dspot.DSpot.amplifyTestClassesTestMethods(DSpot.java:255)
-	at eu.stamp_project.Main.run(Main.java:65)
-	at eu.stamp_project.DSpotMojo.execute(DSpotMojo.java:306)
-	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:137)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:154)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:146)
-	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)
-	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)
-	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:56)
-	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
-	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:305)
-	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:192)
-	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:105)
-	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:954)
-	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:288)
-	at org.apache.maven.cli.MavenCli.main(MavenCli.java:192)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
-Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such file or directory)
-	at java.io.FileInputStream.open0(Native Method)
-	at java.io.FileInputStream.open(FileInputStream.java:195)
-	at java.io.FileInputStream.<init>(FileInputStream.java:138)
-	at eu.stamp_project.compare.ObjectLog.load(ObjectLog.java:246)
-	... 40 more
-
-Something bad happened during assertion amplification
-java.lang.RuntimeException: java.io.FileNotFoundException: target/dspot/observations.ser (No such file or directory)
-	at eu.stamp_project.compare.ObjectLog.load(ObjectLog.java:254)
-	at eu.stamp_project.compare.ObjectLog.getObservations(ObjectLog.java:216)
-	at eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator.addAssertions(MethodsAssertGenerator.java:125)
-	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.innerAssertionAmplification(AssertGenerator.java:132)
-	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.assertionAmplification(AssertGenerator.java:72)
-	at eu.stamp_project.dspot.Amplification.assertionsAmplification(Amplification.java:187)
-	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:164)
-	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:115)
-	at eu.stamp_project.dspot.DSpot._amplify(DSpot.java:273)
-	at eu.stamp_project.dspot.DSpot.lambda$amplifyTestClassesTestMethods$5(DSpot.java:254)
-	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
-	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1374)
-	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:481)
-	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:471)
-	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
-	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
-	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
-	at eu.stamp_project.dspot.DSpot.amplifyTestClassesTestMethods(DSpot.java:255)
-	at eu.stamp_project.Main.run(Main.java:65)
-	at eu.stamp_project.DSpotMojo.execute(DSpotMojo.java:306)
-	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:137)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:208)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:154)
-	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:146)
-	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)
-	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)
-	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:56)
-	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
-	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:305)
-	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:192)
-	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:105)
-	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:954)
-	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:288)
-	at org.apache.maven.cli.MavenCli.main(MavenCli.java:192)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
-	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
-Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such file or directory)
-	at java.io.FileInputStream.open0(Native Method)
-	at java.io.FileInputStream.open(FileInputStream.java:195)
-	at java.io.FileInputStream.<init>(FileInputStream.java:138)
-	at eu.stamp_project.compare.ObjectLog.load(ObjectLog.java:246)
-	... 41 more
-
-[INFO] The amplification ends up with 0 amplified test methods over 0 test classes.
+[INFO] DSpot amplified your test suite without errors. (no errors report will be outputted)
+[INFO] The amplification ends up with 4 amplified test methods over 2 test classes.
+[INFO] Print com.google.gson.functional.AmplPrimitiveTest.java with 2 amplified test cases in /tmp/dspot-experiments/results/april-2019/gson/commit_8_44cad04/input_amplification/1
+[INFO] Print com.google.gson.AmplJavaSerializationTest.java with 2 amplified test cases in /tmp/dspot-experiments/results/april-2019/gson/commit_8_44cad04/input_amplification/1
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 45.170 s
-[INFO] Finished at: 2019-04-19T14:10:07+02:00
+[INFO] Total time: 52.387 s
+[INFO] Finished at: 2019-04-29T13:12:19+02:00
 [INFO] ------------------------------------------------------------------------
