@@ -1,0 +1,62 @@
+diff --git a/CHANGES b/CHANGES
+index 97bd61d..8bf1d00 100644
+--- a/CHANGES
++++ b/CHANGES
+@@ -24,6 +24,10 @@ jsoup changelog
+   * Bugfix: boolean attributes with empty string values were not collapsing in HTML output.
+     <https://github.com/jhy/jsoup/issues/985>
+ 
++  * Bugfix: when using the XML Parser set to lowercase normalize tags, uppercase closing tags were not correctly
++    handled.
++    <https://github.com/jhy/jsoup/issues/998>
++
+ *** Release 1.11.2 [2017-Nov-19]
+   * Improvement: added a new pseudo selector :matchText, which allows text nodes to match as if they were elements.
+     This enables finding text that is only marked by a "br" tag, for example.
+diff --git a/src/main/java/org/jsoup/parser/XmlTreeBuilder.java b/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
+index 65d3045..0851833 100644
+--- a/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
++++ b/src/main/java/org/jsoup/parser/XmlTreeBuilder.java
+@@ -114,7 +114,7 @@ public class XmlTreeBuilder extends TreeBuilder {
+      * @param endTag tag to close
+      */
+     private void popStackToClose(Token.EndTag endTag) {
+-        String elName = endTag.name();
++        String elName = endTag.normalName();
+         Element firstFound = null;
+ 
+         for (int pos = stack.size() -1; pos >= 0; pos--) {
+diff --git a/src/test/java/org/jsoup/parser/HtmlParserTest.java b/src/test/java/org/jsoup/parser/HtmlParserTest.java
+index 95f4932..0a76bb9 100644
+--- a/src/test/java/org/jsoup/parser/HtmlParserTest.java
++++ b/src/test/java/org/jsoup/parser/HtmlParserTest.java
+@@ -1105,6 +1105,11 @@ public class HtmlParserTest {
+         assertEquals("<r> <x> A </x> <y> B </y> </r>", StringUtil.normaliseWhitespace(doc.body().html()));
+     }
+ 
++    @Test public void normalizesDiscordantTags() {
++        Document document = Jsoup.parse("<div>test</DIV><p></p>");
++        assertEquals("<div>\n test\n</div>\n<p></p>", document.body().html());
++    }
++
+     @Test public void selfClosingVoidIsNotAnError() {
+         String html = "<p>test<br/>test<br/></p>";
+         Parser parser = Parser.htmlParser().setTrackErrors(5);
+diff --git a/src/test/java/org/jsoup/parser/XmlTreeBuilderTest.java b/src/test/java/org/jsoup/parser/XmlTreeBuilderTest.java
+index 40be145..cb5bb14 100644
+--- a/src/test/java/org/jsoup/parser/XmlTreeBuilderTest.java
++++ b/src/test/java/org/jsoup/parser/XmlTreeBuilderTest.java
+@@ -191,6 +191,13 @@ public class XmlTreeBuilderTest {
+         assertEquals("<test id=\"1\">Check</test>", TextUtil.stripNewlines(doc.html()));
+     }
+ 
++    @Test public void normalizesDiscordantTags() {
++        Parser parser = Parser.xmlParser().settings(ParseSettings.htmlDefault);
++        Document document = Jsoup.parse("<div>test</DIV><p></p>", "", parser);
++        assertEquals("<div>\n test\n</div>\n<p></p>", document.html());
++        // was failing -> toString() = "<div>\n test\n <p></p>\n</div>"
++    }
++
+     @Test public void roundTripsCdata() {
+         String xml = "<div id=1><![CDATA[\n<html>\n <foo><&amp;]]></div>";
+         Document doc = Jsoup.parse(xml, "", Parser.xmlParser());

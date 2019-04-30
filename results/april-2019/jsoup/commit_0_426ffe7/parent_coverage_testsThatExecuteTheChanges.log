@@ -1,0 +1,1145 @@
+Apache Maven 3.5.4 (1edded0938998edf8bf061f1ceb3cfdeccf443fe; 2018-06-17T20:33:14+02:00)
+Maven home: /home/spirals/danglot/apache-maven-3.5.4
+Java version: 1.8.0_121, vendor: Oracle Corporation, runtime: /home/spirals/danglot/jdk1.8.0_121/jre
+Default locale: en_US, platform encoding: ANSI_X3.4-1968
+OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
+[DEBUG] Created new class realm maven.api
+[DEBUG] Importing foreign packages into class realm maven.api
+[DEBUG]   Imported: javax.annotation.* < plexus.core
+[DEBUG]   Imported: javax.annotation.security.* < plexus.core
+[DEBUG]   Imported: javax.enterprise.inject.* < plexus.core
+[DEBUG]   Imported: javax.enterprise.util.* < plexus.core
+[DEBUG]   Imported: javax.inject.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.artifact < plexus.core
+[DEBUG]   Imported: org.apache.maven.classrealm < plexus.core
+[DEBUG]   Imported: org.apache.maven.cli < plexus.core
+[DEBUG]   Imported: org.apache.maven.configuration < plexus.core
+[DEBUG]   Imported: org.apache.maven.exception < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution.scope < plexus.core
+[DEBUG]   Imported: org.apache.maven.lifecycle < plexus.core
+[DEBUG]   Imported: org.apache.maven.model < plexus.core
+[DEBUG]   Imported: org.apache.maven.monitor < plexus.core
+[DEBUG]   Imported: org.apache.maven.plugin < plexus.core
+[DEBUG]   Imported: org.apache.maven.profiles < plexus.core
+[DEBUG]   Imported: org.apache.maven.project < plexus.core
+[DEBUG]   Imported: org.apache.maven.reporting < plexus.core
+[DEBUG]   Imported: org.apache.maven.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.rtinfo < plexus.core
+[DEBUG]   Imported: org.apache.maven.settings < plexus.core
+[DEBUG]   Imported: org.apache.maven.toolchain < plexus.core
+[DEBUG]   Imported: org.apache.maven.usability < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authentication < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authorization < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.events < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.observers < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.proxy < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.resource < plexus.core
+[DEBUG]   Imported: org.codehaus.classworlds < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.* < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.classworlds < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.component < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.configuration < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.container < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.context < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.lifecycle < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.logging < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.personality < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.Xpp3Dom < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParser < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParserException < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlSerializer < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.* < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.artifact < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.collection < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.deployment < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.graph < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.impl < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.installation < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.internal.impl < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.metadata < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.repository < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.resolution < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.spi < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.transfer < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.version < plexus.core
+[DEBUG]   Imported: org.fusesource.jansi.* < plexus.core
+[DEBUG]   Imported: org.slf4j.* < plexus.core
+[DEBUG]   Imported: org.slf4j.helpers.* < plexus.core
+[DEBUG]   Imported: org.slf4j.spi.* < plexus.core
+[DEBUG] Populating class realm maven.api
+[INFO] Error stacktraces are turned on.
+[DEBUG] Message scheme: color
+[DEBUG] Message styles: debug info warning error success failure strong mojo project
+[DEBUG] Reading global settings from /home/spirals/danglot/apache-maven-3.5.4/conf/settings.xml
+[DEBUG] Reading user settings from /home/spirals/danglot/.m2/settings.xml
+[DEBUG] Reading global toolchains from /home/spirals/danglot/apache-maven-3.5.4/conf/toolchains.xml
+[DEBUG] Reading user toolchains from /home/spirals/danglot/.m2/toolchains.xml
+[DEBUG] Using local repository at /home/spirals/danglot/.m2/repository
+[DEBUG] Using manager EnhancedLocalRepositoryManager with priority 10.0 for /home/spirals/danglot/.m2/repository
+[INFO] Scanning for projects...
+[DEBUG] Extension realms for project org.jsoup:jsoup:jar:1.12.1-SNAPSHOT: (none)
+[DEBUG] Looking up lifecycle mappings for packaging jar from ClassRealm[plexus.core, parent: null]
+[DEBUG] === REACTOR BUILD PLAN ================================================
+[DEBUG] Project: org.jsoup:jsoup:jar:1.12.1-SNAPSHOT
+[DEBUG] Tasks:   [clean, eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT:list]
+[DEBUG] Style:   Regular
+[DEBUG] =======================================================================
+[INFO] 
+[INFO] --------------------------< org.jsoup:jsoup >---------------------------
+[INFO] Building jsoup Java HTML Parser 1.12.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] === PROJECT BUILD PLAN ================================================
+[DEBUG] Project:       org.jsoup:jsoup:1.12.1-SNAPSHOT
+[DEBUG] Dependencies (collect): []
+[DEBUG] Dependencies (resolve): []
+[DEBUG] Repositories (dependencies): [central (https://repo.maven.apache.org/maven2, default, releases)]
+[DEBUG] Repositories (plugins)     : [central (https://repo.maven.apache.org/maven2, default, releases)]
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.apache.maven.plugins:maven-clean-plugin:2.5:clean (default-clean)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <directory default-value="${project.build.directory}"/>
+  <excludeDefaultDirectories default-value="false">${clean.excludeDefaultDirectories}</excludeDefaultDirectories>
+  <failOnError default-value="true">${maven.clean.failOnError}</failOnError>
+  <followSymLinks default-value="false">${clean.followSymLinks}</followSymLinks>
+  <outputDirectory default-value="${project.build.outputDirectory}"/>
+  <reportDirectory default-value="${project.reporting.outputDirectory}"/>
+  <retryOnError default-value="true">${maven.clean.retryOnError}</retryOnError>
+  <skip default-value="false">${clean.skip}</skip>
+  <testOutputDirectory default-value="${project.build.testOutputDirectory}"/>
+  <verbose>${clean.verbose}</verbose>
+</configuration>
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT:list (default-cli)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <module default-value="">${module}</module>
+  <outputFormat default-value="CSV">${output-format}</outputFormat>
+  <outputPath default-value="">${output-path}</outputPath>
+  <pathDirFirstVersion>${path-dir-first-version}</pathDirFirstVersion>
+  <pathDirSecondVersion>${path-dir-second-version}</pathDirSecondVersion>
+  <pathToDiff default-value="">${path-to-diff}</pathToDiff>
+  <project default-value="${project}"/>
+</configuration>
+[DEBUG] =======================================================================
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ jsoup ---
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=1173062, ConflictMarker.markTime=596864, ConflictMarker.nodeCount=3, ConflictIdSorter.graphTime=580671, ConflictIdSorter.topsortTime=561855, ConflictIdSorter.conflictIdCount=3, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=4079456, ConflictResolver.conflictItemCount=3, DefaultDependencyCollector.collectTime=60767571, DefaultDependencyCollector.transformTime=9947577}
+[DEBUG] org.apache.maven.plugins:maven-clean-plugin:jar:2.5:
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:2.0.6:compile
+[DEBUG]    org.codehaus.plexus:plexus-utils:jar:3.0:compile
+[DEBUG] Created new class realm plugin>org.apache.maven.plugins:maven-clean-plugin:2.5
+[DEBUG] Importing foreign packages into class realm plugin>org.apache.maven.plugins:maven-clean-plugin:2.5
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>org.apache.maven.plugins:maven-clean-plugin:2.5
+[DEBUG]   Included: org.apache.maven.plugins:maven-clean-plugin:jar:2.5
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:3.0
+[DEBUG] Configuring mojo org.apache.maven.plugins:maven-clean-plugin:2.5:clean from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-clean-plugin:2.5, parent: sun.misc.Launcher$AppClassLoader@55f96302]
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-clean-plugin:2.5:clean' with basic configurator -->
+[DEBUG]   (f) directory = /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target
+[DEBUG]   (f) excludeDefaultDirectories = false
+[DEBUG]   (f) failOnError = true
+[DEBUG]   (f) followSymLinks = false
+[DEBUG]   (f) outputDirectory = /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes
+[DEBUG]   (f) reportDirectory = /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/site
+[DEBUG]   (f) retryOnError = true
+[DEBUG]   (f) skip = false
+[DEBUG]   (f) testOutputDirectory = /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes
+[DEBUG] -- end configuration --
+[INFO] Deleting /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/CombiningEvaluator$Or.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/StructuralEvaluator$PreviousSibling.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$IsRoot.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$IsOnlyOfType.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/StructuralEvaluator$ImmediatePreviousSibling.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$MatchText.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$AttributeStarting.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$Matches.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$AttributeWithValue.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/CombiningEvaluator.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$Class.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$CssNthEvaluator.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/StructuralEvaluator$ImmediateParent.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$AttributeKeyPair.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$AllElements.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Selector$SelectorParseException.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$IsNthOfType.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/NodeTraversor.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$IndexEvaluator.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/NodeFilter$FilterResult.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$AttributeWithValueNot.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Collector$Accumulator.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$Id.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$IsOnlyChild.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/StructuralEvaluator.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$IsEmpty.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Selector.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$AttributeWithValueEnding.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/StructuralEvaluator$Has.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$ContainsText.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$IsNthLastOfType.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$ContainsData.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/StructuralEvaluator$Root.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Elements.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$IsNthLastChild.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$MatchesOwn.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$TagEndsWith.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$AttributeWithValueStarting.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$IsFirstOfType.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Collector$FirstFinder.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/StructuralEvaluator$Parent.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$IsLastChild.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/NodeVisitor.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$ContainsOwnText.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/NodeFilter.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/StructuralEvaluator$Not.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$IsFirstChild.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$AttributeWithValueContaining.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$AttributeWithValueMatching.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$IndexEquals.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$IsLastOfType.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Collector.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/CombiningEvaluator$And.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/QueryParser.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$IndexGreaterThan.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$Attribute.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$IndexLessThan.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$Tag.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select/Evaluator$IsNthChild.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/select
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/Connection$Request.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/Connection$Base.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/Jsoup.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/EntitiesData.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/Element$NodeList.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/Attributes$Dataset$EntrySet.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/PseudoTextElement.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/Attributes.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/Node$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/TextNode.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/NodeUtils.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/BooleanAttribute.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/XmlDeclaration.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/Attribute.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/Attributes$Dataset.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/Element$2.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/Document.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/Comment.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/LeafNode.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/Element$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/Entities.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/Element.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/FormElement.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/Document$QuirksMode.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/Entities$CoreCharset.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/Document$OutputSettings.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/Attributes$Dataset$DatasetIterator.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/Attributes$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/DataNode.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/Document$OutputSettings$Syntax.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/CDataNode.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/Node.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/Entities$EscapeMode.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/Entities$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/Node$OuterHtmlVisitor.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes/DocumentType.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/nodes
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/Connection.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/Connection$KeyVal.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/Connection$Method.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/internal/ConstrainableInputStream.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/internal/Normalizer.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/internal
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$31.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$35.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/HtmlTreeBuilderState.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$14.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/HtmlTreeBuilderState$7.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$60.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$57.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$21.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/HtmlTreeBuilderState$12.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$28.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/Token$EndTag.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$50.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$17.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/HtmlTreeBuilderState$18.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/HtmlTreeBuilderState$8.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/HtmlTreeBuilderState$13.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/ParseError.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$4.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$19.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$8.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$65.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$32.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$39.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$40.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$58.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$29.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$64.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/Token$Tag.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/CharacterReader.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokenQueue.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$7.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/HtmlTreeBuilderState$23.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/HtmlTreeBuilderState$6.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$41.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/Token$TokenType.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$44.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$48.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$30.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$59.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$23.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/Tag.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$66.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TreeBuilder.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$56.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$20.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/HtmlTreeBuilderState$2.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$45.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/HtmlTreeBuilder.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$6.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/Parser.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$49.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$34.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/HtmlTreeBuilderState$Constants.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$51.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$67.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$36.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/Token.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/XmlTreeBuilder$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/Token$Character.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/ParseErrorList.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$63.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$43.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/Token$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$53.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$27.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/HtmlTreeBuilderState$24.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/HtmlTreeBuilderState$22.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$55.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$24.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$11.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/HtmlTreeBuilderState$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$33.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/Token$StartTag.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$25.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$52.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/HtmlTreeBuilderState$19.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/HtmlTreeBuilderState$21.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$18.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$10.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$62.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/HtmlTreeBuilderState$5.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/Token$EOF.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$54.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$61.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/XmlTreeBuilder.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$9.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/ParseSettings.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/HtmlTreeBuilderState$16.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$16.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$2.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$26.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$47.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$5.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/Token$Doctype.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/HtmlTreeBuilderState$4.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/HtmlTreeBuilderState$11.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/Token$Comment.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$22.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/HtmlTreeBuilderState$9.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/Tokeniser.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/HtmlTreeBuilderState$15.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/HtmlTreeBuilderState$10.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/HtmlTreeBuilderState$17.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/HtmlTreeBuilderState$20.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$3.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$15.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$12.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/Token$CData.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/HtmlTreeBuilderState$3.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$13.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$46.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/HtmlTreeBuilderState$14.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$38.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$37.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser/TokeniserState$42.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/Connection$Response.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/SerializationException.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/UncheckedIOException.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/UnsupportedMimeTypeException.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/safety/Whitelist$TagName.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/safety/Whitelist$Protocol.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/safety/Cleaner$ElementMeta.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/safety/Cleaner$CleaningVisitor.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/safety/Whitelist$AttributeValue.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/safety/Cleaner$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/safety/Whitelist.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/safety/Whitelist$TypedValue.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/safety/Whitelist$AttributeKey.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/safety/Cleaner.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/safety
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/HttpStatusException.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/helper/HttpConnection$KeyVal.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/helper/StringUtil$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/helper/DataUtil.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/helper/ChangeNotifyingArrayList.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/helper/StringUtil.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/helper/HttpConnection$Response.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/helper/HttpConnection$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/helper/HttpConnection.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/helper/HttpConnection$Request.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/helper/W3CDom.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/helper/Validate.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/helper/DataUtil$BomCharset.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/helper/HttpConnection$Base.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/helper/W3CDom$W3CBuilder.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/helper
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/examples/Wikipedia.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/examples/ListLinks.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/examples/HtmlToPlainText$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/examples/HtmlToPlainText$FormattingVisitor.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/examples/HtmlToPlainText.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/examples
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/META-INF/MANIFEST.MF
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/META-INF/CHANGES
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/META-INF/README.md
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/META-INF/LICENSE
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/META-INF
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/generated-sources/annotations
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/generated-sources
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/maven-status/maven-compiler-plugin/testCompile
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/maven-status/maven-compiler-plugin/compile/default-compile
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/maven-status/maven-compiler-plugin/compile
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/maven-status/maven-compiler-plugin
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/maven-status
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/yahoo-jp.html
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/google-ipod.html
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/thumb.jpg
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/comments.html
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/README
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/namespaces.xhtml
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/meta-charset-1.html
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/lowercase-charset-test.html
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-test.xml
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/smh-biz-article-1.html
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/nyt-article-1.html
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/news-com-au-home.html
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/meta-charset-2.html
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/yahoo-article-1.html
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/table-polymer-template.html
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/table-invalid-elements.html
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/baidu-variant.html
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/meta-charset-3.html
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/baidu-cn-home.html
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/bomtests/bom_utf32le.html
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/bomtests/bom_utf16le.html
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/bomtests/bom_utf8.html
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/bomtests/bom_utf32be.html
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/bomtests/bom_utf16be.html
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/bomtests
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/select/SelectorTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/select/TraversorTest$2.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/select/TraversorTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/select/TraversorTest$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/select/TraversorTest$4.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/select/TraversorTest$3.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/select/CssTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/select/ElementsTest$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/select/TraversorTest$5.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/select/ElementsTest.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/select
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/MultiLocaleRule.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/nodes/NodeTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/nodes/BuildEntities$ByName.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/nodes/BuildEntities.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/nodes/EntitiesTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/nodes/NodeTest$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/nodes/BuildEntities$ByCode.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/nodes/BuildEntities$CharacterRef.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/nodes/BuildEntities$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/nodes/DocumentTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/nodes/TextNodeTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/nodes/DocumentTypeTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/nodes/ElementTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/nodes/DocumentTest$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/nodes/FormElementTest.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/nodes
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/internal/ConstrainableInputStreamTest.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/internal
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser/HtmlParserTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser/HtmlTreeBuilderTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser/ParserSettingsTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser/TokeniserStateTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser/XmlTreeBuilderTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser/CharacterReaderTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser/TokeniserTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser/AttributeParseTest.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/MultiLocaleRule$1.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/safety/CleanerTest.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/safety
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/helper/W3CDomTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/helper/HttpConnectionTest.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/helper
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration/UrlConnectTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration/ParseTest.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration/Benchmark.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration/servlets/HelloServlet.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration/servlets/Deflateservlet.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration/servlets/InterruptedServlet.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration/servlets/BaseServlet.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration/servlets/SlowRider.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration/servlets
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration/TestServer.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/TextUtil.class
+[INFO] Deleting file /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/MultiLocaleRule$MultiLocaleTest.class
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/generated-test-sources/test-annotations
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/generated-test-sources
+[INFO] Deleting directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target
+[DEBUG] Skipping non-existing directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes
+[DEBUG] Skipping non-existing directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes
+[DEBUG] Skipping non-existing directory /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/site
+[INFO] 
+[INFO] --- dspot-diff-test-selection:2.0.1-SNAPSHOT:list (default-cli) @ jsoup ---
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.text/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.text/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=6348586, ConflictMarker.markTime=1889792, ConflictMarker.nodeCount=990, ConflictIdSorter.graphTime=5092497, ConflictIdSorter.topsortTime=132257, ConflictIdSorter.conflictIdCount=70, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=11832760, ConflictResolver.conflictItemCount=274, DefaultDependencyCollector.collectTime=1620829686, DefaultDependencyCollector.transformTime=25328949}
+[DEBUG] eu.stamp-project:dspot-diff-test-selection:jar:2.0.1-SNAPSHOT:
+[DEBUG]    org.slf4j:slf4j-api:jar:1.7.25:compile
+[DEBUG]    org.slf4j:slf4j-log4j12:jar:1.7.25:compile
+[DEBUG]       log4j:log4j:jar:1.2.17:compile
+[DEBUG]    org.apache.maven.shared:maven-invoker:jar:3.0.0:compile
+[DEBUG]       org.codehaus.plexus:plexus-utils:jar:3.0.24:compile
+[DEBUG]       org.codehaus.plexus:plexus-component-annotations:jar:1.7:compile
+[DEBUG]    org.openclover:clover:jar:4.2.1:compile
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:3.5.4:compile
+[DEBUG]       org.apache.maven:maven-model:jar:3.5.4:compile
+[DEBUG]       org.apache.maven:maven-artifact:jar:3.5.4:compile
+[DEBUG]       org.eclipse.sisu:org.eclipse.sisu.plexus:jar:0.3.3:compile
+[DEBUG]          javax.enterprise:cdi-api:jar:1.0:compile
+[DEBUG]             javax.annotation:jsr250-api:jar:1.0:compile
+[DEBUG]       org.codehaus.plexus:plexus-classworlds:jar:2.5.2:compile
+[DEBUG]    org.apache.maven:maven-core:jar:3.5.4:compile
+[DEBUG]       org.apache.maven:maven-settings:jar:3.5.4:compile
+[DEBUG]       org.apache.maven:maven-settings-builder:jar:3.5.4:compile
+[DEBUG]          org.codehaus.plexus:plexus-interpolation:jar:1.24:compile
+[DEBUG]          org.sonatype.plexus:plexus-sec-dispatcher:jar:1.4:compile
+[DEBUG]             org.sonatype.plexus:plexus-cipher:jar:1.4:compile
+[DEBUG]       org.apache.maven:maven-builder-support:jar:3.5.4:compile
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:3.5.4:compile
+[DEBUG]       org.apache.maven:maven-model-builder:jar:3.5.4:compile
+[DEBUG]       org.apache.maven:maven-resolver-provider:jar:3.5.4:compile
+[DEBUG]       org.apache.maven.resolver:maven-resolver-impl:jar:1.1.1:compile
+[DEBUG]       org.apache.maven.resolver:maven-resolver-api:jar:1.1.1:compile
+[DEBUG]       org.apache.maven.resolver:maven-resolver-spi:jar:1.1.1:compile
+[DEBUG]       org.apache.maven.resolver:maven-resolver-util:jar:1.1.1:compile
+[DEBUG]       org.apache.maven.shared:maven-shared-utils:jar:3.2.1:compile
+[DEBUG]          commons-io:commons-io:jar:2.5:compile
+[DEBUG]       org.eclipse.sisu:org.eclipse.sisu.inject:jar:0.3.3:compile
+[DEBUG]       com.google.inject:guice:jar:no_aop:4.2.0:compile
+[DEBUG]          aopalliance:aopalliance:jar:1.0:compile
+[DEBUG]       com.google.guava:guava:jar:20.0:compile
+[DEBUG]       javax.inject:javax.inject:jar:1:compile
+[DEBUG]       org.apache.commons:commons-lang3:jar:3.5:compile
+[DEBUG]    fr.inria.gforge.spoon.labs:gumtree-spoon-ast-diff:jar:1.5:compile
+[DEBUG]       fr.inria.gforge.spoon:spoon-core:jar:7.0.0:compile
+[DEBUG]          org.eclipse.jdt:org.eclipse.jdt.core:jar:3.13.102:compile
+[DEBUG]             org.eclipse.platform:org.eclipse.core.resources:jar:3.13.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.core.expressions:jar:3.6.300:compile
+[DEBUG]             org.eclipse.platform:org.eclipse.core.runtime:jar:3.15.200:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.osgi:jar:3.13.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.equinox.common:jar:3.10.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.core.jobs:jar:3.10.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.equinox.registry:jar:3.8.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.equinox.preferences:jar:3.7.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.core.contenttype:jar:3.7.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.equinox.app:jar:1.4.100:compile
+[DEBUG]             org.eclipse.platform:org.eclipse.core.filesystem:jar:1.7.300:compile
+[DEBUG]             org.eclipse.platform:org.eclipse.text:jar:3.8.100:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.core.commands:jar:3.9.300:compile
+[DEBUG]          com.martiansoftware:jsap:jar:2.1:compile
+[DEBUG]          com.fasterxml.jackson.core:jackson-databind:jar:2.9.2:compile
+[DEBUG]             com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0:compile
+[DEBUG]             com.fasterxml.jackson.core:jackson-core:jar:2.9.2:compile
+[DEBUG]       com.github.gumtreediff:core:jar:2.1.0:compile
+[DEBUG]          com.github.mpkorstanje:simmetrics-core:jar:3.2.3:compile
+[DEBUG]             commons-codec:commons-codec:jar:1.10:compile
+[DEBUG]          net.sf.trove4j:trove4j:jar:3.0.3:compile
+[DEBUG]          com.google.code.gson:gson:jar:2.8.2:compile
+[DEBUG]          org.jgrapht:jgrapht-core:jar:1.0.1:compile
+[DEBUG]    io.github.java-diff-utils:java-diff-utils:jar:4.0:compile
+[DEBUG]       org.eclipse.jgit:org.eclipse.jgit:jar:4.4.1.201607150455-r:compile
+[DEBUG] Created new class realm plugin>eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT
+[DEBUG] Importing foreign packages into class realm plugin>eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT
+[DEBUG]   Included: eu.stamp-project:dspot-diff-test-selection:jar:2.0.1-SNAPSHOT
+[DEBUG]   Included: org.slf4j:slf4j-log4j12:jar:1.7.25
+[DEBUG]   Included: log4j:log4j:jar:1.2.17
+[DEBUG]   Included: org.apache.maven.shared:maven-invoker:jar:3.0.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:3.0.24
+[DEBUG]   Included: org.codehaus.plexus:plexus-component-annotations:jar:1.7
+[DEBUG]   Included: org.openclover:clover:jar:4.2.1
+[DEBUG]   Included: javax.enterprise:cdi-api:jar:1.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-interpolation:jar:1.24
+[DEBUG]   Included: org.sonatype.plexus:plexus-sec-dispatcher:jar:1.4
+[DEBUG]   Included: org.sonatype.plexus:plexus-cipher:jar:1.4
+[DEBUG]   Included: org.apache.maven:maven-builder-support:jar:3.5.4
+[DEBUG]   Included: org.apache.maven.resolver:maven-resolver-util:jar:1.1.1
+[DEBUG]   Included: org.apache.maven.shared:maven-shared-utils:jar:3.2.1
+[DEBUG]   Included: commons-io:commons-io:jar:2.5
+[DEBUG]   Included: org.eclipse.sisu:org.eclipse.sisu.inject:jar:0.3.3
+[DEBUG]   Included: com.google.inject:guice:jar:no_aop:4.2.0
+[DEBUG]   Included: aopalliance:aopalliance:jar:1.0
+[DEBUG]   Included: com.google.guava:guava:jar:20.0
+[DEBUG]   Included: org.apache.commons:commons-lang3:jar:3.5
+[DEBUG]   Included: fr.inria.gforge.spoon.labs:gumtree-spoon-ast-diff:jar:1.5
+[DEBUG]   Included: fr.inria.gforge.spoon:spoon-core:jar:7.0.0
+[DEBUG]   Included: org.eclipse.jdt:org.eclipse.jdt.core:jar:3.13.102
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.resources:jar:3.13.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.expressions:jar:3.6.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.runtime:jar:3.15.200
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.osgi:jar:3.13.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.equinox.common:jar:3.10.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.jobs:jar:3.10.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.equinox.registry:jar:3.8.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.equinox.preferences:jar:3.7.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.contenttype:jar:3.7.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.equinox.app:jar:1.4.100
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.filesystem:jar:1.7.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.text:jar:3.8.100
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.commands:jar:3.9.300
+[DEBUG]   Included: com.martiansoftware:jsap:jar:2.1
+[DEBUG]   Included: com.fasterxml.jackson.core:jackson-databind:jar:2.9.2
+[DEBUG]   Included: com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0
+[DEBUG]   Included: com.fasterxml.jackson.core:jackson-core:jar:2.9.2
+[DEBUG]   Included: com.github.gumtreediff:core:jar:2.1.0
+[DEBUG]   Included: com.github.mpkorstanje:simmetrics-core:jar:3.2.3
+[DEBUG]   Included: commons-codec:commons-codec:jar:1.10
+[DEBUG]   Included: net.sf.trove4j:trove4j:jar:3.0.3
+[DEBUG]   Included: com.google.code.gson:gson:jar:2.8.2
+[DEBUG]   Included: org.jgrapht:jgrapht-core:jar:1.0.1
+[DEBUG]   Included: io.github.java-diff-utils:java-diff-utils:jar:4.0
+[DEBUG]   Included: org.eclipse.jgit:org.eclipse.jgit:jar:4.4.1.201607150455-r
+[DEBUG] Configuring mojo eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT:list from plugin realm ClassRealm[plugin>eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT, parent: sun.misc.Launcher$AppClassLoader@55f96302]
+[DEBUG] Configuring mojo 'eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT:list' with basic configurator -->
+[DEBUG]   (f) module = 
+[DEBUG]   (f) outputFormat = CSV
+[DEBUG]   (f) outputPath = /tmp/dspot-experiments/results/april-2019/jsoup/commit_0_426ffe7/parent_coverage_testsThatExecuteTheChanges.csv
+[DEBUG]   (f) pathDirSecondVersion = /tmp/dspot-experiments/dataset/april-2019/jsoup
+[DEBUG]   (f) project = MavenProject: org.jsoup:jsoup:1.12.1-SNAPSHOT @ /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/pom.xml
+[DEBUG] -- end configuration --
+[WARNING] No path to diff file has been specified.
+[WARNING] I'll compute a diff file using the UNIX diff command
+[WARNING] You may encounter troubles.
+[WARNING] If so, please specify a path to a correct diff file
+[WARNING] or implement a new way to compute a diff file.
+[INFO] Computing the diff with diff commnd line
+[INFO] The diff will be computed between:
+[INFO] /tmp/dspot-experiments/dataset/april-2019/jsoup_parent and 
+[INFO] /tmp/dspot-experiments/dataset/april-2019/jsoup
+[INFO] Executing: diff -ru /tmp/dspot-experiments/dataset/april-2019/jsoup_parent /tmp/dspot-experiments/dataset/april-2019/jsoup > patch.diff from /tmp/dspot-experiments/dataset/april-2019/jsoup_parent
+[INFO] Computing coverage for /tmp/dspot-experiments/dataset/april-2019/jsoup_parent
+[WARN] Maven will be executed in interactive mode, but no input stream has been configured for this MavenInvoker instance.
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------------< org.jsoup:jsoup >---------------------------
+[INFO] Building jsoup Java HTML Parser 1.12.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ jsoup ---
+[INFO] 
+[INFO] --- clover-maven-plugin:4.2.0:setup (default-cli) @ jsoup ---
+[INFO] No 'maven.clover.licenseLocation' configured. Using default license.
+[INFO] OpenClover Version 4.2.0, built on April 30 2017 (build-1000)
+[INFO] Loaded from: /home/spirals/danglot/.m2/repository/org/openclover/clover/4.2.0/clover-4.2.0.jar
+[INFO] Clover free edition.
+[INFO] Creating new database at '/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/clover/clover.db'.
+[INFO] Processing files at 1.8 source level.
+[INFO] Clover all over. Instrumented 68 files (8 packages).
+[INFO] Elapsed time = 3.004 secs. (22.636 files/sec, 6,036.951 srclines/sec)
+[INFO] OpenClover Version 4.2.0, built on April 30 2017 (build-1000)
+[INFO] Loaded from: /home/spirals/danglot/.m2/repository/org/openclover/clover/4.2.0/clover-4.2.0.jar
+[INFO] Clover free edition.
+[INFO] Updating existing database at '/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/clover/clover.db'.
+[INFO] Processing files at 1.8 source level.
+[INFO] Clover all over. Instrumented 46 files (9 packages).
+[INFO] 714 test methods detected.
+[INFO] Elapsed time = 1.39 secs. (33.094 files/sec, 7,143.165 srclines/sec)
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:resources (default-resources) @ jsoup ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 0 resource
+[INFO] Copying 3 resources to META-INF/
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ jsoup ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 68 source files to /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes
+[INFO] /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/clover/src-instrumented/org/jsoup/nodes/Attributes.java: /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/clover/src-instrumented/org/jsoup/nodes/Attributes.java uses or overrides a deprecated API.
+[INFO] /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/clover/src-instrumented/org/jsoup/nodes/Attributes.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.16:check (animal-sniffer) @ jsoup ---
+[INFO] Checking unresolved references to net.sf.androidscents.signature:android-api-level-8:2.2_r3
+[INFO] 
+[INFO] >>> maven-bundle-plugin:2.5.4:manifest (bundle-manifest) > process-classes @ jsoup >>>
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:resources (default-resources) @ jsoup ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 0 resource
+[INFO] Copying 3 resources to META-INF/
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:compile (default-compile) @ jsoup ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 68 source files to /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes
+[INFO] /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/clover/src-instrumented/org/jsoup/nodes/Attributes.java: /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/clover/src-instrumented/org/jsoup/nodes/Attributes.java uses or overrides a deprecated API.
+[INFO] /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/clover/src-instrumented/org/jsoup/nodes/Attributes.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.16:check (animal-sniffer) @ jsoup ---
+[INFO] Checking unresolved references to net.sf.androidscents.signature:android-api-level-8:2.2_r3
+[INFO] 
+[INFO] <<< maven-bundle-plugin:2.5.4:manifest (bundle-manifest) < process-classes @ jsoup <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-bundle-plugin:2.5.4:manifest (bundle-manifest) @ jsoup ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:testResources (default-testResources) @ jsoup ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 25 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ jsoup ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 46 source files to /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes
+[INFO] /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/clover/src-test-instrumented/org/jsoup/parser/AttributeParseTest.java: Some input files use or override a deprecated API.
+[INFO] /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/clover/src-test-instrumented/org/jsoup/parser/AttributeParseTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ jsoup ---
+[INFO] Surefire report directory: /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.jsoup.integration.ParseTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.139 sec
+Running org.jsoup.integration.ConnectTest
+2019-04-30 17:59:49.730:INFO::main: Logging initialized @1668ms
+2019-04-30 17:59:49.789:INFO:oejs.Server:main: jetty-9.2.22.v20170606
+2019-04-30 17:59:49.887:INFO:oejs.ServerConnector:main: Started ServerConnector@53f9a463{HTTP/1.1}{0.0.0.0:60391}
+2019-04-30 17:59:49.888:INFO:oejs.Server:main: Started @1826ms
+2019-04-30 17:59:51.422:INFO:oejs.ServerConnector:main: Stopped ServerConnector@53f9a463{HTTP/1.1}{0.0.0.0:0}
+Tests run: 29, Failures: 0, Errors: 0, Skipped: 5, Time elapsed: 1.759 sec
+Running org.jsoup.integration.UrlConnectTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 sec
+Running org.jsoup.helper.HttpConnectionTest
+Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 sec
+Running org.jsoup.helper.StringUtilTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+Running org.jsoup.helper.DataUtilTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.049 sec
+Running org.jsoup.helper.W3CDomTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.318 sec
+Running org.jsoup.safety.CleanerTest
+Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.101 sec
+Running org.jsoup.parser.AttributeParseTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running org.jsoup.parser.TokeniserTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.118 sec
+Running org.jsoup.parser.CharacterReaderTest
+Tests run: 22, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.021 sec
+Running org.jsoup.parser.XmlTreeBuilderTest
+Tests run: 22, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.051 sec
+Running org.jsoup.parser.TagTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running org.jsoup.parser.TokenQueueTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+Running org.jsoup.parser.TokeniserStateTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.065 sec
+Running org.jsoup.parser.ParserSettingsTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running org.jsoup.parser.HtmlTreeBuilderTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+Running org.jsoup.parser.HtmlTreeBuilderStateTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+Running org.jsoup.parser.HtmlParserTest
+Tests run: 129, Failures: 1, Errors: 0, Skipped: 1, Time elapsed: 3.83 sec <<< FAILURE!
+handlesDeepStack(org.jsoup.parser.HtmlParserTest)  Time elapsed: 3.079 sec  <<< FAILURE!
+java.lang.AssertionError
+	at org.junit.Assert.fail(Assert.java:86)
+	at org.junit.Assert.assertTrue(Assert.java:41)
+	at org.junit.Assert.assertTrue(Assert.java:52)
+	at org.jsoup.parser.HtmlParserTest.__CLR4_2_0gl9t7cb4j(HtmlParserTest.java:998)
+	at org.jsoup.parser.HtmlParserTest.handlesDeepStack(HtmlParserTest.java:978)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:252)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
+	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
+	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
+
+Running org.jsoup.internal.ConstrainableInputStreamTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 sec
+Running org.jsoup.nodes.FormElementTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec
+Running org.jsoup.nodes.AttributesTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec
+Running org.jsoup.nodes.ElementTest
+Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.14 sec
+Running org.jsoup.nodes.DocumentTypeTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running org.jsoup.nodes.TextNodeTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+Running org.jsoup.nodes.DocumentTest
+Tests run: 29, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.138 sec
+Running org.jsoup.nodes.EntitiesTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.12 sec
+Running org.jsoup.nodes.NodeTest
+Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 sec
+Running org.jsoup.nodes.AttributeTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+Running org.jsoup.select.ElementsTest
+Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 sec
+Running org.jsoup.select.QueryParserTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running org.jsoup.select.CssTest
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.16 sec
+Running org.jsoup.select.TraversorTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+Running org.jsoup.select.SelectorTest
+Tests run: 62, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.104 sec
+
+Results :
+
+Failed tests:   handlesDeepStack(org.jsoup.parser.HtmlParserTest)
+
+Tests run: 668, Failures: 1, Errors: 0, Skipped: 11
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 29.943 s
+[INFO] Finished at: 2019-04-30T17:59:56+02:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.12.4:test (default-test) on project jsoup: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/surefire-reports for the individual test results.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+Writing HTML report to '/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/clover/report'
+Done. Processed 10 packages in 8579ms (857ms per package).
+[INFO] /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/src/main/java/org/jsoup/nodes/Element.java
+[INFO] /tmp/dspot-experiments/dataset/april-2019/jsoup/src/main/java/org/jsoup/nodes/Element.java
+[INFO] org.jsoup.nodes.Element:720 is modified.
+[INFO] org.jsoup.nodes.Element:695 is modified.
+[INFO] org.jsoup.nodes.Element:705 is modified.
+[INFO] org.jsoup.nodes.Element:733 is modified.
+[INFO] org.jsoup.nodes.Element:737 is modified.
+[INFO] org.jsoup.nodes.Element:725 is modified.
+[INFO] org.jsoup.nodes.Element:732 is modified.
+[INFO] org.jsoup.nodes.Element:728 is modified.
+[INFO] org.jsoup.nodes.Element:737 is modified.
+[INFO] org.jsoup.nodes.Element:729 is modified.
+[INFO] org.jsoup.nodes.Element:696 is modified.
+[INFO] org.jsoup.nodes.Element:733 is modified.
+[INFO] org.jsoup.nodes.Element:721 is modified.
+[INFO] org.jsoup.nodes.Element:727 is modified.
+[INFO] org.jsoup.nodes.Element:729 is modified.
+[INFO] org.jsoup.nodes.Element:729 is modified.
+[INFO] org.jsoup.nodes.Element:705 is modified.
+[INFO] org.jsoup.nodes.Element:705 is modified.
+[INFO] org.jsoup.nodes.Element:700 is modified.
+[INFO] org.jsoup.nodes.Element:700 is modified.
+[INFO] org.jsoup.nodes.Element:702 is modified.
+[INFO] org.jsoup.nodes.Element:704 is modified.
+[INFO] org.jsoup.nodes.Element:740 is modified.
+[INFO] org.jsoup.nodes.Element:741 is modified.
+[INFO] org.jsoup.nodes.Element:741 is modified.
+[INFO] org.jsoup.nodes.Element:720 covered.
+[INFO] org.jsoup.nodes.Element:721 covered.
+[INFO] org.jsoup.nodes.Element:696 covered.
+[INFO] org.jsoup.nodes.Element:705 covered.
+[INFO] org.jsoup.nodes.Element:700 covered.
+[INFO] org.jsoup.nodes.Element:702 covered.
+[INFO] org.jsoup.nodes.Element:704 covered.
+[INFO] org.jsoup.nodes.Element:737 covered.
+[INFO] org.jsoup.nodes.Element:732 covered.
+[INFO] org.jsoup.nodes.Element:740 covered.
+[INFO] org.jsoup.nodes.Element:741 covered.
+[INFO] /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/src/main/java/org/jsoup/select/Elements.java
+[INFO] /tmp/dspot-experiments/dataset/april-2019/jsoup/src/main/java/org/jsoup/select/Elements.java
+[INFO] /tmp/dspot-experiments/dataset/april-2019/jsoup_parent/src/test/java/org/jsoup/nodes/ElementTest.java
+[INFO] /tmp/dspot-experiments/dataset/april-2019/jsoup/src/test/java/org/jsoup/nodes/ElementTest.java
+[INFO] org.jsoup.nodes.ElementTest:1334 is modified.
+[INFO] org.jsoup.nodes.ElementTest:1336 is modified.
+[INFO] org.jsoup.nodes.ElementTest:1360 is modified.
+[INFO] org.jsoup.nodes.ElementTest:1358 is modified.
+[INFO] org.jsoup.nodes.ElementTest:1377 is modified.
+[INFO] org.jsoup.nodes.ElementTest:1379 is modified.
+[INFO] org.jsoup.nodes.ElementTest:1397 is modified.
+[INFO] org.jsoup.nodes.ElementTest:1391 is modified.
+[INFO] org.jsoup.nodes.ElementTest:1337 is modified.
+[INFO] org.jsoup.nodes.ElementTest:1338 is modified.
+[INFO] org.jsoup.nodes.ElementTest:1358 is modified.
+[INFO] org.jsoup.nodes.ElementTest:1391 is modified.
+[INFO] org.jsoup.nodes.ElementTest:1328 is modified.
+[INFO] org.jsoup.nodes.ElementTest:1359 is modified.
+[INFO] org.jsoup.nodes.ElementTest:1359 is modified.
+[INFO] org.jsoup.nodes.ElementTest:1361 is modified.
+[INFO] org.jsoup.nodes.ElementTest:1396 is modified.
+[INFO] org.jsoup.nodes.ElementTest:1396 is modified.
+[INFO] org.jsoup.nodes.ElementTest:1398 is modified.
+[INFO] Saving result in /tmp/dspot-experiments/results/april-2019/jsoup/commit_0_426ffe7/parent_coverage_testsThatExecuteTheChanges.csv ...
+[INFO] org.jsoup.nodes.ElementTest;testNextElementSiblings;testGetSiblings;testPreviousElementSiblings;testIs;testGetSiblingsWithDuplicateContent
+org.jsoup.select.SelectorTest;adjacentSiblings;mixCombinator;notAdjacent;testCombinedWithContains;generalSiblings;matchText;adjacentSiblingsWithId;findBetweenSpan;mixCombinatorGroup
+org.jsoup.select.ElementsTest;siblings;hasText
+org.jsoup.integration.ConnectTest;doesGet;doesPost;sendsRequestBody;doesPostFor307;multiCookieSet;postFiles;sendsRequestBodyJsonWithData;doesPut;doesNotPostFor302;sendsRequestBodyWithUrlParams;sendsRequestBodyJsonWithoutData
+[INFO] Writing Coverage in /tmp/dspot-experiments/results/april-2019/jsoup/commit_0_426ffe7/parent_coverage_testsThatExecuteTheChanges_coverage.csv
+[INFO] org.jsoup.nodes.Element;11;17
+
+[INFO] total;11;17
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 48.930 s
+[INFO] Finished at: 2019-04-30T18:00:11+02:00
+[INFO] ------------------------------------------------------------------------

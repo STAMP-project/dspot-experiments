@@ -1,0 +1,160 @@
+diff --git a/CHANGES b/CHANGES
+index eb596b3..c3918ca 100644
+--- a/CHANGES
++++ b/CHANGES
+@@ -40,10 +40,6 @@ jsoup changelog
+     of just returning an empty list.
+     <https://github.com/jhy/jsoup/issues/1032>
+ 
+-  * Bugfix: documents with a leading UTF-8 BOM did not have that BOM consumed, so it acted as a zero width no-break
+-    space, which could impact the parse tree.
+-    <https://github.com/jhy/jsoup/issues/1003>
+-
+ *** Release 1.11.2 [2017-Nov-19]
+   * Improvement: added a new pseudo selector :matchText, which allows text nodes to match as if they were elements.
+     This enables finding text that is only marked by a "br" tag, for example.
+diff --git a/src/main/java/org/jsoup/helper/DataUtil.java b/src/main/java/org/jsoup/helper/DataUtil.java
+index 5f276ee..3037d61 100644
+--- a/src/main/java/org/jsoup/helper/DataUtil.java
++++ b/src/main/java/org/jsoup/helper/DataUtil.java
+@@ -107,8 +107,10 @@ public final class DataUtil {
+ 
+         // look for BOM - overrides any other header or input
+         BomCharset bomCharset = detectCharsetFromBom(firstBytes);
+-        if (bomCharset != null)
++        if (bomCharset != null) {
+             charsetName = bomCharset.charset;
++            input.skip(bomCharset.offset);
++        }
+ 
+         if (charsetName == null) { // determine from meta. safe first parse as UTF-8
+             String docData = Charset.forName(defaultCharset).decode(firstBytes).toString();
+@@ -147,8 +149,6 @@ public final class DataUtil {
+             if (charsetName == null)
+                 charsetName = defaultCharset;
+             BufferedReader reader = new BufferedReader(new InputStreamReader(input, charsetName), bufferSize);
+-            if (bomCharset != null && bomCharset.offset) // creating the buffered reader ignores the input pos, so must skip here
+-                reader.skip(1);
+             try {
+                 doc = parser.parseInput(reader, baseUri);
+             } catch (UncheckedIOException e) {
+@@ -248,12 +248,12 @@ public final class DataUtil {
+         }
+         if (bom[0] == 0x00 && bom[1] == 0x00 && bom[2] == (byte) 0xFE && bom[3] == (byte) 0xFF || // BE
+             bom[0] == (byte) 0xFF && bom[1] == (byte) 0xFE && bom[2] == 0x00 && bom[3] == 0x00) { // LE
+-            return new BomCharset("UTF-32", false); // and I hope it's on your system
++            return new BomCharset("UTF-32", 0); // and I hope it's on your system
+         } else if (bom[0] == (byte) 0xFE && bom[1] == (byte) 0xFF || // BE
+             bom[0] == (byte) 0xFF && bom[1] == (byte) 0xFE) {
+-            return new BomCharset("UTF-16", false); // in all Javas
++            return new BomCharset("UTF-16", 0); // in all Javas
+         } else if (bom[0] == (byte) 0xEF && bom[1] == (byte) 0xBB && bom[2] == (byte) 0xBF) {
+-            return new BomCharset("UTF-8", true); // in all Javas
++            return new BomCharset("UTF-8", 3); // in all Javas
+             // 16 and 32 decoders consume the BOM to determine be/le; utf-8 should be consumed here
+         }
+         return null;
+@@ -261,9 +261,9 @@ public final class DataUtil {
+ 
+     private static class BomCharset {
+         private final String charset;
+-        private final boolean offset;
++        private final int offset;
+ 
+-        public BomCharset(String charset, boolean offset) {
++        public BomCharset(String charset, int offset) {
+             this.charset = charset;
+             this.offset = offset;
+         }
+diff --git a/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java b/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
+index 26d7d7a..a230677 100644
+--- a/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
++++ b/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
+@@ -1479,7 +1479,13 @@ enum HtmlTreeBuilderState {
+     }
+ 
+     private static boolean isWhitespace(String data) {
+-        return StringUtil.isBlank(data);
++        // todo: this checks more than spec - "\t", "\n", "\f", "\r", " "
++        for (int i = 0; i < data.length(); i++) {
++            char c = data.charAt(i);
++            if (!StringUtil.isWhitespace(c))
++                return false;
++        }
++        return true;
+     }
+ 
+     private static void handleRcData(Token.StartTag startTag, HtmlTreeBuilder tb) {
+diff --git a/src/test/java/org/jsoup/helper/DataUtilTest.java b/src/test/java/org/jsoup/helper/DataUtilTest.java
+index 7021676..70185d3 100644
+--- a/src/test/java/org/jsoup/helper/DataUtilTest.java
++++ b/src/test/java/org/jsoup/helper/DataUtilTest.java
+@@ -157,11 +157,4 @@ public class DataUtilTest {
+         assertTrue(doc.title().contains("UTF-32LE"));
+         assertTrue(doc.text().contains("가각갂갃간갅"));
+     }
+-
+-    @Test
+-    public void supportsUTF8BOM() throws IOException {
+-        File in = getFile("/bomtests/bom_utf8.html");
+-        Document doc = Jsoup.parse(in, null, "http://example.com");
+-        assertEquals("OK", doc.head().select("title").text());
+-    }
+ }
+diff --git a/src/test/java/org/jsoup/parser/HtmlParserTest.java b/src/test/java/org/jsoup/parser/HtmlParserTest.java
+index 4032e7c..0a76bb9 100644
+--- a/src/test/java/org/jsoup/parser/HtmlParserTest.java
++++ b/src/test/java/org/jsoup/parser/HtmlParserTest.java
+@@ -1168,14 +1168,4 @@ public class HtmlParserTest {
+         assertEquals("One\nTwo", pre.text());
+         assertEquals("\nOne\nTwo\n", pre.wholeText());
+   }
+-
+-  @Test public void handlesXmlDeclAndCommentsBeforeDoctype() throws IOException {
+-      File in = ParseTest.getFile("/htmltests/comments.html");
+-      Document doc = Jsoup.parse(in, "UTF-8");
+-
+-      assertEquals("<!--?xml version=\"1.0\" encoding=\"utf-8\"?--> <!-- so --><!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"> <!-- what --> <html xml:lang=\"en\" lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\"> <!-- now --> <head> <!-- then --> <meta http-equiv=\"Content-type\" content=\"text/html; charset=utf-8\"> <title>A Certain Kind of Test</title> </head> <body> <h1>Hello</h1>h1&gt; (There is a UTF8 hidden BOM at the top of this file.) </body> </html>",
+-          StringUtil.normaliseWhitespace(doc.html()));
+-
+-      assertEquals("A Certain Kind of Test", doc.head().select("title").text());
+-  }
+ }
+diff --git a/src/test/resources/bomtests/bom_utf8.html b/src/test/resources/bomtests/bom_utf8.html
+deleted file mode 100644
+index 0bf9680..0000000
+--- a/src/test/resources/bomtests/bom_utf8.html
++++ /dev/null
+@@ -1,10 +0,0 @@
+-﻿<?xml version="1.0" encoding="utf-8"?>
+-<!DOCTYPE html>
+-<html>
+-<head>
+-  <title>OK</title>
+-</head>
+-<body>
+-There is a UTF8 BOM at the top (before the XML decl). If not read correctly, will look like a non-joining space.
+-</body>
+-</html>
+diff --git a/src/test/resources/htmltests/comments.html b/src/test/resources/htmltests/comments.html
+deleted file mode 100644
+index e071c63..0000000
+--- a/src/test/resources/htmltests/comments.html
++++ /dev/null
+@@ -1,16 +0,0 @@
+-﻿
+-<?xml version="1.0" encoding="utf-8"?>
+-<!-- so -->
+-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+-
+-<!-- what -->
+-<html xml:lang="en" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+-<!-- now -->
+-<head>
+-  <!-- then -->
+-  <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+-  <title>A Certain Kind of Test</title>
+-</head>
+-<body><h1>Hello</h1>h1></body>
+-(There is a UTF8 hidden BOM at the top of this file.)
+-</html>

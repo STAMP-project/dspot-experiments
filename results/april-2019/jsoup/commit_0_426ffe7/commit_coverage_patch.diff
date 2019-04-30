@@ -1,0 +1,175 @@
+diff --git a/CHANGES b/CHANGES
+index edf0e86..d969c24 100644
+--- a/CHANGES
++++ b/CHANGES
+@@ -22,6 +22,9 @@ jsoup changelog
+     many pages.
+     <https://github.com/jhy/jsoup/issues/797>
+ 
++  * Improvement: added Element.nextElementSiblings() and Element.previousElementSiblings()
++    https://github.com/jhy/jsoup/pull/1054
++
+   * Bugfix: when converting a Jsoup document to a W3C DOM, if an element is namespaced but not in a defined namespace,
+     set it to the global namespace.
+     <https://github.com/jhy/jsoup/issues/848>
+diff --git a/src/main/java/org/jsoup/nodes/Element.java b/src/main/java/org/jsoup/nodes/Element.java
+index dc8ec1c..b4dcbf2 100644
+--- a/src/main/java/org/jsoup/nodes/Element.java
++++ b/src/main/java/org/jsoup/nodes/Element.java
+@@ -688,23 +688,12 @@ public class Element extends Node {
+     }
+ 
+     /**
+-     * Get all the siblings after this element.
++     * Get each of the sibling elements that come after this element.
+      *
+-     * @return  all the siblings after this element, or empty list if there is no siblings after this
++     * @return each of the element siblings after this element, or an empty list if there are no next sibling elements
+      */
+-    public List<Element> nextElementSiblings() {
+-        if (parentNode == null) {
+-            return Collections.emptyList();
+-        }
+-
+-        List<Element> siblings = parent().childElementsList();
+-        int index = indexInList(this, siblings);
+-        Validate.notNull(index);
+-
+-        if (siblings.size() > index + 1) {
+-            return siblings.subList(index + 1, siblings.size());
+-        }
+-        return Collections.emptyList();
++    public Elements nextElementSiblings() {
++        return nextElementSiblings(true);
+     }
+ 
+     /**
+@@ -724,23 +713,20 @@ public class Element extends Node {
+     }
+ 
+     /**
+-     * Get all the element siblings before this element.
++     * Get each of the element siblings before this element.
+      *
+-     * @return all the previous element siblings, or empty list if no previous siblings
++     * @return the previous element siblings, or an empty list if there are none.
+      */
+-    public List<Element> previousElementSiblings() {
+-        if (parentNode == null) {
+-            return Collections.emptyList();
+-        }
+-
+-        List<Element> siblings = parent().childElementsList();
+-        int index = indexInList(this, siblings);
+-        Validate.notNull(index);
++    public Elements previousElementSiblings() {
++        return nextElementSiblings(false);
++    }
+ 
+-        if (index > 0 && index < siblings.size()) {
+-            return siblings.subList(0, index);
+-        }
+-        return Collections.emptyList();
++    private Elements nextElementSiblings(boolean next) {
++        Elements els = new Elements();
++        if (parentNode == null)
++            return  els;
++        els.add(this);
++        return next ?  els.nextAll() : els.prevAll();
+     }
+ 
+     /**
+diff --git a/src/main/java/org/jsoup/select/Elements.java b/src/main/java/org/jsoup/select/Elements.java
+index fcf1ee0..fe865b8 100644
+--- a/src/main/java/org/jsoup/select/Elements.java
++++ b/src/main/java/org/jsoup/select/Elements.java
+@@ -510,7 +510,7 @@ public class Elements extends ArrayList<Element> {
+     }
+ 
+     /**
+-     * Get all of the following element siblings of each element in this list.
++     * Get each of the following element siblings of each element in this list.
+      * @return all following element siblings.
+      */
+     public Elements nextAll() {
+@@ -518,7 +518,7 @@ public class Elements extends ArrayList<Element> {
+     }
+ 
+     /**
+-     * Get all of the following element siblings of each element in this list, filtered by the query.
++     * Get each of the following element siblings of each element in this list, that match the query.
+      * @param query CSS query to match siblings against
+      * @return all following element siblings.
+      */
+@@ -544,7 +544,7 @@ public class Elements extends ArrayList<Element> {
+     }
+ 
+     /**
+-     * Get all of the previous element siblings of each element in this list.
++     * Get each of the previous element siblings of each element in this list.
+      * @return all previous element siblings.
+      */
+     public Elements prevAll() {
+@@ -552,7 +552,7 @@ public class Elements extends ArrayList<Element> {
+     }
+ 
+     /**
+-     * Get all of the previous element siblings of each element in this list, filtered by the query.
++     * Get each of the previous element siblings of each element in this list, that match the query.
+      * @param query CSS query to match siblings against
+      * @return all previous element siblings.
+      */
+diff --git a/src/test/java/org/jsoup/nodes/ElementTest.java b/src/test/java/org/jsoup/nodes/ElementTest.java
+index c985eaa..9219624 100644
+--- a/src/test/java/org/jsoup/nodes/ElementTest.java
++++ b/src/test/java/org/jsoup/nodes/ElementTest.java
+@@ -1325,13 +1325,13 @@ public class ElementTest {
+             "<li id='a'>a</li>" +
+             "<li id='b'>b</li>" +
+             "<li id='c'>c</li>" +
+-            "</ul>" +
++            "</ul> Not An Element but a node" +
+             "<div id='div'>" +
+             "<li id='d'>d</li>" +
+             "</div>");
+ 
+         Element element = doc.getElementById("a");
+-        List<Element> elementSiblings = element.nextElementSiblings();
++        Elements elementSiblings = element.nextElementSiblings();
+         assertNotNull(elementSiblings);
+         assertEquals(2, elementSiblings.size());
+         assertEquals("b", elementSiblings.get(0).id());
+@@ -1355,11 +1355,7 @@ public class ElementTest {
+ 
+         Element div = doc.getElementById("div");
+         List<Element> elementSiblings4 = div.nextElementSiblings();
+-        try {
+-            Element elementSibling = elementSiblings4.get(0);
+-            fail("This element should has no next siblings");
+-        } catch (IndexOutOfBoundsException e) {
+-        }
++        assertEquals(0, elementSiblings4.size());
+     }
+ 
+     @Test
+@@ -1374,7 +1370,7 @@ public class ElementTest {
+             "</div>");
+ 
+         Element element = doc.getElementById("b");
+-        List<Element> elementSiblings = element.previousElementSiblings();
++        Elements elementSiblings = element.previousElementSiblings();
+         assertNotNull(elementSiblings);
+         assertEquals(1, elementSiblings.size());
+         assertEquals("a", elementSiblings.get(0).id());
+@@ -1392,10 +1388,6 @@ public class ElementTest {
+ 
+         Element ul = doc.getElementById("ul");
+         List<Element> elementSiblings3 = ul.previousElementSiblings();
+-        try {
+-            Element element3 = elementSiblings3.get(0);
+-            fail("This element should has no previous siblings");
+-        } catch (IndexOutOfBoundsException e) {
+-        }
++        assertEquals(0, elementSiblings3.size());
+     }
+ }

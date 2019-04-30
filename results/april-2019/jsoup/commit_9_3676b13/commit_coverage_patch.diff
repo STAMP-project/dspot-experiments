@@ -1,0 +1,241 @@
+diff --git a/CHANGES b/CHANGES
+index 33e0242..6aee9a0 100644
+--- a/CHANGES
++++ b/CHANGES
+@@ -6,6 +6,21 @@ jsoup changelog
+     <https://github.com/jhy/jsoup/issues/406>
+     <https://github.com/jhy/jsoup/issues/965>
+ 
++  * Improvement: added support for Deflate encoding.
++    <https://github.com/jhy/jsoup/pull/982>
++
++  * Improvement: when parsing <pre> tags, skip the first newline if present.
++    <https://github.com/jhy/jsoup/issues/825>
++
++  * Bugfix: "Mark has been invalidated" exception was thrown when parsing some URLs on Android <= 6.
++    <https://github.com/jhy/jsoup/issues/990>
++
++  * Bugfix: The Element.text() for <div>One</div>Two was "OneTwo", not "One Two".
++    <https://github.com/jhy/jsoup/issues/812>
++
++  * Bugfix: boolean attributes with empty string values were not collapsing in HTML output.
++    <https://github.com/jhy/jsoup/issues/985>
++
+ *** Release 1.11.2 [2017-Nov-19]
+   * Improvement: added a new pseudo selector :matchText, which allows text nodes to match as if they were elements.
+     This enables finding text that is only marked by a "br" tag, for example.
+diff --git a/src/main/java/org/jsoup/helper/DataUtil.java b/src/main/java/org/jsoup/helper/DataUtil.java
+index 3ac0edb..b9462dc 100644
+--- a/src/main/java/org/jsoup/helper/DataUtil.java
++++ b/src/main/java/org/jsoup/helper/DataUtil.java
+@@ -99,8 +99,8 @@ public final class DataUtil {
+         boolean fullyRead = false;
+ 
+         // read the start of the stream and look for a BOM or meta charset
+-        input.mark(firstReadBufferSize);
+-        ByteBuffer firstBytes = readToByteBuffer(input, firstReadBufferSize - 1); // -1 because we read one more to see if completed
++        input.mark(bufferSize);
++        ByteBuffer firstBytes = readToByteBuffer(input, firstReadBufferSize - 1); // -1 because we read one more to see if completed. First read is < buffer size, so can't be invalid.
+         fullyRead = input.read() == -1;
+         input.reset();
+ 
+diff --git a/src/main/java/org/jsoup/helper/HttpConnection.java b/src/main/java/org/jsoup/helper/HttpConnection.java
+index 393eeaf..96a624b 100644
+--- a/src/main/java/org/jsoup/helper/HttpConnection.java
++++ b/src/main/java/org/jsoup/helper/HttpConnection.java
+@@ -46,6 +46,8 @@ import java.util.List;
+ import java.util.Map;
+ import java.util.regex.Pattern;
+ import java.util.zip.GZIPInputStream;
++import java.util.zip.Inflater;
++import java.util.zip.InflaterInputStream;
+ 
+ import static org.jsoup.Connection.Method.HEAD;
+ import static org.jsoup.internal.Normalizer.lowerCase;
+@@ -781,8 +783,11 @@ public class HttpConnection implements Connection {
+                 if (conn.getContentLength() != 0 && req.method() != HEAD) { // -1 means unknown, chunked. sun throws an IO exception on 500 response with no content when trying to read body
+                     res.bodyStream = null;
+                     res.bodyStream = conn.getErrorStream() != null ? conn.getErrorStream() : conn.getInputStream();
+-                    if (res.hasHeaderWithValue(CONTENT_ENCODING, "gzip"))
++                    if (res.hasHeaderWithValue(CONTENT_ENCODING, "gzip")) {
+                         res.bodyStream = new GZIPInputStream(res.bodyStream);
++                    } else if (res.hasHeaderWithValue(CONTENT_ENCODING, "deflate")) {
++                        res.bodyStream = new InflaterInputStream(res.bodyStream, new Inflater(true));
++                    }
+                     res.bodyStream = ConstrainableInputStream
+                         .wrap(res.bodyStream, DataUtil.bufferSize, req.maxBodySize())
+                         .timeout(startTime, req.timeout())
+diff --git a/src/main/java/org/jsoup/nodes/Attribute.java b/src/main/java/org/jsoup/nodes/Attribute.java
+index 3163f9b..698755c 100644
+--- a/src/main/java/org/jsoup/nodes/Attribute.java
++++ b/src/main/java/org/jsoup/nodes/Attribute.java
+@@ -159,11 +159,10 @@ public class Attribute implements Map.Entry<String, String>, Cloneable  {
+         return shouldCollapseAttribute(key, val, out);
+     }
+ 
+-    protected static boolean shouldCollapseAttribute(String key, String val, Document.OutputSettings out) {
+-        // todo: optimize
+-        return (val == null || "".equals(val) || val.equalsIgnoreCase(key))
+-            && out.syntax() == Document.OutputSettings.Syntax.html
+-            && isBooleanAttribute(key);
++    protected static boolean shouldCollapseAttribute(final String key, final String val, final Document.OutputSettings out) {
++        return (
++            out.syntax() == Document.OutputSettings.Syntax.html &&
++                (val == null || ("".equals(val) || val.equalsIgnoreCase(key)) && Attribute.isBooleanAttribute(key)));
+     }
+ 
+     /**
+diff --git a/src/main/java/org/jsoup/nodes/Attributes.java b/src/main/java/org/jsoup/nodes/Attributes.java
+index 188bbe3..1f74bf3 100644
+--- a/src/main/java/org/jsoup/nodes/Attributes.java
++++ b/src/main/java/org/jsoup/nodes/Attributes.java
+@@ -316,9 +316,7 @@ public class Attributes implements Iterable<Attribute>, Cloneable {
+             accum.append(' ').append(key);
+ 
+             // collapse checked=null, checked="", checked=checked; write out others
+-            if (!(out.syntax() == Document.OutputSettings.Syntax.html
+-                && (val == null || val.equals(key) && Attribute.isBooleanAttribute(key)))) {
+-
++            if (!Attribute.shouldCollapseAttribute(key, val, out)) {
+                 accum.append("=\"");
+                 Entities.escape(accum, val == null ? EmptyString : val, out, true, false, false);
+                 accum.append('"');
+diff --git a/src/main/java/org/jsoup/nodes/Element.java b/src/main/java/org/jsoup/nodes/Element.java
+index 208c366..1f980e1 100644
+--- a/src/main/java/org/jsoup/nodes/Element.java
++++ b/src/main/java/org/jsoup/nodes/Element.java
+@@ -1038,6 +1038,13 @@ public class Element extends Node {
+             }
+ 
+             public void tail(Node node, int depth) {
++                // make sure there is a space between block tags and immediately following text nodes <div>One</div>Two should be "One Two".
++                if (node instanceof Element) {
++                    Element element = (Element) node;
++                    if (element.isBlock() && (node.nextSibling() instanceof TextNode) && !TextNode.lastCharIsWhitespace(accum))
++                        accum.append(' ');
++                }
++
+             }
+         }, this);
+         return accum.toString().trim();
+diff --git a/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java b/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
+index f86f8bc..a230677 100644
+--- a/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
++++ b/src/main/java/org/jsoup/parser/HtmlTreeBuilderState.java
+@@ -379,7 +379,7 @@ enum HtmlTreeBuilderState {
+                             tb.processEndTag("p");
+                         }
+                         tb.insert(startTag);
+-                        // todo: ignore LF if next token
++                        tb.reader.matchConsume("\n"); // ignore LF if next token
+                         tb.framesetOk(false);
+                     } else if (name.equals("form")) {
+                         if (tb.getFormElement() != null) {
+diff --git a/src/test/java/org/jsoup/integration/ConnectTest.java b/src/test/java/org/jsoup/integration/ConnectTest.java
+index 911dbe4..11b0e89 100644
+--- a/src/test/java/org/jsoup/integration/ConnectTest.java
++++ b/src/test/java/org/jsoup/integration/ConnectTest.java
+@@ -2,6 +2,7 @@ package org.jsoup.integration;
+ 
+ import org.jsoup.Connection;
+ import org.jsoup.Jsoup;
++import org.jsoup.integration.servlets.Deflateservlet;
+ import org.jsoup.integration.servlets.EchoServlet;
+ import org.jsoup.integration.servlets.HelloServlet;
+ import org.jsoup.integration.servlets.SlowRider;
+@@ -366,4 +367,13 @@ public class ConnectTest {
+         Document doc = Jsoup.connect(echoUrl).cookies(cookies).get();
+         assertEquals("token=asdfg123; uid=jhy", ihVal("Cookie", doc));
+     }
++
++    @Test
++    public void supportsDeflate() throws IOException {
++        Connection.Response res = Jsoup.connect(Deflateservlet.Url).execute();
++        assertEquals("deflate", res.header("Content-Encoding"));
++
++        Document doc = res.parse();
++        assertEquals("Hello, World!", doc.selectFirst("p").text());
++    }
+ }
+diff --git a/src/test/java/org/jsoup/integration/servlets/Deflateservlet.java b/src/test/java/org/jsoup/integration/servlets/Deflateservlet.java
+new file mode 100644
+index 0000000..eaf4cfb
+--- /dev/null
++++ b/src/test/java/org/jsoup/integration/servlets/Deflateservlet.java
+@@ -0,0 +1,37 @@
++package org.jsoup.integration.servlets;
++
++import org.jsoup.integration.TestServer;
++
++import javax.servlet.ServletException;
++import javax.servlet.http.HttpServletRequest;
++import javax.servlet.http.HttpServletResponse;
++import java.io.IOException;
++import java.nio.charset.StandardCharsets;
++import java.util.zip.Deflater;
++import java.util.zip.DeflaterOutputStream;
++
++public class Deflateservlet extends BaseServlet {
++    public static final String Url = TestServer.map(Deflateservlet.class);
++
++    @Override
++    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
++        res.setContentType(TextHtml);
++        res.setStatus(HttpServletResponse.SC_OK);
++        res.setHeader("Content-Encoding", "deflate");
++
++        String doc = "<p>Hello, World!<p>That should be enough, right?<p>Hello, World!<p>That should be enough, right?";
++
++        DeflaterOutputStream stream = new DeflaterOutputStream(
++            res.getOutputStream(),
++            new Deflater(Deflater.BEST_COMPRESSION, true)); // true = nowrap zlib headers
++
++       stream.write(doc.getBytes(StandardCharsets.UTF_8));
++       stream.close();
++    }
++
++    // allow the servlet to run as a main program, for local test
++    public static void main(String[] args) {
++        TestServer.start();
++        System.out.println(Url);
++    }
++}
+diff --git a/src/test/java/org/jsoup/nodes/ElementTest.java b/src/test/java/org/jsoup/nodes/ElementTest.java
+index 7c73713..39f452b 100644
+--- a/src/test/java/org/jsoup/nodes/ElementTest.java
++++ b/src/test/java/org/jsoup/nodes/ElementTest.java
+@@ -1310,4 +1310,18 @@ public class ElementTest {
+         assertFalse(doc.body().html().contains("class=\"\""));
+     }
+ 
++    @Test
++    public void booleanAttributeOutput() {
++        Document doc = Jsoup.parse("<img src=foo noshade='' nohref async=async autofocus=false>");
++        Element img = doc.selectFirst("img");
++
++        assertEquals("<img src=\"foo\" noshade nohref async autofocus=\"false\">", img.outerHtml());
++    }
++
++    @Test
++    public void textHasSpaceAfterBlockTags() {
++        Document doc = Jsoup.parse("<div>One</div>Two");
++        assertEquals("One Two", doc.text());
++    }
++
+ }
+diff --git a/src/test/java/org/jsoup/parser/HtmlParserTest.java b/src/test/java/org/jsoup/parser/HtmlParserTest.java
+index 8f22c3a..95f4932 100644
+--- a/src/test/java/org/jsoup/parser/HtmlParserTest.java
++++ b/src/test/java/org/jsoup/parser/HtmlParserTest.java
+@@ -1156,4 +1156,11 @@ public class HtmlParserTest {
+       Document doc = Jsoup.parse("<!");
+       assertTrue(doc.childNode(0) instanceof Comment);
+   }
++
++  @Test public void preSkipsFirstNewline() {
++        Document doc = Jsoup.parse("<pre>\n\nOne\nTwo\n</pre>");
++        Element pre = doc.selectFirst("pre");
++        assertEquals("One\nTwo", pre.text());
++        assertEquals("\nOne\nTwo\n", pre.wholeText());
++  }
+ }
