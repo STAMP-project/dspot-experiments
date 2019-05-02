@@ -3,14 +3,19 @@ Could not find any test class that match the given regular expression.
 Your input:
 	com.github.mustachejavabenchmarks.simple.SimpleJsonInterpreterTest
 Something bad happened during assertion amplification
-java.lang.RuntimeException: java.io.FileNotFoundException: target/dspot/observations.ser (No such file or directory)
-	at eu.stamp_project.compare.ObjectLog.load(ObjectLog.java:254)
-	at eu.stamp_project.compare.ObjectLog.getObservations(ObjectLog.java:216)
-	at eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator.addAssertions(MethodsAssertGenerator.java:125)
+java.lang.RuntimeException: Forked process did not finished correctly
+	at eu.stamp_project.testrunner.EntryPoint.runGivenCommandLine(EntryPoint.java:417)
+	at eu.stamp_project.testrunner.EntryPoint.runTests(EntryPoint.java:198)
+	at eu.stamp_project.testrunner.EntryPoint.runTests(EntryPoint.java:193)
+	at eu.stamp_project.testrunner.EntryPoint.runTests(EntryPoint.java:154)
+	at eu.stamp_project.utils.execution.TestRunner.run(TestRunner.java:98)
+	at eu.stamp_project.utils.execution.TestRunner.runGivenTestMethods(TestRunner.java:66)
+	at eu.stamp_project.utils.compilation.TestCompiler.compileAndRun(TestCompiler.java:99)
+	at eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator.addAssertions(MethodsAssertGenerator.java:113)
 	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.innerAssertionAmplification(AssertGenerator.java:132)
 	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.assertionAmplification(AssertGenerator.java:72)
-	at eu.stamp_project.dspot.Amplification.assertionsAmplification(Amplification.java:187)
-	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:96)
+	at eu.stamp_project.dspot.Amplification.assertionsAmplification(Amplification.java:195)
+	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:104)
 	at eu.stamp_project.dspot.DSpot._amplify(DSpot.java:273)
 	at eu.stamp_project.dspot.DSpot.lambda$amplifyTestClassesTestMethods$5(DSpot.java:254)
 	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
@@ -45,9 +50,3 @@ java.lang.RuntimeException: java.io.FileNotFoundException: target/dspot/observat
 	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
 	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
 	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
-Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such file or directory)
-	at java.io.FileInputStream.open0(Native Method)
-	at java.io.FileInputStream.open(FileInputStream.java:195)
-	at java.io.FileInputStream.<init>(FileInputStream.java:138)
-	at eu.stamp_project.compare.ObjectLog.load(ObjectLog.java:246)
-	... 40 more

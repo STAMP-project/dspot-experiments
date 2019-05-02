@@ -139,7 +139,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
   <workingDirectory default-value="false">${working-directory}</workingDirectory>
 </configuration>
 [DEBUG] =======================================================================
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=972697, ConflictMarker.markTime=628745, ConflictMarker.nodeCount=9, ConflictIdSorter.graphTime=587873, ConflictIdSorter.topsortTime=497874, ConflictIdSorter.conflictIdCount=7, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=4696587, ConflictResolver.conflictItemCount=8, DefaultDependencyCollector.collectTime=101287955, DefaultDependencyCollector.transformTime=10124103}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=1011917, ConflictMarker.markTime=658703, ConflictMarker.nodeCount=9, ConflictIdSorter.graphTime=597132, ConflictIdSorter.topsortTime=500890, ConflictIdSorter.conflictIdCount=7, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=4755146, ConflictResolver.conflictItemCount=8, DefaultDependencyCollector.collectTime=100665679, DefaultDependencyCollector.transformTime=10477104}
 [DEBUG] com.github.spullara.mustache.java:compiler:jar:0.9.4-SNAPSHOT
 [DEBUG]    junit:junit:jar:4.11:test
 [DEBUG]       org.hamcrest:hamcrest-core:jar:1.3:test
@@ -150,10 +150,10 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [DEBUG]       org.yaml:snakeyaml:jar:1.15:test
 [INFO] 
 [INFO] --- dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests (default-cli) @ compiler ---
-[DEBUG] Failure to find eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
-[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally cached metadata up-to-date.
-[DEBUG] Failure to find eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
-[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
+[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
+[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
+[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
 [DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
@@ -484,7 +484,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=9722018, ConflictMarker.markTime=2800629, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=8236368, ConflictIdSorter.topsortTime=261157, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=21247692, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=2308694106, DefaultDependencyCollector.transformTime=42462578}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=9413595, ConflictMarker.markTime=2167961, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=6715726, ConflictIdSorter.topsortTime=222490, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=18540614, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=2641162789, DefaultDependencyCollector.transformTime=37228713}
 [DEBUG] eu.stamp-project:dspot-maven:jar:2.0.1-SNAPSHOT:
 [DEBUG]    eu.stamp-project:dspot:jar:2.0.1-SNAPSHOT:compile
 [DEBUG]       fr.inria.gforge.spoon:spoon-core:jar:7.3.0:compile
@@ -764,8 +764,8 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 7.106 s
-[INFO] Finished at: 2019-04-19T14:56:58+02:00
+[INFO] Total time: 6.715 s
+[INFO] Finished at: 2019-05-01T21:42:16+02:00
 [INFO] ------------------------------------------------------------------------
 [WARNING] Could not find any test class that match the given regular expression.
 Your input:
@@ -773,9 +773,9 @@ Your input:
 [INFO] Amplification of com.github.mustachejava.InterpreterTest (1 test(s))
 [INFO] Assertion amplification of com.github.mustachejava.InterpreterTest (1 test(s))
 [DEBUG] Starting 15 Services...
-[DEBUG] All Services successfully started, 15 Services in 12ms
+[DEBUG] All Services successfully started, 15 Services in 19ms
 [DEBUG] Creating Cache 'frameworkCache' in EhcacheManager.
-[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@5cff729b
+[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@5122e4bf
 [DEBUG] Could not create serializers for frameworkCache
 org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for type 'eu.stamp_project.test_framework.TestFrameworkSupport'
     at org.ehcache.impl.internal.spi.serialization.DefaultSerializationProvider.getSerializerClassFor (DefaultSerializationProvider.java:136)
@@ -824,8 +824,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
     at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:229)
     at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:415)
     at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:356)
-[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@66e341e9
-[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@5b48f0f4
+[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@34c62fdf
+[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@3de79067
 [DEBUG] Initialize successful.
 [INFO] Cache 'frameworkCache' created in EhcacheManager.
 [DEBUG] Initialize successful.
@@ -873,8 +873,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 5.955 s
-[INFO] Finished at: 2019-04-19T14:57:11+02:00
+[INFO] Total time: 5.506 s
+[INFO] Finished at: 2019-05-01T21:42:28+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.7.4/jackson-dataformat-yaml-2.7.4.jar:/home/spirals/danglot/.m2/repository/org/yaml/snakeyaml/1.15/snakeyaml-1.15.jar:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/classes/:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/tmp_test_sources/com/github/mustachejava/InterpreterTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.7.4/jackson-dataformat-yaml-2.7.4.jar:/home/spirals/danglot/.m2/repository/org/yaml/snakeyaml/1.15/snakeyaml-1.15.jar:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.github.mustachejava.InterpreterTest --tests testIdentitySimple 
@@ -897,18 +897,22 @@ Loading /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.7.4/jackson-dataformat-yaml-2.7.4.jar:/home/spirals/danglot/.m2/repository/org/yaml/snakeyaml/1.15/snakeyaml-1.15.jar:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/classes/:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/tmp_test_sources/com/github/mustachejava/InterpreterTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.7.4/jackson-dataformat-yaml-2.7.4.jar:/home/spirals/danglot/.m2/repository/org/yaml/snakeyaml/1.15/snakeyaml-1.15.jar:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.github.mustachejava.InterpreterTest --tests testIdentitySimple_withlog0:testIdentitySimple_withlog1:testIdentitySimple_withlog2 
 Parsing --class com.github.mustachejava.InterpreterTest --tests testIdentitySimple_withlog0:testIdentitySimple_withlog1:testIdentitySimple_withlog2
+<h2>First Name : firstName</h2> <h2>Last Name : lastName</h2><h2>First Name : firstName 1</h2> <h2>Last Name : lastName 1</h2>File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/observations.ser
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/TestResult.ser
-Loading /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/TestResult.ser
-[INFO] Test has been run: testIdentitySimple_withlog0,testIdentitySimple_withlog1,testIdentitySimple_withlog2
 [WARNING] Something bad happened during assertion amplification
-java.lang.RuntimeException: java.io.FileNotFoundException: target/dspot/observations.ser (No such file or directory)
-	at eu.stamp_project.compare.ObjectLog.load(ObjectLog.java:254)
-	at eu.stamp_project.compare.ObjectLog.getObservations(ObjectLog.java:216)
-	at eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator.addAssertions(MethodsAssertGenerator.java:125)
+java.lang.RuntimeException: Forked process did not finished correctly
+	at eu.stamp_project.testrunner.EntryPoint.runGivenCommandLine(EntryPoint.java:417)
+	at eu.stamp_project.testrunner.EntryPoint.runTests(EntryPoint.java:198)
+	at eu.stamp_project.testrunner.EntryPoint.runTests(EntryPoint.java:193)
+	at eu.stamp_project.testrunner.EntryPoint.runTests(EntryPoint.java:154)
+	at eu.stamp_project.utils.execution.TestRunner.run(TestRunner.java:98)
+	at eu.stamp_project.utils.execution.TestRunner.runGivenTestMethods(TestRunner.java:66)
+	at eu.stamp_project.utils.compilation.TestCompiler.compileAndRun(TestCompiler.java:99)
+	at eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator.addAssertions(MethodsAssertGenerator.java:113)
 	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.innerAssertionAmplification(AssertGenerator.java:132)
 	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.assertionAmplification(AssertGenerator.java:72)
-	at eu.stamp_project.dspot.Amplification.assertionsAmplification(Amplification.java:187)
-	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:96)
+	at eu.stamp_project.dspot.Amplification.assertionsAmplification(Amplification.java:195)
+	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:104)
 	at eu.stamp_project.dspot.DSpot._amplify(DSpot.java:273)
 	at eu.stamp_project.dspot.DSpot.lambda$amplifyTestClassesTestMethods$5(DSpot.java:254)
 	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
@@ -943,15 +947,9 @@ java.lang.RuntimeException: java.io.FileNotFoundException: target/dspot/observat
 	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
 	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
 	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
-Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such file or directory)
-	at java.io.FileInputStream.open0(Native Method)
-	at java.io.FileInputStream.open(FileInputStream.java:195)
-	at java.io.FileInputStream.<init>(FileInputStream.java:138)
-	at eu.stamp_project.compare.ObjectLog.load(ObjectLog.java:246)
-	... 40 more
 
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 13659
+[INFO] elapsedTime 43796
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
@@ -999,8 +997,8 @@ Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 5.258 s
-[INFO] Finished at: 2019-04-19T14:57:24+02:00
+[INFO] Total time: 5.518 s
+[INFO] Finished at: 2019-05-01T21:43:12+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.7.4/jackson-dataformat-yaml-2.7.4.jar:/home/spirals/danglot/.m2/repository/org/yaml/snakeyaml/1.15/snakeyaml-1.15.jar:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/classes/:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/tmp_test_sources/com/github/mustachejava/functions/CommentTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.7.4/jackson-dataformat-yaml-2.7.4.jar:/home/spirals/danglot/.m2/repository/org/yaml/snakeyaml/1.15/snakeyaml-1.15.jar:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.github.mustachejava.functions.CommentTest --tests testInlineCommentWithinExtendCodeBlock 
@@ -1036,16 +1034,16 @@ File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/must
 Loading /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/TestResult.ser
 [INFO] Test has been run: testInlineCommentWithinExtendCodeBlock
 [INFO] Assertion amplification: 1 test method(s) has been successfully amplified.
-[WARN] 2019-04-19 14:57:27 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-19 14:57:27 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-19 14:57:27 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-05-01 21:43:14 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-05-01 21:43:14 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-05-01 21:43:14 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/classes/:/tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/test-classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.7.4/jackson-dataformat-yaml-2.7.4.jar:/home/spirals/danglot/.m2/repository/org/yaml/snakeyaml/1.15/snakeyaml-1.15.jar:/tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.github.mustachejava.functions.CommentTest --tests testInlineCommentWithinExtendCodeBlock 
 Parsing --class com.github.mustachejava.functions.CommentTest --tests testInlineCommentWithinExtendCodeBlock
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/TestResult.ser
 [INFO] Test has been run: testInlineCommentWithinExtendCodeBlock
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 10559
+[INFO] elapsedTime 10414
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
@@ -1093,8 +1091,8 @@ Loading /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 5.713 s
-[INFO] Finished at: 2019-04-19T14:57:35+02:00
+[INFO] Total time: 5.565 s
+[INFO] Finished at: 2019-05-01T21:43:23+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.7.4/jackson-dataformat-yaml-2.7.4.jar:/home/spirals/danglot/.m2/repository/org/yaml/snakeyaml/1.15/snakeyaml-1.15.jar:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/classes/:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/tmp_test_sources/com/github/mustachejava/ExtensionTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.7.4/jackson-dataformat-yaml-2.7.4.jar:/home/spirals/danglot/.m2/repository/org/yaml/snakeyaml/1.15/snakeyaml-1.15.jar:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.github.mustachejava.ExtensionTest --tests testSubBlockCaching:testMultipleExtensions:testSub 
@@ -1130,16 +1128,16 @@ File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/must
 Loading /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/TestResult.ser
 [INFO] Test has been run: testSub,testSubBlockCaching,testMultipleExtensions
 [INFO] Assertion amplification: 3 test method(s) has been successfully amplified.
-[WARN] 2019-04-19 14:57:38 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-19 14:57:38 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-19 14:57:38 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-05-01 21:43:26 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-05-01 21:43:26 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-05-01 21:43:26 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/classes/:/tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/test-classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.7.4/jackson-dataformat-yaml-2.7.4.jar:/home/spirals/danglot/.m2/repository/org/yaml/snakeyaml/1.15/snakeyaml-1.15.jar:/tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.github.mustachejava.ExtensionTest --tests testSubBlockCaching:testMultipleExtensions:testSub 
 Parsing --class com.github.mustachejava.ExtensionTest --tests testSubBlockCaching:testMultipleExtensions:testSub
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/TestResult.ser
 [INFO] Test has been run: testSub,testSubBlockCaching,testMultipleExtensions
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 11281
+[INFO] elapsedTime 10991
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
@@ -1187,8 +1185,8 @@ Loading /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 5.787 s
-[INFO] Finished at: 2019-04-19T14:57:47+02:00
+[INFO] Total time: 5.465 s
+[INFO] Finished at: 2019-05-01T21:43:34+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.7.4/jackson-dataformat-yaml-2.7.4.jar:/home/spirals/danglot/.m2/repository/org/yaml/snakeyaml/1.15/snakeyaml-1.15.jar:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/classes/:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/tmp_test_sources/com/github/mustachejava/resolver/ClasspathResolverTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.7.4/jackson-dataformat-yaml-2.7.4.jar:/home/spirals/danglot/.m2/repository/org/yaml/snakeyaml/1.15/snakeyaml-1.15.jar:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.github.mustachejava.resolver.ClasspathResolverTest --tests getReaderNullRootDoesNotFindFileWithAbsolutePath:getReaderWithRootThatHasTrailingForwardSlashAndResourceHasAbsolutePath 
@@ -1226,16 +1224,16 @@ File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/must
 Loading /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/TestResult.ser
 [INFO] Test has been run: getReaderNullRootDoesNotFindFileWithAbsolutePath
 [INFO] Assertion amplification: 1 test method(s) has been successfully amplified.
-[WARN] 2019-04-19 14:57:49 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-19 14:57:49 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-19 14:57:49 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-05-01 21:43:36 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-05-01 21:43:36 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-05-01 21:43:36 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/classes/:/tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/test-classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.7.4/jackson-dataformat-yaml-2.7.4.jar:/home/spirals/danglot/.m2/repository/org/yaml/snakeyaml/1.15/snakeyaml-1.15.jar:/tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.github.mustachejava.resolver.ClasspathResolverTest --tests getReaderNullRootDoesNotFindFileWithAbsolutePath 
 Parsing --class com.github.mustachejava.resolver.ClasspathResolverTest --tests getReaderNullRootDoesNotFindFileWithAbsolutePath
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/TestResult.ser
 [INFO] Test has been run: getReaderNullRootDoesNotFindFileWithAbsolutePath
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 10886
+[INFO] elapsedTime 10088
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
@@ -1283,8 +1281,8 @@ Loading /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 5.538 s
-[INFO] Finished at: 2019-04-19T14:57:58+02:00
+[INFO] Total time: 5.473 s
+[INFO] Finished at: 2019-05-01T21:43:44+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.7.4/jackson-dataformat-yaml-2.7.4.jar:/home/spirals/danglot/.m2/repository/org/yaml/snakeyaml/1.15/snakeyaml-1.15.jar:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/classes/:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/tmp_test_sources/com/github/mustachejava/functions/BundleFunctionsTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.7.4/jackson-dataformat-yaml-2.7.4.jar:/home/spirals/danglot/.m2/repository/org/yaml/snakeyaml/1.15/snakeyaml-1.15.jar:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.github.mustachejava.functions.BundleFunctionsTest --tests testPostNullLabels:testPostLabels 
@@ -1320,16 +1318,16 @@ File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/must
 Loading /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/TestResult.ser
 [INFO] Test has been run: testPostNullLabels,testPostLabels
 [INFO] Assertion amplification: 2 test method(s) has been successfully amplified.
-[WARN] 2019-04-19 14:58:00 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-19 14:58:00 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-19 14:58:00 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-05-01 21:43:47 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-05-01 21:43:47 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-05-01 21:43:47 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/classes/:/tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/test-classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.7.4/jackson-dataformat-yaml-2.7.4.jar:/home/spirals/danglot/.m2/repository/org/yaml/snakeyaml/1.15/snakeyaml-1.15.jar:/tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.github.mustachejava.functions.BundleFunctionsTest --tests testPostNullLabels:testPostLabels 
 Parsing --class com.github.mustachejava.functions.BundleFunctionsTest --tests testPostNullLabels:testPostLabels
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/TestResult.ser
 [INFO] Test has been run: testPostNullLabels,testPostLabels
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 10736
+[INFO] elapsedTime 10442
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
@@ -1377,8 +1375,8 @@ Loading /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 5.852 s
-[INFO] Finished at: 2019-04-19T14:58:09+02:00
+[INFO] Total time: 5.517 s
+[INFO] Finished at: 2019-05-01T21:43:55+02:00
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.7.4/jackson-dataformat-yaml-2.7.4.jar:/home/spirals/danglot/.m2/repository/org/yaml/snakeyaml/1.15/snakeyaml-1.15.jar:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/classes/:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/tmp_test_sources/com/github/mustachejava/MultipleRecursivePartialsTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.7.4/jackson-dataformat-yaml-2.7.4.jar:/home/spirals/danglot/.m2/repository/org/yaml/snakeyaml/1.15/snakeyaml-1.15.jar:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.github.mustachejava.MultipleRecursivePartialsTest --tests shouldHandleTemplateWithMultipleRecursivePartials 
@@ -1414,21 +1412,21 @@ File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/must
 Loading /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/TestResult.ser
 [INFO] Test has been run: shouldHandleTemplateWithMultipleRecursivePartials
 [INFO] Assertion amplification: 1 test method(s) has been successfully amplified.
-[WARN] 2019-04-19 14:58:11 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-19 14:58:11 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-19 14:58:11 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-05-01 21:43:57 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-05-01 21:43:57 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-05-01 21:43:57 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/classes/:/tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/test-classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar:/home/spirals/danglot/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.7.4/jackson-dataformat-yaml-2.7.4.jar:/home/spirals/danglot/.m2/repository/org/yaml/snakeyaml/1.15/snakeyaml-1.15.jar:/tmp/dspot-experiments/dataset/april-2019/mustache.java/compiler/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.github.mustachejava.MultipleRecursivePartialsTest --tests shouldHandleTemplateWithMultipleRecursivePartials 
 Parsing --class com.github.mustachejava.MultipleRecursivePartialsTest --tests shouldHandleTemplateWithMultipleRecursivePartials
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/TestResult.ser
 [INFO] Test has been run: shouldHandleTemplateWithMultipleRecursivePartials
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 11001
+[INFO] elapsedTime 10336
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
 [INFO] Amplification succeed.
-[INFO] Elapsed time 70616 ms
+[INFO] Elapsed time 98629 ms
 [INFO] 
 0 amplified test fails on the new versions.
 0 amplified test fails on the new versions.
@@ -1443,14 +1441,19 @@ Could not find any test class that match the given regular expression.
 Your input:
 	com.github.mustachejavabenchmarks.simple.SimpleJsonInterpreterTest
 Something bad happened during assertion amplification
-java.lang.RuntimeException: java.io.FileNotFoundException: target/dspot/observations.ser (No such file or directory)
-	at eu.stamp_project.compare.ObjectLog.load(ObjectLog.java:254)
-	at eu.stamp_project.compare.ObjectLog.getObservations(ObjectLog.java:216)
-	at eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator.addAssertions(MethodsAssertGenerator.java:125)
+java.lang.RuntimeException: Forked process did not finished correctly
+	at eu.stamp_project.testrunner.EntryPoint.runGivenCommandLine(EntryPoint.java:417)
+	at eu.stamp_project.testrunner.EntryPoint.runTests(EntryPoint.java:198)
+	at eu.stamp_project.testrunner.EntryPoint.runTests(EntryPoint.java:193)
+	at eu.stamp_project.testrunner.EntryPoint.runTests(EntryPoint.java:154)
+	at eu.stamp_project.utils.execution.TestRunner.run(TestRunner.java:98)
+	at eu.stamp_project.utils.execution.TestRunner.runGivenTestMethods(TestRunner.java:66)
+	at eu.stamp_project.utils.compilation.TestCompiler.compileAndRun(TestCompiler.java:99)
+	at eu.stamp_project.dspot.assertgenerator.MethodsAssertGenerator.addAssertions(MethodsAssertGenerator.java:113)
 	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.innerAssertionAmplification(AssertGenerator.java:132)
 	at eu.stamp_project.dspot.assertgenerator.AssertGenerator.assertionAmplification(AssertGenerator.java:72)
-	at eu.stamp_project.dspot.Amplification.assertionsAmplification(Amplification.java:187)
-	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:96)
+	at eu.stamp_project.dspot.Amplification.assertionsAmplification(Amplification.java:195)
+	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:104)
 	at eu.stamp_project.dspot.DSpot._amplify(DSpot.java:273)
 	at eu.stamp_project.dspot.DSpot.lambda$amplifyTestClassesTestMethods$5(DSpot.java:254)
 	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
@@ -1485,17 +1488,11 @@ java.lang.RuntimeException: java.io.FileNotFoundException: target/dspot/observat
 	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
 	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
 	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
-Caused by: java.io.FileNotFoundException: target/dspot/observations.ser (No such file or directory)
-	at java.io.FileInputStream.open0(Native Method)
-	at java.io.FileInputStream.open(FileInputStream.java:195)
-	at java.io.FileInputStream.<init>(FileInputStream.java:138)
-	at eu.stamp_project.compare.ObjectLog.load(ObjectLog.java:246)
-	... 40 more
 
 [INFO] The amplification ends up with 0 amplified test methods over 0 test classes.
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 01:26 min
-[INFO] Finished at: 2019-04-19T14:58:12+02:00
+[INFO] Total time: 01:54 min
+[INFO] Finished at: 2019-05-01T21:43:58+02:00
 [INFO] ------------------------------------------------------------------------
