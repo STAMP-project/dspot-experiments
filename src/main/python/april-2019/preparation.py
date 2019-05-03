@@ -120,7 +120,7 @@ reduce_number_of_test = {
     'commons-lang': [2],
     'gson': [0, 9],
     'xwiki-commons': [1,2,4],
-    'jsoup': [1,5],
+    'jsoup': [1,5,6],
     'mustache.java': [0,1],
 }
 
