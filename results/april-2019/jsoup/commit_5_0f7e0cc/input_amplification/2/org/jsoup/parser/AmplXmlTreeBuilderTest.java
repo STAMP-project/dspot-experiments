@@ -33,217 +33,39 @@ public class AmplXmlTreeBuilderTest {
     }
 
     @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_literalMutationString2603_failAssert0_literalMutationString2924_failAssert0() throws IOException, URISyntaxException {
+    public void testDetectCharsetEncodingDeclaration_literalMutationString2099_failAssert0_add2636_failAssert0() throws IOException, URISyntaxException {
         try {
             {
                 File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
                 InputStream inStream = new FileInputStream(xmlFile);
                 Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
                 doc.charset().name();
+                doc.html();
                 TextUtil.stripNewlines(doc.html());
-                org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString2603 should have thrown NullPointerException");
+                org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString2099 should have thrown FileNotFoundException");
             }
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString2603_failAssert0_literalMutationString2924 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString2099_failAssert0_add2636 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_add2614_add3031() throws IOException, URISyntaxException {
-        XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml");
-        URI o_testDetectCharsetEncodingDeclaration_add2614_add3031__2 = XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI();
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).getRawAuthority());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).getRawUserInfo());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).getRawQuery());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).getRawFragment());
-        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).toString());
-        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).hashCode())));
-        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).isAbsolute());
-        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).isOpaque());
-        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).getScheme());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).getAuthority());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).getFragment());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).getQuery());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).getHost());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).getUserInfo());
-        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).getPort())));
-        File xmlFile = new File(XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI());
-        InputStream inStream = new FileInputStream(xmlFile);
-        Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
-        String o_testDetectCharsetEncodingDeclaration_add2614__11 = doc.charset().name();
-        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_add2614__11);
-        String o_testDetectCharsetEncodingDeclaration_add2614__13 = TextUtil.stripNewlines(doc.html());
-        Assert.assertEquals("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?> <data>\u00e4\u00f6\u00e5\u00e9\u00fc</data>", o_testDetectCharsetEncodingDeclaration_add2614__13);
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).getRawAuthority());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).getRawUserInfo());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).getRawQuery());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).getRawFragment());
-        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).toString());
-        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).hashCode())));
-        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).isAbsolute());
-        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).isOpaque());
-        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).getScheme());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).getAuthority());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).getFragment());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).getQuery());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).getHost());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).getUserInfo());
-        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add2614_add3031__2)).getPort())));
-        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_add2614__11);
-    }
-
-    @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_add2614_literalMutationString2756_failAssert0() throws IOException, URISyntaxException {
+    public void testDetectCharsetEncodingDeclaration_literalMutationString2099_failAssert0() throws IOException, URISyntaxException {
         try {
-            XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml");
             File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
             InputStream inStream = new FileInputStream(xmlFile);
             Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
-            String o_testDetectCharsetEncodingDeclaration_add2614__11 = doc.charset().name();
-            String o_testDetectCharsetEncodingDeclaration_add2614__13 = TextUtil.stripNewlines(doc.html());
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_add2614_literalMutationString2756 should have thrown FileNotFoundException");
+            doc.charset().name();
+            TextUtil.stripNewlines(doc.html());
+            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString2099 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_literalMutationString2601_failAssert0_add3152_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                XmlTreeBuilder.class.getResource("");
-                File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                InputStream inStream = new FileInputStream(xmlFile);
-                Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
-                doc.charset().name();
-                TextUtil.stripNewlines(doc.html());
-                org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString2601 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString2601_failAssert0_add3152 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclarationnull2622_literalMutationString2768_failAssert0() throws IOException, URISyntaxException {
-        try {
-            File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-            InputStream inStream = new FileInputStream(xmlFile);
-            Document doc = Jsoup.parse(null, null, "http://example.com/", Parser.xmlParser());
-            String o_testDetectCharsetEncodingDeclarationnull2622__10 = doc.charset().name();
-            String o_testDetectCharsetEncodingDeclarationnull2622__12 = TextUtil.stripNewlines(doc.html());
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclarationnull2622_literalMutationString2768 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_literalMutationString2601_failAssert0_add3151_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                XmlTreeBuilder.class.getResource("").toURI();
-                File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                InputStream inStream = new FileInputStream(xmlFile);
-                Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
-                doc.charset().name();
-                TextUtil.stripNewlines(doc.html());
-                org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString2601 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString2601_failAssert0_add3151 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_add2615_failAssert0_literalMutationString2849_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                InputStream inStream = new FileInputStream(xmlFile);
-                Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
-                Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
-                doc.charset().name();
-                TextUtil.stripNewlines(doc.html());
-                org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_add2615 should have thrown IOException");
-            }
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_add2615_failAssert0_literalMutationString2849 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_literalMutationString2601_failAssert0_add3157_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                InputStream inStream = new FileInputStream(xmlFile);
-                Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
-                doc.charset().name();
-                TextUtil.stripNewlines(doc.html());
-                TextUtil.stripNewlines(doc.html());
-                org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString2601 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString2601_failAssert0_add3157 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_literalMutationString2601_failAssert0_literalMutationString2919_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                InputStream inStream = new FileInputStream(xmlFile);
-                Document doc = Jsoup.parse(inStream, null, "<span>Hello <div>there</div> <span>now</span></span>", Parser.xmlParser());
-                doc.charset().name();
-                TextUtil.stripNewlines(doc.html());
-                org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString2601 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString2601_failAssert0_literalMutationString2919 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_literalMutationString2601_failAssert0_literalMutationString2915_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                InputStream inStream = new FileInputStream(xmlFile);
-                Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
-                doc.charset().name();
-                TextUtil.stripNewlines(doc.html());
-                org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString2601 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString2601_failAssert0_literalMutationString2915 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_literalMutationString2612_literalMutationString2780_failAssert0() throws IOException, URISyntaxException {
-        try {
-            File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-            InputStream inStream = new FileInputStream(xmlFile);
-            Document doc = Jsoup.parse(inStream, null, "!!ae!4RGY8qNLy_wg:W", Parser.xmlParser());
-            String o_testDetectCharsetEncodingDeclaration_literalMutationString2612__10 = doc.charset().name();
-            String o_testDetectCharsetEncodingDeclaration_literalMutationString2612__12 = TextUtil.stripNewlines(doc.html());
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString2612_literalMutationString2780 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_literalMutationString2601_failAssert0null3239_failAssert0() throws IOException, URISyntaxException {
+    public void testDetectCharsetEncodingDeclarationnull2121_failAssert0_literalMutationString2440_failAssert0() throws IOException, URISyntaxException {
         try {
             {
                 File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
@@ -251,76 +73,119 @@ public class AmplXmlTreeBuilderTest {
                 Document doc = Jsoup.parse(inStream, null, null, Parser.xmlParser());
                 doc.charset().name();
                 TextUtil.stripNewlines(doc.html());
-                org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString2601 should have thrown FileNotFoundException");
+                org.junit.Assert.fail("testDetectCharsetEncodingDeclarationnull2121 should have thrown IllegalArgumentException");
             }
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString2601_failAssert0null3239 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testDetectCharsetEncodingDeclarationnull2121_failAssert0_literalMutationString2440 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_literalMutationString2601_failAssert0_literalMutationString2922_failAssert0() throws IOException, URISyntaxException {
+    public void testDetectCharsetEncodingDeclaration_add2111() throws IOException, URISyntaxException {
+        URI o_testDetectCharsetEncodingDeclaration_add2111__1 = XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI();
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).toString());
+        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).getScheme());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).getFragment());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).getQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).getHost());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).getPort())));
+        File xmlFile = new File(XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI());
+        InputStream inStream = new FileInputStream(xmlFile);
+        Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
+        String o_testDetectCharsetEncodingDeclaration_add2111__12 = doc.charset().name();
+        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_add2111__12);
+        String o_testDetectCharsetEncodingDeclaration_add2111__14 = TextUtil.stripNewlines(doc.html());
+        Assert.assertEquals("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?> <data>\u00e4\u00f6\u00e5\u00e9\u00fc</data>", o_testDetectCharsetEncodingDeclaration_add2111__14);
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).toString());
+        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).getScheme());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).getFragment());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).getQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).getHost());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add2111__1)).getPort())));
+        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_add2111__12);
+    }
+
+    @Test(timeout = 10000)
+    public void testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454() throws IOException, URISyntaxException {
+        URI o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1 = XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI();
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).toString());
+        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).getScheme());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).getFragment());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).getQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).getHost());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).getPort())));
+        File xmlFile = new File(XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI());
+        InputStream inStream = new FileInputStream(xmlFile);
+        Document doc = Jsoup.parse(inStream, null, "<span>Hello <div>there</div> <span>now</span></span>", Parser.xmlParser());
+        String o_testDetectCharsetEncodingDeclaration_literalMutationString2106__10 = doc.charset().name();
+        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_literalMutationString2106__10);
+        String o_testDetectCharsetEncodingDeclaration_literalMutationString2106__12 = TextUtil.stripNewlines(doc.html());
+        Assert.assertEquals("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?> <data>\u00e4\u00f6\u00e5\u00e9\u00fc</data>", o_testDetectCharsetEncodingDeclaration_literalMutationString2106__12);
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).toString());
+        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).getScheme());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).getFragment());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).getQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).getHost());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2106_add2454__1)).getPort())));
+        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_literalMutationString2106__10);
+    }
+
+    @Test(timeout = 10000)
+    public void testDetectCharsetEncodingDeclaration_literalMutationString2100_failAssert0_literalMutationString2359_failAssert0() throws IOException, URISyntaxException {
         try {
             {
                 File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
                 InputStream inStream = new FileInputStream(xmlFile);
-                Document doc = Jsoup.parse(inStream, null, "UnGueO>/=$MBt28i4{<", Parser.xmlParser());
+                Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
                 doc.charset().name();
                 TextUtil.stripNewlines(doc.html());
-                org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString2601 should have thrown FileNotFoundException");
+                org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString2100 should have thrown NullPointerException");
             }
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString2601_failAssert0_literalMutationString2922 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString2100_failAssert0_literalMutationString2359 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_add2613() throws IOException, URISyntaxException {
-        URI o_testDetectCharsetEncodingDeclaration_add2613__1 = XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI();
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).getRawAuthority());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).getRawUserInfo());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).getRawQuery());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).getRawFragment());
-        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).toString());
-        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).hashCode())));
-        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).isAbsolute());
-        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).isOpaque());
-        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).getScheme());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).getAuthority());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).getFragment());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).getQuery());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).getHost());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).getUserInfo());
-        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).getPort())));
-        File xmlFile = new File(XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI());
-        InputStream inStream = new FileInputStream(xmlFile);
-        Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
-        String o_testDetectCharsetEncodingDeclaration_add2613__12 = doc.charset().name();
-        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_add2613__12);
-        String o_testDetectCharsetEncodingDeclaration_add2613__14 = TextUtil.stripNewlines(doc.html());
-        Assert.assertEquals("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?> <data>\u00e4\u00f6\u00e5\u00e9\u00fc</data>", o_testDetectCharsetEncodingDeclaration_add2613__14);
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).getRawAuthority());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).getRawUserInfo());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).getRawQuery());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).getRawFragment());
-        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).toString());
-        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).hashCode())));
-        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).isAbsolute());
-        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).isOpaque());
-        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).getScheme());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).getAuthority());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).getFragment());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).getQuery());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).getHost());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).getUserInfo());
-        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add2613__1)).getPort())));
-        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_add2613__12);
-    }
-
-    @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_literalMutationString2601_failAssert0null3238_failAssert0() throws IOException, URISyntaxException {
+    public void testDetectCharsetEncodingDeclaration_literalMutationString2099_failAssert0null2730_failAssert0() throws IOException, URISyntaxException {
         try {
             {
                 File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
@@ -328,118 +193,98 @@ public class AmplXmlTreeBuilderTest {
                 Document doc = Jsoup.parse(null, null, "http://example.com/", Parser.xmlParser());
                 doc.charset().name();
                 TextUtil.stripNewlines(doc.html());
-                org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString2601 should have thrown FileNotFoundException");
+                org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString2099 should have thrown FileNotFoundException");
             }
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString2601_failAssert0null3238 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString2099_failAssert0null2730 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_add2617_add3001() throws IOException, URISyntaxException {
-        URI o_testDetectCharsetEncodingDeclaration_add2617_add3001__1 = XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI();
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).getRawAuthority());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).getRawUserInfo());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).getRawQuery());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).getRawFragment());
-        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).toString());
-        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).hashCode())));
-        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).isAbsolute());
-        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).isOpaque());
-        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).getScheme());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).getAuthority());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).getFragment());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).getQuery());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).getHost());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).getUserInfo());
-        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).getPort())));
+    public void testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478() throws IOException, URISyntaxException {
+        URI o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1 = XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI();
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).toString());
+        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).getScheme());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).getFragment());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).getQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).getHost());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).getPort())));
         File xmlFile = new File(XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI());
         InputStream inStream = new FileInputStream(xmlFile);
-        Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
-        String o_testDetectCharsetEncodingDeclaration_add2617__10 = doc.charset().name();
-        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_add2617__10);
-        String o_testDetectCharsetEncodingDeclaration_add2617__12 = doc.charset().name();
-        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_add2617__12);
-        String o_testDetectCharsetEncodingDeclaration_add2617__14 = TextUtil.stripNewlines(doc.html());
-        Assert.assertEquals("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?> <data>\u00e4\u00f6\u00e5\u00e9\u00fc</data>", o_testDetectCharsetEncodingDeclaration_add2617__14);
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).getRawAuthority());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).getRawUserInfo());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).getRawQuery());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).getRawFragment());
-        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).toString());
-        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).hashCode())));
-        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).isAbsolute());
-        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).isOpaque());
-        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).getScheme());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).getAuthority());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).getFragment());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).getQuery());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).getHost());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).getUserInfo());
-        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add2617_add3001__1)).getPort())));
-        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_add2617__10);
-        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_add2617__12);
+        Document doc = Jsoup.parse(inStream, null, "J?h:2eIe3f#nF5KI9,s", Parser.xmlParser());
+        String o_testDetectCharsetEncodingDeclaration_literalMutationString2107__10 = doc.charset().name();
+        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_literalMutationString2107__10);
+        String o_testDetectCharsetEncodingDeclaration_literalMutationString2107__12 = TextUtil.stripNewlines(doc.html());
+        Assert.assertEquals("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?> <data>\u00e4\u00f6\u00e5\u00e9\u00fc</data>", o_testDetectCharsetEncodingDeclaration_literalMutationString2107__12);
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).toString());
+        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).getScheme());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).getFragment());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).getQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).getHost());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString2107_add2478__1)).getPort())));
+        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_literalMutationString2107__10);
     }
 
     @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_literalMutationString2601_failAssert0() throws IOException, URISyntaxException {
-        try {
-            File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-            InputStream inStream = new FileInputStream(xmlFile);
-            Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
-            doc.charset().name();
-            TextUtil.stripNewlines(doc.html());
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString2601 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_add2620_add3011() throws IOException, URISyntaxException {
-        URI o_testDetectCharsetEncodingDeclaration_add2620_add3011__1 = XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI();
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).getRawAuthority());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).getRawUserInfo());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).getRawQuery());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).getRawFragment());
-        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).toString());
-        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).hashCode())));
-        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).isAbsolute());
-        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).isOpaque());
-        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).getScheme());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).getAuthority());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).getFragment());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).getQuery());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).getHost());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).getUserInfo());
-        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).getPort())));
+    public void testDetectCharsetEncodingDeclarationnull2120_add2585() throws IOException, URISyntaxException {
+        URI o_testDetectCharsetEncodingDeclarationnull2120_add2585__1 = XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI();
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).toString());
+        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).getScheme());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).getFragment());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).getQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).getHost());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).getPort())));
         File xmlFile = new File(XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI());
         InputStream inStream = new FileInputStream(xmlFile);
-        Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
-        String o_testDetectCharsetEncodingDeclaration_add2620__10 = doc.charset().name();
-        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_add2620__10);
-        String o_testDetectCharsetEncodingDeclaration_add2620__12 = doc.html();
-        Assert.assertEquals("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?> \n<data>\u00e4\u00f6\u00e5\u00e9\u00fc</data>", o_testDetectCharsetEncodingDeclaration_add2620__12);
-        String o_testDetectCharsetEncodingDeclaration_add2620__13 = TextUtil.stripNewlines(doc.html());
-        Assert.assertEquals("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?> <data>\u00e4\u00f6\u00e5\u00e9\u00fc</data>", o_testDetectCharsetEncodingDeclaration_add2620__13);
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).getRawAuthority());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).getRawUserInfo());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).getRawQuery());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).getRawFragment());
-        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).toString());
-        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).hashCode())));
-        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).isAbsolute());
-        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).isOpaque());
-        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).getScheme());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).getAuthority());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).getFragment());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).getQuery());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).getHost());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).getUserInfo());
-        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add2620_add3011__1)).getPort())));
-        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_add2620__10);
-        Assert.assertEquals("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?> \n<data>\u00e4\u00f6\u00e5\u00e9\u00fc</data>", o_testDetectCharsetEncodingDeclaration_add2620__12);
+        Document doc = Jsoup.parse(null, null, "http://example.com/", Parser.xmlParser());
+        String o_testDetectCharsetEncodingDeclarationnull2120__10 = doc.charset().name();
+        Assert.assertEquals("UTF-8", o_testDetectCharsetEncodingDeclarationnull2120__10);
+        String o_testDetectCharsetEncodingDeclarationnull2120__12 = TextUtil.stripNewlines(doc.html());
+        Assert.assertEquals("", o_testDetectCharsetEncodingDeclarationnull2120__12);
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).toString());
+        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).getScheme());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).getFragment());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).getQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).getHost());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclarationnull2120_add2585__1)).getPort())));
+        Assert.assertEquals("UTF-8", o_testDetectCharsetEncodingDeclarationnull2120__10);
     }
 }
 

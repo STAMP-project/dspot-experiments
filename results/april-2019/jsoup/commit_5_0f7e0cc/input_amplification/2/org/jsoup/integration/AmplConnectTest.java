@@ -116,7 +116,7 @@ public class AmplConnectTest {
     }
 
     @Test(timeout = 10000)
-    public void postFiles_literalMutationString20424_failAssert0() throws IOException {
+    public void postFiles_literalMutationString19541_failAssert0() throws IOException {
         try {
             File thumb = ParseTest.getFile("");
             File html = ParseTest.getFile("/htmltests/google-ipod.html");
@@ -133,31 +133,89 @@ public class AmplConnectTest {
             AmplConnectTest.ihVal("firstname", res);
             AmplConnectTest.ihVal("surname", res);
 
-            org.junit.Assert.fail("postFiles_literalMutationString20424 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("postFiles_literalMutationString19541 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void postFiles_literalMutationString20430_failAssert0() throws IOException {
+    public void postFiles_literalMutationString19541_failAssert0_add32696_failAssert0() throws IOException {
         try {
-            File thumb = ParseTest.getFile("/htmltests/thumb.jpg");
-            File html = ParseTest.getFile("");
-            Document res = Jsoup.connect(EchoServlet.Url).data("firstname", "Jay").data("firstPart", thumb.getName(), new FileInputStream(thumb), "image/jpeg").data("secondPart", html.getName(), new FileInputStream(html)).data("surname", "Soup").post();
-            AmplConnectTest.ihVal("Parts", res);
-            AmplConnectTest.ihVal("Part secondPart ContentType", res);
-            AmplConnectTest.ihVal("Part secondPart Name", res);
-            AmplConnectTest.ihVal("Part secondPart Filename", res);
-            AmplConnectTest.ihVal("Part secondPart Size", res);
-            AmplConnectTest.ihVal("Part firstPart ContentType", res);
-            AmplConnectTest.ihVal("Part firstPart Name", res);
-            AmplConnectTest.ihVal("Part firstPart Filename", res);
-            AmplConnectTest.ihVal("Part firstPart Size", res);
-            AmplConnectTest.ihVal("firstname", res);
-            AmplConnectTest.ihVal("surname", res);
+            {
+                File thumb = ParseTest.getFile("");
+                File html = ParseTest.getFile("/htmltests/google-ipod.html");
+                Document res = Jsoup.connect(EchoServlet.Url).data("firstname", "Jay").data("firstPart", thumb.getName(), new FileInputStream(thumb), "image/jpeg").data("secondPart", html.getName(), new FileInputStream(html)).data("surname", "Soup").post();
+                AmplConnectTest.ihVal("Parts", res);
+                AmplConnectTest.ihVal("Part secondPart ContentType", res);
+                AmplConnectTest.ihVal("Part secondPart Name", res);
+                AmplConnectTest.ihVal("Part secondPart Filename", res);
+                AmplConnectTest.ihVal("Part secondPart Size", res);
+                AmplConnectTest.ihVal("Part firstPart ContentType", res);
+                AmplConnectTest.ihVal("Part firstPart Name", res);
+                AmplConnectTest.ihVal("Part firstPart Name", res);
+                AmplConnectTest.ihVal("Part firstPart Filename", res);
+                AmplConnectTest.ihVal("Part firstPart Size", res);
+                AmplConnectTest.ihVal("firstname", res);
+                AmplConnectTest.ihVal("surname", res);
 
-            org.junit.Assert.fail("postFiles_literalMutationString20430 should have thrown FileNotFoundException");
+                org.junit.Assert.fail("postFiles_literalMutationString19541 should have thrown FileNotFoundException");
+            }
+            org.junit.Assert.fail("postFiles_literalMutationString19541_failAssert0_add32696 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void postFiles_literalMutationString19541_failAssert0_literalMutationString25020_failAssert0() throws IOException {
+        try {
+            {
+                File thumb = ParseTest.getFile("");
+                File html = ParseTest.getFile("/htmltests/google-ipod.html");
+                Document res = Jsoup.connect(EchoServlet.Url).data("firstname", "Jay").data("firstPart", thumb.getName(), new FileInputStream(thumb), "image/jpeg").data("secondPart", html.getName(), new FileInputStream(html)).data("surname", "Soup").post();
+                AmplConnectTest.ihVal("Parts", res);
+                AmplConnectTest.ihVal("Part secondPart ContentType", res);
+                AmplConnectTest.ihVal("Part secondPart Name", res);
+                AmplConnectTest.ihVal("Jay", res);
+                AmplConnectTest.ihVal("Part secondPart Size", res);
+                AmplConnectTest.ihVal("Part firstPart ContentType", res);
+                AmplConnectTest.ihVal("Part firstPart Name", res);
+                AmplConnectTest.ihVal("Part firstPart Filename", res);
+                AmplConnectTest.ihVal("Part firstPart Size", res);
+                AmplConnectTest.ihVal("firstname", res);
+                AmplConnectTest.ihVal("surname", res);
+
+                org.junit.Assert.fail("postFiles_literalMutationString19541 should have thrown FileNotFoundException");
+            }
+            org.junit.Assert.fail("postFiles_literalMutationString19541_failAssert0_literalMutationString25020 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void postFiles_literalMutationString19541_failAssert0null35263_failAssert0() throws IOException {
+        try {
+            {
+                File thumb = ParseTest.getFile("");
+                File html = ParseTest.getFile("/htmltests/google-ipod.html");
+                Document res = Jsoup.connect(EchoServlet.Url).data("firstname", "Jay").data("firstPart", thumb.getName(), new FileInputStream(thumb), "image/jpeg").data("secondPart", html.getName(), new FileInputStream(html)).data("surname", "Soup").post();
+                AmplConnectTest.ihVal("Parts", res);
+                AmplConnectTest.ihVal("Part secondPart ContentType", res);
+                AmplConnectTest.ihVal(null, res);
+                AmplConnectTest.ihVal("Part secondPart Filename", res);
+                AmplConnectTest.ihVal("Part secondPart Size", res);
+                AmplConnectTest.ihVal("Part firstPart ContentType", res);
+                AmplConnectTest.ihVal("Part firstPart Name", res);
+                AmplConnectTest.ihVal("Part firstPart Filename", res);
+                AmplConnectTest.ihVal("Part firstPart Size", res);
+                AmplConnectTest.ihVal("firstname", res);
+                AmplConnectTest.ihVal("surname", res);
+
+                org.junit.Assert.fail("postFiles_literalMutationString19541 should have thrown FileNotFoundException");
+            }
+            org.junit.Assert.fail("postFiles_literalMutationString19541_failAssert0null35263 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
