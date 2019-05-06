@@ -23,9 +23,9 @@ public class AmplParseTest {
             Document doc = Jsoup.parse(in, null, "http://www.baidu.com/");
             Element submit = doc.select("#su").first();
             submit.attr("value");
-            submit = doc.select("input[value=????]").first();
+            submit = doc.select("input[value=百度一下]").first();
             submit.id();
-            Element newsLink = doc.select("a:contains(?)").first();
+            Element newsLink = doc.select("a:contains(新)").first();
             newsLink.absUrl("href");
             doc.outputSettings().charset().displayName();
             doc.select("title").outerHtml();
@@ -60,7 +60,7 @@ public class AmplParseTest {
             in = AmplParseTest.getFile("/htmltests/meta-charset-2.html");
             doc = Jsoup.parse(in, null, "http://example.com");
             doc.outputSettings().charset().displayName();
-            "?".equals(doc.text());
+            "新".equals(doc.text());
             in = AmplParseTest.getFile("/htmltests/meta-charset-3.html");
             doc = Jsoup.parse(in, null, "http://example.com/");
             doc.outputSettings().charset().displayName();
@@ -83,7 +83,7 @@ public class AmplParseTest {
             in = AmplParseTest.getFile("/htmltests/meta-charset-2.html");
             doc = Jsoup.parse(in, null, "http://example.com");
             doc.outputSettings().charset().displayName();
-            "?".equals(doc.text());
+            "新".equals(doc.text());
             in = AmplParseTest.getFile("");
             doc = Jsoup.parse(in, null, "http://example.com/");
             doc.outputSettings().charset().displayName();
@@ -106,7 +106,7 @@ public class AmplParseTest {
             in = AmplParseTest.getFile("");
             doc = Jsoup.parse(in, null, "http://example.com");
             doc.outputSettings().charset().displayName();
-            "?".equals(doc.text());
+            "新".equals(doc.text());
             in = AmplParseTest.getFile("/htmltests/meta-charset-3.html");
             doc = Jsoup.parse(in, null, "http://example.com/");
             doc.outputSettings().charset().displayName();
