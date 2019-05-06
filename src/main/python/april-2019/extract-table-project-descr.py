@@ -5,8 +5,8 @@ def build_table(projects):
     print_header()
     gray = False
     for project in projects:
-        json_project = toolbox.get_json_file('dataset/september-2018/' + project)
-        json_project_blacklist = toolbox.get_json_file('dataset/september-2018/' + project + '_blacklist')
+        json_project = toolbox.get_json_file('dataset/april-2019/' + project)
+        json_project_blacklist = toolbox.get_json_file('dataset/april-2019/' + project + '_blacklist')
         nb_discarded = len(json_project_blacklist['blacklist'])
         nb_matching = len(filter(lambda x: x['cause'] == 'NoTestExecuteChanges', json_project_blacklist['blacklist']))
         LOC = json_project['LOC']
