@@ -70,12 +70,12 @@ public class AmplParseTest {
     }
 
     @Test(timeout = 10000)
-    public void testBinary_literalMutationString1930_failAssert0() throws IOException {
+    public void testBinary_literalMutationString1978_failAssert0() throws IOException {
         try {
             File in = AmplParseTest.getFile("");
             Document doc = Jsoup.parse(in, "UTF-8");
             doc.text().contains("gd-jpeg");
-            org.junit.Assert.fail("testBinary_literalMutationString1930 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testBinary_literalMutationString1978 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
@@ -103,9 +103,9 @@ public class AmplParseTest {
             Document doc = Jsoup.parse(in, null, "http://www.baidu.com/");
             Element submit = doc.select("#su").first();
             submit.attr("value");
-            submit = doc.select("input[value=????]").first();
+            submit = doc.select("input[value=百度一下]").first();
             submit.id();
-            Element newsLink = doc.select("a:contains(?)").first();
+            Element newsLink = doc.select("a:contains(新)").first();
             newsLink.absUrl("href");
             doc.outputSettings().charset().displayName();
             doc.select("title").outerHtml();
@@ -140,7 +140,7 @@ public class AmplParseTest {
             in = AmplParseTest.getFile("");
             doc = Jsoup.parse(in, null, "http://example.com");
             doc.outputSettings().charset().displayName();
-            "?".equals(doc.text());
+            "新".equals(doc.text());
             in = AmplParseTest.getFile("/htmltests/meta-charset-3.html");
             doc = Jsoup.parse(in, null, "http://example.com/");
             doc.outputSettings().charset().displayName();
@@ -163,7 +163,7 @@ public class AmplParseTest {
             in = AmplParseTest.getFile("/htmltests/meta-charset-2.html");
             doc = Jsoup.parse(in, null, "http://example.com");
             doc.outputSettings().charset().displayName();
-            "?".equals(doc.text());
+            "新".equals(doc.text());
             in = AmplParseTest.getFile("/htmltests/meta-charset-3.html");
             doc = Jsoup.parse(in, null, "http://example.com/");
             doc.outputSettings().charset().displayName();
@@ -186,7 +186,7 @@ public class AmplParseTest {
             in = AmplParseTest.getFile("/htmltests/meta-charset-2.html");
             doc = Jsoup.parse(in, null, "http://example.com");
             doc.outputSettings().charset().displayName();
-            "?".equals(doc.text());
+            "新".equals(doc.text());
             in = AmplParseTest.getFile("");
             doc = Jsoup.parse(in, null, "http://example.com/");
             doc.outputSettings().charset().displayName();
@@ -200,13 +200,13 @@ public class AmplParseTest {
     }
 
     @Test(timeout = 10000)
-    public void testNytArticle_literalMutationString1839_failAssert0() throws IOException {
+    public void testNytArticle_literalMutationString1887_failAssert0() throws IOException {
         try {
             File in = AmplParseTest.getFile("");
             Document doc = Jsoup.parse(in, null, "http://www.nytimes.com/2010/07/26/business/global/26bp.html?hp");
             Element headline = doc.select("nyt_headline[version=1.0]").first();
             headline.text();
-            org.junit.Assert.fail("testNytArticle_literalMutationString1839 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testNytArticle_literalMutationString1887 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
