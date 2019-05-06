@@ -167,8 +167,8 @@ public class AmplJsonInterpreterTest extends TestCase {
 
     public void testIssue191_literalMutationString1015() throws IOException {
         MustacheFactory mustacheFactory = createMustacheFactory();
-        TestCase.assertEquals(100, ((int) (((DefaultMustacheFactory) (mustacheFactory)).getRecursionLimit())));
         TestCase.assertNull(((DefaultMustacheFactory) (mustacheFactory)).getExecutorService());
+        TestCase.assertEquals(100, ((int) (((DefaultMustacheFactory) (mustacheFactory)).getRecursionLimit())));
         Mustache mustache = mustacheFactory.compile("");
         TestCase.assertFalse(((DefaultMustache) (mustache)).isRecursive());
         TestCase.assertEquals("", ((DefaultMustache) (mustache)).getName());
@@ -179,8 +179,8 @@ public class AmplJsonInterpreterTest extends TestCase {
         String o_testIssue191_literalMutationString1015__9 = TestUtil.getContents(this.root, "templates/someTemplate.txt");
         TestCase.assertEquals("<!DOCTYPE html>\n<html>\n<head>\n    <title>Some title!</title>\n</head>\n<body>\n<h1>This is mustacheee</h1>", o_testIssue191_literalMutationString1015__9);
         stringWriter.toString();
-        TestCase.assertEquals(100, ((int) (((DefaultMustacheFactory) (mustacheFactory)).getRecursionLimit())));
         TestCase.assertNull(((DefaultMustacheFactory) (mustacheFactory)).getExecutorService());
+        TestCase.assertEquals(100, ((int) (((DefaultMustacheFactory) (mustacheFactory)).getRecursionLimit())));
         TestCase.assertFalse(((DefaultMustache) (mustache)).isRecursive());
         TestCase.assertEquals("", ((DefaultMustache) (mustache)).getName());
         TestCase.assertEquals("box.html\nclassloader.html\nclient.html\nclient.txt\ncom\ncompiletest.mustache\ncomplex.html\ncomplex.txt\ndiv.html\nfallback\nfdbcli.mustache\nfdbcli.txt\nfdbcli2.mustache\nfdbcli2.txt\nfdbcli3.mustache\nfdbcli3.txt\nfollow.html\nfollownomenu.html\nfollownomenu.txt\nfunctions\nhogan.json\nmain.html\nmethod.html\nmultiple_recursive_partials.html\nmultipleextensions.html\nmultipleextensions.txt\nnested_inheritance.html\nnested_inheritance.txt\nnested_partials_template.html\noverrideextension.html\nparentreplace.html\npartialintemplatefunction.html\npartialsub.html\npartialsubpartial.html\npartialsubpartial.txt\npartialsuper.html\npath\npretranslate.html\npsauxwww.mustache\npsauxwww.txt\nrelative\nreplace.html\nreplace.txt\nsinglereplace.html\nspec\nsub.html\nsub.txt\nsubblockchild1.html\nsubblockchild1.txt\nsubblockchild2.html\nsubblockchild2.txt\nsubblocksuper.html\nsubsub.html\nsubsub.txt\nsubsubchild1.html\nsubsubchild1.txt\nsubsubchild2.html\nsubsubchild2.txt\nsubsubchild3.html\nsubsubchild3.txt\nsubsubmiddle.html\nsubsubsuper.html\nsuper.html\ntemplate.html\ntemplate.mustache\ntemplates_filepath\ntemplates.jar\ntoomany.html\ntweetbox.html\nuninterestingpartial.html\n", ((StringBuffer) (((StringWriter) (o_testIssue191_literalMutationString1015__7)).getBuffer())).toString());
