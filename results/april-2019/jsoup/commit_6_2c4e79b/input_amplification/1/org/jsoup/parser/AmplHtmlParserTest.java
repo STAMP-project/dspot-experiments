@@ -34,9 +34,9 @@ public class AmplHtmlParserTest {
             String rendered = doc.toString();
             int endOfEmail = rendered.indexOf("Comment");
             int guarantee = rendered.indexOf("Why am I here?");
-            boolean boolean_87 = endOfEmail > (-1);
-            boolean boolean_88 = guarantee > (-1);
-            boolean boolean_89 = guarantee > endOfEmail;
+            boolean boolean_72 = endOfEmail > (-1);
+            boolean boolean_73 = guarantee > (-1);
+            boolean boolean_74 = guarantee > endOfEmail;
             org.junit.Assert.fail("testInvalidTableContents_literalMutationString114 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
@@ -51,7 +51,7 @@ public class AmplHtmlParserTest {
             doc.outputSettings().prettyPrint(true);
             Elements templates = doc.body().getElementsByTag("template");
             for (Element template : templates) {
-                boolean boolean_26 = (template.childNodes().size()) > 1;
+                boolean boolean_22 = (template.childNodes().size()) > 1;
             }
             org.junit.Assert.fail("testTemplateInsideTable_literalMutationString1 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {

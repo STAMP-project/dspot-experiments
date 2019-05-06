@@ -30,93 +30,31 @@ public class AmplDataUtilTest {
     }
 
     @Test(timeout = 10000)
-    public void supportsBOMinFiles_literalMutationString95_failAssert0() throws IOException {
-        try {
-            File in = ParseTest.getFile("/bomtests/bom_utf16be.html");
-            Document doc = Jsoup.parse(in, null, "http://example.com");
-            doc.title().contains("UTF-16BE");
-            doc.text().contains("??????");
-            in = ParseTest.getFile("");
-            doc = Jsoup.parse(in, null, "http://example.com");
-            doc.title().contains("UTF-16LE");
-            doc.text().contains("??????");
-            doc.text().contains("??????");
-            in = ParseTest.getFile("/bomtests/bom_utf32be.html");
-            doc = Jsoup.parse(in, null, "http://example.com");
-            doc.title().contains("UTF-32BE");
-            doc.text().contains("??????");
-            doc.text().contains("??????");
-            doc.text().contains("??????");
-            in = ParseTest.getFile("/bomtests/bom_utf32le.html");
-            doc = Jsoup.parse(in, null, "http://example.com");
-            doc.title().contains("UTF-32LE");
-            doc.text().contains("??????");
-            doc.text().contains("??????");
-            doc.text().contains("??????");
-            doc.text().contains("??????");
-            org.junit.Assert.fail("supportsBOMinFiles_literalMutationString95 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
     public void supportsBOMinFiles_literalMutationString73_failAssert0() throws IOException {
         try {
             File in = ParseTest.getFile("");
             Document doc = Jsoup.parse(in, null, "http://example.com");
             doc.title().contains("UTF-16BE");
-            doc.text().contains("??????");
+            doc.text().contains("가각갂갃간갅");
             in = ParseTest.getFile("/bomtests/bom_utf16le.html");
             doc = Jsoup.parse(in, null, "http://example.com");
             doc.title().contains("UTF-16LE");
-            doc.text().contains("??????");
-            doc.text().contains("??????");
+            doc.text().contains("가각갂갃간갅");
+            doc.text().contains("가각갂갃간갅");
             in = ParseTest.getFile("/bomtests/bom_utf32be.html");
             doc = Jsoup.parse(in, null, "http://example.com");
             doc.title().contains("UTF-32BE");
-            doc.text().contains("??????");
-            doc.text().contains("??????");
-            doc.text().contains("??????");
+            doc.text().contains("가각갂갃간갅");
+            doc.text().contains("가각갂갃간갅");
+            doc.text().contains("가각갂갃간갅");
             in = ParseTest.getFile("/bomtests/bom_utf32le.html");
             doc = Jsoup.parse(in, null, "http://example.com");
             doc.title().contains("UTF-32LE");
-            doc.text().contains("??????");
-            doc.text().contains("??????");
-            doc.text().contains("??????");
-            doc.text().contains("??????");
+            doc.text().contains("가각갂갃간갅");
+            doc.text().contains("가각갂갃간갅");
+            doc.text().contains("가각갂갃간갅");
+            doc.text().contains("가각갂갃간갅");
             org.junit.Assert.fail("supportsBOMinFiles_literalMutationString73 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void supportsBOMinFiles_literalMutationString143_failAssert0() throws IOException {
-        try {
-            File in = ParseTest.getFile("/bomtests/bom_utf16be.html");
-            Document doc = Jsoup.parse(in, null, "http://example.com");
-            doc.title().contains("UTF-16BE");
-            doc.text().contains("??????");
-            in = ParseTest.getFile("/bomtests/bom_utf16le.html");
-            doc = Jsoup.parse(in, null, "http://example.com");
-            doc.title().contains("UTF-16LE");
-            doc.text().contains("??????");
-            doc.text().contains("??????");
-            in = ParseTest.getFile("/bomtests/bom_utf32be.html");
-            doc = Jsoup.parse(in, null, "http://example.com");
-            doc.title().contains("UTF-32BE");
-            doc.text().contains("??????");
-            doc.text().contains("??????");
-            doc.text().contains("??????");
-            in = ParseTest.getFile("");
-            doc = Jsoup.parse(in, null, "http://example.com");
-            doc.title().contains("UTF-32LE");
-            doc.text().contains("??????");
-            doc.text().contains("??????");
-            doc.text().contains("??????");
-            doc.text().contains("??????");
-            org.junit.Assert.fail("supportsBOMinFiles_literalMutationString143 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
@@ -128,25 +66,25 @@ public class AmplDataUtilTest {
             File in = ParseTest.getFile("/bomtests/bom_utf16be.html");
             Document doc = Jsoup.parse(in, null, "http://example.com");
             doc.title().contains("UTF-16BE");
-            doc.text().contains("??????");
+            doc.text().contains("가각갂갃간갅");
             in = ParseTest.getFile("/bomtests/bom_utf16le.html");
             doc = Jsoup.parse(in, null, "http://example.com");
             doc.title().contains("UTF-16LE");
-            doc.text().contains("??????");
-            doc.text().contains("??????");
+            doc.text().contains("가각갂갃간갅");
+            doc.text().contains("가각갂갃간갅");
             in = ParseTest.getFile("");
             doc = Jsoup.parse(in, null, "http://example.com");
             doc.title().contains("UTF-32BE");
-            doc.text().contains("??????");
-            doc.text().contains("??????");
-            doc.text().contains("??????");
+            doc.text().contains("가각갂갃간갅");
+            doc.text().contains("가각갂갃간갅");
+            doc.text().contains("가각갂갃간갅");
             in = ParseTest.getFile("/bomtests/bom_utf32le.html");
             doc = Jsoup.parse(in, null, "http://example.com");
             doc.title().contains("UTF-32LE");
-            doc.text().contains("??????");
-            doc.text().contains("??????");
-            doc.text().contains("??????");
-            doc.text().contains("??????");
+            doc.text().contains("가각갂갃간갅");
+            doc.text().contains("가각갂갃간갅");
+            doc.text().contains("가각갂갃간갅");
+            doc.text().contains("가각갂갃간갅");
             org.junit.Assert.fail("supportsBOMinFiles_literalMutationString119 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());

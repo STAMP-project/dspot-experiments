@@ -14,30 +14,7 @@ import org.w3c.dom.Node;
 
 public class AmplW3CDomTest {
     @Test(timeout = 10000)
-    public void convertsGoogle_literalMutationString2363_failAssert0_add6514_failAssert0() throws IOException {
-        try {
-            {
-                File in = ParseTest.getFile("");
-                Document doc = Jsoup.parse(in, "UTF8");
-                W3CDom w3c = new W3CDom();
-                org.w3c.dom.Document wDoc = w3c.fromJsoup(doc);
-                wDoc.getChildNodes().item(0);
-                Node htmlEl = wDoc.getChildNodes().item(0);
-                htmlEl.getNamespaceURI();
-                htmlEl.getLocalName();
-                htmlEl.getNodeName();
-                String out = w3c.asString(wDoc);
-                out.contains("ipod");
-                org.junit.Assert.fail("convertsGoogle_literalMutationString2363 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("convertsGoogle_literalMutationString2363_failAssert0_add6514 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void convertsGoogle_literalMutationString2363_failAssert0() throws IOException {
+    public void convertsGoogle_literalMutationString2153_failAssert0() throws IOException {
         try {
             File in = ParseTest.getFile("");
             Document doc = Jsoup.parse(in, "UTF8");
@@ -49,48 +26,7 @@ public class AmplW3CDomTest {
             htmlEl.getNodeName();
             String out = w3c.asString(wDoc);
             out.contains("ipod");
-            org.junit.Assert.fail("convertsGoogle_literalMutationString2363 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void convertsGoogle_literalMutationString2363_failAssert0_literalMutationString3282_failAssert0() throws IOException {
-        try {
-            {
-                File in = ParseTest.getFile("");
-                Document doc = Jsoup.parse(in, "}TF8");
-                W3CDom w3c = new W3CDom();
-                org.w3c.dom.Document wDoc = w3c.fromJsoup(doc);
-                Node htmlEl = wDoc.getChildNodes().item(0);
-                htmlEl.getNamespaceURI();
-                htmlEl.getLocalName();
-                htmlEl.getNodeName();
-                String out = w3c.asString(wDoc);
-                out.contains("ipod");
-                org.junit.Assert.fail("convertsGoogle_literalMutationString2363 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("convertsGoogle_literalMutationString2363_failAssert0_literalMutationString3282 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void convertsGoogle_literalMutationString2380_literalMutationString2597_failAssert0() throws IOException {
-        try {
-            File in = ParseTest.getFile("");
-            Document doc = Jsoup.parse(in, "UTF8");
-            W3CDom w3c = new W3CDom();
-            org.w3c.dom.Document wDoc = w3c.fromJsoup(doc);
-            Node htmlEl = wDoc.getChildNodes().item(0);
-            htmlEl.getNamespaceURI();
-            htmlEl.getLocalName();
-            htmlEl.getNodeName();
-            String out = w3c.asString(wDoc);
-            boolean o_convertsGoogle_literalMutationString2380__17 = out.contains("  ");
-            org.junit.Assert.fail("convertsGoogle_literalMutationString2380_literalMutationString2597 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("convertsGoogle_literalMutationString2153 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
@@ -113,7 +49,7 @@ public class AmplW3CDomTest {
     }
 
     @Test(timeout = 10000)
-    public void convertsGoogleLocation_literalMutationString1_failAssert0_add1765_failAssert0() throws IOException {
+    public void convertsGoogleLocation_literalMutationString4_failAssert0_literalMutationString299_failAssert0() throws IOException {
         try {
             {
                 File in = ParseTest.getFile("");
@@ -123,20 +59,20 @@ public class AmplW3CDomTest {
                 String out = w3c.asString(wDoc);
                 doc.location();
                 wDoc.getDocumentURI();
-                org.junit.Assert.fail("convertsGoogleLocation_literalMutationString1 should have thrown FileNotFoundException");
+                org.junit.Assert.fail("convertsGoogleLocation_literalMutationString4 should have thrown NullPointerException");
             }
-            org.junit.Assert.fail("convertsGoogleLocation_literalMutationString1_failAssert0_add1765 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("convertsGoogleLocation_literalMutationString4_failAssert0_literalMutationString299 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void convertsGoogleLocation_literalMutationString1_failAssert0_literalMutationString264_failAssert0() throws IOException {
+    public void convertsGoogleLocation_literalMutationString1_failAssert0_literalMutationString232_failAssert0() throws IOException {
         try {
             {
                 File in = ParseTest.getFile("");
-                Document doc = Jsoup.parse(in, "");
+                Document doc = Jsoup.parse(in, "HTF8");
                 W3CDom w3c = new W3CDom();
                 org.w3c.dom.Document wDoc = w3c.fromJsoup(doc);
                 String out = w3c.asString(wDoc);
@@ -144,95 +80,18 @@ public class AmplW3CDomTest {
                 wDoc.getDocumentURI();
                 org.junit.Assert.fail("convertsGoogleLocation_literalMutationString1 should have thrown FileNotFoundException");
             }
-            org.junit.Assert.fail("convertsGoogleLocation_literalMutationString1_failAssert0_literalMutationString264 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("convertsGoogleLocation_literalMutationString1_failAssert0_literalMutationString232 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void convertsGoogleLocation_literalMutationString1_failAssert0_add1762_failAssert0() throws IOException {
+    public void convertsGoogleLocation_literalMutationString1_failAssert0_literalMutationString229_failAssert0() throws IOException {
         try {
             {
                 File in = ParseTest.getFile("");
-                Document doc = Jsoup.parse(in, "UTF8");
-                W3CDom w3c = new W3CDom();
-                org.w3c.dom.Document wDoc = w3c.fromJsoup(doc);
-                w3c.asString(wDoc);
-                String out = w3c.asString(wDoc);
-                doc.location();
-                wDoc.getDocumentURI();
-                org.junit.Assert.fail("convertsGoogleLocation_literalMutationString1 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("convertsGoogleLocation_literalMutationString1_failAssert0_add1762 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void convertsGoogleLocation_add13_literalMutationString113_failAssert0() throws IOException {
-        try {
-            ParseTest.getFile("/htmltests/google-ipod.html");
-            File in = ParseTest.getFile("");
-            Document doc = Jsoup.parse(in, "UTF8");
-            W3CDom w3c = new W3CDom();
-            org.w3c.dom.Document wDoc = w3c.fromJsoup(doc);
-            String out = w3c.asString(wDoc);
-            doc.location();
-            wDoc.getDocumentURI();
-            org.junit.Assert.fail("convertsGoogleLocation_add13_literalMutationString113 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void convertsGoogleLocation_literalMutationString1_failAssert0_add1763_failAssert0() throws IOException {
-        try {
-            {
-                File in = ParseTest.getFile("");
-                Document doc = Jsoup.parse(in, "UTF8");
-                W3CDom w3c = new W3CDom();
-                org.w3c.dom.Document wDoc = w3c.fromJsoup(doc);
-                String out = w3c.asString(wDoc);
-                doc.location();
-                doc.location();
-                wDoc.getDocumentURI();
-                org.junit.Assert.fail("convertsGoogleLocation_literalMutationString1 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("convertsGoogleLocation_literalMutationString1_failAssert0_add1763 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void convertsGoogleLocation_literalMutationString1_failAssert0_add1761_failAssert0() throws IOException {
-        try {
-            {
-                File in = ParseTest.getFile("");
-                Document doc = Jsoup.parse(in, "UTF8");
-                W3CDom w3c = new W3CDom();
-                w3c.fromJsoup(doc);
-                org.w3c.dom.Document wDoc = w3c.fromJsoup(doc);
-                String out = w3c.asString(wDoc);
-                doc.location();
-                wDoc.getDocumentURI();
-                org.junit.Assert.fail("convertsGoogleLocation_literalMutationString1 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("convertsGoogleLocation_literalMutationString1_failAssert0_add1761 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void convertsGoogleLocation_literalMutationString1_failAssert0_literalMutationString268_failAssert0() throws IOException {
-        try {
-            {
-                File in = ParseTest.getFile("");
-                Document doc = Jsoup.parse(in, "J$%X");
+                Document doc = Jsoup.parse(in, "UF8");
                 W3CDom w3c = new W3CDom();
                 org.w3c.dom.Document wDoc = w3c.fromJsoup(doc);
                 String out = w3c.asString(wDoc);
@@ -240,104 +99,14 @@ public class AmplW3CDomTest {
                 wDoc.getDocumentURI();
                 org.junit.Assert.fail("convertsGoogleLocation_literalMutationString1 should have thrown FileNotFoundException");
             }
-            org.junit.Assert.fail("convertsGoogleLocation_literalMutationString1_failAssert0_literalMutationString268 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("convertsGoogleLocation_literalMutationString1_failAssert0_literalMutationString229 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void convertsGoogleLocation_literalMutationString3_failAssert0_literalMutationString318_failAssert0() throws IOException {
-        try {
-            {
-                File in = ParseTest.getFile("");
-                Document doc = Jsoup.parse(in, "UTF8");
-                W3CDom w3c = new W3CDom();
-                org.w3c.dom.Document wDoc = w3c.fromJsoup(doc);
-                String out = w3c.asString(wDoc);
-                doc.location();
-                wDoc.getDocumentURI();
-                org.junit.Assert.fail("convertsGoogleLocation_literalMutationString3 should have thrown NullPointerException");
-            }
-            org.junit.Assert.fail("convertsGoogleLocation_literalMutationString3_failAssert0_literalMutationString318 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void convertsGoogleLocation_literalMutationString1_failAssert0null1905_failAssert0() throws IOException {
-        try {
-            {
-                File in = ParseTest.getFile("");
-                Document doc = Jsoup.parse(in, "UTF8");
-                W3CDom w3c = new W3CDom();
-                org.w3c.dom.Document wDoc = w3c.fromJsoup(doc);
-                String out = w3c.asString(null);
-                doc.location();
-                wDoc.getDocumentURI();
-                org.junit.Assert.fail("convertsGoogleLocation_literalMutationString1 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("convertsGoogleLocation_literalMutationString1_failAssert0null1905 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void convertsGoogleLocation_literalMutationString2_failAssert0_literalMutationString197_failAssert0() throws IOException {
-        try {
-            {
-                File in = ParseTest.getFile("");
-                Document doc = Jsoup.parse(in, "UTF8");
-                W3CDom w3c = new W3CDom();
-                org.w3c.dom.Document wDoc = w3c.fromJsoup(doc);
-                String out = w3c.asString(wDoc);
-                doc.location();
-                wDoc.getDocumentURI();
-                org.junit.Assert.fail("convertsGoogleLocation_literalMutationString2 should have thrown NullPointerException");
-            }
-            org.junit.Assert.fail("convertsGoogleLocation_literalMutationString2_failAssert0_literalMutationString197 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void convertsGoogleLocationnull23_literalMutationString84_failAssert0() throws IOException {
-        try {
-            File in = ParseTest.getFile("");
-            Document doc = Jsoup.parse(in, "UTF8");
-            W3CDom w3c = new W3CDom();
-            org.w3c.dom.Document wDoc = w3c.fromJsoup(doc);
-            String out = w3c.asString(null);
-            doc.location();
-            wDoc.getDocumentURI();
-            org.junit.Assert.fail("convertsGoogleLocationnull23_literalMutationString84 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void convertsGoogleLocation_add15_literalMutationString156_failAssert0() throws IOException {
-        try {
-            File in = ParseTest.getFile("");
-            Document doc = Jsoup.parse(in, "UTF8");
-            W3CDom w3c = new W3CDom();
-            org.w3c.dom.Document o_convertsGoogleLocation_add15__7 = w3c.fromJsoup(doc);
-            org.w3c.dom.Document wDoc = w3c.fromJsoup(doc);
-            String out = w3c.asString(wDoc);
-            doc.location();
-            wDoc.getDocumentURI();
-            org.junit.Assert.fail("convertsGoogleLocation_add15_literalMutationString156 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void convertsGoogleLocation_literalMutationString1_failAssert0null1903_failAssert0() throws IOException {
+    public void convertsGoogleLocation_literalMutationString1_failAssert0null1885_failAssert0() throws IOException {
         try {
             {
                 File in = ParseTest.getFile("");
@@ -349,14 +118,110 @@ public class AmplW3CDomTest {
                 wDoc.getDocumentURI();
                 org.junit.Assert.fail("convertsGoogleLocation_literalMutationString1 should have thrown FileNotFoundException");
             }
-            org.junit.Assert.fail("convertsGoogleLocation_literalMutationString1_failAssert0null1903 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("convertsGoogleLocation_literalMutationString1_failAssert0null1885 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void namespacePreservation_literalMutationString7297_failAssert0() throws IOException {
+    public void convertsGoogleLocation_literalMutationString1_failAssert0_add1732_failAssert0() throws IOException {
+        try {
+            {
+                File in = ParseTest.getFile("");
+                Jsoup.parse(in, "UTF8");
+                Document doc = Jsoup.parse(in, "UTF8");
+                W3CDom w3c = new W3CDom();
+                org.w3c.dom.Document wDoc = w3c.fromJsoup(doc);
+                String out = w3c.asString(wDoc);
+                doc.location();
+                wDoc.getDocumentURI();
+                org.junit.Assert.fail("convertsGoogleLocation_literalMutationString1 should have thrown FileNotFoundException");
+            }
+            org.junit.Assert.fail("convertsGoogleLocation_literalMutationString1_failAssert0_add1732 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void convertsGoogleLocation_literalMutationString1_failAssert0null1887_failAssert0() throws IOException {
+        try {
+            {
+                File in = ParseTest.getFile("");
+                Document doc = Jsoup.parse(in, "UTF8");
+                W3CDom w3c = new W3CDom();
+                org.w3c.dom.Document wDoc = w3c.fromJsoup(doc);
+                String out = w3c.asString(null);
+                doc.location();
+                wDoc.getDocumentURI();
+                org.junit.Assert.fail("convertsGoogleLocation_literalMutationString1 should have thrown FileNotFoundException");
+            }
+            org.junit.Assert.fail("convertsGoogleLocation_literalMutationString1_failAssert0null1887 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void convertsGoogleLocation_literalMutationString8_failAssert0_literalMutationString180_failAssert0() throws IOException {
+        try {
+            {
+                File in = ParseTest.getFile("");
+                Document doc = Jsoup.parse(in, "  ");
+                W3CDom w3c = new W3CDom();
+                org.w3c.dom.Document wDoc = w3c.fromJsoup(doc);
+                String out = w3c.asString(wDoc);
+                doc.location();
+                wDoc.getDocumentURI();
+                org.junit.Assert.fail("convertsGoogleLocation_literalMutationString8 should have thrown UnsupportedEncodingException");
+            }
+            org.junit.Assert.fail("convertsGoogleLocation_literalMutationString8_failAssert0_literalMutationString180 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void convertsGoogleLocation_literalMutationString3_failAssert0_literalMutationString275_failAssert0() throws IOException {
+        try {
+            {
+                File in = ParseTest.getFile("");
+                Document doc = Jsoup.parse(in, "UTF8");
+                W3CDom w3c = new W3CDom();
+                org.w3c.dom.Document wDoc = w3c.fromJsoup(doc);
+                String out = w3c.asString(wDoc);
+                doc.location();
+                wDoc.getDocumentURI();
+                org.junit.Assert.fail("convertsGoogleLocation_literalMutationString3 should have thrown NullPointerException");
+            }
+            org.junit.Assert.fail("convertsGoogleLocation_literalMutationString3_failAssert0_literalMutationString275 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void convertsGoogleLocation_literalMutationString1_failAssert0_add1737_failAssert0() throws IOException {
+        try {
+            {
+                File in = ParseTest.getFile("");
+                Document doc = Jsoup.parse(in, "UTF8");
+                W3CDom w3c = new W3CDom();
+                org.w3c.dom.Document wDoc = w3c.fromJsoup(doc);
+                String out = w3c.asString(wDoc);
+                doc.location();
+                wDoc.getDocumentURI();
+                org.junit.Assert.fail("convertsGoogleLocation_literalMutationString1 should have thrown FileNotFoundException");
+            }
+            org.junit.Assert.fail("convertsGoogleLocation_literalMutationString1_failAssert0_add1737 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void namespacePreservation_literalMutationString6842_failAssert0() throws IOException {
         try {
             File in = ParseTest.getFile("");
             Document jsoupDoc;
@@ -402,7 +267,7 @@ public class AmplW3CDomTest {
             img.getNamespaceURI();
             img.getLocalName();
             img.getNodeName();
-            org.junit.Assert.fail("namespacePreservation_literalMutationString7297 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("namespacePreservation_literalMutationString6842 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
