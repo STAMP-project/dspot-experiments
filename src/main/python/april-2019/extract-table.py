@@ -158,6 +158,8 @@ def print_line(id,
 
 
 def convert_date(date):
+    if date == "":
+        return "TODO"
     splitted_date = date.split('/')
     return '/'.join([splitted_date[0], splitted_date[1], splitted_date[2][2:4]])
 
@@ -229,6 +231,8 @@ def is_success(path_to_mode_result):
 
 def get_nb_test_amplified(path_to_mode_result):
     nb_test_amplified = 0
+    if not os.path.isfile(path_to_mode_result + 'report.txt'):
+        return nb_test_amplified
     with open(path_to_mode_result + 'report.txt') as report_file:
         lines = report_file.read()
         for line in lines.split('\n'):

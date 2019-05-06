@@ -36,7 +36,7 @@ public class CountModifiedTest extends AbstractRepositoryAndGit {
      * @param project path to the root folder of the git repository (must have .git folder)
      */
     public CountModifiedTest(String project) {
-        super("september-2018/dataset/" + project);
+        super("dataset/april-2019/" + project);
         this.project = project;
     }
 
@@ -45,14 +45,14 @@ public class CountModifiedTest extends AbstractRepositoryAndGit {
     private String module;
 
     public void run() {
-        final String pathToJson = "september-2018/dataset/" + project + ".json";
+        final String pathToJson = "dataset/april-2019/" + project + ".json";
         final Gson gson = new GsonBuilder().setPrettyPrinting().create();
         if (new File(pathToJson).exists()) {
             try {
                 HashSet<CtMethod<?>> tests = new HashSet<>();
                 this.projectJSON = gson.fromJson(new FileReader(pathToJson), ProjectJSON.class);
                 final RepositoriesSetter repositoriesSetter = new RepositoriesSetter(this.pathToRootFolder, projectJSON);
-                for (int i = 1 ; i < 2 ; i++) {
+                for (int i = 0 ; i < 10 ; i++) {
                     final CommitJSON commitjson = this.projectJSON.commits.get(i);
                     repositoriesSetter.setUpForGivenCommit(commitjson);
                     this.module = commitjson.concernedModule;
@@ -71,14 +71,19 @@ public class CountModifiedTest extends AbstractRepositoryAndGit {
                             f1 = new File("empty");
                             f2 = new File(this.pathToRootFolder + "/" + oldPath);
                         }
-                        final Diff compare = new AstComparator().compare(f1, f2);
-                        for (Operation allOperation : compare.getAllOperations()) {
-                            if (allOperation.getDstNode() != null) {
-                                addParentIfTest(allOperation.getDstNode(), tests);
+                        try {
+                            final Diff compare = new AstComparator().compare(f1, f2);
+                            for (Operation allOperation : compare.getAllOperations()) {
+                                if (allOperation.getDstNode() != null) {
+                                    addParentIfTest(allOperation.getDstNode(), tests);
+                                }
+                                if (allOperation.getSrcNode() != null) {
+                                    addParentIfTest(allOperation.getSrcNode(), tests);
+                                }
                             }
-                            if (allOperation.getSrcNode() != null) {
-                                addParentIfTest(allOperation.getSrcNode(), tests);
-                            }
+                        }
+                        catch (NullPointerException e) {
+
                         }
                     }
                     commitjson.nbModifiedTest = tests.size();

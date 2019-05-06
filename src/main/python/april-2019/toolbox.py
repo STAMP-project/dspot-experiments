@@ -27,10 +27,10 @@ name_of_csv_with_list_of_test_that_execute_the_changes = "testsThatExecuteTheCha
 projects = [
     'commons-io',
     'commons-lang',
-    #'gson',
-    #'jsoup',
-    #'pdfbox',
-    #'xwiki-commons'
+    'gson',
+    'jsoup',
+    'mustache.java',
+    'xwiki-commons'
 ]
 
 new_projects = [

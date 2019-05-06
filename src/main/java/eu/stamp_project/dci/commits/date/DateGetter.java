@@ -34,12 +34,12 @@ public class DateGetter extends AbstractRepositoryAndGit {
      * @param project path to the root folder of the git repository (must have .git folder)
      */
     public DateGetter(String project) {
-        super("september-2018/dataset/" + project);
+        super("dataset/april-2019/" + project);
         this.project = project;
     }
 
     public void run() {
-        final String pathToJson = "september-2018/dataset/" + project + ".json";
+        final String pathToJson = "dataset/april-2019/" + project + ".json";
         final Gson gson = new GsonBuilder().setPrettyPrinting().create();
         if (new File(pathToJson).exists()) {
             try {
