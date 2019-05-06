@@ -113,6 +113,8 @@ def add_needed_options(cmd, project, commit_index):
     if project in reduce_number_of_test:
         if commit_index in reduce_number_of_test[project]:
             cmd.append('-Dmax-test-amplified=100')
+    if project == 'jsoup' or project == 'mustache.java':
+        cmd.append('-Dmax-test-amplified=100')
     return cmd
 
 reduce_number_of_test = {
@@ -120,8 +122,6 @@ reduce_number_of_test = {
     'commons-lang': [2],
     'gson': [0, 9],
     'xwiki-commons': [1,2,4],
-    'jsoup': [1,5,6],
-    'mustache.java': [0,1],
 }
 
 
