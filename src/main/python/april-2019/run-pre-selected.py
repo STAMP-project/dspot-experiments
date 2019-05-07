@@ -47,7 +47,8 @@ def run(project, index_begin, index_end, amplifiers, iteration):
             "-Dpath-to-second-version=" + path_to_concerned_module,
             "-Dgenerate-new-test-class=true",
             "-Dclean=true",
-            "-Dworking-directory=true"
+            "-Dmax-test-amplified=100'",
+            "-Dworking-directory=true",
             "-X"
         ]
 

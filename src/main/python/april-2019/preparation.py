@@ -110,19 +110,7 @@ def set_true_include_test_roots(project):
 def add_needed_options(cmd, project, commit_index):
     if project == "xwiki-commons":
         cmd.append("-Duse-maven-to-exe-test=true")
-    if project in reduce_number_of_test:
-        if commit_index in reduce_number_of_test[project]:
-            cmd.append('-Dmax-test-amplified=100')
-    if project == 'jsoup' or project == 'mustache.java':
-        cmd.append('-Dmax-test-amplified=100')
     return cmd
-
-reduce_number_of_test = {
-    'commons-io': [5,6],
-    'commons-lang': [2],
-    'gson': [0, 9],
-    'xwiki-commons': [1,2,4],
-}
 
 
 if __name__ == '__main__':
