@@ -47,6 +47,7 @@ def run(project, index_begin, index_end, amplifiers):
             "-Dpath-to-second-version=" + path_to_concerned_module,
             "-Dgenerate-new-test-class=true",
             "-Dclean=true",
+            "-Dbudgetizer=TextualDistanceBudgetizer"
             "-X"
         ]
 
