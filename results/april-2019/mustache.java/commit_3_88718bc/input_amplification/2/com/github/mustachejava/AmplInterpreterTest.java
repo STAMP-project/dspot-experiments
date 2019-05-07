@@ -148,149 +148,22 @@ public class AmplInterpreterTest extends TestCase {
         return accessTrackingMap;
     }
 
-    public void testInvalidDelimiters_add13_failAssert0_add283_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    createMustacheFactory();
-                    createMustacheFactory();
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_add13 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_add13_failAssert0_add283 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString9_failAssert0_literalMutationString92_failAssert0() throws Exception {
+    public void testInvalidDelimiters_literalMutationString11_failAssert0null298_failAssert0() throws Exception {
         try {
             {
                 {
                     MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "tstHnvalidDelimiters");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString9 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString9_failAssert0_literalMutationString92 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[tstHnvalidDelimiters:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString11_failAssert0_add258_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "tstInvalidDelimiters");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString11 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString11_failAssert0_add258 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[tstInvalidDelimiters:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString11_failAssert0_add256_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    createMustacheFactory();
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "tstInvalidDelimiters");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString11 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString11_failAssert0_add256 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[tstInvalidDelimiters:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString7_failAssert0_literalMutationString147_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "page1.txt");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7_failAssert0_literalMutationString147 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[page1.txt:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString7_failAssert0_add268_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    createMustacheFactory();
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "(q2 5[gpbL[{$QV5:Wz2[");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7_failAssert0_add268 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[(q2 5[gpbL[{$QV5:Wz2[:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_add13_failAssert0_add285_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    createMustacheFactory();
-                    MustacheFactory mf = createMustacheFactory();
-                    mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_add13 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_add13_failAssert0_add285 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString2_failAssert0_literalMutationString152_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolxn}}"), "testInvalidDelimiters");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString2 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString2_failAssert0_literalMutationString152 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_add14_failAssert0null305_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
                     Mustache m = mf.compile(new StringReader("{{=toolong}}"), null);
                 }
-                junit.framework.TestCase.fail("testInvalidDelimiters_add14 should have thrown MustacheException");
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString11 should have thrown MustacheException");
             }
-            junit.framework.TestCase.fail("testInvalidDelimiters_add14_failAssert0null305 should have thrown MustacheException");
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString11_failAssert0null298 should have thrown MustacheException");
         } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
+            TestCase.assertEquals("Invalid delimiter string @[null:1]", expected.getMessage());
         }
     }
 
-    public void testInvalidDelimiters_literalMutationString2_failAssert0null300_failAssert0() throws Exception {
+    public void testInvalidDelimiters_literalMutationString2_failAssert0null303_failAssert0() throws Exception {
         try {
             {
                 {
@@ -299,102 +172,101 @@ public class AmplInterpreterTest extends TestCase {
                 }
                 junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString2 should have thrown MustacheException");
             }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString2_failAssert0null300 should have thrown MustacheException");
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString2_failAssert0null303 should have thrown MustacheException");
         } catch (MustacheException expected) {
             TestCase.assertEquals("Invalid delimiter string @[null:1]", expected.getMessage());
         }
     }
 
-    public void testInvalidDelimiters_literalMutationString12_failAssert0_add262_failAssert0() throws Exception {
+    public void testInvalidDelimiters_literalMutationString5_failAssert0_literalMutationString226_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=tool*ng}}"), "o-9M/^zOCxu?!rIXp5pNO");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString5 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString5_failAssert0_literalMutationString226 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[o-9M/^zOCxu?!rIXp5pNO:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString2_failAssert0_literalMutationString199_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=toolon}}"), "");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString2 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString2_failAssert0_literalMutationString199 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString7_failAssert0_literalMutationString187_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7_failAssert0_literalMutationString187 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString8_failAssert0_add276_failAssert0() throws Exception {
         try {
             {
                 {
                     createMustacheFactory();
                     MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testInvalidDe,limiters");
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "");
                 }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString12 should have thrown MustacheException");
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString8 should have thrown MustacheException");
             }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString12_failAssert0_add262 should have thrown MustacheException");
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString8_failAssert0_add276 should have thrown MustacheException");
         } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[testInvalidDe,limiters:1]", expected.getMessage());
+            TestCase.assertEquals("Invalid delimiter string @[:1]", expected.getMessage());
         }
     }
 
-    public void testInvalidDelimiters_literalMutationString11_failAssert0null295_failAssert0() throws Exception {
+    public void testInvalidDelimiters_literalMutationString5_failAssert0null305_failAssert0() throws Exception {
         try {
             {
                 {
                     MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), null);
+                    Mustache m = mf.compile(new StringReader("{{=tool*ng}}"), null);
                 }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString11 should have thrown MustacheException");
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString5 should have thrown MustacheException");
             }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString11_failAssert0null295 should have thrown MustacheException");
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString5_failAssert0null305 should have thrown MustacheException");
         } catch (MustacheException expected) {
             TestCase.assertEquals("Invalid delimiter string @[null:1]", expected.getMessage());
         }
     }
 
-    public void testInvalidDelimiters_literalMutationString2_failAssert0_literalMutationString159_failAssert0() throws Exception {
+    public void testInvalidDelimiters_literalMutationString8_failAssert0_add277_failAssert0() throws Exception {
         try {
             {
                 {
                     MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolon}}"), "testInvalidrelimiters");
+                    mf.compile(new StringReader("{{=toolong}}"), "");
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "");
                 }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString2 should have thrown MustacheException");
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString8 should have thrown MustacheException");
             }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString2_failAssert0_literalMutationString159 should have thrown MustacheException");
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString8_failAssert0_add277 should have thrown MustacheException");
         } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[testInvalidrelimiters:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString12_failAssert0_add263_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    mf.compile(new StringReader("{{=toolong}}"), "testInvalidDe,limiters");
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testInvalidDe,limiters");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString12 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString12_failAssert0_add263 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[testInvalidDe,limiters:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString7_failAssert0_literalMutationString143_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolong%}}"), "(q2 5[gpbL[{$QV5:Wz2[");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7_failAssert0_literalMutationString143 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[(q2 5[gpbL[{$QV5:Wz2[:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_add14_failAssert0null304_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    mf.compile(new StringReader("{{=toolong}}"), null);
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_add14 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_add14_failAssert0null304 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[null:1]", expected.getMessage());
+            TestCase.assertEquals("Invalid delimiter string @[:1]", expected.getMessage());
         }
     }
 
@@ -411,69 +283,6 @@ public class AmplInterpreterTest extends TestCase {
         }
     }
 
-    public void testInvalidDelimiters_literalMutationString7_failAssert0_add269_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    mf.compile(new StringReader("{{=toolong}}"), "(q2 5[gpbL[{$QV5:Wz2[");
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "(q2 5[gpbL[{$QV5:Wz2[");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7_failAssert0_add269 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[(q2 5[gpbL[{$QV5:Wz2[:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_add14_failAssert0_add290_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_add14 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_add14_failAssert0_add290 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString12_failAssert0_add264_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testInvalidDe,limiters");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString12 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString12_failAssert0_add264 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[testInvalidDe,limiters:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString11_failAssert0_add257_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    mf.compile(new StringReader("{{=toolong}}"), "tstInvalidDelimiters");
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "tstInvalidDelimiters");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString11 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString11_failAssert0_add257 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[tstInvalidDelimiters:1]", expected.getMessage());
-        }
-    }
-
     public void testInvalidDelimiters_failAssert0() throws Exception {
         try {
             {
@@ -483,37 +292,6 @@ public class AmplInterpreterTest extends TestCase {
             junit.framework.TestCase.fail("testInvalidDelimiters should have thrown MustacheException");
         } catch (MustacheException expected) {
             TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString8_failAssert0null298_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), null);
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString8 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString8_failAssert0null298 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[null:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_add14_failAssert0_literalMutationString213_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    mf.compile(new StringReader("{{=toolong}}"), "page1.txt");
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_add14 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_add14_failAssert0_literalMutationString213 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[page1.txt:1]", expected.getMessage());
         }
     }
 
@@ -530,225 +308,39 @@ public class AmplInterpreterTest extends TestCase {
         }
     }
 
-    public void testInvalidDelimiters_literalMutationString5_failAssert0null302_failAssert0() throws Exception {
+    public void testInvalidDelimiters_add13_failAssert0_literalMutationString96_failAssert0() throws Exception {
         try {
             {
                 {
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=tool*ng}}"), null);
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString5 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString5_failAssert0null302 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[null:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString7_failAssert0_literalMutationString148_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "(q2 5[gpbL[{$Q5:Wz2[");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7_failAssert0_literalMutationString148 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[(q2 5[gpbL[{$Q5:Wz2[:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString10_failAssert0_add261_failAssert0() throws Exception {
-        try {
-            {
-                {
+                    createMustacheFactory();
                     MustacheFactory mf = createMustacheFactory();
                     Mustache m = mf.compile(new StringReader("{{=toolong}}"), "page1.txt");
                 }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString10 should have thrown MustacheException");
+                junit.framework.TestCase.fail("testInvalidDelimiters_add13 should have thrown MustacheException");
             }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString10_failAssert0_add261 should have thrown MustacheException");
+            junit.framework.TestCase.fail("testInvalidDelimiters_add13_failAssert0_literalMutationString96 should have thrown MustacheException");
         } catch (MustacheException expected) {
             TestCase.assertEquals("Invalid delimiter string @[page1.txt:1]", expected.getMessage());
         }
     }
 
-    public void testInvalidDelimiters_literalMutationString5_failAssert0_literalMutationString185_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=tool*ng}}"), "Eq_{{l>^r@)C1RND7C-6y");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString5 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString5_failAssert0_literalMutationString185 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[Eq_{{l>^r@)C1RND7C-6y:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString6_failAssert0_add275_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    mf.compile(new StringReader("{{=t}oolong}}"), "testInvalidDelimiters");
-                    Mustache m = mf.compile(new StringReader("{{=t}oolong}}"), "testInvalidDelimiters");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString6 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString6_failAssert0_add275 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString11_failAssert0_literalMutationString99_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolongc}}"), "tstInvalidDelimiters");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString11 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString11_failAssert0_literalMutationString99 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[tstInvalidDelimiters:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString6_failAssert0_add274_failAssert0() throws Exception {
+    public void testInvalidDelimitersnull15_failAssert0_add253_failAssert0() throws Exception {
         try {
             {
                 {
                     createMustacheFactory();
                     MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=t}oolong}}"), "testInvalidDelimiters");
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), null);
                 }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString6 should have thrown MustacheException");
+                junit.framework.TestCase.fail("testInvalidDelimitersnull15 should have thrown MustacheException");
             }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString6_failAssert0_add274 should have thrown MustacheException");
+            junit.framework.TestCase.fail("testInvalidDelimitersnull15_failAssert0_add253 should have thrown MustacheException");
         } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
+            TestCase.assertEquals("Invalid delimiter string @[null:1]", expected.getMessage());
         }
     }
 
-    public void testInvalidDelimiters_add13_failAssert0_literalMutationString203_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    createMustacheFactory();
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "hD9P/&h4]]s%=])JWOM_4");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_add13 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_add13_failAssert0_literalMutationString203 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[hD9P/&h4]]s%=])JWOM_4:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString5_failAssert0_add278_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    mf.compile(new StringReader("{{=tool*ng}}"), "testInvalidDelimiters");
-                    Mustache m = mf.compile(new StringReader("{{=tool*ng}}"), "testInvalidDelimiters");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString5 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString5_failAssert0_add278 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString5_failAssert0_add279_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=tool*ng}}"), "testInvalidDelimiters");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString5 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString5_failAssert0_add279 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString11_failAssert0_literalMutationString105_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "lKC*+{5@T5!^MYU(dM7K");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString11 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString11_failAssert0_literalMutationString105 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[lKC*+{5@T5!^MYU(dM7K:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_add14_failAssert0_add288_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
-                    mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_add14 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_add14_failAssert0_add288 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString5_failAssert0_literalMutationString184_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=tool*ng}}"), "tesLtInvalidDelimiters");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString5 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString5_failAssert0_literalMutationString184 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[tesLtInvalidDelimiters:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_add14_failAssert0_add287_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    createMustacheFactory();
-                    MustacheFactory mf = createMustacheFactory();
-                    mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_add14 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_add14_failAssert0_add287 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimitersnull15_failAssert0_add282_failAssert0() throws Exception {
+    public void testInvalidDelimitersnull15_failAssert0_add255_failAssert0() throws Exception {
         try {
             {
                 {
@@ -757,13 +349,43 @@ public class AmplInterpreterTest extends TestCase {
                 }
                 junit.framework.TestCase.fail("testInvalidDelimitersnull15 should have thrown MustacheException");
             }
-            junit.framework.TestCase.fail("testInvalidDelimitersnull15_failAssert0_add282 should have thrown MustacheException");
+            junit.framework.TestCase.fail("testInvalidDelimitersnull15_failAssert0_add255 should have thrown MustacheException");
         } catch (MustacheException expected) {
             TestCase.assertEquals("Invalid delimiter string @[null:1]", expected.getMessage());
         }
     }
 
-    public void testInvalidDelimitersnull15_failAssert0_add281_failAssert0() throws Exception {
+    public void testInvalidDelimiters_literalMutationString5_failAssert0_literalMutationString223_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=tool*ng}}"), "");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString5 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString5_failAssert0_literalMutationString223 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString5_failAssert0_add290_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=tool*ng}}"), "testInvalidDelimiters");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString5 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString5_failAssert0_add290 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimitersnull15_failAssert0_add254_failAssert0() throws Exception {
         try {
             {
                 {
@@ -773,106 +395,28 @@ public class AmplInterpreterTest extends TestCase {
                 }
                 junit.framework.TestCase.fail("testInvalidDelimitersnull15 should have thrown MustacheException");
             }
-            junit.framework.TestCase.fail("testInvalidDelimitersnull15_failAssert0_add281 should have thrown MustacheException");
+            junit.framework.TestCase.fail("testInvalidDelimitersnull15_failAssert0_add254 should have thrown MustacheException");
         } catch (MustacheException expected) {
             TestCase.assertEquals("Invalid delimiter string @[null:1]", expected.getMessage());
         }
     }
 
-    public void testInvalidDelimiters_literalMutationString7_failAssert0_literalMutationString150_failAssert0() throws Exception {
+    public void testInvalidDelimiters_literalMutationString11_failAssert0_literalMutationString144_failAssert0() throws Exception {
         try {
             {
                 {
                     MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "(q2 5[gpbL[{$QV5u:Wz2[");
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "page1.txt");
                 }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7 should have thrown MustacheException");
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString11 should have thrown MustacheException");
             }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7_failAssert0_literalMutationString150 should have thrown MustacheException");
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString11_failAssert0_literalMutationString144 should have thrown MustacheException");
         } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[(q2 5[gpbL[{$QV5u:Wz2[:1]", expected.getMessage());
+            TestCase.assertEquals("Invalid delimiter string @[page1.txt:1]", expected.getMessage());
         }
     }
 
-    public void testInvalidDelimitersnull15_failAssert0_add280_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    createMustacheFactory();
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), null);
-                }
-                junit.framework.TestCase.fail("testInvalidDelimitersnull15 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimitersnull15_failAssert0_add280 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[null:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString10_failAssert0null296_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), null);
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString10 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString10_failAssert0null296 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[null:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString7_failAssert0_add270_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "(q2 5[gpbL[{$QV5:Wz2[");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7_failAssert0_add270 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[(q2 5[gpbL[{$QV5:Wz2[:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_add13_failAssert0_add286_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    createMustacheFactory();
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_add13 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_add13_failAssert0_add286 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString5_failAssert0_add277_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    createMustacheFactory();
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=tool*ng}}"), "testInvalidDelimiters");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString5 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString5_failAssert0_add277 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString10_failAssert0_add260_failAssert0() throws Exception {
+    public void testInvalidDelimiters_literalMutationString10_failAssert0_add271_failAssert0() throws Exception {
         try {
             {
                 {
@@ -882,13 +426,441 @@ public class AmplInterpreterTest extends TestCase {
                 }
                 junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString10 should have thrown MustacheException");
             }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString10_failAssert0_add260 should have thrown MustacheException");
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString10_failAssert0_add271 should have thrown MustacheException");
         } catch (MustacheException expected) {
             TestCase.assertEquals("Invalid delimiter string @[page1.txt:1]", expected.getMessage());
         }
     }
 
-    public void testInvalidDelimiters_literalMutationString6_failAssert0null301_failAssert0() throws Exception {
+    public void testInvalidDelimiters_literalMutationString10_failAssert0_add272_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "page1.txt");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString10 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString10_failAssert0_add272 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[page1.txt:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimitersnull15_failAssert0_literalMutationString83_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=toolxng}}"), null);
+                }
+                junit.framework.TestCase.fail("testInvalidDelimitersnull15 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimitersnull15_failAssert0_literalMutationString83 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[null:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString6_failAssert0_add285_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    createMustacheFactory();
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=t}oolong}}"), "testInvalidDelimiters");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString6 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString6_failAssert0_add285 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString7_failAssert0_literalMutationString190_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "(q2 5[gpbL[{$QV5:6Wz2[");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7_failAssert0_literalMutationString190 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[(q2 5[gpbL[{$QV5:6Wz2[:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString5_failAssert0_add289_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    mf.compile(new StringReader("{{=tool*ng}}"), "testInvalidDelimiters");
+                    Mustache m = mf.compile(new StringReader("{{=tool*ng}}"), "testInvalidDelimiters");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString5 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString5_failAssert0_add289 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString11_failAssert0_literalMutationString139_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=toolo;ng}}"), "tstInvalidDelimiters");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString11 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString11_failAssert0_literalMutationString139 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[tstInvalidDelimiters:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString6_failAssert0_add287_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=t}oolong}}"), "testInvalidDelimiters");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString6 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString6_failAssert0_add287 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_add14_failAssert0_add261_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
+                    mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_add14 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_add14_failAssert0_add261 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_add13_failAssert0_add258_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    createMustacheFactory();
+                    MustacheFactory mf = createMustacheFactory();
+                    mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_add13 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_add13_failAssert0_add258 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_add14_failAssert0_add263_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_add14 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_add14_failAssert0_add263 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_add13_failAssert0_add257_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    createMustacheFactory();
+                    createMustacheFactory();
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_add13 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_add13_failAssert0_add257 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString7_failAssert0_add281_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "(q2 5[gpbL[{$QV5:Wz2[");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7_failAssert0_add281 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[(q2 5[gpbL[{$QV5:Wz2[:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_add14_failAssert0null295_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    mf.compile(new StringReader("{{=toolong}}"), null);
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_add14 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_add14_failAssert0null295 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[null:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString5_failAssert0_add288_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    createMustacheFactory();
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=tool*ng}}"), "testInvalidDelimiters");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString5 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString5_failAssert0_add288 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_add13_failAssert0_add256_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    createMustacheFactory();
+                    createMustacheFactory();
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_add13 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_add13_failAssert0_add256 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString11_failAssert0_literalMutationString146_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "!][,J^uy}s#6CE3#^t l");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString11 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString11_failAssert0_literalMutationString146 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[!][,J^uy}s#6CE3#^t l:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString7_failAssert0_add280_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    mf.compile(new StringReader("{{=toolong}}"), "(q2 5[gpbL[{$QV5:Wz2[");
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "(q2 5[gpbL[{$QV5:Wz2[");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7_failAssert0_add280 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[(q2 5[gpbL[{$QV5:Wz2[:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString10_failAssert0_add270_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    createMustacheFactory();
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "page1.txt");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString10 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString10_failAssert0_add270 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[page1.txt:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_add14_failAssert0null296_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), null);
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_add14 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_add14_failAssert0null296 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_add14_failAssert0_add262_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
+                    mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_add14 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_add14_failAssert0_add262 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString11_failAssert0_add268_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    mf.compile(new StringReader("{{=toolong}}"), "tstInvalidDelimiters");
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "tstInvalidDelimiters");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString11 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString11_failAssert0_add268 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[tstInvalidDelimiters:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString11_failAssert0_add269_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "tstInvalidDelimiters");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString11 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString11_failAssert0_add269 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[tstInvalidDelimiters:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString11_failAssert0_add267_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    createMustacheFactory();
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "tstInvalidDelimiters");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString11 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString11_failAssert0_add267 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[tstInvalidDelimiters:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString7_failAssert0_add279_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    createMustacheFactory();
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "(q2 5[gpbL[{$QV5:Wz2[");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7_failAssert0_add279 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[(q2 5[gpbL[{$QV5:Wz2[:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString8_failAssert0_literalMutationString173_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=oolong}}"), "");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString8 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString8_failAssert0_literalMutationString173 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_add13_failAssert0null294_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    createMustacheFactory();
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), null);
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_add13 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_add13_failAssert0null294 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[null:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString12_failAssert0_add273_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    createMustacheFactory();
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testInvalidDe,limiters");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString12 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString12_failAssert0_add273 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[testInvalidDe,limiters:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString6_failAssert0null304_failAssert0() throws Exception {
         try {
             {
                 {
@@ -897,86 +869,40 @@ public class AmplInterpreterTest extends TestCase {
                 }
                 junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString6 should have thrown MustacheException");
             }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString6_failAssert0null301 should have thrown MustacheException");
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString6_failAssert0null304 should have thrown MustacheException");
         } catch (MustacheException expected) {
             TestCase.assertEquals("Invalid delimiter string @[null:1]", expected.getMessage());
         }
     }
 
-    public void testInvalidDelimiters_literalMutationString2_failAssert0_literalMutationString161_failAssert0() throws Exception {
+    public void testInvalidDelimiters_literalMutationString12_failAssert0_add274_failAssert0() throws Exception {
         try {
             {
                 {
                     MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolon}}"), "page1.txt");
+                    mf.compile(new StringReader("{{=toolong}}"), "testInvalidDe,limiters");
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testInvalidDe,limiters");
                 }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString2 should have thrown MustacheException");
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString12 should have thrown MustacheException");
             }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString2_failAssert0_literalMutationString161 should have thrown MustacheException");
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString12_failAssert0_add274 should have thrown MustacheException");
         } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[page1.txt:1]", expected.getMessage());
+            TestCase.assertEquals("Invalid delimiter string @[testInvalidDe,limiters:1]", expected.getMessage());
         }
     }
 
-    public void testInvalidDelimiters_literalMutationString8_failAssert0_add266_failAssert0() throws Exception {
+    public void testInvalidDelimiters_literalMutationString9_failAssert0_literalMutationString130_failAssert0() throws Exception {
         try {
             {
                 {
-                    MustacheFactory mf = createMustacheFactory();
-                    mf.compile(new StringReader("{{=toolong}}"), "");
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString8 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString8_failAssert0_add266 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString8_failAssert0_add265_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    createMustacheFactory();
                     MustacheFactory mf = createMustacheFactory();
                     Mustache m = mf.compile(new StringReader("{{=toolong}}"), "");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString8 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString8_failAssert0_add265 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString9_failAssert0_literalMutationString86_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=todolong}}"), "testHnvalidDelimiters");
                 }
                 junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString9 should have thrown MustacheException");
             }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString9_failAssert0_literalMutationString86 should have thrown MustacheException");
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString9_failAssert0_literalMutationString130 should have thrown MustacheException");
         } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[testHnvalidDelimiters:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString8_failAssert0_literalMutationString138_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "O");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString8 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString8_failAssert0_literalMutationString138 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[O:1]", expected.getMessage());
+            TestCase.assertEquals("Invalid delimiter string @[:1]", expected.getMessage());
         }
     }
 
@@ -992,127 +918,78 @@ public class AmplInterpreterTest extends TestCase {
         }
     }
 
-    public void testInvalidDelimiters_add14_failAssert0_literalMutationString222_failAssert0() throws Exception {
+    public void testInvalidDelimiters_literalMutationString6_failAssert0_literalMutationString215_failAssert0() throws Exception {
         try {
             {
                 {
                     MustacheFactory mf = createMustacheFactory();
-                    mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
-                    Mustache m = mf.compile(new StringReader("eV8<Or;(?xw0"), "testInvalidDelimiters");
+                    Mustache m = mf.compile(new StringReader("{{=t}oolong}}"), "testInvalidDelimi1ers");
                 }
-                junit.framework.TestCase.fail("testInvalidDelimiters_add14 should have thrown MustacheException");
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString6 should have thrown MustacheException");
             }
-            junit.framework.TestCase.fail("testInvalidDelimiters_add14_failAssert0_literalMutationString222 should have thrown MustacheException");
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString6_failAssert0_literalMutationString215 should have thrown MustacheException");
         } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
+            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimi1ers:1]", expected.getMessage());
         }
     }
 
-    public void testInvalidDelimiters_literalMutationString9_failAssert0_literalMutationString88_failAssert0() throws Exception {
+    public void testInvalidDelimiters_literalMutationString12_failAssert0_add275_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testInvalidDe,limiters");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString12 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString12_failAssert0_add275 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[testInvalidDe,limiters:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString10_failAssert0null299_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), null);
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString10 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString10_failAssert0null299 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[null:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString8_failAssert0_literalMutationString178_failAssert0() throws Exception {
         try {
             {
                 {
                     MustacheFactory mf = createMustacheFactory();
                     Mustache m = mf.compile(new StringReader("{{=toolong}}"), "");
                 }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString9 should have thrown MustacheException");
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString8 should have thrown MustacheException");
             }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString9_failAssert0_literalMutationString88 should have thrown MustacheException");
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString8_failAssert0_literalMutationString178 should have thrown MustacheException");
         } catch (MustacheException expected) {
             TestCase.assertEquals("Invalid delimiter string @[:1]", expected.getMessage());
         }
     }
 
-    public void testInvalidDelimiters_literalMutationString12_failAssert0null297_failAssert0() throws Exception {
+    public void testInvalidDelimiters_literalMutationString9_failAssert0_literalMutationString133_failAssert0() throws Exception {
         try {
             {
                 {
                     MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), null);
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "4}^w[&oDAIOw? O!T}Lq8");
                 }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString12 should have thrown MustacheException");
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString9 should have thrown MustacheException");
             }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString12_failAssert0null297 should have thrown MustacheException");
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString9_failAssert0_literalMutationString133 should have thrown MustacheException");
         } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[null:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString10_failAssert0_add259_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    createMustacheFactory();
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "page1.txt");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString10 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString10_failAssert0_add259 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[page1.txt:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString8_failAssert0_literalMutationString137_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "page1.txt");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString8 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString8_failAssert0_literalMutationString137 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[page1.txt:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_add14_failAssert0_literalMutationString225_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "page1.txt");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_add14 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_add14_failAssert0_literalMutationString225 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString7_failAssert0null299_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), null);
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7_failAssert0null299 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[null:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_add13_failAssert0null303_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    createMustacheFactory();
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), null);
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_add13 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_add13_failAssert0null303 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[null:1]", expected.getMessage());
+            TestCase.assertEquals("Invalid delimiter string @[4}^w[&oDAIOw? O!T}Lq8:1]", expected.getMessage());
         }
     }
 
@@ -1128,37 +1005,39 @@ public class AmplInterpreterTest extends TestCase {
         }
     }
 
-    public void testInvalidDelimiters_literalMutationString6_failAssert0_literalMutationString170_failAssert0() throws Exception {
+    public void testInvalidDelimiters_add13_failAssert0_literalMutationString90_failAssert0() throws Exception {
         try {
             {
                 {
+                    createMustacheFactory();
                     MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=t}oolong}}"), "page1.txt");
+                    Mustache m = mf.compile(new StringReader("{{=tIoolong}}"), "testInvalidDelimiters");
                 }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString6 should have thrown MustacheException");
+                junit.framework.TestCase.fail("testInvalidDelimiters_add13 should have thrown MustacheException");
             }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString6_failAssert0_literalMutationString170 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[page1.txt:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString2_failAssert0_add273_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolon}}"), "testInvalidDelimiters");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString2 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString2_failAssert0_add273 should have thrown MustacheException");
+            junit.framework.TestCase.fail("testInvalidDelimiters_add13_failAssert0_literalMutationString90 should have thrown MustacheException");
         } catch (MustacheException expected) {
             TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
         }
     }
 
-    public void testInvalidDelimiters_literalMutationString9_failAssert0null294_failAssert0() throws Exception {
+    public void testInvalidDelimiters_add14_failAssert0_literalMutationString109_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    mf.compile(new StringReader("{{=toolong}}"), "testInJvalidDelimiters");
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_add14 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_add14_failAssert0_literalMutationString109 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[testInJvalidDelimiters:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString9_failAssert0null297_failAssert0() throws Exception {
         try {
             {
                 {
@@ -1167,24 +1046,70 @@ public class AmplInterpreterTest extends TestCase {
                 }
                 junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString9 should have thrown MustacheException");
             }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString9_failAssert0null294 should have thrown MustacheException");
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString9_failAssert0null297 should have thrown MustacheException");
         } catch (MustacheException expected) {
             TestCase.assertEquals("Invalid delimiter string @[null:1]", expected.getMessage());
         }
     }
 
-    public void testInvalidDelimiters_literalMutationString10_failAssert0_literalMutationString112_failAssert0() throws Exception {
+    public void testInvalidDelimiters_add14_failAssert0_literalMutationString104_failAssert0() throws Exception {
         try {
             {
                 {
                     MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "M]:bMoV#N");
+                    mf.compile(new StringReader("{{toolong}}"), "testInvalidDelimiters");
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
                 }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString10 should have thrown MustacheException");
+                junit.framework.TestCase.fail("testInvalidDelimiters_add14 should have thrown MustacheException");
             }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString10_failAssert0_literalMutationString112 should have thrown MustacheException");
+            junit.framework.TestCase.fail("testInvalidDelimiters_add14_failAssert0_literalMutationString104 should have thrown MustacheException");
         } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[M]:bMoV#N:1]", expected.getMessage());
+            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString8_failAssert0null301_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), null);
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString8 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString8_failAssert0null301 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[null:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString2_failAssert0_add284_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=toolon}}"), "testInvalidDelimiters");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString2 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString2_failAssert0_add284 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString12_failAssert0null300_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), null);
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString12 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString12_failAssert0null300 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[null:1]", expected.getMessage());
         }
     }
 
@@ -1200,6 +1125,21 @@ public class AmplInterpreterTest extends TestCase {
         }
     }
 
+    public void testInvalidDelimiters_literalMutationString9_failAssert0_literalMutationString127_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=tolong}}"), "testHnvalidDelimiters");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString9 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString9_failAssert0_literalMutationString127 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[testHnvalidDelimiters:1]", expected.getMessage());
+        }
+    }
+
     public void testInvalidDelimiters_literalMutationString11_failAssert0() throws Exception {
         try {
             {
@@ -1209,6 +1149,22 @@ public class AmplInterpreterTest extends TestCase {
             junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString11 should have thrown MustacheException");
         } catch (MustacheException expected) {
             TestCase.assertEquals("Invalid delimiter string @[tstInvalidDelimiters:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_add14_failAssert0_literalMutationString106_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    mf.compile(new StringReader("{{=toolong}}"), "");
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testInvalidDelimiters");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_add14 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_add14_failAssert0_literalMutationString106 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[:1]", expected.getMessage());
         }
     }
 
@@ -1224,18 +1180,18 @@ public class AmplInterpreterTest extends TestCase {
         }
     }
 
-    public void testInvalidDelimiters_literalMutationString10_failAssert0_literalMutationString108_failAssert0() throws Exception {
+    public void testInvalidDelimiters_literalMutationString10_failAssert0_literalMutationString154_failAssert0() throws Exception {
         try {
             {
                 {
                     MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=Ztoolong}}"), "page1.txt");
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "");
                 }
                 junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString10 should have thrown MustacheException");
             }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString10_failAssert0_literalMutationString108 should have thrown MustacheException");
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString10_failAssert0_literalMutationString154 should have thrown MustacheException");
         } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[page1.txt:1]", expected.getMessage());
+            TestCase.assertEquals("Invalid delimiter string @[:1]", expected.getMessage());
         }
     }
 
@@ -1251,7 +1207,37 @@ public class AmplInterpreterTest extends TestCase {
         }
     }
 
-    public void testInvalidDelimiters_literalMutationString8_failAssert0_add267_failAssert0() throws Exception {
+    public void testInvalidDelimiters_literalMutationString12_failAssert0_literalMutationString168_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "A%.UJum&)<4oK[>Va&1`i[");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString12 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString12_failAssert0_literalMutationString168 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[A%.UJum&)<4oK[>Va&1`i[:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString12_failAssert0_literalMutationString167_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString12 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString12_failAssert0_literalMutationString167 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString8_failAssert0_add278_failAssert0() throws Exception {
         try {
             {
                 {
@@ -1260,7 +1246,7 @@ public class AmplInterpreterTest extends TestCase {
                 }
                 junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString8 should have thrown MustacheException");
             }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString8_failAssert0_add267 should have thrown MustacheException");
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString8_failAssert0_add278 should have thrown MustacheException");
         } catch (MustacheException expected) {
             TestCase.assertEquals("Invalid delimiter string @[:1]", expected.getMessage());
         }
@@ -1278,7 +1264,7 @@ public class AmplInterpreterTest extends TestCase {
         }
     }
 
-    public void testInvalidDelimiters_literalMutationString9_failAssert0_add253_failAssert0() throws Exception {
+    public void testInvalidDelimiters_literalMutationString9_failAssert0_add264_failAssert0() throws Exception {
         try {
             {
                 {
@@ -1288,25 +1274,40 @@ public class AmplInterpreterTest extends TestCase {
                 }
                 junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString9 should have thrown MustacheException");
             }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString9_failAssert0_add253 should have thrown MustacheException");
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString9_failAssert0_add264 should have thrown MustacheException");
         } catch (MustacheException expected) {
             TestCase.assertEquals("Invalid delimiter string @[testHnvalidDelimiters:1]", expected.getMessage());
         }
     }
 
-    public void testInvalidDelimiters_literalMutationString2_failAssert0_add272_failAssert0() throws Exception {
+    public void testInvalidDelimiters_literalMutationString9_failAssert0_add265_failAssert0() throws Exception {
         try {
             {
                 {
                     MustacheFactory mf = createMustacheFactory();
-                    mf.compile(new StringReader("{{=toolon}}"), "testInvalidDelimiters");
-                    Mustache m = mf.compile(new StringReader("{{=toolon}}"), "testInvalidDelimiters");
+                    mf.compile(new StringReader("{{=toolong}}"), "testHnvalidDelimiters");
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testHnvalidDelimiters");
                 }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString2 should have thrown MustacheException");
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString9 should have thrown MustacheException");
             }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString2_failAssert0_add272 should have thrown MustacheException");
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString9_failAssert0_add265 should have thrown MustacheException");
         } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
+            TestCase.assertEquals("Invalid delimiter string @[testHnvalidDelimiters:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString12_failAssert0_literalMutationString164_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=toolo]ng}}"), "testInvalidDe,limiters");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString12 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString12_failAssert0_literalMutationString164 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[testInvalidDe,limiters:1]", expected.getMessage());
         }
     }
 
@@ -1322,19 +1323,34 @@ public class AmplInterpreterTest extends TestCase {
         }
     }
 
-    public void testInvalidDelimiters_literalMutationString9_failAssert0_add254_failAssert0() throws Exception {
+    public void testInvalidDelimiters_literalMutationString7_failAssert0null302_failAssert0() throws Exception {
         try {
             {
                 {
                     MustacheFactory mf = createMustacheFactory();
-                    mf.compile(new StringReader("{{=toolong}}"), "testHnvalidDelimiters");
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testHnvalidDelimiters");
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), null);
                 }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString9 should have thrown MustacheException");
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7 should have thrown MustacheException");
             }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString9_failAssert0_add254 should have thrown MustacheException");
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString7_failAssert0null302 should have thrown MustacheException");
         } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[testHnvalidDelimiters:1]", expected.getMessage());
+            TestCase.assertEquals("Invalid delimiter string @[null:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString2_failAssert0_add283_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    mf.compile(new StringReader("{{=toolon}}"), "testInvalidDelimiters");
+                    Mustache m = mf.compile(new StringReader("{{=toolon}}"), "testInvalidDelimiters");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString2 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString2_failAssert0_add283 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
         }
     }
 
@@ -1362,7 +1378,37 @@ public class AmplInterpreterTest extends TestCase {
         }
     }
 
-    public void testInvalidDelimiters_literalMutationString2_failAssert0_add271_failAssert0() throws Exception {
+    public void testInvalidDelimiters_literalMutationString9_failAssert0_add266_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testHnvalidDelimiters");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString9 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString9_failAssert0_add266 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[testHnvalidDelimiters:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString10_failAssert0_literalMutationString158_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    MustacheFactory mf = createMustacheFactory();
+                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "b>_1JVt2Y");
+                }
+                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString10 should have thrown MustacheException");
+            }
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString10_failAssert0_literalMutationString158 should have thrown MustacheException");
+        } catch (MustacheException expected) {
+            TestCase.assertEquals("Invalid delimiter string @[b>_1JVt2Y:1]", expected.getMessage());
+        }
+    }
+
+    public void testInvalidDelimiters_literalMutationString2_failAssert0_add282_failAssert0() throws Exception {
         try {
             {
                 {
@@ -1372,24 +1418,9 @@ public class AmplInterpreterTest extends TestCase {
                 }
                 junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString2 should have thrown MustacheException");
             }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString2_failAssert0_add271 should have thrown MustacheException");
+            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString2_failAssert0_add282 should have thrown MustacheException");
         } catch (MustacheException expected) {
             TestCase.assertEquals("Invalid delimiter string @[testInvalidDelimiters:1]", expected.getMessage());
-        }
-    }
-
-    public void testInvalidDelimiters_literalMutationString9_failAssert0_add255_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    MustacheFactory mf = createMustacheFactory();
-                    Mustache m = mf.compile(new StringReader("{{=toolong}}"), "testHnvalidDelimiters");
-                }
-                junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString9 should have thrown MustacheException");
-            }
-            junit.framework.TestCase.fail("testInvalidDelimiters_literalMutationString9_failAssert0_add255 should have thrown MustacheException");
-        } catch (MustacheException expected) {
-            TestCase.assertEquals("Invalid delimiter string @[testHnvalidDelimiters:1]", expected.getMessage());
         }
     }
 
