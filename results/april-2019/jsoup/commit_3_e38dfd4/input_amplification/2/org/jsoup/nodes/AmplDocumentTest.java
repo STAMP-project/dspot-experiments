@@ -19,60 +19,6 @@ public class AmplDocumentTest {
     private static final String charsetIso8859 = "ISO-8859-1";
 
     @Test(timeout = 10000)
-    public void testLocation_literalMutationString10_literalMutationString384_failAssert0() throws IOException {
-        try {
-            File in = new ParseTest().getFile("");
-            Document doc = Jsoup.parse(in, "UTF8", "http://www.yahoo.co.jp/index.html");
-            String location = doc.location();
-            String baseUri = doc.baseUri();
-            in = new ParseTest().getFile("/htmltests/nyt-article-1.html");
-            doc = Jsoup.parse(in, null, "http://www.nytimes.com/2010/07/26/business/global/26bp.html?hp");
-            location = doc.location();
-            baseUri = doc.baseUri();
-            org.junit.Assert.fail("testLocation_literalMutationString10_literalMutationString384 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testLocation_literalMutationString19_failAssert0_literalMutationString1005_failAssert0() throws IOException {
-        try {
-            {
-                File in = new ParseTest().getFile("/htmltests/yahoo-jp.html");
-                Document doc = Jsoup.parse(in, "UTF-8", "http://www.yahoo.co.p/index.html");
-                String location = doc.location();
-                String baseUri = doc.baseUri();
-                in = new ParseTest().getFile("");
-                doc = Jsoup.parse(in, null, "http://www.nytimes.com/2010/07/26/business/global/26bp.html?hp");
-                location = doc.location();
-                baseUri = doc.baseUri();
-                org.junit.Assert.fail("testLocation_literalMutationString19 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testLocation_literalMutationString19_failAssert0_literalMutationString1005 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testLocation_literalMutationString26_literalMutationString804_failAssert0() throws IOException {
-        try {
-            File in = new ParseTest().getFile("");
-            Document doc = Jsoup.parse(in, "UTF-8", "http://www.yahoo.co.jp/index.html");
-            String location = doc.location();
-            String baseUri = doc.baseUri();
-            in = new ParseTest().getFile("/htmltests/nyt-article-1.html");
-            doc = Jsoup.parse(in, null, " Hello\nthere \u00a0  ");
-            location = doc.location();
-            baseUri = doc.baseUri();
-            org.junit.Assert.fail("testLocation_literalMutationString26_literalMutationString804 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
     public void testLocation_literalMutationString2_failAssert0() throws IOException {
         try {
             File in = new ParseTest().getFile("");
@@ -90,23 +36,6 @@ public class AmplDocumentTest {
     }
 
     @Test(timeout = 10000)
-    public void testLocation_literalMutationString18_literalMutationString372_failAssert0() throws IOException {
-        try {
-            File in = new ParseTest().getFile("/htmltests/yahoo-jp.html");
-            Document doc = Jsoup.parse(in, "UTF-8", "http://www.yahoo.co.jp/indexhtml");
-            String location = doc.location();
-            String baseUri = doc.baseUri();
-            in = new ParseTest().getFile("");
-            doc = Jsoup.parse(in, null, "http://www.nytimes.com/2010/07/26/business/global/26bp.html?hp");
-            location = doc.location();
-            baseUri = doc.baseUri();
-            org.junit.Assert.fail("testLocation_literalMutationString18_literalMutationString372 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
     public void testLocation_literalMutationString19_failAssert0() throws IOException {
         try {
             File in = new ParseTest().getFile("/htmltests/yahoo-jp.html");
@@ -118,23 +47,6 @@ public class AmplDocumentTest {
             location = doc.location();
             baseUri = doc.baseUri();
             org.junit.Assert.fail("testLocation_literalMutationString19 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testLocation_literalMutationString15_literalMutationString288_failAssert0() throws IOException {
-        try {
-            File in = new ParseTest().getFile("/htmltests/yahoo-jp.html");
-            Document doc = Jsoup.parse(in, "UTF-8", "http://wzw.yahoo.co.jp/index.html");
-            String location = doc.location();
-            String baseUri = doc.baseUri();
-            in = new ParseTest().getFile("");
-            doc = Jsoup.parse(in, null, "http://www.nytimes.com/2010/07/26/business/global/26bp.html?hp");
-            location = doc.location();
-            baseUri = doc.baseUri();
-            org.junit.Assert.fail("testLocation_literalMutationString15_literalMutationString288 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }

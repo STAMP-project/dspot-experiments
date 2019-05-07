@@ -85,7 +85,7 @@ public class AmplXmlTreeBuilderTest {
             TextUtil.stripNewlines(doc.html());
             org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString169 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 }
