@@ -17,15 +17,18 @@ import org.junit.Test;
 
 public class AmplHtmlParserTest {
     @Test(timeout = 10000)
-    public void handlesJavadocFont_literalMutationNumber31401_literalMutationNumber31681_failAssert0() throws Exception {
+    public void handlesJavadocFont_literalMutationNumber31407_failAssert0_literalMutationNumber32221_failAssert0() throws Exception {
         try {
-            String h = "<TD BGCOLOR=\"#EEEEFF\" CLASS=\"NavBarCell1\">    <A HREF=\"deprecated-list.html\"><FONT CLASS=\"NavBarFont1\"><B>Deprecated</B></FONT></A>&nbsp;</TD>";
-            Document doc = Jsoup.parse(h);
-            Element a = doc.select("a").first();
-            String o_handlesJavadocFont_literalMutationNumber31401__7 = a.text();
-            String o_handlesJavadocFont_literalMutationNumber31401__8 = a.child(0).tagName();
-            String o_handlesJavadocFont_literalMutationNumber31401__11 = a.child(0).child(-1).tagName();
-            org.junit.Assert.fail("handlesJavadocFont_literalMutationNumber31401_literalMutationNumber31681 should have thrown ArrayIndexOutOfBoundsException");
+            {
+                String h = "<TD BGCOLOR=\"#EEEEFF\" CLASS=\"NavBarCell1\">    <A HREF=\"deprecated-list.html\"><FONT CLASS=\"NavBarFont1\"><B>Deprecated</B></FONT></A>&nbsp;</TD>";
+                Document doc = Jsoup.parse(h);
+                Element a = doc.select("a").first();
+                a.text();
+                a.child(0).tagName();
+                a.child(-1).child(1).tagName();
+                org.junit.Assert.fail("handlesJavadocFont_literalMutationNumber31407 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("handlesJavadocFont_literalMutationNumber31407_failAssert0_literalMutationNumber32221 should have thrown ArrayIndexOutOfBoundsException");
         } catch (ArrayIndexOutOfBoundsException expected) {
             Assert.assertEquals(null, expected.getMessage());
         }
