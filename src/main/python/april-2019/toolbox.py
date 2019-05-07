@@ -66,6 +66,12 @@ not_enough_commits = [
     'eclipse/jgit' # not a classical maven hierarchy of files
 ]
 
+def get_value_of_option(options, option, default):
+    if option in options:
+        return options[options.index(option + 1)]
+    else:
+        return default
+
 def create_diff(commit_id, cwd):
     delete_if_exists(
         cwd + "/patch.diff"

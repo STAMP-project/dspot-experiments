@@ -5,7 +5,7 @@ import preparation
 import commit_setter
 
 
-def run(project, index_begin, index_end, amplifiers):
+def run(project, index_begin, index_end, amplifiers, iteration):
     path_to_project_json = toolbox.prefix_current_dataset + project + ".json"
     project_json = toolbox.get_json_file(path_to_project_json)
     path_to_project_root = toolbox.prefix_dataset + project
@@ -47,7 +47,7 @@ def run(project, index_begin, index_end, amplifiers):
             "-Dpath-to-second-version=" + path_to_concerned_module,
             "-Dgenerate-new-test-class=true",
             "-Dclean=true",
-            "-Dbudgetizer=TextualDistanceBudgetizer"
+            "-Dworking-directory=true"
             "-X"
         ]
 
@@ -55,7 +55,7 @@ def run(project, index_begin, index_end, amplifiers):
             cmd.append(
                 "-Damplifiers=TestDataMutator,MethodAdd,MethodRemove,NullifierAmplifier")
             cmd.append("-Dbudgetizer=SimpleBudgetizer")
-            for current_iteration in ['1', '2', '3']:
+            for current_iteration in iteration:
                 output_path_iteration = output_path + '/' + current_iteration
                 toolbox.create(output_path_iteration)
                 toolbox.set_output_log_path(output_path_iteration + "/amplification.log")
@@ -72,16 +72,13 @@ def run(project, index_begin, index_end, amplifiers):
 if __name__ == '__main__':
 
     toolbox.init(sys.argv)
-
     amplifiers = "amplifiers" in sys.argv
 
     if len(sys.argv) < 2:
         print "usage: python run.py <project> <index_start> <index_end>"
 
-    index_begin = 0
-    index_end = -1
-    if len(sys.argv) > 2:
-        index_begin = int(sys.argv[2])
-        index_end = int(sys.argv[3])
+    iteration = toolbox.get_value_of_option(sys.argv, '--iteration', ['1', '2', '3'])
+    index_begin = toolbox.get_value_of_option(sys.argv, '--begin', 0)
+    index_end= toolbox.get_value_of_option(sys.argv, '--end', -1)
 
-    run(project=sys.argv[1], index_begin=index_begin, index_end=index_end, amplifiers=amplifiers)
+    run(project=sys.argv[1], index_begin=index_begin, index_end=index_end, amplifiers=amplifiers, iteration=iteration)
