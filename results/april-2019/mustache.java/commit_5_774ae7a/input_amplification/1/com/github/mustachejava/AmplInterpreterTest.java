@@ -1,7 +1,6 @@
 package com.github.mustachejava;
 
 
-import com.github.mustachejava.codes.DefaultMustache;
 import com.github.mustachejava.reflect.SimpleObjectHandler;
 import com.github.mustachejava.resolver.DefaultResolver;
 import java.io.File;
@@ -89,26 +88,6 @@ public class AmplInterpreterTest extends TestCase {
         StringWriter sw = new StringWriter();
         m.execute(sw, objects);
         return sw;
-    }
-
-    public void testIdentitySimple_literalMutationString1() throws MustacheException, IOException, InterruptedException, ExecutionException {
-        MustacheFactory c = createMustacheFactory();
-        TestCase.assertEquals(100, ((int) (((DefaultMustacheFactory) (c)).getRecursionLimit())));
-        TestCase.assertNull(((DefaultMustacheFactory) (c)).getExecutorService());
-        Mustache m = c.compile("");
-        TestCase.assertFalse(((DefaultMustache) (m)).isRecursive());
-        TestCase.assertEquals("", ((DefaultMustache) (m)).getName());
-        StringWriter sw = new StringWriter();
-        m.identity(sw);
-        String o_testIdentitySimple_literalMutationString1__8 = TestUtil.getContents(root, "simple.html").replaceAll("\\s+", "");
-        TestCase.assertEquals("Hello{{name}}Youhavejustwon${{value}}!{{#test}}{{/test}}{{#in_ca}}Well,${{taxed_value}},aftertaxes.{{fred}}{{/in_ca}}", o_testIdentitySimple_literalMutationString1__8);
-        String o_testIdentitySimple_literalMutationString1__10 = sw.toString().replaceAll("\\s+", "");
-        TestCase.assertEquals("box.htmlclassloader.htmlclient.htmlclient.txtcomcompiletest.mustachecomplex.htmlcomplex.txtdiv.htmlfallbackfdbcli.mustachefdbcli.txtfdbcli2.mustachefdbcli2.txtfdbcli3.mustachefdbcli3.txtfollow.htmlfollownomenu.htmlfollownomenu.txtfunctionshogan.jsonmain.htmlmethod.htmlmultiple_recursive_partials.htmlmultipleextensions.htmlmultipleextensions.txtnested_inheritance.htmlnested_inheritance.txtnested_partials_template.htmloverrideextension.htmlparentreplace.htmlpartialintemplatefunction.htmlpartialsub.htmlpartialsubpartial.htmlpartialsubpartial.txtpartialsuper.htmlpathpretranslate.htmlpsauxwww.mustachepsauxwww.txtrelativereplace.htmlreplace.txtsinglereplace.htmlspecsub.htmlsub.txtsubblockchild1.htmlsubblockchild1.txtsubblockchild2.htmlsubblockchild2.txtsubblocksuper.htmlsubsub.htmlsubsub.txtsubsubchild1.htmlsubsubchild1.txtsubsubchild2.htmlsubsubchild2.txtsubsubchild3.htmlsubsubchild3.txtsubsubmiddle.htmlsubsubsuper.htmlsuper.htmltemplate.htmltemplate.mustachetemplates_filepathtemplates.jartoomany.htmltweetbox.htmluninterestingpartial.html", o_testIdentitySimple_literalMutationString1__10);
-        TestCase.assertEquals(100, ((int) (((DefaultMustacheFactory) (c)).getRecursionLimit())));
-        TestCase.assertNull(((DefaultMustacheFactory) (c)).getExecutorService());
-        TestCase.assertFalse(((DefaultMustache) (m)).isRecursive());
-        TestCase.assertEquals("", ((DefaultMustache) (m)).getName());
-        TestCase.assertEquals("Hello{{name}}Youhavejustwon${{value}}!{{#test}}{{/test}}{{#in_ca}}Well,${{taxed_value}},aftertaxes.{{fred}}{{/in_ca}}", o_testIdentitySimple_literalMutationString1__8);
     }
 
     public void testIdentitySimple_literalMutationString4_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {

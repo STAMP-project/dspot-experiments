@@ -1,7 +1,6 @@
 package com.github.mustachejava;
 
 
-import com.github.mustachejava.codes.DefaultMustache;
 import com.github.mustachejava.reflect.SimpleObjectHandler;
 import com.github.mustachejava.resolver.DefaultResolver;
 import java.io.File;
@@ -91,44 +90,53 @@ public class AmplInterpreterTest extends TestCase {
         return sw;
     }
 
-    public void testIdentitySimple_literalMutationString1_literalMutationString921() throws MustacheException, IOException, InterruptedException, ExecutionException {
-        MustacheFactory c = createMustacheFactory();
-        TestCase.assertNull(((DefaultMustacheFactory) (c)).getExecutorService());
-        TestCase.assertEquals(100, ((int) (((DefaultMustacheFactory) (c)).getRecursionLimit())));
-        Mustache m = c.compile("");
-        TestCase.assertFalse(((DefaultMustache) (m)).isRecursive());
-        TestCase.assertEquals("", ((DefaultMustache) (m)).getName());
-        StringWriter sw = new StringWriter();
-        m.identity(sw);
-        String o_testIdentitySimple_literalMutationString1__8 = TestUtil.getContents(root, "simple.html").replaceAll("", "");
-        TestCase.assertEquals("Hello {{name}}\n  You have just won ${{value}}!\n\n        {{#test}}\n        {{/test}}\n{{#in_ca}}\nWell, ${{ taxed_value }},  after taxes.{{fred}}\n{{/in_ca}}", o_testIdentitySimple_literalMutationString1__8);
-        String o_testIdentitySimple_literalMutationString1__10 = sw.toString().replaceAll("\\s+", "");
-        TestCase.assertEquals("box.htmlclassloader.htmlclient.htmlclient.txtcomcompiletest.mustachecomplex.htmlcomplex.txtdiv.htmlfallbackfdbcli.mustachefdbcli.txtfdbcli2.mustachefdbcli2.txtfdbcli3.mustachefdbcli3.txtfollow.htmlfollownomenu.htmlfollownomenu.txtfunctionshogan.jsonmain.htmlmethod.htmlmultiple_recursive_partials.htmlmultipleextensions.htmlmultipleextensions.txtnested_inheritance.htmlnested_inheritance.txtnested_partials_template.htmloverrideextension.htmlparentreplace.htmlpartialintemplatefunction.htmlpartialsub.htmlpartialsubpartial.htmlpartialsubpartial.txtpartialsuper.htmlpathpretranslate.htmlpsauxwww.mustachepsauxwww.txtrelativereplace.htmlreplace.txtsinglereplace.htmlspecsub.htmlsub.txtsubblockchild1.htmlsubblockchild1.txtsubblockchild2.htmlsubblockchild2.txtsubblocksuper.htmlsubsub.htmlsubsub.txtsubsubchild1.htmlsubsubchild1.txtsubsubchild2.htmlsubsubchild2.txtsubsubchild3.htmlsubsubchild3.txtsubsubmiddle.htmlsubsubsuper.htmlsuper.htmltemplate.htmltemplate.mustachetemplates_filepathtemplates.jartoomany.htmltweetbox.htmluninterestingpartial.html", o_testIdentitySimple_literalMutationString1__10);
-        TestCase.assertNull(((DefaultMustacheFactory) (c)).getExecutorService());
-        TestCase.assertEquals(100, ((int) (((DefaultMustacheFactory) (c)).getRecursionLimit())));
-        TestCase.assertFalse(((DefaultMustache) (m)).isRecursive());
-        TestCase.assertEquals("", ((DefaultMustache) (m)).getName());
-        TestCase.assertEquals("Hello {{name}}\n  You have just won ${{value}}!\n\n        {{#test}}\n        {{/test}}\n{{#in_ca}}\nWell, ${{ taxed_value }},  after taxes.{{fred}}\n{{/in_ca}}", o_testIdentitySimple_literalMutationString1__8);
+    public void testIdentitySimple_literalMutationString18_literalMutationString735_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            MustacheFactory c = createMustacheFactory();
+            Mustache m = c.compile("r^9e<Un((j*");
+            StringWriter sw = new StringWriter();
+            m.identity(sw);
+            String o_testIdentitySimple_literalMutationString18__8 = TestUtil.getContents(root, "simple.html").replaceAll("\\+", "");
+            String o_testIdentitySimple_literalMutationString18__10 = sw.toString().replaceAll("\\s+", "");
+            junit.framework.TestCase.fail("testIdentitySimple_literalMutationString18_literalMutationString735 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            TestCase.assertEquals("Template r^9e<Un((j* not found", expected.getMessage());
+        }
     }
 
-    public void testIdentitySimple_literalMutationString1() throws MustacheException, IOException, InterruptedException, ExecutionException {
-        MustacheFactory c = createMustacheFactory();
-        TestCase.assertEquals(100, ((int) (((DefaultMustacheFactory) (c)).getRecursionLimit())));
-        TestCase.assertNull(((DefaultMustacheFactory) (c)).getExecutorService());
-        Mustache m = c.compile("");
-        TestCase.assertFalse(((DefaultMustache) (m)).isRecursive());
-        TestCase.assertEquals("", ((DefaultMustache) (m)).getName());
-        StringWriter sw = new StringWriter();
-        m.identity(sw);
-        String o_testIdentitySimple_literalMutationString1__8 = TestUtil.getContents(root, "simple.html").replaceAll("\\s+", "");
-        TestCase.assertEquals("Hello{{name}}Youhavejustwon${{value}}!{{#test}}{{/test}}{{#in_ca}}Well,${{taxed_value}},aftertaxes.{{fred}}{{/in_ca}}", o_testIdentitySimple_literalMutationString1__8);
-        String o_testIdentitySimple_literalMutationString1__10 = sw.toString().replaceAll("\\s+", "");
-        TestCase.assertEquals("box.htmlclassloader.htmlclient.htmlclient.txtcomcompiletest.mustachecomplex.htmlcomplex.txtdiv.htmlfallbackfdbcli.mustachefdbcli.txtfdbcli2.mustachefdbcli2.txtfdbcli3.mustachefdbcli3.txtfollow.htmlfollownomenu.htmlfollownomenu.txtfunctionshogan.jsonmain.htmlmethod.htmlmultiple_recursive_partials.htmlmultipleextensions.htmlmultipleextensions.txtnested_inheritance.htmlnested_inheritance.txtnested_partials_template.htmloverrideextension.htmlparentreplace.htmlpartialintemplatefunction.htmlpartialsub.htmlpartialsubpartial.htmlpartialsubpartial.txtpartialsuper.htmlpathpretranslate.htmlpsauxwww.mustachepsauxwww.txtrelativereplace.htmlreplace.txtsinglereplace.htmlspecsub.htmlsub.txtsubblockchild1.htmlsubblockchild1.txtsubblockchild2.htmlsubblockchild2.txtsubblocksuper.htmlsubsub.htmlsubsub.txtsubsubchild1.htmlsubsubchild1.txtsubsubchild2.htmlsubsubchild2.txtsubsubchild3.htmlsubsubchild3.txtsubsubmiddle.htmlsubsubsuper.htmlsuper.htmltemplate.htmltemplate.mustachetemplates_filepathtemplates.jartoomany.htmltweetbox.htmluninterestingpartial.html", o_testIdentitySimple_literalMutationString1__10);
-        TestCase.assertEquals(100, ((int) (((DefaultMustacheFactory) (c)).getRecursionLimit())));
-        TestCase.assertNull(((DefaultMustacheFactory) (c)).getExecutorService());
-        TestCase.assertFalse(((DefaultMustache) (m)).isRecursive());
-        TestCase.assertEquals("", ((DefaultMustache) (m)).getName());
-        TestCase.assertEquals("Hello{{name}}Youhavejustwon${{value}}!{{#test}}{{/test}}{{#in_ca}}Well,${{taxed_value}},aftertaxes.{{fred}}{{/in_ca}}", o_testIdentitySimple_literalMutationString1__8);
+    public void testIdentitySimple_literalMutationString18_literalMutationString735_failAssert0_literalMutationString5388_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                MustacheFactory c = createMustacheFactory();
+                Mustache m = c.compile("r^9<Un((j*");
+                StringWriter sw = new StringWriter();
+                m.identity(sw);
+                String o_testIdentitySimple_literalMutationString18__8 = TestUtil.getContents(root, "simple.html").replaceAll("\\+", "");
+                String o_testIdentitySimple_literalMutationString18__10 = sw.toString().replaceAll("\\s+", "");
+                junit.framework.TestCase.fail("testIdentitySimple_literalMutationString18_literalMutationString735 should have thrown MustacheNotFoundException");
+            }
+            junit.framework.TestCase.fail("testIdentitySimple_literalMutationString18_literalMutationString735_failAssert0_literalMutationString5388 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            TestCase.assertEquals("Template r^9<Un((j* not found", expected.getMessage());
+        }
+    }
+
+    public void testIdentitySimple_literalMutationString18_literalMutationString735_failAssert0_add6462_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                MustacheFactory c = createMustacheFactory();
+                Mustache m = c.compile("r^9e<Un((j*");
+                StringWriter sw = new StringWriter();
+                m.identity(sw);
+                m.identity(sw);
+                String o_testIdentitySimple_literalMutationString18__8 = TestUtil.getContents(root, "simple.html").replaceAll("\\+", "");
+                String o_testIdentitySimple_literalMutationString18__10 = sw.toString().replaceAll("\\s+", "");
+                junit.framework.TestCase.fail("testIdentitySimple_literalMutationString18_literalMutationString735 should have thrown MustacheNotFoundException");
+            }
+            junit.framework.TestCase.fail("testIdentitySimple_literalMutationString18_literalMutationString735_failAssert0_add6462 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            TestCase.assertEquals("Template r^9e<Un((j* not found", expected.getMessage());
+        }
     }
 
     public void testIdentitySimple_literalMutationString4_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
@@ -145,90 +153,87 @@ public class AmplInterpreterTest extends TestCase {
         }
     }
 
-    public void testIdentitySimple_literalMutationString1_add1886_add5683() throws MustacheException, IOException, InterruptedException, ExecutionException {
-        MustacheFactory c = createMustacheFactory();
-        TestCase.assertNull(((DefaultMustacheFactory) (c)).getExecutorService());
-        TestCase.assertEquals(100, ((int) (((DefaultMustacheFactory) (c)).getRecursionLimit())));
-        Mustache m = c.compile("");
-        TestCase.assertFalse(((DefaultMustache) (m)).isRecursive());
-        TestCase.assertEquals("", ((DefaultMustache) (m)).getName());
-        m.getName();
-        StringWriter sw = new StringWriter();
-        m.identity(sw);
-        String o_testIdentitySimple_literalMutationString1_add1886_add5683__9 = TestUtil.getContents(root, "simple.html");
-        TestCase.assertEquals("Hello {{name}}\n  You have just won ${{value}}!\n\n        {{#test}}\n        {{/test}}\n{{#in_ca}}\nWell, ${{ taxed_value }},  after taxes.{{fred}}\n{{/in_ca}}", o_testIdentitySimple_literalMutationString1_add1886_add5683__9);
-        String o_testIdentitySimple_literalMutationString1__8 = TestUtil.getContents(root, "simple.html").replaceAll("\\s+", "");
-        TestCase.assertEquals("Hello{{name}}Youhavejustwon${{value}}!{{#test}}{{/test}}{{#in_ca}}Well,${{taxed_value}},aftertaxes.{{fred}}{{/in_ca}}", o_testIdentitySimple_literalMutationString1__8);
-        String o_testIdentitySimple_literalMutationString1__10 = sw.toString().replaceAll("\\s+", "");
-        TestCase.assertEquals("box.htmlclassloader.htmlclient.htmlclient.txtcomcompiletest.mustachecomplex.htmlcomplex.txtdiv.htmlfallbackfdbcli.mustachefdbcli.txtfdbcli2.mustachefdbcli2.txtfdbcli3.mustachefdbcli3.txtfollow.htmlfollownomenu.htmlfollownomenu.txtfunctionshogan.jsonmain.htmlmethod.htmlmultiple_recursive_partials.htmlmultipleextensions.htmlmultipleextensions.txtnested_inheritance.htmlnested_inheritance.txtnested_partials_template.htmloverrideextension.htmlparentreplace.htmlpartialintemplatefunction.htmlpartialsub.htmlpartialsubpartial.htmlpartialsubpartial.txtpartialsuper.htmlpathpretranslate.htmlpsauxwww.mustachepsauxwww.txtrelativereplace.htmlreplace.txtsinglereplace.htmlspecsub.htmlsub.txtsubblockchild1.htmlsubblockchild1.txtsubblockchild2.htmlsubblockchild2.txtsubblocksuper.htmlsubsub.htmlsubsub.txtsubsubchild1.htmlsubsubchild1.txtsubsubchild2.htmlsubsubchild2.txtsubsubchild3.htmlsubsubchild3.txtsubsubmiddle.htmlsubsubsuper.htmlsuper.htmltemplate.htmltemplate.mustachetemplates_filepathtemplates.jartoomany.htmltweetbox.htmluninterestingpartial.html", o_testIdentitySimple_literalMutationString1__10);
-        TestCase.assertNull(((DefaultMustacheFactory) (c)).getExecutorService());
-        TestCase.assertEquals(100, ((int) (((DefaultMustacheFactory) (c)).getRecursionLimit())));
-        TestCase.assertFalse(((DefaultMustache) (m)).isRecursive());
-        TestCase.assertEquals("", ((DefaultMustache) (m)).getName());
-        TestCase.assertEquals("Hello {{name}}\n  You have just won ${{value}}!\n\n        {{#test}}\n        {{/test}}\n{{#in_ca}}\nWell, ${{ taxed_value }},  after taxes.{{fred}}\n{{/in_ca}}", o_testIdentitySimple_literalMutationString1_add1886_add5683__9);
-        TestCase.assertEquals("Hello{{name}}Youhavejustwon${{value}}!{{#test}}{{/test}}{{#in_ca}}Well,${{taxed_value}},aftertaxes.{{fred}}{{/in_ca}}", o_testIdentitySimple_literalMutationString1__8);
+    public void testIdentitySimple_literalMutationString16_literalMutationString705_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            MustacheFactory c = createMustacheFactory();
+            Mustache m = c.compile("simp[e.html");
+            StringWriter sw = new StringWriter();
+            m.identity(sw);
+            String o_testIdentitySimple_literalMutationString16__8 = TestUtil.getContents(root, "simple.html").replaceAll("page1.txt", "");
+            String o_testIdentitySimple_literalMutationString16__10 = sw.toString().replaceAll("\\s+", "");
+            junit.framework.TestCase.fail("testIdentitySimple_literalMutationString16_literalMutationString705 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            TestCase.assertEquals("Template simp[e.html not found", expected.getMessage());
+        }
     }
 
-    public void testIdentitySimple_literalMutationString1_add1886_remove6322() throws MustacheException, IOException, InterruptedException, ExecutionException {
-        MustacheFactory c = createMustacheFactory();
-        TestCase.assertNull(((DefaultMustacheFactory) (c)).getExecutorService());
-        TestCase.assertEquals(100, ((int) (((DefaultMustacheFactory) (c)).getRecursionLimit())));
-        Mustache m = c.compile("");
-        TestCase.assertFalse(((DefaultMustache) (m)).isRecursive());
-        TestCase.assertEquals("", ((DefaultMustache) (m)).getName());
-        StringWriter sw = new StringWriter();
-        m.identity(sw);
-        String o_testIdentitySimple_literalMutationString1__8 = TestUtil.getContents(root, "simple.html").replaceAll("\\s+", "");
-        TestCase.assertEquals("Hello{{name}}Youhavejustwon${{value}}!{{#test}}{{/test}}{{#in_ca}}Well,${{taxed_value}},aftertaxes.{{fred}}{{/in_ca}}", o_testIdentitySimple_literalMutationString1__8);
-        String o_testIdentitySimple_literalMutationString1__10 = sw.toString().replaceAll("\\s+", "");
-        TestCase.assertEquals("box.htmlclassloader.htmlclient.htmlclient.txtcomcompiletest.mustachecomplex.htmlcomplex.txtdiv.htmlfallbackfdbcli.mustachefdbcli.txtfdbcli2.mustachefdbcli2.txtfdbcli3.mustachefdbcli3.txtfollow.htmlfollownomenu.htmlfollownomenu.txtfunctionshogan.jsonmain.htmlmethod.htmlmultiple_recursive_partials.htmlmultipleextensions.htmlmultipleextensions.txtnested_inheritance.htmlnested_inheritance.txtnested_partials_template.htmloverrideextension.htmlparentreplace.htmlpartialintemplatefunction.htmlpartialsub.htmlpartialsubpartial.htmlpartialsubpartial.txtpartialsuper.htmlpathpretranslate.htmlpsauxwww.mustachepsauxwww.txtrelativereplace.htmlreplace.txtsinglereplace.htmlspecsub.htmlsub.txtsubblockchild1.htmlsubblockchild1.txtsubblockchild2.htmlsubblockchild2.txtsubblocksuper.htmlsubsub.htmlsubsub.txtsubsubchild1.htmlsubsubchild1.txtsubsubchild2.htmlsubsubchild2.txtsubsubchild3.htmlsubsubchild3.txtsubsubmiddle.htmlsubsubsuper.htmlsuper.htmltemplate.htmltemplate.mustachetemplates_filepathtemplates.jartoomany.htmltweetbox.htmluninterestingpartial.html", o_testIdentitySimple_literalMutationString1__10);
-        TestCase.assertNull(((DefaultMustacheFactory) (c)).getExecutorService());
-        TestCase.assertEquals(100, ((int) (((DefaultMustacheFactory) (c)).getRecursionLimit())));
-        TestCase.assertFalse(((DefaultMustache) (m)).isRecursive());
-        TestCase.assertEquals("", ((DefaultMustache) (m)).getName());
-        TestCase.assertEquals("Hello{{name}}Youhavejustwon${{value}}!{{#test}}{{/test}}{{#in_ca}}Well,${{taxed_value}},aftertaxes.{{fred}}{{/in_ca}}", o_testIdentitySimple_literalMutationString1__8);
+    public void testIdentitySimple_literalMutationString18_literalMutationString735_failAssert0null7125_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                MustacheFactory c = createMustacheFactory();
+                Mustache m = c.compile("r^9e<Un((j*");
+                StringWriter sw = new StringWriter();
+                m.identity(sw);
+                String o_testIdentitySimple_literalMutationString18__8 = TestUtil.getContents(root, "simple.html").replaceAll("\\+", "");
+                String o_testIdentitySimple_literalMutationString18__10 = sw.toString().replaceAll("\\s+", null);
+                junit.framework.TestCase.fail("testIdentitySimple_literalMutationString18_literalMutationString735 should have thrown MustacheNotFoundException");
+            }
+            junit.framework.TestCase.fail("testIdentitySimple_literalMutationString18_literalMutationString735_failAssert0null7125 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            TestCase.assertEquals("Template r^9e<Un((j* not found", expected.getMessage());
+        }
     }
 
-    public void testIdentitySimple_literalMutationString1_add1886() throws MustacheException, IOException, InterruptedException, ExecutionException {
-        MustacheFactory c = createMustacheFactory();
-        TestCase.assertNull(((DefaultMustacheFactory) (c)).getExecutorService());
-        TestCase.assertEquals(100, ((int) (((DefaultMustacheFactory) (c)).getRecursionLimit())));
-        Mustache m = c.compile("");
-        TestCase.assertFalse(((DefaultMustache) (m)).isRecursive());
-        TestCase.assertEquals("", ((DefaultMustache) (m)).getName());
-        m.getName();
-        StringWriter sw = new StringWriter();
-        m.identity(sw);
-        String o_testIdentitySimple_literalMutationString1__8 = TestUtil.getContents(root, "simple.html").replaceAll("\\s+", "");
-        TestCase.assertEquals("Hello{{name}}Youhavejustwon${{value}}!{{#test}}{{/test}}{{#in_ca}}Well,${{taxed_value}},aftertaxes.{{fred}}{{/in_ca}}", o_testIdentitySimple_literalMutationString1__8);
-        String o_testIdentitySimple_literalMutationString1__10 = sw.toString().replaceAll("\\s+", "");
-        TestCase.assertEquals("box.htmlclassloader.htmlclient.htmlclient.txtcomcompiletest.mustachecomplex.htmlcomplex.txtdiv.htmlfallbackfdbcli.mustachefdbcli.txtfdbcli2.mustachefdbcli2.txtfdbcli3.mustachefdbcli3.txtfollow.htmlfollownomenu.htmlfollownomenu.txtfunctionshogan.jsonmain.htmlmethod.htmlmultiple_recursive_partials.htmlmultipleextensions.htmlmultipleextensions.txtnested_inheritance.htmlnested_inheritance.txtnested_partials_template.htmloverrideextension.htmlparentreplace.htmlpartialintemplatefunction.htmlpartialsub.htmlpartialsubpartial.htmlpartialsubpartial.txtpartialsuper.htmlpathpretranslate.htmlpsauxwww.mustachepsauxwww.txtrelativereplace.htmlreplace.txtsinglereplace.htmlspecsub.htmlsub.txtsubblockchild1.htmlsubblockchild1.txtsubblockchild2.htmlsubblockchild2.txtsubblocksuper.htmlsubsub.htmlsubsub.txtsubsubchild1.htmlsubsubchild1.txtsubsubchild2.htmlsubsubchild2.txtsubsubchild3.htmlsubsubchild3.txtsubsubmiddle.htmlsubsubsuper.htmlsuper.htmltemplate.htmltemplate.mustachetemplates_filepathtemplates.jartoomany.htmltweetbox.htmluninterestingpartial.html", o_testIdentitySimple_literalMutationString1__10);
-        TestCase.assertNull(((DefaultMustacheFactory) (c)).getExecutorService());
-        TestCase.assertEquals(100, ((int) (((DefaultMustacheFactory) (c)).getRecursionLimit())));
-        TestCase.assertFalse(((DefaultMustache) (m)).isRecursive());
-        TestCase.assertEquals("", ((DefaultMustache) (m)).getName());
-        TestCase.assertEquals("Hello{{name}}Youhavejustwon${{value}}!{{#test}}{{/test}}{{#in_ca}}Well,${{taxed_value}},aftertaxes.{{fred}}{{/in_ca}}", o_testIdentitySimple_literalMutationString1__8);
+    public void testIdentitySimple_literalMutationString18_literalMutationString735_failAssert0null7121_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                MustacheFactory c = createMustacheFactory();
+                Mustache m = c.compile("r^9e<Un((j*");
+                StringWriter sw = new StringWriter();
+                m.identity(sw);
+                String o_testIdentitySimple_literalMutationString18__8 = TestUtil.getContents(root, null).replaceAll("\\+", "");
+                String o_testIdentitySimple_literalMutationString18__10 = sw.toString().replaceAll("\\s+", "");
+                junit.framework.TestCase.fail("testIdentitySimple_literalMutationString18_literalMutationString735 should have thrown MustacheNotFoundException");
+            }
+            junit.framework.TestCase.fail("testIdentitySimple_literalMutationString18_literalMutationString735_failAssert0null7121 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            TestCase.assertEquals("Template r^9e<Un((j* not found", expected.getMessage());
+        }
     }
 
-    public void testIdentitySimple_literalMutationString1_add1886_literalMutationString3375() throws MustacheException, IOException, InterruptedException, ExecutionException {
-        MustacheFactory c = createMustacheFactory();
-        TestCase.assertNull(((DefaultMustacheFactory) (c)).getExecutorService());
-        TestCase.assertEquals(100, ((int) (((DefaultMustacheFactory) (c)).getRecursionLimit())));
-        Mustache m = c.compile("");
-        TestCase.assertFalse(((DefaultMustache) (m)).isRecursive());
-        TestCase.assertEquals("", ((DefaultMustache) (m)).getName());
-        m.getName();
-        StringWriter sw = new StringWriter();
-        m.identity(sw);
-        String o_testIdentitySimple_literalMutationString1__8 = TestUtil.getContents(root, "simple.html").replaceAll("\\s+", "");
-        TestCase.assertEquals("Hello{{name}}Youhavejustwon${{value}}!{{#test}}{{/test}}{{#in_ca}}Well,${{taxed_value}},aftertaxes.{{fred}}{{/in_ca}}", o_testIdentitySimple_literalMutationString1__8);
-        String o_testIdentitySimple_literalMutationString1__10 = sw.toString().replaceAll("S%>", "");
-        TestCase.assertEquals("box.html\nclassloader.html\nclient.html\nclient.txt\ncom\ncompiletest.mustache\ncomplex.html\ncomplex.txt\ndiv.html\nfallback\nfdbcli.mustache\nfdbcli.txt\nfdbcli2.mustache\nfdbcli2.txt\nfdbcli3.mustache\nfdbcli3.txt\nfollow.html\nfollownomenu.html\nfollownomenu.txt\nfunctions\nhogan.json\nmain.html\nmethod.html\nmultiple_recursive_partials.html\nmultipleextensions.html\nmultipleextensions.txt\nnested_inheritance.html\nnested_inheritance.txt\nnested_partials_template.html\noverrideextension.html\nparentreplace.html\npartialintemplatefunction.html\npartialsub.html\npartialsubpartial.html\npartialsubpartial.txt\npartialsuper.html\npath\npretranslate.html\npsauxwww.mustache\npsauxwww.txt\nrelative\nreplace.html\nreplace.txt\nsinglereplace.html\nspec\nsub.html\nsub.txt\nsubblockchild1.html\nsubblockchild1.txt\nsubblockchild2.html\nsubblockchild2.txt\nsubblocksuper.html\nsubsub.html\nsubsub.txt\nsubsubchild1.html\nsubsubchild1.txt\nsubsubchild2.html\nsubsubchild2.txt\nsubsubchild3.html\nsubsubchild3.txt\nsubsubmiddle.html\nsubsubsuper.html\nsuper.html\ntemplate.html\ntemplate.mustache\ntemplates_filepath\ntemplates.jar\ntoomany.html\ntweetbox.html\nuninterestingpartial.html\n", o_testIdentitySimple_literalMutationString1__10);
-        TestCase.assertNull(((DefaultMustacheFactory) (c)).getExecutorService());
-        TestCase.assertEquals(100, ((int) (((DefaultMustacheFactory) (c)).getRecursionLimit())));
-        TestCase.assertFalse(((DefaultMustache) (m)).isRecursive());
-        TestCase.assertEquals("", ((DefaultMustache) (m)).getName());
-        TestCase.assertEquals("Hello{{name}}Youhavejustwon${{value}}!{{#test}}{{/test}}{{#in_ca}}Well,${{taxed_value}},aftertaxes.{{fred}}{{/in_ca}}", o_testIdentitySimple_literalMutationString1__8);
+    public void testIdentitySimple_literalMutationString18_literalMutationString735_failAssert0_literalMutationString5405_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                MustacheFactory c = createMustacheFactory();
+                Mustache m = c.compile("r^9e<Un((j*");
+                StringWriter sw = new StringWriter();
+                m.identity(sw);
+                String o_testIdentitySimple_literalMutationString18__8 = TestUtil.getContents(root, "simple.html").replaceAll("\\+", "");
+                String o_testIdentitySimple_literalMutationString18__10 = sw.toString().replaceAll("page1.txt", "");
+                junit.framework.TestCase.fail("testIdentitySimple_literalMutationString18_literalMutationString735 should have thrown MustacheNotFoundException");
+            }
+            junit.framework.TestCase.fail("testIdentitySimple_literalMutationString18_literalMutationString735_failAssert0_literalMutationString5405 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            TestCase.assertEquals("Template r^9e<Un((j* not found", expected.getMessage());
+        }
+    }
+
+    public void testIdentitySimple_literalMutationString18_literalMutationString735_failAssert0_add6461_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                MustacheFactory c = createMustacheFactory();
+                c.compile("r^9e<Un((j*");
+                Mustache m = c.compile("r^9e<Un((j*");
+                StringWriter sw = new StringWriter();
+                m.identity(sw);
+                String o_testIdentitySimple_literalMutationString18__8 = TestUtil.getContents(root, "simple.html").replaceAll("\\+", "");
+                String o_testIdentitySimple_literalMutationString18__10 = sw.toString().replaceAll("\\s+", "");
+                junit.framework.TestCase.fail("testIdentitySimple_literalMutationString18_literalMutationString735 should have thrown MustacheNotFoundException");
+            }
+            junit.framework.TestCase.fail("testIdentitySimple_literalMutationString18_literalMutationString735_failAssert0_add6461 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            TestCase.assertEquals("Template r^9e<Un((j* not found", expected.getMessage());
+        }
     }
 
     static class Context {
