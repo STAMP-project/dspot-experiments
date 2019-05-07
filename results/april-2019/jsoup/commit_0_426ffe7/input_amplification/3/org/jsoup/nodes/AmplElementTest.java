@@ -138,6 +138,41 @@ public class AmplElementTest {
     }
 
     @Test(timeout = 10000)
+    public void testNextElementSiblings_literalMutationString44_failAssert0_add10584_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + " Hello\nthere \u00a0  ")));
+                Element element = doc.getElementById("a");
+                List<Element> elementSiblings = element.nextElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                elementSiblings.get(1).id();
+                Element element1 = doc.getElementById("b");
+                List<Element> elementSiblings1 = element1.nextElementSiblings();
+                elementSiblings1.size();
+                elementSiblings1.get(0).id();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.nextElementSiblings();
+                elementSiblings2.size();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.nextElementSiblings();
+                elementSiblings3.size();
+                elementSiblings3.size();
+                elementSiblings3.get(0).id();
+                Element div = doc.getElementById("div");
+                List<Element> elementSiblings4 = div.nextElementSiblings();
+                {
+                    Element elementSibling = elementSiblings4.get(0);
+                }
+                org.junit.Assert.fail("testNextElementSiblings_literalMutationString44 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testNextElementSiblings_literalMutationString44_failAssert0_add10584 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
     public void testNextElementSiblings_literalMutationNumber74_failAssert0() throws Exception {
         try {
             Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
@@ -165,6 +200,43 @@ public class AmplElementTest {
             org.junit.Assert.fail("testNextElementSiblings_literalMutationNumber74 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: -1, Size: 1", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testNextElementSiblings_literalMutationString71_failAssert0_literalMutationString7918_failAssert0_literalMutationString17995_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<i id=\'a\'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id=\'dPv\'>") + "<li id='d'>d</li>") + "</div>")));
+                    Element element = doc.getElementById("a");
+                    List<Element> elementSiblings = element.nextElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    elementSiblings.get(1).id();
+                    Element element1 = doc.getElementById("b");
+                    List<Element> elementSiblings1 = element1.nextElementSiblings();
+                    elementSiblings1.size();
+                    elementSiblings1.get(0).id();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.nextElementSiblings();
+                    elementSiblings2.size();
+                    Element ul = doc.getElementById("1");
+                    List<Element> elementSiblings3 = ul.nextElementSiblings();
+                    elementSiblings3.size();
+                    elementSiblings3.get(0).id();
+                    Element div = doc.getElementById("div");
+                    List<Element> elementSiblings4 = div.nextElementSiblings();
+                    {
+                        Element elementSibling = elementSiblings4.get(0);
+                    }
+                    org.junit.Assert.fail("testNextElementSiblings_literalMutationString71 should have thrown NullPointerException");
+                }
+                org.junit.Assert.fail("testNextElementSiblings_literalMutationString71_failAssert0_literalMutationString7918 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testNextElementSiblings_literalMutationString71_failAssert0_literalMutationString7918_failAssert0_literalMutationString17995 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
@@ -233,10 +305,10 @@ public class AmplElementTest {
     }
 
     @Test(timeout = 10000)
-    public void testNextElementSiblings_literalMutationNumber73_failAssert0_literalMutationString2840_failAssert0() throws Exception {
+    public void testNextElementSiblings_literalMutationString38_failAssert0_add10288_failAssert0() throws Exception {
         try {
             {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</u>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + " Hello\nthere \u00a0  ") + "</div>")));
                 Element element = doc.getElementById("a");
                 List<Element> elementSiblings = element.nextElementSiblings();
                 elementSiblings.size();
@@ -250,92 +322,18 @@ public class AmplElementTest {
                 List<Element> elementSiblings2 = element2.nextElementSiblings();
                 elementSiblings2.size();
                 Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.nextElementSiblings();
-                elementSiblings3.size();
-                elementSiblings3.get(1).id();
-                Element div = doc.getElementById("div");
-                List<Element> elementSiblings4 = div.nextElementSiblings();
-                {
-                    Element elementSibling = elementSiblings4.get(0);
-                }
-                org.junit.Assert.fail("testNextElementSiblings_literalMutationNumber73 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testNextElementSiblings_literalMutationNumber73_failAssert0_literalMutationString2840 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 1", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testNextElementSiblings_add90_failAssert0_add10177_failAssert0() throws Exception {
-        try {
-            {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                Element element = doc.getElementById("a");
-                List<Element> elementSiblings = element.nextElementSiblings();
-                elementSiblings.size();
-                elementSiblings.size();
-                elementSiblings.get(0).id();
-                elementSiblings.get(1).id();
-                Element element1 = doc.getElementById("b");
-                List<Element> elementSiblings1 = element1.nextElementSiblings();
-                elementSiblings1.size();
-                elementSiblings1.get(0).id();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.nextElementSiblings();
-                elementSiblings2.size();
-                Element ul = doc.getElementById("ul");
-                ul.nextElementSiblings();
                 List<Element> elementSiblings3 = ul.nextElementSiblings();
                 elementSiblings3.size();
                 elementSiblings3.get(0).id();
                 Element div = doc.getElementById("div");
+                div.nextElementSiblings();
                 List<Element> elementSiblings4 = div.nextElementSiblings();
                 {
                     Element elementSibling = elementSiblings4.get(0);
                 }
-                org.junit.Assert.fail("testNextElementSiblings_add90 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testNextElementSiblings_literalMutationString38 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testNextElementSiblings_add90_failAssert0_add10177 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testNextElementSiblings_add90_failAssert0_add10177_failAssert0_literalMutationNumber17810_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                    Element element = doc.getElementById("a");
-                    List<Element> elementSiblings = element.nextElementSiblings();
-                    elementSiblings.size();
-                    elementSiblings.size();
-                    elementSiblings.get(0).id();
-                    elementSiblings.get(0).id();
-                    Element element1 = doc.getElementById("b");
-                    List<Element> elementSiblings1 = element1.nextElementSiblings();
-                    elementSiblings1.size();
-                    elementSiblings1.get(0).id();
-                    Element element2 = doc.getElementById("c");
-                    List<Element> elementSiblings2 = element2.nextElementSiblings();
-                    elementSiblings2.size();
-                    Element ul = doc.getElementById("ul");
-                    ul.nextElementSiblings();
-                    List<Element> elementSiblings3 = ul.nextElementSiblings();
-                    elementSiblings3.size();
-                    elementSiblings3.get(0).id();
-                    Element div = doc.getElementById("div");
-                    List<Element> elementSiblings4 = div.nextElementSiblings();
-                    {
-                        Element elementSibling = elementSiblings4.get(0);
-                    }
-                    org.junit.Assert.fail("testNextElementSiblings_add90 should have thrown IndexOutOfBoundsException");
-                }
-                org.junit.Assert.fail("testNextElementSiblings_add90_failAssert0_add10177 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testNextElementSiblings_add90_failAssert0_add10177_failAssert0_literalMutationNumber17810 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testNextElementSiblings_literalMutationString38_failAssert0_add10288 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
@@ -589,6 +587,41 @@ public class AmplElementTest {
                 Element elementSibling = elementSiblings4.get(0);
             }
             org.junit.Assert.fail("testNextElementSiblings_literalMutationNumber65 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testNextElementSiblings_literalMutationString38_failAssert0_add10281_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + " Hello\nthere \u00a0  ") + "</div>")));
+                Element element = doc.getElementById("a");
+                List<Element> elementSiblings = element.nextElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                elementSiblings.get(1).id();
+                Element element1 = doc.getElementById("b");
+                List<Element> elementSiblings1 = element1.nextElementSiblings();
+                elementSiblings1.size();
+                elementSiblings1.get(0).id();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.nextElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.size();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.nextElementSiblings();
+                elementSiblings3.size();
+                elementSiblings3.get(0).id();
+                Element div = doc.getElementById("div");
+                List<Element> elementSiblings4 = div.nextElementSiblings();
+                {
+                    Element elementSibling = elementSiblings4.get(0);
+                }
+                org.junit.Assert.fail("testNextElementSiblings_literalMutationString38 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testNextElementSiblings_literalMutationString38_failAssert0_add10281 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
@@ -877,36 +910,76 @@ public class AmplElementTest {
     }
 
     @Test(timeout = 10000)
-    public void testNextElementSiblings_literalMutationNumber74_failAssert0_literalMutationString6818_failAssert0() throws Exception {
+    public void testNextElementSiblings_literalMutationNumber73_failAssert0_literalMutationNumber5067_failAssert0_literalMutationNumber17176_failAssert0() throws Exception {
         try {
             {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div ie=\'div\'>") + "<li id='d'>d</li>") + "</div>")));
-                Element element = doc.getElementById("a");
-                List<Element> elementSiblings = element.nextElementSiblings();
-                elementSiblings.size();
-                elementSiblings.get(0).id();
-                elementSiblings.get(1).id();
-                Element element1 = doc.getElementById("b");
-                List<Element> elementSiblings1 = element1.nextElementSiblings();
-                elementSiblings1.size();
-                elementSiblings1.get(0).id();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.nextElementSiblings();
-                elementSiblings2.size();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.nextElementSiblings();
-                elementSiblings3.size();
-                elementSiblings3.get(-1).id();
-                Element div = doc.getElementById("div");
-                List<Element> elementSiblings4 = div.nextElementSiblings();
                 {
-                    Element elementSibling = elementSiblings4.get(0);
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                    Element element = doc.getElementById("a");
+                    List<Element> elementSiblings = element.nextElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    elementSiblings.get(1).id();
+                    Element element1 = doc.getElementById("b");
+                    List<Element> elementSiblings1 = element1.nextElementSiblings();
+                    elementSiblings1.size();
+                    elementSiblings1.get(0).id();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.nextElementSiblings();
+                    elementSiblings2.size();
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.nextElementSiblings();
+                    elementSiblings3.size();
+                    elementSiblings3.get(0).id();
+                    Element div = doc.getElementById("div");
+                    List<Element> elementSiblings4 = div.nextElementSiblings();
+                    {
+                        Element elementSibling = elementSiblings4.get(0);
+                    }
+                    org.junit.Assert.fail("testNextElementSiblings_literalMutationNumber73 should have thrown IndexOutOfBoundsException");
                 }
-                org.junit.Assert.fail("testNextElementSiblings_literalMutationNumber74 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testNextElementSiblings_literalMutationNumber73_failAssert0_literalMutationNumber5067 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testNextElementSiblings_literalMutationNumber74_failAssert0_literalMutationString6818 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testNextElementSiblings_literalMutationNumber73_failAssert0_literalMutationNumber5067_failAssert0_literalMutationNumber17176 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: -1, Size: 1", expected.getMessage());
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testNextElementSiblings_literalMutationString71_failAssert0_literalMutationString7918_failAssert0_literalMutationString17984_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<i id=\'a\'>a</li>" + "<li id='b'>b</li>") + "<li id=\'c\'>c<</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                    Element element = doc.getElementById("a");
+                    List<Element> elementSiblings = element.nextElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    elementSiblings.get(1).id();
+                    Element element1 = doc.getElementById("b");
+                    List<Element> elementSiblings1 = element1.nextElementSiblings();
+                    elementSiblings1.size();
+                    elementSiblings1.get(0).id();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.nextElementSiblings();
+                    elementSiblings2.size();
+                    Element ul = doc.getElementById("1");
+                    List<Element> elementSiblings3 = ul.nextElementSiblings();
+                    elementSiblings3.size();
+                    elementSiblings3.get(0).id();
+                    Element div = doc.getElementById("div");
+                    List<Element> elementSiblings4 = div.nextElementSiblings();
+                    {
+                        Element elementSibling = elementSiblings4.get(0);
+                    }
+                    org.junit.Assert.fail("testNextElementSiblings_literalMutationString71 should have thrown NullPointerException");
+                }
+                org.junit.Assert.fail("testNextElementSiblings_literalMutationString71_failAssert0_literalMutationString7918 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testNextElementSiblings_literalMutationString71_failAssert0_literalMutationString7918_failAssert0_literalMutationString17984 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
@@ -938,6 +1011,43 @@ public class AmplElementTest {
             org.junit.Assert.fail("testNextElementSiblings_literalMutationString43 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testNextElementSiblings_literalMutationString6_failAssert0null12017_failAssert0_literalMutationNumber15671_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id=\'u\'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                    Element element = doc.getElementById("a");
+                    List<Element> elementSiblings = element.nextElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    elementSiblings.get(1).id();
+                    Element element1 = doc.getElementById("b");
+                    List<Element> elementSiblings1 = element1.nextElementSiblings();
+                    elementSiblings1.size();
+                    elementSiblings1.get(-1).id();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.nextElementSiblings();
+                    elementSiblings2.size();
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.nextElementSiblings();
+                    elementSiblings3.size();
+                    elementSiblings3.get(0).id();
+                    Element div = doc.getElementById(null);
+                    List<Element> elementSiblings4 = div.nextElementSiblings();
+                    {
+                        Element elementSibling = elementSiblings4.get(0);
+                    }
+                    org.junit.Assert.fail("testNextElementSiblings_literalMutationString6 should have thrown NullPointerException");
+                }
+                org.junit.Assert.fail("testNextElementSiblings_literalMutationString6_failAssert0null12017 should have thrown NullPointerException");
+            }
+            org.junit.Assert.fail("testNextElementSiblings_literalMutationString6_failAssert0null12017_failAssert0_literalMutationNumber15671 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: -1, Size: 1", expected.getMessage());
         }
     }
 
@@ -1035,156 +1145,14 @@ public class AmplElementTest {
     }
 
     @Test(timeout = 10000)
-    public void testNextElementSiblings_add97_failAssert0_literalMutationString3703_failAssert0() throws Exception {
-        try {
-            {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "}o1]Vl")));
-                Element element = doc.getElementById("a");
-                List<Element> elementSiblings = element.nextElementSiblings();
-                elementSiblings.size();
-                elementSiblings.get(0).id();
-                elementSiblings.get(1).id();
-                Element element1 = doc.getElementById("b");
-                List<Element> elementSiblings1 = element1.nextElementSiblings();
-                elementSiblings1.size();
-                elementSiblings1.size();
-                elementSiblings1.get(0).id();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.nextElementSiblings();
-                elementSiblings2.size();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.nextElementSiblings();
-                elementSiblings3.size();
-                elementSiblings3.get(0).id();
-                Element div = doc.getElementById("div");
-                List<Element> elementSiblings4 = div.nextElementSiblings();
-                {
-                    Element elementSibling = elementSiblings4.get(0);
-                }
-                org.junit.Assert.fail("testNextElementSiblings_add97 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testNextElementSiblings_add97_failAssert0_literalMutationString3703 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testNextElementSiblings_literalMutationString70_failAssert0_literalMutationString1652_failAssert0_literalMutationString20208_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<i id=\'a\'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div  id=\'div\'>") + "<li id='d'>d</li>") + "</div>")));
-                    Element element = doc.getElementById("a");
-                    List<Element> elementSiblings = element.nextElementSiblings();
-                    elementSiblings.size();
-                    elementSiblings.get(0).id();
-                    elementSiblings.get(1).id();
-                    Element element1 = doc.getElementById("b");
-                    List<Element> elementSiblings1 = element1.nextElementSiblings();
-                    elementSiblings1.size();
-                    elementSiblings1.get(0).id();
-                    Element element2 = doc.getElementById("c");
-                    List<Element> elementSiblings2 = element2.nextElementSiblings();
-                    elementSiblings2.size();
-                    Element ul = doc.getElementById("");
-                    List<Element> elementSiblings3 = ul.nextElementSiblings();
-                    elementSiblings3.size();
-                    elementSiblings3.get(0).id();
-                    Element div = doc.getElementById("div");
-                    List<Element> elementSiblings4 = div.nextElementSiblings();
-                    {
-                        Element elementSibling = elementSiblings4.get(0);
-                    }
-                    org.junit.Assert.fail("testNextElementSiblings_literalMutationString70 should have thrown IllegalArgumentException");
-                }
-                org.junit.Assert.fail("testNextElementSiblings_literalMutationString70_failAssert0_literalMutationString1652 should have thrown IllegalArgumentException");
-            }
-            org.junit.Assert.fail("testNextElementSiblings_literalMutationString70_failAssert0_literalMutationString1652_failAssert0_literalMutationString20208 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testNextElementSiblings_add93_failAssert0_add10019_failAssert0() throws Exception {
+    public void testNextElementSiblings_add90_failAssert0_add9388_failAssert0() throws Exception {
         try {
             {
                 Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
                 Element element = doc.getElementById("a");
                 List<Element> elementSiblings = element.nextElementSiblings();
                 elementSiblings.size();
-                elementSiblings.get(0).id();
-                elementSiblings.get(1).id();
-                elementSiblings.get(1).id();
-                Element element1 = doc.getElementById("b");
-                List<Element> elementSiblings1 = element1.nextElementSiblings();
-                elementSiblings1.size();
-                elementSiblings1.get(0).id();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.nextElementSiblings();
-                elementSiblings2.size();
-                elementSiblings2.size();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.nextElementSiblings();
-                elementSiblings3.size();
-                elementSiblings3.get(0).id();
-                Element div = doc.getElementById("div");
-                List<Element> elementSiblings4 = div.nextElementSiblings();
-                {
-                    Element elementSibling = elementSiblings4.get(0);
-                }
-                org.junit.Assert.fail("testNextElementSiblings_add93 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testNextElementSiblings_add93_failAssert0_add10019 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testNextElementSiblings_literalMutationString38_failAssert0_add9651_failAssert0() throws Exception {
-        try {
-            {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + " Hello\nthere \u00a0  ") + "</div>")));
-                Element element = doc.getElementById("a");
-                List<Element> elementSiblings = element.nextElementSiblings();
                 elementSiblings.size();
-                elementSiblings.get(0).id();
-                elementSiblings.get(1).id();
-                Element element1 = doc.getElementById("b");
-                List<Element> elementSiblings1 = element1.nextElementSiblings();
-                elementSiblings1.size();
-                elementSiblings1.get(0).id();
-                doc.getElementById("c");
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.nextElementSiblings();
-                elementSiblings2.size();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.nextElementSiblings();
-                elementSiblings3.size();
-                elementSiblings3.get(0).id();
-                Element div = doc.getElementById("div");
-                List<Element> elementSiblings4 = div.nextElementSiblings();
-                {
-                    Element elementSibling = elementSiblings4.get(0);
-                }
-                org.junit.Assert.fail("testNextElementSiblings_literalMutationString38 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testNextElementSiblings_literalMutationString38_failAssert0_add9651 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testNextElementSiblings_literalMutationString44_failAssert0_add10566_failAssert0() throws Exception {
-        try {
-            {
-                Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + " Hello\nthere \u00a0  ")));
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + " Hello\nthere \u00a0  ")));
-                Element element = doc.getElementById("a");
-                List<Element> elementSiblings = element.nextElementSiblings();
                 elementSiblings.size();
                 elementSiblings.get(0).id();
                 elementSiblings.get(1).id();
@@ -1204,9 +1172,9 @@ public class AmplElementTest {
                 {
                     Element elementSibling = elementSiblings4.get(0);
                 }
-                org.junit.Assert.fail("testNextElementSiblings_literalMutationString44 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testNextElementSiblings_add90 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testNextElementSiblings_literalMutationString44_failAssert0_add10566 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testNextElementSiblings_add90_failAssert0_add9388 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
@@ -1244,19 +1212,18 @@ public class AmplElementTest {
     }
 
     @Test(timeout = 10000)
-    public void testNextElementSiblings_add92_failAssert0_add9856_failAssert0() throws Exception {
+    public void testNextElementSiblings_add94_failAssert0_literalMutationString522_failAssert0() throws Exception {
         try {
             {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</u>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
                 Element element = doc.getElementById("a");
                 List<Element> elementSiblings = element.nextElementSiblings();
                 elementSiblings.size();
-                elementSiblings.get(0);
                 elementSiblings.get(0).id();
+                elementSiblings.get(1);
                 elementSiblings.get(1).id();
                 Element element1 = doc.getElementById("b");
                 List<Element> elementSiblings1 = element1.nextElementSiblings();
-                elementSiblings1.size();
                 elementSiblings1.size();
                 elementSiblings1.get(0).id();
                 Element element2 = doc.getElementById("c");
@@ -1271,127 +1238,9 @@ public class AmplElementTest {
                 {
                     Element elementSibling = elementSiblings4.get(0);
                 }
-                org.junit.Assert.fail("testNextElementSiblings_add92 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testNextElementSiblings_add94 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testNextElementSiblings_add92_failAssert0_add9856 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testNextElementSiblings_add97_failAssert0_add9937_failAssert0_add22119_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                    Element element = doc.getElementById("a");
-                    List<Element> elementSiblings = element.nextElementSiblings();
-                    elementSiblings.size();
-                    elementSiblings.get(0).id();
-                    elementSiblings.get(1).id();
-                    Element element1 = doc.getElementById("b");
-                    List<Element> elementSiblings1 = element1.nextElementSiblings();
-                    elementSiblings1.size();
-                    elementSiblings1.size();
-                    elementSiblings1.size();
-                    elementSiblings1.get(0);
-                    elementSiblings1.get(0).id();
-                    Element element2 = doc.getElementById("c");
-                    List<Element> elementSiblings2 = element2.nextElementSiblings();
-                    elementSiblings2.size();
-                    Element ul = doc.getElementById("ul");
-                    List<Element> elementSiblings3 = ul.nextElementSiblings();
-                    elementSiblings3.size();
-                    elementSiblings3.get(0).id();
-                    Element div = doc.getElementById("div");
-                    List<Element> elementSiblings4 = div.nextElementSiblings();
-                    {
-                        Element elementSibling = elementSiblings4.get(0);
-                    }
-                    org.junit.Assert.fail("testNextElementSiblings_add97 should have thrown IndexOutOfBoundsException");
-                }
-                org.junit.Assert.fail("testNextElementSiblings_add97_failAssert0_add9937 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testNextElementSiblings_add97_failAssert0_add9937_failAssert0_add22119 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testNextElementSiblings_add88_failAssert0_add9989_failAssert0_add22162_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                    doc.getElementById("a");
-                    Element element = doc.getElementById("a");
-                    List<Element> elementSiblings = element.nextElementSiblings();
-                    elementSiblings.size();
-                    elementSiblings.get(0).id();
-                    elementSiblings.get(1).id();
-                    Element element1 = doc.getElementById("b");
-                    List<Element> elementSiblings1 = element1.nextElementSiblings();
-                    elementSiblings1.size();
-                    elementSiblings1.get(0);
-                    elementSiblings1.get(0).id();
-                    Element element2 = doc.getElementById("c");
-                    List<Element> elementSiblings2 = element2.nextElementSiblings();
-                    elementSiblings2.size();
-                    Element ul = doc.getElementById("ul");
-                    List<Element> elementSiblings3 = ul.nextElementSiblings();
-                    elementSiblings3.size();
-                    elementSiblings3.get(0).id();
-                    Element div = doc.getElementById("div");
-                    List<Element> elementSiblings4 = div.nextElementSiblings();
-                    {
-                        Element elementSibling = elementSiblings4.get(0);
-                    }
-                    org.junit.Assert.fail("testNextElementSiblings_add88 should have thrown IndexOutOfBoundsException");
-                }
-                org.junit.Assert.fail("testNextElementSiblings_add88_failAssert0_add9989 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testNextElementSiblings_add88_failAssert0_add9989_failAssert0_add22162 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testNextElementSiblings_add90_failAssert0_add10177_failAssert0_literalMutationNumber17839_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                    Element element = doc.getElementById("a");
-                    List<Element> elementSiblings = element.nextElementSiblings();
-                    elementSiblings.size();
-                    elementSiblings.size();
-                    elementSiblings.get(0).id();
-                    elementSiblings.get(1).id();
-                    Element element1 = doc.getElementById("b");
-                    List<Element> elementSiblings1 = element1.nextElementSiblings();
-                    elementSiblings1.size();
-                    elementSiblings1.get(0).id();
-                    Element element2 = doc.getElementById("c");
-                    List<Element> elementSiblings2 = element2.nextElementSiblings();
-                    elementSiblings2.size();
-                    Element ul = doc.getElementById("ul");
-                    ul.nextElementSiblings();
-                    List<Element> elementSiblings3 = ul.nextElementSiblings();
-                    elementSiblings3.size();
-                    elementSiblings3.get(0).id();
-                    Element div = doc.getElementById("div");
-                    List<Element> elementSiblings4 = div.nextElementSiblings();
-                    {
-                        Element elementSibling = elementSiblings4.get(0);
-                    }
-                    org.junit.Assert.fail("testNextElementSiblings_add90 should have thrown IndexOutOfBoundsException");
-                }
-                org.junit.Assert.fail("testNextElementSiblings_add90_failAssert0_add10177 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testNextElementSiblings_add90_failAssert0_add10177_failAssert0_literalMutationNumber17839 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testNextElementSiblings_add94_failAssert0_literalMutationString522 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
@@ -1454,6 +1303,76 @@ public class AmplElementTest {
                 Element elementSibling = elementSiblings4.get(0);
             }
             org.junit.Assert.fail("testNextElementSiblings_literalMutationNumber57 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testNextElementSiblings_literalMutationNumber74_failAssert0_add10865_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("a");
+                List<Element> elementSiblings = element.nextElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                elementSiblings.get(1).id();
+                Element element1 = doc.getElementById("b");
+                List<Element> elementSiblings1 = element1.nextElementSiblings();
+                elementSiblings1.size();
+                elementSiblings1.get(0).id();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.nextElementSiblings();
+                elementSiblings2.size();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.nextElementSiblings();
+                elementSiblings3.size();
+                elementSiblings3.get(-1).id();
+                Element div = doc.getElementById("div");
+                List<Element> elementSiblings4 = div.nextElementSiblings();
+                {
+                    Element elementSibling = elementSiblings4.get(0);
+                }
+                org.junit.Assert.fail("testNextElementSiblings_literalMutationNumber74 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testNextElementSiblings_literalMutationNumber74_failAssert0_add10865 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: -1, Size: 1", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testNextElementSiblings_add92_failAssert0_add9091_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("a");
+                List<Element> elementSiblings = element.nextElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0);
+                elementSiblings.get(0).id();
+                elementSiblings.get(1).id();
+                Element element1 = doc.getElementById("b");
+                List<Element> elementSiblings1 = element1.nextElementSiblings();
+                elementSiblings1.size();
+                elementSiblings1.get(0).id();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.nextElementSiblings();
+                elementSiblings2.size();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.nextElementSiblings();
+                elementSiblings3.size();
+                elementSiblings3.get(0);
+                elementSiblings3.get(0).id();
+                Element div = doc.getElementById("div");
+                List<Element> elementSiblings4 = div.nextElementSiblings();
+                {
+                    Element elementSibling = elementSiblings4.get(0);
+                }
+                org.junit.Assert.fail("testNextElementSiblings_add92 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testNextElementSiblings_add92_failAssert0_add9091 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
@@ -1677,10 +1596,10 @@ public class AmplElementTest {
     }
 
     @Test(timeout = 10000)
-    public void testNextElementSiblings_literalMutationString44_failAssert0_literalMutationString5878_failAssert0() throws Exception {
+    public void testNextElementSiblings_literalMutationString44_failAssert0_literalMutationNumber5907_failAssert0() throws Exception {
         try {
             {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id\'d\'>d</li>") + " Hello\nthere \u00a0  ")));
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + " Hello\nthere \u00a0  ")));
                 Element element = doc.getElementById("a");
                 List<Element> elementSiblings = element.nextElementSiblings();
                 elementSiblings.size();
@@ -1704,14 +1623,92 @@ public class AmplElementTest {
                 }
                 org.junit.Assert.fail("testNextElementSiblings_literalMutationString44 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testNextElementSiblings_literalMutationString44_failAssert0_literalMutationString5878 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testNextElementSiblings_literalMutationString44_failAssert0_literalMutationNumber5907 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testNextElementSiblings_add93_failAssert0_add10020_failAssert0() throws Exception {
+    public void testNextElementSiblings_literalMutationString38_failAssert0_add10281_failAssert0_add20492_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + " Hello\nthere \u00a0  ") + "</div>")));
+                    Element element = doc.getElementById("a");
+                    List<Element> elementSiblings = element.nextElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0);
+                    elementSiblings.get(0).id();
+                    elementSiblings.get(1).id();
+                    Element element1 = doc.getElementById("b");
+                    List<Element> elementSiblings1 = element1.nextElementSiblings();
+                    elementSiblings1.size();
+                    elementSiblings1.get(0).id();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.nextElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.size();
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.nextElementSiblings();
+                    elementSiblings3.size();
+                    elementSiblings3.get(0).id();
+                    Element div = doc.getElementById("div");
+                    List<Element> elementSiblings4 = div.nextElementSiblings();
+                    {
+                        Element elementSibling = elementSiblings4.get(0);
+                    }
+                    org.junit.Assert.fail("testNextElementSiblings_literalMutationString38 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testNextElementSiblings_literalMutationString38_failAssert0_add10281 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testNextElementSiblings_literalMutationString38_failAssert0_add10281_failAssert0_add20492 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testNextElementSiblings_literalMutationString44_failAssert0_add10584_failAssert0_add21005_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + " Hello\nthere \u00a0  ")));
+                    Element element = doc.getElementById("a");
+                    List<Element> elementSiblings = element.nextElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    elementSiblings.get(1).id();
+                    Element element1 = doc.getElementById("b");
+                    List<Element> elementSiblings1 = element1.nextElementSiblings();
+                    elementSiblings1.size();
+                    elementSiblings1.get(0).id();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.nextElementSiblings();
+                    elementSiblings2.size();
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.nextElementSiblings();
+                    elementSiblings3.size();
+                    elementSiblings3.size();
+                    elementSiblings3.size();
+                    elementSiblings3.get(0).id();
+                    Element div = doc.getElementById("div");
+                    List<Element> elementSiblings4 = div.nextElementSiblings();
+                    {
+                        Element elementSibling = elementSiblings4.get(0);
+                    }
+                    org.junit.Assert.fail("testNextElementSiblings_literalMutationString44 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testNextElementSiblings_literalMutationString44_failAssert0_add10584 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testNextElementSiblings_literalMutationString44_failAssert0_add10584_failAssert0_add21005 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testNextElementSiblings_add93_failAssert0_add9248_failAssert0() throws Exception {
         try {
             {
                 Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
@@ -1728,10 +1725,10 @@ public class AmplElementTest {
                 Element element2 = doc.getElementById("c");
                 List<Element> elementSiblings2 = element2.nextElementSiblings();
                 elementSiblings2.size();
-                doc.getElementById("ul");
                 Element ul = doc.getElementById("ul");
                 List<Element> elementSiblings3 = ul.nextElementSiblings();
                 elementSiblings3.size();
+                elementSiblings3.get(0).id();
                 elementSiblings3.get(0).id();
                 Element div = doc.getElementById("div");
                 List<Element> elementSiblings4 = div.nextElementSiblings();
@@ -1740,226 +1737,7 @@ public class AmplElementTest {
                 }
                 org.junit.Assert.fail("testNextElementSiblings_add93 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testNextElementSiblings_add93_failAssert0_add10020 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testNextElementSiblings_add91_failAssert0_literalMutationString3003_failAssert0() throws Exception {
-        try {
-            {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id=\'a\'>ia</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                Element element = doc.getElementById("a");
-                List<Element> elementSiblings = element.nextElementSiblings();
-                elementSiblings.size();
-                elementSiblings.get(0).id();
-                elementSiblings.get(0).id();
-                elementSiblings.get(1).id();
-                Element element1 = doc.getElementById("b");
-                List<Element> elementSiblings1 = element1.nextElementSiblings();
-                elementSiblings1.size();
-                elementSiblings1.get(0).id();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.nextElementSiblings();
-                elementSiblings2.size();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.nextElementSiblings();
-                elementSiblings3.size();
-                elementSiblings3.get(0).id();
-                Element div = doc.getElementById("div");
-                List<Element> elementSiblings4 = div.nextElementSiblings();
-                {
-                    Element elementSibling = elementSiblings4.get(0);
-                }
-                org.junit.Assert.fail("testNextElementSiblings_add91 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testNextElementSiblings_add91_failAssert0_literalMutationString3003 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testNextElementSiblings_literalMutationString38_failAssert0_literalMutationNumber2717_failAssert0() throws Exception {
-        try {
-            {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + " Hello\nthere \u00a0  ") + "</div>")));
-                Element element = doc.getElementById("a");
-                List<Element> elementSiblings = element.nextElementSiblings();
-                elementSiblings.size();
-                elementSiblings.get(0).id();
-                elementSiblings.get(1).id();
-                Element element1 = doc.getElementById("b");
-                List<Element> elementSiblings1 = element1.nextElementSiblings();
-                elementSiblings1.size();
-                elementSiblings1.get(0).id();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.nextElementSiblings();
-                elementSiblings2.size();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.nextElementSiblings();
-                elementSiblings3.size();
-                elementSiblings3.get(-1).id();
-                Element div = doc.getElementById("div");
-                List<Element> elementSiblings4 = div.nextElementSiblings();
-                {
-                    Element elementSibling = elementSiblings4.get(0);
-                }
-                org.junit.Assert.fail("testNextElementSiblings_literalMutationString38 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testNextElementSiblings_literalMutationString38_failAssert0_literalMutationNumber2717 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: -1, Size: 1", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testNextElementSiblings_literalMutationString38_failAssert0_add9641_failAssert0() throws Exception {
-        try {
-            {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + " Hello\nthere \u00a0  ") + "</div>")));
-                Element element = doc.getElementById("a");
-                List<Element> elementSiblings = element.nextElementSiblings();
-                elementSiblings.size();
-                elementSiblings.size();
-                elementSiblings.get(0).id();
-                elementSiblings.get(1).id();
-                Element element1 = doc.getElementById("b");
-                List<Element> elementSiblings1 = element1.nextElementSiblings();
-                elementSiblings1.size();
-                elementSiblings1.get(0).id();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.nextElementSiblings();
-                elementSiblings2.size();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.nextElementSiblings();
-                elementSiblings3.size();
-                elementSiblings3.get(0).id();
-                Element div = doc.getElementById("div");
-                List<Element> elementSiblings4 = div.nextElementSiblings();
-                {
-                    Element elementSibling = elementSiblings4.get(0);
-                }
-                org.junit.Assert.fail("testNextElementSiblings_literalMutationString38 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testNextElementSiblings_literalMutationString38_failAssert0_add9641 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testNextElementSiblings_literalMutationString38_failAssert0_literalMutationNumber2695_failAssert0_add21052_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + " Hello\nthere \u00a0  ") + "</div>")));
-                    Element element = doc.getElementById("a");
-                    List<Element> elementSiblings = element.nextElementSiblings();
-                    elementSiblings.size();
-                    elementSiblings.get(1);
-                    elementSiblings.get(1).id();
-                    elementSiblings.get(1).id();
-                    Element element1 = doc.getElementById("b");
-                    List<Element> elementSiblings1 = element1.nextElementSiblings();
-                    elementSiblings1.size();
-                    elementSiblings1.get(0).id();
-                    Element element2 = doc.getElementById("c");
-                    List<Element> elementSiblings2 = element2.nextElementSiblings();
-                    elementSiblings2.size();
-                    Element ul = doc.getElementById("ul");
-                    List<Element> elementSiblings3 = ul.nextElementSiblings();
-                    elementSiblings3.size();
-                    elementSiblings3.get(0).id();
-                    Element div = doc.getElementById("div");
-                    List<Element> elementSiblings4 = div.nextElementSiblings();
-                    {
-                        Element elementSibling = elementSiblings4.get(0);
-                    }
-                    org.junit.Assert.fail("testNextElementSiblings_literalMutationString38 should have thrown IndexOutOfBoundsException");
-                }
-                org.junit.Assert.fail("testNextElementSiblings_literalMutationString38_failAssert0_literalMutationNumber2695 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testNextElementSiblings_literalMutationString38_failAssert0_literalMutationNumber2695_failAssert0_add21052 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testNextElementSiblings_add91_failAssert0_add9752_failAssert0_add22662_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                    Element element = doc.getElementById("a");
-                    List<Element> elementSiblings = element.nextElementSiblings();
-                    elementSiblings.size();
-                    elementSiblings.get(0).id();
-                    elementSiblings.get(0).id();
-                    elementSiblings.get(1).id();
-                    Element element1 = doc.getElementById("b");
-                    element1.nextElementSiblings();
-                    List<Element> elementSiblings1 = element1.nextElementSiblings();
-                    elementSiblings1.size();
-                    elementSiblings1.size();
-                    elementSiblings1.get(0).id();
-                    Element element2 = doc.getElementById("c");
-                    List<Element> elementSiblings2 = element2.nextElementSiblings();
-                    elementSiblings2.size();
-                    Element ul = doc.getElementById("ul");
-                    List<Element> elementSiblings3 = ul.nextElementSiblings();
-                    elementSiblings3.size();
-                    elementSiblings3.get(0).id();
-                    Element div = doc.getElementById("div");
-                    List<Element> elementSiblings4 = div.nextElementSiblings();
-                    {
-                        Element elementSibling = elementSiblings4.get(0);
-                    }
-                    org.junit.Assert.fail("testNextElementSiblings_add91 should have thrown IndexOutOfBoundsException");
-                }
-                org.junit.Assert.fail("testNextElementSiblings_add91_failAssert0_add9752 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testNextElementSiblings_add91_failAssert0_add9752_failAssert0_add22662 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testNextElementSiblings_literalMutationString38_failAssert0_literalMutationNumber2695_failAssert0_literalMutationNumber14375_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + " Hello\nthere \u00a0  ") + "</div>")));
-                    Element element = doc.getElementById("a");
-                    List<Element> elementSiblings = element.nextElementSiblings();
-                    elementSiblings.size();
-                    elementSiblings.get(1).id();
-                    elementSiblings.get(0).id();
-                    Element element1 = doc.getElementById("b");
-                    List<Element> elementSiblings1 = element1.nextElementSiblings();
-                    elementSiblings1.size();
-                    elementSiblings1.get(0).id();
-                    Element element2 = doc.getElementById("c");
-                    List<Element> elementSiblings2 = element2.nextElementSiblings();
-                    elementSiblings2.size();
-                    Element ul = doc.getElementById("ul");
-                    List<Element> elementSiblings3 = ul.nextElementSiblings();
-                    elementSiblings3.size();
-                    elementSiblings3.get(0).id();
-                    Element div = doc.getElementById("div");
-                    List<Element> elementSiblings4 = div.nextElementSiblings();
-                    {
-                        Element elementSibling = elementSiblings4.get(0);
-                    }
-                    org.junit.Assert.fail("testNextElementSiblings_literalMutationString38 should have thrown IndexOutOfBoundsException");
-                }
-                org.junit.Assert.fail("testNextElementSiblings_literalMutationString38_failAssert0_literalMutationNumber2695 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testNextElementSiblings_literalMutationString38_failAssert0_literalMutationNumber2695_failAssert0_literalMutationNumber14375 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testNextElementSiblings_add93_failAssert0_add9248 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
@@ -1997,10 +1775,10 @@ public class AmplElementTest {
     }
 
     @Test(timeout = 10000)
-    public void testNextElementSiblings_add97_failAssert0_add9937_failAssert0() throws Exception {
+    public void testNextElementSiblings_literalMutationString71_failAssert0_literalMutationString7918_failAssert0() throws Exception {
         try {
             {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<i id=\'a\'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
                 Element element = doc.getElementById("a");
                 List<Element> elementSiblings = element.nextElementSiblings();
                 elementSiblings.size();
@@ -2009,13 +1787,11 @@ public class AmplElementTest {
                 Element element1 = doc.getElementById("b");
                 List<Element> elementSiblings1 = element1.nextElementSiblings();
                 elementSiblings1.size();
-                elementSiblings1.size();
-                elementSiblings1.get(0);
                 elementSiblings1.get(0).id();
                 Element element2 = doc.getElementById("c");
                 List<Element> elementSiblings2 = element2.nextElementSiblings();
                 elementSiblings2.size();
-                Element ul = doc.getElementById("ul");
+                Element ul = doc.getElementById("1");
                 List<Element> elementSiblings3 = ul.nextElementSiblings();
                 elementSiblings3.size();
                 elementSiblings3.get(0).id();
@@ -2024,188 +1800,11 @@ public class AmplElementTest {
                 {
                     Element elementSibling = elementSiblings4.get(0);
                 }
-                org.junit.Assert.fail("testNextElementSiblings_add97 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testNextElementSiblings_literalMutationString71 should have thrown NullPointerException");
             }
-            org.junit.Assert.fail("testNextElementSiblings_add97_failAssert0_add9937 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testNextElementSiblings_literalMutationString71_failAssert0_literalMutationString7918 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testNextElementSiblings_add91_failAssert0_add9752_failAssert0() throws Exception {
-        try {
-            {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                Element element = doc.getElementById("a");
-                List<Element> elementSiblings = element.nextElementSiblings();
-                elementSiblings.size();
-                elementSiblings.get(0).id();
-                elementSiblings.get(0).id();
-                elementSiblings.get(1).id();
-                Element element1 = doc.getElementById("b");
-                List<Element> elementSiblings1 = element1.nextElementSiblings();
-                elementSiblings1.size();
-                elementSiblings1.size();
-                elementSiblings1.get(0).id();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.nextElementSiblings();
-                elementSiblings2.size();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.nextElementSiblings();
-                elementSiblings3.size();
-                elementSiblings3.get(0).id();
-                Element div = doc.getElementById("div");
-                List<Element> elementSiblings4 = div.nextElementSiblings();
-                {
-                    Element elementSibling = elementSiblings4.get(0);
-                }
-                org.junit.Assert.fail("testNextElementSiblings_add91 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testNextElementSiblings_add91_failAssert0_add9752 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testNextElementSiblings_literalMutationString38_failAssert0_literalMutationNumber2695_failAssert0() throws Exception {
-        try {
-            {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + " Hello\nthere \u00a0  ") + "</div>")));
-                Element element = doc.getElementById("a");
-                List<Element> elementSiblings = element.nextElementSiblings();
-                elementSiblings.size();
-                elementSiblings.get(1).id();
-                elementSiblings.get(1).id();
-                Element element1 = doc.getElementById("b");
-                List<Element> elementSiblings1 = element1.nextElementSiblings();
-                elementSiblings1.size();
-                elementSiblings1.get(0).id();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.nextElementSiblings();
-                elementSiblings2.size();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.nextElementSiblings();
-                elementSiblings3.size();
-                elementSiblings3.get(0).id();
-                Element div = doc.getElementById("div");
-                List<Element> elementSiblings4 = div.nextElementSiblings();
-                {
-                    Element elementSibling = elementSiblings4.get(0);
-                }
-                org.junit.Assert.fail("testNextElementSiblings_literalMutationString38 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testNextElementSiblings_literalMutationString38_failAssert0_literalMutationNumber2695 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testNextElementSiblings_add88_failAssert0_add9989_failAssert0() throws Exception {
-        try {
-            {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                doc.getElementById("a");
-                Element element = doc.getElementById("a");
-                List<Element> elementSiblings = element.nextElementSiblings();
-                elementSiblings.size();
-                elementSiblings.get(0).id();
-                elementSiblings.get(1).id();
-                Element element1 = doc.getElementById("b");
-                List<Element> elementSiblings1 = element1.nextElementSiblings();
-                elementSiblings1.size();
-                elementSiblings1.get(0);
-                elementSiblings1.get(0).id();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.nextElementSiblings();
-                elementSiblings2.size();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.nextElementSiblings();
-                elementSiblings3.size();
-                elementSiblings3.get(0).id();
-                Element div = doc.getElementById("div");
-                List<Element> elementSiblings4 = div.nextElementSiblings();
-                {
-                    Element elementSibling = elementSiblings4.get(0);
-                }
-                org.junit.Assert.fail("testNextElementSiblings_add88 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testNextElementSiblings_add88_failAssert0_add9989 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testNextElementSiblings_add91_failAssert0_add9740_failAssert0() throws Exception {
-        try {
-            {
-                Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                Element element = doc.getElementById("a");
-                List<Element> elementSiblings = element.nextElementSiblings();
-                elementSiblings.size();
-                elementSiblings.get(0).id();
-                elementSiblings.get(0).id();
-                elementSiblings.get(1).id();
-                Element element1 = doc.getElementById("b");
-                List<Element> elementSiblings1 = element1.nextElementSiblings();
-                elementSiblings1.size();
-                elementSiblings1.get(0).id();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.nextElementSiblings();
-                elementSiblings2.size();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.nextElementSiblings();
-                elementSiblings3.size();
-                elementSiblings3.get(0).id();
-                Element div = doc.getElementById("div");
-                List<Element> elementSiblings4 = div.nextElementSiblings();
-                {
-                    Element elementSibling = elementSiblings4.get(0);
-                }
-                org.junit.Assert.fail("testNextElementSiblings_add91 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testNextElementSiblings_add91_failAssert0_add9740 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testNextElementSiblings_literalMutationNumber74_failAssert0_add10846_failAssert0() throws Exception {
-        try {
-            {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                Element element = doc.getElementById("a");
-                List<Element> elementSiblings = element.nextElementSiblings();
-                elementSiblings.size();
-                elementSiblings.get(0);
-                elementSiblings.get(0).id();
-                elementSiblings.get(1).id();
-                Element element1 = doc.getElementById("b");
-                List<Element> elementSiblings1 = element1.nextElementSiblings();
-                elementSiblings1.size();
-                elementSiblings1.get(0).id();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.nextElementSiblings();
-                elementSiblings2.size();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.nextElementSiblings();
-                elementSiblings3.size();
-                elementSiblings3.get(-1).id();
-                Element div = doc.getElementById("div");
-                List<Element> elementSiblings4 = div.nextElementSiblings();
-                {
-                    Element elementSibling = elementSiblings4.get(0);
-                }
-                org.junit.Assert.fail("testNextElementSiblings_literalMutationNumber74 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testNextElementSiblings_literalMutationNumber74_failAssert0_add10846 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: -1, Size: 1", expected.getMessage());
         }
     }
 
@@ -2370,14 +1969,53 @@ public class AmplElementTest {
     }
 
     @Test(timeout = 10000)
-    public void testNextElementSiblings_add88_failAssert0_literalMutationString3861_failAssert0() throws Exception {
+    public void testNextElementSiblings_literalMutationString71_failAssert0_literalMutationString7918_failAssert0_add22171_failAssert0() throws Exception {
         try {
             {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + " Hello\nthere \u00a0  ") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                doc.getElementById("a");
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<i id=\'a\'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                    Element element = doc.getElementById("a");
+                    List<Element> elementSiblings = element.nextElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    elementSiblings.get(1).id();
+                    Element element1 = doc.getElementById("b");
+                    List<Element> elementSiblings1 = element1.nextElementSiblings();
+                    elementSiblings1.size();
+                    elementSiblings1.get(0).id();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.nextElementSiblings();
+                    elementSiblings2.size();
+                    Element ul = doc.getElementById("1");
+                    ul.nextElementSiblings();
+                    List<Element> elementSiblings3 = ul.nextElementSiblings();
+                    elementSiblings3.size();
+                    elementSiblings3.get(0).id();
+                    Element div = doc.getElementById("div");
+                    List<Element> elementSiblings4 = div.nextElementSiblings();
+                    {
+                        Element elementSibling = elementSiblings4.get(0);
+                    }
+                    org.junit.Assert.fail("testNextElementSiblings_literalMutationString71 should have thrown NullPointerException");
+                }
+                org.junit.Assert.fail("testNextElementSiblings_literalMutationString71_failAssert0_literalMutationString7918 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testNextElementSiblings_literalMutationString71_failAssert0_literalMutationString7918_failAssert0_add22171 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testNextElementSiblings_add91_failAssert0_add8965_failAssert0() throws Exception {
+        try {
+            {
+                Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
                 Element element = doc.getElementById("a");
                 List<Element> elementSiblings = element.nextElementSiblings();
                 elementSiblings.size();
+                elementSiblings.get(0).id();
                 elementSiblings.get(0).id();
                 elementSiblings.get(1).id();
                 Element element1 = doc.getElementById("b");
@@ -2396,48 +2034,80 @@ public class AmplElementTest {
                 {
                     Element elementSibling = elementSiblings4.get(0);
                 }
-                org.junit.Assert.fail("testNextElementSiblings_add88 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testNextElementSiblings_add91 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testNextElementSiblings_add88_failAssert0_literalMutationString3861 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testNextElementSiblings_add91_failAssert0_add8965 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testNextElementSiblings_add88_failAssert0_add9989_failAssert0_literalMutationNumber18088_failAssert0() throws Exception {
+    public void testNextElementSiblings_add94_failAssert0_add8995_failAssert0() throws Exception {
         try {
             {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("a");
+                List<Element> elementSiblings = element.nextElementSiblings();
+                elementSiblings.size();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                elementSiblings.get(1);
+                elementSiblings.get(1).id();
+                Element element1 = doc.getElementById("b");
+                List<Element> elementSiblings1 = element1.nextElementSiblings();
+                elementSiblings1.size();
+                elementSiblings1.get(0).id();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.nextElementSiblings();
+                elementSiblings2.size();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.nextElementSiblings();
+                elementSiblings3.size();
+                elementSiblings3.get(0).id();
+                Element div = doc.getElementById("div");
+                List<Element> elementSiblings4 = div.nextElementSiblings();
                 {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                    doc.getElementById("a");
-                    Element element = doc.getElementById("a");
-                    List<Element> elementSiblings = element.nextElementSiblings();
-                    elementSiblings.size();
-                    elementSiblings.get(0).id();
-                    elementSiblings.get(1).id();
-                    Element element1 = doc.getElementById("b");
-                    List<Element> elementSiblings1 = element1.nextElementSiblings();
-                    elementSiblings1.size();
-                    elementSiblings1.get(0);
-                    elementSiblings1.get(0).id();
-                    Element element2 = doc.getElementById("c");
-                    List<Element> elementSiblings2 = element2.nextElementSiblings();
-                    elementSiblings2.size();
-                    Element ul = doc.getElementById("ul");
-                    List<Element> elementSiblings3 = ul.nextElementSiblings();
-                    elementSiblings3.size();
-                    elementSiblings3.get(0).id();
-                    Element div = doc.getElementById("div");
-                    List<Element> elementSiblings4 = div.nextElementSiblings();
-                    {
-                        Element elementSibling = elementSiblings4.get(0);
-                    }
-                    org.junit.Assert.fail("testNextElementSiblings_add88 should have thrown IndexOutOfBoundsException");
+                    Element elementSibling = elementSiblings4.get(0);
                 }
-                org.junit.Assert.fail("testNextElementSiblings_add88_failAssert0_add9989 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testNextElementSiblings_add94 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testNextElementSiblings_add88_failAssert0_add9989_failAssert0_literalMutationNumber18088 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testNextElementSiblings_add94_failAssert0_add8995 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testNextElementSiblings_add93_failAssert0_literalMutationString1377_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "") + "</div>")));
+                Element element = doc.getElementById("a");
+                List<Element> elementSiblings = element.nextElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                elementSiblings.get(1).id();
+                elementSiblings.get(1).id();
+                Element element1 = doc.getElementById("b");
+                List<Element> elementSiblings1 = element1.nextElementSiblings();
+                elementSiblings1.size();
+                elementSiblings1.get(0).id();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.nextElementSiblings();
+                elementSiblings2.size();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.nextElementSiblings();
+                elementSiblings3.size();
+                elementSiblings3.get(0).id();
+                Element div = doc.getElementById("div");
+                List<Element> elementSiblings4 = div.nextElementSiblings();
+                {
+                    Element elementSibling = elementSiblings4.get(0);
+                }
+                org.junit.Assert.fail("testNextElementSiblings_add93 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testNextElementSiblings_add93_failAssert0_literalMutationString1377 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
@@ -2470,6 +2140,42 @@ public class AmplElementTest {
                 Element elementSibling = elementSiblings4.get(0);
             }
             org.junit.Assert.fail("testNextElementSiblings_add109 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testNextElementSiblings_add91_failAssert0_add8981_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("a");
+                List<Element> elementSiblings = element.nextElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                elementSiblings.get(0).id();
+                elementSiblings.get(1).id();
+                Element element1 = doc.getElementById("b");
+                List<Element> elementSiblings1 = element1.nextElementSiblings();
+                elementSiblings1.size();
+                elementSiblings1.get(0).id();
+                Element element2 = doc.getElementById("c");
+                element2.nextElementSiblings();
+                List<Element> elementSiblings2 = element2.nextElementSiblings();
+                elementSiblings2.size();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.nextElementSiblings();
+                elementSiblings3.size();
+                elementSiblings3.get(0).id();
+                Element div = doc.getElementById("div");
+                List<Element> elementSiblings4 = div.nextElementSiblings();
+                {
+                    Element elementSibling = elementSiblings4.get(0);
+                }
+                org.junit.Assert.fail("testNextElementSiblings_add91 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testNextElementSiblings_add91_failAssert0_add8981 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
@@ -2604,41 +2310,6 @@ public class AmplElementTest {
     }
 
     @Test(timeout = 10000)
-    public void testNextElementSiblings_add93_failAssert0_literalMutationString3965_failAssert0() throws Exception {
-        try {
-            {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "")));
-                Element element = doc.getElementById("a");
-                List<Element> elementSiblings = element.nextElementSiblings();
-                elementSiblings.size();
-                elementSiblings.get(0).id();
-                elementSiblings.get(1).id();
-                elementSiblings.get(1).id();
-                Element element1 = doc.getElementById("b");
-                List<Element> elementSiblings1 = element1.nextElementSiblings();
-                elementSiblings1.size();
-                elementSiblings1.get(0).id();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.nextElementSiblings();
-                elementSiblings2.size();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.nextElementSiblings();
-                elementSiblings3.size();
-                elementSiblings3.get(0).id();
-                Element div = doc.getElementById("div");
-                List<Element> elementSiblings4 = div.nextElementSiblings();
-                {
-                    Element elementSibling = elementSiblings4.get(0);
-                }
-                org.junit.Assert.fail("testNextElementSiblings_add93 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testNextElementSiblings_add93_failAssert0_literalMutationString3965 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
     public void testNextElementSiblings_literalMutationString18_failAssert0() throws Exception {
         try {
             Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id=\'b\'>b<zli>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
@@ -2670,40 +2341,72 @@ public class AmplElementTest {
     }
 
     @Test(timeout = 10000)
-    public void testNextElementSiblings_literalMutationNumber73_failAssert0_literalMutationString2840_failAssert0_add21194_failAssert0() throws Exception {
+    public void testNextElementSiblings_add93_failAssert0_add9243_failAssert0() throws Exception {
         try {
             {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("a");
+                List<Element> elementSiblings = element.nextElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                elementSiblings.get(1).id();
+                elementSiblings.get(1).id();
+                Element element1 = doc.getElementById("b");
+                List<Element> elementSiblings1 = element1.nextElementSiblings();
+                elementSiblings1.size();
+                elementSiblings1.get(0).id();
+                Element element2 = doc.getElementById("c");
+                element2.nextElementSiblings();
+                List<Element> elementSiblings2 = element2.nextElementSiblings();
+                elementSiblings2.size();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.nextElementSiblings();
+                elementSiblings3.size();
+                elementSiblings3.get(0).id();
+                Element div = doc.getElementById("div");
+                List<Element> elementSiblings4 = div.nextElementSiblings();
                 {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</u>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                    Element element = doc.getElementById("a");
-                    List<Element> elementSiblings = element.nextElementSiblings();
-                    elementSiblings.size();
-                    elementSiblings.get(0).id();
-                    elementSiblings.get(1).id();
-                    Element element1 = doc.getElementById("b");
-                    List<Element> elementSiblings1 = element1.nextElementSiblings();
-                    elementSiblings1.size();
-                    elementSiblings1.get(0).id();
-                    Element element2 = doc.getElementById("c");
-                    List<Element> elementSiblings2 = element2.nextElementSiblings();
-                    elementSiblings2.size();
-                    Element ul = doc.getElementById("ul");
-                    List<Element> elementSiblings3 = ul.nextElementSiblings();
-                    elementSiblings3.size();
-                    elementSiblings3.get(1);
-                    elementSiblings3.get(1).id();
-                    Element div = doc.getElementById("div");
-                    List<Element> elementSiblings4 = div.nextElementSiblings();
-                    {
-                        Element elementSibling = elementSiblings4.get(0);
-                    }
-                    org.junit.Assert.fail("testNextElementSiblings_literalMutationNumber73 should have thrown IndexOutOfBoundsException");
+                    Element elementSibling = elementSiblings4.get(0);
                 }
-                org.junit.Assert.fail("testNextElementSiblings_literalMutationNumber73_failAssert0_literalMutationString2840 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testNextElementSiblings_add93 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testNextElementSiblings_literalMutationNumber73_failAssert0_literalMutationString2840_failAssert0_add21194 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testNextElementSiblings_add93_failAssert0_add9243 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 1", expected.getMessage());
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testNextElementSiblings_literalMutationString38_failAssert0_literalMutationNumber4885_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + " Hello\nthere \u00a0  ") + "</div>")));
+                Element element = doc.getElementById("a");
+                List<Element> elementSiblings = element.nextElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                elementSiblings.get(1).id();
+                Element element1 = doc.getElementById("b");
+                List<Element> elementSiblings1 = element1.nextElementSiblings();
+                elementSiblings1.size();
+                elementSiblings1.get(0).id();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.nextElementSiblings();
+                elementSiblings2.size();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.nextElementSiblings();
+                elementSiblings3.size();
+                elementSiblings3.get(0).id();
+                Element div = doc.getElementById("div");
+                List<Element> elementSiblings4 = div.nextElementSiblings();
+                {
+                    Element elementSibling = elementSiblings4.get(0);
+                }
+                org.junit.Assert.fail("testNextElementSiblings_literalMutationString38 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testNextElementSiblings_literalMutationString38_failAssert0_literalMutationNumber4885 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
@@ -2770,6 +2473,41 @@ public class AmplElementTest {
     }
 
     @Test(timeout = 10000)
+    public void testNextElementSiblings_add91_failAssert0_literalMutationString435_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</l>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("a");
+                List<Element> elementSiblings = element.nextElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                elementSiblings.get(0).id();
+                elementSiblings.get(1).id();
+                Element element1 = doc.getElementById("b");
+                List<Element> elementSiblings1 = element1.nextElementSiblings();
+                elementSiblings1.size();
+                elementSiblings1.get(0).id();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.nextElementSiblings();
+                elementSiblings2.size();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.nextElementSiblings();
+                elementSiblings3.size();
+                elementSiblings3.get(0).id();
+                Element div = doc.getElementById("div");
+                List<Element> elementSiblings4 = div.nextElementSiblings();
+                {
+                    Element elementSibling = elementSiblings4.get(0);
+                }
+                org.junit.Assert.fail("testNextElementSiblings_add91 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testNextElementSiblings_add91_failAssert0_literalMutationString435 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
     public void testNextElementSiblings_add110_failAssert0() throws Exception {
         try {
             Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
@@ -2802,11 +2540,11 @@ public class AmplElementTest {
     }
 
     @Test(timeout = 10000)
-    public void testNextElementSiblings_literalMutationNumber73_failAssert0_literalMutationString2840_failAssert0_literalMutationString14777_failAssert0() throws Exception {
+    public void testNextElementSiblings_literalMutationString31_failAssert0null11807_failAssert0_literalMutationString15715_failAssert0() throws Exception {
         try {
             {
                 {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</u>") + "<div id='div'>") + " Hello\nthere \u00a0  ") + "</div>")));
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "<ul>") + "<div id=\'dSiv\'>") + "<li id='d'>d</li>") + "</div>")));
                     Element element = doc.getElementById("a");
                     List<Element> elementSiblings = element.nextElementSiblings();
                     elementSiblings.size();
@@ -2822,71 +2560,35 @@ public class AmplElementTest {
                     Element ul = doc.getElementById("ul");
                     List<Element> elementSiblings3 = ul.nextElementSiblings();
                     elementSiblings3.size();
-                    elementSiblings3.get(1).id();
-                    Element div = doc.getElementById("div");
+                    elementSiblings3.get(0).id();
+                    Element div = doc.getElementById(null);
                     List<Element> elementSiblings4 = div.nextElementSiblings();
                     {
                         Element elementSibling = elementSiblings4.get(0);
                     }
-                    org.junit.Assert.fail("testNextElementSiblings_literalMutationNumber73 should have thrown IndexOutOfBoundsException");
+                    org.junit.Assert.fail("testNextElementSiblings_literalMutationString31 should have thrown NullPointerException");
                 }
-                org.junit.Assert.fail("testNextElementSiblings_literalMutationNumber73_failAssert0_literalMutationString2840 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testNextElementSiblings_literalMutationString31_failAssert0null11807 should have thrown IllegalArgumentException");
             }
-            org.junit.Assert.fail("testNextElementSiblings_literalMutationNumber73_failAssert0_literalMutationString2840_failAssert0_literalMutationString14777 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 1", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testNextElementSiblings_add94_failAssert0_add9785_failAssert0() throws Exception {
-        try {
-            {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                Element element = doc.getElementById("a");
-                List<Element> elementSiblings = element.nextElementSiblings();
-                elementSiblings.size();
-                elementSiblings.get(0).id();
-                elementSiblings.get(1);
-                elementSiblings.get(1).id();
-                Element element1 = doc.getElementById("b");
-                List<Element> elementSiblings1 = element1.nextElementSiblings();
-                elementSiblings1.size();
-                elementSiblings1.get(0).id();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.nextElementSiblings();
-                elementSiblings2.size();
-                Element ul = doc.getElementById("ul");
-                ul.nextElementSiblings();
-                List<Element> elementSiblings3 = ul.nextElementSiblings();
-                elementSiblings3.size();
-                elementSiblings3.get(0).id();
-                Element div = doc.getElementById("div");
-                List<Element> elementSiblings4 = div.nextElementSiblings();
-                {
-                    Element elementSibling = elementSiblings4.get(0);
-                }
-                org.junit.Assert.fail("testNextElementSiblings_add94 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testNextElementSiblings_add94_failAssert0_add9785 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testNextElementSiblings_literalMutationString31_failAssert0null11807_failAssert0_literalMutationString15715 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testNextElementSiblings_add90_failAssert0_add10177_failAssert0_add22075_failAssert0() throws Exception {
+    public void testNextElementSiblings_literalMutationString38_failAssert0_add10288_failAssert0_add22424_failAssert0() throws Exception {
         try {
             {
                 {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + " Hello\nthere \u00a0  ") + "</div>")));
                     Element element = doc.getElementById("a");
                     List<Element> elementSiblings = element.nextElementSiblings();
-                    elementSiblings.size();
                     elementSiblings.size();
                     elementSiblings.get(0).id();
                     elementSiblings.get(1).id();
                     Element element1 = doc.getElementById("b");
+                    element1.nextElementSiblings();
                     List<Element> elementSiblings1 = element1.nextElementSiblings();
                     elementSiblings1.size();
                     elementSiblings1.get(0).id();
@@ -2894,21 +2596,20 @@ public class AmplElementTest {
                     List<Element> elementSiblings2 = element2.nextElementSiblings();
                     elementSiblings2.size();
                     Element ul = doc.getElementById("ul");
-                    ul.nextElementSiblings();
-                    ul.nextElementSiblings();
                     List<Element> elementSiblings3 = ul.nextElementSiblings();
                     elementSiblings3.size();
                     elementSiblings3.get(0).id();
                     Element div = doc.getElementById("div");
+                    div.nextElementSiblings();
                     List<Element> elementSiblings4 = div.nextElementSiblings();
                     {
                         Element elementSibling = elementSiblings4.get(0);
                     }
-                    org.junit.Assert.fail("testNextElementSiblings_add90 should have thrown IndexOutOfBoundsException");
+                    org.junit.Assert.fail("testNextElementSiblings_literalMutationString38 should have thrown IndexOutOfBoundsException");
                 }
-                org.junit.Assert.fail("testNextElementSiblings_add90_failAssert0_add10177 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testNextElementSiblings_literalMutationString38_failAssert0_add10288 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testNextElementSiblings_add90_failAssert0_add10177_failAssert0_add22075 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testNextElementSiblings_literalMutationString38_failAssert0_add10288_failAssert0_add22424 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
@@ -3008,6 +2709,42 @@ public class AmplElementTest {
     }
 
     @Test(timeout = 10000)
+    public void testNextElementSiblings_add92_failAssert0_add9090_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("a");
+                List<Element> elementSiblings = element.nextElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0);
+                elementSiblings.get(0).id();
+                elementSiblings.get(1).id();
+                Element element1 = doc.getElementById("b");
+                List<Element> elementSiblings1 = element1.nextElementSiblings();
+                elementSiblings1.size();
+                elementSiblings1.get(0).id();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.nextElementSiblings();
+                elementSiblings2.size();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.nextElementSiblings();
+                elementSiblings3.size();
+                elementSiblings3.get(0).id();
+                elementSiblings3.get(0).id();
+                Element div = doc.getElementById("div");
+                List<Element> elementSiblings4 = div.nextElementSiblings();
+                {
+                    Element elementSibling = elementSiblings4.get(0);
+                }
+                org.junit.Assert.fail("testNextElementSiblings_add92 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testNextElementSiblings_add92_failAssert0_add9090 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
     public void testNextElementSiblings_literalMutationString14_failAssert0() throws Exception {
         try {
             Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id=\'b\'></li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
@@ -3070,41 +2807,6 @@ public class AmplElementTest {
     }
 
     @Test(timeout = 10000)
-    public void testNextElementSiblings_add90_failAssert0_literalMutationNumber4537_failAssert0() throws Exception {
-        try {
-            {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                Element element = doc.getElementById("a");
-                List<Element> elementSiblings = element.nextElementSiblings();
-                elementSiblings.size();
-                elementSiblings.size();
-                elementSiblings.get(0).id();
-                elementSiblings.get(1).id();
-                Element element1 = doc.getElementById("b");
-                List<Element> elementSiblings1 = element1.nextElementSiblings();
-                elementSiblings1.size();
-                elementSiblings1.get(0).id();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.nextElementSiblings();
-                elementSiblings2.size();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.nextElementSiblings();
-                elementSiblings3.size();
-                elementSiblings3.get(0).id();
-                Element div = doc.getElementById("div");
-                List<Element> elementSiblings4 = div.nextElementSiblings();
-                {
-                    Element elementSibling = elementSiblings4.get(-1);
-                }
-                org.junit.Assert.fail("testNextElementSiblings_add90 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testNextElementSiblings_add90_failAssert0_literalMutationNumber4537 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: -1", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
     public void testNextElementSiblings_literalMutationString28_failAssert0() throws Exception {
         try {
             Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "`/ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
@@ -3136,19 +2838,18 @@ public class AmplElementTest {
     }
 
     @Test(timeout = 10000)
-    public void testNextElementSiblings_add92_failAssert0_add9846_failAssert0() throws Exception {
+    public void testNextElementSiblings_add97_failAssert0_literalMutationNumber1158_failAssert0() throws Exception {
         try {
             {
                 Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                doc.getElementById("a");
                 Element element = doc.getElementById("a");
                 List<Element> elementSiblings = element.nextElementSiblings();
                 elementSiblings.size();
-                elementSiblings.get(0);
                 elementSiblings.get(0).id();
                 elementSiblings.get(1).id();
                 Element element1 = doc.getElementById("b");
                 List<Element> elementSiblings1 = element1.nextElementSiblings();
+                elementSiblings1.size();
                 elementSiblings1.size();
                 elementSiblings1.get(0).id();
                 Element element2 = doc.getElementById("c");
@@ -3163,9 +2864,238 @@ public class AmplElementTest {
                 {
                     Element elementSibling = elementSiblings4.get(0);
                 }
-                org.junit.Assert.fail("testNextElementSiblings_add92 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testNextElementSiblings_add97 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testNextElementSiblings_add92_failAssert0_add9846 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testNextElementSiblings_add97_failAssert0_literalMutationNumber1158 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testNextElementSiblings_add97_failAssert0_add9161_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("a");
+                List<Element> elementSiblings = element.nextElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                elementSiblings.get(1).id();
+                Element element1 = doc.getElementById("b");
+                List<Element> elementSiblings1 = element1.nextElementSiblings();
+                elementSiblings1.size();
+                elementSiblings1.size();
+                elementSiblings1.get(0).id();
+                elementSiblings1.get(0).id();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.nextElementSiblings();
+                elementSiblings2.size();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.nextElementSiblings();
+                elementSiblings3.size();
+                elementSiblings3.get(0).id();
+                Element div = doc.getElementById("div");
+                List<Element> elementSiblings4 = div.nextElementSiblings();
+                {
+                    Element elementSibling = elementSiblings4.get(0);
+                }
+                org.junit.Assert.fail("testNextElementSiblings_add97 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testNextElementSiblings_add97_failAssert0_add9161 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testNextElementSiblings_literalMutationString44_failAssert0_add10584_failAssert0_add20999_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + " Hello\nthere \u00a0  ")));
+                    Element element = doc.getElementById("a");
+                    List<Element> elementSiblings = element.nextElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    elementSiblings.get(1).id();
+                    Element element1 = doc.getElementById("b");
+                    List<Element> elementSiblings1 = element1.nextElementSiblings();
+                    elementSiblings1.size();
+                    elementSiblings1.get(0);
+                    elementSiblings1.get(0).id();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.nextElementSiblings();
+                    elementSiblings2.size();
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.nextElementSiblings();
+                    elementSiblings3.size();
+                    elementSiblings3.size();
+                    elementSiblings3.get(0).id();
+                    Element div = doc.getElementById("div");
+                    List<Element> elementSiblings4 = div.nextElementSiblings();
+                    {
+                        Element elementSibling = elementSiblings4.get(0);
+                    }
+                    org.junit.Assert.fail("testNextElementSiblings_literalMutationString44 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testNextElementSiblings_literalMutationString44_failAssert0_add10584 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testNextElementSiblings_literalMutationString44_failAssert0_add10584_failAssert0_add20999 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testNextElementSiblings_add88_failAssert0_add9222_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                doc.getElementById("a");
+                Element element = doc.getElementById("a");
+                List<Element> elementSiblings = element.nextElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                elementSiblings.get(1).id();
+                Element element1 = doc.getElementById("b");
+                List<Element> elementSiblings1 = element1.nextElementSiblings();
+                elementSiblings1.size();
+                elementSiblings1.get(0).id();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.nextElementSiblings();
+                elementSiblings2.size();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.nextElementSiblings();
+                elementSiblings3.size();
+                elementSiblings3.get(0);
+                elementSiblings3.get(0).id();
+                Element div = doc.getElementById("div");
+                List<Element> elementSiblings4 = div.nextElementSiblings();
+                {
+                    Element elementSibling = elementSiblings4.get(0);
+                }
+                org.junit.Assert.fail("testNextElementSiblings_add88 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testNextElementSiblings_add88_failAssert0_add9222 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testNextElementSiblings_literalMutationString71_failAssert0_literalMutationString7918_failAssert0null23318_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<i id=\'a\'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                    Element element = doc.getElementById("a");
+                    List<Element> elementSiblings = element.nextElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    elementSiblings.get(1).id();
+                    Element element1 = doc.getElementById("b");
+                    List<Element> elementSiblings1 = element1.nextElementSiblings();
+                    elementSiblings1.size();
+                    elementSiblings1.get(0).id();
+                    Element element2 = doc.getElementById(null);
+                    List<Element> elementSiblings2 = element2.nextElementSiblings();
+                    elementSiblings2.size();
+                    Element ul = doc.getElementById("1");
+                    List<Element> elementSiblings3 = ul.nextElementSiblings();
+                    elementSiblings3.size();
+                    elementSiblings3.get(0).id();
+                    Element div = doc.getElementById("div");
+                    List<Element> elementSiblings4 = div.nextElementSiblings();
+                    {
+                        Element elementSibling = elementSiblings4.get(0);
+                    }
+                    org.junit.Assert.fail("testNextElementSiblings_literalMutationString71 should have thrown NullPointerException");
+                }
+                org.junit.Assert.fail("testNextElementSiblings_literalMutationString71_failAssert0_literalMutationString7918 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testNextElementSiblings_literalMutationString71_failAssert0_literalMutationString7918_failAssert0null23318 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28209_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</dZv>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28209 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28208_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "<div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28208 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28170_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
@@ -3174,7 +3104,7 @@ public class AmplElementTest {
     @Test(timeout = 10000)
     public void testPreviousElementSiblings_literalMutationString28203_failAssert0() throws Exception {
         try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li* id=\'b\'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id=U\'d\'>d</li>") + "</div>")));
             Element element = doc.getElementById("b");
             List<Element> elementSiblings = element.previousElementSiblings();
             elementSiblings.size();
@@ -3199,14 +3129,13 @@ public class AmplElementTest {
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28267_failAssert0_add36906_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_add28255_failAssert0_add36451_failAssert0() throws Exception {
         try {
             {
                 Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
                 Element element = doc.getElementById("b");
                 List<Element> elementSiblings = element.previousElementSiblings();
                 elementSiblings.size();
-                elementSiblings.get(0);
                 elementSiblings.get(0).id();
                 Element element1 = doc.getElementById("a");
                 List<Element> elementSiblings1 = element1.previousElementSiblings();
@@ -3214,26 +3143,27 @@ public class AmplElementTest {
                 Element element2 = doc.getElementById("c");
                 List<Element> elementSiblings2 = element2.previousElementSiblings();
                 elementSiblings2.size();
-                elementSiblings2.get(0);
+                elementSiblings2.size();
                 elementSiblings2.get(0).id();
+                elementSiblings2.get(1);
                 elementSiblings2.get(1).id();
                 Element ul = doc.getElementById("ul");
                 List<Element> elementSiblings3 = ul.previousElementSiblings();
                 {
                     Element element3 = elementSiblings3.get(0);
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_add28267 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_add28255 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28267_failAssert0_add36906 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_add28255_failAssert0_add36451 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28261_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28202_failAssert0() throws Exception {
         try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + " Hello\nthere \u00a0  ") + "</div>")));
             Element element = doc.getElementById("b");
             List<Element> elementSiblings = element.previousElementSiblings();
             elementSiblings.size();
@@ -3251,16 +3181,49 @@ public class AmplElementTest {
             {
                 Element element3 = elementSiblings3.get(0);
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28261 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28202 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28260_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28204_failAssert0_literalMutationString34724_failAssert0_literalMutationNumber43480_failAssert0() throws Exception {
         try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "FL2=<)( -Juxh3GWb") + "</div>")));
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(1).id();
+                    Element element1 = doc.getElementById("a");
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(1).id();
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        Element element3 = elementSiblings3.get(0);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28204 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28204_failAssert0_literalMutationString34724 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28204_failAssert0_literalMutationString34724_failAssert0_literalMutationNumber43480 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 1", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28174_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id=\'a\',a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
             Element element = doc.getElementById("b");
             List<Element> elementSiblings = element.previousElementSiblings();
             elementSiblings.size();
@@ -3278,7 +3241,233 @@ public class AmplElementTest {
             {
                 Element element3 = elementSiblings3.get(0);
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28260 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28174 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28172_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id=\'a\'>a<C/li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28172 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28204_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "FL2=<)( -Juxh3GWb") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28204 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28175_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("p5e`osqZ.+Ejjy#PM" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28175 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28171_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + ((((((" Hello\nthere \u00a0  " + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28171 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28205_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id=\'P\'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28205 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28209_failAssert0_literalMutationNumber30827_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</dZv>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(1).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28209 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28209_failAssert0_literalMutationNumber30827 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28204_failAssert0_literalMutationString34724_failAssert0_add47487_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "FL2=<)( -Juxh3GWb") + "</div>")));
+                    doc.getElementById("b");
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    Element element1 = doc.getElementById("a");
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(1).id();
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        Element element3 = elementSiblings3.get(0);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28204 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28204_failAssert0_literalMutationString34724 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28204_failAssert0_literalMutationString34724_failAssert0_add47487 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28207_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + " Hello\nthere \u00a0  ")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28207 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
@@ -3287,7 +3476,7 @@ public class AmplElementTest {
     @Test(timeout = 10000)
     public void testPreviousElementSiblings_literalMutationString28206_failAssert0() throws Exception {
         try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id=\'c\'>c</l>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "")));
             Element element = doc.getElementById("b");
             List<Element> elementSiblings = element.previousElementSiblings();
             elementSiblings.size();
@@ -3312,34 +3501,7 @@ public class AmplElementTest {
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28258_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(1);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28258 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 1", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28260_failAssert0_literalMutationString34470_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28207_failAssert0_add37312_failAssert0() throws Exception {
         try {
             {
                 Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + " Hello\nthere \u00a0  ")));
@@ -3351,6 +3513,7 @@ public class AmplElementTest {
                 List<Element> elementSiblings1 = element1.previousElementSiblings();
                 elementSiblings1.size();
                 Element element2 = doc.getElementById("c");
+                element2.previousElementSiblings();
                 List<Element> elementSiblings2 = element2.previousElementSiblings();
                 elementSiblings2.size();
                 elementSiblings2.get(0).id();
@@ -3360,127 +3523,50 @@ public class AmplElementTest {
                 {
                     Element element3 = elementSiblings3.get(0);
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28260 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28207 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28260_failAssert0_literalMutationString34470 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28207_failAssert0_add37312 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28259_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28170_failAssert0_add37513_failAssert0() throws Exception {
         try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
             {
-                Element element3 = elementSiblings3.get(-1);
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28259 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: -1", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28253_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(0).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28253 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170_failAssert0_add37513 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28252_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(0).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28252 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28254_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(0).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28254 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28203_failAssert0_literalMutationNumber34727_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28170_failAssert0_literalMutationString33842_failAssert0() throws Exception {
         try {
             {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li* id=\'b\'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "") + "</div>")));
                 Element element = doc.getElementById("b");
                 List<Element> elementSiblings = element.previousElementSiblings();
                 elementSiblings.size();
@@ -3496,80 +3582,80 @@ public class AmplElementTest {
                 Element ul = doc.getElementById("ul");
                 List<Element> elementSiblings3 = ul.previousElementSiblings();
                 {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170_failAssert0_literalMutationString33842 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28256_failAssert0_literalMutationString29956_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<liid=\'d\'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                doc.getElementById("ul");
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_add28256 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28256_failAssert0_literalMutationString29956 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28257_failAssert0_literalMutationNumber29677_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                ul.previousElementSiblings();
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
                     Element element3 = elementSiblings3.get(1);
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28203 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_add28257 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28203_failAssert0_literalMutationNumber34727 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_add28257_failAssert0_literalMutationNumber29677 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
+            Assert.assertEquals("Index: 1", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28264_failAssert0_add36872_failAssert0_literalMutationString43802_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "Pr3P1^o/;s@djixE=") + "</div>")));
-                    doc.getElementById("b");
-                    Element element = doc.getElementById("b");
-                    element.previousElementSiblings();
-                    List<Element> elementSiblings = element.previousElementSiblings();
-                    elementSiblings.size();
-                    elementSiblings.get(0).id();
-                    Element element1 = doc.getElementById("a");
-                    List<Element> elementSiblings1 = element1.previousElementSiblings();
-                    elementSiblings1.size();
-                    Element element2 = doc.getElementById("c");
-                    List<Element> elementSiblings2 = element2.previousElementSiblings();
-                    elementSiblings2.size();
-                    elementSiblings2.get(0).id();
-                    elementSiblings2.get(1).id();
-                    Element ul = doc.getElementById("ul");
-                    List<Element> elementSiblings3 = ul.previousElementSiblings();
-                    {
-                        Element element3 = elementSiblings3.get(0);
-                    }
-                    org.junit.Assert.fail("testPreviousElementSiblings_add28264 should have thrown IndexOutOfBoundsException");
-                }
-                org.junit.Assert.fail("testPreviousElementSiblings_add28264_failAssert0_add36872 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28264_failAssert0_add36872_failAssert0_literalMutationString43802 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28218_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<iv id=\'div\'>") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28218 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28261_failAssert0_add36337_failAssert0_literalMutationString42824_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28170_failAssert0_add37513_failAssert0_add46305_failAssert0() throws Exception {
         try {
             {
                 {
@@ -3577,6 +3663,7 @@ public class AmplElementTest {
                     Element element = doc.getElementById("b");
                     List<Element> elementSiblings = element.previousElementSiblings();
                     elementSiblings.size();
+                    elementSiblings.size();
                     elementSiblings.get(0).id();
                     Element element1 = doc.getElementById("a");
                     List<Element> elementSiblings1 = element1.previousElementSiblings();
@@ -3584,277 +3671,26 @@ public class AmplElementTest {
                     Element element2 = doc.getElementById("c");
                     List<Element> elementSiblings2 = element2.previousElementSiblings();
                     elementSiblings2.size();
+                    elementSiblings2.size();
                     elementSiblings2.get(0).id();
-                    elementSiblings2.get(1);
                     elementSiblings2.get(1).id();
                     Element ul = doc.getElementById("ul");
                     List<Element> elementSiblings3 = ul.previousElementSiblings();
                     {
                         Element element3 = elementSiblings3.get(0);
                     }
-                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28261 should have thrown IndexOutOfBoundsException");
+                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170 should have thrown IndexOutOfBoundsException");
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28261_failAssert0_add36337 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170_failAssert0_add37513 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28261_failAssert0_add36337_failAssert0_literalMutationString42824 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170_failAssert0_add37513_failAssert0_add46305 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28219_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + " Hello\nthere \u00a0  ") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28219 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28214_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "etQkP") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28214 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28261_failAssert0_add36337_failAssert0() throws Exception {
-        try {
-            {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                Element element = doc.getElementById("b");
-                List<Element> elementSiblings = element.previousElementSiblings();
-                elementSiblings.size();
-                elementSiblings.get(0).id();
-                Element element1 = doc.getElementById("a");
-                List<Element> elementSiblings1 = element1.previousElementSiblings();
-                elementSiblings1.size();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.previousElementSiblings();
-                elementSiblings2.size();
-                elementSiblings2.get(0).id();
-                elementSiblings2.get(1);
-                elementSiblings2.get(1).id();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.previousElementSiblings();
-                {
-                    Element element3 = elementSiblings3.get(0);
-                }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28261 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28261_failAssert0_add36337 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28280_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                elementSiblings3.get(0);
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28280 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28213_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + " Hello\nthere \u00a0  ") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28213 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28250_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28250 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28215_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</;l>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28215 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28203_failAssert0null38533_failAssert0() throws Exception {
-        try {
-            {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li* id=\'b\'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                Element element = doc.getElementById("b");
-                List<Element> elementSiblings = element.previousElementSiblings();
-                elementSiblings.size();
-                elementSiblings.get(0).id();
-                Element element1 = doc.getElementById("a");
-                List<Element> elementSiblings1 = element1.previousElementSiblings();
-                elementSiblings1.size();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.previousElementSiblings();
-                elementSiblings2.size();
-                elementSiblings2.get(0).id();
-                elementSiblings2.get(1).id();
-                Element ul = doc.getElementById(null);
-                List<Element> elementSiblings3 = ul.previousElementSiblings();
-                {
-                    Element element3 = elementSiblings3.get(0);
-                }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28203 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28203_failAssert0null38533 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28216_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "tS5tfJjVJ!X8L)") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28216 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28261_failAssert0_add36333_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_add28251_failAssert0_add36183_failAssert0() throws Exception {
         try {
             {
                 Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
@@ -3874,48 +3710,84 @@ public class AmplElementTest {
                 Element ul = doc.getElementById("ul");
                 List<Element> elementSiblings3 = ul.previousElementSiblings();
                 {
+                    elementSiblings3.get(0);
                     Element element3 = elementSiblings3.get(0);
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28261 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_add28251 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28261_failAssert0_add36333 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_add28251_failAssert0_add36183 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28217_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28203_failAssert0_add37794_failAssert0() throws Exception {
         try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
             {
-                Element element3 = elementSiblings3.get(0);
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id=U\'d\'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28203 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28217 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28203_failAssert0_add37794 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28203_failAssert0_literalMutationString34725_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_add28254_failAssert0_literalMutationNumber29120_failAssert0() throws Exception {
         try {
             {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li* id=\'b\'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_add28254 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28254_failAssert0_literalMutationNumber29120 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28254_failAssert0_literalMutationNumber29107_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
                 Element element = doc.getElementById("b");
                 List<Element> elementSiblings = element.previousElementSiblings();
                 elementSiblings.size();
@@ -3928,144 +3800,138 @@ public class AmplElementTest {
                 elementSiblings2.size();
                 elementSiblings2.get(0).id();
                 elementSiblings2.get(1).id();
-                Element ul = doc.getElementById(" Hello\nthere \u00a0  ");
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
                 List<Element> elementSiblings3 = ul.previousElementSiblings();
                 {
                     Element element3 = elementSiblings3.get(0);
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28203 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_add28254 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28203_failAssert0_literalMutationString34725 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_add28254_failAssert0_literalMutationNumber29107 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28267_failAssert0_add36906_failAssert0_literalMutationString44111_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28175_failAssert0_literalMutationNumber33949_failAssert0() throws Exception {
         try {
             {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("p5e`osqZ.+Ejjy#PM" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(0).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
                 {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div i=\'div\'>") + "<li id='d'>d</li>") + "</div>")));
-                    Element element = doc.getElementById("b");
-                    List<Element> elementSiblings = element.previousElementSiblings();
-                    elementSiblings.size();
-                    elementSiblings.get(0);
-                    elementSiblings.get(0).id();
-                    Element element1 = doc.getElementById("a");
-                    List<Element> elementSiblings1 = element1.previousElementSiblings();
-                    elementSiblings1.size();
-                    Element element2 = doc.getElementById("c");
-                    List<Element> elementSiblings2 = element2.previousElementSiblings();
-                    elementSiblings2.size();
-                    elementSiblings2.get(0);
-                    elementSiblings2.get(0).id();
-                    elementSiblings2.get(1).id();
-                    Element ul = doc.getElementById("ul");
-                    List<Element> elementSiblings3 = ul.previousElementSiblings();
-                    {
-                        Element element3 = elementSiblings3.get(0);
-                    }
-                    org.junit.Assert.fail("testPreviousElementSiblings_add28267 should have thrown IndexOutOfBoundsException");
+                    Element element3 = elementSiblings3.get(0);
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_add28267_failAssert0_add36906 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28175 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28267_failAssert0_add36906_failAssert0_literalMutationString44111 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28175_failAssert0_literalMutationNumber33949 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28267_failAssert0_add36906_failAssert0_literalMutationString44112_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_add28252_failAssert0_literalMutationString29789_failAssert0() throws Exception {
         try {
             {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id=\'3iv\'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
                 {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div 0d=\'div\'>") + "<li id='d'>d</li>") + "</div>")));
-                    Element element = doc.getElementById("b");
-                    List<Element> elementSiblings = element.previousElementSiblings();
-                    elementSiblings.size();
-                    elementSiblings.get(0);
-                    elementSiblings.get(0).id();
-                    Element element1 = doc.getElementById("a");
-                    List<Element> elementSiblings1 = element1.previousElementSiblings();
-                    elementSiblings1.size();
-                    Element element2 = doc.getElementById("c");
-                    List<Element> elementSiblings2 = element2.previousElementSiblings();
-                    elementSiblings2.size();
-                    elementSiblings2.get(0);
-                    elementSiblings2.get(0).id();
-                    elementSiblings2.get(1).id();
-                    Element ul = doc.getElementById("ul");
-                    List<Element> elementSiblings3 = ul.previousElementSiblings();
-                    {
-                        Element element3 = elementSiblings3.get(0);
-                    }
-                    org.junit.Assert.fail("testPreviousElementSiblings_add28267 should have thrown IndexOutOfBoundsException");
+                    Element element3 = elementSiblings3.get(0);
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_add28267_failAssert0_add36906 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_add28252 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28267_failAssert0_add36906_failAssert0_literalMutationString44112 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_add28252_failAssert0_literalMutationString29789 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28203_failAssert0_literalMutationNumber34727_failAssert0null48635_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28172_failAssert0_add36690_failAssert0() throws Exception {
         try {
             {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id=\'a\'>a<C/li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
                 {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li* id=\'b\'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                    Element element = doc.getElementById("b");
-                    List<Element> elementSiblings = element.previousElementSiblings();
-                    elementSiblings.size();
-                    elementSiblings.get(0).id();
-                    Element element1 = doc.getElementById("a");
-                    List<Element> elementSiblings1 = element1.previousElementSiblings();
-                    elementSiblings1.size();
-                    Element element2 = doc.getElementById("c");
-                    List<Element> elementSiblings2 = element2.previousElementSiblings();
-                    elementSiblings2.size();
-                    elementSiblings2.get(0).id();
-                    elementSiblings2.get(1).id();
-                    Element ul = doc.getElementById(null);
-                    List<Element> elementSiblings3 = ul.previousElementSiblings();
-                    {
-                        Element element3 = elementSiblings3.get(1);
-                    }
-                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28203 should have thrown IndexOutOfBoundsException");
+                    Element element3 = elementSiblings3.get(0);
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28203_failAssert0_literalMutationNumber34727 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28172 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28203_failAssert0_literalMutationNumber34727_failAssert0null48635 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28172_failAssert0_add36690 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28212_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationNumber28228_failAssert0_add37167_failAssert0() throws Exception {
         try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
             {
-                Element element3 = elementSiblings3.get(0);
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0);
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28228 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28212 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28228_failAssert0_add37167 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
@@ -4074,7 +3940,7 @@ public class AmplElementTest {
     @Test(timeout = 10000)
     public void testPreviousElementSiblings_literalMutationString28210_failAssert0() throws Exception {
         try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</,ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "<H/div>")));
             Element element = doc.getElementById("b");
             List<Element> elementSiblings = element.previousElementSiblings();
             elementSiblings.size();
@@ -4099,44 +3965,9 @@ public class AmplElementTest {
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28263_failAssert0_literalMutationString31118_failAssert0_add47021_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div i=\'div\'>") + "<li id='d'>d</li>") + "</div>")));
-                    doc.getElementById("b");
-                    doc.getElementById("b");
-                    Element element = doc.getElementById("b");
-                    List<Element> elementSiblings = element.previousElementSiblings();
-                    elementSiblings.size();
-                    elementSiblings.get(0).id();
-                    Element element1 = doc.getElementById("a");
-                    List<Element> elementSiblings1 = element1.previousElementSiblings();
-                    elementSiblings1.size();
-                    Element element2 = doc.getElementById("c");
-                    List<Element> elementSiblings2 = element2.previousElementSiblings();
-                    elementSiblings2.size();
-                    elementSiblings2.get(0).id();
-                    elementSiblings2.get(1).id();
-                    Element ul = doc.getElementById("ul");
-                    List<Element> elementSiblings3 = ul.previousElementSiblings();
-                    {
-                        Element element3 = elementSiblings3.get(0);
-                    }
-                    org.junit.Assert.fail("testPreviousElementSiblings_add28263 should have thrown IndexOutOfBoundsException");
-                }
-                org.junit.Assert.fail("testPreviousElementSiblings_add28263_failAssert0_literalMutationString31118 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28263_failAssert0_literalMutationString31118_failAssert0_add47021 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
     public void testPreviousElementSiblings_literalMutationString28211_failAssert0() throws Exception {
         try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</u>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "18-4H7")));
             Element element = doc.getElementById("b");
             List<Element> elementSiblings = element.previousElementSiblings();
             elementSiblings.size();
@@ -4161,18 +3992,16 @@ public class AmplElementTest {
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28264_failAssert0_add36872_failAssert0_literalMutationString43784_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28171_failAssert0null38474_failAssert0_literalMutationString41764_failAssert0() throws Exception {
         try {
             {
                 {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id=\'c\'>c<li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                    doc.getElementById("b");
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + ((((((" Hello\nthere \u00a0  " + "<li id='b'>b</li>") + "") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
                     Element element = doc.getElementById("b");
-                    element.previousElementSiblings();
                     List<Element> elementSiblings = element.previousElementSiblings();
                     elementSiblings.size();
                     elementSiblings.get(0).id();
-                    Element element1 = doc.getElementById("a");
+                    Element element1 = doc.getElementById(null);
                     List<Element> elementSiblings1 = element1.previousElementSiblings();
                     elementSiblings1.size();
                     Element element2 = doc.getElementById("c");
@@ -4185,79 +4014,51 @@ public class AmplElementTest {
                     {
                         Element element3 = elementSiblings3.get(0);
                     }
-                    org.junit.Assert.fail("testPreviousElementSiblings_add28264 should have thrown IndexOutOfBoundsException");
+                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28171 should have thrown IndexOutOfBoundsException");
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_add28264_failAssert0_add36872 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28171_failAssert0null38474 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28264_failAssert0_add36872_failAssert0_literalMutationString43784 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28171_failAssert0null38474_failAssert0_literalMutationString41764 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28252_failAssert0_add38020_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28204_failAssert0_add37749_failAssert0() throws Exception {
         try {
             {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "FL2=<)( -Juxh3GWb") + "</div>")));
                 Element element = doc.getElementById("b");
                 List<Element> elementSiblings = element.previousElementSiblings();
                 elementSiblings.size();
                 elementSiblings.get(0).id();
                 Element element1 = doc.getElementById("a");
+                element1.previousElementSiblings();
                 List<Element> elementSiblings1 = element1.previousElementSiblings();
                 elementSiblings1.size();
                 Element element2 = doc.getElementById("c");
                 List<Element> elementSiblings2 = element2.previousElementSiblings();
                 elementSiblings2.size();
                 elementSiblings2.get(0).id();
-                elementSiblings2.get(0).id();
-                doc.getElementById("ul");
+                elementSiblings2.get(1).id();
                 Element ul = doc.getElementById("ul");
                 List<Element> elementSiblings3 = ul.previousElementSiblings();
                 {
                     Element element3 = elementSiblings3.get(0);
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28252 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28204 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28252_failAssert0_add38020 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28204_failAssert0_add37749 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28274_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28191_failAssert0() throws Exception {
         try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28274 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28229_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "")));
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "t[h_,") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
             Element element = doc.getElementById("b");
             List<Element> elementSiblings = element.previousElementSiblings();
             elementSiblings.size();
@@ -4275,173 +4076,7 @@ public class AmplElementTest {
             {
                 Element element3 = elementSiblings3.get(0);
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28229 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28276_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28276 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28272_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            element2.previousElementSiblings();
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28272 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28278_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            doc.getElementById("ul");
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28278 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28270_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28270 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28225_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + " Hello\nthere \u00a0  ") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28225 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28240_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28240 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28191 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
@@ -4450,7 +4085,7 @@ public class AmplElementTest {
     @Test(timeout = 10000)
     public void testPreviousElementSiblings_literalMutationString28193_failAssert0() throws Exception {
         try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + ((((((" Hello\nthere \u00a0  " + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "<Cul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
             Element element = doc.getElementById("b");
             List<Element> elementSiblings = element.previousElementSiblings();
             elementSiblings.size();
@@ -4475,22 +4110,55 @@ public class AmplElementTest {
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28260_failAssert0_add37688_failAssert0_add47335_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_add28253_failAssert0_literalMutationString29157_failAssert0_literalMutationNumber42484_failAssert0() throws Exception {
         try {
             {
                 {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "_/7&D$:aS{blneTa#") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
                     Element element = doc.getElementById("b");
                     List<Element> elementSiblings = element.previousElementSiblings();
                     elementSiblings.size();
+                    elementSiblings.get(-1).id();
+                    Element element1 = doc.getElementById("a");
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.get(0);
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(1).id();
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        Element element3 = elementSiblings3.get(0);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_add28253 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_add28253_failAssert0_literalMutationString29157 should have thrown NullPointerException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28253_failAssert0_literalMutationString29157_failAssert0_literalMutationNumber42484 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: -1, Size: 1", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28170_failAssert0_add37513_failAssert0_literalMutationString39326_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li d=\'d\'>d</li>") + "</div>")));
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
                     elementSiblings.size();
-                    elementSiblings.get(0).id();
                     elementSiblings.get(0).id();
                     Element element1 = doc.getElementById("a");
                     List<Element> elementSiblings1 = element1.previousElementSiblings();
                     elementSiblings1.size();
                     Element element2 = doc.getElementById("c");
                     List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
                     elementSiblings2.size();
                     elementSiblings2.get(0).id();
                     elementSiblings2.get(1).id();
@@ -4499,38 +4167,136 @@ public class AmplElementTest {
                     {
                         Element element3 = elementSiblings3.get(0);
                     }
-                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28260 should have thrown IndexOutOfBoundsException");
+                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170 should have thrown IndexOutOfBoundsException");
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28260_failAssert0_add37688 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170_failAssert0_add37513 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28260_failAssert0_add37688_failAssert0_add47335 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170_failAssert0_add37513_failAssert0_literalMutationString39326 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28227_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_add28255_failAssert0_literalMutationString29876_failAssert0() throws Exception {
         try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "x6-rr@y#wdH<tygv]") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
             {
-                Element element3 = elementSiblings3.get(0);
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + " Hello\nthere \u00a0  ") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1);
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_add28255 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28227 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_add28255_failAssert0_literalMutationString29876 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28256_failAssert0_add36475_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                elementSiblings2.get(1).id();
+                doc.getElementById("ul");
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_add28256 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28256_failAssert0_add36475 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28206_failAssert0_add36825_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28206 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28206_failAssert0_add36825 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28205_failAssert0_add37383_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id=\'P\'>d</li>") + "</div>")));
+                doc.getElementById("b");
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28205 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28205_failAssert0_add37383 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
@@ -4539,7 +4305,7 @@ public class AmplElementTest {
     @Test(timeout = 10000)
     public void testPreviousElementSiblings_literalMutationString28195_failAssert0() throws Exception {
         try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<liW id=\'a\'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "") + "<li id='d'>d</li>") + "</div>")));
             Element element = doc.getElementById("b");
             List<Element> elementSiblings = element.previousElementSiblings();
             elementSiblings.size();
@@ -4591,111 +4357,38 @@ public class AmplElementTest {
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28254_failAssert0_add37995_failAssert0_add47541_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28209_failAssert0_add36707_failAssert0() throws Exception {
         try {
             {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</dZv>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0);
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
                 {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                    Element element = doc.getElementById("b");
-                    List<Element> elementSiblings = element.previousElementSiblings();
-                    elementSiblings.size();
-                    elementSiblings.get(0).id();
-                    Element element1 = doc.getElementById("a");
-                    List<Element> elementSiblings1 = element1.previousElementSiblings();
-                    elementSiblings1.size();
-                    Element element2 = doc.getElementById("c");
-                    List<Element> elementSiblings2 = element2.previousElementSiblings();
-                    elementSiblings2.size();
-                    elementSiblings2.size();
-                    elementSiblings2.get(0).id();
-                    elementSiblings2.get(0).id();
-                    doc.getElementById("ul");
-                    Element ul = doc.getElementById("ul");
-                    List<Element> elementSiblings3 = ul.previousElementSiblings();
-                    {
-                        Element element3 = elementSiblings3.get(0);
-                    }
-                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28254 should have thrown IndexOutOfBoundsException");
+                    Element element3 = elementSiblings3.get(0);
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28254_failAssert0_add37995 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28209 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28254_failAssert0_add37995_failAssert0_add47541 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28209_failAssert0_add36707 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28263_failAssert0_literalMutationString31118_failAssert0_literalMutationString41721_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div i=\'div\'>") + "<li id='d'>d</li>") + " Hello\nthere \u00a0  ")));
-                    doc.getElementById("b");
-                    Element element = doc.getElementById("b");
-                    List<Element> elementSiblings = element.previousElementSiblings();
-                    elementSiblings.size();
-                    elementSiblings.get(0).id();
-                    Element element1 = doc.getElementById("a");
-                    List<Element> elementSiblings1 = element1.previousElementSiblings();
-                    elementSiblings1.size();
-                    Element element2 = doc.getElementById("c");
-                    List<Element> elementSiblings2 = element2.previousElementSiblings();
-                    elementSiblings2.size();
-                    elementSiblings2.get(0).id();
-                    elementSiblings2.get(1).id();
-                    Element ul = doc.getElementById("ul");
-                    List<Element> elementSiblings3 = ul.previousElementSiblings();
-                    {
-                        Element element3 = elementSiblings3.get(0);
-                    }
-                    org.junit.Assert.fail("testPreviousElementSiblings_add28263 should have thrown IndexOutOfBoundsException");
-                }
-                org.junit.Assert.fail("testPreviousElementSiblings_add28263_failAssert0_literalMutationString31118 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28263_failAssert0_literalMutationString31118_failAssert0_literalMutationString41721 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28254_failAssert0_add37995_failAssert0_add47534_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                    Element element = doc.getElementById("b");
-                    List<Element> elementSiblings = element.previousElementSiblings();
-                    elementSiblings.size();
-                    elementSiblings.get(0).id();
-                    Element element1 = doc.getElementById("a");
-                    List<Element> elementSiblings1 = element1.previousElementSiblings();
-                    elementSiblings1.size();
-                    Element element2 = doc.getElementById("c");
-                    element2.previousElementSiblings();
-                    List<Element> elementSiblings2 = element2.previousElementSiblings();
-                    elementSiblings2.size();
-                    elementSiblings2.size();
-                    elementSiblings2.get(0).id();
-                    elementSiblings2.get(0).id();
-                    Element ul = doc.getElementById("ul");
-                    List<Element> elementSiblings3 = ul.previousElementSiblings();
-                    {
-                        Element element3 = elementSiblings3.get(0);
-                    }
-                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28254 should have thrown IndexOutOfBoundsException");
-                }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28254_failAssert0_add37995 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28254_failAssert0_add37995_failAssert0_add47534 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28248_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationNumber28237_failAssert0() throws Exception {
         try {
             Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
             Element element = doc.getElementById("b");
@@ -4708,159 +4401,24 @@ public class AmplElementTest {
             Element element2 = doc.getElementById("c");
             List<Element> elementSiblings2 = element2.previousElementSiblings();
             elementSiblings2.size();
-            elementSiblings2.get(-1).id();
+            elementSiblings2.get(0).id();
             elementSiblings2.get(1).id();
             Element ul = doc.getElementById("ul");
             List<Element> elementSiblings3 = ul.previousElementSiblings();
             {
-                Element element3 = elementSiblings3.get(0);
+                Element element3 = elementSiblings3.get(-1);
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28248 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28237 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: -1, Size: 2", expected.getMessage());
+            Assert.assertEquals("Index: -1", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28264_failAssert0_add36872_failAssert0_add47577_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_add28250_failAssert0_literalMutationString29300_failAssert0() throws Exception {
         try {
             {
-                {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                    doc.getElementById("b");
-                    Element element = doc.getElementById("b");
-                    element.previousElementSiblings();
-                    List<Element> elementSiblings = element.previousElementSiblings();
-                    elementSiblings.size();
-                    elementSiblings.get(0).id();
-                    Element element1 = doc.getElementById("a");
-                    List<Element> elementSiblings1 = element1.previousElementSiblings();
-                    elementSiblings1.size();
-                    elementSiblings1.size();
-                    Element element2 = doc.getElementById("c");
-                    List<Element> elementSiblings2 = element2.previousElementSiblings();
-                    elementSiblings2.size();
-                    elementSiblings2.get(0).id();
-                    elementSiblings2.get(1).id();
-                    Element ul = doc.getElementById("ul");
-                    List<Element> elementSiblings3 = ul.previousElementSiblings();
-                    {
-                        Element element3 = elementSiblings3.get(0);
-                    }
-                    org.junit.Assert.fail("testPreviousElementSiblings_add28264 should have thrown IndexOutOfBoundsException");
-                }
-                org.junit.Assert.fail("testPreviousElementSiblings_add28264_failAssert0_add36872 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28264_failAssert0_add36872_failAssert0_add47577 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28203_failAssert0_add37759_failAssert0() throws Exception {
-        try {
-            {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li* id=\'b\'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                Element element = doc.getElementById("b");
-                List<Element> elementSiblings = element.previousElementSiblings();
-                elementSiblings.size();
-                elementSiblings.get(0).id();
-                Element element1 = doc.getElementById("a");
-                List<Element> elementSiblings1 = element1.previousElementSiblings();
-                elementSiblings1.size();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.previousElementSiblings();
-                elementSiblings2.size();
-                elementSiblings2.get(0).id();
-                elementSiblings2.get(1);
-                elementSiblings2.get(1).id();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.previousElementSiblings();
-                {
-                    Element element3 = elementSiblings3.get(0);
-                }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28203 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28203_failAssert0_add37759 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28254_failAssert0_add37995_failAssert0_literalMutationNumber43667_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                    Element element = doc.getElementById("b");
-                    List<Element> elementSiblings = element.previousElementSiblings();
-                    elementSiblings.size();
-                    elementSiblings.get(0).id();
-                    Element element1 = doc.getElementById("a");
-                    List<Element> elementSiblings1 = element1.previousElementSiblings();
-                    elementSiblings1.size();
-                    Element element2 = doc.getElementById("c");
-                    List<Element> elementSiblings2 = element2.previousElementSiblings();
-                    elementSiblings2.size();
-                    elementSiblings2.size();
-                    elementSiblings2.get(0).id();
-                    elementSiblings2.get(0).id();
-                    Element ul = doc.getElementById("ul");
-                    List<Element> elementSiblings3 = ul.previousElementSiblings();
-                    {
-                        Element element3 = elementSiblings3.get(0);
-                    }
-                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28254 should have thrown IndexOutOfBoundsException");
-                }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28254_failAssert0_add37995 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28254_failAssert0_add37995_failAssert0_literalMutationNumber43667 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28254_failAssert0_add37995_failAssert0_literalMutationNumber43656_failAssert0() throws Exception {
-        try {
-            {
-                {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                    Element element = doc.getElementById("b");
-                    List<Element> elementSiblings = element.previousElementSiblings();
-                    elementSiblings.size();
-                    elementSiblings.get(-1).id();
-                    Element element1 = doc.getElementById("a");
-                    List<Element> elementSiblings1 = element1.previousElementSiblings();
-                    elementSiblings1.size();
-                    Element element2 = doc.getElementById("c");
-                    List<Element> elementSiblings2 = element2.previousElementSiblings();
-                    elementSiblings2.size();
-                    elementSiblings2.size();
-                    elementSiblings2.get(0).id();
-                    elementSiblings2.get(0).id();
-                    Element ul = doc.getElementById("ul");
-                    List<Element> elementSiblings3 = ul.previousElementSiblings();
-                    {
-                        Element element3 = elementSiblings3.get(0);
-                    }
-                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28254 should have thrown IndexOutOfBoundsException");
-                }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28254_failAssert0_add37995 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28254_failAssert0_add37995_failAssert0_literalMutationNumber43656 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: -1, Size: 1", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28260_failAssert0_add37694_failAssert0() throws Exception {
-        try {
-            {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id=\'a\'>na</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
                 Element element = doc.getElementById("b");
                 List<Element> elementSiblings = element.previousElementSiblings();
                 elementSiblings.size();
@@ -4879,9 +4437,262 @@ public class AmplElementTest {
                 {
                     Element element3 = elementSiblings3.get(0);
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28260 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_add28250 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28260_failAssert0_add37694 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_add28250_failAssert0_literalMutationString29300 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28172_failAssert0_add36690_failAssert0_literalMutationString39720_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id=\'a\'>a<C/li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id=\'d\'>d<li>") + "</div>")));
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    Element element1 = doc.getElementById("a");
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(1).id();
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        Element element3 = elementSiblings3.get(0);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28172 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28172_failAssert0_add36690 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28172_failAssert0_add36690_failAssert0_literalMutationString39720 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28202_failAssert0_add37611_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + " Hello\nthere \u00a0  ") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                doc.getElementById("c");
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28202 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28202_failAssert0_add37611 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationNumber28231_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(0).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28231 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28256_failAssert0_literalMutationString29956_failAssert0_add47411_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<liid=\'d\'>d</li>") + "</div>")));
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    doc.getElementById("a");
+                    Element element1 = doc.getElementById("a");
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(1).id();
+                    doc.getElementById("ul");
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        Element element3 = elementSiblings3.get(0);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_add28256 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_add28256_failAssert0_literalMutationString29956 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28256_failAssert0_literalMutationString29956_failAssert0_add47411 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28175_failAssert0null38460_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("p5e`osqZ.+Ejjy#PM" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById(null);
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28175 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28175_failAssert0null38460 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28208_failAssert0_literalMutationString34819_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + " Hello\nthere \u00a0  ") + "<div id='div'>") + "<li id='d'>d</li>") + "<div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28208 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28208_failAssert0_literalMutationString34819 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28202_failAssert0_literalMutationString34197_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id=\'a\'#a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + " Hello\nthere \u00a0  ") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28202 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28202_failAssert0_literalMutationString34197 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28255_failAssert0_add36451_failAssert0_add46337_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    Element element1 = doc.getElementById("a");
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.size();
+                    elementSiblings2.get(0);
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(1);
+                    elementSiblings2.get(1).id();
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        Element element3 = elementSiblings3.get(0);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_add28255 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_add28255_failAssert0_add36451 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28255_failAssert0_add36451_failAssert0_add46337 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
@@ -4915,9 +4726,9 @@ public class AmplElementTest {
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28186_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28180_failAssert0() throws Exception {
         try {
-            Document doc = Jsoup.parse(("<Nl id=\'ul\'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id=\'b\'>b<li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
             Element element = doc.getElementById("b");
             List<Element> elementSiblings = element.previousElementSiblings();
             elementSiblings.size();
@@ -4935,18 +4746,151 @@ public class AmplElementTest {
             {
                 Element element3 = elementSiblings3.get(0);
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28186 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28180 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28203_failAssert0_literalMutationNumber34727_failAssert0_add47936_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_add28250_failAssert0_add36296_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                element2.previousElementSiblings();
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_add28250 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28250_failAssert0_add36296 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28171_failAssert0_literalMutationNumber34182_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + ((((((" Hello\nthere \u00a0  " + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(1);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28171 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28171_failAssert0_literalMutationNumber34182 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28255_failAssert0_add36451_failAssert0_add46331_failAssert0() throws Exception {
         try {
             {
                 {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li* id=\'b\'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    Element element1 = doc.getElementById("a");
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.size();
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(1);
+                    elementSiblings2.get(1).id();
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        Element element3 = elementSiblings3.get(0);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_add28255 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_add28255_failAssert0_add36451 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28255_failAssert0_add36451_failAssert0_add46331 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28172_failAssert0_add36690_failAssert0_add46428_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id=\'a\'>a<C/li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    Element element1 = doc.getElementById("a");
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(1).id();
+                    doc.getElementById("ul");
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        Element element3 = elementSiblings3.get(0);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28172 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28172_failAssert0_add36690 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28172_failAssert0_add36690_failAssert0_add46428 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28203_failAssert0_add37794_failAssert0_add46361_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id=U\'d\'>d</li>") + "</div>")));
                     Element element = doc.getElementById("b");
                     List<Element> elementSiblings = element.previousElementSiblings();
                     elementSiblings.size();
@@ -4958,25 +4902,241 @@ public class AmplElementTest {
                     List<Element> elementSiblings2 = element2.previousElementSiblings();
                     elementSiblings2.size();
                     elementSiblings2.get(0).id();
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(1).id();
                     elementSiblings2.get(1).id();
                     Element ul = doc.getElementById("ul");
                     List<Element> elementSiblings3 = ul.previousElementSiblings();
                     {
-                        elementSiblings3.get(1);
-                        Element element3 = elementSiblings3.get(1);
+                        Element element3 = elementSiblings3.get(0);
                     }
                     org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28203 should have thrown IndexOutOfBoundsException");
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28203_failAssert0_literalMutationNumber34727 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28203_failAssert0_add37794 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28203_failAssert0_literalMutationNumber34727_failAssert0_add47936 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28203_failAssert0_add37794_failAssert0_add46361 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28223_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28207_failAssert0_add37312_failAssert0_literalMutationString40266_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id=\'d\'>d/li>") + " Hello\nthere \u00a0  ")));
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    Element element1 = doc.getElementById("a");
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById("c");
+                    element2.previousElementSiblings();
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(1).id();
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        Element element3 = elementSiblings3.get(0);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28207 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28207_failAssert0_add37312 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28207_failAssert0_add37312_failAssert0_literalMutationString40266 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28255_failAssert0_add36443_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1);
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_add28255 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28255_failAssert0_add36443 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28208_failAssert0_add37774_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "<div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28208 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28208_failAssert0_add37774 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28250_failAssert0_add36307_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                element2.previousElementSiblings();
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_add28250 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28250_failAssert0_add36307 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28253_failAssert0_add36258_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                doc.getElementById("c");
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0);
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_add28253 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28253_failAssert0_add36258 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28165_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<l id=\'ul\'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28165 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28188_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</u>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28188 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28200_failAssert0() throws Exception {
         try {
             Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "") + "</div>")));
             Element element = doc.getElementById("b");
@@ -4996,16 +5156,430 @@ public class AmplElementTest {
             {
                 Element element3 = elementSiblings3.get(0);
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28223 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28200 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28221_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_add28252_failAssert0_add36438_failAssert0() throws Exception {
         try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div :d=\'div\'>") + "<li id='d'>d</li>") + "</div>")));
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    elementSiblings3.get(0);
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_add28252 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28252_failAssert0_add36438 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28208_failAssert0_literalMutationString34799_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<u id=\'ul\'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "<div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28208 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28208_failAssert0_literalMutationString34799 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28170_failAssert0_literalMutationString33842_failAssert0_literalMutationString46115_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("" + "<li id='b'>b</li>") + " Hello\nthere \u00a0  ") + "</ul>") + "<div id='div'>") + "") + "</div>")));
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    Element element1 = doc.getElementById("a");
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(1).id();
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        Element element3 = elementSiblings3.get(0);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170_failAssert0_literalMutationString33842 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170_failAssert0_literalMutationString33842_failAssert0_literalMutationString46115 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28253_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0);
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28253 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28254_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28254 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28250_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            element2.previousElementSiblings();
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28250 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28257_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            ul.previousElementSiblings();
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28257 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28255_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1);
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28255 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28256_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            doc.getElementById("ul");
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28256 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28204_failAssert0_literalMutationString34724_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "FL2=<)( -Juxh3GWb") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28204 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28204_failAssert0_literalMutationString34724 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28174_failAssert0_add36938_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id=\'a\',a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                doc.getElementById("ul");
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28174 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28174_failAssert0_add36938 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28251_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28251 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28252_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28252 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28207_failAssert0_add37312_failAssert0_literalMutationString40235_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + " Hello\nthere \u00a0  ")));
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    Element element1 = doc.getElementById("a");
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById("c");
+                    element2.previousElementSiblings();
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(1).id();
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        Element element3 = elementSiblings3.get(0);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28207 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28207_failAssert0_add37312 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28207_failAssert0_add37312_failAssert0_literalMutationString40235 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationNumber28218_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
             Element element = doc.getElementById("b");
             List<Element> elementSiblings = element.previousElementSiblings();
             elementSiblings.size();
@@ -5023,145 +5597,68 @@ public class AmplElementTest {
             {
                 Element element3 = elementSiblings3.get(0);
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28221 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28218 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28267_failAssert0_literalMutationNumber31453_failAssert0_add47137_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationNumber28217_failAssert0() throws Exception {
         try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
             {
-                {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                    Element element = doc.getElementById("b");
-                    List<Element> elementSiblings = element.previousElementSiblings();
-                    elementSiblings.size();
-                    elementSiblings.get(0);
-                    elementSiblings.get(0).id();
-                    Element element1 = doc.getElementById("a");
-                    List<Element> elementSiblings1 = element1.previousElementSiblings();
-                    elementSiblings1.size();
-                    Element element2 = doc.getElementById("c");
-                    List<Element> elementSiblings2 = element2.previousElementSiblings();
-                    elementSiblings2.size();
-                    elementSiblings2.get(0).id();
-                    elementSiblings2.get(1).id();
-                    elementSiblings2.get(1).id();
-                    Element ul = doc.getElementById("ul");
-                    List<Element> elementSiblings3 = ul.previousElementSiblings();
-                    {
-                        Element element3 = elementSiblings3.get(0);
-                    }
-                    org.junit.Assert.fail("testPreviousElementSiblings_add28267 should have thrown IndexOutOfBoundsException");
-                }
-                org.junit.Assert.fail("testPreviousElementSiblings_add28267_failAssert0_literalMutationNumber31453 should have thrown IndexOutOfBoundsException");
+                Element element3 = elementSiblings3.get(0);
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28267_failAssert0_literalMutationNumber31453_failAssert0_add47137 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28217 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28267_failAssert0_literalMutationNumber31453_failAssert0_literalMutationString42074_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationNumber28228_failAssert0() throws Exception {
         try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
             {
-                {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id=\'a\'>a</lRi>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                    Element element = doc.getElementById("b");
-                    List<Element> elementSiblings = element.previousElementSiblings();
-                    elementSiblings.size();
-                    elementSiblings.get(0);
-                    elementSiblings.get(0).id();
-                    Element element1 = doc.getElementById("a");
-                    List<Element> elementSiblings1 = element1.previousElementSiblings();
-                    elementSiblings1.size();
-                    Element element2 = doc.getElementById("c");
-                    List<Element> elementSiblings2 = element2.previousElementSiblings();
-                    elementSiblings2.size();
-                    elementSiblings2.get(0).id();
-                    elementSiblings2.get(1).id();
-                    Element ul = doc.getElementById("ul");
-                    List<Element> elementSiblings3 = ul.previousElementSiblings();
-                    {
-                        Element element3 = elementSiblings3.get(0);
-                    }
-                    org.junit.Assert.fail("testPreviousElementSiblings_add28267 should have thrown IndexOutOfBoundsException");
-                }
-                org.junit.Assert.fail("testPreviousElementSiblings_add28267_failAssert0_literalMutationNumber31453 should have thrown IndexOutOfBoundsException");
+                Element element3 = elementSiblings3.get(0);
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28267_failAssert0_literalMutationNumber31453_failAssert0_literalMutationString42074 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28228 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28254_failAssert0_add37995_failAssert0() throws Exception {
-        try {
-            {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                Element element = doc.getElementById("b");
-                List<Element> elementSiblings = element.previousElementSiblings();
-                elementSiblings.size();
-                elementSiblings.get(0).id();
-                Element element1 = doc.getElementById("a");
-                List<Element> elementSiblings1 = element1.previousElementSiblings();
-                elementSiblings1.size();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.previousElementSiblings();
-                elementSiblings2.size();
-                elementSiblings2.size();
-                elementSiblings2.get(0).id();
-                elementSiblings2.get(0).id();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.previousElementSiblings();
-                {
-                    Element element3 = elementSiblings3.get(0);
-                }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28254 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28254_failAssert0_add37995 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28260_failAssert0_add37688_failAssert0() throws Exception {
-        try {
-            {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                Element element = doc.getElementById("b");
-                List<Element> elementSiblings = element.previousElementSiblings();
-                elementSiblings.size();
-                elementSiblings.get(0).id();
-                elementSiblings.get(0).id();
-                Element element1 = doc.getElementById("a");
-                List<Element> elementSiblings1 = element1.previousElementSiblings();
-                elementSiblings1.size();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.previousElementSiblings();
-                elementSiblings2.size();
-                elementSiblings2.get(0).id();
-                elementSiblings2.get(1).id();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.previousElementSiblings();
-                {
-                    Element element3 = elementSiblings3.get(0);
-                }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28260 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28260_failAssert0_add37688 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28261_failAssert0_add36337_failAssert0_add47320_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_add28254_failAssert0_literalMutationNumber29107_failAssert0_add47274_failAssert0() throws Exception {
         try {
             {
                 {
@@ -5173,39 +5670,146 @@ public class AmplElementTest {
                     Element element1 = doc.getElementById("a");
                     List<Element> elementSiblings1 = element1.previousElementSiblings();
                     elementSiblings1.size();
-                    doc.getElementById("c");
                     Element element2 = doc.getElementById("c");
                     List<Element> elementSiblings2 = element2.previousElementSiblings();
                     elementSiblings2.size();
                     elementSiblings2.get(0).id();
-                    elementSiblings2.get(1);
+                    elementSiblings2.get(1).id();
+                    elementSiblings2.get(1).id();
                     elementSiblings2.get(1).id();
                     Element ul = doc.getElementById("ul");
                     List<Element> elementSiblings3 = ul.previousElementSiblings();
                     {
                         Element element3 = elementSiblings3.get(0);
                     }
-                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28261 should have thrown IndexOutOfBoundsException");
+                    org.junit.Assert.fail("testPreviousElementSiblings_add28254 should have thrown IndexOutOfBoundsException");
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28261_failAssert0_add36337 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_add28254_failAssert0_literalMutationNumber29107 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28261_failAssert0_add36337_failAssert0_add47320 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_add28254_failAssert0_literalMutationNumber29107_failAssert0_add47274 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28267_failAssert0_literalMutationNumber31453_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationNumber28225_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(1).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28225 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationNumber28226_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(-1).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28226 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: -1, Size: 2", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationNumber28216_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(-1).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28216 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: -1, Size: 1", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationNumber28227_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28227 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28171_failAssert0null38474_failAssert0() throws Exception {
         try {
             {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Document doc = Jsoup.parse(("<ul id='ul'>" + ((((((" Hello\nthere \u00a0  " + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
                 Element element = doc.getElementById("b");
                 List<Element> elementSiblings = element.previousElementSiblings();
                 elementSiblings.size();
-                elementSiblings.get(0);
                 elementSiblings.get(0).id();
-                Element element1 = doc.getElementById("a");
+                Element element1 = doc.getElementById(null);
                 List<Element> elementSiblings1 = element1.previousElementSiblings();
                 elementSiblings1.size();
                 Element element2 = doc.getElementById("c");
@@ -5218,80 +5822,113 @@ public class AmplElementTest {
                 {
                     Element element3 = elementSiblings3.get(0);
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_add28267 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28171 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28267_failAssert0_literalMutationNumber31453 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28171_failAssert0null38474 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28264_failAssert0_add36872_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_add28257_failAssert0_literalMutationNumber29677_failAssert0_add47330_failAssert0() throws Exception {
         try {
             {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                doc.getElementById("b");
-                Element element = doc.getElementById("b");
-                element.previousElementSiblings();
-                List<Element> elementSiblings = element.previousElementSiblings();
-                elementSiblings.size();
-                elementSiblings.get(0).id();
-                Element element1 = doc.getElementById("a");
-                List<Element> elementSiblings1 = element1.previousElementSiblings();
-                elementSiblings1.size();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.previousElementSiblings();
-                elementSiblings2.size();
-                elementSiblings2.get(0).id();
-                elementSiblings2.get(1).id();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.previousElementSiblings();
                 {
-                    Element element3 = elementSiblings3.get(0);
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    Element element1 = doc.getElementById("a");
+                    element1.previousElementSiblings();
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(1).id();
+                    Element ul = doc.getElementById("ul");
+                    ul.previousElementSiblings();
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        Element element3 = elementSiblings3.get(1);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_add28257 should have thrown IndexOutOfBoundsException");
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_add28264 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_add28257_failAssert0_literalMutationNumber29677 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28264_failAssert0_add36872 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_add28257_failAssert0_literalMutationNumber29677_failAssert0_add47330 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
+            Assert.assertEquals("Index: 1", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28263_failAssert0_add36824_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_add28256_failAssert0_literalMutationString29956_failAssert0_literalMutationString43155_failAssert0() throws Exception {
         try {
             {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                doc.getElementById("b");
-                Element element = doc.getElementById("b");
-                List<Element> elementSiblings = element.previousElementSiblings();
-                elementSiblings.size();
-                elementSiblings.get(0).id();
-                Element element1 = doc.getElementById("a");
-                List<Element> elementSiblings1 = element1.previousElementSiblings();
-                elementSiblings1.size();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.previousElementSiblings();
-                elementSiblings2.size();
-                elementSiblings2.get(0).id();
-                elementSiblings2.get(1);
-                elementSiblings2.get(1).id();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.previousElementSiblings();
                 {
-                    Element element3 = elementSiblings3.get(0);
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "") + "<liid=\'d\'>d</li>") + "</div>")));
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    Element element1 = doc.getElementById("a");
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(1).id();
+                    doc.getElementById("ul");
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        Element element3 = elementSiblings3.get(0);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_add28256 should have thrown IndexOutOfBoundsException");
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_add28263 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_add28256_failAssert0_literalMutationString29956 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28263_failAssert0_add36824 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_add28256_failAssert0_literalMutationString29956_failAssert0_literalMutationString43155 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28264_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_add28244_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28244 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28242_failAssert0() throws Exception {
         try {
             Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
             Element element = doc.getElementById("b");
@@ -5312,73 +5949,47 @@ public class AmplElementTest {
             {
                 Element element3 = elementSiblings3.get(0);
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28264 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_add28242 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28263_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-            doc.getElementById("b");
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28263 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28263_failAssert0_literalMutationString31118_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28204_failAssert0_literalMutationString34724_failAssert0null48560_failAssert0() throws Exception {
         try {
             {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div i=\'div\'>") + "<li id='d'>d</li>") + "</div>")));
-                doc.getElementById("b");
-                Element element = doc.getElementById("b");
-                List<Element> elementSiblings = element.previousElementSiblings();
-                elementSiblings.size();
-                elementSiblings.get(0).id();
-                Element element1 = doc.getElementById("a");
-                List<Element> elementSiblings1 = element1.previousElementSiblings();
-                elementSiblings1.size();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.previousElementSiblings();
-                elementSiblings2.size();
-                elementSiblings2.get(0).id();
-                elementSiblings2.get(1).id();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.previousElementSiblings();
                 {
-                    Element element3 = elementSiblings3.get(0);
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "FL2=<)( -Juxh3GWb") + "</div>")));
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    Element element1 = doc.getElementById("a");
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById(null);
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(1).id();
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        Element element3 = elementSiblings3.get(0);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28204 should have thrown IndexOutOfBoundsException");
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_add28263 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28204_failAssert0_literalMutationString34724 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28263_failAssert0_literalMutationString31118 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28204_failAssert0_literalMutationString34724_failAssert0null48560 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28265_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_add28243_failAssert0() throws Exception {
         try {
             Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
             Element element = doc.getElementById("b");
@@ -5399,14 +6010,14 @@ public class AmplElementTest {
             {
                 Element element3 = elementSiblings3.get(0);
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28265 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_add28243 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28268_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_add28246_failAssert0() throws Exception {
         try {
             Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
             Element element = doc.getElementById("b");
@@ -5427,14 +6038,41 @@ public class AmplElementTest {
             {
                 Element element3 = elementSiblings3.get(0);
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28268 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_add28246 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28267_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationNumber28230_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(0).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28230 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28245_failAssert0() throws Exception {
         try {
             Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
             Element element = doc.getElementById("b");
@@ -5455,80 +6093,19 @@ public class AmplElementTest {
             {
                 Element element3 = elementSiblings3.get(0);
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28267 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_add28245 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28266_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28266 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28203_failAssert0_add37756_failAssert0() throws Exception {
-        try {
-            {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li* id=\'b\'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                Element element = doc.getElementById("b");
-                List<Element> elementSiblings = element.previousElementSiblings();
-                elementSiblings.size();
-                elementSiblings.get(0).id();
-                Element element1 = doc.getElementById("a");
-                List<Element> elementSiblings1 = element1.previousElementSiblings();
-                elementSiblings1.size();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.previousElementSiblings();
-                elementSiblings2.size();
-                elementSiblings2.get(0).id();
-                elementSiblings2.get(0).id();
-                elementSiblings2.get(1).id();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.previousElementSiblings();
-                {
-                    Element element3 = elementSiblings3.get(0);
-                }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28203 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28203_failAssert0_add37756 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28264_failAssert0_add36872_failAssert0_add47581_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_add28251_failAssert0_add36183_failAssert0_literalMutationNumber40217_failAssert0() throws Exception {
         try {
             {
                 {
                     Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                    doc.getElementById("b");
                     Element element = doc.getElementById("b");
-                    element.previousElementSiblings();
                     List<Element> elementSiblings = element.previousElementSiblings();
                     elementSiblings.size();
                     elementSiblings.get(0).id();
@@ -5538,26 +6115,27 @@ public class AmplElementTest {
                     Element element2 = doc.getElementById("c");
                     List<Element> elementSiblings2 = element2.previousElementSiblings();
                     elementSiblings2.size();
+                    elementSiblings2.size();
                     elementSiblings2.get(0).id();
                     elementSiblings2.get(0).id();
-                    elementSiblings2.get(1).id();
                     Element ul = doc.getElementById("ul");
                     List<Element> elementSiblings3 = ul.previousElementSiblings();
                     {
+                        elementSiblings3.get(0);
                         Element element3 = elementSiblings3.get(0);
                     }
-                    org.junit.Assert.fail("testPreviousElementSiblings_add28264 should have thrown IndexOutOfBoundsException");
+                    org.junit.Assert.fail("testPreviousElementSiblings_add28251 should have thrown IndexOutOfBoundsException");
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_add28264_failAssert0_add36872 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_add28251_failAssert0_add36183 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28264_failAssert0_add36872_failAssert0_add47581 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_add28251_failAssert0_add36183_failAssert0_literalMutationNumber40217 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28262_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_add28240_failAssert0() throws Exception {
         try {
             Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
             Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
@@ -5578,47 +6156,80 @@ public class AmplElementTest {
             {
                 Element element3 = elementSiblings3.get(0);
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28262 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_add28240 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28259_failAssert0_literalMutationString33181_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_add28241_failAssert0() throws Exception {
         try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            doc.getElementById("b");
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
             {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + " Hello\nthere \u00a0  ")));
-                Element element = doc.getElementById("b");
-                List<Element> elementSiblings = element.previousElementSiblings();
-                elementSiblings.size();
-                elementSiblings.get(0).id();
-                Element element1 = doc.getElementById("a");
-                List<Element> elementSiblings1 = element1.previousElementSiblings();
-                elementSiblings1.size();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.previousElementSiblings();
-                elementSiblings2.size();
-                elementSiblings2.get(0).id();
-                elementSiblings2.get(1).id();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.previousElementSiblings();
-                {
-                    Element element3 = elementSiblings3.get(-1);
-                }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28259 should have thrown IndexOutOfBoundsException");
+                Element element3 = elementSiblings3.get(0);
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28259_failAssert0_literalMutationString33181 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_add28241 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: -1", expected.getMessage());
+            Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28206_failAssert0_add36394_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_add28255_failAssert0_add36451_failAssert0_literalMutationString39392_failAssert0() throws Exception {
         try {
             {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id=\'c\'>c</l>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + " Hello\nthere \u00a0  ") + "<li id='d'>d</li>") + "</div>")));
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    Element element1 = doc.getElementById("a");
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.size();
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(1);
+                    elementSiblings2.get(1).id();
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        Element element3 = elementSiblings3.get(0);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_add28255 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_add28255_failAssert0_add36451 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28255_failAssert0_add36451_failAssert0_literalMutationString39392 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28253_failAssert0_literalMutationString29171_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "") + "</div>")));
                 Element element = doc.getElementById("b");
                 List<Element> elementSiblings = element.previousElementSiblings();
                 elementSiblings.size();
@@ -5629,7 +6240,7 @@ public class AmplElementTest {
                 Element element2 = doc.getElementById("c");
                 List<Element> elementSiblings2 = element2.previousElementSiblings();
                 elementSiblings2.size();
-                elementSiblings2.get(0).id();
+                elementSiblings2.get(0);
                 elementSiblings2.get(0).id();
                 elementSiblings2.get(1).id();
                 Element ul = doc.getElementById("ul");
@@ -5637,9 +6248,71 @@ public class AmplElementTest {
                 {
                     Element element3 = elementSiblings3.get(0);
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28206 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_add28253 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28206_failAssert0_add36394 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_add28253_failAssert0_literalMutationString29171 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28174_failAssert0_add36938_failAssert0_add46446_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id=\'a\',a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    Element element1 = doc.getElementById("a");
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(1).id();
+                    elementSiblings2.get(1).id();
+                    doc.getElementById("ul");
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        Element element3 = elementSiblings3.get(0);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28174 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28174_failAssert0_add36938 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28174_failAssert0_add36938_failAssert0_add46446 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28198_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + " Hello\nthere \u00a0  ") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28198 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
@@ -5648,7 +6321,7 @@ public class AmplElementTest {
     @Test(timeout = 10000)
     public void testPreviousElementSiblings_literalMutationString28197_failAssert0() throws Exception {
         try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("pf>-q2$!53nv1u)n_" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + ")G`)`8cT!+[qO&") + "<li id='d'>d</li>") + "</div>")));
             Element element = doc.getElementById("b");
             List<Element> elementSiblings = element.previousElementSiblings();
             elementSiblings.size();
@@ -5673,48 +6346,103 @@ public class AmplElementTest {
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28267_failAssert0_add36906_failAssert0_add47673_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28171_failAssert0null38474_failAssert0null48454_failAssert0() throws Exception {
         try {
             {
                 {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + ((((((" Hello\nthere \u00a0  " + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
                     Element element = doc.getElementById("b");
                     List<Element> elementSiblings = element.previousElementSiblings();
                     elementSiblings.size();
-                    elementSiblings.get(0);
                     elementSiblings.get(0).id();
-                    Element element1 = doc.getElementById("a");
+                    Element element1 = doc.getElementById(null);
                     List<Element> elementSiblings1 = element1.previousElementSiblings();
                     elementSiblings1.size();
                     Element element2 = doc.getElementById("c");
                     List<Element> elementSiblings2 = element2.previousElementSiblings();
                     elementSiblings2.size();
-                    elementSiblings2.get(0);
                     elementSiblings2.get(0).id();
                     elementSiblings2.get(1).id();
-                    Element ul = doc.getElementById("ul");
+                    Element ul = doc.getElementById(null);
                     List<Element> elementSiblings3 = ul.previousElementSiblings();
                     {
-                        elementSiblings3.get(0);
                         Element element3 = elementSiblings3.get(0);
                     }
-                    org.junit.Assert.fail("testPreviousElementSiblings_add28267 should have thrown IndexOutOfBoundsException");
+                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28171 should have thrown IndexOutOfBoundsException");
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_add28267_failAssert0_add36906 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28171_failAssert0null38474 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28267_failAssert0_add36906_failAssert0_add47673 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28171_failAssert0null38474_failAssert0null48454 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28264_failAssert0_literalMutationString31365_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_add28257_failAssert0_add36383_failAssert0() throws Exception {
         try {
             {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</iv>")));
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
                 Element element = doc.getElementById("b");
-                element.previousElementSiblings();
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                element1.previousElementSiblings();
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                ul.previousElementSiblings();
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_add28257 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28257_failAssert0_add36383 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28199_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id=div\'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28199 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationNumber28217_failAssert0_add38036_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
                 List<Element> elementSiblings = element.previousElementSiblings();
                 elementSiblings.size();
                 elementSiblings.get(0).id();
@@ -5726,75 +6454,57 @@ public class AmplElementTest {
                 elementSiblings2.size();
                 elementSiblings2.get(0).id();
                 elementSiblings2.get(1).id();
+                elementSiblings2.get(1).id();
                 Element ul = doc.getElementById("ul");
                 List<Element> elementSiblings3 = ul.previousElementSiblings();
                 {
                     Element element3 = elementSiblings3.get(0);
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_add28264 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28217 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28264_failAssert0_literalMutationString31365 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28217_failAssert0_add38036 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28233_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28207_failAssert0_add37312_failAssert0_add46572_failAssert0() throws Exception {
         try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "8PeqNu")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
             {
-                Element element3 = elementSiblings3.get(0);
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + " Hello\nthere \u00a0  ")));
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    Element element1 = doc.getElementById("a");
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById("c");
+                    element2.previousElementSiblings();
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(1).id();
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        Element element3 = elementSiblings3.get(0);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28207 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28207_failAssert0_add37312 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28233 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28207_failAssert0_add37312_failAssert0_add46572 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28232_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</djv>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28232 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28269_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_add28247_failAssert0() throws Exception {
         try {
             Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
             Element element = doc.getElementById("b");
@@ -5815,82 +6525,153 @@ public class AmplElementTest {
             {
                 Element element3 = elementSiblings3.get(0);
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28269 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_add28247 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28230_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + " Hello\nthere \u00a0  ")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28230 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28231_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</di>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28231 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28263_failAssert0_add36824_failAssert0_add47550_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28209_failAssert0_literalMutationNumber30827_failAssert0_literalMutationString45564_failAssert0() throws Exception {
         try {
             {
                 {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                    doc.getElementById("b");
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</dZv>")));
                     Element element = doc.getElementById("b");
                     List<Element> elementSiblings = element.previousElementSiblings();
                     elementSiblings.size();
-                    elementSiblings.get(0).id();
                     elementSiblings.get(0).id();
                     Element element1 = doc.getElementById("a");
                     List<Element> elementSiblings1 = element1.previousElementSiblings();
                     elementSiblings1.size();
                     Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.get(1).id();
+                    elementSiblings2.get(1).id();
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        Element element3 = elementSiblings3.get(0);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28209 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28209_failAssert0_literalMutationNumber30827 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28209_failAssert0_literalMutationNumber30827_failAssert0_literalMutationString45564 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28248_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28248 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28171_failAssert0_add37595_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + ((((((" Hello\nthere \u00a0  " + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0);
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28171 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28171_failAssert0_add37595 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28209_failAssert0_literalMutationNumber30827_failAssert0_add48094_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</dZv>")));
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</dZv>")));
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    Element element1 = doc.getElementById("a");
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.get(1).id();
+                    elementSiblings2.get(1).id();
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        Element element3 = elementSiblings3.get(0);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28209 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28209_failAssert0_literalMutationNumber30827 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28209_failAssert0_literalMutationNumber30827_failAssert0_add48094 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28207_failAssert0_add37312_failAssert0_add46575_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + " Hello\nthere \u00a0  ")));
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    Element element1 = doc.getElementById("a");
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById("c");
+                    element2.previousElementSiblings();
                     List<Element> elementSiblings2 = element2.previousElementSiblings();
                     elementSiblings2.size();
                     elementSiblings2.get(0).id();
@@ -5901,46 +6682,18 @@ public class AmplElementTest {
                     {
                         Element element3 = elementSiblings3.get(0);
                     }
-                    org.junit.Assert.fail("testPreviousElementSiblings_add28263 should have thrown IndexOutOfBoundsException");
+                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28207 should have thrown IndexOutOfBoundsException");
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_add28263_failAssert0_add36824 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28207_failAssert0_add37312 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28263_failAssert0_add36824_failAssert0_add47550 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28207_failAssert0_add37312_failAssert0_add46575 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28275_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0);
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28275 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28271_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_add28249_failAssert0() throws Exception {
         try {
             Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
             Element element = doc.getElementById("b");
@@ -5961,7 +6714,107 @@ public class AmplElementTest {
             {
                 Element element3 = elementSiblings3.get(0);
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28271 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_add28249 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28174_failAssert0_literalMutationString31608_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("M$&5={yo#.BsLdel{" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28174 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28174_failAssert0_literalMutationString31608 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28251_failAssert0_add36183_failAssert0_add46544_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    Element element1 = doc.getElementById("a");
+                    element1.previousElementSiblings();
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.size();
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(1).id();
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        elementSiblings3.get(0);
+                        Element element3 = elementSiblings3.get(0);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_add28251 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_add28251_failAssert0_add36183 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28251_failAssert0_add36183_failAssert0_add46544 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28174_failAssert0_add36938_failAssert0_literalMutationString39830_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id=\'a\',a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    Element element1 = doc.getElementById("a");
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(1).id();
+                    doc.getElementById(" Hello\nthere \u00a0  ");
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        Element element3 = elementSiblings3.get(0);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28174 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28174_failAssert0_add36938 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28174_failAssert0_add36938_failAssert0_literalMutationString39830 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
@@ -5970,7 +6823,7 @@ public class AmplElementTest {
     @Test(timeout = 10000)
     public void testPreviousElementSiblings_literalMutationString28190_failAssert0() throws Exception {
         try {
-            Document doc = Jsoup.parse(("<Yul id=\'ul\'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + " Hello\nthere \u00a0  ") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
             Element element = doc.getElementById("b");
             List<Element> elementSiblings = element.previousElementSiblings();
             elementSiblings.size();
@@ -5995,7 +6848,41 @@ public class AmplElementTest {
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28253_failAssert0_literalMutationNumber33048_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28171_failAssert0null38474_failAssert0_add47017_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + ((((((" Hello\nthere \u00a0  " + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                    doc.getElementById("b");
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    Element element1 = doc.getElementById(null);
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(1).id();
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        Element element3 = elementSiblings3.get(0);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28171 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28171_failAssert0null38474 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28171_failAssert0null38474_failAssert0_add47017 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28257_failAssert0_literalMutationNumber29658_failAssert0() throws Exception {
         try {
             {
                 Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
@@ -6009,25 +6896,56 @@ public class AmplElementTest {
                 Element element2 = doc.getElementById("c");
                 List<Element> elementSiblings2 = element2.previousElementSiblings();
                 elementSiblings2.size();
-                elementSiblings2.get(-1).id();
                 elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                ul.previousElementSiblings();
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_add28257 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28257_failAssert0_literalMutationNumber29658 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28203_failAssert0_literalMutationString34878_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("Z|_DkdcE#uBq_(Jl&" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id=U\'d\'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
                 Element ul = doc.getElementById("ul");
                 List<Element> elementSiblings3 = ul.previousElementSiblings();
                 {
                     Element element3 = elementSiblings3.get(0);
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28253 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28203 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28253_failAssert0_literalMutationNumber33048 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28203_failAssert0_literalMutationString34878 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: -1, Size: 2", expected.getMessage());
+            Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28224_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28194_failAssert0() throws Exception {
         try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id=\'d\'>d/li>") + "</div>")));
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<divp id=\'div\'>") + "<li id='d'>d</li>") + "</div>")));
             Element element = doc.getElementById("b");
             List<Element> elementSiblings = element.previousElementSiblings();
             elementSiblings.size();
@@ -6045,30 +6963,29 @@ public class AmplElementTest {
             {
                 Element element3 = elementSiblings3.get(0);
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28224 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28194 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28267_failAssert0_literalMutationNumber31453_failAssert0_add47136_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28170_failAssert0_add37513_failAssert0null48293_failAssert0() throws Exception {
         try {
             {
                 {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
                     Element element = doc.getElementById("b");
                     List<Element> elementSiblings = element.previousElementSiblings();
                     elementSiblings.size();
-                    elementSiblings.get(0);
                     elementSiblings.get(0).id();
-                    Element element1 = doc.getElementById("a");
+                    Element element1 = doc.getElementById(null);
                     List<Element> elementSiblings1 = element1.previousElementSiblings();
                     elementSiblings1.size();
                     Element element2 = doc.getElementById("c");
                     List<Element> elementSiblings2 = element2.previousElementSiblings();
                     elementSiblings2.size();
-                    elementSiblings2.get(0);
+                    elementSiblings2.size();
                     elementSiblings2.get(0).id();
                     elementSiblings2.get(1).id();
                     Element ul = doc.getElementById("ul");
@@ -6076,39 +6993,43 @@ public class AmplElementTest {
                     {
                         Element element3 = elementSiblings3.get(0);
                     }
-                    org.junit.Assert.fail("testPreviousElementSiblings_add28267 should have thrown IndexOutOfBoundsException");
+                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170 should have thrown IndexOutOfBoundsException");
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_add28267_failAssert0_literalMutationNumber31453 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170_failAssert0_add37513 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28267_failAssert0_literalMutationNumber31453_failAssert0_add47136 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170_failAssert0_add37513_failAssert0null48293 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28277_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_add28254_failAssert0_add36243_failAssert0() throws Exception {
         try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1);
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
             {
-                Element element3 = elementSiblings3.get(0);
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                elementSiblings2.get(1).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_add28254 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28277 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_add28254_failAssert0_add36243 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
@@ -6117,7 +7038,7 @@ public class AmplElementTest {
     @Test(timeout = 10000)
     public void testPreviousElementSiblings_literalMutationString28196_failAssert0() throws Exception {
         try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<i id=\'a\'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div i`=\'div\'>") + "<li id='d'>d</li>") + "</div>")));
             Element element = doc.getElementById("b");
             List<Element> elementSiblings = element.previousElementSiblings();
             elementSiblings.size();
@@ -6144,7 +7065,7 @@ public class AmplElementTest {
     @Test(timeout = 10000)
     public void testPreviousElementSiblings_literalMutationString28192_failAssert0() throws Exception {
         try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</8ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
             Element element = doc.getElementById("b");
             List<Element> elementSiblings = element.previousElementSiblings();
             elementSiblings.size();
@@ -6169,19 +7090,18 @@ public class AmplElementTest {
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28268_failAssert0_literalMutationString31864_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28170_failAssert0null38455_failAssert0() throws Exception {
         try {
             {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "TH6o8vA0IqkiI?") + "<li id='d'>d</li>") + "</div>")));
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
                 Element element = doc.getElementById("b");
                 List<Element> elementSiblings = element.previousElementSiblings();
                 elementSiblings.size();
                 elementSiblings.get(0).id();
-                doc.getElementById("a");
                 Element element1 = doc.getElementById("a");
                 List<Element> elementSiblings1 = element1.previousElementSiblings();
                 elementSiblings1.size();
-                Element element2 = doc.getElementById("c");
+                Element element2 = doc.getElementById(null);
                 List<Element> elementSiblings2 = element2.previousElementSiblings();
                 elementSiblings2.size();
                 elementSiblings2.get(0).id();
@@ -6191,51 +7111,23 @@ public class AmplElementTest {
                 {
                     Element element3 = elementSiblings3.get(0);
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_add28268 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28268_failAssert0_literalMutationString31864 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170_failAssert0null38455 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28226_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li idm=\'d\'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28226 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28267_failAssert0_add36906_failAssert0_add47671_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_add28254_failAssert0_literalMutationNumber29120_failAssert0_literalMutationString45658_failAssert0() throws Exception {
         try {
             {
                 {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</u>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
                     Element element = doc.getElementById("b");
                     List<Element> elementSiblings = element.previousElementSiblings();
                     elementSiblings.size();
-                    elementSiblings.get(0);
                     elementSiblings.get(0).id();
                     Element element1 = doc.getElementById("a");
                     List<Element> elementSiblings1 = element1.previousElementSiblings();
@@ -6243,175 +7135,33 @@ public class AmplElementTest {
                     Element element2 = doc.getElementById("c");
                     List<Element> elementSiblings2 = element2.previousElementSiblings();
                     elementSiblings2.size();
-                    elementSiblings2.get(0);
+                    elementSiblings2.get(0).id();
                     elementSiblings2.get(0).id();
                     elementSiblings2.get(1).id();
-                    doc.getElementById("ul");
                     Element ul = doc.getElementById("ul");
                     List<Element> elementSiblings3 = ul.previousElementSiblings();
                     {
                         Element element3 = elementSiblings3.get(0);
                     }
-                    org.junit.Assert.fail("testPreviousElementSiblings_add28267 should have thrown IndexOutOfBoundsException");
+                    org.junit.Assert.fail("testPreviousElementSiblings_add28254 should have thrown IndexOutOfBoundsException");
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_add28267_failAssert0_add36906 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_add28254_failAssert0_literalMutationNumber29120 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28267_failAssert0_add36906_failAssert0_add47671 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_add28254_failAssert0_literalMutationNumber29120_failAssert0_literalMutationString45658 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28228_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</di;v>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28228 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28273_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28273 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28249_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28249 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28247_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(1).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28247 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28258_failAssert0_add36426_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28208_failAssert0_add37763_failAssert0() throws Exception {
         try {
             {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "<div>")));
+                doc.getElementById("b");
                 Element element = doc.getElementById("b");
                 List<Element> elementSiblings = element.previousElementSiblings();
                 elementSiblings.size();
-                elementSiblings.get(0).id();
-                elementSiblings.get(0).id();
-                Element element1 = doc.getElementById("a");
-                List<Element> elementSiblings1 = element1.previousElementSiblings();
-                elementSiblings1.size();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.previousElementSiblings();
-                elementSiblings2.size();
-                elementSiblings2.get(0).id();
-                elementSiblings2.get(1).id();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.previousElementSiblings();
-                {
-                    Element element3 = elementSiblings3.get(1);
-                }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28258 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28258_failAssert0_add36426 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 1", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28265_failAssert0_add36960_failAssert0() throws Exception {
-        try {
-            {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                Element element = doc.getElementById("b");
-                List<Element> elementSiblings = element.previousElementSiblings();
-                elementSiblings.size();
-                elementSiblings.size();
-                elementSiblings.get(0).id();
                 elementSiblings.get(0).id();
                 Element element1 = doc.getElementById("a");
                 List<Element> elementSiblings1 = element1.previousElementSiblings();
@@ -6426,9 +7176,164 @@ public class AmplElementTest {
                 {
                     Element element3 = elementSiblings3.get(0);
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_add28265 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28208 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28265_failAssert0_add36960 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28208_failAssert0_add37763 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28257_failAssert0_add36390_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                ul.previousElementSiblings();
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_add28257 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28257_failAssert0_add36390 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28209_failAssert0_add36714_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</dZv>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28209 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28209_failAssert0_add36714 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28170_failAssert0_add37504_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                element.previousElementSiblings();
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170_failAssert0_add37504 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationNumber28236_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(1);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28236 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 1", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28209_failAssert0_literalMutationNumber30827_failAssert0_add48111_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</dZv>")));
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    Element element1 = doc.getElementById("a");
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.get(1).id();
+                    elementSiblings2.get(1).id();
+                    Element ul = doc.getElementById("ul");
+                    ul.previousElementSiblings();
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        Element element3 = elementSiblings3.get(0);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28209 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28209_failAssert0_literalMutationNumber30827 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28209_failAssert0_literalMutationNumber30827_failAssert0_add48111 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
@@ -6441,7 +7346,7 @@ public class AmplElementTest {
             Element element = doc.getElementById("b");
             List<Element> elementSiblings = element.previousElementSiblings();
             elementSiblings.size();
-            elementSiblings.get(-1).id();
+            elementSiblings.get(0).id();
             Element element1 = doc.getElementById("a");
             List<Element> elementSiblings1 = element1.previousElementSiblings();
             elementSiblings1.size();
@@ -6457,48 +7362,16 @@ public class AmplElementTest {
             }
             org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28238 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: -1, Size: 1", expected.getMessage());
+            Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28259_failAssert0_add37359_failAssert0() throws Exception {
-        try {
-            {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                Element element = doc.getElementById("b");
-                List<Element> elementSiblings = element.previousElementSiblings();
-                elementSiblings.size();
-                elementSiblings.get(0).id();
-                Element element1 = doc.getElementById("a");
-                List<Element> elementSiblings1 = element1.previousElementSiblings();
-                elementSiblings1.size();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.previousElementSiblings();
-                elementSiblings2.size();
-                elementSiblings2.get(0).id();
-                elementSiblings2.get(1);
-                elementSiblings2.get(1).id();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.previousElementSiblings();
-                {
-                    Element element3 = elementSiblings3.get(-1);
-                }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28259 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28259_failAssert0_add37359 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: -1", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28263_failAssert0_add36824_failAssert0_literalMutationString43713_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28204_failAssert0_literalMutationString34724_failAssert0_add47501_failAssert0() throws Exception {
         try {
             {
                 {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div Td=\'div\'>") + "<li id='d'>d</li>") + "</div>")));
-                    doc.getElementById("b");
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "FL2=<)( -Juxh3GWb") + "</div>")));
                     Element element = doc.getElementById("b");
                     List<Element> elementSiblings = element.previousElementSiblings();
                     elementSiblings.size();
@@ -6517,21 +7390,82 @@ public class AmplElementTest {
                     {
                         Element element3 = elementSiblings3.get(0);
                     }
-                    org.junit.Assert.fail("testPreviousElementSiblings_add28263 should have thrown IndexOutOfBoundsException");
+                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28204 should have thrown IndexOutOfBoundsException");
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_add28263_failAssert0_add36824 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28204_failAssert0_literalMutationString34724 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28263_failAssert0_add36824_failAssert0_literalMutationString43713 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28204_failAssert0_literalMutationString34724_failAssert0_add47501 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28253_failAssert0_add37314_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationNumber28232_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(0).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28232 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28175_failAssert0_literalMutationNumber33949_failAssert0_add47523_failAssert0() throws Exception {
         try {
             {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("p5e`osqZ.+Ejjy#PM" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    Element element1 = doc.getElementById("a");
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(0).id();
+                    Element ul = doc.getElementById("ul");
+                    ul.previousElementSiblings();
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        Element element3 = elementSiblings3.get(0);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28175 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28175_failAssert0_literalMutationNumber33949 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28175_failAssert0_literalMutationNumber33949_failAssert0_add47523 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28250_failAssert0_literalMutationString29305_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("m,e)H^Oibj`99)[#9" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
                 Element element = doc.getElementById("b");
                 List<Element> elementSiblings = element.previousElementSiblings();
                 elementSiblings.size();
@@ -6544,25 +7478,57 @@ public class AmplElementTest {
                 List<Element> elementSiblings2 = element2.previousElementSiblings();
                 elementSiblings2.size();
                 elementSiblings2.get(0).id();
-                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
                 Element ul = doc.getElementById("ul");
                 List<Element> elementSiblings3 = ul.previousElementSiblings();
                 {
                     Element element3 = elementSiblings3.get(0);
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28253 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_add28250 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28253_failAssert0_add37314 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_add28250_failAssert0_literalMutationString29305 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28219_failAssert0_add37723_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_add28254_failAssert0_add36239_failAssert0() throws Exception {
         try {
             {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + " Hello\nthere \u00a0  ") + "<li id='d'>d</li>") + "</div>")));
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_add28254 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28254_failAssert0_add36239 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28206_failAssert0_literalMutationNumber31272_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "")));
                 Element element = doc.getElementById("b");
                 List<Element> elementSiblings = element.previousElementSiblings();
                 elementSiblings.size();
@@ -6580,115 +7546,23 @@ public class AmplElementTest {
                 {
                     Element element3 = elementSiblings3.get(0);
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28219 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28206 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28219_failAssert0_add37723 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28206_failAssert0_literalMutationNumber31272 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28260_failAssert0_literalMutationString34453_failAssert0() throws Exception {
-        try {
-            {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "<y/ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
-                Element element = doc.getElementById("b");
-                List<Element> elementSiblings = element.previousElementSiblings();
-                elementSiblings.size();
-                elementSiblings.get(0).id();
-                Element element1 = doc.getElementById("a");
-                List<Element> elementSiblings1 = element1.previousElementSiblings();
-                elementSiblings1.size();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.previousElementSiblings();
-                elementSiblings2.size();
-                elementSiblings2.get(0).id();
-                elementSiblings2.get(1).id();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.previousElementSiblings();
-                {
-                    Element element3 = elementSiblings3.get(0);
-                }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28260 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28260_failAssert0_literalMutationString34453 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28218_failAssert0_add37173_failAssert0() throws Exception {
-        try {
-            {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<iv id=\'div\'>") + "<li id='d'>d</li>") + "</div>")));
-                Element element = doc.getElementById("b");
-                List<Element> elementSiblings = element.previousElementSiblings();
-                elementSiblings.size();
-                elementSiblings.get(0).id();
-                Element element1 = doc.getElementById("a");
-                List<Element> elementSiblings1 = element1.previousElementSiblings();
-                elementSiblings1.size();
-                doc.getElementById("c");
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.previousElementSiblings();
-                elementSiblings2.size();
-                elementSiblings2.get(0).id();
-                elementSiblings2.get(1).id();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.previousElementSiblings();
-                {
-                    Element element3 = elementSiblings3.get(0);
-                }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28218 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28218_failAssert0_add37173 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28258_failAssert0_literalMutationString29681_failAssert0() throws Exception {
-        try {
-            {
-                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</di>")));
-                Element element = doc.getElementById("b");
-                List<Element> elementSiblings = element.previousElementSiblings();
-                elementSiblings.size();
-                elementSiblings.get(0).id();
-                Element element1 = doc.getElementById("a");
-                List<Element> elementSiblings1 = element1.previousElementSiblings();
-                elementSiblings1.size();
-                Element element2 = doc.getElementById("c");
-                List<Element> elementSiblings2 = element2.previousElementSiblings();
-                elementSiblings2.size();
-                elementSiblings2.get(0).id();
-                elementSiblings2.get(1).id();
-                Element ul = doc.getElementById("ul");
-                List<Element> elementSiblings3 = ul.previousElementSiblings();
-                {
-                    Element element3 = elementSiblings3.get(1);
-                }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28258 should have thrown IndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28258_failAssert0_literalMutationString29681 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 1", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28260_failAssert0_add37688_failAssert0_add47347_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28170_failAssert0_literalMutationString33842_failAssert0_add48258_failAssert0() throws Exception {
         try {
             {
                 {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "") + "</div>")));
                     Element element = doc.getElementById("b");
                     List<Element> elementSiblings = element.previousElementSiblings();
                     elementSiblings.size();
-                    elementSiblings.get(0).id();
                     elementSiblings.get(0).id();
                     Element element1 = doc.getElementById("a");
                     List<Element> elementSiblings1 = element1.previousElementSiblings();
@@ -6696,7 +7570,6 @@ public class AmplElementTest {
                     Element element2 = doc.getElementById("c");
                     List<Element> elementSiblings2 = element2.previousElementSiblings();
                     elementSiblings2.size();
-                    elementSiblings2.get(0);
                     elementSiblings2.get(0).id();
                     elementSiblings2.get(1).id();
                     Element ul = doc.getElementById("ul");
@@ -6704,22 +7577,22 @@ public class AmplElementTest {
                     {
                         Element element3 = elementSiblings3.get(0);
                     }
-                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28260 should have thrown IndexOutOfBoundsException");
+                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170 should have thrown IndexOutOfBoundsException");
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28260_failAssert0_add37688 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170_failAssert0_literalMutationString33842 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28260_failAssert0_add37688_failAssert0_add47347 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170_failAssert0_literalMutationString33842_failAssert0_add48258 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationNumber28260_failAssert0_literalMutationString34470_failAssert0_add48033_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28170_failAssert0_add37513_failAssert0_add46318_failAssert0() throws Exception {
         try {
             {
                 {
-                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + " Hello\nthere \u00a0  ")));
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
                     Element element = doc.getElementById("b");
                     List<Element> elementSiblings = element.previousElementSiblings();
                     elementSiblings.size();
@@ -6729,6 +7602,7 @@ public class AmplElementTest {
                     elementSiblings1.size();
                     Element element2 = doc.getElementById("c");
                     List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
                     elementSiblings2.size();
                     elementSiblings2.get(0).id();
                     elementSiblings2.get(1);
@@ -6738,20 +7612,51 @@ public class AmplElementTest {
                     {
                         Element element3 = elementSiblings3.get(0);
                     }
-                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28260 should have thrown IndexOutOfBoundsException");
+                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170 should have thrown IndexOutOfBoundsException");
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28260_failAssert0_literalMutationString34470 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170_failAssert0_add37513 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28260_failAssert0_literalMutationString34470_failAssert0_add48033 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170_failAssert0_add37513_failAssert0_add46318 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28222_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationNumber28218_failAssert0_add37053_failAssert0() throws Exception {
         try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li i_=\'d\'>d</li>") + "</div>")));
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28218 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationNumber28218_failAssert0_add37053 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28185_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<l id=\'c\'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
             Element element = doc.getElementById("b");
             List<Element> elementSiblings = element.previousElementSiblings();
             elementSiblings.size();
@@ -6769,14 +7674,261 @@ public class AmplElementTest {
             {
                 Element element3 = elementSiblings3.get(0);
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28222 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28185 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28268_failAssert0_add37011_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_add28257_failAssert0_literalMutationNumber29677_failAssert0_literalMutationString42858_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + " Hello\nthere \u00a0  ") + "</div>")));
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    Element element1 = doc.getElementById("a");
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(1).id();
+                    Element ul = doc.getElementById("ul");
+                    ul.previousElementSiblings();
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        Element element3 = elementSiblings3.get(1);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_add28257 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_add28257_failAssert0_literalMutationNumber29677 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28257_failAssert0_literalMutationNumber29677_failAssert0_literalMutationString42858 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 1", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28170_failAssert0_literalMutationString33848_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</di[v>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170_failAssert0_literalMutationString33848 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28175_failAssert0_add37529_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("p5e`osqZ.+Ejjy#PM" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                element1.previousElementSiblings();
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28175 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28175_failAssert0_add37529 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28170_failAssert0_literalMutationString33846_failAssert0() throws Exception {
+        try {
+            {
+                Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li d=\'d\'>d</li>") + "</div>")));
+                Element element = doc.getElementById("b");
+                List<Element> elementSiblings = element.previousElementSiblings();
+                elementSiblings.size();
+                elementSiblings.get(0).id();
+                Element element1 = doc.getElementById("a");
+                List<Element> elementSiblings1 = element1.previousElementSiblings();
+                elementSiblings1.size();
+                Element element2 = doc.getElementById("c");
+                List<Element> elementSiblings2 = element2.previousElementSiblings();
+                elementSiblings2.size();
+                elementSiblings2.get(0).id();
+                elementSiblings2.get(1).id();
+                Element ul = doc.getElementById("ul");
+                List<Element> elementSiblings3 = ul.previousElementSiblings();
+                {
+                    Element element3 = elementSiblings3.get(0);
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28170_failAssert0_literalMutationString33846 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28189_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28189 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28254_failAssert0_literalMutationNumber29120_failAssert0_add48124_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    Element element1 = doc.getElementById("a");
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById("c");
+                    element2.previousElementSiblings();
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(1).id();
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        Element element3 = elementSiblings3.get(0);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_add28254 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_add28254_failAssert0_literalMutationNumber29120 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_add28254_failAssert0_literalMutationNumber29120_failAssert0_add48124 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28187_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id=\'c\']>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28187 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28204_failAssert0_literalMutationString34724_failAssert0_literalMutationString43438_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "FL2=<)( -Juxh3GWb") + "</div>")));
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    Element element1 = doc.getElementById("a");
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(1).id();
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        Element element3 = elementSiblings3.get(0);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28204 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28204_failAssert0_literalMutationString34724 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28204_failAssert0_literalMutationString34724_failAssert0_literalMutationString43438 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28253_failAssert0_add36255_failAssert0() throws Exception {
         try {
             {
                 Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
@@ -6799,16 +7951,78 @@ public class AmplElementTest {
                 {
                     Element element3 = elementSiblings3.get(0);
                 }
-                org.junit.Assert.fail("testPreviousElementSiblings_add28268 should have thrown IndexOutOfBoundsException");
+                org.junit.Assert.fail("testPreviousElementSiblings_add28253 should have thrown IndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28268_failAssert0_add37011 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_add28253_failAssert0_add36255 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPreviousElementSiblings_add28279_failAssert0() throws Exception {
+    public void testPreviousElementSiblings_literalMutationString28174_failAssert0_add36938_failAssert0_add46438_failAssert0() throws Exception {
+        try {
+            {
+                {
+                    Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id=\'a\',a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
+                    Element element = doc.getElementById("b");
+                    List<Element> elementSiblings = element.previousElementSiblings();
+                    elementSiblings.size();
+                    elementSiblings.get(0).id();
+                    doc.getElementById("a");
+                    Element element1 = doc.getElementById("a");
+                    List<Element> elementSiblings1 = element1.previousElementSiblings();
+                    elementSiblings1.size();
+                    Element element2 = doc.getElementById("c");
+                    List<Element> elementSiblings2 = element2.previousElementSiblings();
+                    elementSiblings2.size();
+                    elementSiblings2.get(0).id();
+                    elementSiblings2.get(1).id();
+                    doc.getElementById("ul");
+                    Element ul = doc.getElementById("ul");
+                    List<Element> elementSiblings3 = ul.previousElementSiblings();
+                    {
+                        Element element3 = elementSiblings3.get(0);
+                    }
+                    org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28174 should have thrown IndexOutOfBoundsException");
+                }
+                org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28174_failAssert0_add36938 should have thrown IndexOutOfBoundsException");
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28174_failAssert0_add36938_failAssert0_add46438 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_literalMutationString28201_failAssert0() throws Exception {
+        try {
+            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id=\'d\'>d/li>") + "</div>")));
+            Element element = doc.getElementById("b");
+            List<Element> elementSiblings = element.previousElementSiblings();
+            elementSiblings.size();
+            elementSiblings.get(0).id();
+            Element element1 = doc.getElementById("a");
+            List<Element> elementSiblings1 = element1.previousElementSiblings();
+            elementSiblings1.size();
+            Element element2 = doc.getElementById("c");
+            List<Element> elementSiblings2 = element2.previousElementSiblings();
+            elementSiblings2.size();
+            elementSiblings2.get(0).id();
+            elementSiblings2.get(1).id();
+            Element ul = doc.getElementById("ul");
+            List<Element> elementSiblings3 = ul.previousElementSiblings();
+            {
+                Element element3 = elementSiblings3.get(0);
+            }
+            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28201 should have thrown IndexOutOfBoundsException");
+        } catch (IndexOutOfBoundsException expected) {
+            Assert.assertEquals("Index: 0", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPreviousElementSiblings_add28258_failAssert0() throws Exception {
         try {
             Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div id='div'>") + "<li id='d'>d</li>") + "</div>")));
             Element element = doc.getElementById("b");
@@ -6824,39 +8038,12 @@ public class AmplElementTest {
             elementSiblings2.get(0).id();
             elementSiblings2.get(1).id();
             Element ul = doc.getElementById("ul");
-            ul.previousElementSiblings();
             List<Element> elementSiblings3 = ul.previousElementSiblings();
             {
+                elementSiblings3.get(0);
                 Element element3 = elementSiblings3.get(0);
             }
-            org.junit.Assert.fail("testPreviousElementSiblings_add28279 should have thrown IndexOutOfBoundsException");
-        } catch (IndexOutOfBoundsException expected) {
-            Assert.assertEquals("Index: 0", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPreviousElementSiblings_literalMutationString28220_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse(("<ul id='ul'>" + (((((("<li id='a'>a</li>" + "<li id='b'>b</li>") + "<li id='c'>c</li>") + "</ul>") + "<div 9id=\'div\'>") + "<li id='d'>d</li>") + "</div>")));
-            Element element = doc.getElementById("b");
-            List<Element> elementSiblings = element.previousElementSiblings();
-            elementSiblings.size();
-            elementSiblings.get(0).id();
-            Element element1 = doc.getElementById("a");
-            List<Element> elementSiblings1 = element1.previousElementSiblings();
-            elementSiblings1.size();
-            Element element2 = doc.getElementById("c");
-            List<Element> elementSiblings2 = element2.previousElementSiblings();
-            elementSiblings2.size();
-            elementSiblings2.get(0).id();
-            elementSiblings2.get(1).id();
-            Element ul = doc.getElementById("ul");
-            List<Element> elementSiblings3 = ul.previousElementSiblings();
-            {
-                Element element3 = elementSiblings3.get(0);
-            }
-            org.junit.Assert.fail("testPreviousElementSiblings_literalMutationString28220 should have thrown IndexOutOfBoundsException");
+            org.junit.Assert.fail("testPreviousElementSiblings_add28258 should have thrown IndexOutOfBoundsException");
         } catch (IndexOutOfBoundsException expected) {
             Assert.assertEquals("Index: 0", expected.getMessage());
         }
