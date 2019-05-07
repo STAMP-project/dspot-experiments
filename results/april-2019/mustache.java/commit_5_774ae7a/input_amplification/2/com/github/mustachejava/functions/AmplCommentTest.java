@@ -19,93 +19,242 @@ import org.junit.Test;
 
 public class AmplCommentTest {
     @Test(timeout = 10000)
+    public void testInlineCommentWithinExtendCodeBlock_literalMutationString11_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            File root = getRoot("commentWithinExtendCodeBlock.html");
+            MustacheFactory c = new DefaultMustacheFactory(root);
+            Mustache m = c.compile("i2@sxS($<9$T4bXzesi<&g-WNb,LXZU? ");
+            StringWriter sw = new StringWriter();
+            m.execute(sw, Collections.emptyList());
+            TestUtil.getContents(root, "commentWithinExtendCodeBlock.txt");
+            sw.toString();
+            org.junit.Assert.fail("testInlineCommentWithinExtendCodeBlock_literalMutationString11 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template i2@sxS($<9$T4bXzesi<&g-WNb,LXZU?  not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
     public void testInlineCommentWithinExtendCodeBlock_literalMutationString10_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
         try {
             File root = getRoot("commentWithinExtendCodeBlock.html");
             MustacheFactory c = new DefaultMustacheFactory(root);
-            Mustache m = c.compile("pE0]A]Ci2@sxS($<9$T4bXzesi<&g-WNb");
+            Mustache m = c.compile("comme]tWithinExtendCodeBlock.html");
             StringWriter sw = new StringWriter();
             m.execute(sw, Collections.emptyList());
             TestUtil.getContents(root, "commentWithinExtendCodeBlock.txt");
             sw.toString();
             org.junit.Assert.fail("testInlineCommentWithinExtendCodeBlock_literalMutationString10 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
-            Assert.assertEquals("Template pE0]A]Ci2@sxS($<9$T4bXzesi<&g-WNb not found", expected.getMessage());
+            Assert.assertEquals("Template comme]tWithinExtendCodeBlock.html not found", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testInlineCommentWithinExtendCodeBlock_literalMutationString10_failAssert0_literalMutationString510_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+    public void testInlineCommentWithinExtendCodeBlock_literalMutationString8_failAssert0null1064_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
         try {
             {
                 File root = getRoot("commentWithinExtendCodeBlock.html");
                 MustacheFactory c = new DefaultMustacheFactory(root);
-                Mustache m = c.compile("pE0]A]Ci2@sxS($<9$T4bXzesi<&g-WNb");
+                Mustache m = c.compile("commentWithinExt]endCodeBlock.html");
                 StringWriter sw = new StringWriter();
                 m.execute(sw, Collections.emptyList());
-                TestUtil.getContents(root, "bundles_post_labels.txt");
+                TestUtil.getContents(root, null);
                 sw.toString();
-                org.junit.Assert.fail("testInlineCommentWithinExtendCodeBlock_literalMutationString10 should have thrown MustacheNotFoundException");
+                org.junit.Assert.fail("testInlineCommentWithinExtendCodeBlock_literalMutationString8 should have thrown MustacheNotFoundException");
             }
-            org.junit.Assert.fail("testInlineCommentWithinExtendCodeBlock_literalMutationString10_failAssert0_literalMutationString510 should have thrown MustacheNotFoundException");
+            org.junit.Assert.fail("testInlineCommentWithinExtendCodeBlock_literalMutationString8_failAssert0null1064 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
-            Assert.assertEquals("Template pE0]A]Ci2@sxS($<9$T4bXzesi<&g-WNb not found", expected.getMessage());
+            Assert.assertEquals("Template commentWithinExt]endCodeBlock.html not found", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testInlineCommentWithinExtendCodeBlock_literalMutationString7() throws MustacheException, IOException, InterruptedException, ExecutionException {
-        File root = getRoot("commentWithinExtendCodeBlock.html");
-        MustacheFactory c = new DefaultMustacheFactory(root);
-        Mustache m = c.compile("");
-        StringWriter sw = new StringWriter();
-        Writer o_testInlineCommentWithinExtendCodeBlock_literalMutationString7__9 = m.execute(sw, Collections.emptyList());
-        Assert.assertEquals("box.html\nclassloader.html\nclient.html\nclient.txt\ncom\ncompiletest.mustache\ncomplex.html\ncomplex.txt\ndiv.html\nfallback\nfdbcli.mustache\nfdbcli.txt\nfdbcli2.mustache\nfdbcli2.txt\nfdbcli3.mustache\nfdbcli3.txt\nfollow.html\nfollownomenu.html\nfollownomenu.txt\nfunctions\nhogan.json\nmain.html\nmethod.html\nmultiple_recursive_partials.html\nmultipleextensions.html\nmultipleextensions.txt\nnested_inheritance.html\nnested_inheritance.txt\nnested_partials_template.html\noverrideextension.html\nparentreplace.html\npartialintemplatefunction.html\npartialsub.html\npartialsubpartial.html\npartialsubpartial.txt\npartialsuper.html\npath\npretranslate.html\npsauxwww.mustache\npsauxwww.txt\nrelative\nreplace.html\nreplace.txt\nsinglereplace.html\nspec\nsub.html\nsub.txt\nsubblockchild1.html\nsubblockchild1.txt\nsubblockchild2.html\nsubblockchild2.txt\nsubblocksuper.html\nsubsub.html\nsubsub.txt\nsubsubchild1.html\nsubsubchild1.txt\nsubsubchild2.html\nsubsubchild2.txt\nsubsubchild3.html\nsubsubchild3.txt\nsubsubmiddle.html\nsubsubsuper.html\nsuper.html\ntemplate.html\ntemplate.mustache\ntemplates_filepath\ntemplates.jar\ntoomany.html\ntweetbox.html\nuninterestingpartial.html\n", ((StringBuffer) (((StringWriter) (o_testInlineCommentWithinExtendCodeBlock_literalMutationString7__9)).getBuffer())).toString());
-        Assert.assertEquals("box.html\nclassloader.html\nclient.html\nclient.txt\ncom\ncompiletest.mustache\ncomplex.html\ncomplex.txt\ndiv.html\nfallback\nfdbcli.mustache\nfdbcli.txt\nfdbcli2.mustache\nfdbcli2.txt\nfdbcli3.mustache\nfdbcli3.txt\nfollow.html\nfollownomenu.html\nfollownomenu.txt\nfunctions\nhogan.json\nmain.html\nmethod.html\nmultiple_recursive_partials.html\nmultipleextensions.html\nmultipleextensions.txt\nnested_inheritance.html\nnested_inheritance.txt\nnested_partials_template.html\noverrideextension.html\nparentreplace.html\npartialintemplatefunction.html\npartialsub.html\npartialsubpartial.html\npartialsubpartial.txt\npartialsuper.html\npath\npretranslate.html\npsauxwww.mustache\npsauxwww.txt\nrelative\nreplace.html\nreplace.txt\nsinglereplace.html\nspec\nsub.html\nsub.txt\nsubblockchild1.html\nsubblockchild1.txt\nsubblockchild2.html\nsubblockchild2.txt\nsubblocksuper.html\nsubsub.html\nsubsub.txt\nsubsubchild1.html\nsubsubchild1.txt\nsubsubchild2.html\nsubsubchild2.txt\nsubsubchild3.html\nsubsubchild3.txt\nsubsubmiddle.html\nsubsubsuper.html\nsuper.html\ntemplate.html\ntemplate.mustache\ntemplates_filepath\ntemplates.jar\ntoomany.html\ntweetbox.html\nuninterestingpartial.html\n", ((StringWriter) (o_testInlineCommentWithinExtendCodeBlock_literalMutationString7__9)).toString());
-        String o_testInlineCommentWithinExtendCodeBlock_literalMutationString7__11 = TestUtil.getContents(root, "commentWithinExtendCodeBlock.txt");
-        Assert.assertEquals("<h1>Just for the fun of it</h1>\n", o_testInlineCommentWithinExtendCodeBlock_literalMutationString7__11);
-        sw.toString();
-        Assert.assertEquals("box.html\nclassloader.html\nclient.html\nclient.txt\ncom\ncompiletest.mustache\ncomplex.html\ncomplex.txt\ndiv.html\nfallback\nfdbcli.mustache\nfdbcli.txt\nfdbcli2.mustache\nfdbcli2.txt\nfdbcli3.mustache\nfdbcli3.txt\nfollow.html\nfollownomenu.html\nfollownomenu.txt\nfunctions\nhogan.json\nmain.html\nmethod.html\nmultiple_recursive_partials.html\nmultipleextensions.html\nmultipleextensions.txt\nnested_inheritance.html\nnested_inheritance.txt\nnested_partials_template.html\noverrideextension.html\nparentreplace.html\npartialintemplatefunction.html\npartialsub.html\npartialsubpartial.html\npartialsubpartial.txt\npartialsuper.html\npath\npretranslate.html\npsauxwww.mustache\npsauxwww.txt\nrelative\nreplace.html\nreplace.txt\nsinglereplace.html\nspec\nsub.html\nsub.txt\nsubblockchild1.html\nsubblockchild1.txt\nsubblockchild2.html\nsubblockchild2.txt\nsubblocksuper.html\nsubsub.html\nsubsub.txt\nsubsubchild1.html\nsubsubchild1.txt\nsubsubchild2.html\nsubsubchild2.txt\nsubsubchild3.html\nsubsubchild3.txt\nsubsubmiddle.html\nsubsubsuper.html\nsuper.html\ntemplate.html\ntemplate.mustache\ntemplates_filepath\ntemplates.jar\ntoomany.html\ntweetbox.html\nuninterestingpartial.html\n", ((StringBuffer) (((StringWriter) (o_testInlineCommentWithinExtendCodeBlock_literalMutationString7__9)).getBuffer())).toString());
-        Assert.assertEquals("box.html\nclassloader.html\nclient.html\nclient.txt\ncom\ncompiletest.mustache\ncomplex.html\ncomplex.txt\ndiv.html\nfallback\nfdbcli.mustache\nfdbcli.txt\nfdbcli2.mustache\nfdbcli2.txt\nfdbcli3.mustache\nfdbcli3.txt\nfollow.html\nfollownomenu.html\nfollownomenu.txt\nfunctions\nhogan.json\nmain.html\nmethod.html\nmultiple_recursive_partials.html\nmultipleextensions.html\nmultipleextensions.txt\nnested_inheritance.html\nnested_inheritance.txt\nnested_partials_template.html\noverrideextension.html\nparentreplace.html\npartialintemplatefunction.html\npartialsub.html\npartialsubpartial.html\npartialsubpartial.txt\npartialsuper.html\npath\npretranslate.html\npsauxwww.mustache\npsauxwww.txt\nrelative\nreplace.html\nreplace.txt\nsinglereplace.html\nspec\nsub.html\nsub.txt\nsubblockchild1.html\nsubblockchild1.txt\nsubblockchild2.html\nsubblockchild2.txt\nsubblocksuper.html\nsubsub.html\nsubsub.txt\nsubsubchild1.html\nsubsubchild1.txt\nsubsubchild2.html\nsubsubchild2.txt\nsubsubchild3.html\nsubsubchild3.txt\nsubsubmiddle.html\nsubsubsuper.html\nsuper.html\ntemplate.html\ntemplate.mustache\ntemplates_filepath\ntemplates.jar\ntoomany.html\ntweetbox.html\nuninterestingpartial.html\n", ((StringWriter) (o_testInlineCommentWithinExtendCodeBlock_literalMutationString7__9)).toString());
-        Assert.assertEquals("<h1>Just for the fun of it</h1>\n", o_testInlineCommentWithinExtendCodeBlock_literalMutationString7__11);
+    public void testInlineCommentWithinExtendCodeBlock_add23_literalMutationString158_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            File root = getRoot("commentWithinExtendCodeBlock.html");
+            MustacheFactory c = new DefaultMustacheFactory(root);
+            Mustache m = c.compile("com%mentWithinExtendCodeBlock.html");
+            StringWriter sw = new StringWriter();
+            Writer o_testInlineCommentWithinExtendCodeBlock_add23__9 = m.execute(sw, Collections.emptyList());
+            String o_testInlineCommentWithinExtendCodeBlock_add23__11 = TestUtil.getContents(root, "commentWithinExtendCodeBlock.txt");
+            String o_testInlineCommentWithinExtendCodeBlock_add23__12 = TestUtil.getContents(root, "commentWithinExtendCodeBlock.txt");
+            sw.toString();
+            org.junit.Assert.fail("testInlineCommentWithinExtendCodeBlock_add23_literalMutationString158 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template com%mentWithinExtendCodeBlock.html not found", expected.getMessage());
+        }
     }
 
     @Test(timeout = 10000)
-    public void testInlineCommentWithinExtendCodeBlock_literalMutationString10_failAssert0_add888_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+    public void testInlineCommentWithinExtendCodeBlock_literalMutationString8_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            File root = getRoot("commentWithinExtendCodeBlock.html");
+            MustacheFactory c = new DefaultMustacheFactory(root);
+            Mustache m = c.compile("commentWithinExt]endCodeBlock.html");
+            StringWriter sw = new StringWriter();
+            m.execute(sw, Collections.emptyList());
+            TestUtil.getContents(root, "commentWithinExtendCodeBlock.txt");
+            sw.toString();
+            org.junit.Assert.fail("testInlineCommentWithinExtendCodeBlock_literalMutationString8 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template commentWithinExt]endCodeBlock.html not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testInlineCommentWithinExtendCodeBlock_literalMutationString8_failAssert0_literalMutationString493_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
         try {
             {
                 File root = getRoot("commentWithinExtendCodeBlock.html");
                 MustacheFactory c = new DefaultMustacheFactory(root);
-                Mustache m = c.compile("pE0]A]Ci2@sxS($<9$T4bXzesi<&g-WNb");
+                Mustache m = c.compile("commentWithinExt]endCodeBlock.html");
+                StringWriter sw = new StringWriter();
+                m.execute(sw, Collections.emptyList());
+                TestUtil.getContents(root, "s9AUOLxY[s=ns5,U.Y[?;Ytm)DCeu_0C");
+                sw.toString();
+                org.junit.Assert.fail("testInlineCommentWithinExtendCodeBlock_literalMutationString8 should have thrown MustacheNotFoundException");
+            }
+            org.junit.Assert.fail("testInlineCommentWithinExtendCodeBlock_literalMutationString8_failAssert0_literalMutationString493 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template commentWithinExt]endCodeBlock.html not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testInlineCommentWithinExtendCodeBlock_literalMutationString11_failAssert0null1097_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                File root = getRoot("commentWithinExtendCodeBlock.html");
+                MustacheFactory c = new DefaultMustacheFactory(root);
+                Mustache m = c.compile("i2@sxS($<9$T4bXzesi<&g-WNb,LXZU? ");
+                StringWriter sw = new StringWriter();
+                m.execute(null, Collections.emptyList());
+                TestUtil.getContents(root, "commentWithinExtendCodeBlock.txt");
+                sw.toString();
+                org.junit.Assert.fail("testInlineCommentWithinExtendCodeBlock_literalMutationString11 should have thrown MustacheNotFoundException");
+            }
+            org.junit.Assert.fail("testInlineCommentWithinExtendCodeBlock_literalMutationString11_failAssert0null1097 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template i2@sxS($<9$T4bXzesi<&g-WNb,LXZU?  not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testInlineCommentWithinExtendCodeBlock_literalMutationString10_failAssert0_add890_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                getRoot("commentWithinExtendCodeBlock.html");
+                File root = getRoot("commentWithinExtendCodeBlock.html");
+                MustacheFactory c = new DefaultMustacheFactory(root);
+                Mustache m = c.compile("comme]tWithinExtendCodeBlock.html");
                 StringWriter sw = new StringWriter();
                 m.execute(sw, Collections.emptyList());
                 TestUtil.getContents(root, "commentWithinExtendCodeBlock.txt");
                 sw.toString();
-                sw.toString();
                 org.junit.Assert.fail("testInlineCommentWithinExtendCodeBlock_literalMutationString10 should have thrown MustacheNotFoundException");
             }
-            org.junit.Assert.fail("testInlineCommentWithinExtendCodeBlock_literalMutationString10_failAssert0_add888 should have thrown MustacheNotFoundException");
+            org.junit.Assert.fail("testInlineCommentWithinExtendCodeBlock_literalMutationString10_failAssert0_add890 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
-            Assert.assertEquals("Template pE0]A]Ci2@sxS($<9$T4bXzesi<&g-WNb not found", expected.getMessage());
+            Assert.assertEquals("Template comme]tWithinExtendCodeBlock.html not found", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testInlineCommentWithinExtendCodeBlock_literalMutationString10_failAssert0null1068_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+    public void testInlineCommentWithinExtendCodeBlock_literalMutationString11_failAssert0_literalMutationString602_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                File root = getRoot("");
+                MustacheFactory c = new DefaultMustacheFactory(root);
+                Mustache m = c.compile("i2@sxS($<9$T4bXzesi<&g-WNb,LXZU? ");
+                StringWriter sw = new StringWriter();
+                m.execute(sw, Collections.emptyList());
+                TestUtil.getContents(root, "commentWithinExtendCodeBlock.txt");
+                sw.toString();
+                org.junit.Assert.fail("testInlineCommentWithinExtendCodeBlock_literalMutationString11 should have thrown MustacheNotFoundException");
+            }
+            org.junit.Assert.fail("testInlineCommentWithinExtendCodeBlock_literalMutationString11_failAssert0_literalMutationString602 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template i2@sxS($<9$T4bXzesi<&g-WNb,LXZU?  not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testInlineCommentWithinExtendCodeBlock_literalMutationString8_failAssert0_add877_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
         try {
             {
                 File root = getRoot("commentWithinExtendCodeBlock.html");
                 MustacheFactory c = new DefaultMustacheFactory(root);
-                Mustache m = c.compile("pE0]A]Ci2@sxS($<9$T4bXzesi<&g-WNb");
+                c.compile("commentWithinExt]endCodeBlock.html");
+                Mustache m = c.compile("commentWithinExt]endCodeBlock.html");
+                StringWriter sw = new StringWriter();
+                m.execute(sw, Collections.emptyList());
+                TestUtil.getContents(root, "commentWithinExtendCodeBlock.txt");
+                sw.toString();
+                org.junit.Assert.fail("testInlineCommentWithinExtendCodeBlock_literalMutationString8 should have thrown MustacheNotFoundException");
+            }
+            org.junit.Assert.fail("testInlineCommentWithinExtendCodeBlock_literalMutationString8_failAssert0_add877 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template commentWithinExt]endCodeBlock.html not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testInlineCommentWithinExtendCodeBlock_literalMutationString8_failAssert0_add878_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                File root = getRoot("commentWithinExtendCodeBlock.html");
+                MustacheFactory c = new DefaultMustacheFactory(root);
+                Mustache m = c.compile("commentWithinExt]endCodeBlock.html");
+                StringWriter sw = new StringWriter();
+                m.execute(sw, Collections.emptyList());
+                m.execute(sw, Collections.emptyList());
+                TestUtil.getContents(root, "commentWithinExtendCodeBlock.txt");
+                sw.toString();
+                org.junit.Assert.fail("testInlineCommentWithinExtendCodeBlock_literalMutationString8 should have thrown MustacheNotFoundException");
+            }
+            org.junit.Assert.fail("testInlineCommentWithinExtendCodeBlock_literalMutationString8_failAssert0_add878 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template commentWithinExt]endCodeBlock.html not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testInlineCommentWithinExtendCodeBlock_literalMutationString11_failAssert0_add926_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                File root = getRoot("commentWithinExtendCodeBlock.html");
+                MustacheFactory c = new DefaultMustacheFactory(root);
+                c.compile("i2@sxS($<9$T4bXzesi<&g-WNb,LXZU? ");
+                Mustache m = c.compile("i2@sxS($<9$T4bXzesi<&g-WNb,LXZU? ");
+                StringWriter sw = new StringWriter();
+                m.execute(sw, Collections.emptyList());
+                TestUtil.getContents(root, "commentWithinExtendCodeBlock.txt");
+                sw.toString();
+                org.junit.Assert.fail("testInlineCommentWithinExtendCodeBlock_literalMutationString11 should have thrown MustacheNotFoundException");
+            }
+            org.junit.Assert.fail("testInlineCommentWithinExtendCodeBlock_literalMutationString11_failAssert0_add926 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template i2@sxS($<9$T4bXzesi<&g-WNb,LXZU?  not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testInlineCommentWithinExtendCodeBlock_literalMutationString8_failAssert0null1063_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                File root = getRoot("commentWithinExtendCodeBlock.html");
+                MustacheFactory c = new DefaultMustacheFactory(root);
+                Mustache m = c.compile("commentWithinExt]endCodeBlock.html");
                 StringWriter sw = new StringWriter();
                 m.execute(sw, Collections.emptyList());
                 TestUtil.getContents(null, "commentWithinExtendCodeBlock.txt");
                 sw.toString();
-                org.junit.Assert.fail("testInlineCommentWithinExtendCodeBlock_literalMutationString10 should have thrown MustacheNotFoundException");
+                org.junit.Assert.fail("testInlineCommentWithinExtendCodeBlock_literalMutationString8 should have thrown MustacheNotFoundException");
             }
-            org.junit.Assert.fail("testInlineCommentWithinExtendCodeBlock_literalMutationString10_failAssert0null1068 should have thrown MustacheNotFoundException");
+            org.junit.Assert.fail("testInlineCommentWithinExtendCodeBlock_literalMutationString8_failAssert0null1063 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
-            Assert.assertEquals("Template pE0]A]Ci2@sxS($<9$T4bXzesi<&g-WNb not found", expected.getMessage());
+            Assert.assertEquals("Template commentWithinExt]endCodeBlock.html not found", expected.getMessage());
         }
     }
 

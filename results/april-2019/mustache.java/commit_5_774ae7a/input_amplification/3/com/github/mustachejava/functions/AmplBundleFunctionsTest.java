@@ -26,195 +26,10 @@ public class AmplBundleFunctionsTest {
     private static final String BUNDLE = "com.github.mustachejava.functions.translatebundle";
 
     @Test(timeout = 10000)
-    public void testPostLabels_literalMutationString4166_failAssert0_literalMutationString5675_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
-        try {
-            {
-                MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
-                Mustache m = c.compile("[--f_eVR7)d]");
-                StringWriter sw = new StringWriter();
-                Map<String, Object> scope = new HashMap<>();
-                scope.put("trans", BundleFunctions.newPostTranslate(AmplBundleFunctionsTest.BUNDLE, Locale.US));
-                scope.put("replaceMe", "relaced");
-                m.execute(sw, scope);
-                TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_post_labels.txt");
-                sw.toString();
-                org.junit.Assert.fail("testPostLabels_literalMutationString4166 should have thrown MustacheNotFoundException");
-            }
-            org.junit.Assert.fail("testPostLabels_literalMutationString4166_failAssert0_literalMutationString5675 should have thrown MustacheNotFoundException");
-        } catch (MustacheNotFoundException expected) {
-            Assert.assertEquals("Template [--f_eVR7)d] not found", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPostLabels_literalMutationString4191_failAssert0_literalMutationString5421_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
-        try {
-            {
-                MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
-                Mustache m = c.compile("Hnt|a/Y3DcV2");
-                StringWriter sw = new StringWriter();
-                Map<String, Object> scope = new HashMap<>();
-                scope.put("trans", BundleFunctions.newPostTranslate(AmplBundleFunctionsTest.BUNDLE, Locale.US));
-                scope.put("replaceMe", "replaced");
-                m.execute(sw, scope);
-                TestUtil.getContents(AmplBundleFunctionsTest.root, ")%p58!(!vmNXUnF@Q/z7|6+");
-                sw.toString();
-                org.junit.Assert.fail("testPostLabels_literalMutationString4191 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testPostLabels_literalMutationString4191_failAssert0_literalMutationString5421 should have thrown MustacheNotFoundException");
-        } catch (MustacheNotFoundException expected) {
-            Assert.assertEquals("Template Hnt|a/Y3DcV2 not found", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPostLabels_literalMutationString4168_failAssert0null6527_failAssert0_literalMutationString8462_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
-        try {
-            {
-                {
-                    MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
-                    Mustache m = c.compile("!7`X@njCd/vKd;liP>o2?4kz!&]?N2DU");
-                    StringWriter sw = new StringWriter();
-                    Map<String, Object> scope = new HashMap<>();
-                    scope.put("trans", BundleFunctions.newPostTranslate(AmplBundleFunctionsTest.BUNDLE, Locale.US));
-                    scope.put("replaceMe", "replaced");
-                    m.execute(null, scope);
-                    TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_post_labels.txt");
-                    sw.toString();
-                    org.junit.Assert.fail("testPostLabels_literalMutationString4168 should have thrown MustacheNotFoundException");
-                }
-                org.junit.Assert.fail("testPostLabels_literalMutationString4168_failAssert0null6527 should have thrown MustacheNotFoundException");
-            }
-            org.junit.Assert.fail("testPostLabels_literalMutationString4168_failAssert0null6527_failAssert0_literalMutationString8462 should have thrown MustacheNotFoundException");
-        } catch (MustacheNotFoundException expected) {
-            Assert.assertEquals("Template !7`X@njCd/vKd;liP>o2?4kz!&]?N2DU not found", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPostLabels_literalMutationString4187_remove6238_literalMutationString6851_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+    public void testPostLabels_literalMutationString4341_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
         try {
             MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
-            Mustache m = c.compile("{u|V<VuQFdt%");
-            StringWriter sw = new StringWriter();
-            Map<String, Object> scope = new HashMap<>();
-            Object o_testPostLabels_literalMutationString4187__9 = scope.put("trans", BundleFunctions.newPostTranslate(AmplBundleFunctionsTest.BUNDLE, Locale.US));
-            Object o_testPostLabels_literalMutationString4187__11 = scope.put("replaceMe", "replacd");
-            Writer o_testPostLabels_literalMutationString4187__12 = m.execute(sw, scope);
-            String o_testPostLabels_literalMutationString4187__13 = TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_post_labels.txt");
-            org.junit.Assert.fail("testPostLabels_literalMutationString4187_remove6238_literalMutationString6851 should have thrown MustacheNotFoundException");
-        } catch (MustacheNotFoundException expected) {
-            Assert.assertEquals("Template {u|V<VuQFdt% not found", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPostLabels_literalMutationString4166_failAssert0null6571_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
-        try {
-            {
-                MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
-                Mustache m = c.compile("[--f_eVR7)d]");
-                StringWriter sw = new StringWriter();
-                Map<String, Object> scope = new HashMap<>();
-                scope.put("trans", BundleFunctions.newPostTranslate(AmplBundleFunctionsTest.BUNDLE, Locale.US));
-                scope.put("replaceMe", "replaced");
-                m.execute(sw, scope);
-                TestUtil.getContents(AmplBundleFunctionsTest.root, null);
-                sw.toString();
-                org.junit.Assert.fail("testPostLabels_literalMutationString4166 should have thrown MustacheNotFoundException");
-            }
-            org.junit.Assert.fail("testPostLabels_literalMutationString4166_failAssert0null6571 should have thrown MustacheNotFoundException");
-        } catch (MustacheNotFoundException expected) {
-            Assert.assertEquals("Template [--f_eVR7)d] not found", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPostLabels_literalMutationString4166_failAssert0_add6214_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
-        try {
-            {
-                MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
-                Mustache m = c.compile("[--f_eVR7)d]");
-                StringWriter sw = new StringWriter();
-                Map<String, Object> scope = new HashMap<>();
-                scope.put("trans", BundleFunctions.newPostTranslate(AmplBundleFunctionsTest.BUNDLE, Locale.US));
-                scope.put("replaceMe", "replaced");
-                scope.put("replaceMe", "replaced");
-                m.execute(sw, scope);
-                TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_post_labels.txt");
-                sw.toString();
-                org.junit.Assert.fail("testPostLabels_literalMutationString4166 should have thrown MustacheNotFoundException");
-            }
-            org.junit.Assert.fail("testPostLabels_literalMutationString4166_failAssert0_add6214 should have thrown MustacheNotFoundException");
-        } catch (MustacheNotFoundException expected) {
-            Assert.assertEquals("Template [--f_eVR7)d] not found", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPostLabels_literalMutationString4165() throws MustacheException, IOException, InterruptedException, ExecutionException {
-        MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
-        Mustache m = c.compile("");
-        StringWriter sw = new StringWriter();
-        Map<String, Object> scope = new HashMap<>();
-        Object o_testPostLabels_literalMutationString4165__9 = scope.put("trans", BundleFunctions.newPostTranslate(AmplBundleFunctionsTest.BUNDLE, Locale.US));
-        Assert.assertNull(o_testPostLabels_literalMutationString4165__9);
-        Object o_testPostLabels_literalMutationString4165__11 = scope.put("replaceMe", "replaced");
-        Assert.assertNull(o_testPostLabels_literalMutationString4165__11);
-        Writer o_testPostLabels_literalMutationString4165__12 = m.execute(sw, scope);
-        Assert.assertEquals("box.html\nclassloader.html\nclient.html\nclient.txt\ncom\ncompiletest.mustache\ncomplex.html\ncomplex.txt\ndiv.html\nfallback\nfdbcli.mustache\nfdbcli.txt\nfdbcli2.mustache\nfdbcli2.txt\nfdbcli3.mustache\nfdbcli3.txt\nfollow.html\nfollownomenu.html\nfollownomenu.txt\nfunctions\nhogan.json\nmain.html\nmethod.html\nmultiple_recursive_partials.html\nmultipleextensions.html\nmultipleextensions.txt\nnested_inheritance.html\nnested_inheritance.txt\nnested_partials_template.html\noverrideextension.html\nparentreplace.html\npartialintemplatefunction.html\npartialsub.html\npartialsubpartial.html\npartialsubpartial.txt\npartialsuper.html\npath\npretranslate.html\npsauxwww.mustache\npsauxwww.txt\nrelative\nreplace.html\nreplace.txt\nsinglereplace.html\nspec\nsub.html\nsub.txt\nsubblockchild1.html\nsubblockchild1.txt\nsubblockchild2.html\nsubblockchild2.txt\nsubblocksuper.html\nsubsub.html\nsubsub.txt\nsubsubchild1.html\nsubsubchild1.txt\nsubsubchild2.html\nsubsubchild2.txt\nsubsubchild3.html\nsubsubchild3.txt\nsubsubmiddle.html\nsubsubsuper.html\nsuper.html\ntemplate.html\ntemplate.mustache\ntemplates_filepath\ntemplates.jar\ntoomany.html\ntweetbox.html\nuninterestingpartial.html\n", ((StringBuffer) (((StringWriter) (o_testPostLabels_literalMutationString4165__12)).getBuffer())).toString());
-        Assert.assertEquals("box.html\nclassloader.html\nclient.html\nclient.txt\ncom\ncompiletest.mustache\ncomplex.html\ncomplex.txt\ndiv.html\nfallback\nfdbcli.mustache\nfdbcli.txt\nfdbcli2.mustache\nfdbcli2.txt\nfdbcli3.mustache\nfdbcli3.txt\nfollow.html\nfollownomenu.html\nfollownomenu.txt\nfunctions\nhogan.json\nmain.html\nmethod.html\nmultiple_recursive_partials.html\nmultipleextensions.html\nmultipleextensions.txt\nnested_inheritance.html\nnested_inheritance.txt\nnested_partials_template.html\noverrideextension.html\nparentreplace.html\npartialintemplatefunction.html\npartialsub.html\npartialsubpartial.html\npartialsubpartial.txt\npartialsuper.html\npath\npretranslate.html\npsauxwww.mustache\npsauxwww.txt\nrelative\nreplace.html\nreplace.txt\nsinglereplace.html\nspec\nsub.html\nsub.txt\nsubblockchild1.html\nsubblockchild1.txt\nsubblockchild2.html\nsubblockchild2.txt\nsubblocksuper.html\nsubsub.html\nsubsub.txt\nsubsubchild1.html\nsubsubchild1.txt\nsubsubchild2.html\nsubsubchild2.txt\nsubsubchild3.html\nsubsubchild3.txt\nsubsubmiddle.html\nsubsubsuper.html\nsuper.html\ntemplate.html\ntemplate.mustache\ntemplates_filepath\ntemplates.jar\ntoomany.html\ntweetbox.html\nuninterestingpartial.html\n", ((StringWriter) (o_testPostLabels_literalMutationString4165__12)).toString());
-        String o_testPostLabels_literalMutationString4165__13 = TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_post_labels.txt");
-        Assert.assertEquals("Translation bundles work!\nPost translate text works, too\n", o_testPostLabels_literalMutationString4165__13);
-        sw.toString();
-        Assert.assertNull(o_testPostLabels_literalMutationString4165__9);
-        Assert.assertNull(o_testPostLabels_literalMutationString4165__11);
-        Assert.assertEquals("box.html\nclassloader.html\nclient.html\nclient.txt\ncom\ncompiletest.mustache\ncomplex.html\ncomplex.txt\ndiv.html\nfallback\nfdbcli.mustache\nfdbcli.txt\nfdbcli2.mustache\nfdbcli2.txt\nfdbcli3.mustache\nfdbcli3.txt\nfollow.html\nfollownomenu.html\nfollownomenu.txt\nfunctions\nhogan.json\nmain.html\nmethod.html\nmultiple_recursive_partials.html\nmultipleextensions.html\nmultipleextensions.txt\nnested_inheritance.html\nnested_inheritance.txt\nnested_partials_template.html\noverrideextension.html\nparentreplace.html\npartialintemplatefunction.html\npartialsub.html\npartialsubpartial.html\npartialsubpartial.txt\npartialsuper.html\npath\npretranslate.html\npsauxwww.mustache\npsauxwww.txt\nrelative\nreplace.html\nreplace.txt\nsinglereplace.html\nspec\nsub.html\nsub.txt\nsubblockchild1.html\nsubblockchild1.txt\nsubblockchild2.html\nsubblockchild2.txt\nsubblocksuper.html\nsubsub.html\nsubsub.txt\nsubsubchild1.html\nsubsubchild1.txt\nsubsubchild2.html\nsubsubchild2.txt\nsubsubchild3.html\nsubsubchild3.txt\nsubsubmiddle.html\nsubsubsuper.html\nsuper.html\ntemplate.html\ntemplate.mustache\ntemplates_filepath\ntemplates.jar\ntoomany.html\ntweetbox.html\nuninterestingpartial.html\n", ((StringBuffer) (((StringWriter) (o_testPostLabels_literalMutationString4165__12)).getBuffer())).toString());
-        Assert.assertEquals("box.html\nclassloader.html\nclient.html\nclient.txt\ncom\ncompiletest.mustache\ncomplex.html\ncomplex.txt\ndiv.html\nfallback\nfdbcli.mustache\nfdbcli.txt\nfdbcli2.mustache\nfdbcli2.txt\nfdbcli3.mustache\nfdbcli3.txt\nfollow.html\nfollownomenu.html\nfollownomenu.txt\nfunctions\nhogan.json\nmain.html\nmethod.html\nmultiple_recursive_partials.html\nmultipleextensions.html\nmultipleextensions.txt\nnested_inheritance.html\nnested_inheritance.txt\nnested_partials_template.html\noverrideextension.html\nparentreplace.html\npartialintemplatefunction.html\npartialsub.html\npartialsubpartial.html\npartialsubpartial.txt\npartialsuper.html\npath\npretranslate.html\npsauxwww.mustache\npsauxwww.txt\nrelative\nreplace.html\nreplace.txt\nsinglereplace.html\nspec\nsub.html\nsub.txt\nsubblockchild1.html\nsubblockchild1.txt\nsubblockchild2.html\nsubblockchild2.txt\nsubblocksuper.html\nsubsub.html\nsubsub.txt\nsubsubchild1.html\nsubsubchild1.txt\nsubsubchild2.html\nsubsubchild2.txt\nsubsubchild3.html\nsubsubchild3.txt\nsubsubmiddle.html\nsubsubsuper.html\nsuper.html\ntemplate.html\ntemplate.mustache\ntemplates_filepath\ntemplates.jar\ntoomany.html\ntweetbox.html\nuninterestingpartial.html\n", ((StringWriter) (o_testPostLabels_literalMutationString4165__12)).toString());
-        Assert.assertEquals("Translation bundles work!\nPost translate text works, too\n", o_testPostLabels_literalMutationString4165__13);
-    }
-
-    @Test(timeout = 10000)
-    public void testPostLabels_literalMutationString4181_literalMutationString5193_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
-        try {
-            MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
-            Mustache m = c.compile(";e`M# 2fC<-P");
-            StringWriter sw = new StringWriter();
-            Map<String, Object> scope = new HashMap<>();
-            Object o_testPostLabels_literalMutationString4181__9 = scope.put("trans", BundleFunctions.newPostTranslate(AmplBundleFunctionsTest.BUNDLE, Locale.US));
-            Object o_testPostLabels_literalMutationString4181__11 = scope.put("rplaceMe", "replaced");
-            Writer o_testPostLabels_literalMutationString4181__12 = m.execute(sw, scope);
-            String o_testPostLabels_literalMutationString4181__13 = TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_post_labels.txt");
-            sw.toString();
-            org.junit.Assert.fail("testPostLabels_literalMutationString4181_literalMutationString5193 should have thrown MustacheNotFoundException");
-        } catch (MustacheNotFoundException expected) {
-            Assert.assertEquals("Template ;e`M# 2fC<-P not found", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPostLabels_literalMutationString4165_remove6228_add9482() throws MustacheException, IOException, InterruptedException, ExecutionException {
-        MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
-        Mustache m = c.compile("");
-        StringWriter sw = new StringWriter();
-        Map<String, Object> scope = new HashMap<>();
-        Object o_testPostLabels_literalMutationString4165__9 = scope.put("trans", BundleFunctions.newPostTranslate(AmplBundleFunctionsTest.BUNDLE, Locale.US));
-        Object o_testPostLabels_literalMutationString4165__11 = scope.put("replaceMe", "replaced");
-        Writer o_testPostLabels_literalMutationString4165_remove6228_add9482__16 = m.execute(sw, scope);
-        Assert.assertEquals("box.html\nclassloader.html\nclient.html\nclient.txt\ncom\ncompiletest.mustache\ncomplex.html\ncomplex.txt\ndiv.html\nfallback\nfdbcli.mustache\nfdbcli.txt\nfdbcli2.mustache\nfdbcli2.txt\nfdbcli3.mustache\nfdbcli3.txt\nfollow.html\nfollownomenu.html\nfollownomenu.txt\nfunctions\nhogan.json\nmain.html\nmethod.html\nmultiple_recursive_partials.html\nmultipleextensions.html\nmultipleextensions.txt\nnested_inheritance.html\nnested_inheritance.txt\nnested_partials_template.html\noverrideextension.html\nparentreplace.html\npartialintemplatefunction.html\npartialsub.html\npartialsubpartial.html\npartialsubpartial.txt\npartialsuper.html\npath\npretranslate.html\npsauxwww.mustache\npsauxwww.txt\nrelative\nreplace.html\nreplace.txt\nsinglereplace.html\nspec\nsub.html\nsub.txt\nsubblockchild1.html\nsubblockchild1.txt\nsubblockchild2.html\nsubblockchild2.txt\nsubblocksuper.html\nsubsub.html\nsubsub.txt\nsubsubchild1.html\nsubsubchild1.txt\nsubsubchild2.html\nsubsubchild2.txt\nsubsubchild3.html\nsubsubchild3.txt\nsubsubmiddle.html\nsubsubsuper.html\nsuper.html\ntemplate.html\ntemplate.mustache\ntemplates_filepath\ntemplates.jar\ntoomany.html\ntweetbox.html\nuninterestingpartial.html\n", ((StringBuffer) (((StringWriter) (o_testPostLabels_literalMutationString4165_remove6228_add9482__16)).getBuffer())).toString());
-        Assert.assertEquals("box.html\nclassloader.html\nclient.html\nclient.txt\ncom\ncompiletest.mustache\ncomplex.html\ncomplex.txt\ndiv.html\nfallback\nfdbcli.mustache\nfdbcli.txt\nfdbcli2.mustache\nfdbcli2.txt\nfdbcli3.mustache\nfdbcli3.txt\nfollow.html\nfollownomenu.html\nfollownomenu.txt\nfunctions\nhogan.json\nmain.html\nmethod.html\nmultiple_recursive_partials.html\nmultipleextensions.html\nmultipleextensions.txt\nnested_inheritance.html\nnested_inheritance.txt\nnested_partials_template.html\noverrideextension.html\nparentreplace.html\npartialintemplatefunction.html\npartialsub.html\npartialsubpartial.html\npartialsubpartial.txt\npartialsuper.html\npath\npretranslate.html\npsauxwww.mustache\npsauxwww.txt\nrelative\nreplace.html\nreplace.txt\nsinglereplace.html\nspec\nsub.html\nsub.txt\nsubblockchild1.html\nsubblockchild1.txt\nsubblockchild2.html\nsubblockchild2.txt\nsubblocksuper.html\nsubsub.html\nsubsub.txt\nsubsubchild1.html\nsubsubchild1.txt\nsubsubchild2.html\nsubsubchild2.txt\nsubsubchild3.html\nsubsubchild3.txt\nsubsubmiddle.html\nsubsubsuper.html\nsuper.html\ntemplate.html\ntemplate.mustache\ntemplates_filepath\ntemplates.jar\ntoomany.html\ntweetbox.html\nuninterestingpartial.html\n", ((StringWriter) (o_testPostLabels_literalMutationString4165_remove6228_add9482__16)).toString());
-        Writer o_testPostLabels_literalMutationString4165__12 = m.execute(sw, scope);
-        String o_testPostLabels_literalMutationString4165__13 = TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_post_labels.txt");
-        Assert.assertEquals("Translation bundles work!\nPost translate text works, too\n", o_testPostLabels_literalMutationString4165__13);
-        Assert.assertEquals("box.html\nclassloader.html\nclient.html\nclient.txt\ncom\ncompiletest.mustache\ncomplex.html\ncomplex.txt\ndiv.html\nfallback\nfdbcli.mustache\nfdbcli.txt\nfdbcli2.mustache\nfdbcli2.txt\nfdbcli3.mustache\nfdbcli3.txt\nfollow.html\nfollownomenu.html\nfollownomenu.txt\nfunctions\nhogan.json\nmain.html\nmethod.html\nmultiple_recursive_partials.html\nmultipleextensions.html\nmultipleextensions.txt\nnested_inheritance.html\nnested_inheritance.txt\nnested_partials_template.html\noverrideextension.html\nparentreplace.html\npartialintemplatefunction.html\npartialsub.html\npartialsubpartial.html\npartialsubpartial.txt\npartialsuper.html\npath\npretranslate.html\npsauxwww.mustache\npsauxwww.txt\nrelative\nreplace.html\nreplace.txt\nsinglereplace.html\nspec\nsub.html\nsub.txt\nsubblockchild1.html\nsubblockchild1.txt\nsubblockchild2.html\nsubblockchild2.txt\nsubblocksuper.html\nsubsub.html\nsubsub.txt\nsubsubchild1.html\nsubsubchild1.txt\nsubsubchild2.html\nsubsubchild2.txt\nsubsubchild3.html\nsubsubchild3.txt\nsubsubmiddle.html\nsubsubsuper.html\nsuper.html\ntemplate.html\ntemplate.mustache\ntemplates_filepath\ntemplates.jar\ntoomany.html\ntweetbox.html\nuninterestingpartial.html\nbox.html\nclassloader.html\nclient.html\nclient.txt\ncom\ncompiletest.mustache\ncomplex.html\ncomplex.txt\ndiv.html\nfallback\nfdbcli.mustache\nfdbcli.txt\nfdbcli2.mustache\nfdbcli2.txt\nfdbcli3.mustache\nfdbcli3.txt\nfollow.html\nfollownomenu.html\nfollownomenu.txt\nfunctions\nhogan.json\nmain.html\nmethod.html\nmultiple_recursive_partials.html\nmultipleextensions.html\nmultipleextensions.txt\nnested_inheritance.html\nnested_inheritance.txt\nnested_partials_template.html\noverrideextension.html\nparentreplace.html\npartialintemplatefunction.html\npartialsub.html\npartialsubpartial.html\npartialsubpartial.txt\npartialsuper.html\npath\npretranslate.html\npsauxwww.mustache\npsauxwww.txt\nrelative\nreplace.html\nreplace.txt\nsinglereplace.html\nspec\nsub.html\nsub.txt\nsubblockchild1.html\nsubblockchild1.txt\nsubblockchild2.html\nsubblockchild2.txt\nsubblocksuper.html\nsubsub.html\nsubsub.txt\nsubsubchild1.html\nsubsubchild1.txt\nsubsubchild2.html\nsubsubchild2.txt\nsubsubchild3.html\nsubsubchild3.txt\nsubsubmiddle.html\nsubsubsuper.html\nsuper.html\ntemplate.html\ntemplate.mustache\ntemplates_filepath\ntemplates.jar\ntoomany.html\ntweetbox.html\nuninterestingpartial.html\n", ((StringBuffer) (((StringWriter) (o_testPostLabels_literalMutationString4165_remove6228_add9482__16)).getBuffer())).toString());
-        Assert.assertEquals("box.html\nclassloader.html\nclient.html\nclient.txt\ncom\ncompiletest.mustache\ncomplex.html\ncomplex.txt\ndiv.html\nfallback\nfdbcli.mustache\nfdbcli.txt\nfdbcli2.mustache\nfdbcli2.txt\nfdbcli3.mustache\nfdbcli3.txt\nfollow.html\nfollownomenu.html\nfollownomenu.txt\nfunctions\nhogan.json\nmain.html\nmethod.html\nmultiple_recursive_partials.html\nmultipleextensions.html\nmultipleextensions.txt\nnested_inheritance.html\nnested_inheritance.txt\nnested_partials_template.html\noverrideextension.html\nparentreplace.html\npartialintemplatefunction.html\npartialsub.html\npartialsubpartial.html\npartialsubpartial.txt\npartialsuper.html\npath\npretranslate.html\npsauxwww.mustache\npsauxwww.txt\nrelative\nreplace.html\nreplace.txt\nsinglereplace.html\nspec\nsub.html\nsub.txt\nsubblockchild1.html\nsubblockchild1.txt\nsubblockchild2.html\nsubblockchild2.txt\nsubblocksuper.html\nsubsub.html\nsubsub.txt\nsubsubchild1.html\nsubsubchild1.txt\nsubsubchild2.html\nsubsubchild2.txt\nsubsubchild3.html\nsubsubchild3.txt\nsubsubmiddle.html\nsubsubsuper.html\nsuper.html\ntemplate.html\ntemplate.mustache\ntemplates_filepath\ntemplates.jar\ntoomany.html\ntweetbox.html\nuninterestingpartial.html\nbox.html\nclassloader.html\nclient.html\nclient.txt\ncom\ncompiletest.mustache\ncomplex.html\ncomplex.txt\ndiv.html\nfallback\nfdbcli.mustache\nfdbcli.txt\nfdbcli2.mustache\nfdbcli2.txt\nfdbcli3.mustache\nfdbcli3.txt\nfollow.html\nfollownomenu.html\nfollownomenu.txt\nfunctions\nhogan.json\nmain.html\nmethod.html\nmultiple_recursive_partials.html\nmultipleextensions.html\nmultipleextensions.txt\nnested_inheritance.html\nnested_inheritance.txt\nnested_partials_template.html\noverrideextension.html\nparentreplace.html\npartialintemplatefunction.html\npartialsub.html\npartialsubpartial.html\npartialsubpartial.txt\npartialsuper.html\npath\npretranslate.html\npsauxwww.mustache\npsauxwww.txt\nrelative\nreplace.html\nreplace.txt\nsinglereplace.html\nspec\nsub.html\nsub.txt\nsubblockchild1.html\nsubblockchild1.txt\nsubblockchild2.html\nsubblockchild2.txt\nsubblocksuper.html\nsubsub.html\nsubsub.txt\nsubsubchild1.html\nsubsubchild1.txt\nsubsubchild2.html\nsubsubchild2.txt\nsubsubchild3.html\nsubsubchild3.txt\nsubsubmiddle.html\nsubsubsuper.html\nsuper.html\ntemplate.html\ntemplate.mustache\ntemplates_filepath\ntemplates.jar\ntoomany.html\ntweetbox.html\nuninterestingpartial.html\n", ((StringWriter) (o_testPostLabels_literalMutationString4165_remove6228_add9482__16)).toString());
-    }
-
-    @Test(timeout = 10000)
-    public void testPostLabels_literalMutationString4166_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
-        try {
-            MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
-            Mustache m = c.compile("[--f_eVR7)d]");
+            Mustache m = c.compile("DK$ Lo]u4-)S");
             StringWriter sw = new StringWriter();
             Map<String, Object> scope = new HashMap<>();
             scope.put("trans", BundleFunctions.newPostTranslate(AmplBundleFunctionsTest.BUNDLE, Locale.US));
@@ -222,104 +37,601 @@ public class AmplBundleFunctionsTest {
             m.execute(sw, scope);
             TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_post_labels.txt");
             sw.toString();
-            org.junit.Assert.fail("testPostLabels_literalMutationString4166 should have thrown MustacheNotFoundException");
+            org.junit.Assert.fail("testPostLabels_literalMutationString4341 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
-            Assert.assertEquals("Template [--f_eVR7)d] not found", expected.getMessage());
+            Assert.assertEquals("Template DK$ Lo]u4-)S not found", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPostLabels_literalMutationString4165_literalMutationString4564_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+    public void testPostLabels_literalMutationString4360_literalMutationString4823_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
         try {
             MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
-            Mustache m = c.compile("`");
+            Mustache m = c.compile("Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found");
             StringWriter sw = new StringWriter();
             Map<String, Object> scope = new HashMap<>();
-            Object o_testPostLabels_literalMutationString4165__9 = scope.put("trans", BundleFunctions.newPostTranslate(AmplBundleFunctionsTest.BUNDLE, Locale.US));
-            Object o_testPostLabels_literalMutationString4165__11 = scope.put("replaceMe", "replaced");
-            Writer o_testPostLabels_literalMutationString4165__12 = m.execute(sw, scope);
-            String o_testPostLabels_literalMutationString4165__13 = TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_post_labels.txt");
+            Object o_testPostLabels_literalMutationString4360__9 = scope.put("trans", BundleFunctions.newPostTranslate(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+            Object o_testPostLabels_literalMutationString4360__11 = scope.put("replaceMe", "rplaced");
+            Writer o_testPostLabels_literalMutationString4360__12 = m.execute(sw, scope);
+            String o_testPostLabels_literalMutationString4360__13 = TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_post_labels.txt");
             sw.toString();
-            org.junit.Assert.fail("testPostLabels_literalMutationString4165_literalMutationString4564 should have thrown MustacheNotFoundException");
+            org.junit.Assert.fail("testPostLabels_literalMutationString4360_literalMutationString4823 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
-            Assert.assertEquals("Template ` not found", expected.getMessage());
+            Assert.assertEquals("Template Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found not found", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPostNullLabels_literalMutationString3_add742_add3038() throws MustacheException, IOException, InterruptedException, ExecutionException {
-        MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
-        Mustache m = c.compile("");
-        StringWriter sw = new StringWriter();
-        Map<String, Object> scope = new HashMap<>();
-        Object o_testPostNullLabels_literalMutationString3__9 = scope.put("trans", BundleFunctions.newPostTranslateNullableLabel(AmplBundleFunctionsTest.BUNDLE, Locale.US));
-        Writer o_testPostNullLabels_literalMutationString3_add742_add3038__13 = m.execute(sw, scope);
-        Assert.assertEquals("box.html\nclassloader.html\nclient.html\nclient.txt\ncom\ncompiletest.mustache\ncomplex.html\ncomplex.txt\ndiv.html\nfallback\nfdbcli.mustache\nfdbcli.txt\nfdbcli2.mustache\nfdbcli2.txt\nfdbcli3.mustache\nfdbcli3.txt\nfollow.html\nfollownomenu.html\nfollownomenu.txt\nfunctions\nhogan.json\nmain.html\nmethod.html\nmultiple_recursive_partials.html\nmultipleextensions.html\nmultipleextensions.txt\nnested_inheritance.html\nnested_inheritance.txt\nnested_partials_template.html\noverrideextension.html\nparentreplace.html\npartialintemplatefunction.html\npartialsub.html\npartialsubpartial.html\npartialsubpartial.txt\npartialsuper.html\npath\npretranslate.html\npsauxwww.mustache\npsauxwww.txt\nrelative\nreplace.html\nreplace.txt\nsinglereplace.html\nspec\nsub.html\nsub.txt\nsubblockchild1.html\nsubblockchild1.txt\nsubblockchild2.html\nsubblockchild2.txt\nsubblocksuper.html\nsubsub.html\nsubsub.txt\nsubsubchild1.html\nsubsubchild1.txt\nsubsubchild2.html\nsubsubchild2.txt\nsubsubchild3.html\nsubsubchild3.txt\nsubsubmiddle.html\nsubsubsuper.html\nsuper.html\ntemplate.html\ntemplate.mustache\ntemplates_filepath\ntemplates.jar\ntoomany.html\ntweetbox.html\nuninterestingpartial.html\n", ((StringBuffer) (((StringWriter) (o_testPostNullLabels_literalMutationString3_add742_add3038__13)).getBuffer())).toString());
-        Assert.assertEquals("box.html\nclassloader.html\nclient.html\nclient.txt\ncom\ncompiletest.mustache\ncomplex.html\ncomplex.txt\ndiv.html\nfallback\nfdbcli.mustache\nfdbcli.txt\nfdbcli2.mustache\nfdbcli2.txt\nfdbcli3.mustache\nfdbcli3.txt\nfollow.html\nfollownomenu.html\nfollownomenu.txt\nfunctions\nhogan.json\nmain.html\nmethod.html\nmultiple_recursive_partials.html\nmultipleextensions.html\nmultipleextensions.txt\nnested_inheritance.html\nnested_inheritance.txt\nnested_partials_template.html\noverrideextension.html\nparentreplace.html\npartialintemplatefunction.html\npartialsub.html\npartialsubpartial.html\npartialsubpartial.txt\npartialsuper.html\npath\npretranslate.html\npsauxwww.mustache\npsauxwww.txt\nrelative\nreplace.html\nreplace.txt\nsinglereplace.html\nspec\nsub.html\nsub.txt\nsubblockchild1.html\nsubblockchild1.txt\nsubblockchild2.html\nsubblockchild2.txt\nsubblocksuper.html\nsubsub.html\nsubsub.txt\nsubsubchild1.html\nsubsubchild1.txt\nsubsubchild2.html\nsubsubchild2.txt\nsubsubchild3.html\nsubsubchild3.txt\nsubsubmiddle.html\nsubsubsuper.html\nsuper.html\ntemplate.html\ntemplate.mustache\ntemplates_filepath\ntemplates.jar\ntoomany.html\ntweetbox.html\nuninterestingpartial.html\n", ((StringWriter) (o_testPostNullLabels_literalMutationString3_add742_add3038__13)).toString());
-        Writer o_testPostNullLabels_literalMutationString3__11 = m.execute(sw, scope);
-        String o_testPostNullLabels_literalMutationString3__13 = TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_nulllabels.txt");
-        Assert.assertEquals("Translation bundles work!\n\n", o_testPostNullLabels_literalMutationString3__13);
-        sw.toString();
-        ((StringWriter) (o_testPostNullLabels_literalMutationString3__11)).getBuffer().toString();
-        Assert.assertEquals("box.html\nclassloader.html\nclient.html\nclient.txt\ncom\ncompiletest.mustache\ncomplex.html\ncomplex.txt\ndiv.html\nfallback\nfdbcli.mustache\nfdbcli.txt\nfdbcli2.mustache\nfdbcli2.txt\nfdbcli3.mustache\nfdbcli3.txt\nfollow.html\nfollownomenu.html\nfollownomenu.txt\nfunctions\nhogan.json\nmain.html\nmethod.html\nmultiple_recursive_partials.html\nmultipleextensions.html\nmultipleextensions.txt\nnested_inheritance.html\nnested_inheritance.txt\nnested_partials_template.html\noverrideextension.html\nparentreplace.html\npartialintemplatefunction.html\npartialsub.html\npartialsubpartial.html\npartialsubpartial.txt\npartialsuper.html\npath\npretranslate.html\npsauxwww.mustache\npsauxwww.txt\nrelative\nreplace.html\nreplace.txt\nsinglereplace.html\nspec\nsub.html\nsub.txt\nsubblockchild1.html\nsubblockchild1.txt\nsubblockchild2.html\nsubblockchild2.txt\nsubblocksuper.html\nsubsub.html\nsubsub.txt\nsubsubchild1.html\nsubsubchild1.txt\nsubsubchild2.html\nsubsubchild2.txt\nsubsubchild3.html\nsubsubchild3.txt\nsubsubmiddle.html\nsubsubsuper.html\nsuper.html\ntemplate.html\ntemplate.mustache\ntemplates_filepath\ntemplates.jar\ntoomany.html\ntweetbox.html\nuninterestingpartial.html\nbox.html\nclassloader.html\nclient.html\nclient.txt\ncom\ncompiletest.mustache\ncomplex.html\ncomplex.txt\ndiv.html\nfallback\nfdbcli.mustache\nfdbcli.txt\nfdbcli2.mustache\nfdbcli2.txt\nfdbcli3.mustache\nfdbcli3.txt\nfollow.html\nfollownomenu.html\nfollownomenu.txt\nfunctions\nhogan.json\nmain.html\nmethod.html\nmultiple_recursive_partials.html\nmultipleextensions.html\nmultipleextensions.txt\nnested_inheritance.html\nnested_inheritance.txt\nnested_partials_template.html\noverrideextension.html\nparentreplace.html\npartialintemplatefunction.html\npartialsub.html\npartialsubpartial.html\npartialsubpartial.txt\npartialsuper.html\npath\npretranslate.html\npsauxwww.mustache\npsauxwww.txt\nrelative\nreplace.html\nreplace.txt\nsinglereplace.html\nspec\nsub.html\nsub.txt\nsubblockchild1.html\nsubblockchild1.txt\nsubblockchild2.html\nsubblockchild2.txt\nsubblocksuper.html\nsubsub.html\nsubsub.txt\nsubsubchild1.html\nsubsubchild1.txt\nsubsubchild2.html\nsubsubchild2.txt\nsubsubchild3.html\nsubsubchild3.txt\nsubsubmiddle.html\nsubsubsuper.html\nsuper.html\ntemplate.html\ntemplate.mustache\ntemplates_filepath\ntemplates.jar\ntoomany.html\ntweetbox.html\nuninterestingpartial.html\n", ((StringBuffer) (((StringWriter) (o_testPostNullLabels_literalMutationString3_add742_add3038__13)).getBuffer())).toString());
-        Assert.assertEquals("box.html\nclassloader.html\nclient.html\nclient.txt\ncom\ncompiletest.mustache\ncomplex.html\ncomplex.txt\ndiv.html\nfallback\nfdbcli.mustache\nfdbcli.txt\nfdbcli2.mustache\nfdbcli2.txt\nfdbcli3.mustache\nfdbcli3.txt\nfollow.html\nfollownomenu.html\nfollownomenu.txt\nfunctions\nhogan.json\nmain.html\nmethod.html\nmultiple_recursive_partials.html\nmultipleextensions.html\nmultipleextensions.txt\nnested_inheritance.html\nnested_inheritance.txt\nnested_partials_template.html\noverrideextension.html\nparentreplace.html\npartialintemplatefunction.html\npartialsub.html\npartialsubpartial.html\npartialsubpartial.txt\npartialsuper.html\npath\npretranslate.html\npsauxwww.mustache\npsauxwww.txt\nrelative\nreplace.html\nreplace.txt\nsinglereplace.html\nspec\nsub.html\nsub.txt\nsubblockchild1.html\nsubblockchild1.txt\nsubblockchild2.html\nsubblockchild2.txt\nsubblocksuper.html\nsubsub.html\nsubsub.txt\nsubsubchild1.html\nsubsubchild1.txt\nsubsubchild2.html\nsubsubchild2.txt\nsubsubchild3.html\nsubsubchild3.txt\nsubsubmiddle.html\nsubsubsuper.html\nsuper.html\ntemplate.html\ntemplate.mustache\ntemplates_filepath\ntemplates.jar\ntoomany.html\ntweetbox.html\nuninterestingpartial.html\nbox.html\nclassloader.html\nclient.html\nclient.txt\ncom\ncompiletest.mustache\ncomplex.html\ncomplex.txt\ndiv.html\nfallback\nfdbcli.mustache\nfdbcli.txt\nfdbcli2.mustache\nfdbcli2.txt\nfdbcli3.mustache\nfdbcli3.txt\nfollow.html\nfollownomenu.html\nfollownomenu.txt\nfunctions\nhogan.json\nmain.html\nmethod.html\nmultiple_recursive_partials.html\nmultipleextensions.html\nmultipleextensions.txt\nnested_inheritance.html\nnested_inheritance.txt\nnested_partials_template.html\noverrideextension.html\nparentreplace.html\npartialintemplatefunction.html\npartialsub.html\npartialsubpartial.html\npartialsubpartial.txt\npartialsuper.html\npath\npretranslate.html\npsauxwww.mustache\npsauxwww.txt\nrelative\nreplace.html\nreplace.txt\nsinglereplace.html\nspec\nsub.html\nsub.txt\nsubblockchild1.html\nsubblockchild1.txt\nsubblockchild2.html\nsubblockchild2.txt\nsubblocksuper.html\nsubsub.html\nsubsub.txt\nsubsubchild1.html\nsubsubchild1.txt\nsubsubchild2.html\nsubsubchild2.txt\nsubsubchild3.html\nsubsubchild3.txt\nsubsubmiddle.html\nsubsubsuper.html\nsuper.html\ntemplate.html\ntemplate.mustache\ntemplates_filepath\ntemplates.jar\ntoomany.html\ntweetbox.html\nuninterestingpartial.html\n", ((StringWriter) (o_testPostNullLabels_literalMutationString3_add742_add3038__13)).toString());
-        Assert.assertEquals("Translation bundles work!\n\n", o_testPostNullLabels_literalMutationString3__13);
-    }
-
-    @Test(timeout = 10000)
-    public void testPostNullLabels_literalMutationString3() throws MustacheException, IOException, InterruptedException, ExecutionException {
-        MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
-        Mustache m = c.compile("");
-        StringWriter sw = new StringWriter();
-        Map<String, Object> scope = new HashMap<>();
-        Object o_testPostNullLabels_literalMutationString3__9 = scope.put("trans", BundleFunctions.newPostTranslateNullableLabel(AmplBundleFunctionsTest.BUNDLE, Locale.US));
-        Assert.assertNull(o_testPostNullLabels_literalMutationString3__9);
-        Writer o_testPostNullLabels_literalMutationString3__11 = m.execute(sw, scope);
-        Assert.assertEquals("box.html\nclassloader.html\nclient.html\nclient.txt\ncom\ncompiletest.mustache\ncomplex.html\ncomplex.txt\ndiv.html\nfallback\nfdbcli.mustache\nfdbcli.txt\nfdbcli2.mustache\nfdbcli2.txt\nfdbcli3.mustache\nfdbcli3.txt\nfollow.html\nfollownomenu.html\nfollownomenu.txt\nfunctions\nhogan.json\nmain.html\nmethod.html\nmultiple_recursive_partials.html\nmultipleextensions.html\nmultipleextensions.txt\nnested_inheritance.html\nnested_inheritance.txt\nnested_partials_template.html\noverrideextension.html\nparentreplace.html\npartialintemplatefunction.html\npartialsub.html\npartialsubpartial.html\npartialsubpartial.txt\npartialsuper.html\npath\npretranslate.html\npsauxwww.mustache\npsauxwww.txt\nrelative\nreplace.html\nreplace.txt\nsinglereplace.html\nspec\nsub.html\nsub.txt\nsubblockchild1.html\nsubblockchild1.txt\nsubblockchild2.html\nsubblockchild2.txt\nsubblocksuper.html\nsubsub.html\nsubsub.txt\nsubsubchild1.html\nsubsubchild1.txt\nsubsubchild2.html\nsubsubchild2.txt\nsubsubchild3.html\nsubsubchild3.txt\nsubsubmiddle.html\nsubsubsuper.html\nsuper.html\ntemplate.html\ntemplate.mustache\ntemplates_filepath\ntemplates.jar\ntoomany.html\ntweetbox.html\nuninterestingpartial.html\n", ((StringBuffer) (((StringWriter) (o_testPostNullLabels_literalMutationString3__11)).getBuffer())).toString());
-        Assert.assertEquals("box.html\nclassloader.html\nclient.html\nclient.txt\ncom\ncompiletest.mustache\ncomplex.html\ncomplex.txt\ndiv.html\nfallback\nfdbcli.mustache\nfdbcli.txt\nfdbcli2.mustache\nfdbcli2.txt\nfdbcli3.mustache\nfdbcli3.txt\nfollow.html\nfollownomenu.html\nfollownomenu.txt\nfunctions\nhogan.json\nmain.html\nmethod.html\nmultiple_recursive_partials.html\nmultipleextensions.html\nmultipleextensions.txt\nnested_inheritance.html\nnested_inheritance.txt\nnested_partials_template.html\noverrideextension.html\nparentreplace.html\npartialintemplatefunction.html\npartialsub.html\npartialsubpartial.html\npartialsubpartial.txt\npartialsuper.html\npath\npretranslate.html\npsauxwww.mustache\npsauxwww.txt\nrelative\nreplace.html\nreplace.txt\nsinglereplace.html\nspec\nsub.html\nsub.txt\nsubblockchild1.html\nsubblockchild1.txt\nsubblockchild2.html\nsubblockchild2.txt\nsubblocksuper.html\nsubsub.html\nsubsub.txt\nsubsubchild1.html\nsubsubchild1.txt\nsubsubchild2.html\nsubsubchild2.txt\nsubsubchild3.html\nsubsubchild3.txt\nsubsubmiddle.html\nsubsubsuper.html\nsuper.html\ntemplate.html\ntemplate.mustache\ntemplates_filepath\ntemplates.jar\ntoomany.html\ntweetbox.html\nuninterestingpartial.html\n", ((StringWriter) (o_testPostNullLabels_literalMutationString3__11)).toString());
-        String o_testPostNullLabels_literalMutationString3__13 = TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_nulllabels.txt");
-        Assert.assertEquals("Translation bundles work!\n\n", o_testPostNullLabels_literalMutationString3__13);
-        sw.toString();
-        Assert.assertNull(o_testPostNullLabels_literalMutationString3__9);
-        Assert.assertEquals("box.html\nclassloader.html\nclient.html\nclient.txt\ncom\ncompiletest.mustache\ncomplex.html\ncomplex.txt\ndiv.html\nfallback\nfdbcli.mustache\nfdbcli.txt\nfdbcli2.mustache\nfdbcli2.txt\nfdbcli3.mustache\nfdbcli3.txt\nfollow.html\nfollownomenu.html\nfollownomenu.txt\nfunctions\nhogan.json\nmain.html\nmethod.html\nmultiple_recursive_partials.html\nmultipleextensions.html\nmultipleextensions.txt\nnested_inheritance.html\nnested_inheritance.txt\nnested_partials_template.html\noverrideextension.html\nparentreplace.html\npartialintemplatefunction.html\npartialsub.html\npartialsubpartial.html\npartialsubpartial.txt\npartialsuper.html\npath\npretranslate.html\npsauxwww.mustache\npsauxwww.txt\nrelative\nreplace.html\nreplace.txt\nsinglereplace.html\nspec\nsub.html\nsub.txt\nsubblockchild1.html\nsubblockchild1.txt\nsubblockchild2.html\nsubblockchild2.txt\nsubblocksuper.html\nsubsub.html\nsubsub.txt\nsubsubchild1.html\nsubsubchild1.txt\nsubsubchild2.html\nsubsubchild2.txt\nsubsubchild3.html\nsubsubchild3.txt\nsubsubmiddle.html\nsubsubsuper.html\nsuper.html\ntemplate.html\ntemplate.mustache\ntemplates_filepath\ntemplates.jar\ntoomany.html\ntweetbox.html\nuninterestingpartial.html\n", ((StringBuffer) (((StringWriter) (o_testPostNullLabels_literalMutationString3__11)).getBuffer())).toString());
-        Assert.assertEquals("box.html\nclassloader.html\nclient.html\nclient.txt\ncom\ncompiletest.mustache\ncomplex.html\ncomplex.txt\ndiv.html\nfallback\nfdbcli.mustache\nfdbcli.txt\nfdbcli2.mustache\nfdbcli2.txt\nfdbcli3.mustache\nfdbcli3.txt\nfollow.html\nfollownomenu.html\nfollownomenu.txt\nfunctions\nhogan.json\nmain.html\nmethod.html\nmultiple_recursive_partials.html\nmultipleextensions.html\nmultipleextensions.txt\nnested_inheritance.html\nnested_inheritance.txt\nnested_partials_template.html\noverrideextension.html\nparentreplace.html\npartialintemplatefunction.html\npartialsub.html\npartialsubpartial.html\npartialsubpartial.txt\npartialsuper.html\npath\npretranslate.html\npsauxwww.mustache\npsauxwww.txt\nrelative\nreplace.html\nreplace.txt\nsinglereplace.html\nspec\nsub.html\nsub.txt\nsubblockchild1.html\nsubblockchild1.txt\nsubblockchild2.html\nsubblockchild2.txt\nsubblocksuper.html\nsubsub.html\nsubsub.txt\nsubsubchild1.html\nsubsubchild1.txt\nsubsubchild2.html\nsubsubchild2.txt\nsubsubchild3.html\nsubsubchild3.txt\nsubsubmiddle.html\nsubsubsuper.html\nsuper.html\ntemplate.html\ntemplate.mustache\ntemplates_filepath\ntemplates.jar\ntoomany.html\ntweetbox.html\nuninterestingpartial.html\n", ((StringWriter) (o_testPostNullLabels_literalMutationString3__11)).toString());
-        Assert.assertEquals("Translation bundles work!\n\n", o_testPostNullLabels_literalMutationString3__13);
-    }
-
-    @Test(timeout = 10000)
-    public void testPostNullLabels_literalMutationString8_literalMutationString157_literalMutationString1666_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
-        try {
-            MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
-            Mustache m = c.compile("Acf8bkM].8$H");
-            StringWriter sw = new StringWriter();
-            Map<String, Object> scope = new HashMap<>();
-            Object o_testPostNullLabels_literalMutationString8__9 = scope.put("", BundleFunctions.newPostTranslateNullableLabel(AmplBundleFunctionsTest.BUNDLE, Locale.US));
-            Writer o_testPostNullLabels_literalMutationString8__11 = m.execute(sw, scope);
-            String o_testPostNullLabels_literalMutationString8__13 = TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_nulllabels.txt");
-            sw.toString();
-            org.junit.Assert.fail("testPostNullLabels_literalMutationString8_literalMutationString157_literalMutationString1666 should have thrown MustacheNotFoundException");
-        } catch (MustacheNotFoundException expected) {
-            Assert.assertEquals("Template Acf8bkM].8$H not found", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPostNullLabels_literalMutationString14_failAssert0_literalMutationString532_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+    public void testPostLabels_literalMutationString4360_literalMutationString4823_failAssert0_literalMutationString9456_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
         try {
             {
                 MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
-                Mustache m = c.compile("#undles.html");
+                Mustache m = c.compile("Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found");
+                StringWriter sw = new StringWriter();
+                Map<String, Object> scope = new HashMap<>();
+                Object o_testPostLabels_literalMutationString4360__9 = scope.put("trans", BundleFunctions.newPostTranslate(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+                Object o_testPostLabels_literalMutationString4360__11 = scope.put("replaceMe", "rplaced");
+                Writer o_testPostLabels_literalMutationString4360__12 = m.execute(sw, scope);
+                String o_testPostLabels_literalMutationString4360__13 = TestUtil.getContents(AmplBundleFunctionsTest.root, "Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found");
+                sw.toString();
+                org.junit.Assert.fail("testPostLabels_literalMutationString4360_literalMutationString4823 should have thrown MustacheNotFoundException");
+            }
+            org.junit.Assert.fail("testPostLabels_literalMutationString4360_literalMutationString4823_failAssert0_literalMutationString9456 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPostLabels_literalMutationString4341_failAssert0null6738_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
+                Mustache m = c.compile("DK$ Lo]u4-)S");
+                StringWriter sw = new StringWriter();
+                Map<String, Object> scope = new HashMap<>();
+                scope.put("trans", BundleFunctions.newPostTranslate(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+                scope.put("replaceMe", "replaced");
+                m.execute(sw, scope);
+                TestUtil.getContents(AmplBundleFunctionsTest.root, null);
+                sw.toString();
+                org.junit.Assert.fail("testPostLabels_literalMutationString4341 should have thrown MustacheNotFoundException");
+            }
+            org.junit.Assert.fail("testPostLabels_literalMutationString4341_failAssert0null6738 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template DK$ Lo]u4-)S not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPostLabels_literalMutationString4348_literalMutationString5208_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
+            Mustache m = c.compile("Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found");
+            StringWriter sw = new StringWriter();
+            Map<String, Object> scope = new HashMap<>();
+            Object o_testPostLabels_literalMutationString4348__9 = scope.put("trCans", BundleFunctions.newPostTranslate(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+            Object o_testPostLabels_literalMutationString4348__11 = scope.put("replaceMe", "replaced");
+            Writer o_testPostLabels_literalMutationString4348__12 = m.execute(sw, scope);
+            String o_testPostLabels_literalMutationString4348__13 = TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_post_labels.txt");
+            sw.toString();
+            org.junit.Assert.fail("testPostLabels_literalMutationString4348_literalMutationString5208 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPostLabels_literalMutationString4342_failAssert0_literalMutationString5594_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
+                Mustache m = c.compile("^eF+>J)veqY");
+                StringWriter sw = new StringWriter();
+                Map<String, Object> scope = new HashMap<>();
+                scope.put("trans", BundleFunctions.newPostTranslate(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+                scope.put("replaceMe", "replaced");
+                m.execute(sw, scope);
+                TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_post_labels.txt");
+                sw.toString();
+                org.junit.Assert.fail("testPostLabels_literalMutationString4342 should have thrown MustacheNotFoundException");
+            }
+            org.junit.Assert.fail("testPostLabels_literalMutationString4342_failAssert0_literalMutationString5594 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template ^eF+>J)veqY not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPostLabels_literalMutationString4364_failAssert0_literalMutationString5738_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
+                Mustache m = c.compile("Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found");
+                StringWriter sw = new StringWriter();
+                Map<String, Object> scope = new HashMap<>();
+                scope.put("trans", BundleFunctions.newPostTranslate(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+                scope.put("replaceMe", "replaced");
+                m.execute(sw, scope);
+                TestUtil.getContents(AmplBundleFunctionsTest.root, "h6zluCH?3)Y9%T|:._KQV9:");
+                sw.toString();
+                org.junit.Assert.fail("testPostLabels_literalMutationString4364 should have thrown FileNotFoundException");
+            }
+            org.junit.Assert.fail("testPostLabels_literalMutationString4364_failAssert0_literalMutationString5738 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPostLabels_literalMutationString4341_failAssert0_add6377_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
+                c.compile("DK$ Lo]u4-)S");
+                Mustache m = c.compile("DK$ Lo]u4-)S");
+                StringWriter sw = new StringWriter();
+                Map<String, Object> scope = new HashMap<>();
+                scope.put("trans", BundleFunctions.newPostTranslate(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+                scope.put("replaceMe", "replaced");
+                m.execute(sw, scope);
+                TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_post_labels.txt");
+                sw.toString();
+                org.junit.Assert.fail("testPostLabels_literalMutationString4341 should have thrown MustacheNotFoundException");
+            }
+            org.junit.Assert.fail("testPostLabels_literalMutationString4341_failAssert0_add6377 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template DK$ Lo]u4-)S not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPostLabels_literalMutationString4339_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
+            Mustache m = c.compile("Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found");
+            StringWriter sw = new StringWriter();
+            Map<String, Object> scope = new HashMap<>();
+            scope.put("trans", BundleFunctions.newPostTranslate(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+            scope.put("replaceMe", "replaced");
+            m.execute(sw, scope);
+            TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_post_labels.txt");
+            sw.toString();
+            org.junit.Assert.fail("testPostLabels_literalMutationString4339 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPostLabels_literalMutationString4341_failAssert0_literalMutationString5804_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
+                Mustache m = c.compile("DK$ Lo]u4-)S");
+                StringWriter sw = new StringWriter();
+                Map<String, Object> scope = new HashMap<>();
+                scope.put("Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found", BundleFunctions.newPostTranslate(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+                scope.put("replaceMe", "replaced");
+                m.execute(sw, scope);
+                TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_post_labels.txt");
+                sw.toString();
+                org.junit.Assert.fail("testPostLabels_literalMutationString4341 should have thrown MustacheNotFoundException");
+            }
+            org.junit.Assert.fail("testPostLabels_literalMutationString4341_failAssert0_literalMutationString5804 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template DK$ Lo]u4-)S not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPostLabels_literalMutationString4355_add6061_literalMutationString7467_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
+            Mustache m = c.compile("Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found");
+            StringWriter sw = new StringWriter();
+            Map<String, Object> scope = new HashMap<>();
+            Object o_testPostLabels_literalMutationString4355__9 = scope.put("trans", BundleFunctions.newPostTranslate(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+            Object o_testPostLabels_literalMutationString4355__11 = scope.put("r3placeMe", "replaced");
+            Writer o_testPostLabels_literalMutationString4355_add6061__16 = m.execute(sw, scope);
+            Writer o_testPostLabels_literalMutationString4355__12 = m.execute(sw, scope);
+            String o_testPostLabels_literalMutationString4355__13 = TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_post_labels.txt");
+            sw.toString();
+            org.junit.Assert.fail("testPostLabels_literalMutationString4355_add6061_literalMutationString7467 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPostLabels_literalMutationString4343_failAssert0_literalMutationString5642_failAssert0_literalMutationString9372_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                {
+                    MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
+                    Mustache m = c.compile("Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found");
+                    StringWriter sw = new StringWriter();
+                    Map<String, Object> scope = new HashMap<>();
+                    scope.put("trans", BundleFunctions.newPostTranslate(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+                    scope.put("replaceMe", "I=@<!yz#");
+                    m.execute(sw, scope);
+                    TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_post_labels.txt");
+                    sw.toString();
+                    org.junit.Assert.fail("testPostLabels_literalMutationString4343 should have thrown MustacheNotFoundException");
+                }
+                org.junit.Assert.fail("testPostLabels_literalMutationString4343_failAssert0_literalMutationString5642 should have thrown MustacheNotFoundException");
+            }
+            org.junit.Assert.fail("testPostLabels_literalMutationString4343_failAssert0_literalMutationString5642_failAssert0_literalMutationString9372 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPostLabels_literalMutationString4360_literalMutationString4823_failAssert0_add10428_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
+                Mustache m = c.compile("Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found");
+                StringWriter sw = new StringWriter();
+                Map<String, Object> scope = new HashMap<>();
+                Object o_testPostLabels_literalMutationString4360__9 = scope.put("trans", BundleFunctions.newPostTranslate(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+                Object o_testPostLabels_literalMutationString4360__11 = scope.put("replaceMe", "rplaced");
+                Writer o_testPostLabels_literalMutationString4360__12 = m.execute(sw, scope);
+                TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_post_labels.txt");
+                String o_testPostLabels_literalMutationString4360__13 = TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_post_labels.txt");
+                sw.toString();
+                org.junit.Assert.fail("testPostLabels_literalMutationString4360_literalMutationString4823 should have thrown MustacheNotFoundException");
+            }
+            org.junit.Assert.fail("testPostLabels_literalMutationString4360_literalMutationString4823_failAssert0_add10428 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPostNullLabels_add21_remove934_literalMutationString1886_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
+            Mustache m = c.compile("/_@)_(]4GfQD");
+            StringWriter sw = new StringWriter();
+            Map<String, Object> scope = new HashMap<>();
+            BundleFunctions.newPostTranslateNullableLabel(AmplBundleFunctionsTest.BUNDLE, Locale.US);
+            Object o_testPostNullLabels_add21__10 = scope.put("trans", BundleFunctions.newPostTranslateNullableLabel(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+            Writer o_testPostNullLabels_add21__12 = m.execute(sw, scope);
+            String o_testPostNullLabels_add21__14 = TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_nulllabels.txt");
+            org.junit.Assert.fail("testPostNullLabels_add21_remove934_literalMutationString1886 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template /_@)_(]4GfQD not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPostNullLabelsnull31_failAssert0_add836_failAssert0_literalMutationString2483_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                {
+                    MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
+                    Mustache m = c.compile("DS[rVTfD]vvo");
+                    StringWriter sw = new StringWriter();
+                    Map<String, Object> scope = new HashMap<>();
+                    BundleFunctions.newPostTranslateNullableLabel(AmplBundleFunctionsTest.BUNDLE, Locale.US);
+                    scope.put("trans", BundleFunctions.newPostTranslateNullableLabel(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+                    m.execute(sw, scope);
+                    TestUtil.getContents(AmplBundleFunctionsTest.root, null);
+                    sw.toString();
+                    org.junit.Assert.fail("testPostNullLabelsnull31 should have thrown NullPointerException");
+                }
+                org.junit.Assert.fail("testPostNullLabelsnull31_failAssert0_add836 should have thrown NullPointerException");
+            }
+            org.junit.Assert.fail("testPostNullLabelsnull31_failAssert0_add836_failAssert0_literalMutationString2483 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template DS[rVTfD]vvo not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPostNullLabels_literalMutationString2_failAssert0null1058_failAssert0_add3313_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                {
+                    MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
+                    Mustache m = c.compile("Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found");
+                    StringWriter sw = new StringWriter();
+                    Map<String, Object> scope = new HashMap<>();
+                    scope.put("trans", BundleFunctions.newPostTranslateNullableLabel(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+                    m.execute(sw, scope);
+                    TestUtil.getContents(AmplBundleFunctionsTest.root, null);
+                    sw.toString();
+                    sw.toString();
+                    org.junit.Assert.fail("testPostNullLabels_literalMutationString2 should have thrown MustacheNotFoundException");
+                }
+                org.junit.Assert.fail("testPostNullLabels_literalMutationString2_failAssert0null1058 should have thrown MustacheNotFoundException");
+            }
+            org.junit.Assert.fail("testPostNullLabels_literalMutationString2_failAssert0null1058_failAssert0_add3313 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPostNullLabels_literalMutationString2_failAssert0_add870_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
+                Mustache m = c.compile("Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found");
+                StringWriter sw = new StringWriter();
+                Map<String, Object> scope = new HashMap<>();
+                scope.put("trans", BundleFunctions.newPostTranslateNullableLabel(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+                scope.put("trans", BundleFunctions.newPostTranslateNullableLabel(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+                m.execute(sw, scope);
+                TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_nulllabels.txt");
+                sw.toString();
+                org.junit.Assert.fail("testPostNullLabels_literalMutationString2 should have thrown MustacheNotFoundException");
+            }
+            org.junit.Assert.fail("testPostNullLabels_literalMutationString2_failAssert0_add870 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPostNullLabels_literalMutationString18_failAssert0_add860_failAssert0_literalMutationString2340_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                {
+                    MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
+                    Mustache m = c.compile("Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found");
+                    StringWriter sw = new StringWriter();
+                    Map<String, Object> scope = new HashMap<>();
+                    scope.put("trans", BundleFunctions.newPostTranslateNullableLabel(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+                    m.execute(sw, scope);
+                    TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_nullFabels.txt");
+                    sw.toString();
+                    sw.toString();
+                    org.junit.Assert.fail("testPostNullLabels_literalMutationString18 should have thrown FileNotFoundException");
+                }
+                org.junit.Assert.fail("testPostNullLabels_literalMutationString18_failAssert0_add860 should have thrown FileNotFoundException");
+            }
+            org.junit.Assert.fail("testPostNullLabels_literalMutationString18_failAssert0_add860_failAssert0_literalMutationString2340 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPostNullLabels_literalMutationString14_failAssert0_add893_failAssert0_literalMutationString2376_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                {
+                    MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
+                    Mustache m = c.compile("r+SV})*;6Oq{");
+                    StringWriter sw = new StringWriter();
+                    Map<String, Object> scope = new HashMap<>();
+                    scope.put("trans", BundleFunctions.newPostTranslateNullableLabel(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+                    m.execute(sw, scope);
+                    m.execute(sw, scope);
+                    TestUtil.getContents(AmplBundleFunctionsTest.root, "Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found");
+                    sw.toString();
+                    org.junit.Assert.fail("testPostNullLabels_literalMutationString14 should have thrown FileNotFoundException");
+                }
+                org.junit.Assert.fail("testPostNullLabels_literalMutationString14_failAssert0_add893 should have thrown FileNotFoundException");
+            }
+            org.junit.Assert.fail("testPostNullLabels_literalMutationString14_failAssert0_add893_failAssert0_literalMutationString2376 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template r+SV})*;6Oq{ not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPostNullLabels_add20_remove939_literalMutationString2078_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
+            Mustache m = c.compile("z]@9DS^=MCqz");
+            StringWriter sw = new StringWriter();
+            Map<String, Object> scope = new HashMap<>();
+            Object o_testPostNullLabels_add20__9 = scope.put("trans", BundleFunctions.newPostTranslateNullableLabel(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+            Writer o_testPostNullLabels_add20__13 = m.execute(sw, scope);
+            String o_testPostNullLabels_add20__15 = TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_nulllabels.txt");
+            sw.toString();
+            org.junit.Assert.fail("testPostNullLabels_add20_remove939_literalMutationString2078 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template z]@9DS^=MCqz not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPostNullLabels_literalMutationString2_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
+            Mustache m = c.compile("Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found");
+            StringWriter sw = new StringWriter();
+            Map<String, Object> scope = new HashMap<>();
+            scope.put("trans", BundleFunctions.newPostTranslateNullableLabel(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+            m.execute(sw, scope);
+            TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_nulllabels.txt");
+            sw.toString();
+            org.junit.Assert.fail("testPostNullLabels_literalMutationString2 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPostNullLabels_literalMutationString11_literalMutationString315_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
+            Mustache m = c.compile("6mR{eM?TJ |E");
+            StringWriter sw = new StringWriter();
+            Map<String, Object> scope = new HashMap<>();
+            Object o_testPostNullLabels_literalMutationString11__9 = scope.put("trCns", BundleFunctions.newPostTranslateNullableLabel(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+            Writer o_testPostNullLabels_literalMutationString11__11 = m.execute(sw, scope);
+            String o_testPostNullLabels_literalMutationString11__13 = TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_nulllabels.txt");
+            sw.toString();
+            org.junit.Assert.fail("testPostNullLabels_literalMutationString11_literalMutationString315 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template 6mR{eM?TJ |E not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPostNullLabels_add24_add680_literalMutationString2001_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
+            Mustache m = c.compile("bundles.ht]ml");
+            StringWriter sw = new StringWriter();
+            Map<String, Object> scope = new HashMap<>();
+            BundleFunctions.newPostTranslateNullableLabel(AmplBundleFunctionsTest.BUNDLE, Locale.US);
+            Object o_testPostNullLabels_add24__9 = scope.put("trans", BundleFunctions.newPostTranslateNullableLabel(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+            Writer o_testPostNullLabels_add24__11 = m.execute(sw, scope);
+            sw.toString();
+            String o_testPostNullLabels_add24__14 = TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_nulllabels.txt");
+            sw.toString();
+            org.junit.Assert.fail("testPostNullLabels_add24_add680_literalMutationString2001 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template bundles.ht]ml not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPostNullLabels_literalMutationString2_failAssert0null1058_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
+                Mustache m = c.compile("Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found");
                 StringWriter sw = new StringWriter();
                 Map<String, Object> scope = new HashMap<>();
                 scope.put("trans", BundleFunctions.newPostTranslateNullableLabel(AmplBundleFunctionsTest.BUNDLE, Locale.US));
                 m.execute(sw, scope);
-                TestUtil.getContents(AmplBundleFunctionsTest.root, "");
+                TestUtil.getContents(AmplBundleFunctionsTest.root, null);
                 sw.toString();
-                org.junit.Assert.fail("testPostNullLabels_literalMutationString14 should have thrown FileNotFoundException");
+                org.junit.Assert.fail("testPostNullLabels_literalMutationString2 should have thrown MustacheNotFoundException");
             }
-            org.junit.Assert.fail("testPostNullLabels_literalMutationString14_failAssert0_literalMutationString532 should have thrown MustacheNotFoundException");
+            org.junit.Assert.fail("testPostNullLabels_literalMutationString2_failAssert0null1058 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
-            Assert.assertEquals("Template #undles.html not found", expected.getMessage());
+            Assert.assertEquals("Template Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPostNullLabels_literalMutationString2_failAssert0null1058_failAssert0_literalMutationString2273_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                {
+                    MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
+                    Mustache m = c.compile("Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found");
+                    StringWriter sw = new StringWriter();
+                    Map<String, Object> scope = new HashMap<>();
+                    scope.put("Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found", BundleFunctions.newPostTranslateNullableLabel(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+                    m.execute(sw, scope);
+                    TestUtil.getContents(AmplBundleFunctionsTest.root, null);
+                    sw.toString();
+                    org.junit.Assert.fail("testPostNullLabels_literalMutationString2 should have thrown MustacheNotFoundException");
+                }
+                org.junit.Assert.fail("testPostNullLabels_literalMutationString2_failAssert0null1058 should have thrown MustacheNotFoundException");
+            }
+            org.junit.Assert.fail("testPostNullLabels_literalMutationString2_failAssert0null1058_failAssert0_literalMutationString2273 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPostNullLabels_add21_literalMutationString136_failAssert0_literalMutationString2667_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
+                Mustache m = c.compile("U^x;Bc>o [9D");
+                StringWriter sw = new StringWriter();
+                Map<String, Object> scope = new HashMap<>();
+                BundleFunctions.newPostTranslateNullableLabel(AmplBundleFunctionsTest.BUNDLE, Locale.US);
+                Object o_testPostNullLabels_add21__10 = scope.put("trans", BundleFunctions.newPostTranslateNullableLabel(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+                Writer o_testPostNullLabels_add21__12 = m.execute(sw, scope);
+                String o_testPostNullLabels_add21__14 = TestUtil.getContents(AmplBundleFunctionsTest.root, "havG0BkqD}aYo $70%(U9d");
+                sw.toString();
+                org.junit.Assert.fail("testPostNullLabels_add21_literalMutationString136 should have thrown FileNotFoundException");
+            }
+            org.junit.Assert.fail("testPostNullLabels_add21_literalMutationString136_failAssert0_literalMutationString2667 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template U^x;Bc>o [9D not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPostNullLabels_literalMutationString5_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
+            Mustache m = c.compile("B_O6#=6z(@%@");
+            StringWriter sw = new StringWriter();
+            Map<String, Object> scope = new HashMap<>();
+            scope.put("trans", BundleFunctions.newPostTranslateNullableLabel(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+            m.execute(sw, scope);
+            TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_nulllabels.txt");
+            sw.toString();
+            org.junit.Assert.fail("testPostNullLabels_literalMutationString5 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template B_O6#=6z(@%@ not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPostNullLabels_add20null980_literalMutationString1349_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
+            Mustache m = c.compile("Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found");
+            StringWriter sw = new StringWriter();
+            Map<String, Object> scope = new HashMap<>();
+            Object o_testPostNullLabels_add20__9 = scope.put("trans", BundleFunctions.newPostTranslateNullableLabel(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+            Object o_testPostNullLabels_add20null980__13 = scope.put(null, BundleFunctions.newPostTranslateNullableLabel(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+            Writer o_testPostNullLabels_add20__13 = m.execute(sw, scope);
+            String o_testPostNullLabels_add20__15 = TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_nulllabels.txt");
+            sw.toString();
+            org.junit.Assert.fail("testPostNullLabels_add20null980_literalMutationString1349 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPostNullLabels_literalMutationString2_failAssert0_literalMutationString481_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
+                Mustache m = c.compile("Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found");
+                StringWriter sw = new StringWriter();
+                Map<String, Object> scope = new HashMap<>();
+                scope.put("uEotU", BundleFunctions.newPostTranslateNullableLabel(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+                m.execute(sw, scope);
+                TestUtil.getContents(AmplBundleFunctionsTest.root, "bundles_nulllabels.txt");
+                sw.toString();
+                org.junit.Assert.fail("testPostNullLabels_literalMutationString2 should have thrown MustacheNotFoundException");
+            }
+            org.junit.Assert.fail("testPostNullLabels_literalMutationString2_failAssert0_literalMutationString481 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found not found", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testPostNullLabels_literalMutationString2_failAssert0null1058_failAssert0null3922_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+        try {
+            {
+                {
+                    MustacheFactory c = new DefaultMustacheFactory(AmplBundleFunctionsTest.root);
+                    Mustache m = c.compile("Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found");
+                    StringWriter sw = new StringWriter();
+                    Map<String, Object> scope = new HashMap<>();
+                    scope.put("trans", BundleFunctions.newPostTranslateNullableLabel(AmplBundleFunctionsTest.BUNDLE, Locale.US));
+                    m.execute(null, scope);
+                    TestUtil.getContents(AmplBundleFunctionsTest.root, null);
+                    sw.toString();
+                    org.junit.Assert.fail("testPostNullLabels_literalMutationString2 should have thrown MustacheNotFoundException");
+                }
+                org.junit.Assert.fail("testPostNullLabels_literalMutationString2_failAssert0null1058 should have thrown MustacheNotFoundException");
+            }
+            org.junit.Assert.fail("testPostNullLabels_literalMutationString2_failAssert0null1058_failAssert0null3922 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            Assert.assertEquals("Template Template [(ZeCG4J/Kc$ ;G8-[lt9:Kb!x$,A7,1v not found not found", expected.getMessage());
         }
     }
 
