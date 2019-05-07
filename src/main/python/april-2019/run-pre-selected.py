@@ -78,7 +78,7 @@ if __name__ == '__main__':
         print "usage: python run.py <project> <index_start> <index_end>"
 
     iteration = toolbox.get_value_of_option(sys.argv, '--iteration', ['1', '2', '3'])
-    index_begin = toolbox.get_value_of_option(sys.argv, '--begin', 0)
-    index_end= toolbox.get_value_of_option(sys.argv, '--end', -1)
+    index_begin = toolbox.get_value_of_option(sys.argv, '--begin', '0')
+    index_end= toolbox.get_value_of_option(sys.argv, '--end', '-1')
 
     run(project=sys.argv[1], index_begin=int(index_begin), index_end=int(index_end), amplifiers=amplifiers, iteration=iteration)
