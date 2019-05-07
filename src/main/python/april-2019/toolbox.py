@@ -68,7 +68,7 @@ not_enough_commits = [
 
 def get_value_of_option(options, option, default):
     if option in options:
-        return options[options.index(option + 1)]
+        return options[options.index(option) + 1]
     else:
         return default
 
