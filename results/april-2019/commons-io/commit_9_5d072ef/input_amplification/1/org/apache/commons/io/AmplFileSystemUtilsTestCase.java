@@ -5,7 +5,6 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import junit.framework.ComparisonFailure;
 import junit.framework.TestCase;
 import org.apache.commons.io.testtools.FileBasedTestCase;
 
@@ -31,39 +30,6 @@ public class AmplFileSystemUtilsTestCase extends FileBasedTestCase {
         long o_testGetFreeSpaceWindows_String_EmptyPath_literalMutationString1061__4 = fsu.freeSpaceWindows("\u0000", (-1));
         TestCase.assertEquals(41411551232L, ((long) (o_testGetFreeSpaceWindows_String_EmptyPath_literalMutationString1061__4)));
         TestCase.assertEquals(" Volume in drive C is HDD\n Volume Serial Number is XXXX-YYYY\n\n Directory of C:\\Documents and Settings\\Xxxx\n\n19/08/2005  22:43    <DIR>          .\n19/08/2005  22:43    <DIR>          ..\n11/08/2005  01:07                81 build.properties\n17/08/2005  21:44    <DIR>          Desktop\n               7 File(s)         180260 bytes\n              10 Dir(s)     41411551232 bytes free", lines);
-    }
-
-    public void testGetFreeSpaceWindows_String_NormalResponse_literalMutationString1370_failAssert0() throws Exception {
-        try {
-            final String lines = " Volume in drive C is HDD\n" + (((((((((" Volume Serial Number is XXXX-YYYY\n" + "\n") + " Directory of C:\\Documents and Settings\\Xxxx\n") + "\n") + "19/08/2005  22:43    <DIR>          .\n") + "19/08/2005  22:43    <DIR>          ..\n") + "11/08/2005  01:07                81 build.properties\n") + "17/08/2005  21:44    <DIR>          Desktop\n") + "               7 File(s)         180260 bytes\n") + "              10 Dir(s)     41411551232 bytes free");
-            final FileSystemUtils fsu = new AmplFileSystemUtilsTestCase.MockFileSystemUtils(0, lines, "dir /a /-c \"C:\"");
-            fsu.freeSpaceWindows("\u0000", (-1));
-            junit.framework.TestCase.fail("testGetFreeSpaceWindows_String_NormalResponse_literalMutationString1370 should have thrown ComparisonFailure");
-        } catch (ComparisonFailure expected) {
-            TestCase.assertEquals("expected:<dir /a /-c [\"C:\"]> but was:<dir /a /-c []>", expected.getMessage());
-        }
-    }
-
-    public void testGetFreeSpaceWindows_String_StripDrive_literalMutationString745_failAssert0() throws Exception {
-        try {
-            final String lines = " Volume in drive C is HDD\n" + (((((((((" Volume Serial Number is XXXX-YYYY\n" + "\n") + " Directory of C:\\Documents and Settings\\Xxxx\n") + "\n") + "19/08/2005  22:43    <DIR>          .\n") + "19/08/2005  22:43    <DIR>          ..\n") + "11/08/2005  01:07                81 build.properties\n") + "17/08/2005  21:44    <DIR>          Desktop\n") + "               7 File(s)         180260 bytes\n") + "              10 Dir(s)     41411551232 bytes free");
-            final FileSystemUtils fsu = new AmplFileSystemUtilsTestCase.MockFileSystemUtils(0, lines, "dir /a /-c \"C:\\somedir\"");
-            fsu.freeSpaceWindows("\u0000", (-1));
-            junit.framework.TestCase.fail("testGetFreeSpaceWindows_String_StripDrive_literalMutationString745 should have thrown ComparisonFailure");
-        } catch (ComparisonFailure expected) {
-            TestCase.assertEquals("expected:<dir /a /-c [\"C:\\somedir\"]> but was:<dir /a /-c []>", expected.getMessage());
-        }
-    }
-
-    public void testGetFreeSpaceWindows_String_quoted_literalMutationString74_failAssert0() throws Exception {
-        try {
-            final String lines = " Volume in drive C is HDD\n" + (((((((((" Volume Serial Number is XXXX-YYYY\n" + "\n") + " Directory of C:\\Documents and Settings\\Xxxx\n") + "\n") + "19/08/2005  22:43    <DIR>          .\n") + "19/08/2005  22:43    <DIR>          ..\n") + "11/08/2005  01:07                81 build.properties\n") + "17/08/2005  21:44    <DIR>          Desktop\n") + "               7 File(s)         180260 bytes\n") + "              10 Dir(s)     41411551232 bytes free");
-            final FileSystemUtils fsu = new AmplFileSystemUtilsTestCase.MockFileSystemUtils(0, lines, "dir /a /-c \"C:\\somedir\"");
-            fsu.freeSpaceWindows("\u0000", (-1));
-            junit.framework.TestCase.fail("testGetFreeSpaceWindows_String_quoted_literalMutationString74 should have thrown ComparisonFailure");
-        } catch (ComparisonFailure expected) {
-            TestCase.assertEquals("expected:<dir /a /-c [\"C:\\somedir\"]> but was:<dir /a /-c []>", expected.getMessage());
-        }
     }
 
     public void testGetFreeSpaceWindows_String_EmptyResponse_literalMutationString1779_failAssert0() throws Exception {
