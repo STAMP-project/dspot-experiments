@@ -107,19 +107,6 @@ public class AmplIOUtilsTestCase extends FileBasedTestCase {
     }
 
     @Test(timeout = 10000)
-    public void testToByteArray_InputStream_SizeIllegal_add13_add236() throws Exception {
-        try (final FileInputStream fin = new FileInputStream(this.m_testFile)) {
-            IOUtils.toByteArray(fin, ((this.m_testFile.length()) + 1));
-        } catch (final IOException exc) {
-            boolean o_testToByteArray_InputStream_SizeIllegal_add13_add236__8 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add13_add236__8);
-            boolean o_testToByteArray_InputStream_SizeIllegal_add13__8 = exc.getMessage().startsWith("Unexpected readed size");
-            boolean o_testToByteArray_InputStream_SizeIllegal_add13__10 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add13_add236__8);
-        }
-    }
-
-    @Test(timeout = 10000)
     public void testToByteArray_InputStream_SizeIllegal_add11_add232() throws Exception {
         try (final FileInputStream fin = new FileInputStream(this.m_testFile)) {
             IOUtils.toByteArray(fin, ((this.m_testFile.length()) + 1));
@@ -177,19 +164,6 @@ public class AmplIOUtilsTestCase extends FileBasedTestCase {
             boolean o_testToByteArray_InputStream_SizeIllegal_add13__10 = exc.getMessage().startsWith("Unexpected readed size");
             Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add13__10);
             Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add13__8);
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testToByteArray_InputStream_SizeIllegal_add13_add238() throws Exception {
-        try (final FileInputStream fin = new FileInputStream(this.m_testFile)) {
-            IOUtils.toByteArray(fin, ((this.m_testFile.length()) + 1));
-        } catch (final IOException exc) {
-            boolean o_testToByteArray_InputStream_SizeIllegal_add13__8 = exc.getMessage().startsWith("Unexpected readed size");
-            boolean o_testToByteArray_InputStream_SizeIllegal_add13_add238__12 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add13_add238__12);
-            boolean o_testToByteArray_InputStream_SizeIllegal_add13__10 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add13_add238__12);
         }
     }
 
