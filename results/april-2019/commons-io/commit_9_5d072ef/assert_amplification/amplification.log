@@ -1,12 +1,11 @@
-Apache Maven 3.5.4 (1edded0938998edf8bf061f1ceb3cfdeccf443fe; 2018-06-17T20:33:14+02:00)
-Maven home: /home/spirals/danglot/apache-maven-3.5.4
-Java version: 1.8.0_121, vendor: Oracle Corporation, runtime: /home/spirals/danglot/jdk1.8.0_121/jre
-Default locale: en_US, platform encoding: ANSI_X3.4-1968
-OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
+Apache Maven 3.3.9
+Maven home: /usr/share/maven
+Java version: 1.8.0_212, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-8-openjdk-amd64/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "4.9.0-8-amd64", arch: "amd64", family: "unix"
 [DEBUG] Created new class realm maven.api
 [DEBUG] Importing foreign packages into class realm maven.api
-[DEBUG]   Imported: javax.annotation.* < plexus.core
-[DEBUG]   Imported: javax.annotation.security.* < plexus.core
 [DEBUG]   Imported: javax.enterprise.inject.* < plexus.core
 [DEBUG]   Imported: javax.enterprise.util.* < plexus.core
 [DEBUG]   Imported: javax.inject.* < plexus.core
@@ -66,36 +65,33 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [DEBUG]   Imported: org.eclipse.aether.spi < plexus.core
 [DEBUG]   Imported: org.eclipse.aether.transfer < plexus.core
 [DEBUG]   Imported: org.eclipse.aether.version < plexus.core
-[DEBUG]   Imported: org.fusesource.jansi.* < plexus.core
 [DEBUG]   Imported: org.slf4j.* < plexus.core
 [DEBUG]   Imported: org.slf4j.helpers.* < plexus.core
 [DEBUG]   Imported: org.slf4j.spi.* < plexus.core
 [DEBUG] Populating class realm maven.api
 [INFO] Error stacktraces are turned on.
-[DEBUG] Message scheme: color
-[DEBUG] Message styles: debug info warning error success failure strong mojo project
-[DEBUG] Reading global settings from /home/spirals/danglot/apache-maven-3.5.4/conf/settings.xml
-[DEBUG] Reading user settings from /home/spirals/danglot/.m2/settings.xml
-[DEBUG] Reading global toolchains from /home/spirals/danglot/apache-maven-3.5.4/conf/toolchains.xml
-[DEBUG] Reading user toolchains from /home/spirals/danglot/.m2/toolchains.xml
-[DEBUG] Using local repository at /home/spirals/danglot/.m2/repository
-[DEBUG] Using manager EnhancedLocalRepositoryManager with priority 10.0 for /home/spirals/danglot/.m2/repository
+[DEBUG] Reading global settings from /usr/share/maven/conf/settings.xml
+[DEBUG] Reading user settings from /home/bedanglot/.m2/settings.xml
+[DEBUG] Reading global toolchains from /usr/share/maven/conf/toolchains.xml
+[DEBUG] Reading user toolchains from /home/bedanglot/.m2/toolchains.xml
+[DEBUG] Using local repository at /home/bedanglot/.m2/repository
+[DEBUG] Using manager EnhancedLocalRepositoryManager with priority 10.0 for /home/bedanglot/.m2/repository
 [INFO] Scanning for projects...
 [DEBUG] Extension realms for project commons-io:commons-io:jar:2.5-SNAPSHOT: (none)
-[DEBUG] Looking up lifecycle mappings for packaging jar from ClassRealm[plexus.core, parent: null]
+[DEBUG] Looking up lifecyle mappings for packaging jar from ClassRealm[plexus.core, parent: null]
 [DEBUG] Extension realms for project org.apache.commons:commons-parent:pom:38: (none)
-[DEBUG] Looking up lifecycle mappings for packaging pom from ClassRealm[plexus.core, parent: null]
+[DEBUG] Looking up lifecyle mappings for packaging pom from ClassRealm[plexus.core, parent: null]
 [DEBUG] Extension realms for project org.apache:apache:pom:16: (none)
-[DEBUG] Looking up lifecycle mappings for packaging pom from ClassRealm[plexus.core, parent: null]
+[DEBUG] Looking up lifecyle mappings for packaging pom from ClassRealm[plexus.core, parent: null]
 [DEBUG] === REACTOR BUILD PLAN ================================================
 [DEBUG] Project: commons-io:commons-io:jar:2.5-SNAPSHOT
 [DEBUG] Tasks:   [eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests]
 [DEBUG] Style:   Regular
 [DEBUG] =======================================================================
-[INFO] 
-[INFO] -----------------------< commons-io:commons-io >------------------------
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
 [INFO] Building Apache Commons IO 2.5-SNAPSHOT
-[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] ------------------------------------------------------------------------
 [DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
 [DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
 [DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
@@ -112,7 +108,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 <configuration>
   <amplifiers default-value="None">${amplifiers}</amplifiers>
   <automaticBuilder default-value="MavenBuilder">${automatic-builder}</automaticBuilder>
-  <budgetizer default-value="NoBudgetizer">${budgetizer}</budgetizer>
+  <budgetizer default-value="RandomBudgetizer">${budgetizer}</budgetizer>
   <cases>${cases}</cases>
   <clean default-value="false">${clean}</clean>
   <descartes default-value="true">${descartes}</descartes>
@@ -141,347 +137,347 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
   <workingDirectory default-value="false">${working-directory}</workingDirectory>
 </configuration>
 [DEBUG] =======================================================================
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=821052, ConflictMarker.markTime=477831, ConflictMarker.nodeCount=3, ConflictIdSorter.graphTime=476740, ConflictIdSorter.topsortTime=424662, ConflictIdSorter.conflictIdCount=2, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=3552819, ConflictResolver.conflictItemCount=2, DefaultDependencyCollector.collectTime=21067382, DefaultDependencyCollector.transformTime=7951032}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=0, ConflictMarker.markTime=1, ConflictMarker.nodeCount=3, ConflictIdSorter.graphTime=0, ConflictIdSorter.topsortTime=0, ConflictIdSorter.conflictIdCount=2, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=3, ConflictResolver.conflictItemCount=2, DefaultDependencyCollector.collectTime=15, DefaultDependencyCollector.transformTime=6}
 [DEBUG] commons-io:commons-io:jar:2.5-SNAPSHOT
 [DEBUG]    junit:junit:jar:4.12:test
 [DEBUG]       org.hamcrest:hamcrest-core:jar:1.3:test
 [INFO] 
 [INFO] --- dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests (default-cli) @ commons-io ---
-[DEBUG] Failure to find eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
-[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally cached metadata up-to-date.
-[DEBUG] Failure to find eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
-[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally cached metadata up-to-date.
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
+[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
+[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
+[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.text/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.text/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.text/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.text/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.text/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.text/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/spirals/danglot/.m2/repository)
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=7254550, ConflictMarker.markTime=1896758, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=5442970, ConflictIdSorter.topsortTime=181863, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=16264427, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=2069918243, DefaultDependencyCollector.transformTime=31204632}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=4, ConflictMarker.markTime=1, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=3, ConflictIdSorter.topsortTime=0, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=9, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=970, DefaultDependencyCollector.transformTime=17}
 [DEBUG] eu.stamp-project:dspot-maven:jar:2.0.1-SNAPSHOT:
 [DEBUG]    eu.stamp-project:dspot:jar:2.0.1-SNAPSHOT:compile
 [DEBUG]       fr.inria.gforge.spoon:spoon-core:jar:7.3.0:compile
@@ -662,6 +658,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [DEBUG]   Included: org.codehaus.woodstox:woodstox-core-asl:jar:4.1.1
 [DEBUG]   Included: org.codehaus.woodstox:stax2-api:jar:3.1.1
 [DEBUG]   Included: javax.enterprise:cdi-api:jar:1.0
+[DEBUG]   Included: javax.annotation:jsr250-api:jar:1.0
 [DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:3.1.0
 [DEBUG]   Included: org.apache.maven.plugin-testing:maven-plugin-testing-harness:jar:3.3.0
 [DEBUG]   Included: commons-io:commons-io:jar:2.2
@@ -669,10 +666,14 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [DEBUG]   Included: org.codehaus.plexus:plexus-io:jar:2.0.4
 [DEBUG]   Included: org.sonatype.plexus:plexus-sec-dispatcher:jar:1.4
 [DEBUG]   Included: org.sonatype.plexus:plexus-cipher:jar:1.4
+[DEBUG]   Included: org.apache.maven:maven-resolver-provider:jar:3.5.4
+[DEBUG]   Included: org.apache.maven.resolver:maven-resolver-api:jar:1.1.1
 [DEBUG]   Included: org.apache.maven.resolver:maven-resolver-util:jar:1.1.1
+[DEBUG]   Included: org.apache.maven.resolver:maven-resolver-impl:jar:1.1.1
 [DEBUG]   Included: org.codehaus.plexus:plexus-interpolation:jar:1.24
 [DEBUG]   Included: org.codehaus.plexus:plexus-component-annotations:jar:1.7.1
 [DEBUG]   Included: org.apache.maven:maven-builder-support:jar:3.5.4
+[DEBUG]   Included: org.apache.maven.resolver:maven-resolver-spi:jar:1.1.1
 [DEBUG]   Included: org.apache.maven.shared:maven-shared-utils:jar:3.2.1
 [DEBUG]   Included: org.eclipse.sisu:org.eclipse.sisu.inject:jar:0.3.3
 [DEBUG]   Included: com.google.inject:guice:jar:no_aop:4.2.0
@@ -681,11 +682,11 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [DEBUG]   Included: org.apache.commons:commons-lang3:jar:3.5
 [DEBUG]   Included: org.eclipse.aether:aether-util:jar:1.0.2.v20150114
 [DEBUG]   Included: backport-util-concurrent:backport-util-concurrent:jar:3.1
-[DEBUG] Configuring mojo eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests from plugin realm ClassRealm[plugin>eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT, parent: sun.misc.Launcher$AppClassLoader@55f96302]
+[DEBUG] Configuring mojo eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests from plugin realm ClassRealm[plugin>eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT, parent: sun.misc.Launcher$AppClassLoader@1b6d3586]
 [DEBUG] Configuring mojo 'eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests' with basic configurator -->
 [DEBUG]   (f) amplifiers = [None]
 [DEBUG]   (f) automaticBuilder = MavenBuilder
-[DEBUG]   (f) budgetizer = NoBudgetizer
+[DEBUG]   (f) budgetizer = RandomBudgetizer
 [DEBUG]   (f) cases = []
 [DEBUG]   (f) clean = true
 [DEBUG]   (f) descartes = true
@@ -694,7 +695,7 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [DEBUG]   (f) help = false
 [DEBUG]   (f) iteration = 3
 [DEBUG]   (f) keepOriginalTestMethods = false
-[DEBUG]   (f) maxTestAmplified = 200
+[DEBUG]   (f) maxTestAmplified = 100
 [DEBUG]   (f) noMinimize = false
 [DEBUG]   (f) outputPath = /tmp/dspot-experiments/results/april-2019/commons-io/commit_9_5d072ef/assert_amplification
 [DEBUG]   (f) pathToSecondVersion = /tmp/dspot-experiments/dataset/april-2019/commons-io
@@ -708,23 +709,104 @@ OS name: "linux", version: "3.16.0-4-amd64", arch: "amd64", family: "unix"
 [DEBUG]   (f) useMavenToExeTest = false
 [DEBUG]   (f) verbose = true
 [DEBUG]   (f) withComment = false
-[DEBUG]   (f) workingDirectory = false
+[DEBUG]   (f) workingDirectory = true
 [DEBUG] -- end configuration --
-[INFO] Path to runner Classes: /home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar
-[INFO] /home/spirals/danglot/.m2/repository/org/jacoco/org.jacoco.core/0.7.9/org.jacoco.core-0.7.9.jar
-[INFO] /home/spirals/danglot/.m2/repository/org/ow2/asm/asm-debug-all/5.2/asm-debug-all-5.2.jar
-[INFO] /home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar
+[INFO] Path to runner Classes: /home/bedanglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar
+[INFO] /home/bedanglot/.m2/repository/org/jacoco/org.jacoco.core/0.7.9/org.jacoco.core-0.7.9.jar
+[INFO] /home/bedanglot/.m2/repository/org/ow2/asm/asm-debug-all/5.2/asm-debug-all-5.2.jar
+[INFO] /home/bedanglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar
 [WARNING] : unknown automatic builder specified in configuration, going to default.
 [INFO] Default: provided Maven automatic builder.
 [INFO] Using /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/pom.xml to run maven.
-[INFO] Using /home/spirals/danglot/apache-maven-3.5.4 for maven home
-[INFO] run maven: /home/spirals/danglot/apache-maven-3.5.4/bin/mvn clean test -DskipTests dependency:build-classpath -Dmdep.outputFile=target/dspot/classpath
+[INFO] Using /usr/share/maven/ for maven home
+[INFO] run maven: /usr/share/maven//bin/mvn clean test -DskipTests dependency:build-classpath -Dmdep.outputFile=target/dspot/classpath
 [WARN] Maven will be executed in interactive mode, but no input stream has been configured for this MavenInvoker instance.
 [INFO] Scanning for projects...
-[INFO] 
-[INFO] -----------------------< commons-io:commons-io >------------------------
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/2.5/maven-jar-plugin-2.5.pom
+3/8 KB   
+5/8 KB   
+8/8 KB   
+         
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/2.5/maven-jar-plugin-2.5.pom (8 KB at 26.4 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/2.5/maven-jar-plugin-2.5.jar
+3/25 KB   
+5/25 KB   
+8/25 KB   
+11/25 KB   
+13/25 KB   
+16/25 KB   
+19/25 KB   
+21/25 KB   
+24/25 KB   
+25/25 KB   
+           
+Downloaded: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-jar-plugin/2.5/maven-jar-plugin-2.5.jar (25 KB at 934.3 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/codehaus/mojo/build-helper-maven-plugin/1.8/build-helper-maven-plugin-1.8.pom
+3/7 KB     
+5/7 KB   
+7/7 KB   
+         
+Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/mojo/build-helper-maven-plugin/1.8/build-helper-maven-plugin-1.8.pom (7 KB at 343.1 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/codehaus/mojo/mojo-parent/30/mojo-parent-30.pom
+3/27 KB   
+5/27 KB   
+8/27 KB   
+11/27 KB   
+13/27 KB   
+16/27 KB   
+19/27 KB   
+21/27 KB   
+24/27 KB   
+27/27 KB   
+           
+Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/mojo/mojo-parent/30/mojo-parent-30.pom (27 KB at 1182.0 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/codehaus/mojo/build-helper-maven-plugin/1.8/build-helper-maven-plugin-1.8.jar
+3/42 KB    
+5/42 KB   
+8/42 KB   
+11/42 KB   
+13/42 KB   
+16/42 KB   
+19/42 KB   
+21/42 KB   
+24/42 KB   
+27/42 KB   
+29/42 KB   
+32/42 KB   
+36/42 KB   
+40/42 KB   
+42/42 KB   
+           
+Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/mojo/build-helper-maven-plugin/1.8/build-helper-maven-plugin-1.8.jar (42 KB at 1584.9 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/codehaus/mojo/animal-sniffer-maven-plugin/1.13/animal-sniffer-maven-plugin-1.13.pom
+4/5 KB     
+5/5 KB   
+         
+Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/mojo/animal-sniffer-maven-plugin/1.13/animal-sniffer-maven-plugin-1.13.pom (5 KB at 279.6 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/codehaus/mojo/animal-sniffer-parent/1.13/animal-sniffer-parent-1.13.pom
+3/5 KB   
+5/5 KB   
+         
+Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/mojo/animal-sniffer-parent/1.13/animal-sniffer-parent-1.13.pom (5 KB at 225.6 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/codehaus/mojo/animal-sniffer-maven-plugin/1.13/animal-sniffer-maven-plugin-1.13.jar
+3/31 KB   
+5/31 KB   
+8/31 KB   
+11/31 KB   
+13/31 KB   
+16/31 KB   
+19/31 KB   
+21/31 KB   
+24/31 KB   
+27/31 KB   
+29/31 KB   
+31/31 KB   
+           
+Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/mojo/animal-sniffer-maven-plugin/1.13/animal-sniffer-maven-plugin-1.13.jar (31 KB at 1313.8 KB/sec)
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
 [INFO] Building Apache Commons IO 2.5-SNAPSHOT
-[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] ------------------------------------------------------------------------
 [INFO] 
 [INFO] --- maven-clean-plugin:2.6.1:clean (default-clean) @ commons-io ---
 [INFO] Deleting /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target
@@ -746,7 +828,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.3:create (default) @ commons-io ---
 [INFO] Executing: /bin/sh -c cd /tmp/dspot-experiments/dataset/april-2019/commons-io_parent && svn --non-interactive info
 [INFO] Working directory: /tmp/dspot-experiments/dataset/april-2019/commons-io_parent
-[INFO] Storing buildNumber: ?????? at timestamp: 1556139541733
+[INFO] Storing buildNumber: ?????? at timestamp: 1557302618553
 [INFO] Executing: /bin/sh -c cd /tmp/dspot-experiments/dataset/april-2019/commons-io_parent && svn --non-interactive info
 [INFO] Working directory: /tmp/dspot-experiments/dataset/april-2019/commons-io_parent
 [INFO] Storing buildScmBranch: UNKNOWN_BRANCH
@@ -763,6 +845,106 @@ main:
 [INFO] --- maven-bundle-plugin:2.5.3:manifest (bundle-manifest) @ commons-io ---
 [INFO] 
 [INFO] --- animal-sniffer-maven-plugin:1.13:check (checkAPIcompatibility) @ commons-io ---
+Downloading: https://repo.maven.apache.org/maven2/org/codehaus/mojo/animal-sniffer/1.13/animal-sniffer-1.13.pom
+3/3 KB     
+3/3 KB   
+         
+Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/mojo/animal-sniffer/1.13/animal-sniffer-1.13.pom (3 KB at 76.7 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-all/4.0/asm-all-4.0.pom
+2/2 KB   
+         
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-all/4.0/asm-all-4.0.pom (2 KB at 120.2 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-parent/4.0/asm-parent-4.0.pom
+3/6 KB   
+5/6 KB   
+6/6 KB   
+         
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-parent/4.0/asm-parent-4.0.pom (6 KB at 357.6 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/codehaus/mojo/java-boot-classpath-detector/1.13/java-boot-classpath-detector-1.13.pom
+3/3 KB   
+3/3 KB   
+         
+Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/mojo/java-boot-classpath-detector/1.13/java-boot-classpath-detector-1.13.pom (3 KB at 148.8 KB/sec)
+Downloading: https://repo.maven.apache.org/maven2/org/codehaus/mojo/animal-sniffer/1.13/animal-sniffer-1.13.jar
+Downloading: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-all/4.0/asm-all-4.0.jar
+Downloading: https://repo.maven.apache.org/maven2/org/codehaus/mojo/java-boot-classpath-detector/1.13/java-boot-classpath-detector-1.13.jar
+3/32 KB   
+6/32 KB   
+9/32 KB   
+11/32 KB   
+14/32 KB   
+16/32 KB   
+19/32 KB   
+22/32 KB   
+25/32 KB   
+27/32 KB   
+30/32 KB   
+32/32 KB   
+3/208 KB   32/32 KB   
+5/208 KB   32/32 KB   
+8/208 KB   32/32 KB   
+11/208 KB   32/32 KB   
+13/208 KB   32/32 KB   
+3/5 KB   13/208 KB   32/32 KB   
+5/5 KB   13/208 KB   32/32 KB   
+                                
+Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/mojo/animal-sniffer/1.13/animal-sniffer-1.13.jar (32 KB at 1330.5 KB/sec)
+5/5 KB   16/208 KB              
+5/5 KB   19/208 KB   
+5/5 KB   21/208 KB   
+5/5 KB   24/208 KB   
+5/5 KB   27/208 KB   
+5/5 KB   29/208 KB   
+5/5 KB   32/208 KB   
+5/5 KB   36/208 KB   
+5/5 KB   40/208 KB   
+5/5 KB   44/208 KB   
+5/5 KB   48/208 KB   
+                     
+Downloaded: https://repo.maven.apache.org/maven2/org/codehaus/mojo/java-boot-classpath-detector/1.13/java-boot-classpath-detector-1.13.jar (5 KB at 147.3 KB/sec)
+52/208 KB            
+56/208 KB   
+60/208 KB   
+64/208 KB   
+68/208 KB   
+72/208 KB   
+76/208 KB   
+80/208 KB   
+84/208 KB   
+88/208 KB   
+92/208 KB   
+96/208 KB   
+100/208 KB   
+104/208 KB   
+108/208 KB   
+112/208 KB   
+116/208 KB   
+120/208 KB   
+124/208 KB   
+128/208 KB   
+132/208 KB   
+136/208 KB   
+140/208 KB   
+144/208 KB   
+148/208 KB   
+152/208 KB   
+156/208 KB   
+160/208 KB   
+164/208 KB   
+168/208 KB   
+172/208 KB   
+176/208 KB   
+180/208 KB   
+184/208 KB   
+188/208 KB   
+192/208 KB   
+196/208 KB   
+200/208 KB   
+204/208 KB   
+208/208 KB   
+208/208 KB   
+             
+Downloaded: https://repo.maven.apache.org/maven2/org/ow2/asm/asm-all/4.0/asm-all-4.0.jar (208 KB at 3645.3 KB/sec)
 [INFO] Checking unresolved references to org.codehaus.mojo.signature:java16:1.0
 [INFO] 
 [INFO] --- maven-resources-plugin:2.7:testResources (default-testResources) @ commons-io ---
@@ -782,79 +964,80 @@ main:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 8.891 s
-[INFO] Finished at: 2019-04-24T22:59:07+02:00
+[INFO] Total time: 5.912 s
+[INFO] Finished at: 2019-05-08T10:03:42+02:00
+[INFO] Final Memory: 39M/2312M
 [INFO] ------------------------------------------------------------------------
 [INFO] Amplification of org.apache.commons.io.FileSystemUtilsTestCase (9 test(s))
 [INFO] Assertion amplification of org.apache.commons.io.FileSystemUtilsTestCase (9 test(s))
 [DEBUG] Starting 15 Services...
-[DEBUG] All Services successfully started, 15 Services in 8ms
+[DEBUG] All Services successfully started, 15 Services in 5ms
 [DEBUG] Creating Cache 'frameworkCache' in EhcacheManager.
-[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@5a30722c
+[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@87f501f
 [DEBUG] Could not create serializers for frameworkCache
 org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for type 'eu.stamp_project.test_framework.TestFrameworkSupport'
-    at org.ehcache.impl.internal.spi.serialization.DefaultSerializationProvider.getSerializerClassFor (DefaultSerializationProvider.java:136)
-    at org.ehcache.impl.internal.spi.serialization.DefaultSerializationProvider.createSerializer (DefaultSerializationProvider.java:98)
-    at org.ehcache.impl.internal.spi.serialization.DefaultSerializationProvider.createValueSerializer (DefaultSerializationProvider.java:90)
-    at org.ehcache.core.EhcacheManager.getStore (EhcacheManager.java:478)
-    at org.ehcache.core.EhcacheManager.createNewEhcache (EhcacheManager.java:317)
-    at org.ehcache.core.EhcacheManager.createCache (EhcacheManager.java:266)
-    at org.ehcache.core.EhcacheManager.init (EhcacheManager.java:582)
-    at org.ehcache.config.builders.CacheManagerBuilder.build (CacheManagerBuilder.java:72)
-    at eu.stamp_project.utils.DSpotCache.<clinit> (DSpotCache.java:21)
-    at eu.stamp_project.test_framework.TestFramework.getTestFramework (TestFramework.java:128)
-    at eu.stamp_project.test_framework.TestFramework.isJUnit5 (TestFramework.java:67)
-    at eu.stamp_project.dspot.Amplification.amplification (Amplification.java:84)
-    at eu.stamp_project.dspot.DSpot._amplify (DSpot.java:273)
-    at eu.stamp_project.dspot.DSpot.lambda$amplifyTestClassesTestMethods$5 (DSpot.java:254)
-    at java.util.stream.ReferencePipeline$3$1.accept (ReferencePipeline.java:193)
-    at java.util.ArrayList$ArrayListSpliterator.forEachRemaining (ArrayList.java:1374)
-    at java.util.stream.AbstractPipeline.copyInto (AbstractPipeline.java:481)
-    at java.util.stream.AbstractPipeline.wrapAndCopyInto (AbstractPipeline.java:471)
-    at java.util.stream.ReduceOps$ReduceOp.evaluateSequential (ReduceOps.java:708)
-    at java.util.stream.AbstractPipeline.evaluate (AbstractPipeline.java:234)
-    at java.util.stream.ReferencePipeline.collect (ReferencePipeline.java:499)
-    at eu.stamp_project.dspot.DSpot.amplifyTestClassesTestMethods (DSpot.java:255)
-    at eu.stamp_project.Main.run (Main.java:65)
-    at eu.stamp_project.DSpotMojo.execute (DSpotMojo.java:306)
-    at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo (DefaultBuildPluginManager.java:137)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:208)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:154)
-    at org.apache.maven.lifecycle.internal.MojoExecutor.execute (MojoExecutor.java:146)
-    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:117)
-    at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject (LifecycleModuleBuilder.java:81)
-    at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build (SingleThreadedBuilder.java:56)
-    at org.apache.maven.lifecycle.internal.LifecycleStarter.execute (LifecycleStarter.java:128)
-    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:305)
-    at org.apache.maven.DefaultMaven.doExecute (DefaultMaven.java:192)
-    at org.apache.maven.DefaultMaven.execute (DefaultMaven.java:105)
-    at org.apache.maven.cli.MavenCli.execute (MavenCli.java:954)
-    at org.apache.maven.cli.MavenCli.doMain (MavenCli.java:288)
-    at org.apache.maven.cli.MavenCli.main (MavenCli.java:192)
-    at sun.reflect.NativeMethodAccessorImpl.invoke0 (Native Method)
-    at sun.reflect.NativeMethodAccessorImpl.invoke (NativeMethodAccessorImpl.java:62)
-    at sun.reflect.DelegatingMethodAccessorImpl.invoke (DelegatingMethodAccessorImpl.java:43)
-    at java.lang.reflect.Method.invoke (Method.java:498)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced (Launcher.java:289)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.launch (Launcher.java:229)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode (Launcher.java:415)
-    at org.codehaus.plexus.classworlds.launcher.Launcher.main (Launcher.java:356)
-[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@7d133fb7
-[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@40bd0f8
+	at org.ehcache.impl.internal.spi.serialization.DefaultSerializationProvider.getSerializerClassFor(DefaultSerializationProvider.java:136)
+	at org.ehcache.impl.internal.spi.serialization.DefaultSerializationProvider.createSerializer(DefaultSerializationProvider.java:98)
+	at org.ehcache.impl.internal.spi.serialization.DefaultSerializationProvider.createValueSerializer(DefaultSerializationProvider.java:90)
+	at org.ehcache.core.EhcacheManager.getStore(EhcacheManager.java:478)
+	at org.ehcache.core.EhcacheManager.createNewEhcache(EhcacheManager.java:317)
+	at org.ehcache.core.EhcacheManager.createCache(EhcacheManager.java:266)
+	at org.ehcache.core.EhcacheManager.init(EhcacheManager.java:582)
+	at org.ehcache.config.builders.CacheManagerBuilder.build(CacheManagerBuilder.java:72)
+	at eu.stamp_project.utils.DSpotCache.<clinit>(DSpotCache.java:21)
+	at eu.stamp_project.test_framework.TestFramework.getTestFramework(TestFramework.java:128)
+	at eu.stamp_project.test_framework.TestFramework.isJUnit5(TestFramework.java:67)
+	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:84)
+	at eu.stamp_project.dspot.DSpot._amplify(DSpot.java:273)
+	at eu.stamp_project.dspot.DSpot.lambda$amplifyTestClassesTestMethods$5(DSpot.java:254)
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1382)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:482)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at eu.stamp_project.dspot.DSpot.amplifyTestClassesTestMethods(DSpot.java:255)
+	at eu.stamp_project.Main.run(Main.java:65)
+	at eu.stamp_project.DSpotMojo.execute(DSpotMojo.java:305)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:134)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:207)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:116)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:80)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:307)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:193)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:106)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:863)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:288)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:199)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@4409cae6
+[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@14e750c5
 [DEBUG] Initialize successful.
 [INFO] Cache 'frameworkCache' created in EhcacheManager.
 [DEBUG] Initialize successful.
 [WARNING] You gave an empty filter. To use PIT, it is recommend to specify a filter, at least, the top package of your program, otherwise, PIT may take a long time or could not be run.
 [INFO] A new filter has been computed on the fly: org.apache.commons.io.*
 [INFO] Using /tmp/dspot-experiments/dataset/april-2019/commons-io/pom.xml to run maven.
-[INFO] Using /home/spirals/danglot/apache-maven-3.5.4 for maven home
-[INFO] run maven: /home/spirals/danglot/apache-maven-3.5.4/bin/mvn clean test -DskipTests
+[INFO] Using /usr/share/maven/ for maven home
+[INFO] run maven: /usr/share/maven//bin/mvn clean test -DskipTests
 [WARN] Maven will be executed in interactive mode, but no input stream has been configured for this MavenInvoker instance.
 [INFO] Scanning for projects...
-[INFO] 
-[INFO] -----------------------< commons-io:commons-io >------------------------
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
 [INFO] Building Apache Commons IO 2.5-SNAPSHOT
-[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] ------------------------------------------------------------------------
 [INFO] 
 [INFO] --- maven-clean-plugin:2.6.1:clean (default-clean) @ commons-io ---
 [INFO] Deleting /tmp/dspot-experiments/dataset/april-2019/commons-io/target
@@ -876,7 +1059,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.3:create (default) @ commons-io ---
 [INFO] Executing: /bin/sh -c cd /tmp/dspot-experiments/dataset/april-2019/commons-io && svn --non-interactive info
 [INFO] Working directory: /tmp/dspot-experiments/dataset/april-2019/commons-io
-[INFO] Storing buildNumber: ?????? at timestamp: 1556139558215
+[INFO] Storing buildNumber: ?????? at timestamp: 1557302628889
 [INFO] Executing: /bin/sh -c cd /tmp/dspot-experiments/dataset/april-2019/commons-io && svn --non-interactive info
 [INFO] Working directory: /tmp/dspot-experiments/dataset/april-2019/commons-io
 [INFO] Storing buildScmBranch: UNKNOWN_BRANCH
@@ -909,18 +1092,19 @@ main:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 8.318 s
-[INFO] Finished at: 2019-04-24T22:59:23+02:00
+[INFO] Total time: 4.804 s
+[INFO] Finished at: 2019-05-08T10:03:52+02:00
+[INFO] Final Memory: 31M/2152M
 [INFO] ------------------------------------------------------------------------
-[INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources/org/apache/commons/io/FileSystemUtilsTestCase.java
-[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.io.FileSystemUtilsTestCase --tests testGetFreeSpaceWindows_String_quoted:testGetFreeSpaceWindows_String_ParseCommaFormatBytes:testGetFreeSpaceWindows_String_InvalidTextResponse:testGetFreeSpaceWindows_String_StripDrive:testGetFreeSpaceWindows_String_EmptyPath:testGetFreeSpaceWindows_String_NormalResponse:testGetFreeSpaceWindows_String_EmptyMultiLineResponse:testGetFreeSpaceWindows_String_NoSuchDirectoryResponse:testGetFreeSpaceWindows_String_EmptyResponse 
+[INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources/org/apache/commons/io/FileSystemUtilsTestCase.java
+[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/:/home/bedanglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.io.FileSystemUtilsTestCase --tests testGetFreeSpaceWindows_String_quoted:testGetFreeSpaceWindows_String_ParseCommaFormatBytes:testGetFreeSpaceWindows_String_InvalidTextResponse:testGetFreeSpaceWindows_String_StripDrive:testGetFreeSpaceWindows_String_EmptyPath:testGetFreeSpaceWindows_String_NormalResponse:testGetFreeSpaceWindows_String_EmptyMultiLineResponse:testGetFreeSpaceWindows_String_NoSuchDirectoryResponse:testGetFreeSpaceWindows_String_EmptyResponse 
 Parsing --class org.apache.commons.io.FileSystemUtilsTestCase --tests testGetFreeSpaceWindows_String_quoted:testGetFreeSpaceWindows_String_ParseCommaFormatBytes:testGetFreeSpaceWindows_String_InvalidTextResponse:testGetFreeSpaceWindows_String_StripDrive:testGetFreeSpaceWindows_String_EmptyPath:testGetFreeSpaceWindows_String_NormalResponse:testGetFreeSpaceWindows_String_EmptyMultiLineResponse:testGetFreeSpaceWindows_String_NoSuchDirectoryResponse:testGetFreeSpaceWindows_String_EmptyResponse
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/TestResult.ser
 [INFO] Test has been run: testGetFreeSpaceWindows_String_EmptyMultiLineResponse,testGetFreeSpaceWindows_String_StripDrive,testGetFreeSpaceWindows_String_EmptyResponse,testGetFreeSpaceWindows_String_NoSuchDirectoryResponse,testGetFreeSpaceWindows_String_EmptyPath,testGetFreeSpaceWindows_String_InvalidTextResponse,testGetFreeSpaceWindows_String_ParseCommaFormatBytes,testGetFreeSpaceWindows_String_quoted,testGetFreeSpaceWindows_String_NormalResponse
 [INFO] Run tests. (9)
-[INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources/org/apache/commons/io/FileSystemUtilsTestCase.java
-[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.io.FileSystemUtilsTestCase --tests testGetFreeSpaceWindows_String_quoted:testGetFreeSpaceWindows_String_ParseCommaFormatBytes:testGetFreeSpaceWindows_String_InvalidTextResponse:testGetFreeSpaceWindows_String_StripDrive:testGetFreeSpaceWindows_String_EmptyPath:testGetFreeSpaceWindows_String_NormalResponse:testGetFreeSpaceWindows_String_EmptyMultiLineResponse:testGetFreeSpaceWindows_String_NoSuchDirectoryResponse:testGetFreeSpaceWindows_String_EmptyResponse 
+[INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources/org/apache/commons/io/FileSystemUtilsTestCase.java
+[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/:/home/bedanglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.io.FileSystemUtilsTestCase --tests testGetFreeSpaceWindows_String_quoted:testGetFreeSpaceWindows_String_ParseCommaFormatBytes:testGetFreeSpaceWindows_String_InvalidTextResponse:testGetFreeSpaceWindows_String_StripDrive:testGetFreeSpaceWindows_String_EmptyPath:testGetFreeSpaceWindows_String_NormalResponse:testGetFreeSpaceWindows_String_EmptyMultiLineResponse:testGetFreeSpaceWindows_String_NoSuchDirectoryResponse:testGetFreeSpaceWindows_String_EmptyResponse 
 Parsing --class org.apache.commons.io.FileSystemUtilsTestCase --tests testGetFreeSpaceWindows_String_quoted:testGetFreeSpaceWindows_String_ParseCommaFormatBytes:testGetFreeSpaceWindows_String_InvalidTextResponse:testGetFreeSpaceWindows_String_StripDrive:testGetFreeSpaceWindows_String_EmptyPath:testGetFreeSpaceWindows_String_NormalResponse:testGetFreeSpaceWindows_String_EmptyMultiLineResponse:testGetFreeSpaceWindows_String_NoSuchDirectoryResponse:testGetFreeSpaceWindows_String_EmptyResponse
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/TestResult.ser
@@ -930,8 +1114,8 @@ Loading /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot
 [INFO] Instrumentation...
  20% |========== ]/ 40% |==================== ]- 60% |============================== ]\ 80% |======================================== ]|100% |================================================== ]/
 [INFO] Run instrumented tests. (15)
-[INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources/org/apache/commons/io/FileSystemUtilsTestCase.java
-[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.io.FileSystemUtilsTestCase --tests testGetFreeSpaceWindows_String_quoted_withlog0:testGetFreeSpaceWindows_String_ParseCommaFormatBytes_withlog0:testGetFreeSpaceWindows_String_StripDrive_withlog0:testGetFreeSpaceWindows_String_EmptyPath_withlog0:testGetFreeSpaceWindows_String_NormalResponse_withlog0:testGetFreeSpaceWindows_String_quoted_withlog1:testGetFreeSpaceWindows_String_ParseCommaFormatBytes_withlog1:testGetFreeSpaceWindows_String_StripDrive_withlog1:testGetFreeSpaceWindows_String_EmptyPath_withlog1:testGetFreeSpaceWindows_String_NormalResponse_withlog1:testGetFreeSpaceWindows_String_quoted_withlog2:testGetFreeSpaceWindows_String_ParseCommaFormatBytes_withlog2:testGetFreeSpaceWindows_String_StripDrive_withlog2:testGetFreeSpaceWindows_String_EmptyPath_withlog2:testGetFreeSpaceWindows_String_NormalResponse_withlog2 
+[INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources/org/apache/commons/io/FileSystemUtilsTestCase.java
+[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/:/home/bedanglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.io.FileSystemUtilsTestCase --tests testGetFreeSpaceWindows_String_quoted_withlog0:testGetFreeSpaceWindows_String_ParseCommaFormatBytes_withlog0:testGetFreeSpaceWindows_String_StripDrive_withlog0:testGetFreeSpaceWindows_String_EmptyPath_withlog0:testGetFreeSpaceWindows_String_NormalResponse_withlog0:testGetFreeSpaceWindows_String_quoted_withlog1:testGetFreeSpaceWindows_String_ParseCommaFormatBytes_withlog1:testGetFreeSpaceWindows_String_StripDrive_withlog1:testGetFreeSpaceWindows_String_EmptyPath_withlog1:testGetFreeSpaceWindows_String_NormalResponse_withlog1:testGetFreeSpaceWindows_String_quoted_withlog2:testGetFreeSpaceWindows_String_ParseCommaFormatBytes_withlog2:testGetFreeSpaceWindows_String_StripDrive_withlog2:testGetFreeSpaceWindows_String_EmptyPath_withlog2:testGetFreeSpaceWindows_String_NormalResponse_withlog2 
 Parsing --class org.apache.commons.io.FileSystemUtilsTestCase --tests testGetFreeSpaceWindows_String_quoted_withlog0:testGetFreeSpaceWindows_String_ParseCommaFormatBytes_withlog0:testGetFreeSpaceWindows_String_StripDrive_withlog0:testGetFreeSpaceWindows_String_EmptyPath_withlog0:testGetFreeSpaceWindows_String_NormalResponse_withlog0:testGetFreeSpaceWindows_String_quoted_withlog1:testGetFreeSpaceWindows_String_ParseCommaFormatBytes_withlog1:testGetFreeSpaceWindows_String_StripDrive_withlog1:testGetFreeSpaceWindows_String_EmptyPath_withlog1:testGetFreeSpaceWindows_String_NormalResponse_withlog1:testGetFreeSpaceWindows_String_quoted_withlog2:testGetFreeSpaceWindows_String_ParseCommaFormatBytes_withlog2:testGetFreeSpaceWindows_String_StripDrive_withlog2:testGetFreeSpaceWindows_String_EmptyPath_withlog2:testGetFreeSpaceWindows_String_NormalResponse_withlog2
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/observations.ser
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/TestResult.ser
@@ -941,37 +1125,37 @@ Loading /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot
 [INFO] Generating assertions...
 [INFO] 4 test fail, generating try/catch/fail blocks...
 [INFO] 9 new tests with assertions generated
-[INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources/org/apache/commons/io/FileSystemUtilsTestCase.java
-[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.io.FileSystemUtilsTestCase --tests testGetFreeSpaceWindows_String_quoted:testGetFreeSpaceWindows_String_ParseCommaFormatBytes:testGetFreeSpaceWindows_String_StripDrive:testGetFreeSpaceWindows_String_EmptyPath:testGetFreeSpaceWindows_String_NormalResponse:testGetFreeSpaceWindows_String_InvalidTextResponse_failAssert0:testGetFreeSpaceWindows_String_EmptyMultiLineResponse_failAssert0:testGetFreeSpaceWindows_String_NoSuchDirectoryResponse_failAssert0:testGetFreeSpaceWindows_String_EmptyResponse_failAssert0 
+[INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources/org/apache/commons/io/FileSystemUtilsTestCase.java
+[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/:/home/bedanglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.io.FileSystemUtilsTestCase --tests testGetFreeSpaceWindows_String_quoted:testGetFreeSpaceWindows_String_ParseCommaFormatBytes:testGetFreeSpaceWindows_String_StripDrive:testGetFreeSpaceWindows_String_EmptyPath:testGetFreeSpaceWindows_String_NormalResponse:testGetFreeSpaceWindows_String_InvalidTextResponse_failAssert0:testGetFreeSpaceWindows_String_EmptyMultiLineResponse_failAssert0:testGetFreeSpaceWindows_String_NoSuchDirectoryResponse_failAssert0:testGetFreeSpaceWindows_String_EmptyResponse_failAssert0 
 Parsing --class org.apache.commons.io.FileSystemUtilsTestCase --tests testGetFreeSpaceWindows_String_quoted:testGetFreeSpaceWindows_String_ParseCommaFormatBytes:testGetFreeSpaceWindows_String_StripDrive:testGetFreeSpaceWindows_String_EmptyPath:testGetFreeSpaceWindows_String_NormalResponse:testGetFreeSpaceWindows_String_InvalidTextResponse_failAssert0:testGetFreeSpaceWindows_String_EmptyMultiLineResponse_failAssert0:testGetFreeSpaceWindows_String_NoSuchDirectoryResponse_failAssert0:testGetFreeSpaceWindows_String_EmptyResponse_failAssert0
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/TestResult.ser
 [INFO] Test has been run: testGetFreeSpaceWindows_String_NoSuchDirectoryResponse_failAssert0,testGetFreeSpaceWindows_String_InvalidTextResponse_failAssert0,testGetFreeSpaceWindows_String_StripDrive,testGetFreeSpaceWindows_String_EmptyMultiLineResponse_failAssert0,testGetFreeSpaceWindows_String_EmptyResponse_failAssert0,testGetFreeSpaceWindows_String_EmptyPath,testGetFreeSpaceWindows_String_ParseCommaFormatBytes,testGetFreeSpaceWindows_String_quoted,testGetFreeSpaceWindows_String_NormalResponse
 [INFO] Assertion amplification: 9 test method(s) has been successfully amplified.
-[WARN] 2019-04-24 22:59:27 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-24 22:59:27 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-24 22:59:27 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-io/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io/target/test-classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.io.FileSystemUtilsTestCase --tests testGetFreeSpaceWindows_String_quoted:testGetFreeSpaceWindows_String_ParseCommaFormatBytes:testGetFreeSpaceWindows_String_StripDrive:testGetFreeSpaceWindows_String_EmptyPath:testGetFreeSpaceWindows_String_NormalResponse:testGetFreeSpaceWindows_String_InvalidTextResponse_failAssert0:testGetFreeSpaceWindows_String_EmptyMultiLineResponse_failAssert0:testGetFreeSpaceWindows_String_NoSuchDirectoryResponse_failAssert0:testGetFreeSpaceWindows_String_EmptyResponse_failAssert0 
+[WARN] 2019-05-08 10:03:54 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-05-08 10:03:54 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-05-08 10:03:54 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-io/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io/target/test-classes/:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io/target/dspot/dependencies/:/home/bedanglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.io.FileSystemUtilsTestCase --tests testGetFreeSpaceWindows_String_quoted:testGetFreeSpaceWindows_String_ParseCommaFormatBytes:testGetFreeSpaceWindows_String_StripDrive:testGetFreeSpaceWindows_String_EmptyPath:testGetFreeSpaceWindows_String_NormalResponse:testGetFreeSpaceWindows_String_InvalidTextResponse_failAssert0:testGetFreeSpaceWindows_String_EmptyMultiLineResponse_failAssert0:testGetFreeSpaceWindows_String_NoSuchDirectoryResponse_failAssert0:testGetFreeSpaceWindows_String_EmptyResponse_failAssert0 
 Parsing --class org.apache.commons.io.FileSystemUtilsTestCase --tests testGetFreeSpaceWindows_String_quoted:testGetFreeSpaceWindows_String_ParseCommaFormatBytes:testGetFreeSpaceWindows_String_StripDrive:testGetFreeSpaceWindows_String_EmptyPath:testGetFreeSpaceWindows_String_NormalResponse:testGetFreeSpaceWindows_String_InvalidTextResponse_failAssert0:testGetFreeSpaceWindows_String_EmptyMultiLineResponse_failAssert0:testGetFreeSpaceWindows_String_NoSuchDirectoryResponse_failAssert0:testGetFreeSpaceWindows_String_EmptyResponse_failAssert0
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/TestResult.ser
 [INFO] Test has been run: testGetFreeSpaceWindows_String_NoSuchDirectoryResponse_failAssert0,testGetFreeSpaceWindows_String_InvalidTextResponse_failAssert0,testGetFreeSpaceWindows_String_StripDrive,testGetFreeSpaceWindows_String_EmptyMultiLineResponse_failAssert0,testGetFreeSpaceWindows_String_EmptyResponse_failAssert0,testGetFreeSpaceWindows_String_EmptyPath,testGetFreeSpaceWindows_String_ParseCommaFormatBytes,testGetFreeSpaceWindows_String_quoted,testGetFreeSpaceWindows_String_NormalResponse
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 15452
+[INFO] elapsedTime 8790
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
 [INFO] Amplification of org.apache.commons.io.FilenameUtilsTestCase (16 test(s))
 [INFO] Assertion amplification of org.apache.commons.io.FilenameUtilsTestCase (16 test(s))
 [INFO] Using /tmp/dspot-experiments/dataset/april-2019/commons-io/pom.xml to run maven.
-[INFO] Using /home/spirals/danglot/apache-maven-3.5.4 for maven home
-[INFO] run maven: /home/spirals/danglot/apache-maven-3.5.4/bin/mvn clean test -DskipTests
+[INFO] Using /usr/share/maven/ for maven home
+[INFO] run maven: /usr/share/maven//bin/mvn clean test -DskipTests
 [WARN] Maven will be executed in interactive mode, but no input stream has been configured for this MavenInvoker instance.
 [INFO] Scanning for projects...
-[INFO] 
-[INFO] -----------------------< commons-io:commons-io >------------------------
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
 [INFO] Building Apache Commons IO 2.5-SNAPSHOT
-[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] ------------------------------------------------------------------------
 [INFO] 
 [INFO] --- maven-clean-plugin:2.6.1:clean (default-clean) @ commons-io ---
 [INFO] Deleting /tmp/dspot-experiments/dataset/april-2019/commons-io/target
@@ -993,7 +1177,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.3:create (default) @ commons-io ---
 [INFO] Executing: /bin/sh -c cd /tmp/dspot-experiments/dataset/april-2019/commons-io && svn --non-interactive info
 [INFO] Working directory: /tmp/dspot-experiments/dataset/april-2019/commons-io
-[INFO] Storing buildNumber: ?????? at timestamp: 1556139573470
+[INFO] Storing buildNumber: ?????? at timestamp: 1557302637666
 [INFO] Executing: /bin/sh -c cd /tmp/dspot-experiments/dataset/april-2019/commons-io && svn --non-interactive info
 [INFO] Working directory: /tmp/dspot-experiments/dataset/april-2019/commons-io
 [INFO] Storing buildScmBranch: UNKNOWN_BRANCH
@@ -1026,18 +1210,19 @@ main:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 8.412 s
-[INFO] Finished at: 2019-04-24T22:59:39+02:00
+[INFO] Total time: 4.911 s
+[INFO] Finished at: 2019-05-08T10:04:00+02:00
+[INFO] Final Memory: 31M/2129M
 [INFO] ------------------------------------------------------------------------
-[INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources/org/apache/commons/io/FilenameUtilsTestCase.java
-[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.io.FilenameUtilsTestCase --tests testGetPrefix:testNormalizeNoEndSeparatorUnixWin:testConcat:testEqualsNormalized:testEqualsNormalizedOnSystem:testGetFullPath:testNormalizeNoEndSeparator:testEquals_fullControl:testGetPathNoEndSeparator:testGetBaseName:testNormalizeUnixWin:testGetName:testGetPath:testEqualsNormalizedError_IO_128:testNormalize:testRemoveExtension 
+[INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources/org/apache/commons/io/FilenameUtilsTestCase.java
+[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/:/home/bedanglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.io.FilenameUtilsTestCase --tests testGetPrefix:testNormalizeNoEndSeparatorUnixWin:testConcat:testEqualsNormalized:testEqualsNormalizedOnSystem:testGetFullPath:testNormalizeNoEndSeparator:testEquals_fullControl:testGetPathNoEndSeparator:testGetBaseName:testNormalizeUnixWin:testGetName:testGetPath:testEqualsNormalizedError_IO_128:testNormalize:testRemoveExtension 
 Parsing --class org.apache.commons.io.FilenameUtilsTestCase --tests testGetPrefix:testNormalizeNoEndSeparatorUnixWin:testConcat:testEqualsNormalized:testEqualsNormalizedOnSystem:testGetFullPath:testNormalizeNoEndSeparator:testEquals_fullControl:testGetPathNoEndSeparator:testGetBaseName:testNormalizeUnixWin:testGetName:testGetPath:testEqualsNormalizedError_IO_128:testNormalize:testRemoveExtension
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/TestResult.ser
 [INFO] Test has been run: testGetFullPath,testNormalizeUnixWin,testNormalizeNoEndSeparatorUnixWin,testGetName,testGetPath,testEqualsNormalizedError_IO_128,testNormalizeNoEndSeparator,testGetBaseName,testGetPathNoEndSeparator,testEqualsNormalizedOnSystem,testEquals_fullControl,testNormalize,testConcat,testRemoveExtension,testEqualsNormalized,testGetPrefix
 [INFO] Run tests. (16)
-[INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources/org/apache/commons/io/FilenameUtilsTestCase.java
-[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.io.FilenameUtilsTestCase --tests testGetPrefix:testNormalizeNoEndSeparatorUnixWin:testConcat:testEqualsNormalized:testEqualsNormalizedOnSystem:testGetFullPath:testNormalizeNoEndSeparator:testEquals_fullControl:testGetPathNoEndSeparator:testGetBaseName:testNormalizeUnixWin:testGetName:testGetPath:testEqualsNormalizedError_IO_128:testNormalize:testRemoveExtension 
+[INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources/org/apache/commons/io/FilenameUtilsTestCase.java
+[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/:/home/bedanglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.io.FilenameUtilsTestCase --tests testGetPrefix:testNormalizeNoEndSeparatorUnixWin:testConcat:testEqualsNormalized:testEqualsNormalizedOnSystem:testGetFullPath:testNormalizeNoEndSeparator:testEquals_fullControl:testGetPathNoEndSeparator:testGetBaseName:testNormalizeUnixWin:testGetName:testGetPath:testEqualsNormalizedError_IO_128:testNormalize:testRemoveExtension 
 Parsing --class org.apache.commons.io.FilenameUtilsTestCase --tests testGetPrefix:testNormalizeNoEndSeparatorUnixWin:testConcat:testEqualsNormalized:testEqualsNormalizedOnSystem:testGetFullPath:testNormalizeNoEndSeparator:testEquals_fullControl:testGetPathNoEndSeparator:testGetBaseName:testNormalizeUnixWin:testGetName:testGetPath:testEqualsNormalizedError_IO_128:testNormalize:testRemoveExtension
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/TestResult.ser
@@ -1047,8 +1232,8 @@ Loading /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot
 [INFO] Instrumentation...
   6% |=== ]/ 13% |====== ]- 20% |========== ]\ 26% |============= ]| 33% |================ ]/ 40% |==================== ]- 46% |======================= ]\ 53% |========================== ]| 60% |============================== ]/ 66% |================================= ]- 73% |==================================== ]\ 80% |======================================== ]| 86% |=========================================== ]/ 93% |============================================== ]-100% |================================================== ]\
 [INFO] Run instrumented tests. (45)
-[INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources/org/apache/commons/io/FilenameUtilsTestCase.java
-[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.io.FilenameUtilsTestCase --tests testGetPrefix_withlog0:testNormalizeNoEndSeparatorUnixWin_withlog0:testConcat_withlog0:testEqualsNormalized_withlog0:testEqualsNormalizedOnSystem_withlog0:testGetFullPath_withlog0:testNormalizeNoEndSeparator_withlog0:testEquals_fullControl_withlog0:testGetPathNoEndSeparator_withlog0:testGetBaseName_withlog0:testNormalizeUnixWin_withlog0:testGetName_withlog0:testGetPath_withlog0:testNormalize_withlog0:testRemoveExtension_withlog0:testGetPrefix_withlog1:testNormalizeNoEndSeparatorUnixWin_withlog1:testConcat_withlog1:testEqualsNormalized_withlog1:testEqualsNormalizedOnSystem_withlog1:testGetFullPath_withlog1:testNormalizeNoEndSeparator_withlog1:testEquals_fullControl_withlog1:testGetPathNoEndSeparator_withlog1:testGetBaseName_withlog1:testNormalizeUnixWin_withlog1:testGetName_withlog1:testGetPath_withlog1:testNormalize_withlog1:testRemoveExtension_withlog1:testGetPrefix_withlog2:testNormalizeNoEndSeparatorUnixWin_withlog2:testConcat_withlog2:testEqualsNormalized_withlog2:testEqualsNormalizedOnSystem_withlog2:testGetFullPath_withlog2:testNormalizeNoEndSeparator_withlog2:testEquals_fullControl_withlog2:testGetPathNoEndSeparator_withlog2:testGetBaseName_withlog2:testNormalizeUnixWin_withlog2:testGetName_withlog2:testGetPath_withlog2:testNormalize_withlog2:testRemoveExtension_withlog2 
+[INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources/org/apache/commons/io/FilenameUtilsTestCase.java
+[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/:/home/bedanglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.io.FilenameUtilsTestCase --tests testGetPrefix_withlog0:testNormalizeNoEndSeparatorUnixWin_withlog0:testConcat_withlog0:testEqualsNormalized_withlog0:testEqualsNormalizedOnSystem_withlog0:testGetFullPath_withlog0:testNormalizeNoEndSeparator_withlog0:testEquals_fullControl_withlog0:testGetPathNoEndSeparator_withlog0:testGetBaseName_withlog0:testNormalizeUnixWin_withlog0:testGetName_withlog0:testGetPath_withlog0:testNormalize_withlog0:testRemoveExtension_withlog0:testGetPrefix_withlog1:testNormalizeNoEndSeparatorUnixWin_withlog1:testConcat_withlog1:testEqualsNormalized_withlog1:testEqualsNormalizedOnSystem_withlog1:testGetFullPath_withlog1:testNormalizeNoEndSeparator_withlog1:testEquals_fullControl_withlog1:testGetPathNoEndSeparator_withlog1:testGetBaseName_withlog1:testNormalizeUnixWin_withlog1:testGetName_withlog1:testGetPath_withlog1:testNormalize_withlog1:testRemoveExtension_withlog1:testGetPrefix_withlog2:testNormalizeNoEndSeparatorUnixWin_withlog2:testConcat_withlog2:testEqualsNormalized_withlog2:testEqualsNormalizedOnSystem_withlog2:testGetFullPath_withlog2:testNormalizeNoEndSeparator_withlog2:testEquals_fullControl_withlog2:testGetPathNoEndSeparator_withlog2:testGetBaseName_withlog2:testNormalizeUnixWin_withlog2:testGetName_withlog2:testGetPath_withlog2:testNormalize_withlog2:testRemoveExtension_withlog2 
 Parsing --class org.apache.commons.io.FilenameUtilsTestCase --tests testGetPrefix_withlog0:testNormalizeNoEndSeparatorUnixWin_withlog0:testConcat_withlog0:testEqualsNormalized_withlog0:testEqualsNormalizedOnSystem_withlog0:testGetFullPath_withlog0:testNormalizeNoEndSeparator_withlog0:testEquals_fullControl_withlog0:testGetPathNoEndSeparator_withlog0:testGetBaseName_withlog0:testNormalizeUnixWin_withlog0:testGetName_withlog0:testGetPath_withlog0:testNormalize_withlog0:testRemoveExtension_withlog0:testGetPrefix_withlog1:testNormalizeNoEndSeparatorUnixWin_withlog1:testConcat_withlog1:testEqualsNormalized_withlog1:testEqualsNormalizedOnSystem_withlog1:testGetFullPath_withlog1:testNormalizeNoEndSeparator_withlog1:testEquals_fullControl_withlog1:testGetPathNoEndSeparator_withlog1:testGetBaseName_withlog1:testNormalizeUnixWin_withlog1:testGetName_withlog1:testGetPath_withlog1:testNormalize_withlog1:testRemoveExtension_withlog1:testGetPrefix_withlog2:testNormalizeNoEndSeparatorUnixWin_withlog2:testConcat_withlog2:testEqualsNormalized_withlog2:testEqualsNormalizedOnSystem_withlog2:testGetFullPath_withlog2:testNormalizeNoEndSeparator_withlog2:testEquals_fullControl_withlog2:testGetPathNoEndSeparator_withlog2:testGetBaseName_withlog2:testNormalizeUnixWin_withlog2:testGetName_withlog2:testGetPath_withlog2:testNormalize_withlog2:testRemoveExtension_withlog2
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/observations.ser
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/TestResult.ser
@@ -1058,29 +1243,29 @@ Loading /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot
 [INFO] Generating assertions...
 [INFO] 1 test fail, generating try/catch/fail blocks...
 [INFO] 16 new tests with assertions generated
-[INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources/org/apache/commons/io/FilenameUtilsTestCase.java
-[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.io.FilenameUtilsTestCase --tests testGetPrefix:testNormalizeNoEndSeparatorUnixWin:testConcat:testEqualsNormalized:testEqualsNormalizedOnSystem:testGetFullPath:testNormalizeNoEndSeparator:testEquals_fullControl:testGetPathNoEndSeparator:testGetBaseName:testNormalizeUnixWin:testGetName:testGetPath:testNormalize:testRemoveExtension:testEqualsNormalizedError_IO_128_failAssert0 
+[INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/tmp_test_sources/org/apache/commons/io/FilenameUtilsTestCase.java
+[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies/:/home/bedanglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.io.FilenameUtilsTestCase --tests testGetPrefix:testNormalizeNoEndSeparatorUnixWin:testConcat:testEqualsNormalized:testEqualsNormalizedOnSystem:testGetFullPath:testNormalizeNoEndSeparator:testEquals_fullControl:testGetPathNoEndSeparator:testGetBaseName:testNormalizeUnixWin:testGetName:testGetPath:testNormalize:testRemoveExtension:testEqualsNormalizedError_IO_128_failAssert0 
 Parsing --class org.apache.commons.io.FilenameUtilsTestCase --tests testGetPrefix:testNormalizeNoEndSeparatorUnixWin:testConcat:testEqualsNormalized:testEqualsNormalizedOnSystem:testGetFullPath:testNormalizeNoEndSeparator:testEquals_fullControl:testGetPathNoEndSeparator:testGetBaseName:testNormalizeUnixWin:testGetName:testGetPath:testNormalize:testRemoveExtension:testEqualsNormalizedError_IO_128_failAssert0
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/TestResult.ser
 [INFO] Test has been run: testEqualsNormalizedError_IO_128_failAssert0,testGetFullPath,testNormalizeUnixWin,testNormalizeNoEndSeparatorUnixWin,testGetName,testGetPath,testNormalizeNoEndSeparator,testGetBaseName,testGetPathNoEndSeparator,testEqualsNormalizedOnSystem,testEquals_fullControl,testNormalize,testConcat,testRemoveExtension,testEqualsNormalized,testGetPrefix
 [INFO] Assertion amplification: 16 test method(s) has been successfully amplified.
-[WARN] 2019-04-24 22:59:57 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-24 22:59:57 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-24 22:59:57 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-io/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io/target/test-classes/:/home/spirals/danglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/spirals/danglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io/target/dspot/dependencies/:/home/spirals/danglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.io.FilenameUtilsTestCase --tests testGetPrefix:testNormalizeNoEndSeparatorUnixWin:testConcat:testEqualsNormalized:testEqualsNormalizedOnSystem:testGetFullPath:testNormalizeNoEndSeparator:testEquals_fullControl:testGetPathNoEndSeparator:testGetBaseName:testNormalizeUnixWin:testGetName:testGetPath:testNormalize:testRemoveExtension:testEqualsNormalizedError_IO_128_failAssert0 
+[WARN] 2019-05-08 10:04:13 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-05-08 10:04:13 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-05-08 10:04:13 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/commons-io/target/classes/:/tmp/dspot-experiments/dataset/april-2019/commons-io/target/test-classes/:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/commons-io/target/dspot/dependencies/:/home/bedanglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class org.apache.commons.io.FilenameUtilsTestCase --tests testGetPrefix:testNormalizeNoEndSeparatorUnixWin:testConcat:testEqualsNormalized:testEqualsNormalizedOnSystem:testGetFullPath:testNormalizeNoEndSeparator:testEquals_fullControl:testGetPathNoEndSeparator:testGetBaseName:testNormalizeUnixWin:testGetName:testGetPath:testNormalize:testRemoveExtension:testEqualsNormalizedError_IO_128_failAssert0 
 Parsing --class org.apache.commons.io.FilenameUtilsTestCase --tests testGetPrefix:testNormalizeNoEndSeparatorUnixWin:testConcat:testEqualsNormalized:testEqualsNormalizedOnSystem:testGetFullPath:testNormalizeNoEndSeparator:testEquals_fullControl:testGetPathNoEndSeparator:testGetBaseName:testNormalizeUnixWin:testGetName:testGetPath:testNormalize:testRemoveExtension:testEqualsNormalizedError_IO_128_failAssert0
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/TestResult.ser
 [INFO] Test has been run: testEqualsNormalizedError_IO_128_failAssert0,testGetFullPath,testNormalizeUnixWin,testNormalizeNoEndSeparatorUnixWin,testNormalizeNoEndSeparator,testEqualsNormalizedOnSystem,testEquals_fullControl,testConcat,testRemoveExtension,testEqualsNormalized,testGetName(org.apache.commons.io.FilenameUtilsTestCase): Null byte present in file/path name. There are no known legitimate use cases for such data, but several injection attacks may use it,testGetPath(org.apache.commons.io.FilenameUtilsTestCase): Null byte present in file/path name. There are no known legitimate use cases for such data, but several injection attacks may use it,testGetBaseName(org.apache.commons.io.FilenameUtilsTestCase): Null byte present in file/path name. There are no known legitimate use cases for such data, but several injection attacks may use it,testGetPathNoEndSeparator(org.apache.commons.io.FilenameUtilsTestCase): Null byte present in file/path name. There are no known legitimate use cases for such data, but several injection attacks may use it,testNormalize(org.apache.commons.io.FilenameUtilsTestCase): Null byte present in file/path name. There are no known legitimate use cases for such data, but several injection attacks may use it,testGetPrefix(org.apache.commons.io.FilenameUtilsTestCase): Null byte present in file/path name. There are no known legitimate use cases for such data, but several injection attacks may use it
 [INFO] 6 amplified test methods has been selected to be kept. (global: 6)
-[INFO] elapsedTime 31773
+[INFO] elapsedTime 20490
 [DEBUG] OPTIMIZATION: GC invoked
-[WARN] 2019-04-24 23:00:02 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-24 23:00:02 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-24 23:00:02 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-05-08 10:04:16 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-05-08 10:04:16 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-05-08 10:04:16 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/commons-io_parent/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
 [INFO] Amplification succeed.
-[INFO] Elapsed time 51551 ms
+[INFO] Elapsed time 31734 ms
 [INFO] 
 0 amplified test fails on the new versions.
 6 amplified test fails on the new versions.
@@ -1263,6 +1448,7 @@ java.lang.IllegalArgumentException: Null byte present in file/path name. There a
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 01:09 min
-[INFO] Finished at: 2019-04-24T23:00:03+02:00
+[INFO] Total time: 43.359 s
+[INFO] Finished at: 2019-05-08T10:04:17+02:00
+[INFO] Final Memory: 125M/4396M
 [INFO] ------------------------------------------------------------------------
