@@ -25,10 +25,10 @@ public class AmplBoundedReaderTest {
         Assert.assertEquals(3, ((int) (o_readMulti_add30__9)));
         final int read = mr.read(cbuf, 0, 4);
         Assert.assertEquals(0, ((int) (read)));
-        char char_124 = cbuf[0];
-        char char_125 = cbuf[1];
-        char char_126 = cbuf[2];
-        char char_127 = cbuf[3];
+        char char_112 = cbuf[0];
+        char char_113 = cbuf[1];
+        char char_114 = cbuf[2];
+        char char_115 = cbuf[3];
         mr.close();
         Assert.assertEquals(3, ((int) (o_readMulti_add30__9)));
         Assert.assertEquals(0, ((int) (read)));
@@ -43,10 +43,10 @@ public class AmplBoundedReaderTest {
         }
         final int read = mr.read(cbuf, 0, 4);
         Assert.assertEquals(0, ((int) (read)));
-        char char_40 = cbuf[0];
-        char char_41 = cbuf[1];
-        char char_42 = cbuf[2];
-        char char_43 = cbuf[3];
+        char char_44 = cbuf[0];
+        char char_45 = cbuf[1];
+        char char_46 = cbuf[2];
+        char char_47 = cbuf[3];
         mr.close();
         Assert.assertEquals(0, ((int) (read)));
     }
