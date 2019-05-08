@@ -116,7 +116,7 @@ public class AmplConnectTest {
     }
 
     @Test(timeout = 10000)
-    public void postFiles_literalMutationString804_failAssert0() throws IOException {
+    public void postFiles_literalMutationString798_failAssert0() throws IOException {
         try {
             File thumb = ParseTest.getFile("/htmltests/thumb.jpg");
             File html = ParseTest.getFile("");
@@ -131,14 +131,14 @@ public class AmplConnectTest {
             AmplConnectTest.ihVal("Part firstPart Filename", res);
             AmplConnectTest.ihVal("Part firstPart Size", res);
 
-            org.junit.Assert.fail("postFiles_literalMutationString804 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("postFiles_literalMutationString798 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void postFiles_literalMutationString798_failAssert0() throws IOException {
+    public void postFiles_literalMutationString792_failAssert0() throws IOException {
         try {
             File thumb = ParseTest.getFile("");
             File html = ParseTest.getFile("/htmltests/google-ipod.html");
@@ -153,7 +153,7 @@ public class AmplConnectTest {
             AmplConnectTest.ihVal("Part firstPart Filename", res);
             AmplConnectTest.ihVal("Part firstPart Size", res);
 
-            org.junit.Assert.fail("postFiles_literalMutationString798 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("postFiles_literalMutationString792 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }

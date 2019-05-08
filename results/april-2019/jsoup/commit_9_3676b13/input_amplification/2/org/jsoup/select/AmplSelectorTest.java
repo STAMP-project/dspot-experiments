@@ -16,337 +16,213 @@ public class AmplSelectorTest {
     public MultiLocaleRule rule = new MultiLocaleRule();
 
     @Test(timeout = 10000)
-    public void testByAttributeRegexCombined_literalMutationString53457() throws Exception {
-        Document doc = Jsoup.parse("<div><table class=x><td>Hello</td><,table></div>");
-        Elements els = doc.select("div table[class~=x|y]");
-        Assert.assertFalse(els.isEmpty());
-        int o_testByAttributeRegexCombined_literalMutationString53457__5 = els.size();
-        Assert.assertEquals(1, ((int) (o_testByAttributeRegexCombined_literalMutationString53457__5)));
-        String o_testByAttributeRegexCombined_literalMutationString53457__6 = els.text();
-        Assert.assertEquals("Hello<,table>", o_testByAttributeRegexCombined_literalMutationString53457__6);
-        Assert.assertFalse(els.isEmpty());
-        Assert.assertEquals(1, ((int) (o_testByAttributeRegexCombined_literalMutationString53457__5)));
-    }
-
-    @Test(timeout = 10000)
-    public void testByAttributeRegexCombined_literalMutationString53457_add53732() throws Exception {
-        Document doc = Jsoup.parse("<div><table class=x><td>Hello</td><,table></div>");
-        Elements els = doc.select("div table[class~=x|y]");
-        Assert.assertFalse(els.isEmpty());
-        int o_testByAttributeRegexCombined_literalMutationString53457_add53732__5 = els.size();
-        Assert.assertEquals(1, ((int) (o_testByAttributeRegexCombined_literalMutationString53457_add53732__5)));
-        int o_testByAttributeRegexCombined_literalMutationString53457__5 = els.size();
-        String o_testByAttributeRegexCombined_literalMutationString53457__6 = els.text();
-        Assert.assertEquals("Hello<,table>", o_testByAttributeRegexCombined_literalMutationString53457__6);
-        Assert.assertFalse(els.isEmpty());
-        Assert.assertEquals(1, ((int) (o_testByAttributeRegexCombined_literalMutationString53457_add53732__5)));
-    }
-
-    @Test(timeout = 10000)
-    public void testByAttributeRegexCombined_literalMutationString53457_add53731() throws Exception {
-        Document doc = Jsoup.parse("<div><table class=x><td>Hello</td><,table></div>");
-        Elements els = doc.select("div table[class~=x|y]");
-        Assert.assertFalse(els.isEmpty());
-        els.isEmpty();
-        int o_testByAttributeRegexCombined_literalMutationString53457__5 = els.size();
-        String o_testByAttributeRegexCombined_literalMutationString53457__6 = els.text();
-        Assert.assertEquals("Hello<,table>", o_testByAttributeRegexCombined_literalMutationString53457__6);
-        Assert.assertFalse(els.isEmpty());
-    }
-
-    @Test(timeout = 10000)
-    public void testByAttributeRegexCombined_literalMutationString53457_add53730() throws Exception {
-        Document doc = Jsoup.parse("<div><table class=x><td>Hello</td><,table></div>");
-        Elements o_testByAttributeRegexCombined_literalMutationString53457_add53730__3 = doc.select("div table[class~=x|y]");
-        Assert.assertFalse(o_testByAttributeRegexCombined_literalMutationString53457_add53730__3.isEmpty());
-        Elements els = doc.select("div table[class~=x|y]");
-        Assert.assertFalse(els.isEmpty());
-        int o_testByAttributeRegexCombined_literalMutationString53457__5 = els.size();
-        String o_testByAttributeRegexCombined_literalMutationString53457__6 = els.text();
-        Assert.assertEquals("Hello<,table>", o_testByAttributeRegexCombined_literalMutationString53457__6);
-        Assert.assertFalse(o_testByAttributeRegexCombined_literalMutationString53457_add53730__3.isEmpty());
-        Assert.assertFalse(els.isEmpty());
-    }
-
-    @Test(timeout = 10000)
-    public void testByAttributeRegexCombined_literalMutationString53457_add53729() throws Exception {
-        Document o_testByAttributeRegexCombined_literalMutationString53457_add53729__1 = Jsoup.parse("<div><table class=x><td>Hello</td><,table></div>");
-        Assert.assertTrue(((Document) (o_testByAttributeRegexCombined_literalMutationString53457_add53729__1)).hasText());
-        Assert.assertFalse(((Collection) (((Document) (o_testByAttributeRegexCombined_literalMutationString53457_add53729__1)).getAllElements())).isEmpty());
-        Assert.assertFalse(((Document) (o_testByAttributeRegexCombined_literalMutationString53457_add53729__1)).isBlock());
-        Assert.assertEquals("<html>\n <head></head>\n <body>\n  <div>\n   <table class=\"x\">\n    <tbody>\n     <tr>\n      <td>Hello</td>&lt;,table&gt;\n     </tr>\n    </tbody>\n   </table>\n  </div>\n </body>\n</html>", ((Document) (o_testByAttributeRegexCombined_literalMutationString53457_add53729__1)).toString());
-        Assert.assertFalse(((Document) (o_testByAttributeRegexCombined_literalMutationString53457_add53729__1)).hasParent());
-        Document doc = Jsoup.parse("<div><table class=x><td>Hello</td><,table></div>");
-        Elements els = doc.select("div table[class~=x|y]");
-        Assert.assertFalse(els.isEmpty());
-        int o_testByAttributeRegexCombined_literalMutationString53457__5 = els.size();
-        String o_testByAttributeRegexCombined_literalMutationString53457__6 = els.text();
-        Assert.assertEquals("Hello<,table>", o_testByAttributeRegexCombined_literalMutationString53457__6);
-        Assert.assertTrue(((Document) (o_testByAttributeRegexCombined_literalMutationString53457_add53729__1)).hasText());
-        Assert.assertFalse(((Collection) (((Document) (o_testByAttributeRegexCombined_literalMutationString53457_add53729__1)).getAllElements())).isEmpty());
-        Assert.assertFalse(((Document) (o_testByAttributeRegexCombined_literalMutationString53457_add53729__1)).isBlock());
-        Assert.assertEquals("<html>\n <head></head>\n <body>\n  <div>\n   <table class=\"x\">\n    <tbody>\n     <tr>\n      <td>Hello</td>&lt;,table&gt;\n     </tr>\n    </tbody>\n   </table>\n  </div>\n </body>\n</html>", ((Document) (o_testByAttributeRegexCombined_literalMutationString53457_add53729__1)).toString());
-        Assert.assertFalse(((Document) (o_testByAttributeRegexCombined_literalMutationString53457_add53729__1)).hasParent());
-        Assert.assertFalse(els.isEmpty());
-    }
-
-    @Test(timeout = 10000)
-    public void descendant_literalMutationString4819_failAssert0_literalMutationNumber7511_failAssert0() throws Exception {
+    public void testById_literalMutationString22827_literalMutationNumber23077_failAssert0() throws Exception {
         try {
-            {
-                String h = "<div class=head><p class=first>Hello</p><p>There</p></div><p>None</p>";
-                Document doc = Jsoup.parse(h);
-                Element root = doc.getElementsByClass("HEAD").first();
-                Elements els = root.select(".head p");
-                els.size();
-                els.get(0).text();
-                els.get(1).text();
-                Elements p = root.select("p.first");
-                p.size();
-                p.get(-1).text();
-                Elements empty = root.select("<p>Hello <em>there</em> <em>now</em></p>");
-                empty.size();
-                Elements aboveRoot = root.select("body div.head");
-                aboveRoot.size();
-                org.junit.Assert.fail("descendant_literalMutationString4819 should have thrown Selector$SelectorParseException");
-            }
-            org.junit.Assert.fail("descendant_literalMutationString4819_failAssert0_literalMutationNumber7511 should have thrown ArrayIndexOutOfBoundsException");
+            Elements els = Jsoup.parse("<div><p id=foo>Hello</p><p id=foo>Foo two!</p></div>").select("#foo");
+            int o_testById_literalMutationString22827__4 = els.size();
+            String o_testById_literalMutationString22827__5 = els.get(-1).text();
+            String o_testById_literalMutationString22827__7 = els.get(1).text();
+            Elements none = Jsoup.parse("<div id=1o></div>").select("#foo");
+            int o_testById_literalMutationString22827__12 = none.size();
+            org.junit.Assert.fail("testById_literalMutationString22827_literalMutationNumber23077 should have thrown ArrayIndexOutOfBoundsException");
         } catch (ArrayIndexOutOfBoundsException expected) {
             Assert.assertEquals("-1", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void mixCombinator_literalMutationNumber11045_failAssert0_add11940_failAssert0() throws Exception {
+    public void adjacentSiblings_literalMutationNumber11414_failAssert0_add12341_failAssert0() throws Exception {
         try {
             {
-                String h = "<div class=foo><ol><li>One<li>Two<li>Three</ol></div>";
+                String h = "<ol><li>One<li>Two<li>Three</ol>";
                 Document doc = Jsoup.parse(h);
-                Elements sibs = doc.select("body > div.foo li + li");
+                doc.select("li + li");
+                Elements sibs = doc.select("li + li");
                 sibs.size();
                 sibs.get(-1).text();
                 sibs.get(1).text();
-                org.junit.Assert.fail("mixCombinator_literalMutationNumber11045 should have thrown ArrayIndexOutOfBoundsException");
+                org.junit.Assert.fail("adjacentSiblings_literalMutationNumber11414 should have thrown ArrayIndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("mixCombinator_literalMutationNumber11045_failAssert0_add11940 should have thrown ArrayIndexOutOfBoundsException");
+            org.junit.Assert.fail("adjacentSiblings_literalMutationNumber11414_failAssert0_add12341 should have thrown ArrayIndexOutOfBoundsException");
         } catch (ArrayIndexOutOfBoundsException expected) {
-            Assert.assertEquals(null, expected.getMessage());
+            Assert.assertEquals("-1", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void mixCombinatorGroup_literalMutationNumber87946_literalMutationNumber88120_failAssert0() throws Exception {
-        try {
-            String h = "<div class=foo><ol><li>One<li>Two<li>Three</ol></div>";
-            Document doc = Jsoup.parse(h);
-            Elements els = doc.select(".foo > ol, ol > li + li");
-            int o_mixCombinatorGroup_literalMutationNumber87946__6 = els.size();
-            String o_mixCombinatorGroup_literalMutationNumber87946__7 = els.get(-1).tagName();
-            String o_mixCombinatorGroup_literalMutationNumber87946__10 = els.get(1).text();
-            String o_mixCombinatorGroup_literalMutationNumber87946__12 = els.get(2).text();
-            org.junit.Assert.fail("mixCombinatorGroup_literalMutationNumber87946_literalMutationNumber88120 should have thrown ArrayIndexOutOfBoundsException");
-        } catch (ArrayIndexOutOfBoundsException expected) {
-            Assert.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPseudoLessThan_literalMutationNumber78171_failAssert0_add79508_failAssert0() throws Exception {
+    public void testPseudoEquals_literalMutationNumber55264_failAssert0_literalMutationNumber57074_failAssert0() throws Exception {
         try {
             {
                 Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</>p></div><div><p>Four</p>");
-                doc.select("div p:lt(2)");
-                Elements ps = doc.select("div p:lt(2)");
+                Elements ps = doc.select("div p:eq(0)");
                 ps.size();
                 ps.get(-1).text();
                 ps.get(1).text();
-                ps.get(2).text();
-                org.junit.Assert.fail("testPseudoLessThan_literalMutationNumber78171 should have thrown ArrayIndexOutOfBoundsException");
+                Elements ps2 = doc.select("div:eq(0) p:eq(0)");
+                ps2.size();
+                ps2.get(1).text();
+                ps2.get(0).tagName();
+                org.junit.Assert.fail("testPseudoEquals_literalMutationNumber55264 should have thrown ArrayIndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testPseudoLessThan_literalMutationNumber78171_failAssert0_add79508 should have thrown ArrayIndexOutOfBoundsException");
+            org.junit.Assert.fail("testPseudoEquals_literalMutationNumber55264_failAssert0_literalMutationNumber57074 should have thrown ArrayIndexOutOfBoundsException");
         } catch (ArrayIndexOutOfBoundsException expected) {
             Assert.assertEquals(null, expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testPseudoLessThan_literalMutationNumber78171_failAssert0_literalMutationString78995_failAssert0() throws Exception {
-        try {
-            {
-                Document doc = Jsoup.parse("<div><p>One</p><p>TwOo</p><p>Three</>p></div><div><p>Four</p>");
-                Elements ps = doc.select("div p:lt(2)");
-                ps.size();
-                ps.get(-1).text();
-                ps.get(1).text();
-                ps.get(2).text();
-                org.junit.Assert.fail("testPseudoLessThan_literalMutationNumber78171 should have thrown ArrayIndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testPseudoLessThan_literalMutationNumber78171_failAssert0_literalMutationString78995 should have thrown ArrayIndexOutOfBoundsException");
-        } catch (ArrayIndexOutOfBoundsException expected) {
-            Assert.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPseudoEquals_literalMutationNumber61401_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</>p></div><div><p>Four</p>");
-            Elements ps = doc.select("div p:eq(0)");
-            ps.size();
-            ps.get(0).text();
-            ps.get(1).text();
-            Elements ps2 = doc.select("div:eq(0) p:eq(0)");
-            ps2.size();
-            ps2.get(-1).text();
-            ps2.get(0).tagName();
-            org.junit.Assert.fail("testPseudoEquals_literalMutationNumber61401 should have thrown ArrayIndexOutOfBoundsException");
-        } catch (ArrayIndexOutOfBoundsException expected) {
-            Assert.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPseudoBetween_add66208_literalMutationNumber66382_failAssert0() throws Exception {
-        try {
-            Document doc = Jsoup.parse("<div><p>One</p><p>Two</p><p>Three</>p></div><div><p>Four</p>");
-            Elements ps = doc.select("div p:gt(0):lt(2)");
-            int o_testPseudoBetween_add66208__5 = ps.size();
-            int o_testPseudoBetween_add66208__6 = ps.size();
-            String o_testPseudoBetween_add66208__7 = ps.get(-1).text();
-            org.junit.Assert.fail("testPseudoBetween_add66208_literalMutationNumber66382 should have thrown ArrayIndexOutOfBoundsException");
-        } catch (ArrayIndexOutOfBoundsException expected) {
-            Assert.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testPseudoCombined_literalMutationNumber28611_failAssert0_add29188_failAssert0() throws Exception {
-        try {
-            {
-                Document doc = Jsoup.parse("<div class='foo'><p>One</p><p>Two</p></div><div><p>Three</p><p>Four</p></div>");
-                Elements ps = doc.select("div.foo p:gt(0)");
-                ps.size();
-                ps.get(-1).text();
-                org.junit.Assert.fail("testPseudoCombined_literalMutationNumber28611 should have thrown ArrayIndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("testPseudoCombined_literalMutationNumber28611_failAssert0_add29188 should have thrown ArrayIndexOutOfBoundsException");
-        } catch (ArrayIndexOutOfBoundsException expected) {
-            Assert.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testNestedHas_add67348_literalMutationString67900() throws Exception {
-        Document doc = Jsoup.parse("<div><p><span>One</span></p>t/div> <div><p>Two</p></div>");
+    public void testNestedHas_literalMutationString60457_add61699() throws Exception {
+        Document doc = Jsoup.parse("<div><p><span>One</span></p></div> <div><p>Two</p>/div>");
         Elements divs = doc.select("div:has(p:has(span))");
         Assert.assertFalse(divs.isEmpty());
-        int o_testNestedHas_add67348__5 = divs.size();
-        String o_testNestedHas_add67348__6 = divs.first().text();
-        Assert.assertEquals("Onet/div> Two", o_testNestedHas_add67348__6);
+        int o_testNestedHas_literalMutationString60457__5 = divs.size();
+        String o_testNestedHas_literalMutationString60457__6 = divs.first().text();
+        Assert.assertEquals("One", o_testNestedHas_literalMutationString60457__6);
         divs = doc.select("div:has(p:matches((?i)two))");
         Assert.assertFalse(divs.isEmpty());
-        int o_testNestedHas_add67348__11 = divs.size();
-        int o_testNestedHas_add67348__12 = divs.size();
-        String o_testNestedHas_add67348__13 = divs.first().tagName();
-        Assert.assertEquals("div", o_testNestedHas_add67348__13);
-        String o_testNestedHas_add67348__15 = divs.first().text();
-        Assert.assertEquals("Onet/div> Two", o_testNestedHas_add67348__15);
+        int o_testNestedHas_literalMutationString60457__11 = divs.size();
+        int o_testNestedHas_literalMutationString60457__12 = divs.size();
+        String o_testNestedHas_literalMutationString60457__13 = divs.first().tagName();
+        Assert.assertEquals("div", o_testNestedHas_literalMutationString60457__13);
+        String o_testNestedHas_literalMutationString60457__15 = divs.first().text();
+        Assert.assertEquals("Two/div>", o_testNestedHas_literalMutationString60457__15);
         divs = doc.select("div:has(p:contains(two))");
         Assert.assertFalse(divs.isEmpty());
-        int o_testNestedHas_add67348__20 = divs.size();
-        int o_testNestedHas_add67348__21 = divs.size();
-        int o_testNestedHas_add67348__22 = divs.size();
-        int o_testNestedHas_add67348__23 = divs.size();
-        String o_testNestedHas_add67348__24 = divs.first().tagName();
-        Assert.assertEquals("div", o_testNestedHas_add67348__24);
-        String o_testNestedHas_add67348__26 = divs.first().tagName();
-        Assert.assertEquals("div", o_testNestedHas_add67348__26);
-        String o_testNestedHas_add67348__28 = divs.first().text();
-        Assert.assertEquals("Onet/div> Two", o_testNestedHas_add67348__28);
-        String o_testNestedHas_add67348__30 = divs.first().text();
-        Assert.assertEquals("Onet/div> Two", o_testNestedHas_add67348__30);
+        int o_testNestedHas_literalMutationString60457__20 = divs.size();
+        int o_testNestedHas_literalMutationString60457__21 = divs.size();
+        int o_testNestedHas_literalMutationString60457__22 = divs.size();
+        String o_testNestedHas_literalMutationString60457__23 = divs.first().tagName();
+        Assert.assertEquals("div", o_testNestedHas_literalMutationString60457__23);
+        String o_testNestedHas_literalMutationString60457__25 = divs.first().tagName();
+        Assert.assertEquals("div", o_testNestedHas_literalMutationString60457__25);
+        Element o_testNestedHas_literalMutationString60457_add61699__49 = divs.first();
+        Assert.assertFalse(((Collection) (((Element) (o_testNestedHas_literalMutationString60457_add61699__49)).getAllElements())).isEmpty());
+        Assert.assertTrue(((Element) (o_testNestedHas_literalMutationString60457_add61699__49)).isBlock());
+        Assert.assertTrue(((Element) (o_testNestedHas_literalMutationString60457_add61699__49)).hasText());
+        Assert.assertEquals("<div>\n <p>Two</p>/div&gt;\n</div>", ((Element) (o_testNestedHas_literalMutationString60457_add61699__49)).toString());
+        Assert.assertTrue(((Element) (o_testNestedHas_literalMutationString60457_add61699__49)).hasParent());
+        String o_testNestedHas_literalMutationString60457__27 = divs.first().text();
+        Assert.assertEquals("Two/div>", o_testNestedHas_literalMutationString60457__27);
+        String o_testNestedHas_literalMutationString60457__29 = divs.first().text();
+        Assert.assertEquals("Two/div>", o_testNestedHas_literalMutationString60457__29);
         Assert.assertFalse(divs.isEmpty());
-        Assert.assertEquals("Onet/div> Two", o_testNestedHas_add67348__6);
+        Assert.assertEquals("One", o_testNestedHas_literalMutationString60457__6);
         Assert.assertFalse(divs.isEmpty());
-        Assert.assertEquals("div", o_testNestedHas_add67348__13);
-        Assert.assertEquals("Onet/div> Two", o_testNestedHas_add67348__15);
+        Assert.assertEquals("div", o_testNestedHas_literalMutationString60457__13);
+        Assert.assertEquals("Two/div>", o_testNestedHas_literalMutationString60457__15);
         Assert.assertFalse(divs.isEmpty());
-        Assert.assertEquals("div", o_testNestedHas_add67348__24);
-        Assert.assertEquals("div", o_testNestedHas_add67348__26);
-        Assert.assertEquals("Onet/div> Two", o_testNestedHas_add67348__28);
+        Assert.assertEquals("div", o_testNestedHas_literalMutationString60457__23);
+        Assert.assertEquals("div", o_testNestedHas_literalMutationString60457__25);
+        Assert.assertFalse(((Collection) (((Element) (o_testNestedHas_literalMutationString60457_add61699__49)).getAllElements())).isEmpty());
+        Assert.assertTrue(((Element) (o_testNestedHas_literalMutationString60457_add61699__49)).isBlock());
+        Assert.assertTrue(((Element) (o_testNestedHas_literalMutationString60457_add61699__49)).hasText());
+        Assert.assertEquals("<div>\n <p>Two</p>/div&gt;\n</div>", ((Element) (o_testNestedHas_literalMutationString60457_add61699__49)).toString());
+        Assert.assertTrue(((Element) (o_testNestedHas_literalMutationString60457_add61699__49)).hasParent());
+        Assert.assertEquals("Two/div>", o_testNestedHas_literalMutationString60457__27);
     }
 
     @Test(timeout = 10000)
-    public void selectClassWithSpace_literalMutationNumber81990_failAssert0_add86581_failAssert0() throws Exception {
-        try {
-            {
-                final String html = "<div class=\"value\">class without space</div>\n" + "<div class=\"value \">class with space</div>";
-                Document doc = Jsoup.parse(html);
-                Elements found = doc.select("div[class=value ]");
-                found.size();
-                found.get(0).text();
-                found.get(1).text();
-                doc.select("div[class=\"value \"]");
-                found = doc.select("div[class=\"value \"]");
-                found.size();
-                found.size();
-                found.get(-1).text();
-                found.get(1).text();
-                found.get(1).text();
-                found = doc.select("div[class=\"value\\ \"]");
-                found.size();
-                org.junit.Assert.fail("selectClassWithSpace_literalMutationNumber81990 should have thrown ArrayIndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("selectClassWithSpace_literalMutationNumber81990_failAssert0_add86581 should have thrown ArrayIndexOutOfBoundsException");
-        } catch (ArrayIndexOutOfBoundsException expected) {
-            Assert.assertEquals(null, expected.getMessage());
-        }
+    public void testNestedHas_literalMutationString60457() throws Exception {
+        Document doc = Jsoup.parse("<div><p><span>One</span></p></div> <div><p>Two</p>/div>");
+        Elements divs = doc.select("div:has(p:has(span))");
+        Assert.assertFalse(divs.isEmpty());
+        int o_testNestedHas_literalMutationString60457__5 = divs.size();
+        Assert.assertEquals(1, ((int) (o_testNestedHas_literalMutationString60457__5)));
+        String o_testNestedHas_literalMutationString60457__6 = divs.first().text();
+        Assert.assertEquals("One", o_testNestedHas_literalMutationString60457__6);
+        divs = doc.select("div:has(p:matches((?i)two))");
+        Assert.assertFalse(divs.isEmpty());
+        int o_testNestedHas_literalMutationString60457__11 = divs.size();
+        Assert.assertEquals(1, ((int) (o_testNestedHas_literalMutationString60457__11)));
+        int o_testNestedHas_literalMutationString60457__12 = divs.size();
+        Assert.assertEquals(1, ((int) (o_testNestedHas_literalMutationString60457__12)));
+        String o_testNestedHas_literalMutationString60457__13 = divs.first().tagName();
+        Assert.assertEquals("div", o_testNestedHas_literalMutationString60457__13);
+        String o_testNestedHas_literalMutationString60457__15 = divs.first().text();
+        Assert.assertEquals("Two/div>", o_testNestedHas_literalMutationString60457__15);
+        divs = doc.select("div:has(p:contains(two))");
+        Assert.assertFalse(divs.isEmpty());
+        int o_testNestedHas_literalMutationString60457__20 = divs.size();
+        Assert.assertEquals(1, ((int) (o_testNestedHas_literalMutationString60457__20)));
+        int o_testNestedHas_literalMutationString60457__21 = divs.size();
+        Assert.assertEquals(1, ((int) (o_testNestedHas_literalMutationString60457__21)));
+        int o_testNestedHas_literalMutationString60457__22 = divs.size();
+        Assert.assertEquals(1, ((int) (o_testNestedHas_literalMutationString60457__22)));
+        String o_testNestedHas_literalMutationString60457__23 = divs.first().tagName();
+        Assert.assertEquals("div", o_testNestedHas_literalMutationString60457__23);
+        String o_testNestedHas_literalMutationString60457__25 = divs.first().tagName();
+        Assert.assertEquals("div", o_testNestedHas_literalMutationString60457__25);
+        String o_testNestedHas_literalMutationString60457__27 = divs.first().text();
+        Assert.assertEquals("Two/div>", o_testNestedHas_literalMutationString60457__27);
+        String o_testNestedHas_literalMutationString60457__29 = divs.first().text();
+        Assert.assertEquals("Two/div>", o_testNestedHas_literalMutationString60457__29);
+        Assert.assertFalse(divs.isEmpty());
+        Assert.assertEquals(1, ((int) (o_testNestedHas_literalMutationString60457__5)));
+        Assert.assertEquals("One", o_testNestedHas_literalMutationString60457__6);
+        Assert.assertFalse(divs.isEmpty());
+        Assert.assertEquals(1, ((int) (o_testNestedHas_literalMutationString60457__11)));
+        Assert.assertEquals(1, ((int) (o_testNestedHas_literalMutationString60457__12)));
+        Assert.assertEquals("div", o_testNestedHas_literalMutationString60457__13);
+        Assert.assertEquals("Two/div>", o_testNestedHas_literalMutationString60457__15);
+        Assert.assertFalse(divs.isEmpty());
+        Assert.assertEquals(1, ((int) (o_testNestedHas_literalMutationString60457__20)));
+        Assert.assertEquals(1, ((int) (o_testNestedHas_literalMutationString60457__21)));
+        Assert.assertEquals(1, ((int) (o_testNestedHas_literalMutationString60457__22)));
+        Assert.assertEquals("div", o_testNestedHas_literalMutationString60457__23);
+        Assert.assertEquals("div", o_testNestedHas_literalMutationString60457__25);
+        Assert.assertEquals("Two/div>", o_testNestedHas_literalMutationString60457__27);
     }
 
     @Test(timeout = 10000)
-    public void selectClassWithSpace_literalMutationNumber81976_failAssert0null87433_failAssert0() throws Exception {
-        try {
-            {
-                final String html = "<div class=\"value\">class without space</div>\n" + "<div class=\"value \">class with space</div>";
-                Document doc = Jsoup.parse(html);
-                Elements found = doc.select("div[class=value ]");
-                found.size();
-                found.get(-1).text();
-                found.get(1).text();
-                found = doc.select(null);
-                found.size();
-                found.size();
-                found.get(0).text();
-                found.get(1).text();
-                found.get(1).text();
-                found = doc.select("div[class=\"value\\ \"]");
-                found.size();
-                org.junit.Assert.fail("selectClassWithSpace_literalMutationNumber81976 should have thrown ArrayIndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("selectClassWithSpace_literalMutationNumber81976_failAssert0null87433 should have thrown ArrayIndexOutOfBoundsException");
-        } catch (ArrayIndexOutOfBoundsException expected) {
-            Assert.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void splitOnBr_literalMutationNumber36792_failAssert0_add38123_failAssert0() throws Exception {
-        try {
-            {
-                String html = "<div><p>One<br>Two<br>Three</p></div>";
-                Document doc = Jsoup.parse(html);
-                Elements els = doc.select("p:matchText");
-                els.size();
-                els.get(-1).text();
-                els.get(1);
-                els.get(1).text();
-                els.get(2).toString();
-                org.junit.Assert.fail("splitOnBr_literalMutationNumber36792 should have thrown ArrayIndexOutOfBoundsException");
-            }
-            org.junit.Assert.fail("splitOnBr_literalMutationNumber36792_failAssert0_add38123 should have thrown ArrayIndexOutOfBoundsException");
-        } catch (ArrayIndexOutOfBoundsException expected) {
-            Assert.assertEquals(null, expected.getMessage());
-        }
+    public void testNestedHas_literalMutationString60454() throws Exception {
+        Document doc = Jsoup.parse("<div><p><span>One</span></p></div> <div><p>Two</p></>iv>");
+        Elements divs = doc.select("div:has(p:has(span))");
+        Assert.assertFalse(divs.isEmpty());
+        int o_testNestedHas_literalMutationString60454__5 = divs.size();
+        Assert.assertEquals(1, ((int) (o_testNestedHas_literalMutationString60454__5)));
+        String o_testNestedHas_literalMutationString60454__6 = divs.first().text();
+        Assert.assertEquals("One", o_testNestedHas_literalMutationString60454__6);
+        divs = doc.select("div:has(p:matches((?i)two))");
+        Assert.assertFalse(divs.isEmpty());
+        int o_testNestedHas_literalMutationString60454__11 = divs.size();
+        Assert.assertEquals(1, ((int) (o_testNestedHas_literalMutationString60454__11)));
+        int o_testNestedHas_literalMutationString60454__12 = divs.size();
+        Assert.assertEquals(1, ((int) (o_testNestedHas_literalMutationString60454__12)));
+        String o_testNestedHas_literalMutationString60454__13 = divs.first().tagName();
+        Assert.assertEquals("div", o_testNestedHas_literalMutationString60454__13);
+        String o_testNestedHas_literalMutationString60454__15 = divs.first().text();
+        Assert.assertEquals("Twoiv>", o_testNestedHas_literalMutationString60454__15);
+        divs = doc.select("div:has(p:contains(two))");
+        Assert.assertFalse(divs.isEmpty());
+        int o_testNestedHas_literalMutationString60454__20 = divs.size();
+        Assert.assertEquals(1, ((int) (o_testNestedHas_literalMutationString60454__20)));
+        int o_testNestedHas_literalMutationString60454__21 = divs.size();
+        Assert.assertEquals(1, ((int) (o_testNestedHas_literalMutationString60454__21)));
+        int o_testNestedHas_literalMutationString60454__22 = divs.size();
+        Assert.assertEquals(1, ((int) (o_testNestedHas_literalMutationString60454__22)));
+        String o_testNestedHas_literalMutationString60454__23 = divs.first().tagName();
+        Assert.assertEquals("div", o_testNestedHas_literalMutationString60454__23);
+        String o_testNestedHas_literalMutationString60454__25 = divs.first().tagName();
+        Assert.assertEquals("div", o_testNestedHas_literalMutationString60454__25);
+        String o_testNestedHas_literalMutationString60454__27 = divs.first().text();
+        Assert.assertEquals("Twoiv>", o_testNestedHas_literalMutationString60454__27);
+        String o_testNestedHas_literalMutationString60454__29 = divs.first().text();
+        Assert.assertEquals("Twoiv>", o_testNestedHas_literalMutationString60454__29);
+        Assert.assertFalse(divs.isEmpty());
+        Assert.assertEquals(1, ((int) (o_testNestedHas_literalMutationString60454__5)));
+        Assert.assertEquals("One", o_testNestedHas_literalMutationString60454__6);
+        Assert.assertFalse(divs.isEmpty());
+        Assert.assertEquals(1, ((int) (o_testNestedHas_literalMutationString60454__11)));
+        Assert.assertEquals(1, ((int) (o_testNestedHas_literalMutationString60454__12)));
+        Assert.assertEquals("div", o_testNestedHas_literalMutationString60454__13);
+        Assert.assertEquals("Twoiv>", o_testNestedHas_literalMutationString60454__15);
+        Assert.assertFalse(divs.isEmpty());
+        Assert.assertEquals(1, ((int) (o_testNestedHas_literalMutationString60454__20)));
+        Assert.assertEquals(1, ((int) (o_testNestedHas_literalMutationString60454__21)));
+        Assert.assertEquals(1, ((int) (o_testNestedHas_literalMutationString60454__22)));
+        Assert.assertEquals("div", o_testNestedHas_literalMutationString60454__23);
+        Assert.assertEquals("div", o_testNestedHas_literalMutationString60454__25);
+        Assert.assertEquals("Twoiv>", o_testNestedHas_literalMutationString60454__27);
     }
 }
 

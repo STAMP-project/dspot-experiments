@@ -25,14 +25,14 @@ public class AmplAttributeParseTest {
         List<Attribute> attributes = el.attributes().asList();
         int o_parsesBooleanAttributes_add157__12 = attributes.size();
         Assert.assertEquals(3, ((int) (o_parsesBooleanAttributes_add157__12)));
-        boolean boolean_203 = (attributes.get(0)) instanceof BooleanAttribute;
+        boolean boolean_152 = (attributes.get(0)) instanceof BooleanAttribute;
         Attribute o_parsesBooleanAttributes_add157__15 = attributes.get(1);
         Assert.assertEquals("boolean=\"\"", ((BooleanAttribute) (o_parsesBooleanAttributes_add157__15)).toString());
         Assert.assertEquals(2006063320, ((int) (((BooleanAttribute) (o_parsesBooleanAttributes_add157__15)).hashCode())));
         Assert.assertNull(((BooleanAttribute) (o_parsesBooleanAttributes_add157__15)).getValue());
         Assert.assertEquals("boolean", ((BooleanAttribute) (o_parsesBooleanAttributes_add157__15)).getKey());
-        boolean boolean_204 = (attributes.get(1)) instanceof BooleanAttribute;
-        boolean boolean_205 = (attributes.get(2)) instanceof BooleanAttribute;
+        boolean boolean_153 = (attributes.get(1)) instanceof BooleanAttribute;
+        boolean boolean_154 = (attributes.get(2)) instanceof BooleanAttribute;
         String o_parsesBooleanAttributes_add157__20 = el.outerHtml();
         Assert.assertEquals("<a normal=\"123\" boolean empty=\"\"></a>", o_parsesBooleanAttributes_add157__20);
         Assert.assertEquals("<a normal=\"123\" boolean empty=\"\"></a>", html);
