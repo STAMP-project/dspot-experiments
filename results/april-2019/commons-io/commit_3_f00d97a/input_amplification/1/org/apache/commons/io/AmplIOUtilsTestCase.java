@@ -80,7 +80,7 @@ public class AmplIOUtilsTestCase extends FileBasedTestCase {
                 IOUtils.toByteArray(fin, m_testFile.length());
                 final byte[] out = IOUtils.toByteArray(fin, m_testFile.length());
                 fin.available();
-                String String_3 = (("Wrong output size: out.length=" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
+                String String_2 = (("Wrong output size: out.length=" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
             }
             org.junit.Assert.fail("testToByteArray_InputStream_Size_add1 should have thrown IOException");
         } catch (IOException expected) {

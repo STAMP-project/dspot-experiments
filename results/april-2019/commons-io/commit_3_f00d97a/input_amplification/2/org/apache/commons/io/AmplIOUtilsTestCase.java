@@ -81,7 +81,7 @@ public class AmplIOUtilsTestCase extends FileBasedTestCase {
                 final byte[] out = IOUtils.toByteArray(fin, this.m_testFile.length());
                 int o_testToByteArray_InputStream_Size_add3__8 = fin.available();
                 int o_testToByteArray_InputStream_Size_add3__9 = fin.available();
-                String String_2 = (("Wrong output size: out.length=" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
+                String String_1 = (("Wrong output size: out.length=" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
             }
             org.junit.Assert.fail("testToByteArray_InputStream_Size_add3_add51 should have thrown IOException");
         } catch (IOException expected) {
@@ -90,25 +90,26 @@ public class AmplIOUtilsTestCase extends FileBasedTestCase {
     }
 
     @Test(timeout = 10000)
-    public void testToByteArray_InputStream_Size_add1_failAssert0_add68_failAssert0() throws Exception {
+    public void testToByteArray_InputStream_Size_add1_failAssert0_add59_failAssert0() throws Exception {
         try {
             {
                 try (final FileInputStream fin = new FileInputStream(m_testFile)) {
                     IOUtils.toByteArray(fin, m_testFile.length());
+                    IOUtils.toByteArray(fin, m_testFile.length());
                     final byte[] out = IOUtils.toByteArray(fin, m_testFile.length());
                     fin.available();
-                    String String_3 = (("Wrong output size: out.length=" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
+                    String String_2 = (("Wrong output size: out.length=" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
                 }
                 org.junit.Assert.fail("testToByteArray_InputStream_Size_add1 should have thrown IOException");
             }
-            org.junit.Assert.fail("testToByteArray_InputStream_Size_add1_failAssert0_add68 should have thrown IOException");
+            org.junit.Assert.fail("testToByteArray_InputStream_Size_add1_failAssert0_add59 should have thrown IOException");
         } catch (IOException expected) {
             Assert.assertEquals("Unexpected readed size. current: 0, excepted: 4097", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testToByteArray_InputStream_Size_add1_failAssert0_add66_failAssert0() throws Exception {
+    public void testToByteArray_InputStream_Size_add1_failAssert0_add62_failAssert0() throws Exception {
         try {
             {
                 try (final FileInputStream fin = new FileInputStream(m_testFile)) {
@@ -116,67 +117,47 @@ public class AmplIOUtilsTestCase extends FileBasedTestCase {
                     m_testFile.length();
                     final byte[] out = IOUtils.toByteArray(fin, m_testFile.length());
                     fin.available();
-                    String String_3 = (("Wrong output size: out.length=" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
+                    String String_2 = (("Wrong output size: out.length=" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
                 }
                 org.junit.Assert.fail("testToByteArray_InputStream_Size_add1 should have thrown IOException");
             }
-            org.junit.Assert.fail("testToByteArray_InputStream_Size_add1_failAssert0_add66 should have thrown IOException");
+            org.junit.Assert.fail("testToByteArray_InputStream_Size_add1_failAssert0_add62 should have thrown IOException");
         } catch (IOException expected) {
             Assert.assertEquals("Unexpected readed size. current: 0, excepted: 4097", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testToByteArray_InputStream_Size_add1_failAssert0_add67_failAssert0() throws Exception {
+    public void testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString41_failAssert0() throws Exception {
         try {
             {
                 try (final FileInputStream fin = new FileInputStream(m_testFile)) {
                     IOUtils.toByteArray(fin, m_testFile.length());
                     final byte[] out = IOUtils.toByteArray(fin, m_testFile.length());
                     fin.available();
-                    fin.available();
-                    String String_3 = (("Wrong output size: out.length=" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
+                    String String_2 = (("Wrong output size: out.length=" + (out.length)) + ")") + (AmplIOUtilsTestCase.FILE_SIZE);
                 }
                 org.junit.Assert.fail("testToByteArray_InputStream_Size_add1 should have thrown IOException");
             }
-            org.junit.Assert.fail("testToByteArray_InputStream_Size_add1_failAssert0_add67 should have thrown IOException");
+            org.junit.Assert.fail("testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString41 should have thrown IOException");
         } catch (IOException expected) {
             Assert.assertEquals("Unexpected readed size. current: 0, excepted: 4097", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testToByteArray_InputStream_Size_add1_failAssert0_add65_failAssert0() throws Exception {
-        try {
-            {
-                try (final FileInputStream fin = new FileInputStream(m_testFile)) {
-                    IOUtils.toByteArray(fin, m_testFile.length());
-                    IOUtils.toByteArray(fin, m_testFile.length());
-                    final byte[] out = IOUtils.toByteArray(fin, m_testFile.length());
-                    fin.available();
-                    String String_3 = (("Wrong output size: out.length=" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
-                }
-                org.junit.Assert.fail("testToByteArray_InputStream_Size_add1 should have thrown IOException");
-            }
-            org.junit.Assert.fail("testToByteArray_InputStream_Size_add1_failAssert0_add65 should have thrown IOException");
-        } catch (IOException expected) {
-            Assert.assertEquals("Unexpected readed size. current: 0, excepted: 4097", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString50_failAssert0() throws Exception {
+    public void testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString40_failAssert0() throws Exception {
         try {
             {
                 try (final FileInputStream fin = new FileInputStream(m_testFile)) {
                     IOUtils.toByteArray(fin, m_testFile.length());
                     final byte[] out = IOUtils.toByteArray(fin, m_testFile.length());
                     fin.available();
-                    String String_3 = (("Wrong output size: out.length=" + (out.length)) + "(") + (AmplIOUtilsTestCase.FILE_SIZE);
+                    String String_2 = (("Wrong output size: out.length=" + (out.length)) + " does not exist") + (AmplIOUtilsTestCase.FILE_SIZE);
                 }
                 org.junit.Assert.fail("testToByteArray_InputStream_Size_add1 should have thrown IOException");
             }
-            org.junit.Assert.fail("testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString50 should have thrown IOException");
+            org.junit.Assert.fail("testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString40 should have thrown IOException");
         } catch (IOException expected) {
             Assert.assertEquals("Unexpected readed size. current: 0, excepted: 4097", expected.getMessage());
         }
@@ -188,10 +169,10 @@ public class AmplIOUtilsTestCase extends FileBasedTestCase {
             {
                 try (final FileInputStream fin = new FileInputStream(m_testFile)) {
                     IOUtils.toByteArray(fin, m_testFile.length());
-                    IOUtils.toByteArray(fin, m_testFile.length());
                     final byte[] out = IOUtils.toByteArray(fin, m_testFile.length());
                     fin.available();
-                    String String_3 = (("Wrong output size: out.length=" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
+                    fin.available();
+                    String String_2 = (("Wrong output size: out.length=" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
                 }
                 org.junit.Assert.fail("testToByteArray_InputStream_Size_add1 should have thrown IOException");
             }
@@ -202,15 +183,33 @@ public class AmplIOUtilsTestCase extends FileBasedTestCase {
     }
 
     @Test(timeout = 10000)
+    public void testToByteArray_InputStream_Size_add1_failAssert0_add61_failAssert0() throws Exception {
+        try {
+            {
+                try (final FileInputStream fin = new FileInputStream(m_testFile)) {
+                    IOUtils.toByteArray(fin, m_testFile.length());
+                    IOUtils.toByteArray(fin, m_testFile.length());
+                    final byte[] out = IOUtils.toByteArray(fin, m_testFile.length());
+                    fin.available();
+                    String String_2 = (("Wrong output size: out.length=" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
+                }
+                org.junit.Assert.fail("testToByteArray_InputStream_Size_add1 should have thrown IOException");
+            }
+            org.junit.Assert.fail("testToByteArray_InputStream_Size_add1_failAssert0_add61 should have thrown IOException");
+        } catch (IOException expected) {
+            Assert.assertEquals("Unexpected readed size. current: 0, excepted: 4097", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
     public void testToByteArray_InputStream_Size_add1_failAssert0_add64_failAssert0() throws Exception {
         try {
             {
                 try (final FileInputStream fin = new FileInputStream(m_testFile)) {
-                    m_testFile.length();
                     IOUtils.toByteArray(fin, m_testFile.length());
                     final byte[] out = IOUtils.toByteArray(fin, m_testFile.length());
                     fin.available();
-                    String String_3 = (("Wrong output size: out.length=" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
+                    String String_2 = (("Wrong output size: out.length=" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
                 }
                 org.junit.Assert.fail("testToByteArray_InputStream_Size_add1 should have thrown IOException");
             }
@@ -221,72 +220,73 @@ public class AmplIOUtilsTestCase extends FileBasedTestCase {
     }
 
     @Test(timeout = 10000)
-    public void testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString43_failAssert0() throws Exception {
+    public void testToByteArray_InputStream_Size_add1_failAssert0_add60_failAssert0() throws Exception {
         try {
             {
                 try (final FileInputStream fin = new FileInputStream(m_testFile)) {
+                    m_testFile.length();
                     IOUtils.toByteArray(fin, m_testFile.length());
                     final byte[] out = IOUtils.toByteArray(fin, m_testFile.length());
                     fin.available();
-                    String String_3 = (("" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
+                    String String_2 = (("Wrong output size: out.length=" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
                 }
                 org.junit.Assert.fail("testToByteArray_InputStream_Size_add1 should have thrown IOException");
             }
-            org.junit.Assert.fail("testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString43 should have thrown IOException");
+            org.junit.Assert.fail("testToByteArray_InputStream_Size_add1_failAssert0_add60 should have thrown IOException");
         } catch (IOException expected) {
             Assert.assertEquals("Unexpected readed size. current: 0, excepted: 4097", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString42_failAssert0() throws Exception {
+    public void testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString34_failAssert0() throws Exception {
         try {
             {
                 try (final FileInputStream fin = new FileInputStream(m_testFile)) {
                     IOUtils.toByteArray(fin, m_testFile.length());
                     final byte[] out = IOUtils.toByteArray(fin, m_testFile.length());
                     fin.available();
-                    String String_3 = (("*OdwpauR%h1,xavU[1Rvnj|}8wu]&8" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
+                    String String_2 = (("OKS@Rl&{ha!&Bcvg[?i!rb0/|]6^FT" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
                 }
                 org.junit.Assert.fail("testToByteArray_InputStream_Size_add1 should have thrown IOException");
             }
-            org.junit.Assert.fail("testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString42 should have thrown IOException");
+            org.junit.Assert.fail("testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString34 should have thrown IOException");
         } catch (IOException expected) {
             Assert.assertEquals("Unexpected readed size. current: 0, excepted: 4097", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString45_failAssert0() throws Exception {
+    public void testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString35_failAssert0() throws Exception {
         try {
             {
                 try (final FileInputStream fin = new FileInputStream(m_testFile)) {
                     IOUtils.toByteArray(fin, m_testFile.length());
                     final byte[] out = IOUtils.toByteArray(fin, m_testFile.length());
                     fin.available();
-                    String String_3 = ((" does not exist" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
+                    String String_2 = ((" does not exist" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
                 }
                 org.junit.Assert.fail("testToByteArray_InputStream_Size_add1 should have thrown IOException");
             }
-            org.junit.Assert.fail("testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString45 should have thrown IOException");
+            org.junit.Assert.fail("testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString35 should have thrown IOException");
         } catch (IOException expected) {
             Assert.assertEquals("Unexpected readed size. current: 0, excepted: 4097", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString44_failAssert0() throws Exception {
+    public void testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString33_failAssert0() throws Exception {
         try {
             {
                 try (final FileInputStream fin = new FileInputStream(m_testFile)) {
                     IOUtils.toByteArray(fin, m_testFile.length());
                     final byte[] out = IOUtils.toByteArray(fin, m_testFile.length());
                     fin.available();
-                    String String_3 = (("Wrong output size:C out.length=" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
+                    String String_2 = (("" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
                 }
                 org.junit.Assert.fail("testToByteArray_InputStream_Size_add1 should have thrown IOException");
             }
-            org.junit.Assert.fail("testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString44 should have thrown IOException");
+            org.junit.Assert.fail("testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString33 should have thrown IOException");
         } catch (IOException expected) {
             Assert.assertEquals("Unexpected readed size. current: 0, excepted: 4097", expected.getMessage());
         }
@@ -299,7 +299,7 @@ public class AmplIOUtilsTestCase extends FileBasedTestCase {
                 IOUtils.toByteArray(fin, m_testFile.length());
                 final byte[] out = IOUtils.toByteArray(fin, m_testFile.length());
                 fin.available();
-                String String_3 = (("Wrong output size: out.length=" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
+                String String_2 = (("Wrong output size: out.length=" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
             }
             org.junit.Assert.fail("testToByteArray_InputStream_Size_add1 should have thrown IOException");
         } catch (IOException expected) {
@@ -308,72 +308,72 @@ public class AmplIOUtilsTestCase extends FileBasedTestCase {
     }
 
     @Test(timeout = 10000)
-    public void testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString49_failAssert0() throws Exception {
+    public void testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString38_failAssert0() throws Exception {
         try {
             {
                 try (final FileInputStream fin = new FileInputStream(m_testFile)) {
                     IOUtils.toByteArray(fin, m_testFile.length());
                     final byte[] out = IOUtils.toByteArray(fin, m_testFile.length());
                     fin.available();
-                    String String_3 = (("Wrong output size: out.length=" + (out.length)) + " does not exist") + (AmplIOUtilsTestCase.FILE_SIZE);
+                    String String_2 = (("Wrong ouput size: out.length=" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
                 }
                 org.junit.Assert.fail("testToByteArray_InputStream_Size_add1 should have thrown IOException");
             }
-            org.junit.Assert.fail("testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString49 should have thrown IOException");
+            org.junit.Assert.fail("testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString38 should have thrown IOException");
         } catch (IOException expected) {
             Assert.assertEquals("Unexpected readed size. current: 0, excepted: 4097", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString48_failAssert0() throws Exception {
+    public void testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString39_failAssert0() throws Exception {
         try {
             {
                 try (final FileInputStream fin = new FileInputStream(m_testFile)) {
                     IOUtils.toByteArray(fin, m_testFile.length());
                     final byte[] out = IOUtils.toByteArray(fin, m_testFile.length());
                     fin.available();
-                    String String_3 = (("Wrong output size: out.length=" + (out.length)) + "") + (AmplIOUtilsTestCase.FILE_SIZE);
+                    String String_2 = (("Wrong output size: out.length=" + (out.length)) + "") + (AmplIOUtilsTestCase.FILE_SIZE);
                 }
                 org.junit.Assert.fail("testToByteArray_InputStream_Size_add1 should have thrown IOException");
             }
-            org.junit.Assert.fail("testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString48 should have thrown IOException");
+            org.junit.Assert.fail("testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString39 should have thrown IOException");
         } catch (IOException expected) {
             Assert.assertEquals("Unexpected readed size. current: 0, excepted: 4097", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString47_failAssert0() throws Exception {
+    public void testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString37_failAssert0() throws Exception {
         try {
             {
                 try (final FileInputStream fin = new FileInputStream(m_testFile)) {
                     IOUtils.toByteArray(fin, m_testFile.length());
                     final byte[] out = IOUtils.toByteArray(fin, m_testFile.length());
                     fin.available();
-                    String String_3 = (("Wrong output size: outlength=" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
+                    String String_2 = (("Wrong output size: out.lengtOh=" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
                 }
                 org.junit.Assert.fail("testToByteArray_InputStream_Size_add1 should have thrown IOException");
             }
-            org.junit.Assert.fail("testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString47 should have thrown IOException");
+            org.junit.Assert.fail("testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString37 should have thrown IOException");
         } catch (IOException expected) {
             Assert.assertEquals("Unexpected readed size. current: 0, excepted: 4097", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString46_failAssert0() throws Exception {
+    public void testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString36_failAssert0() throws Exception {
         try {
             {
                 try (final FileInputStream fin = new FileInputStream(m_testFile)) {
                     IOUtils.toByteArray(fin, m_testFile.length());
                     final byte[] out = IOUtils.toByteArray(fin, m_testFile.length());
                     fin.available();
-                    String String_3 = (("Wrong output size: out.len1th=" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
+                    String String_2 = (("Wrowg output size: out.length=" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
                 }
                 org.junit.Assert.fail("testToByteArray_InputStream_Size_add1 should have thrown IOException");
             }
-            org.junit.Assert.fail("testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString46 should have thrown IOException");
+            org.junit.Assert.fail("testToByteArray_InputStream_Size_add1_failAssert0_literalMutationString36 should have thrown IOException");
         } catch (IOException expected) {
             Assert.assertEquals("Unexpected readed size. current: 0, excepted: 4097", expected.getMessage());
         }
@@ -387,24 +387,11 @@ public class AmplIOUtilsTestCase extends FileBasedTestCase {
                 IOUtils.toByteArray(fin, this.m_testFile.length());
                 final byte[] out = IOUtils.toByteArray(fin, this.m_testFile.length());
                 int o_testToByteArray_InputStream_Size_add2__9 = fin.available();
-                String String_4 = (("Wrong output size: out.length=" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
+                String String_3 = (("Wrong output size: out.length=" + (out.length)) + "!=") + (AmplIOUtilsTestCase.FILE_SIZE);
             }
             org.junit.Assert.fail("testToByteArray_InputStream_Size_add2_add56 should have thrown IOException");
         } catch (IOException expected) {
             Assert.assertEquals("Unexpected readed size. current: 0, excepted: 4097", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testToByteArray_InputStream_SizeIllegal_add223_add450() throws Exception {
-        try (final FileInputStream fin = new FileInputStream(this.m_testFile)) {
-            IOUtils.toByteArray(fin, ((this.m_testFile.length()) + 1));
-            IOUtils.toByteArray(fin, ((this.m_testFile.length()) + 1));
-        } catch (final IOException exc) {
-            boolean o_testToByteArray_InputStream_SizeIllegal_add223_add450__10 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add223_add450__10);
-            boolean o_testToByteArray_InputStream_SizeIllegal_add223__10 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add223_add450__10);
         }
     }
 
@@ -417,19 +404,6 @@ public class AmplIOUtilsTestCase extends FileBasedTestCase {
         } catch (final IOException exc) {
             boolean o_testToByteArray_InputStream_SizeIllegal_add224__9 = exc.getMessage().startsWith("Unexpected readed size");
             Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add224__9);
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testToByteArray_InputStream_SizeIllegal_add224_add455() throws Exception {
-        try (final FileInputStream fin = new FileInputStream(this.m_testFile)) {
-            long o_testToByteArray_InputStream_SizeIllegal_add224__5 = this.m_testFile.length();
-            IOUtils.toByteArray(fin, ((this.m_testFile.length()) + 1));
-        } catch (final IOException exc) {
-            boolean o_testToByteArray_InputStream_SizeIllegal_add224_add455__11 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add224_add455__11);
-            boolean o_testToByteArray_InputStream_SizeIllegal_add224__9 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add224_add455__11);
         }
     }
 
@@ -447,6 +421,19 @@ public class AmplIOUtilsTestCase extends FileBasedTestCase {
     }
 
     @Test(timeout = 10000)
+    public void testToByteArray_InputStream_SizeIllegal_add226_add410() throws Exception {
+        try (final FileInputStream fin = new FileInputStream(this.m_testFile)) {
+            IOUtils.toByteArray(fin, ((this.m_testFile.length()) + 1));
+        } catch (final IOException exc) {
+            exc.getMessage();
+            boolean o_testToByteArray_InputStream_SizeIllegal_add226_add410__9 = exc.getMessage().startsWith("Unexpected readed size");
+            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add226_add410__9);
+            boolean o_testToByteArray_InputStream_SizeIllegal_add226__9 = exc.getMessage().startsWith("Unexpected readed size");
+            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add226_add410__9);
+        }
+    }
+
+    @Test(timeout = 10000)
     public void testToByteArray_InputStream_SizeIllegal_add223() throws Exception {
         try (final FileInputStream fin = new FileInputStream(this.m_testFile)) {
             IOUtils.toByteArray(fin, ((this.m_testFile.length()) + 1));
@@ -458,27 +445,28 @@ public class AmplIOUtilsTestCase extends FileBasedTestCase {
     }
 
     @Test(timeout = 10000)
-    public void testToByteArray_InputStream_SizeIllegal_add226_add438() throws Exception {
+    public void testToByteArray_InputStream_SizeIllegal_add225_add414() throws Exception {
         try (final FileInputStream fin = new FileInputStream(this.m_testFile)) {
             IOUtils.toByteArray(fin, ((this.m_testFile.length()) + 1));
         } catch (final IOException exc) {
-            exc.getMessage();
-            boolean o_testToByteArray_InputStream_SizeIllegal_add226_add438__9 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add226_add438__9);
-            boolean o_testToByteArray_InputStream_SizeIllegal_add226__9 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add226_add438__9);
+            boolean o_testToByteArray_InputStream_SizeIllegal_add225_add414__8 = exc.getMessage().startsWith("Unexpected readed size");
+            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add225_add414__8);
+            boolean o_testToByteArray_InputStream_SizeIllegal_add225__8 = exc.getMessage().startsWith("Unexpected readed size");
+            boolean o_testToByteArray_InputStream_SizeIllegal_add225__10 = exc.getMessage().startsWith("Unexpected readed size");
+            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add225_add414__8);
         }
     }
 
     @Test(timeout = 10000)
-    public void testToByteArray_InputStream_SizeIllegal_literalMutationNumber213_add425() throws Exception {
+    public void testToByteArray_InputStream_SizeIllegal_add225_add416() throws Exception {
         try (final FileInputStream fin = new FileInputStream(this.m_testFile)) {
-            IOUtils.toByteArray(fin, ((this.m_testFile.length()) + 2));
+            IOUtils.toByteArray(fin, ((this.m_testFile.length()) + 1));
         } catch (final IOException exc) {
-            boolean o_testToByteArray_InputStream_SizeIllegal_literalMutationNumber213_add425__9 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_literalMutationNumber213_add425__9);
-            boolean o_testToByteArray_InputStream_SizeIllegal_literalMutationNumber213__9 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_literalMutationNumber213_add425__9);
+            boolean o_testToByteArray_InputStream_SizeIllegal_add225__8 = exc.getMessage().startsWith("Unexpected readed size");
+            boolean o_testToByteArray_InputStream_SizeIllegal_add225_add416__12 = exc.getMessage().startsWith("Unexpected readed size");
+            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add225_add416__12);
+            boolean o_testToByteArray_InputStream_SizeIllegal_add225__10 = exc.getMessage().startsWith("Unexpected readed size");
+            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add225_add416__12);
         }
     }
 
@@ -514,28 +502,15 @@ public class AmplIOUtilsTestCase extends FileBasedTestCase {
     }
 
     @Test(timeout = 10000)
-    public void testToByteArray_InputStream_SizeIllegal_add225_add444() throws Exception {
+    public void testToByteArray_InputStream_SizeIllegal_add224_add427() throws Exception {
         try (final FileInputStream fin = new FileInputStream(this.m_testFile)) {
+            long o_testToByteArray_InputStream_SizeIllegal_add224__5 = this.m_testFile.length();
             IOUtils.toByteArray(fin, ((this.m_testFile.length()) + 1));
         } catch (final IOException exc) {
-            boolean o_testToByteArray_InputStream_SizeIllegal_add225__8 = exc.getMessage().startsWith("Unexpected readed size");
-            boolean o_testToByteArray_InputStream_SizeIllegal_add225_add444__12 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add225_add444__12);
-            boolean o_testToByteArray_InputStream_SizeIllegal_add225__10 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add225_add444__12);
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testToByteArray_InputStream_SizeIllegal_add225_add442() throws Exception {
-        try (final FileInputStream fin = new FileInputStream(this.m_testFile)) {
-            IOUtils.toByteArray(fin, ((this.m_testFile.length()) + 1));
-        } catch (final IOException exc) {
-            boolean o_testToByteArray_InputStream_SizeIllegal_add225_add442__8 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add225_add442__8);
-            boolean o_testToByteArray_InputStream_SizeIllegal_add225__8 = exc.getMessage().startsWith("Unexpected readed size");
-            boolean o_testToByteArray_InputStream_SizeIllegal_add225__10 = exc.getMessage().startsWith("Unexpected readed size");
-            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add225_add442__8);
+            boolean o_testToByteArray_InputStream_SizeIllegal_add224_add427__11 = exc.getMessage().startsWith("Unexpected readed size");
+            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add224_add427__11);
+            boolean o_testToByteArray_InputStream_SizeIllegal_add224__9 = exc.getMessage().startsWith("Unexpected readed size");
+            Assert.assertTrue(o_testToByteArray_InputStream_SizeIllegal_add224_add427__11);
         }
     }
 

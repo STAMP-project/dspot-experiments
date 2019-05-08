@@ -125,7 +125,7 @@ public class AmplXmlTreeBuilderTest {
             }
             org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString1_failAssert0_add477 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
@@ -145,7 +145,7 @@ public class AmplXmlTreeBuilderTest {
             }
             org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString1_failAssert0_add481_failAssert0_literalMutationString1458 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
@@ -202,7 +202,7 @@ public class AmplXmlTreeBuilderTest {
             }
             org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString1_failAssert0_add481 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
@@ -218,7 +218,7 @@ public class AmplXmlTreeBuilderTest {
             }
             org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString1_failAssert0_literalMutationString294 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
@@ -234,7 +234,7 @@ public class AmplXmlTreeBuilderTest {
             }
             org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString1_failAssert0_literalMutationString297 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
@@ -253,7 +253,7 @@ public class AmplXmlTreeBuilderTest {
             }
             org.junit.Assert.fail("testSupplyParserToDataStreamnull21_failAssert0null568_failAssert0_literalMutationString1605 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
@@ -269,7 +269,7 @@ public class AmplXmlTreeBuilderTest {
             }
             org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString1_failAssert0null561 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
@@ -333,7 +333,7 @@ public class AmplXmlTreeBuilderTest {
             }
             org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString1_failAssert0_add481_failAssert0_add2374 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
@@ -346,7 +346,7 @@ public class AmplXmlTreeBuilderTest {
             TextUtil.stripNewlines(doc.html());
             org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString1 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
@@ -362,7 +362,7 @@ public class AmplXmlTreeBuilderTest {
             }
             org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString3_failAssert0_literalMutationString265 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
@@ -420,7 +420,7 @@ public class AmplXmlTreeBuilderTest {
             }
             org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_add3268_literalMutationString3438_failAssert0_literalMutationString4647 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
@@ -435,7 +435,7 @@ public class AmplXmlTreeBuilderTest {
             String o_testDetectCharsetEncodingDeclaration_add3268__14 = TextUtil.stripNewlines(doc.html());
             org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_add3268_literalMutationString3438 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
@@ -496,7 +496,7 @@ public class AmplXmlTreeBuilderTest {
             }
             org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_add3271null3871_failAssert0_literalMutationString5193 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
@@ -513,7 +513,7 @@ public class AmplXmlTreeBuilderTest {
             }
             org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString3256_failAssert0null3882 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
@@ -528,7 +528,7 @@ public class AmplXmlTreeBuilderTest {
             String o_testDetectCharsetEncodingDeclaration_add3272__14 = TextUtil.stripNewlines(doc.html());
             org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_add3272null3853_literalMutationString4503 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
@@ -549,7 +549,7 @@ public class AmplXmlTreeBuilderTest {
             }
             org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString3261_failAssert0_literalMutationString3550_failAssert0_add6027 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
@@ -566,7 +566,7 @@ public class AmplXmlTreeBuilderTest {
             }
             org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString3256_failAssert0_literalMutationString3531 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
@@ -580,7 +580,7 @@ public class AmplXmlTreeBuilderTest {
             String o_testDetectCharsetEncodingDeclaration_literalMutationString3266__12 = TextUtil.stripNewlines(doc.html());
             org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString3266_literalMutationString3397 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
@@ -595,7 +595,7 @@ public class AmplXmlTreeBuilderTest {
             String o_testDetectCharsetEncodingDeclaration_add3274__14 = TextUtil.stripNewlines(doc.html());
             org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_add3274_literalMutationString3428_literalMutationString4134 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
@@ -609,7 +609,7 @@ public class AmplXmlTreeBuilderTest {
             TextUtil.stripNewlines(doc.html());
             org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString3256 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
@@ -628,7 +628,7 @@ public class AmplXmlTreeBuilderTest {
             }
             org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_add3268_literalMutationString3438_failAssert0_add5620 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
@@ -646,7 +646,7 @@ public class AmplXmlTreeBuilderTest {
             }
             org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_add3275null3864_failAssert0_literalMutationString4944 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
@@ -664,7 +664,7 @@ public class AmplXmlTreeBuilderTest {
             }
             org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString3256_failAssert0_add3769 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
@@ -682,7 +682,7 @@ public class AmplXmlTreeBuilderTest {
             }
             org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_add3268_literalMutationString3438_failAssert0null6311 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
@@ -702,7 +702,7 @@ public class AmplXmlTreeBuilderTest {
             }
             org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString3261_failAssert0_literalMutationString3550_failAssert0_literalMutationString5041 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 
@@ -719,7 +719,7 @@ public class AmplXmlTreeBuilderTest {
             }
             org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString3261_failAssert0_literalMutationString3550 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/parser (Is a directory)", expected.getMessage());
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
         }
     }
 }
