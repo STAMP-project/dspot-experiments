@@ -3,7 +3,6 @@ package org.jsoup.parser;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
@@ -30,19 +29,6 @@ public class AmplXmlTreeBuilderTest {
         Assert.assertEquals(1, htmlDoc.select("head").size());
         Assert.assertEquals(0, xmlDoc.select("head").size());
         Assert.assertEquals(0, autoXmlDoc.select("head").size());
-    }
-
-    @Test(timeout = 10000)
-    public void testSupplyParserToDataStream_literalMutationString1087_failAssert0() throws IOException, URISyntaxException {
-        try {
-            File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-            InputStream inStream = new FileInputStream(xmlFile);
-            Document doc = Jsoup.parse(inStream, null, "http://foo.com", Parser.xmlParser());
-            TextUtil.stripNewlines(doc.html());
-            org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString1087 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
     }
 
     @Test(timeout = 10000)
@@ -126,20 +112,6 @@ public class AmplXmlTreeBuilderTest {
         Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add419__1)).getUserInfo());
         Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add419__1)).getPort())));
         Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_add419__12);
-    }
-
-    @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_literalMutationString407_failAssert0() throws IOException, URISyntaxException {
-        try {
-            File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-            InputStream inStream = new FileInputStream(xmlFile);
-            Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
-            doc.charset().name();
-            TextUtil.stripNewlines(doc.html());
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString407 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
     }
 }
 
