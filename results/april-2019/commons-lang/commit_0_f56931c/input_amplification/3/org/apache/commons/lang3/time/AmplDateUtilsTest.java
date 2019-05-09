@@ -160,43 +160,14 @@ public class AmplDateUtilsTest {
 
     @SuppressWarnings("deprecation")
     @Test(timeout = 10000)
-    public void testLang530_add22718() throws ParseException {
+    public void testLang530() throws ParseException {
         final Date d = new Date();
         final String isoDateStr = DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.format(d);
-        Assert.assertEquals("2019-05-04T17:43:42+02:00", isoDateStr);
-        DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern();
+        Assert.assertEquals("2019-05-09T02:14:10+02:00", isoDateStr);
         final Date d2 = DateUtils.parseDate(isoDateStr, DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern());
         d.getTime();
-        long long_4 = (d2.getTime()) + ((d.getTime()) % 1000);
-        Assert.assertEquals("2019-05-04T17:43:42+02:00", isoDateStr);
-    }
-
-    @SuppressWarnings("deprecation")
-    @Test(timeout = 10000)
-    public void testLang530_add22717() throws ParseException {
-        final Date d = new Date();
-        final String isoDateStr = DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.format(d);
-        Assert.assertEquals("2019-05-04T17:43:42+02:00", isoDateStr);
-        DateUtils.parseDate(isoDateStr, DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern());
-        final Date d2 = DateUtils.parseDate(isoDateStr, DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern());
-        d.getTime();
-        long long_3 = (d2.getTime()) + ((d.getTime()) % 1000);
-        Assert.assertEquals("2019-05-04T17:43:42+02:00", isoDateStr);
-    }
-
-    @SuppressWarnings("deprecation")
-    @Test(timeout = 10000)
-    public void testLang530_add22716() throws ParseException {
-        final Date d = new Date();
-        String o_testLang530_add22716__3 = DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.format(d);
-        Assert.assertEquals("2019-05-04T17:43:42+02:00", o_testLang530_add22716__3);
-        final String isoDateStr = DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.format(d);
-        Assert.assertEquals("2019-05-04T17:43:42+02:00", isoDateStr);
-        final Date d2 = DateUtils.parseDate(isoDateStr, DateFormatUtils.ISO_DATETIME_TIME_ZONE_FORMAT.getPattern());
-        d.getTime();
-        long long_7 = (d2.getTime()) + ((d.getTime()) % 1000);
-        Assert.assertEquals("2019-05-04T17:43:42+02:00", o_testLang530_add22716__3);
-        Assert.assertEquals("2019-05-04T17:43:42+02:00", isoDateStr);
+        long long_0 = (d2.getTime()) + ((d.getTime()) % 1000);
+        Assert.assertEquals("2019-05-09T02:14:10+02:00", isoDateStr);
     }
 
     private static void assertWeekIterator(final Iterator<?> it, final Calendar start) {
