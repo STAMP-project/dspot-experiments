@@ -64,9 +64,29 @@ public class AmplDefaultTypeAdaptersTest extends TestCase {
     }
 
     @SuppressWarnings("deprecation")
-    public void testDateDeserializationWithPattern_literalMutationString10449null11364_failAssert0() throws Exception {
+    public void testDateDeserializationWithPattern_literalMutationNumber9126null10039_failAssert0() throws Exception {
         try {
-            String pattern = "yyy-MM-dd";
+            String pattern = "yyyy-MM-dd";
+            Gson gson = new GsonBuilder().setDateFormat(DateFormat.FULL).setDateFormat(pattern).create();
+            Date now = new Date(2631613806206L);
+            String json = gson.toJson(null);
+            Date extracted = gson.fromJson(json, Date.class);
+            now.getYear();
+            extracted.getYear();
+            now.getMonth();
+            extracted.getMonth();
+            now.getDay();
+            extracted.getDay();
+            junit.framework.TestCase.fail("testDateDeserializationWithPattern_literalMutationNumber9126null10039 should have thrown JsonParseException");
+        } catch (JsonParseException expected) {
+            TestCase.assertEquals("The date should be a string value", expected.getMessage());
+        }
+    }
+
+    @SuppressWarnings("deprecation")
+    public void testDateDeserializationWithPattern_literalMutationString9120null10027_failAssert0() throws Exception {
+        try {
+            String pattern = "yyyy-MMdd";
             Gson gson = new GsonBuilder().setDateFormat(DateFormat.FULL).setDateFormat(pattern).create();
             Date now = new Date(1315806903103L);
             String json = gson.toJson(null);
@@ -77,14 +97,35 @@ public class AmplDefaultTypeAdaptersTest extends TestCase {
             extracted.getMonth();
             now.getDay();
             extracted.getDay();
-            junit.framework.TestCase.fail("testDateDeserializationWithPattern_literalMutationString10449null11364 should have thrown JsonParseException");
+            junit.framework.TestCase.fail("testDateDeserializationWithPattern_literalMutationString9120null10027 should have thrown JsonParseException");
         } catch (JsonParseException expected) {
             TestCase.assertEquals("The date should be a string value", expected.getMessage());
         }
     }
 
     @SuppressWarnings("deprecation")
-    public void testDateDeserializationWithPattern_add10457null11321_failAssert0() throws Exception {
+    public void testDateDeserializationWithPattern_add9134null10023_failAssert0() throws Exception {
+        try {
+            String pattern = "yyyy-MM-dd";
+            Gson gson = new GsonBuilder().setDateFormat(DateFormat.FULL).setDateFormat(pattern).create();
+            Date now = new Date(1315806903103L);
+            String json = gson.toJson(null);
+            Date extracted = gson.fromJson(json, Date.class);
+            extracted.getYear();
+            extracted.getYear();
+            now.getYear();
+            now.getMonth();
+            extracted.getMonth();
+            now.getDay();
+            extracted.getDay();
+            junit.framework.TestCase.fail("testDateDeserializationWithPattern_add9134null10023 should have thrown JsonParseException");
+        } catch (JsonParseException expected) {
+            TestCase.assertEquals("The date should be a string value", expected.getMessage());
+        }
+    }
+
+    @SuppressWarnings("deprecation")
+    public void testDateDeserializationWithPattern_add9128null10011_failAssert0() throws Exception {
         try {
             String pattern = "yyyy-MM-dd";
             new GsonBuilder().setDateFormat(DateFormat.FULL).setDateFormat(pattern).create();
@@ -98,210 +139,14 @@ public class AmplDefaultTypeAdaptersTest extends TestCase {
             extracted.getMonth();
             now.getDay();
             extracted.getDay();
-            junit.framework.TestCase.fail("testDateDeserializationWithPattern_add10457null11321 should have thrown JsonParseException");
+            junit.framework.TestCase.fail("testDateDeserializationWithPattern_add9128null10011 should have thrown JsonParseException");
         } catch (JsonParseException expected) {
             TestCase.assertEquals("The date should be a string value", expected.getMessage());
         }
     }
 
     @SuppressWarnings("deprecation")
-    public void testDateDeserializationWithPatternnull10470_failAssert0_literalMutationNumber10820_failAssert0() throws Exception {
-        try {
-            {
-                String pattern = "yyyy-MM-dd";
-                Gson gson = new GsonBuilder().setDateFormat(DateFormat.FULL).setDateFormat(pattern).create();
-                Date now = new Date(0L);
-                String json = gson.toJson(null);
-                Date extracted = gson.fromJson(json, Date.class);
-                now.getYear();
-                extracted.getYear();
-                now.getMonth();
-                extracted.getMonth();
-                now.getDay();
-                extracted.getDay();
-                junit.framework.TestCase.fail("testDateDeserializationWithPatternnull10470 should have thrown JsonParseException");
-            }
-            junit.framework.TestCase.fail("testDateDeserializationWithPatternnull10470_failAssert0_literalMutationNumber10820 should have thrown JsonParseException");
-        } catch (JsonParseException expected) {
-            TestCase.assertEquals("The date should be a string value", expected.getMessage());
-        }
-    }
-
-    @SuppressWarnings("deprecation")
-    public void testDateDeserializationWithPattern_literalMutationNumber10455null11372_failAssert0() throws Exception {
-        try {
-            String pattern = "yyyy-MM-dd";
-            Gson gson = new GsonBuilder().setDateFormat(DateFormat.FULL).setDateFormat(pattern).create();
-            Date now = new Date(2631613806206L);
-            String json = gson.toJson(null);
-            Date extracted = gson.fromJson(json, Date.class);
-            now.getYear();
-            extracted.getYear();
-            now.getMonth();
-            extracted.getMonth();
-            now.getDay();
-            extracted.getDay();
-            junit.framework.TestCase.fail("testDateDeserializationWithPattern_literalMutationNumber10455null11372 should have thrown JsonParseException");
-        } catch (JsonParseException expected) {
-            TestCase.assertEquals("The date should be a string value", expected.getMessage());
-        }
-    }
-
-    @SuppressWarnings("deprecation")
-    public void testDateDeserializationWithPattern_add10458null11336_failAssert0() throws Exception {
-        try {
-            String pattern = "yyyy-MM-dd";
-            new GsonBuilder().setDateFormat(DateFormat.FULL).setDateFormat(pattern);
-            Gson gson = new GsonBuilder().setDateFormat(DateFormat.FULL).setDateFormat(pattern).create();
-            Date now = new Date(1315806903103L);
-            String json = gson.toJson(null);
-            Date extracted = gson.fromJson(json, Date.class);
-            now.getYear();
-            extracted.getYear();
-            now.getMonth();
-            extracted.getMonth();
-            now.getDay();
-            extracted.getDay();
-            junit.framework.TestCase.fail("testDateDeserializationWithPattern_add10458null11336 should have thrown JsonParseException");
-        } catch (JsonParseException expected) {
-            TestCase.assertEquals("The date should be a string value", expected.getMessage());
-        }
-    }
-
-    @SuppressWarnings("deprecation")
-    public void testDateDeserializationWithPattern_literalMutationNumber10453null11376_failAssert0() throws Exception {
-        try {
-            String pattern = "yyyy-MM-dd";
-            Gson gson = new GsonBuilder().setDateFormat(DateFormat.FULL).setDateFormat(pattern).create();
-            Date now = new Date(1315806903102L);
-            String json = gson.toJson(null);
-            Date extracted = gson.fromJson(json, Date.class);
-            now.getYear();
-            extracted.getYear();
-            now.getMonth();
-            extracted.getMonth();
-            now.getDay();
-            extracted.getDay();
-            junit.framework.TestCase.fail("testDateDeserializationWithPattern_literalMutationNumber10453null11376 should have thrown JsonParseException");
-        } catch (JsonParseException expected) {
-            TestCase.assertEquals("The date should be a string value", expected.getMessage());
-        }
-    }
-
-    @SuppressWarnings("deprecation")
-    public void testDateDeserializationWithPatternnull10470_failAssert0_add11116_failAssert0() throws Exception {
-        try {
-            {
-                String pattern = "yyyy-MM-dd";
-                new GsonBuilder().setDateFormat(DateFormat.FULL).setDateFormat(pattern).create();
-                Gson gson = new GsonBuilder().setDateFormat(DateFormat.FULL).setDateFormat(pattern).create();
-                Date now = new Date(1315806903103L);
-                String json = gson.toJson(null);
-                Date extracted = gson.fromJson(json, Date.class);
-                now.getYear();
-                extracted.getYear();
-                now.getMonth();
-                extracted.getMonth();
-                now.getDay();
-                extracted.getDay();
-                junit.framework.TestCase.fail("testDateDeserializationWithPatternnull10470 should have thrown JsonParseException");
-            }
-            junit.framework.TestCase.fail("testDateDeserializationWithPatternnull10470_failAssert0_add11116 should have thrown JsonParseException");
-        } catch (JsonParseException expected) {
-            TestCase.assertEquals("The date should be a string value", expected.getMessage());
-        }
-    }
-
-    @SuppressWarnings("deprecation")
-    public void testDateDeserializationWithPattern_add10467null11316_failAssert0() throws Exception {
-        try {
-            String pattern = "yyyy-MM-dd";
-            Gson gson = new GsonBuilder().setDateFormat(DateFormat.FULL).setDateFormat(pattern).create();
-            Date now = new Date(1315806903103L);
-            String json = gson.toJson(null);
-            Date extracted = gson.fromJson(json, Date.class);
-            now.getYear();
-            extracted.getYear();
-            now.getMonth();
-            extracted.getMonth();
-            extracted.getDay();
-            extracted.getDay();
-            now.getDay();
-            junit.framework.TestCase.fail("testDateDeserializationWithPattern_add10467null11316 should have thrown JsonParseException");
-        } catch (JsonParseException expected) {
-            TestCase.assertEquals("The date should be a string value", expected.getMessage());
-        }
-    }
-
-    @SuppressWarnings("deprecation")
-    public void testDateDeserializationWithPattern_literalMutationString10450_failAssert0null11403_failAssert0() throws Exception {
-        try {
-            {
-                String pattern = "yy9y-MM-dd";
-                Gson gson = new GsonBuilder().setDateFormat(DateFormat.FULL).setDateFormat(pattern).create();
-                Date now = new Date(1315806903103L);
-                String json = gson.toJson(null);
-                Date extracted = gson.fromJson(json, Date.class);
-                now.getYear();
-                extracted.getYear();
-                now.getMonth();
-                extracted.getMonth();
-                now.getDay();
-                extracted.getDay();
-                junit.framework.TestCase.fail("testDateDeserializationWithPattern_literalMutationString10450 should have thrown JsonSyntaxException");
-            }
-            junit.framework.TestCase.fail("testDateDeserializationWithPattern_literalMutationString10450_failAssert0null11403 should have thrown JsonParseException");
-        } catch (JsonParseException expected) {
-            TestCase.assertEquals("The date should be a string value", expected.getMessage());
-        }
-    }
-
-    @SuppressWarnings("deprecation")
-    public void testDateDeserializationWithPatternnull10470_failAssert0() throws Exception {
-        try {
-            String pattern = "yyyy-MM-dd";
-            Gson gson = new GsonBuilder().setDateFormat(DateFormat.FULL).setDateFormat(pattern).create();
-            Date now = new Date(1315806903103L);
-            String json = gson.toJson(null);
-            Date extracted = gson.fromJson(json, Date.class);
-            now.getYear();
-            extracted.getYear();
-            now.getMonth();
-            extracted.getMonth();
-            now.getDay();
-            extracted.getDay();
-            junit.framework.TestCase.fail("testDateDeserializationWithPatternnull10470 should have thrown JsonParseException");
-        } catch (JsonParseException expected) {
-            TestCase.assertEquals("The date should be a string value", expected.getMessage());
-        }
-    }
-
-    @SuppressWarnings("deprecation")
-    public void testDateDeserializationWithPatternnull10470_failAssert0_add11120_failAssert0() throws Exception {
-        try {
-            {
-                String pattern = "yyyy-MM-dd";
-                Gson gson = new GsonBuilder().setDateFormat(DateFormat.FULL).setDateFormat(pattern).create();
-                Date now = new Date(1315806903103L);
-                String json = gson.toJson(null);
-                gson.fromJson(json, Date.class);
-                Date extracted = gson.fromJson(json, Date.class);
-                now.getYear();
-                extracted.getYear();
-                now.getMonth();
-                extracted.getMonth();
-                now.getDay();
-                extracted.getDay();
-                junit.framework.TestCase.fail("testDateDeserializationWithPatternnull10470 should have thrown JsonParseException");
-            }
-            junit.framework.TestCase.fail("testDateDeserializationWithPatternnull10470_failAssert0_add11120 should have thrown JsonParseException");
-        } catch (JsonParseException expected) {
-            TestCase.assertEquals("The date should be a string value", expected.getMessage());
-        }
-    }
-
-    @SuppressWarnings("deprecation")
-    public void testDateDeserializationWithPatternnull10470_failAssert0_add11122_failAssert0() throws Exception {
+    public void testDateDeserializationWithPatternnull9141_failAssert0_add9817_failAssert0() throws Exception {
         try {
             {
                 String pattern = "yyyy-MM-dd";
@@ -316,38 +161,18 @@ public class AmplDefaultTypeAdaptersTest extends TestCase {
                 extracted.getMonth();
                 now.getDay();
                 extracted.getDay();
-                junit.framework.TestCase.fail("testDateDeserializationWithPatternnull10470 should have thrown JsonParseException");
+                junit.framework.TestCase.fail("testDateDeserializationWithPatternnull9141 should have thrown JsonParseException");
             }
-            junit.framework.TestCase.fail("testDateDeserializationWithPatternnull10470_failAssert0_add11122 should have thrown JsonParseException");
+            junit.framework.TestCase.fail("testDateDeserializationWithPatternnull9141_failAssert0_add9817 should have thrown JsonParseException");
         } catch (JsonParseException expected) {
             TestCase.assertEquals("The date should be a string value", expected.getMessage());
         }
     }
 
     @SuppressWarnings("deprecation")
-    public void testDateDeserializationWithPattern_literalMutationNumber10456null11356_failAssert0() throws Exception {
+    public void testDateDeserializationWithPatternnull9141_failAssert0() throws Exception {
         try {
             String pattern = "yyyy-MM-dd";
-            Gson gson = new GsonBuilder().setDateFormat(DateFormat.FULL).setDateFormat(pattern).create();
-            Date now = new Date(1315806903104L);
-            String json = gson.toJson(null);
-            Date extracted = gson.fromJson(json, Date.class);
-            now.getYear();
-            extracted.getYear();
-            now.getMonth();
-            extracted.getMonth();
-            now.getDay();
-            extracted.getDay();
-            junit.framework.TestCase.fail("testDateDeserializationWithPattern_literalMutationNumber10456null11356 should have thrown JsonParseException");
-        } catch (JsonParseException expected) {
-            TestCase.assertEquals("The date should be a string value", expected.getMessage());
-        }
-    }
-
-    @SuppressWarnings("deprecation")
-    public void testDateDeserializationWithPattern_literalMutationString10447null11384_failAssert0() throws Exception {
-        try {
-            String pattern = "yyyhy-MM-dd";
             Gson gson = new GsonBuilder().setDateFormat(DateFormat.FULL).setDateFormat(pattern).create();
             Date now = new Date(1315806903103L);
             String json = gson.toJson(null);
@@ -358,108 +183,75 @@ public class AmplDefaultTypeAdaptersTest extends TestCase {
             extracted.getMonth();
             now.getDay();
             extracted.getDay();
-            junit.framework.TestCase.fail("testDateDeserializationWithPattern_literalMutationString10447null11384 should have thrown JsonParseException");
+            junit.framework.TestCase.fail("testDateDeserializationWithPatternnull9141 should have thrown JsonParseException");
         } catch (JsonParseException expected) {
             TestCase.assertEquals("The date should be a string value", expected.getMessage());
         }
     }
 
-    public void testTimestampSerialization_literalMutationString1027_literalMutationString1707_failAssert0() throws Exception {
+    @SuppressWarnings("deprecation")
+    public void testDateDeserializationWithPattern_add9135null9996_failAssert0() throws Exception {
         try {
-            TimeZone defaultTimeZone = TimeZone.getDefault();
-            TimeZone.setDefault(TimeZone.getTimeZone(">DO"));
-            Locale defaultLocale = Locale.getDefault();
-            Locale.setDefault(Locale.US);
-            {
-                Timestamp timestamp = new Timestamp(0L);
-                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                String json = gson.toJson(timestamp, Timestamp.class);
-                gson.fromJson("{\'name3\':\'v3\'}", Timestamp.class).getTime();
-            }
-            junit.framework.TestCase.fail("testTimestampSerialization_literalMutationString1027_literalMutationString1707 should have thrown JsonParseException");
+            String pattern = "yyyy-MM-dd";
+            Gson gson = new GsonBuilder().setDateFormat(DateFormat.FULL).setDateFormat(pattern).create();
+            Date now = new Date(1315806903103L);
+            String json = gson.toJson(null);
+            Date extracted = gson.fromJson(json, Date.class);
+            now.getYear();
+            extracted.getYear();
+            now.getMonth();
+            now.getMonth();
+            extracted.getMonth();
+            now.getDay();
+            extracted.getDay();
+            junit.framework.TestCase.fail("testDateDeserializationWithPattern_add9135null9996 should have thrown JsonParseException");
         } catch (JsonParseException expected) {
             TestCase.assertEquals("The date should be a string value", expected.getMessage());
         }
     }
 
-    public void testTimestampSerializationnull1062_failAssert0_literalMutationString2021_failAssert0() throws Exception {
+    @SuppressWarnings("deprecation")
+    public void testDateDeserializationWithPattern_add9132null10000_failAssert0() throws Exception {
         try {
-            {
-                TimeZone defaultTimeZone = TimeZone.getDefault();
-                TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-                Locale defaultLocale = Locale.getDefault();
-                Locale.setDefault(Locale.US);
-                {
-                    Timestamp timestamp = new Timestamp(0L);
-                    Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                    String json = gson.toJson(null, Timestamp.class);
-                    gson.fromJson("{\'name3\':\'v3\'}", Timestamp.class).getTime();
-                }
-                junit.framework.TestCase.fail("testTimestampSerializationnull1062 should have thrown NullPointerException");
-            }
-            junit.framework.TestCase.fail("testTimestampSerializationnull1062_failAssert0_literalMutationString2021 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            TestCase.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    public void testTimestampSerialization_add1055_literalMutationString1446_failAssert0() throws Exception {
-        try {
-            TimeZone defaultTimeZone = TimeZone.getDefault();
-            TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-            Locale defaultLocale = Locale.getDefault();
-            Locale.setDefault(Locale.US);
-            {
-                Timestamp timestamp = new Timestamp(0L);
-                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                String json = gson.toJson(timestamp, Timestamp.class);
-                Timestamp o_testTimestampSerialization_add1055__17 = gson.fromJson("\"1970-01-01\"", Timestamp.class);
-                gson.fromJson("{\'name3\':\'v3\'}", Timestamp.class).getTime();
-            }
-            junit.framework.TestCase.fail("testTimestampSerialization_add1055_literalMutationString1446 should have thrown JsonParseException");
+            String pattern = "yyyy-MM-dd";
+            Gson gson = new GsonBuilder().setDateFormat(DateFormat.FULL).setDateFormat(pattern).create();
+            Date now = new Date(1315806903103L);
+            String json = gson.toJson(null);
+            gson.fromJson(json, Date.class);
+            Date extracted = gson.fromJson(json, Date.class);
+            now.getYear();
+            extracted.getYear();
+            now.getMonth();
+            extracted.getMonth();
+            now.getDay();
+            extracted.getDay();
+            junit.framework.TestCase.fail("testDateDeserializationWithPattern_add9132null10000 should have thrown JsonParseException");
         } catch (JsonParseException expected) {
             TestCase.assertEquals("The date should be a string value", expected.getMessage());
         }
     }
 
-    public void testTimestampSerialization_add1053null2754_failAssert0() throws Exception {
+    @SuppressWarnings("deprecation")
+    public void testDateDeserializationWithPattern_literalMutationNumber9123null10043_failAssert0() throws Exception {
         try {
-            TimeZone defaultTimeZone = TimeZone.getDefault();
-            TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-            Locale defaultLocale = Locale.getDefault();
-            Locale.setDefault(Locale.US);
-            {
-                Timestamp timestamp = new Timestamp(0L);
-                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                String o_testTimestampSerialization_add1053__15 = gson.toJson(timestamp, Timestamp.class);
-                String json = gson.toJson(null, Timestamp.class);
-                gson.fromJson("\"1970-01-01\"", Timestamp.class).getTime();
-            }
-            junit.framework.TestCase.fail("testTimestampSerialization_add1053null2754 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            TestCase.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    public void testTimestampSerialization_literalMutationString1041_failAssert0() throws Exception {
-        try {
-            TimeZone defaultTimeZone = TimeZone.getDefault();
-            TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-            Locale defaultLocale = Locale.getDefault();
-            Locale.setDefault(Locale.US);
-            {
-                Timestamp timestamp = new Timestamp(0L);
-                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                String json = gson.toJson(timestamp, Timestamp.class);
-                gson.fromJson("{\'name3\':\'v3\'}", Timestamp.class).getTime();
-            }
-            junit.framework.TestCase.fail("testTimestampSerialization_literalMutationString1041 should have thrown JsonParseException");
+            String pattern = "yyyy-MM-dd";
+            Gson gson = new GsonBuilder().setDateFormat(DateFormat.FULL).setDateFormat(pattern).create();
+            Date now = new Date(0L);
+            String json = gson.toJson(null);
+            Date extracted = gson.fromJson(json, Date.class);
+            now.getYear();
+            extracted.getYear();
+            now.getMonth();
+            extracted.getMonth();
+            now.getDay();
+            extracted.getDay();
+            junit.framework.TestCase.fail("testDateDeserializationWithPattern_literalMutationNumber9123null10043 should have thrown JsonParseException");
         } catch (JsonParseException expected) {
             TestCase.assertEquals("The date should be a string value", expected.getMessage());
         }
     }
 
-    public void testTimestampSerialization_literalMutationNumber1031null2817_failAssert0() throws Exception {
+    public void testTimestampSerializationnull767_failAssert0() throws Exception {
         try {
             TimeZone defaultTimeZone = TimeZone.getDefault();
             TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
@@ -471,13 +263,31 @@ public class AmplDefaultTypeAdaptersTest extends TestCase {
                 String json = gson.toJson(null, Timestamp.class);
                 gson.fromJson("\"1970-01-01\"", Timestamp.class).getTime();
             }
-            junit.framework.TestCase.fail("testTimestampSerialization_literalMutationNumber1031null2817 should have thrown NullPointerException");
+            junit.framework.TestCase.fail("testTimestampSerializationnull767 should have thrown NullPointerException");
         } catch (NullPointerException expected) {
             TestCase.assertEquals(null, expected.getMessage());
         }
     }
 
-    public void testTimestampSerialization_literalMutationString1042_failAssert0() throws Exception {
+    public void testTimestampSerialization_literalMutationString728null2509_failAssert0() throws Exception {
+        try {
+            TimeZone defaultTimeZone = TimeZone.getDefault();
+            TimeZone.setDefault(TimeZone.getTimeZone(""));
+            Locale defaultLocale = Locale.getDefault();
+            Locale.setDefault(Locale.US);
+            {
+                Timestamp timestamp = new Timestamp(0L);
+                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+                String json = gson.toJson(null, Timestamp.class);
+                gson.fromJson("\"1970-01-01\"", Timestamp.class).getTime();
+            }
+            junit.framework.TestCase.fail("testTimestampSerialization_literalMutationString728null2509 should have thrown NullPointerException");
+        } catch (NullPointerException expected) {
+            TestCase.assertEquals(null, expected.getMessage());
+        }
+    }
+
+    public void testTimestampSerialization_literalMutationString746_failAssert0() throws Exception {
         try {
             TimeZone defaultTimeZone = TimeZone.getDefault();
             TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
@@ -487,39 +297,19 @@ public class AmplDefaultTypeAdaptersTest extends TestCase {
                 Timestamp timestamp = new Timestamp(0L);
                 Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
                 String json = gson.toJson(timestamp, Timestamp.class);
-                gson.fromJson("{l>^r@)C1RND", Timestamp.class).getTime();
+                gson.fromJson("{\'name3\':\'v3\'}", Timestamp.class).getTime();
             }
-            junit.framework.TestCase.fail("testTimestampSerialization_literalMutationString1042 should have thrown JsonParseException");
+            junit.framework.TestCase.fail("testTimestampSerialization_literalMutationString746 should have thrown JsonParseException");
         } catch (JsonParseException expected) {
             TestCase.assertEquals("The date should be a string value", expected.getMessage());
         }
     }
 
-    public void testTimestampSerialization_literalMutationString1042_failAssert0_literalMutationString2119_failAssert0() throws Exception {
+    public void testTimestampSerialization_literalMutationString746_failAssert0_add2277_failAssert0() throws Exception {
         try {
             {
                 TimeZone defaultTimeZone = TimeZone.getDefault();
-                TimeZone.setDefault(TimeZone.getTimeZone("U@TC"));
-                Locale defaultLocale = Locale.getDefault();
-                Locale.setDefault(Locale.US);
-                {
-                    Timestamp timestamp = new Timestamp(0L);
-                    Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                    String json = gson.toJson(timestamp, Timestamp.class);
-                    gson.fromJson("{l>^r@)C1RND", Timestamp.class).getTime();
-                }
-                junit.framework.TestCase.fail("testTimestampSerialization_literalMutationString1042 should have thrown JsonParseException");
-            }
-            junit.framework.TestCase.fail("testTimestampSerialization_literalMutationString1042_failAssert0_literalMutationString2119 should have thrown JsonParseException");
-        } catch (JsonParseException expected) {
-            TestCase.assertEquals("The date should be a string value", expected.getMessage());
-        }
-    }
-
-    public void testTimestampSerialization_literalMutationString1042_failAssert0_add2603_failAssert0() throws Exception {
-        try {
-            {
-                TimeZone defaultTimeZone = TimeZone.getDefault();
+                TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
                 TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
                 Locale defaultLocale = Locale.getDefault();
                 Locale.setDefault(Locale.US);
@@ -527,63 +317,43 @@ public class AmplDefaultTypeAdaptersTest extends TestCase {
                     Timestamp timestamp = new Timestamp(0L);
                     Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
                     String json = gson.toJson(timestamp, Timestamp.class);
-                    gson.fromJson("{l>^r@)C1RND", Timestamp.class).getTime();
-                }
-                junit.framework.TestCase.fail("testTimestampSerialization_literalMutationString1042 should have thrown JsonParseException");
-            }
-            junit.framework.TestCase.fail("testTimestampSerialization_literalMutationString1042_failAssert0_add2603 should have thrown JsonParseException");
-        } catch (JsonParseException expected) {
-            TestCase.assertEquals("The date should be a string value", expected.getMessage());
-        }
-    }
-
-    public void testTimestampSerialization_literalMutationString1042_failAssert0null2880_failAssert0() throws Exception {
-        try {
-            {
-                TimeZone defaultTimeZone = TimeZone.getDefault();
-                TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-                Locale defaultLocale = Locale.getDefault();
-                Locale.setDefault(Locale.US);
-                {
-                    Timestamp timestamp = new Timestamp(0L);
-                    Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                    String json = gson.toJson(null, Timestamp.class);
-                    gson.fromJson("{l>^r@)C1RND", Timestamp.class).getTime();
-                }
-                junit.framework.TestCase.fail("testTimestampSerialization_literalMutationString1042 should have thrown JsonParseException");
-            }
-            junit.framework.TestCase.fail("testTimestampSerialization_literalMutationString1042_failAssert0null2880 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            TestCase.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    public void testTimestampSerialization_literalMutationString1041_failAssert0null2864_failAssert0() throws Exception {
-        try {
-            {
-                TimeZone defaultTimeZone = TimeZone.getDefault();
-                TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-                Locale defaultLocale = Locale.getDefault();
-                Locale.setDefault(Locale.US);
-                {
-                    Timestamp timestamp = new Timestamp(0L);
-                    Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                    String json = gson.toJson(null, Timestamp.class);
                     gson.fromJson("{\'name3\':\'v3\'}", Timestamp.class).getTime();
                 }
-                junit.framework.TestCase.fail("testTimestampSerialization_literalMutationString1041 should have thrown JsonParseException");
+                junit.framework.TestCase.fail("testTimestampSerialization_literalMutationString746 should have thrown JsonParseException");
             }
-            junit.framework.TestCase.fail("testTimestampSerialization_literalMutationString1041_failAssert0null2864 should have thrown NullPointerException");
+            junit.framework.TestCase.fail("testTimestampSerialization_literalMutationString746_failAssert0_add2277 should have thrown JsonParseException");
+        } catch (JsonParseException expected) {
+            TestCase.assertEquals("The date should be a string value", expected.getMessage());
+        }
+    }
+
+    public void testTimestampSerializationnull767_failAssert0_add2305_failAssert0() throws Exception {
+        try {
+            {
+                TimeZone defaultTimeZone = TimeZone.getDefault();
+                TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+                Locale defaultLocale = Locale.getDefault();
+                Locale.setDefault(Locale.US);
+                {
+                    Timestamp timestamp = new Timestamp(0L);
+                    Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+                    gson.toJson(null, Timestamp.class);
+                    String json = gson.toJson(null, Timestamp.class);
+                    gson.fromJson("\"1970-01-01\"", Timestamp.class).getTime();
+                }
+                junit.framework.TestCase.fail("testTimestampSerializationnull767 should have thrown NullPointerException");
+            }
+            junit.framework.TestCase.fail("testTimestampSerializationnull767_failAssert0_add2305 should have thrown NullPointerException");
         } catch (NullPointerException expected) {
             TestCase.assertEquals(null, expected.getMessage());
         }
     }
 
-    public void testTimestampSerializationnull1062_failAssert0_add2548_failAssert0() throws Exception {
+    public void testTimestampSerializationnull767_failAssert0_literalMutationString1821_failAssert0() throws Exception {
         try {
             {
                 TimeZone defaultTimeZone = TimeZone.getDefault();
-                TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+                TimeZone.setDefault(TimeZone.getTimeZone("UTTC"));
                 Locale defaultLocale = Locale.getDefault();
                 Locale.setDefault(Locale.US);
                 {
@@ -592,33 +362,15 @@ public class AmplDefaultTypeAdaptersTest extends TestCase {
                     String json = gson.toJson(null, Timestamp.class);
                     gson.fromJson("\"1970-01-01\"", Timestamp.class).getTime();
                 }
-                junit.framework.TestCase.fail("testTimestampSerializationnull1062 should have thrown NullPointerException");
+                junit.framework.TestCase.fail("testTimestampSerializationnull767 should have thrown NullPointerException");
             }
-            junit.framework.TestCase.fail("testTimestampSerializationnull1062_failAssert0_add2548 should have thrown NullPointerException");
+            junit.framework.TestCase.fail("testTimestampSerializationnull767_failAssert0_literalMutationString1821 should have thrown NullPointerException");
         } catch (NullPointerException expected) {
             TestCase.assertEquals(null, expected.getMessage());
         }
     }
 
-    public void testTimestampSerialization_add1056null2734_failAssert0() throws Exception {
-        try {
-            TimeZone defaultTimeZone = TimeZone.getDefault();
-            TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-            Locale defaultLocale = Locale.getDefault();
-            Locale.setDefault(Locale.US);
-            {
-                Timestamp timestamp = new Timestamp(0L);
-                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                String json = gson.toJson(null, Timestamp.class);
-                gson.fromJson("\"1970-01-01\"", Timestamp.class).getTime();
-            }
-            junit.framework.TestCase.fail("testTimestampSerialization_add1056null2734 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            TestCase.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    public void testTimestampSerialization_literalMutationString1041_failAssert0_add2554_failAssert0() throws Exception {
+    public void testTimestampSerialization_literalMutationString746_failAssert0null2572_failAssert0() throws Exception {
         try {
             {
                 TimeZone defaultTimeZone = TimeZone.getDefault();
@@ -627,202 +379,19 @@ public class AmplDefaultTypeAdaptersTest extends TestCase {
                 Locale.setDefault(Locale.US);
                 {
                     Timestamp timestamp = new Timestamp(0L);
-                    new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                    Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                    String json = gson.toJson(timestamp, Timestamp.class);
-                    gson.fromJson("{\'name3\':\'v3\'}", Timestamp.class).getTime();
-                }
-                junit.framework.TestCase.fail("testTimestampSerialization_literalMutationString1041 should have thrown JsonParseException");
-            }
-            junit.framework.TestCase.fail("testTimestampSerialization_literalMutationString1041_failAssert0_add2554 should have thrown JsonParseException");
-        } catch (JsonParseException expected) {
-            TestCase.assertEquals("The date should be a string value", expected.getMessage());
-        }
-    }
-
-    public void testTimestampSerialization_add1057_literalMutationString1596_failAssert0() throws Exception {
-        try {
-            TimeZone defaultTimeZone = TimeZone.getDefault();
-            TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-            Locale defaultLocale = Locale.getDefault();
-            Locale.setDefault(Locale.US);
-            {
-                Timestamp timestamp = new Timestamp(0L);
-                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                String json = gson.toJson(timestamp, Timestamp.class);
-                gson.fromJson("{\'name3\':\'v3\'}", Timestamp.class).getTime();
-            }
-            junit.framework.TestCase.fail("testTimestampSerialization_add1057_literalMutationString1596 should have thrown JsonParseException");
-        } catch (JsonParseException expected) {
-            TestCase.assertEquals("The date should be a string value", expected.getMessage());
-        }
-    }
-
-    public void testTimestampSerialization_literalMutationString1045null2797_failAssert0() throws Exception {
-        try {
-            TimeZone defaultTimeZone = TimeZone.getDefault();
-            TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-            Locale defaultLocale = Locale.getDefault();
-            Locale.setDefault(Locale.US);
-            {
-                Timestamp timestamp = new Timestamp(0L);
-                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                String json = gson.toJson(null, Timestamp.class);
-                gson.fromJson("\"1970-01-0_1\"", Timestamp.class).getTime();
-            }
-            junit.framework.TestCase.fail("testTimestampSerialization_literalMutationString1045null2797 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            TestCase.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    public void testTimestampSerialization_literalMutationNumber1033null2821_failAssert0() throws Exception {
-        try {
-            TimeZone defaultTimeZone = TimeZone.getDefault();
-            TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-            Locale defaultLocale = Locale.getDefault();
-            Locale.setDefault(Locale.US);
-            {
-                Timestamp timestamp = new Timestamp(2L);
-                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                String json = gson.toJson(null, Timestamp.class);
-                gson.fromJson("\"1970-01-01\"", Timestamp.class).getTime();
-            }
-            junit.framework.TestCase.fail("testTimestampSerialization_literalMutationNumber1033null2821 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            TestCase.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    public void testTimestampSerialization_remove1058null2730_failAssert0() throws Exception {
-        try {
-            TimeZone defaultTimeZone = TimeZone.getDefault();
-            Locale defaultLocale = Locale.getDefault();
-            Locale.setDefault(Locale.US);
-            {
-                Timestamp timestamp = new Timestamp(0L);
-                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                String json = gson.toJson(null, Timestamp.class);
-                gson.fromJson("\"1970-01-01\"", Timestamp.class).getTime();
-            }
-            junit.framework.TestCase.fail("testTimestampSerialization_remove1058null2730 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            TestCase.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    public void testTimestampSerializationnull1062_failAssert0() throws Exception {
-        try {
-            TimeZone defaultTimeZone = TimeZone.getDefault();
-            TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-            Locale defaultLocale = Locale.getDefault();
-            Locale.setDefault(Locale.US);
-            {
-                Timestamp timestamp = new Timestamp(0L);
-                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                String json = gson.toJson(null, Timestamp.class);
-                gson.fromJson("\"1970-01-01\"", Timestamp.class).getTime();
-            }
-            junit.framework.TestCase.fail("testTimestampSerializationnull1062 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            TestCase.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    public void testTimestampSerialization_literalMutationString1028null2789_failAssert0() throws Exception {
-        try {
-            TimeZone defaultTimeZone = TimeZone.getDefault();
-            TimeZone.setDefault(TimeZone.getTimeZone("UC"));
-            Locale defaultLocale = Locale.getDefault();
-            Locale.setDefault(Locale.US);
-            {
-                Timestamp timestamp = new Timestamp(0L);
-                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                String json = gson.toJson(null, Timestamp.class);
-                gson.fromJson("\"1970-01-01\"", Timestamp.class).getTime();
-            }
-            junit.framework.TestCase.fail("testTimestampSerialization_literalMutationString1028null2789 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            TestCase.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    public void testSqlDateSerialization_add3422null5120_failAssert0() throws Exception {
-        try {
-            TimeZone defaultTimeZone = TimeZone.getDefault();
-            TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-            Locale defaultLocale = Locale.getDefault();
-            Locale.setDefault(Locale.US);
-            {
-                java.sql.Date sqlDate = new java.sql.Date(0L);
-                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                String json = gson.toJson(null, Timestamp.class);
-                gson.fromJson("\"1970-01-01\"", java.sql.Date.class).getTime();
-            }
-            junit.framework.TestCase.fail("testSqlDateSerialization_add3422null5120 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            TestCase.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    public void testSqlDateSerialization_remove3424null5066_failAssert0() throws Exception {
-        try {
-            TimeZone defaultTimeZone = TimeZone.getDefault();
-            Locale defaultLocale = Locale.getDefault();
-            Locale.setDefault(Locale.US);
-            {
-                java.sql.Date sqlDate = new java.sql.Date(0L);
-                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                String json = gson.toJson(null, Timestamp.class);
-                gson.fromJson("\"1970-01-01\"", java.sql.Date.class).getTime();
-            }
-            junit.framework.TestCase.fail("testSqlDateSerialization_remove3424null5066 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            TestCase.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    public void testSqlDateSerializationnull3428_failAssert0_literalMutationString4297_failAssert0() throws Exception {
-        try {
-            {
-                TimeZone defaultTimeZone = TimeZone.getDefault();
-                TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-                Locale defaultLocale = Locale.getDefault();
-                Locale.setDefault(Locale.US);
-                {
-                    java.sql.Date sqlDate = new java.sql.Date(0L);
                     Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
                     String json = gson.toJson(null, Timestamp.class);
-                    gson.fromJson("\"1970-0d-01\"", java.sql.Date.class).getTime();
+                    gson.fromJson("{\'name3\':\'v3\'}", Timestamp.class).getTime();
                 }
-                junit.framework.TestCase.fail("testSqlDateSerializationnull3428 should have thrown NullPointerException");
+                junit.framework.TestCase.fail("testTimestampSerialization_literalMutationString746 should have thrown JsonParseException");
             }
-            junit.framework.TestCase.fail("testSqlDateSerializationnull3428_failAssert0_literalMutationString4297 should have thrown NullPointerException");
+            junit.framework.TestCase.fail("testTimestampSerialization_literalMutationString746_failAssert0null2572 should have thrown NullPointerException");
         } catch (NullPointerException expected) {
             TestCase.assertEquals(null, expected.getMessage());
         }
     }
 
-    public void testSqlDateSerialization_add3419null5097_failAssert0() throws Exception {
-        try {
-            TimeZone defaultTimeZone = TimeZone.getDefault();
-            TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-            Locale defaultLocale = Locale.getDefault();
-            Locale.setDefault(Locale.US);
-            {
-                java.sql.Date sqlDate = new java.sql.Date(0L);
-                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                String o_testSqlDateSerialization_add3419__15 = gson.toJson(sqlDate, Timestamp.class);
-                String json = gson.toJson(null, Timestamp.class);
-                gson.fromJson("\"1970-01-01\"", java.sql.Date.class).getTime();
-            }
-            junit.framework.TestCase.fail("testSqlDateSerialization_add3419null5097 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            TestCase.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    public void testSqlDateSerialization_literalMutationString3408_failAssert0_literalMutationString4366_failAssert0() throws Exception {
+    public void testTimestampSerialization_literalMutationString750_failAssert0null2560_failAssert0() throws Exception {
         try {
             {
                 TimeZone defaultTimeZone = TimeZone.getDefault();
@@ -830,133 +399,20 @@ public class AmplDefaultTypeAdaptersTest extends TestCase {
                 Locale defaultLocale = Locale.getDefault();
                 Locale.setDefault(Locale.US);
                 {
-                    java.sql.Date sqlDate = new java.sql.Date(0L);
+                    Timestamp timestamp = new Timestamp(0L);
                     Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                    String json = gson.toJson(sqlDate, Timestamp.class);
-                    gson.fromJson("{\'nme3\':\'v3\'}", java.sql.Date.class).getTime();
+                    String json = gson.toJson(null, Timestamp.class);
+                    gson.fromJson("_{{l>^r@)C1R", Timestamp.class).getTime();
                 }
-                junit.framework.TestCase.fail("testSqlDateSerialization_literalMutationString3408 should have thrown JsonParseException");
+                junit.framework.TestCase.fail("testTimestampSerialization_literalMutationString750 should have thrown JsonSyntaxException");
             }
-            junit.framework.TestCase.fail("testSqlDateSerialization_literalMutationString3408_failAssert0_literalMutationString4366 should have thrown JsonParseException");
-        } catch (JsonParseException expected) {
-            TestCase.assertEquals("The date should be a string value", expected.getMessage());
-        }
-    }
-
-    public void testSqlDateSerializationnull3428_failAssert0() throws Exception {
-        try {
-            TimeZone defaultTimeZone = TimeZone.getDefault();
-            TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-            Locale defaultLocale = Locale.getDefault();
-            Locale.setDefault(Locale.US);
-            {
-                java.sql.Date sqlDate = new java.sql.Date(0L);
-                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                String json = gson.toJson(null, Timestamp.class);
-                gson.fromJson("\"1970-01-01\"", java.sql.Date.class).getTime();
-            }
-            junit.framework.TestCase.fail("testSqlDateSerializationnull3428 should have thrown NullPointerException");
+            junit.framework.TestCase.fail("testTimestampSerialization_literalMutationString750_failAssert0null2560 should have thrown NullPointerException");
         } catch (NullPointerException expected) {
             TestCase.assertEquals(null, expected.getMessage());
         }
     }
 
-    public void testSqlDateSerialization_literalMutationString3394_literalMutationString4139_failAssert0() throws Exception {
-        try {
-            TimeZone defaultTimeZone = TimeZone.getDefault();
-            TimeZone.setDefault(TimeZone.getTimeZone("UC"));
-            Locale defaultLocale = Locale.getDefault();
-            Locale.setDefault(Locale.US);
-            {
-                java.sql.Date sqlDate = new java.sql.Date(0L);
-                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                String json = gson.toJson(sqlDate, Timestamp.class);
-                gson.fromJson("{\'name3\':\'v3\'}", java.sql.Date.class).getTime();
-            }
-            junit.framework.TestCase.fail("testSqlDateSerialization_literalMutationString3394_literalMutationString4139 should have thrown JsonParseException");
-        } catch (JsonParseException expected) {
-            TestCase.assertEquals("The date should be a string value", expected.getMessage());
-        }
-    }
-
-    public void testSqlDateSerialization_literalMutationString3393null5137_failAssert0() throws Exception {
-        try {
-            TimeZone defaultTimeZone = TimeZone.getDefault();
-            TimeZone.setDefault(TimeZone.getTimeZone("zTC"));
-            Locale defaultLocale = Locale.getDefault();
-            Locale.setDefault(Locale.US);
-            {
-                java.sql.Date sqlDate = new java.sql.Date(0L);
-                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                String json = gson.toJson(null, Timestamp.class);
-                gson.fromJson("\"1970-01-01\"", java.sql.Date.class).getTime();
-            }
-            junit.framework.TestCase.fail("testSqlDateSerialization_literalMutationString3393null5137 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            TestCase.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    public void testSqlDateSerialization_add3416null5106_failAssert0() throws Exception {
-        try {
-            TimeZone defaultTimeZone = TimeZone.getDefault();
-            TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-            Locale defaultLocale = Locale.getDefault();
-            Locale.setDefault(Locale.US);
-            Locale.setDefault(Locale.US);
-            {
-                java.sql.Date sqlDate = new java.sql.Date(0L);
-                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                String json = gson.toJson(null, Timestamp.class);
-                gson.fromJson("\"1970-01-01\"", java.sql.Date.class).getTime();
-            }
-            junit.framework.TestCase.fail("testSqlDateSerialization_add3416null5106 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            TestCase.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    public void testSqlDateSerialization_literalMutationString3405null5133_failAssert0() throws Exception {
-        try {
-            TimeZone defaultTimeZone = TimeZone.getDefault();
-            TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-            Locale defaultLocale = Locale.getDefault();
-            Locale.setDefault(Locale.US);
-            {
-                java.sql.Date sqlDate = new java.sql.Date(0L);
-                Gson gson = new GsonBuilder().setDateFormat("yyyy-M-dd").create();
-                String json = gson.toJson(null, Timestamp.class);
-                gson.fromJson("\"1970-01-01\"", java.sql.Date.class).getTime();
-            }
-            junit.framework.TestCase.fail("testSqlDateSerialization_literalMutationString3405null5133 should have thrown NullPointerException");
-        } catch (NullPointerException expected) {
-            TestCase.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    public void testSqlDateSerialization_literalMutationString3408_failAssert0_add4891_failAssert0() throws Exception {
-        try {
-            {
-                TimeZone defaultTimeZone = TimeZone.getDefault();
-                TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-                Locale defaultLocale = Locale.getDefault();
-                Locale.setDefault(Locale.US);
-                {
-                    java.sql.Date sqlDate = new java.sql.Date(0L);
-                    new GsonBuilder().setDateFormat("yyyy-MM-dd");
-                    Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                    String json = gson.toJson(sqlDate, Timestamp.class);
-                    gson.fromJson("{\'name3\':\'v3\'}", java.sql.Date.class).getTime();
-                }
-                junit.framework.TestCase.fail("testSqlDateSerialization_literalMutationString3408 should have thrown JsonParseException");
-            }
-            junit.framework.TestCase.fail("testSqlDateSerialization_literalMutationString3408_failAssert0_add4891 should have thrown JsonParseException");
-        } catch (JsonParseException expected) {
-            TestCase.assertEquals("The date should be a string value", expected.getMessage());
-        }
-    }
-
-    public void testSqlDateSerialization_add3415null5082_failAssert0() throws Exception {
+    public void testTimestampSerialization_add754null2461_failAssert0() throws Exception {
         try {
             TimeZone defaultTimeZone = TimeZone.getDefault();
             TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
@@ -964,40 +420,111 @@ public class AmplDefaultTypeAdaptersTest extends TestCase {
             Locale defaultLocale = Locale.getDefault();
             Locale.setDefault(Locale.US);
             {
-                java.sql.Date sqlDate = new java.sql.Date(0L);
+                Timestamp timestamp = new Timestamp(0L);
                 Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
                 String json = gson.toJson(null, Timestamp.class);
-                gson.fromJson("\"1970-01-01\"", java.sql.Date.class).getTime();
+                gson.fromJson("\"1970-01-01\"", Timestamp.class).getTime();
             }
-            junit.framework.TestCase.fail("testSqlDateSerialization_add3415null5082 should have thrown NullPointerException");
+            junit.framework.TestCase.fail("testTimestampSerialization_add754null2461 should have thrown NullPointerException");
         } catch (NullPointerException expected) {
             TestCase.assertEquals(null, expected.getMessage());
         }
     }
 
-    public void testSqlDateSerializationnull3428_failAssert0_add4856_failAssert0() throws Exception {
+    public void testSqlDateSerialization_literalMutationString2835null4609_failAssert0() throws Exception {
+        try {
+            TimeZone defaultTimeZone = TimeZone.getDefault();
+            TimeZone.setDefault(TimeZone.getTimeZone("7TC"));
+            Locale defaultLocale = Locale.getDefault();
+            Locale.setDefault(Locale.US);
+            {
+                java.sql.Date sqlDate = new java.sql.Date(0L);
+                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+                String json = gson.toJson(null, Timestamp.class);
+                gson.fromJson("\"1970-01-01\"", java.sql.Date.class).getTime();
+            }
+            junit.framework.TestCase.fail("testSqlDateSerialization_literalMutationString2835null4609 should have thrown NullPointerException");
+        } catch (NullPointerException expected) {
+            TestCase.assertEquals(null, expected.getMessage());
+        }
+    }
+
+    public void testSqlDateSerialization_add2866null4539_failAssert0() throws Exception {
+        try {
+            TimeZone defaultTimeZone = TimeZone.getDefault();
+            TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+            Locale defaultLocale = Locale.getDefault();
+            Locale.setDefault(Locale.US);
+            {
+                java.sql.Date sqlDate = new java.sql.Date(0L);
+                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+                String json = gson.toJson(null, Timestamp.class);
+                gson.fromJson("\"1970-01-01\"", java.sql.Date.class).getTime();
+            }
+            junit.framework.TestCase.fail("testSqlDateSerialization_add2866null4539 should have thrown NullPointerException");
+        } catch (NullPointerException expected) {
+            TestCase.assertEquals(null, expected.getMessage());
+        }
+    }
+
+    public void testSqlDateSerialization_literalMutationString2852_failAssert0null4653_failAssert0() throws Exception {
         try {
             {
                 TimeZone defaultTimeZone = TimeZone.getDefault();
                 TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
                 Locale defaultLocale = Locale.getDefault();
                 Locale.setDefault(Locale.US);
-                Locale.setDefault(Locale.US);
                 {
                     java.sql.Date sqlDate = new java.sql.Date(0L);
                     Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
                     String json = gson.toJson(null, Timestamp.class);
-                    gson.fromJson("\"1970-01-01\"", java.sql.Date.class).getTime();
+                    gson.fromJson(":<e2op^cl&xZ", java.sql.Date.class).getTime();
                 }
-                junit.framework.TestCase.fail("testSqlDateSerializationnull3428 should have thrown NullPointerException");
+                junit.framework.TestCase.fail("testSqlDateSerialization_literalMutationString2852 should have thrown JsonSyntaxException");
             }
-            junit.framework.TestCase.fail("testSqlDateSerializationnull3428_failAssert0_add4856 should have thrown NullPointerException");
+            junit.framework.TestCase.fail("testSqlDateSerialization_literalMutationString2852_failAssert0null4653 should have thrown NullPointerException");
         } catch (NullPointerException expected) {
             TestCase.assertEquals(null, expected.getMessage());
         }
     }
 
-    public void testSqlDateSerialization_literalMutationNumber3398null5177_failAssert0() throws Exception {
+    public void testSqlDateSerialization_literalMutationString2848null4633_failAssert0() throws Exception {
+        try {
+            TimeZone defaultTimeZone = TimeZone.getDefault();
+            TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+            Locale defaultLocale = Locale.getDefault();
+            Locale.setDefault(Locale.US);
+            {
+                java.sql.Date sqlDate = new java.sql.Date(0L);
+                Gson gson = new GsonBuilder().setDateFormat("yy;y-MM-dd").create();
+                String json = gson.toJson(null, Timestamp.class);
+                gson.fromJson("\"1970-01-01\"", java.sql.Date.class).getTime();
+            }
+            junit.framework.TestCase.fail("testSqlDateSerialization_literalMutationString2848null4633 should have thrown NullPointerException");
+        } catch (NullPointerException expected) {
+            TestCase.assertEquals(null, expected.getMessage());
+        }
+    }
+
+    public void testSqlDateSerialization_literalMutationString2850_failAssert0() throws Exception {
+        try {
+            TimeZone defaultTimeZone = TimeZone.getDefault();
+            TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
+            Locale defaultLocale = Locale.getDefault();
+            Locale.setDefault(Locale.US);
+            {
+                java.sql.Date sqlDate = new java.sql.Date(0L);
+                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
+                String json = gson.toJson(sqlDate, Timestamp.class);
+                gson.fromJson("{\'name3\':\'v3\'}", java.sql.Date.class).getTime();
+            }
+            junit.framework.TestCase.fail("testSqlDateSerialization_literalMutationString2850 should have thrown JsonParseException");
+        } catch (JsonParseException expected) {
+            TestCase.assertEquals("The date should be a string value", expected.getMessage());
+        }
+    }
+
+    public void testSqlDateSerializationnull2871_failAssert0() throws Exception {
         try {
             TimeZone defaultTimeZone = TimeZone.getDefault();
             TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
@@ -1009,45 +536,9 @@ public class AmplDefaultTypeAdaptersTest extends TestCase {
                 String json = gson.toJson(null, Timestamp.class);
                 gson.fromJson("\"1970-01-01\"", java.sql.Date.class).getTime();
             }
-            junit.framework.TestCase.fail("testSqlDateSerialization_literalMutationNumber3398null5177 should have thrown NullPointerException");
+            junit.framework.TestCase.fail("testSqlDateSerializationnull2871 should have thrown NullPointerException");
         } catch (NullPointerException expected) {
             TestCase.assertEquals(null, expected.getMessage());
-        }
-    }
-
-    public void testSqlDateSerialization_literalMutationString3408_failAssert0() throws Exception {
-        try {
-            TimeZone defaultTimeZone = TimeZone.getDefault();
-            TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-            Locale defaultLocale = Locale.getDefault();
-            Locale.setDefault(Locale.US);
-            {
-                java.sql.Date sqlDate = new java.sql.Date(0L);
-                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                String json = gson.toJson(sqlDate, Timestamp.class);
-                gson.fromJson("{\'name3\':\'v3\'}", java.sql.Date.class).getTime();
-            }
-            junit.framework.TestCase.fail("testSqlDateSerialization_literalMutationString3408 should have thrown JsonParseException");
-        } catch (JsonParseException expected) {
-            TestCase.assertEquals("The date should be a string value", expected.getMessage());
-        }
-    }
-
-    public void testSqlDateSerializationnull3431_literalMutationString3564_failAssert0() throws Exception {
-        try {
-            TimeZone defaultTimeZone = TimeZone.getDefault();
-            TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
-            Locale defaultLocale = Locale.getDefault();
-            Locale.setDefault(Locale.US);
-            {
-                java.sql.Date sqlDate = new java.sql.Date(0L);
-                Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd").create();
-                String json = gson.toJson(sqlDate, Timestamp.class);
-                gson.fromJson("{\'name3\':\'v3\'}", java.sql.Date.class).getTime();
-            }
-            junit.framework.TestCase.fail("testSqlDateSerializationnull3431_literalMutationString3564 should have thrown JsonParseException");
-        } catch (JsonParseException expected) {
-            TestCase.assertEquals("The date should be a string value", expected.getMessage());
         }
     }
 
