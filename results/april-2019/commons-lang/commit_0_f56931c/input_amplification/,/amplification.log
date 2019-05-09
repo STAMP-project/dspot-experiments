@@ -1,0 +1,758 @@
+Apache Maven 3.3.9
+Maven home: /usr/share/maven
+Java version: 1.8.0_212, vendor: Oracle Corporation
+Java home: /usr/lib/jvm/java-8-openjdk-amd64/jre
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "4.9.0-8-amd64", arch: "amd64", family: "unix"
+[DEBUG] Created new class realm maven.api
+[DEBUG] Importing foreign packages into class realm maven.api
+[DEBUG]   Imported: javax.enterprise.inject.* < plexus.core
+[DEBUG]   Imported: javax.enterprise.util.* < plexus.core
+[DEBUG]   Imported: javax.inject.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.artifact < plexus.core
+[DEBUG]   Imported: org.apache.maven.classrealm < plexus.core
+[DEBUG]   Imported: org.apache.maven.cli < plexus.core
+[DEBUG]   Imported: org.apache.maven.configuration < plexus.core
+[DEBUG]   Imported: org.apache.maven.exception < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution.scope < plexus.core
+[DEBUG]   Imported: org.apache.maven.lifecycle < plexus.core
+[DEBUG]   Imported: org.apache.maven.model < plexus.core
+[DEBUG]   Imported: org.apache.maven.monitor < plexus.core
+[DEBUG]   Imported: org.apache.maven.plugin < plexus.core
+[DEBUG]   Imported: org.apache.maven.profiles < plexus.core
+[DEBUG]   Imported: org.apache.maven.project < plexus.core
+[DEBUG]   Imported: org.apache.maven.reporting < plexus.core
+[DEBUG]   Imported: org.apache.maven.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.rtinfo < plexus.core
+[DEBUG]   Imported: org.apache.maven.settings < plexus.core
+[DEBUG]   Imported: org.apache.maven.toolchain < plexus.core
+[DEBUG]   Imported: org.apache.maven.usability < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authentication < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authorization < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.events < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.observers < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.proxy < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.resource < plexus.core
+[DEBUG]   Imported: org.codehaus.classworlds < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.* < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.classworlds < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.component < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.configuration < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.container < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.context < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.lifecycle < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.logging < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.personality < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.Xpp3Dom < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParser < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParserException < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlSerializer < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.* < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.artifact < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.collection < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.deployment < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.graph < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.impl < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.installation < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.internal.impl < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.metadata < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.repository < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.resolution < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.spi < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.transfer < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.version < plexus.core
+[DEBUG]   Imported: org.slf4j.* < plexus.core
+[DEBUG]   Imported: org.slf4j.helpers.* < plexus.core
+[DEBUG]   Imported: org.slf4j.spi.* < plexus.core
+[DEBUG] Populating class realm maven.api
+[INFO] Error stacktraces are turned on.
+[DEBUG] Reading global settings from /usr/share/maven/conf/settings.xml
+[DEBUG] Reading user settings from /home/bedanglot/.m2/settings.xml
+[DEBUG] Reading global toolchains from /usr/share/maven/conf/toolchains.xml
+[DEBUG] Reading user toolchains from /home/bedanglot/.m2/toolchains.xml
+[DEBUG] Using local repository at /home/bedanglot/.m2/repository
+[DEBUG] Using manager EnhancedLocalRepositoryManager with priority 10.0 for /home/bedanglot/.m2/repository
+[INFO] Scanning for projects...
+[DEBUG] Extension realms for project org.apache.commons:commons-lang3:jar:3.8-SNAPSHOT: (none)
+[DEBUG] Looking up lifecyle mappings for packaging jar from ClassRealm[plexus.core, parent: null]
+[DEBUG] Extension realms for project org.apache.commons:commons-parent:pom:46: (none)
+[DEBUG] Looking up lifecyle mappings for packaging pom from ClassRealm[plexus.core, parent: null]
+[DEBUG] Extension realms for project org.apache:apache:pom:19: (none)
+[DEBUG] Looking up lifecyle mappings for packaging pom from ClassRealm[plexus.core, parent: null]
+[DEBUG] === REACTOR BUILD PLAN ================================================
+[DEBUG] Project: org.apache.commons:commons-lang3:jar:3.8-SNAPSHOT
+[DEBUG] Tasks:   [eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests]
+[DEBUG] Style:   Regular
+[DEBUG] =======================================================================
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Apache Commons Lang 3.8-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] === PROJECT BUILD PLAN ================================================
+[DEBUG] Project:       org.apache.commons:commons-lang3:3.8-SNAPSHOT
+[DEBUG] Dependencies (collect): []
+[DEBUG] Dependencies (resolve): [test]
+[DEBUG] Repositories (dependencies): [apache.snapshots (https://repository.apache.org/snapshots, default, snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[DEBUG] Repositories (plugins)     : [central (https://repo.maven.apache.org/maven2, default, releases)]
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests (default-cli)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <amplifiers default-value="None">${amplifiers}</amplifiers>
+  <automaticBuilder default-value="MavenBuilder">${automatic-builder}</automaticBuilder>
+  <budgetizer default-value="RandomBudgetizer">${budgetizer}</budgetizer>
+  <cases>${cases}</cases>
+  <clean default-value="false">${clean}</clean>
+  <descartes default-value="true">${descartes}</descartes>
+  <example default-value="false">${example}</example>
+  <generateNewTestClass default-value="false">${generate-new-test-class}</generateNewTestClass>
+  <help default-value="false">${help}</help>
+  <iteration default-value="3">${iteration}</iteration>
+  <keepOriginalTestMethods default-value="false">${keep-original-test-methods}</keepOriginalTestMethods>
+  <mavenHome>${maven-home}</mavenHome>
+  <maxTestAmplified default-value="200">${max-test-amplified}</maxTestAmplified>
+  <noMinimize default-value="false">${no-minimize}</noMinimize>
+  <outputPath default-value="target/dspot/output">${output-path}</outputPath>
+  <pathPitResult>${path-pit-result}</pathPitResult>
+  <pathToProperties default-value="">${path-to-properties}</pathToProperties>
+  <pathToSecondVersion default-value="">${path-to-second-version}</pathToSecondVersion>
+  <pathToTestListCsv default-value="">${path-to-test-list-csv}</pathToTestListCsv>
+  <project default-value="${project}"/>
+  <randomSeed default-value="23">${randomSeed}</randomSeed>
+  <targetOneTestClass default-value="false">${targetOneTestClass}</targetOneTestClass>
+  <test default-value="all">${test}</test>
+  <testCriterion default-value="PitMutantScoreSelector">${test-criterion}</testCriterion>
+  <timeOut default-value="10000">${timeOut}</timeOut>
+  <useMavenToExeTest default-value="false">${use-maven-to-exe-test}</useMavenToExeTest>
+  <verbose default-value="false">${verbose}</verbose>
+  <withComment default-value="false">${with-comment}</withComment>
+  <workingDirectory default-value="false">${working-directory}</workingDirectory>
+</configuration>
+[DEBUG] =======================================================================
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=1, ConflictMarker.markTime=1, ConflictMarker.nodeCount=11, ConflictIdSorter.graphTime=0, ConflictIdSorter.topsortTime=1, ConflictIdSorter.conflictIdCount=9, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=4, ConflictResolver.conflictItemCount=10, DefaultDependencyCollector.collectTime=66, DefaultDependencyCollector.transformTime=9}
+[DEBUG] org.apache.commons:commons-lang3:jar:3.8-SNAPSHOT
+[DEBUG]    junit:junit:jar:4.12:test
+[DEBUG]       org.hamcrest:hamcrest-core:jar:1.3:test
+[DEBUG]    org.hamcrest:hamcrest-all:jar:1.3:test
+[DEBUG]    org.easymock:easymock:jar:3.5.1:test
+[DEBUG]       org.objenesis:objenesis:jar:2.6:test
+[DEBUG]    org.openjdk.jmh:jmh-core:jar:1.19:test
+[DEBUG]       net.sf.jopt-simple:jopt-simple:jar:4.6:test
+[DEBUG]       org.apache.commons:commons-math3:jar:3.2:test
+[DEBUG]    org.openjdk.jmh:jmh-generator-annprocess:jar:1.19:test
+[INFO] 
+[INFO] --- dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests (default-cli) @ commons-lang3 ---
+[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
+[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
+[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
+[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.text/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.text/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.expressions/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.registry/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.jobs/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.preferences/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.contenttype/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.app/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.osgi/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.filesystem/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.text/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.text/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.text/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.commands/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.equinox.common/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
+[DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
+[DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=8, ConflictMarker.markTime=2, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=8, ConflictIdSorter.topsortTime=1, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=19, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=1044, DefaultDependencyCollector.transformTime=38}
+[DEBUG] eu.stamp-project:dspot-maven:jar:2.0.1-SNAPSHOT:
+[DEBUG]    eu.stamp-project:dspot:jar:2.0.1-SNAPSHOT:compile
+[DEBUG]       fr.inria.gforge.spoon:spoon-core:jar:7.3.0:compile
+[DEBUG]          org.eclipse.jdt:org.eclipse.jdt.core:jar:3.15.0:compile
+[DEBUG]             org.eclipse.platform:org.eclipse.core.resources:jar:3.13.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.core.expressions:jar:3.6.300:compile
+[DEBUG]             org.eclipse.platform:org.eclipse.core.runtime:jar:3.15.200:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.osgi:jar:3.13.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.equinox.common:jar:3.10.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.core.jobs:jar:3.10.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.equinox.registry:jar:3.8.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.equinox.preferences:jar:3.7.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.core.contenttype:jar:3.7.300:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.equinox.app:jar:1.4.100:compile
+[DEBUG]             org.eclipse.platform:org.eclipse.core.filesystem:jar:1.7.300:compile
+[DEBUG]             org.eclipse.platform:org.eclipse.text:jar:3.8.100:compile
+[DEBUG]                org.eclipse.platform:org.eclipse.core.commands:jar:3.9.300:compile
+[DEBUG]          com.martiansoftware:jsap:jar:2.1:compile
+[DEBUG]          log4j:log4j:jar:1.2.17:compile
+[DEBUG]          org.tukaani:xz:jar:1.8:compile
+[DEBUG]          com.fasterxml.jackson.core:jackson-databind:jar:2.9.8:compile
+[DEBUG]             com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0:compile
+[DEBUG]             com.fasterxml.jackson.core:jackson-core:jar:2.9.8:compile
+[DEBUG]          org.apache.commons:commons-compress:jar:1.18:compile
+[DEBUG]       junit:junit:jar:4.12:compile
+[DEBUG]          org.hamcrest:hamcrest-core:jar:1.3:compile
+[DEBUG]       com.google.code.gson:gson:jar:2.8.0:compile
+[DEBUG]       org.apache.maven.shared:maven-invoker:jar:3.0.0:compile
+[DEBUG]       org.slf4j:slf4j-api:jar:1.7.25:compile
+[DEBUG]       org.slf4j:slf4j-log4j12:jar:1.7.25:compile
+[DEBUG]       org.jacoco:org.jacoco.core:jar:0.7.9:compile
+[DEBUG]          org.ow2.asm:asm-debug-all:jar:5.2:compile
+[DEBUG]       eu.stamp-project:descartes:jar:1.1:compile
+[DEBUG]          org.pitest:pitest:jar:1.2.0:compile
+[DEBUG]          org.pitest:pitest-entry:jar:1.2.0:compile
+[DEBUG]             com.thoughtworks.xstream:xstream:jar:1.4.8:compile
+[DEBUG]                xmlpull:xmlpull:jar:1.1.3.1:compile
+[DEBUG]                xpp3:xpp3_min:jar:1.1.4c:compile
+[DEBUG]       org.gradle:gradle-tooling-api:jar:4.0.1:compile
+[DEBUG]       org.mockito:mockito-core:jar:2.10.0:compile
+[DEBUG]          net.bytebuddy:byte-buddy:jar:1.7.4:runtime
+[DEBUG]          net.bytebuddy:byte-buddy-agent:jar:1.7.4:runtime
+[DEBUG]          org.objenesis:objenesis:jar:2.6:runtime
+[DEBUG]       eu.stamp-project:test-runner:jar:jar-with-dependencies:2.0.7:compile
+[DEBUG]          org.junit.jupiter:junit-jupiter-api:jar:5.3.2:compile
+[DEBUG]             org.apiguardian:apiguardian-api:jar:1.0.0:compile
+[DEBUG]             org.opentest4j:opentest4j:jar:1.1.1:compile
+[DEBUG]             org.junit.platform:junit-platform-commons:jar:1.3.2:compile
+[DEBUG]          org.junit.jupiter:junit-jupiter-engine:jar:5.3.2:compile
+[DEBUG]             org.junit.platform:junit-platform-engine:jar:1.3.2:compile
+[DEBUG]          org.junit.platform:junit-platform-launcher:jar:1.3.2:compile
+[DEBUG]          org.junit.jupiter:junit-jupiter-params:jar:5.3.2:compile
+[DEBUG]       org.openclover:clover:jar:4.2.1:compile
+[DEBUG]       fr.inria.gforge.spoon.labs:gumtree-spoon-ast-diff:jar:1.5:compile
+[DEBUG]          com.github.gumtreediff:core:jar:2.1.0:compile
+[DEBUG]             com.github.mpkorstanje:simmetrics-core:jar:3.2.3:compile
+[DEBUG]                commons-codec:commons-codec:jar:1.10:compile
+[DEBUG]             net.sf.trove4j:trove4j:jar:3.0.3:compile
+[DEBUG]             org.jgrapht:jgrapht-core:jar:1.0.1:compile
+[DEBUG]       org.ehcache:ehcache:jar:3.6.1:compile
+[DEBUG]       org.apache.cxf:cxf-common-utilities:jar:2.4.1:compile
+[DEBUG]          org.apache.ws.xmlschema:xmlschema-core:jar:2.0:compile
+[DEBUG]          org.codehaus.woodstox:woodstox-core-asl:jar:4.1.1:runtime
+[DEBUG]             org.codehaus.woodstox:stax2-api:jar:3.1.1:runtime
+[DEBUG]    org.apache.maven:maven-plugin-api:jar:3.5.4:compile
+[DEBUG]       org.apache.maven:maven-artifact:jar:3.5.4:compile
+[DEBUG]       org.eclipse.sisu:org.eclipse.sisu.plexus:jar:0.3.3:compile
+[DEBUG]          javax.enterprise:cdi-api:jar:1.0:compile
+[DEBUG]             javax.annotation:jsr250-api:jar:1.0:compile
+[DEBUG]       org.codehaus.plexus:plexus-utils:jar:3.1.0:compile
+[DEBUG]       org.codehaus.plexus:plexus-classworlds:jar:2.5.2:compile
+[DEBUG]    org.apache.maven.plugin-testing:maven-plugin-testing-harness:jar:3.3.0:compile
+[DEBUG]       commons-io:commons-io:jar:2.2:compile
+[DEBUG]       org.codehaus.plexus:plexus-archiver:jar:2.2:compile
+[DEBUG]          org.codehaus.plexus:plexus-io:jar:2.0.4:compile
+[DEBUG]    org.apache.maven:maven-compat:jar:3.5.4:compile
+[DEBUG]       org.apache.maven:maven-model-builder:jar:3.5.4:compile
+[DEBUG]       org.apache.maven:maven-settings:jar:3.5.4:compile
+[DEBUG]       org.apache.maven:maven-settings-builder:jar:3.5.4:compile
+[DEBUG]          org.sonatype.plexus:plexus-sec-dispatcher:jar:1.4:compile
+[DEBUG]             org.sonatype.plexus:plexus-cipher:jar:1.4:compile
+[DEBUG]       org.apache.maven:maven-resolver-provider:jar:3.5.4:compile
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:3.5.4:compile
+[DEBUG]       org.apache.maven.resolver:maven-resolver-api:jar:1.1.1:compile
+[DEBUG]       org.apache.maven.resolver:maven-resolver-util:jar:1.1.1:compile
+[DEBUG]       org.apache.maven.resolver:maven-resolver-impl:jar:1.1.1:compile
+[DEBUG]       org.codehaus.plexus:plexus-interpolation:jar:1.24:compile
+[DEBUG]       org.codehaus.plexus:plexus-component-annotations:jar:1.7.1:compile
+[DEBUG]       org.apache.maven.wagon:wagon-provider-api:jar:3.1.0:compile
+[DEBUG]    org.apache.maven:maven-core:jar:3.5.4:compile
+[DEBUG]       org.apache.maven:maven-builder-support:jar:3.5.4:compile
+[DEBUG]       org.apache.maven.resolver:maven-resolver-spi:jar:1.1.1:compile
+[DEBUG]       org.apache.maven.shared:maven-shared-utils:jar:3.2.1:compile
+[DEBUG]       org.eclipse.sisu:org.eclipse.sisu.inject:jar:0.3.3:compile
+[DEBUG]       com.google.inject:guice:jar:no_aop:4.2.0:compile
+[DEBUG]          aopalliance:aopalliance:jar:1.0:compile
+[DEBUG]       com.google.guava:guava:jar:20.0:compile
+[DEBUG]       javax.inject:javax.inject:jar:1:compile
+[DEBUG]       org.apache.commons:commons-lang3:jar:3.5:compile
+[DEBUG]    org.apache.maven:maven-model:jar:3.5.4:compile
+[DEBUG]    org.apache.maven:maven-aether-provider:jar:3.3.9:compile
+[DEBUG]       org.eclipse.aether:aether-api:jar:1.0.2.v20150114:compile
+[DEBUG]       org.eclipse.aether:aether-spi:jar:1.0.2.v20150114:compile
+[DEBUG]       org.eclipse.aether:aether-util:jar:1.0.2.v20150114:compile
+[DEBUG]       org.eclipse.aether:aether-impl:jar:1.0.2.v20150114:compile
+[DEBUG]    org.apache.maven:maven-project:jar:2.2.1:compile
+[DEBUG]       org.apache.maven:maven-profile:jar:2.2.1:compile
+[DEBUG]       org.apache.maven:maven-artifact-manager:jar:2.2.1:compile
+[DEBUG]          backport-util-concurrent:backport-util-concurrent:jar:3.1:compile
+[DEBUG]       org.apache.maven:maven-plugin-registry:jar:2.2.1:compile
+[DEBUG]       org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1:compile
+[DEBUG]          classworlds:classworlds:jar:1.1-alpha-2:compile
+[DEBUG] Created new class realm plugin>eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT
+[DEBUG] Importing foreign packages into class realm plugin>eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT
+[DEBUG]   Included: eu.stamp-project:dspot-maven:jar:2.0.1-SNAPSHOT
+[DEBUG]   Included: eu.stamp-project:dspot:jar:2.0.1-SNAPSHOT
+[DEBUG]   Included: fr.inria.gforge.spoon:spoon-core:jar:7.3.0
+[DEBUG]   Included: org.eclipse.jdt:org.eclipse.jdt.core:jar:3.15.0
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.resources:jar:3.13.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.expressions:jar:3.6.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.runtime:jar:3.15.200
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.osgi:jar:3.13.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.equinox.common:jar:3.10.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.jobs:jar:3.10.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.equinox.registry:jar:3.8.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.equinox.preferences:jar:3.7.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.contenttype:jar:3.7.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.equinox.app:jar:1.4.100
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.filesystem:jar:1.7.300
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.text:jar:3.8.100
+[DEBUG]   Included: org.eclipse.platform:org.eclipse.core.commands:jar:3.9.300
+[DEBUG]   Included: com.martiansoftware:jsap:jar:2.1
+[DEBUG]   Included: log4j:log4j:jar:1.2.17
+[DEBUG]   Included: org.tukaani:xz:jar:1.8
+[DEBUG]   Included: com.fasterxml.jackson.core:jackson-databind:jar:2.9.8
+[DEBUG]   Included: com.fasterxml.jackson.core:jackson-annotations:jar:2.9.0
+[DEBUG]   Included: com.fasterxml.jackson.core:jackson-core:jar:2.9.8
+[DEBUG]   Included: org.apache.commons:commons-compress:jar:1.18
+[DEBUG]   Included: junit:junit:jar:4.12
+[DEBUG]   Included: org.hamcrest:hamcrest-core:jar:1.3
+[DEBUG]   Included: com.google.code.gson:gson:jar:2.8.0
+[DEBUG]   Included: org.apache.maven.shared:maven-invoker:jar:3.0.0
+[DEBUG]   Included: org.slf4j:slf4j-log4j12:jar:1.7.25
+[DEBUG]   Included: org.jacoco:org.jacoco.core:jar:0.7.9
+[DEBUG]   Included: org.ow2.asm:asm-debug-all:jar:5.2
+[DEBUG]   Included: eu.stamp-project:descartes:jar:1.1
+[DEBUG]   Included: org.pitest:pitest:jar:1.2.0
+[DEBUG]   Included: org.pitest:pitest-entry:jar:1.2.0
+[DEBUG]   Included: com.thoughtworks.xstream:xstream:jar:1.4.8
+[DEBUG]   Included: xmlpull:xmlpull:jar:1.1.3.1
+[DEBUG]   Included: xpp3:xpp3_min:jar:1.1.4c
+[DEBUG]   Included: org.gradle:gradle-tooling-api:jar:4.0.1
+[DEBUG]   Included: org.mockito:mockito-core:jar:2.10.0
+[DEBUG]   Included: net.bytebuddy:byte-buddy:jar:1.7.4
+[DEBUG]   Included: net.bytebuddy:byte-buddy-agent:jar:1.7.4
+[DEBUG]   Included: org.objenesis:objenesis:jar:2.6
+[DEBUG]   Included: eu.stamp-project:test-runner:jar:jar-with-dependencies:2.0.7
+[DEBUG]   Included: org.junit.jupiter:junit-jupiter-api:jar:5.3.2
+[DEBUG]   Included: org.apiguardian:apiguardian-api:jar:1.0.0
+[DEBUG]   Included: org.opentest4j:opentest4j:jar:1.1.1
+[DEBUG]   Included: org.junit.platform:junit-platform-commons:jar:1.3.2
+[DEBUG]   Included: org.junit.jupiter:junit-jupiter-engine:jar:5.3.2
+[DEBUG]   Included: org.junit.platform:junit-platform-engine:jar:1.3.2
+[DEBUG]   Included: org.junit.platform:junit-platform-launcher:jar:1.3.2
+[DEBUG]   Included: org.junit.jupiter:junit-jupiter-params:jar:5.3.2
+[DEBUG]   Included: org.openclover:clover:jar:4.2.1
+[DEBUG]   Included: fr.inria.gforge.spoon.labs:gumtree-spoon-ast-diff:jar:1.5
+[DEBUG]   Included: com.github.gumtreediff:core:jar:2.1.0
+[DEBUG]   Included: com.github.mpkorstanje:simmetrics-core:jar:3.2.3
+[DEBUG]   Included: commons-codec:commons-codec:jar:1.10
+[DEBUG]   Included: net.sf.trove4j:trove4j:jar:3.0.3
+[DEBUG]   Included: org.jgrapht:jgrapht-core:jar:1.0.1
+[DEBUG]   Included: org.ehcache:ehcache:jar:3.6.1
+[DEBUG]   Included: org.apache.cxf:cxf-common-utilities:jar:2.4.1
+[DEBUG]   Included: org.apache.ws.xmlschema:xmlschema-core:jar:2.0
+[DEBUG]   Included: org.codehaus.woodstox:woodstox-core-asl:jar:4.1.1
+[DEBUG]   Included: org.codehaus.woodstox:stax2-api:jar:3.1.1
+[DEBUG]   Included: javax.enterprise:cdi-api:jar:1.0
+[DEBUG]   Included: javax.annotation:jsr250-api:jar:1.0
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:3.1.0
+[DEBUG]   Included: org.apache.maven.plugin-testing:maven-plugin-testing-harness:jar:3.3.0
+[DEBUG]   Included: commons-io:commons-io:jar:2.2
+[DEBUG]   Included: org.codehaus.plexus:plexus-archiver:jar:2.2
+[DEBUG]   Included: org.codehaus.plexus:plexus-io:jar:2.0.4
+[DEBUG]   Included: org.sonatype.plexus:plexus-sec-dispatcher:jar:1.4
+[DEBUG]   Included: org.sonatype.plexus:plexus-cipher:jar:1.4
+[DEBUG]   Included: org.apache.maven:maven-resolver-provider:jar:3.5.4
+[DEBUG]   Included: org.apache.maven.resolver:maven-resolver-api:jar:1.1.1
+[DEBUG]   Included: org.apache.maven.resolver:maven-resolver-util:jar:1.1.1
+[DEBUG]   Included: org.apache.maven.resolver:maven-resolver-impl:jar:1.1.1
+[DEBUG]   Included: org.codehaus.plexus:plexus-interpolation:jar:1.24
+[DEBUG]   Included: org.codehaus.plexus:plexus-component-annotations:jar:1.7.1
+[DEBUG]   Included: org.apache.maven:maven-builder-support:jar:3.5.4
+[DEBUG]   Included: org.apache.maven.resolver:maven-resolver-spi:jar:1.1.1
+[DEBUG]   Included: org.apache.maven.shared:maven-shared-utils:jar:3.2.1
+[DEBUG]   Included: org.eclipse.sisu:org.eclipse.sisu.inject:jar:0.3.3
+[DEBUG]   Included: com.google.inject:guice:jar:no_aop:4.2.0
+[DEBUG]   Included: aopalliance:aopalliance:jar:1.0
+[DEBUG]   Included: com.google.guava:guava:jar:20.0
+[DEBUG]   Included: org.apache.commons:commons-lang3:jar:3.5
+[DEBUG]   Included: org.eclipse.aether:aether-util:jar:1.0.2.v20150114
+[DEBUG]   Included: backport-util-concurrent:backport-util-concurrent:jar:3.1
+[DEBUG] Configuring mojo eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests from plugin realm ClassRealm[plugin>eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT, parent: sun.misc.Launcher$AppClassLoader@1b6d3586]
+[DEBUG] Configuring mojo 'eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests' with basic configurator -->
+[DEBUG]   (f) amplifiers = [TestDataMutator, MethodAdd, MethodRemove, NullifierAmplifier]
+[DEBUG]   (f) automaticBuilder = MavenBuilder
+[DEBUG]   (f) budgetizer = SimpleBudgetizer
+[DEBUG]   (f) cases = []
+[DEBUG]   (f) clean = true
+[DEBUG]   (f) descartes = true
+[DEBUG]   (f) example = false
+[DEBUG]   (f) generateNewTestClass = true
+[DEBUG]   (f) help = false
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1.808 s
+[INFO] Finished at: 2019-05-08T22:38:57+02:00
+[INFO] Final Memory: 33M/1963M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests (default-cli) on project commons-lang3: Unable to parse configuration of mojo eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests for parameter iteration: Cannot convert ',' to int: For input string: "," -> [Help 1]
+org.apache.maven.lifecycle.LifecycleExecutionException: Failed to execute goal eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests (default-cli) on project commons-lang3: Unable to parse configuration of mojo eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests for parameter iteration: Cannot convert ',' to int
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:212)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:116)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:80)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:307)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:193)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:106)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:863)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:288)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:199)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+Caused by: org.apache.maven.plugin.PluginConfigurationException: Unable to parse configuration of mojo eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests for parameter iteration: Cannot convert ',' to int
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.populatePluginFields(DefaultMavenPluginManager.java:662)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.getConfiguredMojo(DefaultMavenPluginManager.java:594)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:121)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:207)
+	... 20 more
+Caused by: org.codehaus.plexus.component.configurator.ComponentConfigurationException: Cannot convert ',' to int
+	at org.codehaus.plexus.component.configurator.converters.basic.IntConverter.fromString(IntConverter.java:35)
+	at org.codehaus.plexus.component.configurator.converters.basic.AbstractBasicConverter.fromConfiguration(AbstractBasicConverter.java:43)
+	at org.eclipse.sisu.plexus.CompositeBeanHelper.convertProperty(CompositeBeanHelper.java:273)
+	at org.eclipse.sisu.plexus.CompositeBeanHelper.setProperty(CompositeBeanHelper.java:210)
+	at org.codehaus.plexus.component.configurator.converters.composite.ObjectWithFieldsConverter.processConfiguration(ObjectWithFieldsConverter.java:101)
+	at org.codehaus.plexus.component.configurator.BasicComponentConfigurator.configureComponent(BasicComponentConfigurator.java:34)
+	at org.apache.maven.plugin.internal.DefaultMavenPluginManager.populatePluginFields(DefaultMavenPluginManager.java:632)
+	... 23 more
+Caused by: java.lang.NumberFormatException: For input string: ","
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Integer.parseInt(Integer.java:569)
+	at java.lang.Integer.valueOf(Integer.java:740)
+	at java.lang.Integer.decode(Integer.java:1197)
+	at org.codehaus.plexus.component.configurator.converters.basic.IntConverter.fromString(IntConverter.java:31)
+	... 29 more
+[ERROR] 
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/PluginConfigurationException
