@@ -18,26 +18,45 @@ import org.junit.Test;
 
 public class AmplParseTest {
     @Test(timeout = 10000)
-    public void testSmhBizArticle_literalMutationString10765_failAssert0_literalMutationString12201_failAssert0() throws IOException {
+    public void testSmhBizArticle_literalMutationString10776_failAssert0_literalMutationString12680_failAssert0() throws IOException {
         try {
             {
                 File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, "UTF-8", "http://www.smh.com.au/business/the-boards-next-fear-the-female-quota-20100106-lteq.html");
+                Document doc = Jsoup.parse(in, "UDF-8", "http://www.smh.com.au/business/the-boards-next-fear-the-female-quota-20100106-lteq.html");
                 doc.title();
-                doc.select("").attr("xml:lang");
+                doc.select("html").attr("xml:lang");
                 Elements articleBody = doc.select(".articleBody > *");
                 articleBody.size();
 
-                org.junit.Assert.fail("testSmhBizArticle_literalMutationString10765 should have thrown FileNotFoundException");
+                org.junit.Assert.fail("testSmhBizArticle_literalMutationString10776 should have thrown FileNotFoundException");
             }
-            org.junit.Assert.fail("testSmhBizArticle_literalMutationString10765_failAssert0_literalMutationString12201 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testSmhBizArticle_literalMutationString10776_failAssert0_literalMutationString12680 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testSmhBizArticle_literalMutationString10765_failAssert0() throws IOException {
+    public void testSmhBizArticle_literalMutationString10776_failAssert0null13434_failAssert0() throws IOException {
+        try {
+            {
+                File in = AmplParseTest.getFile("");
+                Document doc = Jsoup.parse(in, null, "http://www.smh.com.au/business/the-boards-next-fear-the-female-quota-20100106-lteq.html");
+                doc.title();
+                doc.select("html").attr("xml:lang");
+                Elements articleBody = doc.select(".articleBody > *");
+                articleBody.size();
+
+                org.junit.Assert.fail("testSmhBizArticle_literalMutationString10776 should have thrown FileNotFoundException");
+            }
+            org.junit.Assert.fail("testSmhBizArticle_literalMutationString10776_failAssert0null13434 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testSmhBizArticle_literalMutationString10776_failAssert0() throws IOException {
         try {
             File in = AmplParseTest.getFile("");
             Document doc = Jsoup.parse(in, "UTF-8", "http://www.smh.com.au/business/the-boards-next-fear-the-female-quota-20100106-lteq.html");
@@ -46,46 +65,85 @@ public class AmplParseTest {
             Elements articleBody = doc.select(".articleBody > *");
             articleBody.size();
 
-            org.junit.Assert.fail("testSmhBizArticle_literalMutationString10765 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testSmhBizArticle_literalMutationString10776 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testSmhBizArticle_literalMutationString10765_failAssert0_add12968_failAssert0() throws IOException {
+    public void testSmhBizArticle_literalMutationString10776_failAssert0_add13088_failAssert0() throws IOException {
         try {
             {
                 File in = AmplParseTest.getFile("");
                 Document doc = Jsoup.parse(in, "UTF-8", "http://www.smh.com.au/business/the-boards-next-fear-the-female-quota-20100106-lteq.html");
                 doc.title();
                 doc.select("html").attr("xml:lang");
+                doc.select("html").attr("xml:lang");
                 Elements articleBody = doc.select(".articleBody > *");
                 articleBody.size();
-                articleBody.size();
 
-                org.junit.Assert.fail("testSmhBizArticle_literalMutationString10765 should have thrown FileNotFoundException");
+                org.junit.Assert.fail("testSmhBizArticle_literalMutationString10776 should have thrown FileNotFoundException");
             }
-            org.junit.Assert.fail("testSmhBizArticle_literalMutationString10765_failAssert0_add12968 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testSmhBizArticle_literalMutationString10776_failAssert0_add13088 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testSmhBizArticle_literalMutationString10765_failAssert0null13333_failAssert0() throws IOException {
+    public void testSmhBizArticle_literalMutationString10776_failAssert0_literalMutationString12693_failAssert0() throws IOException {
         try {
             {
                 File in = AmplParseTest.getFile("");
                 Document doc = Jsoup.parse(in, "UTF-8", "http://www.smh.com.au/business/the-boards-next-fear-the-female-quota-20100106-lteq.html");
                 doc.title();
-                doc.select("html").attr(null);
+                doc.select("html").attr("");
                 Elements articleBody = doc.select(".articleBody > *");
                 articleBody.size();
 
-                org.junit.Assert.fail("testSmhBizArticle_literalMutationString10765 should have thrown FileNotFoundException");
+                org.junit.Assert.fail("testSmhBizArticle_literalMutationString10776 should have thrown FileNotFoundException");
             }
-            org.junit.Assert.fail("testSmhBizArticle_literalMutationString10765_failAssert0null13333 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testSmhBizArticle_literalMutationString10776_failAssert0_literalMutationString12693 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testSmhBizArticle_literalMutationString10776_failAssert0_add13086_failAssert0() throws IOException {
+        try {
+            {
+                File in = AmplParseTest.getFile("");
+                Jsoup.parse(in, "UTF-8", "http://www.smh.com.au/business/the-boards-next-fear-the-female-quota-20100106-lteq.html");
+                Document doc = Jsoup.parse(in, "UTF-8", "http://www.smh.com.au/business/the-boards-next-fear-the-female-quota-20100106-lteq.html");
+                doc.title();
+                doc.select("html").attr("xml:lang");
+                Elements articleBody = doc.select(".articleBody > *");
+                articleBody.size();
+
+                org.junit.Assert.fail("testSmhBizArticle_literalMutationString10776 should have thrown FileNotFoundException");
+            }
+            org.junit.Assert.fail("testSmhBizArticle_literalMutationString10776_failAssert0_add13086 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testSmhBizArticle_literalMutationString10776_failAssert0null13438_failAssert0() throws IOException {
+        try {
+            {
+                File in = AmplParseTest.getFile("");
+                Document doc = Jsoup.parse(in, "UTF-8", "http://www.smh.com.au/business/the-boards-next-fear-the-female-quota-20100106-lteq.html");
+                doc.title();
+                doc.select("html").attr("xml:lang");
+                Elements articleBody = doc.select(null);
+                articleBody.size();
+
+                org.junit.Assert.fail("testSmhBizArticle_literalMutationString10776 should have thrown FileNotFoundException");
+            }
+            org.junit.Assert.fail("testSmhBizArticle_literalMutationString10776_failAssert0null13438 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
@@ -112,7 +170,24 @@ public class AmplParseTest {
     }
 
     @Test(timeout = 10000)
-    public void testGoogleSearchIpod_literalMutationString14830_failAssert0() throws IOException {
+    public void testGoogleSearchIpod_add14895_literalMutationString15444_failAssert0() throws IOException {
+        try {
+            File in = AmplParseTest.getFile("");
+            Document doc = Jsoup.parse(in, "UTF-8", "http://www.google.com/search?hl=en&q=ipod&aq=f&oq=&aqi=g10");
+            String o_testGoogleSearchIpod_add14895__5 = doc.title();
+            String o_testGoogleSearchIpod_add14895__6 = doc.title();
+            Elements results = doc.select("h3.r > a");
+            int o_testGoogleSearchIpod_add14895__9 = results.size();
+            String o_testGoogleSearchIpod_add14895__10 = results.get(0).attr("href");
+            String o_testGoogleSearchIpod_add14895__12 = results.get(1).attr("href");
+            org.junit.Assert.fail("testGoogleSearchIpod_add14895_literalMutationString15444 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testGoogleSearchIpod_literalMutationString14848_failAssert0() throws IOException {
         try {
             File in = AmplParseTest.getFile("");
             Document doc = Jsoup.parse(in, "UTF-8", "http://www.google.com/search?hl=en&q=ipod&aq=f&oq=&aqi=g10");
@@ -121,188 +196,105 @@ public class AmplParseTest {
             results.size();
             results.get(0).attr("href");
             results.get(1).attr("href");
-            org.junit.Assert.fail("testGoogleSearchIpod_literalMutationString14830 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testGoogleSearchIpod_literalMutationString14848 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testGoogleSearchIpod_literalMutationString14830_failAssert0_literalMutationString17719_failAssert0() throws IOException {
+    public void testGoogleSearchIpod_literalMutationNumber14872_failAssert0_add18328_failAssert0() throws IOException {
         try {
             {
-                File in = AmplParseTest.getFile("");
+                File in = AmplParseTest.getFile("/htmltests/google-ipod.html");
                 Document doc = Jsoup.parse(in, "UTF-8", "http://www.google.com/search?hl=en&q=ipod&aq=f&oq=&aqi=g10");
                 doc.title();
                 Elements results = doc.select("h3.r > a");
                 results.size();
-                results.get(0).attr("href");
-                results.get(1).attr("hef");
-                org.junit.Assert.fail("testGoogleSearchIpod_literalMutationString14830 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testGoogleSearchIpod_literalMutationString14830_failAssert0_literalMutationString17719 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testGoogleSearchIpod_literalMutationString14830_failAssert0null18888_failAssert0() throws IOException {
-        try {
-            {
-                File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, "UTF-8", "http://www.google.com/search?hl=en&q=ipod&aq=f&oq=&aqi=g10");
-                doc.title();
-                Elements results = doc.select("h3.r > a");
-                results.size();
-                results.get(0).attr("href");
-                results.get(1).attr(null);
-                org.junit.Assert.fail("testGoogleSearchIpod_literalMutationString14830 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testGoogleSearchIpod_literalMutationString14830_failAssert0null18888 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testGoogleSearchIpod_literalMutationString14830_failAssert0_add18446_failAssert0() throws IOException {
-        try {
-            {
-                File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, "UTF-8", "http://www.google.com/search?hl=en&q=ipod&aq=f&oq=&aqi=g10");
-                doc.title();
-                Elements results = doc.select("h3.r > a");
-                results.size();
-                results.get(0).attr("href");
-                results.get(0).attr("href");
+                results.get(-1).attr("href");
                 results.get(1).attr("href");
-                org.junit.Assert.fail("testGoogleSearchIpod_literalMutationString14830 should have thrown FileNotFoundException");
+                org.junit.Assert.fail("testGoogleSearchIpod_literalMutationNumber14872 should have thrown ArrayIndexOutOfBoundsException");
             }
-            org.junit.Assert.fail("testGoogleSearchIpod_literalMutationString14830_failAssert0_add18446 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+            org.junit.Assert.fail("testGoogleSearchIpod_literalMutationNumber14872_failAssert0_add18328 should have thrown ArrayIndexOutOfBoundsException");
+        } catch (ArrayIndexOutOfBoundsException expected) {
+            Assert.assertEquals(null, expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testBinary_literalMutationString38939_literalMutationString39098_failAssert0() throws IOException {
-        try {
-            File in = AmplParseTest.getFile("");
-            Document doc = Jsoup.parse(in, "UTF-8");
-            boolean o_testBinary_literalMutationString38939__5 = doc.text().contains("Y)g,<xI");
-            org.junit.Assert.fail("testBinary_literalMutationString38939_literalMutationString39098 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testBinary_literalMutationString38922_failAssert0() throws IOException {
-        try {
-            File in = AmplParseTest.getFile("");
-            Document doc = Jsoup.parse(in, "UTF-8");
-            doc.text().contains("gd-jpeg");
-            org.junit.Assert.fail("testBinary_literalMutationString38922 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testBinary_literalMutationString38922_failAssert0_literalMutationString39346_failAssert0() throws IOException {
+    public void testBinary_literalMutationString38959_failAssert0_literalMutationString39390_failAssert0() throws IOException {
         try {
             {
                 File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, "UpTF-8");
+                Document doc = Jsoup.parse(in, "UT4F-8");
                 doc.text().contains("gd-jpeg");
-                org.junit.Assert.fail("testBinary_literalMutationString38922 should have thrown FileNotFoundException");
+                org.junit.Assert.fail("testBinary_literalMutationString38959 should have thrown FileNotFoundException");
             }
-            org.junit.Assert.fail("testBinary_literalMutationString38922_failAssert0_literalMutationString39346 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testBinary_literalMutationString38959_failAssert0_literalMutationString39390 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testBinary_literalMutationString38922_failAssert0_literalMutationString39342_failAssert0() throws IOException {
-        try {
-            {
-                File in = AmplParseTest.getFile(".");
-                Document doc = Jsoup.parse(in, "UTF-8");
-                doc.text().contains("gd-jpeg");
-                org.junit.Assert.fail("testBinary_literalMutationString38922 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testBinary_literalMutationString38922_failAssert0_literalMutationString39342 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testBinary_literalMutationString38922_failAssert0_add39549_failAssert0() throws IOException {
+    public void testBinary_literalMutationString38960_failAssert0_literalMutationString39333_failAssert0() throws IOException {
         try {
             {
                 File in = AmplParseTest.getFile("");
                 Document doc = Jsoup.parse(in, "UTF-8");
                 doc.text().contains("gd-jpeg");
-                doc.text().contains("gd-jpeg");
-                org.junit.Assert.fail("testBinary_literalMutationString38922 should have thrown FileNotFoundException");
+                org.junit.Assert.fail("testBinary_literalMutationString38960 should have thrown NullPointerException");
             }
-            org.junit.Assert.fail("testBinary_literalMutationString38922_failAssert0_add39549 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testBinary_literalMutationString38960_failAssert0_literalMutationString39333 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testBinary_literalMutationString38922_failAssert0_add39547_failAssert0() throws IOException {
-        try {
-            {
-                AmplParseTest.getFile("");
-                File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, "UTF-8");
-                doc.text().contains("gd-jpeg");
-                org.junit.Assert.fail("testBinary_literalMutationString38922 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testBinary_literalMutationString38922_failAssert0_add39547 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testBinary_literalMutationString38922_failAssert0null39660_failAssert0() throws IOException {
+    public void testBinary_literalMutationString38959_failAssert0null39699_failAssert0() throws IOException {
         try {
             {
                 File in = AmplParseTest.getFile("");
                 Document doc = Jsoup.parse(in, null);
                 doc.text().contains("gd-jpeg");
-                org.junit.Assert.fail("testBinary_literalMutationString38922 should have thrown FileNotFoundException");
+                org.junit.Assert.fail("testBinary_literalMutationString38959 should have thrown FileNotFoundException");
             }
-            org.junit.Assert.fail("testBinary_literalMutationString38922_failAssert0null39660 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testBinary_literalMutationString38959_failAssert0null39699 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testBinary_literalMutationString38933_failAssert0_literalMutationString39391_failAssert0() throws IOException {
+    public void testBinary_literalMutationString38959_failAssert0_add39593_failAssert0() throws IOException {
         try {
             {
                 File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, "Y(J`|");
+                Document doc = Jsoup.parse(in, "UTF-8");
                 doc.text().contains("gd-jpeg");
-                org.junit.Assert.fail("testBinary_literalMutationString38933 should have thrown UnsupportedEncodingException");
+                org.junit.Assert.fail("testBinary_literalMutationString38959 should have thrown FileNotFoundException");
             }
-            org.junit.Assert.fail("testBinary_literalMutationString38933_failAssert0_literalMutationString39391 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testBinary_literalMutationString38959_failAssert0_add39593 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testYahooJp_literalMutationString20007_failAssert0() throws IOException {
+    public void testBinary_literalMutationString38959_failAssert0() throws IOException {
+        try {
+            File in = AmplParseTest.getFile("");
+            Document doc = Jsoup.parse(in, "UTF-8");
+            doc.text().contains("gd-jpeg");
+            org.junit.Assert.fail("testBinary_literalMutationString38959 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testYahooJp_literalMutationString20042_failAssert0() throws IOException {
         try {
             File in = AmplParseTest.getFile("");
             Document doc = Jsoup.parse(in, "UTF-8", "http://www.yahoo.co.jp/index.html");
@@ -310,66 +302,123 @@ public class AmplParseTest {
             Element a = doc.select("a[href=t/2322m2]").first();
             a.attr("abs:href");
             a.text();
-            org.junit.Assert.fail("testYahooJp_literalMutationString20007 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testYahooJp_literalMutationString20042 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testYahooJp_literalMutationString20021_literalMutationString20216_failAssert0() throws IOException {
-        try {
-            File in = AmplParseTest.getFile("");
-            Document doc = Jsoup.parse(in, "UTF-8", "L!PLwq=Y_qI!(-P-{#1##S!so69OgU8At");
-            String o_testYahooJp_literalMutationString20021__6 = doc.title();
-            Element a = doc.select("a[href=t/2322m2]").first();
-            String o_testYahooJp_literalMutationString20021__10 = a.attr("abs:href");
-            String o_testYahooJp_literalMutationString20021__11 = a.text();
-            org.junit.Assert.fail("testYahooJp_literalMutationString20021_literalMutationString20216 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testYahooJp_literalMutationString20007_failAssert0_literalMutationString20990_failAssert0() throws IOException {
+    public void testYahooJp_literalMutationString20042_failAssert0null21989_failAssert0() throws IOException {
         try {
             {
                 File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, "", "http://www.yahoo.co.jp/index.html");
+                Document doc = Jsoup.parse(in, "UTF-8", null);
                 doc.title();
                 Element a = doc.select("a[href=t/2322m2]").first();
                 a.attr("abs:href");
                 a.text();
-                org.junit.Assert.fail("testYahooJp_literalMutationString20007 should have thrown FileNotFoundException");
+                org.junit.Assert.fail("testYahooJp_literalMutationString20042 should have thrown FileNotFoundException");
             }
-            org.junit.Assert.fail("testYahooJp_literalMutationString20007_failAssert0_literalMutationString20990 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testYahooJp_literalMutationString20042_failAssert0null21989 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testYahooJp_literalMutationString20007_failAssert0_add21637_failAssert0() throws IOException {
+    public void testYahooJp_literalMutationString20042_failAssert0_literalMutationString21158_failAssert0() throws IOException {
         try {
             {
                 File in = AmplParseTest.getFile("");
-                Jsoup.parse(in, "UTF-8", "http://www.yahoo.co.jp/index.html");
+                Document doc = Jsoup.parse(in, "UTF-8", "http://w{ww.yahoo.co.jp/index.html");
+                doc.title();
+                Element a = doc.select("a[href=t/2322m2]").first();
+                a.attr("abs:href");
+                a.text();
+                org.junit.Assert.fail("testYahooJp_literalMutationString20042 should have thrown FileNotFoundException");
+            }
+            org.junit.Assert.fail("testYahooJp_literalMutationString20042_failAssert0_literalMutationString21158 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testYahooJp_literalMutationString20042_failAssert0_literalMutationString21162_failAssert0() throws IOException {
+        try {
+            {
+                File in = AmplParseTest.getFile("");
+                Document doc = Jsoup.parse(in, "UTF-8", "http://www.yahoo.co.jp/index.html");
+                doc.title();
+                Element a = doc.select("M7s.5IFECdv]N.34").first();
+                a.attr("abs:href");
+                a.text();
+                org.junit.Assert.fail("testYahooJp_literalMutationString20042 should have thrown FileNotFoundException");
+            }
+            org.junit.Assert.fail("testYahooJp_literalMutationString20042_failAssert0_literalMutationString21162 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testYahooJp_literalMutationString20042_failAssert0_add21718_failAssert0() throws IOException {
+        try {
+            {
+                File in = AmplParseTest.getFile("");
                 Document doc = Jsoup.parse(in, "UTF-8", "http://www.yahoo.co.jp/index.html");
                 doc.title();
                 Element a = doc.select("a[href=t/2322m2]").first();
                 a.attr("abs:href");
                 a.text();
-                org.junit.Assert.fail("testYahooJp_literalMutationString20007 should have thrown FileNotFoundException");
+                org.junit.Assert.fail("testYahooJp_literalMutationString20042 should have thrown FileNotFoundException");
             }
-            org.junit.Assert.fail("testYahooJp_literalMutationString20007_failAssert0_add21637 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testYahooJp_literalMutationString20042_failAssert0_add21718 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testBaidu_literalMutationString28947_failAssert0() throws IOException {
+    public void testYahooJp_literalMutationString20042_failAssert0_add21713_failAssert0() throws IOException {
+        try {
+            {
+                File in = AmplParseTest.getFile("");
+                Document doc = Jsoup.parse(in, "UTF-8", "http://www.yahoo.co.jp/index.html");
+                doc.title();
+                doc.title();
+                Element a = doc.select("a[href=t/2322m2]").first();
+                a.attr("abs:href");
+                a.text();
+                org.junit.Assert.fail("testYahooJp_literalMutationString20042 should have thrown FileNotFoundException");
+            }
+            org.junit.Assert.fail("testYahooJp_literalMutationString20042_failAssert0_add21713 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testYahooJp_literalMutationString20042_failAssert0null21991_failAssert0() throws IOException {
+        try {
+            {
+                File in = AmplParseTest.getFile("");
+                Document doc = Jsoup.parse(in, "UTF-8", "http://www.yahoo.co.jp/index.html");
+                doc.title();
+                Element a = doc.select("a[href=t/2322m2]").first();
+                a.attr(null);
+                a.text();
+                org.junit.Assert.fail("testYahooJp_literalMutationString20042 should have thrown FileNotFoundException");
+            }
+            org.junit.Assert.fail("testYahooJp_literalMutationString20042_failAssert0null21991 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testBaidu_literalMutationString28995_failAssert0() throws IOException {
         try {
             File in = AmplParseTest.getFile("");
             Document doc = Jsoup.parse(in, null, "http://www.baidu.com/");
@@ -383,136 +432,30 @@ public class AmplParseTest {
             doc.select("title").outerHtml();
             doc.outputSettings().charset("ascii");
             doc.select("title").outerHtml();
-            org.junit.Assert.fail("testBaidu_literalMutationString28947 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testBaidu_literalMutationString28995 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testBaidu_literalMutationString28947_failAssert0_add35679_failAssert0() throws IOException {
+    public void testBaiduVariant_literalMutationString13671_failAssert0_literalMutationString14124_failAssert0() throws IOException {
         try {
             {
                 File in = AmplParseTest.getFile("");
                 Document doc = Jsoup.parse(in, null, "http://www.baidu.com/");
-                Element submit = doc.select("#su").first();
-                submit.attr("value");
-                submit.attr("value");
-                submit = doc.select("input[value=百度一下]").first();
-                submit.id();
-                Element newsLink = doc.select("a:contains(新)").first();
-                newsLink.absUrl("href");
                 doc.outputSettings().charset().displayName();
-                doc.select("title").outerHtml();
-                doc.outputSettings().charset("ascii");
-                doc.select("title").outerHtml();
-                org.junit.Assert.fail("testBaidu_literalMutationString28947 should have thrown FileNotFoundException");
+                doc.select("").outerHtml();
+                org.junit.Assert.fail("testBaiduVariant_literalMutationString13671 should have thrown IllegalArgumentException");
             }
-            org.junit.Assert.fail("testBaidu_literalMutationString28947_failAssert0_add35679 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testBaiduVariant_literalMutationString13671_failAssert0_literalMutationString14124 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testBaidu_literalMutationString28947_failAssert0null37171_failAssert0() throws IOException {
-        try {
-            {
-                File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, null, null);
-                Element submit = doc.select("#su").first();
-                submit.attr("value");
-                submit = doc.select("input[value=百度一下]").first();
-                submit.id();
-                Element newsLink = doc.select("a:contains(新)").first();
-                newsLink.absUrl("href");
-                doc.outputSettings().charset().displayName();
-                doc.select("title").outerHtml();
-                doc.outputSettings().charset("ascii");
-                doc.select("title").outerHtml();
-                org.junit.Assert.fail("testBaidu_literalMutationString28947 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testBaidu_literalMutationString28947_failAssert0null37171 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testBaidu_literalMutationString28947_failAssert0_literalMutationString32134_failAssert0() throws IOException {
-        try {
-            {
-                File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, null, "http://www.baidu.com/");
-                Element submit = doc.select("#su").first();
-                submit.attr("value");
-                submit = doc.select("input[value=百度一下]").first();
-                submit.id();
-                Element newsLink = doc.select("a:contails(\u65b0)").first();
-                newsLink.absUrl("href");
-                doc.outputSettings().charset().displayName();
-                doc.select("title").outerHtml();
-                doc.outputSettings().charset("ascii");
-                doc.select("title").outerHtml();
-                org.junit.Assert.fail("testBaidu_literalMutationString28947 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testBaidu_literalMutationString28947_failAssert0_literalMutationString32134 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testBaidu_literalMutationString28947_failAssert0null37179_failAssert0() throws IOException {
-        try {
-            {
-                File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, null, "http://www.baidu.com/");
-                Element submit = doc.select("#su").first();
-                submit.attr("value");
-                submit = doc.select("input[value=百度一下]").first();
-                submit.id();
-                Element newsLink = doc.select("a:contains(新)").first();
-                newsLink.absUrl("href");
-                doc.outputSettings().charset().displayName();
-                doc.select("title").outerHtml();
-                doc.outputSettings().charset("ascii");
-                doc.select(null).outerHtml();
-                org.junit.Assert.fail("testBaidu_literalMutationString28947 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testBaidu_literalMutationString28947_failAssert0null37179 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testBaidu_literalMutationString28947_failAssert0_add35686_failAssert0() throws IOException {
-        try {
-            {
-                File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, null, "http://www.baidu.com/");
-                Element submit = doc.select("#su").first();
-                submit.attr("value");
-                submit = doc.select("input[value=百度一下]").first();
-                submit.id();
-                Element newsLink = doc.select("a:contains(新)").first();
-                newsLink.absUrl("href");
-                doc.outputSettings().charset().displayName();
-                doc.outputSettings().charset().displayName();
-                doc.select("title").outerHtml();
-                doc.outputSettings().charset("ascii");
-                doc.select("title").outerHtml();
-                org.junit.Assert.fail("testBaidu_literalMutationString28947 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testBaidu_literalMutationString28947_failAssert0_add35686 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testBaiduVariant_literalMutationString13642_failAssert0_add14423_failAssert0() throws IOException {
+    public void testBaiduVariant_literalMutationString13658_failAssert0_add14480_failAssert0() throws IOException {
         try {
             {
                 File in = AmplParseTest.getFile("");
@@ -520,71 +463,162 @@ public class AmplParseTest {
                 doc.outputSettings();
                 doc.outputSettings().charset().displayName();
                 doc.select("title").outerHtml();
-                org.junit.Assert.fail("testBaiduVariant_literalMutationString13642 should have thrown FileNotFoundException");
+                org.junit.Assert.fail("testBaiduVariant_literalMutationString13658 should have thrown FileNotFoundException");
             }
-            org.junit.Assert.fail("testBaiduVariant_literalMutationString13642_failAssert0_add14423 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testBaiduVariant_literalMutationString13658_failAssert0_add14480 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testBaiduVariant_literalMutationString13642_failAssert0() throws IOException {
+    public void testBaiduVariant_literalMutationString13658_failAssert0() throws IOException {
         try {
             File in = AmplParseTest.getFile("");
             Document doc = Jsoup.parse(in, null, "http://www.baidu.com/");
             doc.outputSettings().charset().displayName();
             doc.select("title").outerHtml();
-            org.junit.Assert.fail("testBaiduVariant_literalMutationString13642 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testBaiduVariant_literalMutationString13658 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testBaiduVariant_literalMutationString13642_failAssert0_literalMutationString14126_failAssert0() throws IOException {
+    public void testBaiduVariant_literalMutationString13658_failAssert0null14607_failAssert0() throws IOException {
         try {
             {
                 File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, null, "http://www.baidu.cPom/");
+                Document doc = Jsoup.parse(in, null, "http://www.baidu.com/");
+                doc.outputSettings().charset().displayName();
+                doc.select(null).outerHtml();
+                org.junit.Assert.fail("testBaiduVariant_literalMutationString13658 should have thrown FileNotFoundException");
+            }
+            org.junit.Assert.fail("testBaiduVariant_literalMutationString13658_failAssert0null14607 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testBaiduVariant_literalMutationString13668_literalMutationString14020_failAssert0() throws IOException {
+        try {
+            File in = AmplParseTest.getFile("");
+            Document doc = Jsoup.parse(in, null, "htNp://www.baidu.com/");
+            String o_testBaiduVariant_literalMutationString13668__7 = doc.outputSettings().charset().displayName();
+            String o_testBaiduVariant_literalMutationString13668__10 = doc.select("title").outerHtml();
+            org.junit.Assert.fail("testBaiduVariant_literalMutationString13668_literalMutationString14020 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testBaiduVariantnull13686_failAssert0_literalMutationString14088_failAssert0() throws IOException {
+        try {
+            {
+                File in = AmplParseTest.getFile("");
+                Document doc = Jsoup.parse(in, null, "http://www.baidu.com/");
+                doc.outputSettings().charset().displayName();
+                doc.select(null).outerHtml();
+                org.junit.Assert.fail("testBaiduVariantnull13686 should have thrown IllegalArgumentException");
+            }
+            org.junit.Assert.fail("testBaiduVariantnull13686_failAssert0_literalMutationString14088 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testBaiduVariant_literalMutationString13658_failAssert0_literalMutationString14215_failAssert0() throws IOException {
+        try {
+            {
+                File in = AmplParseTest.getFile("");
+                Document doc = Jsoup.parse(in, null, "");
                 doc.outputSettings().charset().displayName();
                 doc.select("title").outerHtml();
-                org.junit.Assert.fail("testBaiduVariant_literalMutationString13642 should have thrown FileNotFoundException");
+                org.junit.Assert.fail("testBaiduVariant_literalMutationString13658 should have thrown FileNotFoundException");
             }
-            org.junit.Assert.fail("testBaiduVariant_literalMutationString13642_failAssert0_literalMutationString14126 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testBaiduVariant_literalMutationString13658_failAssert0_literalMutationString14215 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testHtml5Charset_literalMutationString24002_failAssert0null28696_failAssert0() throws IOException {
+    public void testHtml5Charset_literalMutationString24038_failAssert0_literalMutationString26675_failAssert0() throws IOException {
         try {
             {
                 File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, null, null);
+                Document doc = Jsoup.parse(in, null, "http://example.com/");
                 doc.text();
                 doc.outputSettings().charset().displayName();
                 in = AmplParseTest.getFile("/htmltests/meta-charset-2.html");
                 doc = Jsoup.parse(in, null, "http://example.com");
                 doc.outputSettings().charset().displayName();
                 "新".equals(doc.text());
-                in = AmplParseTest.getFile("/htmltests/meta-charset-3.html");
+                in = AmplParseTest.getFile("/htmltests/meta-charset-.html");
                 doc = Jsoup.parse(in, null, "http://example.com/");
                 doc.outputSettings().charset().displayName();
                 doc.outputSettings().charset().displayName();
                 doc.text();
                 doc.text();
-                org.junit.Assert.fail("testHtml5Charset_literalMutationString24002 should have thrown FileNotFoundException");
+                org.junit.Assert.fail("testHtml5Charset_literalMutationString24038 should have thrown FileNotFoundException");
             }
-            org.junit.Assert.fail("testHtml5Charset_literalMutationString24002_failAssert0null28696 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testHtml5Charset_literalMutationString24038_failAssert0_literalMutationString26675 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testHtml5Charset_literalMutationString24002_failAssert0() throws IOException {
+    public void testHtml5Charset_literalMutationString24043_literalMutationString25704_failAssert0() throws IOException {
+        try {
+            File in = AmplParseTest.getFile("/htmltests/meta-charset-1.html");
+            Document doc = Jsoup.parse(in, null, "");
+            String o_testHtml5Charset_literalMutationString24043__7 = doc.text();
+            String o_testHtml5Charset_literalMutationString24043__8 = doc.outputSettings().charset().displayName();
+            in = AmplParseTest.getFile("/htmltests/meta-charset-2.html");
+            doc = Jsoup.parse(in, null, "http://example.com");
+            String o_testHtml5Charset_literalMutationString24043__18 = doc.outputSettings().charset().displayName();
+            boolean o_testHtml5Charset_literalMutationString24043__21 = "新".equals(doc.text());
+            in = AmplParseTest.getFile("");
+            doc = Jsoup.parse(in, null, "http://example.com/");
+            String o_testHtml5Charset_literalMutationString24043__29 = doc.outputSettings().charset().displayName();
+            String o_testHtml5Charset_literalMutationString24043__32 = doc.outputSettings().charset().displayName();
+            String o_testHtml5Charset_literalMutationString24043__35 = doc.text();
+            String o_testHtml5Charset_literalMutationString24043__36 = doc.text();
+            org.junit.Assert.fail("testHtml5Charset_literalMutationString24043_literalMutationString25704 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testHtml5Charset_literalMutationString24049_failAssert0() throws IOException {
+        try {
+            File in = AmplParseTest.getFile("/htmltests/meta-charset-1.html");
+            Document doc = Jsoup.parse(in, null, "http://example.com/");
+            doc.text();
+            doc.outputSettings().charset().displayName();
+            in = AmplParseTest.getFile("");
+            doc = Jsoup.parse(in, null, "http://example.com");
+            doc.outputSettings().charset().displayName();
+            "新".equals(doc.text());
+            in = AmplParseTest.getFile("/htmltests/meta-charset-3.html");
+            doc = Jsoup.parse(in, null, "http://example.com/");
+            doc.outputSettings().charset().displayName();
+            doc.outputSettings().charset().displayName();
+            doc.text();
+            doc.text();
+            org.junit.Assert.fail("testHtml5Charset_literalMutationString24049 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testHtml5Charset_literalMutationString24038_failAssert0() throws IOException {
         try {
             File in = AmplParseTest.getFile("");
             Document doc = Jsoup.parse(in, null, "http://example.com/");
@@ -600,22 +634,22 @@ public class AmplParseTest {
             doc.outputSettings().charset().displayName();
             doc.text();
             doc.text();
-            org.junit.Assert.fail("testHtml5Charset_literalMutationString24002 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testHtml5Charset_literalMutationString24038 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testHtml5Charset_literalMutationString24002_failAssert0_add28074_failAssert0() throws IOException {
+    public void testHtml5Charset_literalMutationString24038_failAssert0_add28176_failAssert0() throws IOException {
         try {
             {
                 File in = AmplParseTest.getFile("");
                 Document doc = Jsoup.parse(in, null, "http://example.com/");
                 doc.text();
+                doc.text();
                 doc.outputSettings().charset().displayName();
                 in = AmplParseTest.getFile("/htmltests/meta-charset-2.html");
-                Jsoup.parse(in, null, "http://example.com");
                 doc = Jsoup.parse(in, null, "http://example.com");
                 doc.outputSettings().charset().displayName();
                 "新".equals(doc.text());
@@ -625,221 +659,119 @@ public class AmplParseTest {
                 doc.outputSettings().charset().displayName();
                 doc.text();
                 doc.text();
-                org.junit.Assert.fail("testHtml5Charset_literalMutationString24002 should have thrown FileNotFoundException");
+                org.junit.Assert.fail("testHtml5Charset_literalMutationString24038 should have thrown FileNotFoundException");
             }
-            org.junit.Assert.fail("testHtml5Charset_literalMutationString24002_failAssert0_add28074 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testHtml5Charset_literalMutationString24038_failAssert0_add28176 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testHtml5Charset_literalMutationString24029_failAssert0() throws IOException {
+    public void testHtml5Charset_add24079_literalMutationString24912_failAssert0() throws IOException {
         try {
             File in = AmplParseTest.getFile("/htmltests/meta-charset-1.html");
             Document doc = Jsoup.parse(in, null, "http://example.com/");
-            doc.text();
-            doc.outputSettings().charset().displayName();
-            in = AmplParseTest.getFile("/htmltests/meta-charset-2.html");
-            doc = Jsoup.parse(in, null, "http://example.com");
-            doc.outputSettings().charset().displayName();
-            "新".equals(doc.text());
-            in = AmplParseTest.getFile("");
-            doc = Jsoup.parse(in, null, "http://example.com/");
-            doc.outputSettings().charset().displayName();
-            doc.outputSettings().charset().displayName();
-            doc.text();
-            doc.text();
-            org.junit.Assert.fail("testHtml5Charset_literalMutationString24029 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testHtml5Charset_literalMutationString24002_failAssert0_add28086_failAssert0() throws IOException {
-        try {
-            {
-                File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, null, "http://example.com/");
-                doc.text();
-                doc.outputSettings().charset().displayName();
-                in = AmplParseTest.getFile("/htmltests/meta-charset-2.html");
-                doc = Jsoup.parse(in, null, "http://example.com");
-                doc.outputSettings().charset().displayName();
-                "新".equals(doc.text());
-                in = AmplParseTest.getFile("/htmltests/meta-charset-3.html");
-                doc = Jsoup.parse(in, null, "http://example.com/");
-                doc.outputSettings().charset().displayName();
-                doc.outputSettings().charset();
-                doc.outputSettings().charset().displayName();
-                doc.text();
-                doc.text();
-                org.junit.Assert.fail("testHtml5Charset_literalMutationString24002 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testHtml5Charset_literalMutationString24002_failAssert0_add28086 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testHtml5Charset_literalMutationString24029_failAssert0_literalMutationString26095_failAssert0() throws IOException {
-        try {
-            {
-                File in = AmplParseTest.getFile("/htmltests/meta-charset-1.html");
-                Document doc = Jsoup.parse(in, null, "http://example.com/");
-                doc.text();
-                doc.outputSettings().charset().displayName();
-                in = AmplParseTest.getFile("/htmltests/meta-charset-2.html");
-                doc = Jsoup.parse(in, null, "http://example.com");
-                doc.outputSettings().charset().displayName();
-                "新".equals(doc.text());
-                in = AmplParseTest.getFile("");
-                doc = Jsoup.parse(in, null, "Jay");
-                doc.outputSettings().charset().displayName();
-                doc.outputSettings().charset().displayName();
-                doc.text();
-                doc.text();
-                org.junit.Assert.fail("testHtml5Charset_literalMutationString24029 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testHtml5Charset_literalMutationString24029_failAssert0_literalMutationString26095 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testHtml5Charset_literalMutationString24002_failAssert0_literalMutationString26508_failAssert0() throws IOException {
-        try {
-            {
-                File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, null, "http://example.com/");
-                doc.text();
-                doc.outputSettings().charset().displayName();
-                in = AmplParseTest.getFile("/htmltests/meta-charset-2.html");
-                doc = Jsoup.parse(in, null, "");
-                doc.outputSettings().charset().displayName();
-                "新".equals(doc.text());
-                in = AmplParseTest.getFile("/htmltests/meta-charset-3.html");
-                doc = Jsoup.parse(in, null, "http://example.com/");
-                doc.outputSettings().charset().displayName();
-                doc.outputSettings().charset().displayName();
-                doc.text();
-                doc.text();
-                org.junit.Assert.fail("testHtml5Charset_literalMutationString24002 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testHtml5Charset_literalMutationString24002_failAssert0_literalMutationString26508 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testHtml5Charset_add24047_literalMutationString25173_failAssert0() throws IOException {
-        try {
-            File in = AmplParseTest.getFile("/htmltests/meta-charset-1.html");
-            Document doc = Jsoup.parse(in, null, "http://example.com/");
-            String o_testHtml5Charset_add24047__7 = doc.text();
-            String o_testHtml5Charset_add24047__8 = doc.outputSettings().charset().displayName();
-            AmplParseTest.getFile("/htmltests/meta-charset-2.html");
-            in = AmplParseTest.getFile("/htmltests/meta-charset-2.html");
-            doc = Jsoup.parse(in, null, "http://example.com");
-            String o_testHtml5Charset_add24047__19 = doc.outputSettings().charset().displayName();
-            boolean o_testHtml5Charset_add24047__22 = "新".equals(doc.text());
-            in = AmplParseTest.getFile("");
-            doc = Jsoup.parse(in, null, "http://example.com/");
-            String o_testHtml5Charset_add24047__30 = doc.outputSettings().charset().displayName();
-            String o_testHtml5Charset_add24047__33 = doc.outputSettings().charset().displayName();
-            String o_testHtml5Charset_add24047__36 = doc.text();
-            String o_testHtml5Charset_add24047__37 = doc.text();
-            org.junit.Assert.fail("testHtml5Charset_add24047_literalMutationString25173 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testHtml5Charset_literalMutationString24014_failAssert0() throws IOException {
-        try {
-            File in = AmplParseTest.getFile("/htmltests/meta-charset-1.html");
-            Document doc = Jsoup.parse(in, null, "http://example.com/");
-            doc.text();
-            doc.outputSettings().charset().displayName();
+            String o_testHtml5Charset_add24079__7 = doc.text();
+            String o_testHtml5Charset_add24079__8 = doc.outputSettings().charset().displayName();
+            String o_testHtml5Charset_add24079__11 = doc.outputSettings().charset().displayName();
             in = AmplParseTest.getFile("");
             doc = Jsoup.parse(in, null, "http://example.com");
-            doc.outputSettings().charset().displayName();
-            "新".equals(doc.text());
+            String o_testHtml5Charset_add24079__21 = doc.outputSettings().charset().displayName();
+            boolean o_testHtml5Charset_add24079__24 = "新".equals(doc.text());
             in = AmplParseTest.getFile("/htmltests/meta-charset-3.html");
             doc = Jsoup.parse(in, null, "http://example.com/");
-            doc.outputSettings().charset().displayName();
-            doc.outputSettings().charset().displayName();
-            doc.text();
-            doc.text();
-            org.junit.Assert.fail("testHtml5Charset_literalMutationString24014 should have thrown FileNotFoundException");
+            String o_testHtml5Charset_add24079__32 = doc.outputSettings().charset().displayName();
+            String o_testHtml5Charset_add24079__35 = doc.outputSettings().charset().displayName();
+            String o_testHtml5Charset_add24079__38 = doc.text();
+            String o_testHtml5Charset_add24079__39 = doc.text();
+            org.junit.Assert.fail("testHtml5Charset_add24079_literalMutationString24912 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testHtml5Charset_literalMutationString24029_failAssert0_add27793_failAssert0() throws IOException {
+    public void testHtml5Charset_literalMutationString24049_failAssert0_add28057_failAssert0() throws IOException {
         try {
             {
                 File in = AmplParseTest.getFile("/htmltests/meta-charset-1.html");
                 Document doc = Jsoup.parse(in, null, "http://example.com/");
                 doc.text();
                 doc.outputSettings().charset().displayName();
-                in = AmplParseTest.getFile("/htmltests/meta-charset-2.html");
+                doc.outputSettings().charset().displayName();
+                in = AmplParseTest.getFile("");
                 doc = Jsoup.parse(in, null, "http://example.com");
                 doc.outputSettings().charset().displayName();
                 "新".equals(doc.text());
-                in = AmplParseTest.getFile("");
-                Jsoup.parse(in, null, "http://example.com/");
+                in = AmplParseTest.getFile("/htmltests/meta-charset-3.html");
                 doc = Jsoup.parse(in, null, "http://example.com/");
                 doc.outputSettings().charset().displayName();
                 doc.outputSettings().charset().displayName();
                 doc.text();
                 doc.text();
-                org.junit.Assert.fail("testHtml5Charset_literalMutationString24029 should have thrown FileNotFoundException");
+                org.junit.Assert.fail("testHtml5Charset_literalMutationString24049 should have thrown FileNotFoundException");
             }
-            org.junit.Assert.fail("testHtml5Charset_literalMutationString24029_failAssert0_add27793 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testHtml5Charset_literalMutationString24049_failAssert0_add28057 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testNytArticlenull37897_failAssert0_literalMutationString38417_failAssert0() throws IOException {
+    public void testHtml5Charset_literalMutationString24064_failAssert0() throws IOException {
         try {
-            {
-                File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, null, null);
-                Element headline = doc.select("nyt_headline[version=1.0]").first();
-                headline.text();
-                org.junit.Assert.fail("testNytArticlenull37897 should have thrown IllegalArgumentException");
-            }
-            org.junit.Assert.fail("testNytArticlenull37897_failAssert0_literalMutationString38417 should have thrown FileNotFoundException");
+            File in = AmplParseTest.getFile("/htmltests/meta-charset-1.html");
+            Document doc = Jsoup.parse(in, null, "http://example.com/");
+            doc.text();
+            doc.outputSettings().charset().displayName();
+            in = AmplParseTest.getFile("/htmltests/meta-charset-2.html");
+            doc = Jsoup.parse(in, null, "http://example.com");
+            doc.outputSettings().charset().displayName();
+            "新".equals(doc.text());
+            in = AmplParseTest.getFile("");
+            doc = Jsoup.parse(in, null, "http://example.com/");
+            doc.outputSettings().charset().displayName();
+            doc.outputSettings().charset().displayName();
+            doc.text();
+            doc.text();
+            org.junit.Assert.fail("testHtml5Charset_literalMutationString24064 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testNytArticle_literalMutationString37872_failAssert0() throws IOException {
+    public void testNytArticle_literalMutationString37913_failAssert0() throws IOException {
         try {
             File in = AmplParseTest.getFile("");
             Document doc = Jsoup.parse(in, null, "http://www.nytimes.com/2010/07/26/business/global/26bp.html?hp");
             Element headline = doc.select("nyt_headline[version=1.0]").first();
             headline.text();
-            org.junit.Assert.fail("testNytArticle_literalMutationString37872 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testNytArticle_literalMutationString37913 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testNytArticle_literalMutationString37872_failAssert0_add38575_failAssert0() throws IOException {
+    public void testNytArticle_literalMutationString37913_failAssert0_literalMutationString38369_failAssert0() throws IOException {
+        try {
+            {
+                File in = AmplParseTest.getFile("");
+                Document doc = Jsoup.parse(in, null, "<n! O&2BWqF9{,[>HmJ,nS8l2_V38Ilw<]V9%=4`[43e?Yz{bz{*)(`Xv^Wo3}");
+                Element headline = doc.select("nyt_headline[version=1.0]").first();
+                headline.text();
+                org.junit.Assert.fail("testNytArticle_literalMutationString37913 should have thrown FileNotFoundException");
+            }
+            org.junit.Assert.fail("testNytArticle_literalMutationString37913_failAssert0_literalMutationString38369 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testNytArticle_literalMutationString37913_failAssert0_add38610_failAssert0() throws IOException {
         try {
             {
                 AmplParseTest.getFile("");
@@ -847,93 +779,75 @@ public class AmplParseTest {
                 Document doc = Jsoup.parse(in, null, "http://www.nytimes.com/2010/07/26/business/global/26bp.html?hp");
                 Element headline = doc.select("nyt_headline[version=1.0]").first();
                 headline.text();
-                org.junit.Assert.fail("testNytArticle_literalMutationString37872 should have thrown FileNotFoundException");
+                org.junit.Assert.fail("testNytArticle_literalMutationString37913 should have thrown FileNotFoundException");
             }
-            org.junit.Assert.fail("testNytArticle_literalMutationString37872_failAssert0_add38575 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testNytArticle_literalMutationString37913_failAssert0_add38610 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testNytArticle_literalMutationString37872_failAssert0null38698_failAssert0() throws IOException {
-        try {
-            {
-                File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, null, "http://www.nytimes.com/2010/07/26/business/global/26bp.html?hp");
-                Element headline = doc.select(null).first();
-                headline.text();
-                org.junit.Assert.fail("testNytArticle_literalMutationString37872 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testNytArticle_literalMutationString37872_failAssert0null38698 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testNytArticle_literalMutationString37872_failAssert0_literalMutationString38362_failAssert0() throws IOException {
-        try {
-            {
-                File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, null, "");
-                Element headline = doc.select("nyt_headline[version=1.0]").first();
-                headline.text();
-                org.junit.Assert.fail("testNytArticle_literalMutationString37872 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testNytArticle_literalMutationString37872_failAssert0_literalMutationString38362 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testYahooArticle_literalMutationString9280_failAssert0_literalMutationString9814_failAssert0() throws IOException {
-        try {
-            {
-                File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, "U:F-8", "http://news.yahoo.com/s/nm/20100831/bs_nm/us_gm_china");
-                Element p = doc.select("p:contains(Volt will be sold in the United States)").first();
-                p.text();
-                org.junit.Assert.fail("testYahooArticle_literalMutationString9280 should have thrown UnsupportedEncodingException");
-            }
-            org.junit.Assert.fail("testYahooArticle_literalMutationString9280_failAssert0_literalMutationString9814 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testYahooArticle_literalMutationString9271_failAssert0() throws IOException {
+    public void testNytArticle_literalMutationString37919_literalMutationString38154_failAssert0() throws IOException {
         try {
             File in = AmplParseTest.getFile("");
-            Document doc = Jsoup.parse(in, "UTF-8", "http://news.yahoo.com/s/nm/20100831/bs_nm/us_gm_china");
-            Element p = doc.select("p:contains(Volt will be sold in the United States)").first();
-            p.text();
-            org.junit.Assert.fail("testYahooArticle_literalMutationString9271 should have thrown FileNotFoundException");
+            Document doc = Jsoup.parse(in, null, "http://www.nytimes.com/2010/07/26/business/global/6bp.html?hp");
+            Element headline = doc.select("nyt_headline[version=1.0]").first();
+            String o_testNytArticle_literalMutationString37919__9 = headline.text();
+            org.junit.Assert.fail("testNytArticle_literalMutationString37919_literalMutationString38154 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testYahooArticle_literalMutationString9271_failAssert0_literalMutationString10077_failAssert0() throws IOException {
+    public void testNytArticle_literalMutationString37913_failAssert0_add38615_failAssert0() throws IOException {
         try {
             {
                 File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, "Jay", "http://news.yahoo.com/s/nm/20100831/bs_nm/us_gm_china");
-                Element p = doc.select("p:contains(Volt will be sold in the United States)").first();
-                p.text();
-                org.junit.Assert.fail("testYahooArticle_literalMutationString9271 should have thrown FileNotFoundException");
+                Document doc = Jsoup.parse(in, null, "http://www.nytimes.com/2010/07/26/business/global/26bp.html?hp");
+                Element headline = doc.select("nyt_headline[version=1.0]").first();
+                headline.text();
+                org.junit.Assert.fail("testNytArticle_literalMutationString37913 should have thrown FileNotFoundException");
             }
-            org.junit.Assert.fail("testYahooArticle_literalMutationString9271_failAssert0_literalMutationString10077 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testNytArticle_literalMutationString37913_failAssert0_add38615 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testYahooArticle_literalMutationString9271_failAssert0_add10358_failAssert0() throws IOException {
+    public void testNytArticle_literalMutationString37917_failAssert0_literalMutationString38433_failAssert0() throws IOException {
+        try {
+            {
+                File in = AmplParseTest.getFile("");
+                Document doc = Jsoup.parse(in, null, "http://www.nytimes.com/2010/07/26/business/global/26bp.html?hp");
+                Element headline = doc.select("nyt_headline[version=1.0]").first();
+                headline.text();
+                org.junit.Assert.fail("testNytArticle_literalMutationString37917 should have thrown NullPointerException");
+            }
+            org.junit.Assert.fail("testNytArticle_literalMutationString37917_failAssert0_literalMutationString38433 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testNytArticle_add37931_literalMutationString38028_failAssert0() throws IOException {
+        try {
+            AmplParseTest.getFile("/htmltests/nyt-article-1.html");
+            File in = AmplParseTest.getFile("");
+            Document doc = Jsoup.parse(in, null, "http://www.nytimes.com/2010/07/26/business/global/26bp.html?hp");
+            Element headline = doc.select("nyt_headline[version=1.0]").first();
+            String o_testNytArticle_add37931__10 = headline.text();
+            org.junit.Assert.fail("testNytArticle_add37931_literalMutationString38028 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testYahooArticle_literalMutationString9277_failAssert0_add10292_failAssert0() throws IOException {
         try {
             {
                 AmplParseTest.getFile("");
@@ -941,225 +855,194 @@ public class AmplParseTest {
                 Document doc = Jsoup.parse(in, "UTF-8", "http://news.yahoo.com/s/nm/20100831/bs_nm/us_gm_china");
                 Element p = doc.select("p:contains(Volt will be sold in the United States)").first();
                 p.text();
-                org.junit.Assert.fail("testYahooArticle_literalMutationString9271 should have thrown FileNotFoundException");
+                org.junit.Assert.fail("testYahooArticle_literalMutationString9277 should have thrown FileNotFoundException");
             }
-            org.junit.Assert.fail("testYahooArticle_literalMutationString9271_failAssert0_add10358 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testYahooArticle_literalMutationString9277_failAssert0_add10292 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testYahooArticle_literalMutationString9282_failAssert0_literalMutationString9958_failAssert0() throws IOException {
+    public void testYahooArticle_literalMutationString9289_literalMutationString9651_failAssert0() throws IOException {
         try {
-            {
-                File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, "UTIF-8", "http://news.yahoo.com/s/nm/20100831/bs_nm/us_gm_china");
-                Element p = doc.select("p:contains(Volt will be sold in the United States)").first();
-                p.text();
-                org.junit.Assert.fail("testYahooArticle_literalMutationString9282 should have thrown UnsupportedEncodingException");
-            }
-            org.junit.Assert.fail("testYahooArticle_literalMutationString9282_failAssert0_literalMutationString9958 should have thrown FileNotFoundException");
+            File in = AmplParseTest.getFile("");
+            Document doc = Jsoup.parse(in, "UTF-8", "http://news.yahoo.com/s/nm/2010831/bs_nm/us_gm_china");
+            Element p = doc.select("p:contains(Volt will be sold in the United States)").first();
+            String o_testYahooArticle_literalMutationString9289__8 = p.text();
+            org.junit.Assert.fail("testYahooArticle_literalMutationString9289_literalMutationString9651 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testYahooArticle_literalMutationString9271_failAssert0_add10360_failAssert0() throws IOException {
-        try {
-            {
-                File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, "UTF-8", "http://news.yahoo.com/s/nm/20100831/bs_nm/us_gm_china");
-                doc.select("p:contains(Volt will be sold in the United States)").first();
-                Element p = doc.select("p:contains(Volt will be sold in the United States)").first();
-                p.text();
-                org.junit.Assert.fail("testYahooArticle_literalMutationString9271 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testYahooArticle_literalMutationString9271_failAssert0_add10360 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testYahooArticle_literalMutationString9271_failAssert0null10538_failAssert0() throws IOException {
+    public void testYahooArticle_literalMutationString9277_failAssert0null10481_failAssert0() throws IOException {
         try {
             {
                 File in = AmplParseTest.getFile("");
                 Document doc = Jsoup.parse(in, "UTF-8", "http://news.yahoo.com/s/nm/20100831/bs_nm/us_gm_china");
                 Element p = doc.select(null).first();
                 p.text();
-                org.junit.Assert.fail("testYahooArticle_literalMutationString9271 should have thrown FileNotFoundException");
+                org.junit.Assert.fail("testYahooArticle_literalMutationString9277 should have thrown FileNotFoundException");
             }
-            org.junit.Assert.fail("testYahooArticle_literalMutationString9271_failAssert0null10538 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testYahooArticle_literalMutationString9277_failAssert0null10481 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testYahooArticle_literalMutationString9290_failAssert0_literalMutationString10048_failAssert0() throws IOException {
+    public void testYahooArticle_literalMutationString9277_failAssert0_literalMutationString9780_failAssert0() throws IOException {
+        try {
+            {
+                File in = AmplParseTest.getFile("");
+                Document doc = Jsoup.parse(in, "", "http://news.yahoo.com/s/nm/20100831/bs_nm/us_gm_china");
+                Element p = doc.select("p:contains(Volt will be sold in the United States)").first();
+                p.text();
+                org.junit.Assert.fail("testYahooArticle_literalMutationString9277 should have thrown FileNotFoundException");
+            }
+            org.junit.Assert.fail("testYahooArticle_literalMutationString9277_failAssert0_literalMutationString9780 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testYahooArticle_literalMutationString9277_failAssert0() throws IOException {
+        try {
+            File in = AmplParseTest.getFile("");
+            Document doc = Jsoup.parse(in, "UTF-8", "http://news.yahoo.com/s/nm/20100831/bs_nm/us_gm_china");
+            Element p = doc.select("p:contains(Volt will be sold in the United States)").first();
+            p.text();
+            org.junit.Assert.fail("testYahooArticle_literalMutationString9277 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testYahooArticle_literalMutationString9281_failAssert0_literalMutationString9990_failAssert0() throws IOException {
         try {
             {
                 File in = AmplParseTest.getFile("");
                 Document doc = Jsoup.parse(in, "UTF-8", "http://news.yahoo.com/s/nm/20100831/bs_nm/us_gm_china");
-                Element p = doc.select("p:contains(Volt will be :old in the United States)").first();
+                Element p = doc.select("p:contains(Volt will be sold in the United States)").first();
                 p.text();
-                org.junit.Assert.fail("testYahooArticle_literalMutationString9290 should have thrown NullPointerException");
+                org.junit.Assert.fail("testYahooArticle_literalMutationString9281 should have thrown NullPointerException");
             }
-            org.junit.Assert.fail("testYahooArticle_literalMutationString9290_failAssert0_literalMutationString10048 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testYahooArticle_literalMutationString9281_failAssert0_literalMutationString9990 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testYahooArticle_literalMutationString9271_failAssert0_literalMutationString10083_failAssert0() throws IOException {
+    public void testYahooArticle_add9302_literalMutationString9480_failAssert0() throws IOException {
+        try {
+            File in = AmplParseTest.getFile("");
+            Document o_testYahooArticle_add9302__3 = Jsoup.parse(in, "UTF-8", "http://news.yahoo.com/s/nm/20100831/bs_nm/us_gm_china");
+            Document doc = Jsoup.parse(in, "UTF-8", "http://news.yahoo.com/s/nm/20100831/bs_nm/us_gm_china");
+            Element p = doc.select("p:contains(Volt will be sold in the United States)").first();
+            String o_testYahooArticle_add9302__9 = p.text();
+            org.junit.Assert.fail("testYahooArticle_add9302_literalMutationString9480 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testLowercaseUtf8Charset_literalMutationString19172_failAssert0_literalMutationString19396_failAssert0() throws IOException {
         try {
             {
                 File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, "UTF-8", "http://news.yahoo.com/s/nm/2010083]/bs_nm/us_gm_china");
-                Element p = doc.select("p:contains(Volt will be sold in the United States)").first();
-                p.text();
-                org.junit.Assert.fail("testYahooArticle_literalMutationString9271 should have thrown FileNotFoundException");
+                Document doc = Jsoup.parse(in, null);
+                Element form = doc.select("#form").first();
+                form.children().size();
+                doc.outputSettings().charset().name();
+                org.junit.Assert.fail("testLowercaseUtf8Charset_literalMutationString19172 should have thrown NullPointerException");
             }
-            org.junit.Assert.fail("testYahooArticle_literalMutationString9271_failAssert0_literalMutationString10083 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testLowercaseUtf8Charset_literalMutationString19172_failAssert0_literalMutationString19396 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
     }
 
     @Test(timeout = 10000)
-    public void testLowercaseUtf8Charset_literalMutationString19135_failAssert0() throws IOException {
+    public void testLowercaseUtf8Charset_literalMutationString19170_failAssert0_add19714_failAssert0() throws IOException {
+        try {
+            {
+                File in = AmplParseTest.getFile("");
+                Document doc = Jsoup.parse(in, null);
+                Element form = doc.select("#form").first();
+                form.children().size();
+                doc.outputSettings().charset().name();
+                org.junit.Assert.fail("testLowercaseUtf8Charset_literalMutationString19170 should have thrown FileNotFoundException");
+            }
+            org.junit.Assert.fail("testLowercaseUtf8Charset_literalMutationString19170_failAssert0_add19714 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testLowercaseUtf8Charset_literalMutationString19173_failAssert0_literalMutationString19432_failAssert0() throws IOException {
+        try {
+            {
+                File in = AmplParseTest.getFile("");
+                Document doc = Jsoup.parse(in, null);
+                Element form = doc.select("#form").first();
+                form.children().size();
+                doc.outputSettings().charset().name();
+                org.junit.Assert.fail("testLowercaseUtf8Charset_literalMutationString19173 should have thrown NullPointerException");
+            }
+            org.junit.Assert.fail("testLowercaseUtf8Charset_literalMutationString19173_failAssert0_literalMutationString19432 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testLowercaseUtf8Charset_add19187_literalMutationString19261_failAssert0() throws IOException {
+        try {
+            File in = AmplParseTest.getFile("");
+            Document doc = Jsoup.parse(in, null);
+            Element form = doc.select("#form").first();
+            int o_testLowercaseUtf8Charset_add19187__8 = form.children().size();
+            String o_testLowercaseUtf8Charset_add19187__10 = doc.outputSettings().charset().name();
+            String o_testLowercaseUtf8Charset_add19187__13 = doc.outputSettings().charset().name();
+            org.junit.Assert.fail("testLowercaseUtf8Charset_add19187_literalMutationString19261 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testLowercaseUtf8Charset_literalMutationString19170_failAssert0_literalMutationString19447_failAssert0() throws IOException {
+        try {
+            {
+                File in = AmplParseTest.getFile("");
+                Document doc = Jsoup.parse(in, null);
+                Element form = doc.select("#xorm").first();
+                form.children().size();
+                doc.outputSettings().charset().name();
+                org.junit.Assert.fail("testLowercaseUtf8Charset_literalMutationString19170 should have thrown FileNotFoundException");
+            }
+            org.junit.Assert.fail("testLowercaseUtf8Charset_literalMutationString19170_failAssert0_literalMutationString19447 should have thrown FileNotFoundException");
+        } catch (FileNotFoundException expected) {
+            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
+        }
+    }
+
+    @Test(timeout = 10000)
+    public void testLowercaseUtf8Charset_literalMutationString19170_failAssert0() throws IOException {
         try {
             File in = AmplParseTest.getFile("");
             Document doc = Jsoup.parse(in, null);
             Element form = doc.select("#form").first();
             form.children().size();
             doc.outputSettings().charset().name();
-            org.junit.Assert.fail("testLowercaseUtf8Charset_literalMutationString19135 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testLowercaseUtf8Charset_literalMutationString19135_failAssert0_literalMutationString19389_failAssert0() throws IOException {
-        try {
-            {
-                File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, null);
-                Element form = doc.select("").first();
-                form.children().size();
-                doc.outputSettings().charset().name();
-                org.junit.Assert.fail("testLowercaseUtf8Charset_literalMutationString19135 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testLowercaseUtf8Charset_literalMutationString19135_failAssert0_literalMutationString19389 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testLowercaseUtf8Charset_literalMutationString19144_failAssert0_literalMutationString19396_failAssert0() throws IOException {
-        try {
-            {
-                File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, null);
-                Element form = doc.select("#fo@rm").first();
-                form.children().size();
-                doc.outputSettings().charset().name();
-                org.junit.Assert.fail("testLowercaseUtf8Charset_literalMutationString19144 should have thrown Selector$SelectorParseException");
-            }
-            org.junit.Assert.fail("testLowercaseUtf8Charset_literalMutationString19144_failAssert0_literalMutationString19396 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testLowercaseUtf8Charset_literalMutationString19135_failAssert0_literalMutationString19392_failAssert0() throws IOException {
-        try {
-            {
-                File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, null);
-                Element form = doc.select("#orm").first();
-                form.children().size();
-                doc.outputSettings().charset().name();
-                org.junit.Assert.fail("testLowercaseUtf8Charset_literalMutationString19135 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testLowercaseUtf8Charset_literalMutationString19135_failAssert0_literalMutationString19392 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testLowercaseUtf8Charset_literalMutationString19145_failAssert0_literalMutationString19329_failAssert0() throws IOException {
-        try {
-            {
-                File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, null);
-                Element form = doc.select("#orm").first();
-                form.children().size();
-                doc.outputSettings().charset().name();
-                org.junit.Assert.fail("testLowercaseUtf8Charset_literalMutationString19145 should have thrown NullPointerException");
-            }
-            org.junit.Assert.fail("testLowercaseUtf8Charset_literalMutationString19145_failAssert0_literalMutationString19329 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testLowercaseUtf8Charset_literalMutationString19135_failAssert0_add19649_failAssert0() throws IOException {
-        try {
-            {
-                File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, null);
-                Element form = doc.select("#form").first();
-                form.children().size();
-                doc.outputSettings();
-                doc.outputSettings().charset().name();
-                org.junit.Assert.fail("testLowercaseUtf8Charset_literalMutationString19135 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testLowercaseUtf8Charset_literalMutationString19135_failAssert0_add19649 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testLowercaseUtf8Charset_literalMutationString19135_failAssert0_add19645_failAssert0() throws IOException {
-        try {
-            {
-                File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, null);
-                Element form = doc.select("#form").first();
-                form.children().size();
-                form.children().size();
-                doc.outputSettings().charset().name();
-                org.junit.Assert.fail("testLowercaseUtf8Charset_literalMutationString19135 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testLowercaseUtf8Charset_literalMutationString19135_failAssert0_add19645 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testLowercaseUtf8Charset_literalMutationString19135_failAssert0null19778_failAssert0() throws IOException {
-        try {
-            {
-                File in = AmplParseTest.getFile("");
-                Document doc = Jsoup.parse(in, null);
-                Element form = doc.select(null).first();
-                form.children().size();
-                doc.outputSettings().charset().name();
-                org.junit.Assert.fail("testLowercaseUtf8Charset_literalMutationString19135 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testLowercaseUtf8Charset_literalMutationString19135_failAssert0null19778 should have thrown FileNotFoundException");
+            org.junit.Assert.fail("testLowercaseUtf8Charset_literalMutationString19170 should have thrown FileNotFoundException");
         } catch (FileNotFoundException expected) {
             Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
         }
