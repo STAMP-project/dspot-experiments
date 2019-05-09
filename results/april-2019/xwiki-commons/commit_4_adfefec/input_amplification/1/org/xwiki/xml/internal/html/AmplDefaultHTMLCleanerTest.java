@@ -59,17 +59,17 @@ public class AmplDefaultHTMLCleanerTest {
         configuration.setParameters(parameters);
         String result = HTMLUtils.toString(this.cleaner.clean(new StringReader("<script>alert(\"foo\")</script>"), configuration));
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", result);
-        String String_104 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>alert(\"foo\")</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_104);
+        String String_108 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>alert(\"foo\")</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_108);
         String o_restrictedHtml_add140__14 = HTMLUtils.toString(this.cleaner.clean(new StringReader("<style>p {color:white;}</style>"), configuration));
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", o_restrictedHtml_add140__14);
         result = HTMLUtils.toString(this.cleaner.clean(new StringReader("<style>p {color:white;}</style>"), configuration));
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
-        String String_105 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>p {color:white;}</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", String_105);
+        String String_109 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>p {color:white;}</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", String_109);
         Assertions.assertNull(o_restrictedHtml_add140__7);
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_104);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_108);
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", o_restrictedHtml_add140__14);
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
     }
@@ -84,12 +84,12 @@ public class AmplDefaultHTMLCleanerTest {
         configuration.setParameters(parameters);
         String result = HTMLUtils.toString(this.cleaner.clean(new StringReader("<script>alert(\"foo\")</script>"), configuration));
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", result);
-        String String_98 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>alert(\"foo\")</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_98);
+        String String_102 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>alert(\"foo\")</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_102);
         Document o_restrictedHtml_add141__14 = this.cleaner.clean(new StringReader("<style>p {color:white;}</style>"), configuration);
-        Assertions.assertNull(((DocumentType) (((DocumentImpl) (o_restrictedHtml_add141__14)).getDoctype())).getInternalSubset());
         Assertions.assertEquals("-//W3C//DTD XHTML 1.0 Strict//EN", ((DocumentType) (((DocumentImpl) (o_restrictedHtml_add141__14)).getDoctype())).getPublicId());
         Assertions.assertEquals("http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd", ((DocumentType) (((DocumentImpl) (o_restrictedHtml_add141__14)).getDoctype())).getSystemId());
+        Assertions.assertNull(((DocumentType) (((DocumentImpl) (o_restrictedHtml_add141__14)).getDoctype())).getInternalSubset());
         Assertions.assertEquals(0, ((int) (((NamedNodeMap) (((DocumentType) (((DocumentImpl) (o_restrictedHtml_add141__14)).getDoctype())).getNotations())).getLength())));
         Assertions.assertEquals(0, ((int) (((NamedNodeMap) (((DocumentType) (((DocumentImpl) (o_restrictedHtml_add141__14)).getDoctype())).getEntities())).getLength())));
         Assertions.assertEquals("html", ((DocumentType) (((DocumentImpl) (o_restrictedHtml_add141__14)).getDoctype())).getName());
@@ -428,14 +428,14 @@ public class AmplDefaultHTMLCleanerTest {
         Assertions.assertNull(((DocumentImpl) (o_restrictedHtml_add141__14)).getAttributes());
         result = HTMLUtils.toString(this.cleaner.clean(new StringReader("<style>p {color:white;}</style>"), configuration));
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
-        String String_99 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>p {color:white;}</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", String_99);
+        String String_103 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>p {color:white;}</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", String_103);
         Assertions.assertNull(o_restrictedHtml_add141__7);
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_98);
-        Assertions.assertNull(((DocumentType) (((DocumentImpl) (o_restrictedHtml_add141__14)).getDoctype())).getInternalSubset());
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_102);
         Assertions.assertEquals("-//W3C//DTD XHTML 1.0 Strict//EN", ((DocumentType) (((DocumentImpl) (o_restrictedHtml_add141__14)).getDoctype())).getPublicId());
         Assertions.assertEquals("http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd", ((DocumentType) (((DocumentImpl) (o_restrictedHtml_add141__14)).getDoctype())).getSystemId());
+        Assertions.assertNull(((DocumentType) (((DocumentImpl) (o_restrictedHtml_add141__14)).getDoctype())).getInternalSubset());
         Assertions.assertEquals(0, ((int) (((NamedNodeMap) (((DocumentType) (((DocumentImpl) (o_restrictedHtml_add141__14)).getDoctype())).getNotations())).getLength())));
         Assertions.assertEquals(0, ((int) (((NamedNodeMap) (((DocumentType) (((DocumentImpl) (o_restrictedHtml_add141__14)).getDoctype())).getEntities())).getLength())));
         Assertions.assertEquals("html", ((DocumentType) (((DocumentImpl) (o_restrictedHtml_add141__14)).getDoctype())).getName());
@@ -786,15 +786,15 @@ public class AmplDefaultHTMLCleanerTest {
         configuration.setParameters(parameters);
         String result = HTMLUtils.toString(this.cleaner.clean(new StringReader("<script>alert(\"foo\")</script>"), configuration));
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", result);
-        String String_100 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>alert(\"foo\")</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_100);
+        String String_104 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>alert(\"foo\")</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_104);
         result = HTMLUtils.toString(this.cleaner.clean(new StringReader("<style>p {color:white;}</style>"), configuration));
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
-        String String_101 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>p {color:white;}</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", String_101);
+        String String_105 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>p {color:white;}</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", String_105);
         Assertions.assertNull(o_restrictedHtml_add135__8);
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_100);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_104);
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
     }
 
@@ -810,16 +810,16 @@ public class AmplDefaultHTMLCleanerTest {
         configuration.setParameters(parameters);
         String result = HTMLUtils.toString(this.cleaner.clean(new StringReader("<script>alert(\"foo\")</script>"), configuration));
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", result);
-        String String_94 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>alert(\"foo\")</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_94);
+        String String_98 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>alert(\"foo\")</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_98);
         result = HTMLUtils.toString(this.cleaner.clean(new StringReader("<style>p {color:white;}</style>"), configuration));
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
-        String String_95 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>p {color:white;}</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", String_95);
+        String String_99 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>p {color:white;}</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", String_99);
         Assertions.assertNull(o_restrictedHtml_add136__7);
         Assertions.assertEquals("true", o_restrictedHtml_add136__8);
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_94);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_98);
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
     }
 
@@ -856,15 +856,15 @@ public class AmplDefaultHTMLCleanerTest {
         configuration.setParameters(parameters);
         String result = HTMLUtils.toString(this.cleaner.clean(new StringReader("<script>alert(\"foo\")</script>"), configuration));
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", result);
-        String String_106 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>alert(\"foo\")</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_106);
+        String String_110 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>alert(\"foo\")</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_110);
         result = HTMLUtils.toString(this.cleaner.clean(new StringReader("<style>p {color:white;}</style>"), configuration));
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
-        String String_107 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>p {color:white;}</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", String_107);
+        String String_111 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>p {color:white;}</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", String_111);
         Assertions.assertNull(o_restrictedHtml_add137__7);
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_106);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_110);
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
     }
 
@@ -880,16 +880,16 @@ public class AmplDefaultHTMLCleanerTest {
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", o_restrictedHtml_add138__9);
         String result = HTMLUtils.toString(this.cleaner.clean(new StringReader("<script>alert(\"foo\")</script>"), configuration));
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", result);
-        String String_96 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>alert(\"foo\")</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_96);
+        String String_100 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>alert(\"foo\")</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_100);
         result = HTMLUtils.toString(this.cleaner.clean(new StringReader("<style>p {color:white;}</style>"), configuration));
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
-        String String_97 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>p {color:white;}</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", String_97);
+        String String_101 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>p {color:white;}</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", String_101);
         Assertions.assertNull(o_restrictedHtml_add138__7);
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", o_restrictedHtml_add138__9);
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_96);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_100);
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
     }
 
@@ -926,15 +926,15 @@ public class AmplDefaultHTMLCleanerTest {
         configuration.setParameters(parameters);
         String result = HTMLUtils.toString(this.cleaner.clean(new StringReader("<script>alert(\"foo\")</script>"), configuration));
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", result);
-        String String_102 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>alert(\"foo\")</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_102);
+        String String_106 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>alert(\"foo\")</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_106);
         result = HTMLUtils.toString(this.cleaner.clean(new StringReader("<style>p {color:white;}</style>"), configuration));
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
-        String String_103 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>p {color:white;}</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", String_103);
+        String String_107 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>p {color:white;}</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", String_107);
         Assertions.assertNull(o_restrictedHtml_add133__8);
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_102);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_106);
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
     }
 
@@ -949,15 +949,15 @@ public class AmplDefaultHTMLCleanerTest {
         configuration.setParameters(parameters);
         String result = HTMLUtils.toString(this.cleaner.clean(new StringReader("<script>alert(\"foo\")</script>"), configuration));
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", result);
-        String String_108 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>alert(\"foo\")</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_108);
+        String String_112 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>alert(\"foo\")</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_112);
         result = HTMLUtils.toString(this.cleaner.clean(new StringReader("<style>p {color:white;}</style>"), configuration));
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
-        String String_109 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>p {color:white;}</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", String_109);
+        String String_113 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>p {color:white;}</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", String_113);
         Assertions.assertNull(o_restrictedHtml_add134__9);
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_108);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_112);
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
     }
 
@@ -1058,9 +1058,9 @@ public class AmplDefaultHTMLCleanerTest {
         Assertions.assertNull(o_restrictedHtml_add139__7);
         configuration.setParameters(parameters);
         Document o_restrictedHtml_add139__9 = this.cleaner.clean(new StringReader("<script>alert(\"foo\")</script>"), configuration);
-        Assertions.assertNull(((DocumentType) (((DocumentImpl) (o_restrictedHtml_add139__9)).getDoctype())).getInternalSubset());
         Assertions.assertEquals("-//W3C//DTD XHTML 1.0 Strict//EN", ((DocumentType) (((DocumentImpl) (o_restrictedHtml_add139__9)).getDoctype())).getPublicId());
         Assertions.assertEquals("http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd", ((DocumentType) (((DocumentImpl) (o_restrictedHtml_add139__9)).getDoctype())).getSystemId());
+        Assertions.assertNull(((DocumentType) (((DocumentImpl) (o_restrictedHtml_add139__9)).getDoctype())).getInternalSubset());
         Assertions.assertEquals(0, ((int) (((NamedNodeMap) (((DocumentType) (((DocumentImpl) (o_restrictedHtml_add139__9)).getDoctype())).getNotations())).getLength())));
         Assertions.assertEquals(0, ((int) (((NamedNodeMap) (((DocumentType) (((DocumentImpl) (o_restrictedHtml_add139__9)).getDoctype())).getEntities())).getLength())));
         Assertions.assertEquals("html", ((DocumentType) (((DocumentImpl) (o_restrictedHtml_add139__9)).getDoctype())).getName());
@@ -1399,16 +1399,16 @@ public class AmplDefaultHTMLCleanerTest {
         Assertions.assertNull(((DocumentImpl) (o_restrictedHtml_add139__9)).getAttributes());
         String result = HTMLUtils.toString(this.cleaner.clean(new StringReader("<script>alert(\"foo\")</script>"), configuration));
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", result);
-        String String_92 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>alert(\"foo\")</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_92);
+        String String_96 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>alert(\"foo\")</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_96);
         result = HTMLUtils.toString(this.cleaner.clean(new StringReader("<style>p {color:white;}</style>"), configuration));
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
-        String String_93 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>p {color:white;}</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", String_93);
+        String String_97 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>p {color:white;}</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", String_97);
         Assertions.assertNull(o_restrictedHtml_add139__7);
-        Assertions.assertNull(((DocumentType) (((DocumentImpl) (o_restrictedHtml_add139__9)).getDoctype())).getInternalSubset());
         Assertions.assertEquals("-//W3C//DTD XHTML 1.0 Strict//EN", ((DocumentType) (((DocumentImpl) (o_restrictedHtml_add139__9)).getDoctype())).getPublicId());
         Assertions.assertEquals("http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd", ((DocumentType) (((DocumentImpl) (o_restrictedHtml_add139__9)).getDoctype())).getSystemId());
+        Assertions.assertNull(((DocumentType) (((DocumentImpl) (o_restrictedHtml_add139__9)).getDoctype())).getInternalSubset());
         Assertions.assertEquals(0, ((int) (((NamedNodeMap) (((DocumentType) (((DocumentImpl) (o_restrictedHtml_add139__9)).getDoctype())).getNotations())).getLength())));
         Assertions.assertEquals(0, ((int) (((NamedNodeMap) (((DocumentType) (((DocumentImpl) (o_restrictedHtml_add139__9)).getDoctype())).getEntities())).getLength())));
         Assertions.assertEquals("html", ((DocumentType) (((DocumentImpl) (o_restrictedHtml_add139__9)).getDoctype())).getName());
@@ -1746,7 +1746,7 @@ public class AmplDefaultHTMLCleanerTest {
         Assertions.assertEquals("[#document: null]", ((DocumentImpl) (o_restrictedHtml_add139__9)).toString());
         Assertions.assertNull(((DocumentImpl) (o_restrictedHtml_add139__9)).getAttributes());
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_92);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_96);
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
     }
 
@@ -1870,10 +1870,10 @@ public class AmplDefaultHTMLCleanerTest {
         configuration.setParameters(parameters);
         String result = HTMLUtils.toString(this.cleaner.clean(new StringReader("<script>alert(\"foo\")</script>"), configuration));
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", result);
-        String String_116 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>alert(\"foo\")</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_116);
+        String String_92 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>alert(\"foo\")</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_92);
         result = HTMLUtils.toString(this.cleaner.clean(new StringReader("<style>p {color:white;}</style>"), null));
-        String String_117 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>p {color:white;}</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
+        String String_93 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>p {color:white;}</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
     }
 
     @Test
@@ -1885,15 +1885,15 @@ public class AmplDefaultHTMLCleanerTest {
         configuration.setParameters(parameters);
         String result = HTMLUtils.toString(this.cleaner.clean(new StringReader("<script>alert(\"foo\")</script>"), configuration));
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", result);
-        String String_86 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>alert(\"foo\")</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_86);
+        String String_114 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>alert(\"foo\")</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_114);
         result = HTMLUtils.toString(this.cleaner.clean(new StringReader("<style>p {color:white;}</style>"), configuration));
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
-        String String_87 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>p {color:white;}</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", String_87);
+        String String_115 = ((AmplDefaultHTMLCleanerTest.HEADER_FULL) + "<pre>p {color:white;}</pre>") + (AmplDefaultHTMLCleanerTest.FOOTER);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", String_115);
         Assertions.assertNull(o_restrictedHtml_remove142__5);
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
-        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_86);
+        Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>alert(\"foo\")</pre></body></html>\n", String_114);
         Assertions.assertEquals("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">\n<html><head></head><body><pre>p {color:white;}</pre></body></html>\n", result);
     }
 
