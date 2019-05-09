@@ -116,7 +116,7 @@ OS name: "linux", version: "4.9.0-8-amd64", arch: "amd64", family: "unix"
 <configuration>
   <amplifiers default-value="None">${amplifiers}</amplifiers>
   <automaticBuilder default-value="MavenBuilder">${automatic-builder}</automaticBuilder>
-  <budgetizer default-value="NoBudgetizer">${budgetizer}</budgetizer>
+  <budgetizer default-value="RandomBudgetizer">${budgetizer}</budgetizer>
   <cases>${cases}</cases>
   <clean default-value="false">${clean}</clean>
   <descartes default-value="true">${descartes}</descartes>
@@ -145,7 +145,7 @@ OS name: "linux", version: "4.9.0-8-amd64", arch: "amd64", family: "unix"
   <workingDirectory default-value="false">${working-directory}</workingDirectory>
 </configuration>
 [DEBUG] =======================================================================
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=0, ConflictMarker.markTime=1, ConflictMarker.nodeCount=3, ConflictIdSorter.graphTime=0, ConflictIdSorter.topsortTime=0, ConflictIdSorter.conflictIdCount=2, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=2, ConflictResolver.conflictItemCount=2, DefaultDependencyCollector.collectTime=16, DefaultDependencyCollector.transformTime=5}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=1, ConflictMarker.markTime=0, ConflictMarker.nodeCount=3, ConflictIdSorter.graphTime=1, ConflictIdSorter.topsortTime=0, ConflictIdSorter.conflictIdCount=2, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=3, ConflictResolver.conflictItemCount=2, DefaultDependencyCollector.collectTime=19, DefaultDependencyCollector.transformTime=6}
 [DEBUG] com.google.code.gson:gson:jar:2.8.2-SNAPSHOT
 [DEBUG]    junit:junit:jar:4.12:test
 [DEBUG]       org.hamcrest:hamcrest-core:jar:1.3:test
@@ -485,7 +485,7 @@ OS name: "linux", version: "4.9.0-8-amd64", arch: "amd64", family: "unix"
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=4, ConflictMarker.markTime=1, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=2, ConflictIdSorter.topsortTime=0, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=8, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=806, DefaultDependencyCollector.transformTime=15}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=5, ConflictMarker.markTime=1, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=4, ConflictIdSorter.topsortTime=0, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=9, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=908, DefaultDependencyCollector.transformTime=19}
 [DEBUG] eu.stamp-project:dspot-maven:jar:2.0.1-SNAPSHOT:
 [DEBUG]    eu.stamp-project:dspot:jar:2.0.1-SNAPSHOT:compile
 [DEBUG]       fr.inria.gforge.spoon:spoon-core:jar:7.3.0:compile
@@ -694,7 +694,7 @@ OS name: "linux", version: "4.9.0-8-amd64", arch: "amd64", family: "unix"
 [DEBUG] Configuring mojo 'eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests' with basic configurator -->
 [DEBUG]   (f) amplifiers = [None]
 [DEBUG]   (f) automaticBuilder = MavenBuilder
-[DEBUG]   (f) budgetizer = NoBudgetizer
+[DEBUG]   (f) budgetizer = RandomBudgetizer
 [DEBUG]   (f) cases = []
 [DEBUG]   (f) clean = true
 [DEBUG]   (f) descartes = true
@@ -703,7 +703,7 @@ OS name: "linux", version: "4.9.0-8-amd64", arch: "amd64", family: "unix"
 [DEBUG]   (f) help = false
 [DEBUG]   (f) iteration = 3
 [DEBUG]   (f) keepOriginalTestMethods = false
-[DEBUG]   (f) maxTestAmplified = 200
+[DEBUG]   (f) maxTestAmplified = 100
 [DEBUG]   (f) noMinimize = false
 [DEBUG]   (f) outputPath = /tmp/dspot-experiments/results/april-2019/gson/commit_4_ada597e/assert_amplification
 [DEBUG]   (f) pathToSecondVersion = /tmp/dspot-experiments/dataset/april-2019/gson/gson
@@ -717,7 +717,7 @@ OS name: "linux", version: "4.9.0-8-amd64", arch: "amd64", family: "unix"
 [DEBUG]   (f) useMavenToExeTest = false
 [DEBUG]   (f) verbose = true
 [DEBUG]   (f) withComment = false
-[DEBUG]   (f) workingDirectory = false
+[DEBUG]   (f) workingDirectory = true
 [DEBUG] -- end configuration --
 [INFO] Path to runner Classes: /home/bedanglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar
 [INFO] /home/bedanglot/.m2/repository/org/jacoco/org.jacoco.core/0.7.9/org.jacoco.core-0.7.9.jar
@@ -778,17 +778,17 @@ OS name: "linux", version: "4.9.0-8-amd64", arch: "amd64", family: "unix"
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 3.389 s
-[INFO] Finished at: 2019-04-25T10:49:43+02:00
-[INFO] Final Memory: 32M/1493M
+[INFO] Total time: 4.330 s
+[INFO] Finished at: 2019-05-09T14:58:44+02:00
+[INFO] Final Memory: 32M/1963M
 [INFO] ------------------------------------------------------------------------
-[ERROR] 2019-04-25 10:49:45 JDTCommentBuilder - "// Field tag only annotation" cannot be added into the AST, with parent class spoon.support.reflect.declaration.CtAnnotationTypeImplplease report the bug by posting on https://github.com/INRIA/spoon/issues/2482
+[ERROR] 2019-05-09 14:58:48 JDTCommentBuilder - "// Field tag only annotation" cannot be added into the AST, with parent class spoon.support.reflect.declaration.CtAnnotationTypeImplplease report the bug by posting on https://github.com/INRIA/spoon/issues/2482
 [INFO] Amplification of com.google.gson.stream.JsonWriterTest (5 test(s))
 [INFO] Assertion amplification of com.google.gson.stream.JsonWriterTest (5 test(s))
 [DEBUG] Starting 15 Services...
-[DEBUG] All Services successfully started, 15 Services in 5ms
+[DEBUG] All Services successfully started, 15 Services in 6ms
 [DEBUG] Creating Cache 'frameworkCache' in EhcacheManager.
-[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@1bdafb01
+[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@500ec769
 [DEBUG] Could not create serializers for frameworkCache
 org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for type 'eu.stamp_project.test_framework.TestFrameworkSupport'
 	at org.ehcache.impl.internal.spi.serialization.DefaultSerializationProvider.getSerializerClassFor(DefaultSerializationProvider.java:136)
@@ -814,7 +814,7 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
 	at eu.stamp_project.dspot.DSpot.amplifyTestClassesTestMethods(DSpot.java:255)
 	at eu.stamp_project.Main.run(Main.java:65)
-	at eu.stamp_project.DSpotMojo.execute(DSpotMojo.java:306)
+	at eu.stamp_project.DSpotMojo.execute(DSpotMojo.java:305)
 	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:134)
 	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:207)
 	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
@@ -837,8 +837,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
 	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
 	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
-[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@2d38db6f
-[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@37cf91d8
+[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@571d0925
+[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@54e0f76f
 [DEBUG] Initialize successful.
 [INFO] Cache 'frameworkCache' created in EhcacheManager.
 [DEBUG] Initialize successful.
@@ -894,19 +894,19 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 2.905 s
-[INFO] Finished at: 2019-04-25T10:49:50+02:00
-[INFO] Final Memory: 26M/1571M
+[INFO] Total time: 4.089 s
+[INFO] Finished at: 2019-05-09T14:58:54+02:00
+[INFO] Final Memory: 27M/2070M
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/stream/JsonWriterTest.java
-[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/bedanglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.stream.JsonWriterTest --tests testDoubles:testPrettyPrintObject:testPrettyPrintArray:testNonFiniteDoubles:testTopLevelValueTypes 
+[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/bedanglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.stream.JsonWriterTest --tests testDoubles:testPrettyPrintObject:testPrettyPrintArray:testNonFiniteDoubles:testTopLevelValueTypes 
 Parsing --class com.google.gson.stream.JsonWriterTest --tests testDoubles:testPrettyPrintObject:testPrettyPrintArray:testNonFiniteDoubles:testTopLevelValueTypes
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
 [INFO] Test has been run: testTopLevelValueTypes,testPrettyPrintArray,testPrettyPrintObject,testNonFiniteDoubles,testDoubles
 [INFO] Run tests. (5)
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/stream/JsonWriterTest.java
-[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/bedanglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.stream.JsonWriterTest --tests testDoubles:testPrettyPrintObject:testPrettyPrintArray:testNonFiniteDoubles:testTopLevelValueTypes 
+[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/bedanglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.stream.JsonWriterTest --tests testDoubles:testPrettyPrintObject:testPrettyPrintArray:testNonFiniteDoubles:testTopLevelValueTypes 
 Parsing --class com.google.gson.stream.JsonWriterTest --tests testDoubles:testPrettyPrintObject:testPrettyPrintArray:testNonFiniteDoubles:testTopLevelValueTypes
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
@@ -917,7 +917,7 @@ Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/
  25% |============ ]/ 50% |========================= ]- 75% |===================================== ]\100% |================================================== ]|
 [INFO] Run instrumented tests. (12)
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/stream/JsonWriterTest.java
-[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/bedanglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.stream.JsonWriterTest --tests testDoubles_withlog0:testPrettyPrintObject_withlog0:testPrettyPrintArray_withlog0:testTopLevelValueTypes_withlog0:testDoubles_withlog1:testPrettyPrintObject_withlog1:testPrettyPrintArray_withlog1:testTopLevelValueTypes_withlog1:testDoubles_withlog2:testPrettyPrintObject_withlog2:testPrettyPrintArray_withlog2:testTopLevelValueTypes_withlog2 
+[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/bedanglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.stream.JsonWriterTest --tests testDoubles_withlog0:testPrettyPrintObject_withlog0:testPrettyPrintArray_withlog0:testTopLevelValueTypes_withlog0:testDoubles_withlog1:testPrettyPrintObject_withlog1:testPrettyPrintArray_withlog1:testTopLevelValueTypes_withlog1:testDoubles_withlog2:testPrettyPrintObject_withlog2:testPrettyPrintArray_withlog2:testTopLevelValueTypes_withlog2 
 Parsing --class com.google.gson.stream.JsonWriterTest --tests testDoubles_withlog0:testPrettyPrintObject_withlog0:testPrettyPrintArray_withlog0:testTopLevelValueTypes_withlog0:testDoubles_withlog1:testPrettyPrintObject_withlog1:testPrettyPrintArray_withlog1:testTopLevelValueTypes_withlog1:testDoubles_withlog2:testPrettyPrintObject_withlog2:testPrettyPrintArray_withlog2:testTopLevelValueTypes_withlog2
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/observations.ser
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
@@ -928,27 +928,27 @@ Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/
 [INFO] 1 test fail, generating try/catch/fail blocks...
 [INFO] 5 new tests with assertions generated
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/tmp_test_sources/com/google/gson/stream/JsonWriterTest.java
-[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/bedanglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.stream.JsonWriterTest --tests testDoubles:testPrettyPrintObject:testPrettyPrintArray:testTopLevelValueTypes:testNonFiniteDoubles_failAssert0 
+[INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/test-classes:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/dependencies/:/home/bedanglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.stream.JsonWriterTest --tests testDoubles:testPrettyPrintObject:testPrettyPrintArray:testTopLevelValueTypes:testNonFiniteDoubles_failAssert0 
 Parsing --class com.google.gson.stream.JsonWriterTest --tests testDoubles:testPrettyPrintObject:testPrettyPrintArray:testTopLevelValueTypes:testNonFiniteDoubles_failAssert0
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
 [INFO] Test has been run: testNonFiniteDoubles_failAssert0,testTopLevelValueTypes,testPrettyPrintArray,testPrettyPrintObject,testDoubles
 [INFO] Assertion amplification: 5 test method(s) has been successfully amplified.
-[WARN] 2019-04-25 10:49:52 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-25 10:49:52 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
-[WARN] 2019-04-25 10:49:52 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-05-09 14:58:56 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-05-09 14:58:56 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/test-classes in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
+[WARN] 2019-05-09 14:58:56 Launcher - You specified the directory /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/dspot/dependencies in source classpath, please note that only class files will be considered. Jars and subdirectories will be ignored.
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/gson/gson/target/classes/:/tmp/dspot-experiments/dataset/april-2019/gson/gson/target/test-classes/:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/gson/gson/target/dspot/dependencies/:/home/bedanglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.google.gson.stream.JsonWriterTest --tests testDoubles:testPrettyPrintObject:testPrettyPrintArray:testTopLevelValueTypes:testNonFiniteDoubles_failAssert0 
 Parsing --class com.google.gson.stream.JsonWriterTest --tests testDoubles:testPrettyPrintObject:testPrettyPrintArray:testTopLevelValueTypes:testNonFiniteDoubles_failAssert0
 File saved to the following path: /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
 Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/TestResult.ser
 [INFO] Test has been run: testNonFiniteDoubles_failAssert0,testTopLevelValueTypes,testPrettyPrintArray,testPrettyPrintObject,testDoubles
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 6574
+[INFO] elapsedTime 8727
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
 [INFO] Amplification succeed.
-[INFO] Elapsed time 6982 ms
+[INFO] Elapsed time 9176 ms
 [INFO] 
 0 amplified test fails on the new versions.
 [INFO] Writing report in /tmp/dspot-experiments/results/april-2019/gson/commit_4_ada597e/assert_amplification/report.txt
@@ -957,7 +957,7 @@ Loading /tmp/dspot-experiments/dataset/april-2019/gson_parent/gson/target/dspot/
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 15.057 s
-[INFO] Finished at: 2019-04-25T10:49:52+02:00
-[INFO] Final Memory: 53M/1678M
+[INFO] Total time: 19.513 s
+[INFO] Finished at: 2019-05-09T14:58:57+02:00
+[INFO] Final Memory: 53M/2066M
 [INFO] ------------------------------------------------------------------------
