@@ -61,29 +61,48 @@ public class AmplCollectionTest extends TestCase {
         }
     }
 
-    public void testSetSerialization_add20_literalMutationString162() throws Exception {
+    public void testSetSerialization_literalMutationNumber8_literalMutationNumber365() throws Exception {
         Set<AmplCollectionTest.Entry> set = new HashSet<AmplCollectionTest.Entry>();
-        boolean o_testSetSerialization_add20__3 = set.add(new AmplCollectionTest.Entry(1));
-        boolean o_testSetSerialization_add20__5 = set.add(new AmplCollectionTest.Entry(2));
+        boolean o_testSetSerialization_literalMutationNumber8__3 = set.add(new AmplCollectionTest.Entry(2));
+        boolean o_testSetSerialization_literalMutationNumber8__5 = set.add(new AmplCollectionTest.Entry(0));
+        String json = gson.toJson(set);
+        TestCase.assertEquals("[{\"value\":0},{\"value\":2}]", json);
+        boolean o_testSetSerialization_literalMutationNumber8__10 = json.contains("1");
+        boolean o_testSetSerialization_literalMutationNumber8__11 = json.contains("2");
+        TestCase.assertEquals("[{\"value\":0},{\"value\":2}]", json);
+    }
+
+    public void testSetSerialization_literalMutationString32762_literalMutationString33066() throws Exception {
+        Set<AmplCollectionTest.Entry> set = new HashSet<AmplCollectionTest.Entry>();
+        boolean o_testSetSerialization_literalMutationString32762__3 = set.add(new AmplCollectionTest.Entry(1));
+        boolean o_testSetSerialization_literalMutationString32762__5 = set.add(new AmplCollectionTest.Entry(2));
         String json = gson.toJson(set);
         TestCase.assertEquals("[{\"value\":1},{\"value\":2}]", json);
-        boolean o_testSetSerialization_add20__9 = json.contains("[");
-        boolean o_testSetSerialization_add20__10 = json.contains("2");
-        boolean o_testSetSerialization_add20__11 = json.contains("2");
+        boolean o_testSetSerialization_literalMutationString32762__9 = json.contains("1");
+        boolean o_testSetSerialization_literalMutationString32762__10 = json.contains("");
         TestCase.assertEquals("[{\"value\":1},{\"value\":2}]", json);
     }
 
-    public void testSetSerialization_literalMutationNumber32740_add33258() throws Exception {
+    public void testSetSerialization_add32766_literalMutationString32968() throws Exception {
         Set<AmplCollectionTest.Entry> set = new HashSet<AmplCollectionTest.Entry>();
-        boolean o_testSetSerialization_literalMutationNumber32740__3 = set.add(new AmplCollectionTest.Entry(0));
-        boolean o_testSetSerialization_literalMutationNumber32740__6 = set.add(new AmplCollectionTest.Entry(2));
-        String o_testSetSerialization_literalMutationNumber32740_add33258__12 = gson.toJson(set);
-        TestCase.assertEquals("[{\"value\":0},{\"value\":2}]", o_testSetSerialization_literalMutationNumber32740_add33258__12);
+        boolean o_testSetSerialization_add32766__3 = set.add(new AmplCollectionTest.Entry(1));
+        boolean o_testSetSerialization_add32766__5 = set.add(new AmplCollectionTest.Entry(2));
+        String json = gson.toJson(set);
+        TestCase.assertEquals("[{\"value\":2},{\"value\":1}]", json);
+        boolean o_testSetSerialization_add32766__9 = json.contains("1");
+        boolean o_testSetSerialization_add32766__10 = json.contains("q");
+        boolean o_testSetSerialization_add32766__11 = json.contains("2");
+        TestCase.assertEquals("[{\"value\":2},{\"value\":1}]", json);
+    }
+
+    public void testSetSerialization_literalMutationString32760_literalMutationNumber33117() throws Exception {
+        Set<AmplCollectionTest.Entry> set = new HashSet<AmplCollectionTest.Entry>();
+        boolean o_testSetSerialization_literalMutationString32760__3 = set.add(new AmplCollectionTest.Entry(0));
+        boolean o_testSetSerialization_literalMutationString32760__5 = set.add(new AmplCollectionTest.Entry(2));
         String json = gson.toJson(set);
         TestCase.assertEquals("[{\"value\":0},{\"value\":2}]", json);
-        boolean o_testSetSerialization_literalMutationNumber32740__10 = json.contains("1");
-        boolean o_testSetSerialization_literalMutationNumber32740__11 = json.contains("2");
-        TestCase.assertEquals("[{\"value\":0},{\"value\":2}]", o_testSetSerialization_literalMutationNumber32740_add33258__12);
+        boolean o_testSetSerialization_literalMutationString32760__9 = json.contains("1");
+        boolean o_testSetSerialization_literalMutationString32760__10 = json.contains("");
         TestCase.assertEquals("[{\"value\":0},{\"value\":2}]", json);
     }
 
@@ -121,20 +140,6 @@ public class AmplCollectionTest extends TestCase {
         TestCase.assertTrue(o_testSetSerialization_literalMutationString13__5);
         TestCase.assertEquals("[{\"value\":1},{\"value\":2}]", json);
         TestCase.assertTrue(o_testSetSerialization_literalMutationString13__9);
-    }
-
-    public void testSetSerialization_literalMutationNumber32738_add33288() throws Exception {
-        Set<AmplCollectionTest.Entry> set = new HashSet<AmplCollectionTest.Entry>();
-        boolean o_testSetSerialization_literalMutationNumber32738__3 = set.add(new AmplCollectionTest.Entry(0));
-        boolean o_testSetSerialization_literalMutationNumber32738__6 = set.add(new AmplCollectionTest.Entry(2));
-        String o_testSetSerialization_literalMutationNumber32738_add33288__12 = gson.toJson(set);
-        TestCase.assertEquals("[{\"value\":0},{\"value\":2}]", o_testSetSerialization_literalMutationNumber32738_add33288__12);
-        String json = gson.toJson(set);
-        TestCase.assertEquals("[{\"value\":0},{\"value\":2}]", json);
-        boolean o_testSetSerialization_literalMutationNumber32738__10 = json.contains("1");
-        boolean o_testSetSerialization_literalMutationNumber32738__11 = json.contains("2");
-        TestCase.assertEquals("[{\"value\":0},{\"value\":2}]", o_testSetSerialization_literalMutationNumber32738_add33288__12);
-        TestCase.assertEquals("[{\"value\":0},{\"value\":2}]", json);
     }
 }
 
