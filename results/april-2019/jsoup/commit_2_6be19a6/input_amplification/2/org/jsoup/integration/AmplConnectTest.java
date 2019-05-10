@@ -1,13 +1,13 @@
 package org.jsoup.integration;
 
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.SocketTimeoutException;
+import java.util.Collection;
+import java.util.Map;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
+import org.jsoup.helper.HttpConnection;
 import org.jsoup.integration.servlets.EchoServlet;
 import org.jsoup.integration.servlets.SlowRider;
 import org.jsoup.nodes.Document;
@@ -117,30 +117,30 @@ public class AmplConnectTest {
     }
 
     @Test(timeout = 10000)
-    public void postFiles_literalMutationString20763_failAssert0_literalMutationString32346_failAssert0() throws IOException {
-        try {
-            {
-                File thumb = ParseTest.getFile("");
-                File html = ParseTest.getFile("/htmltests/google-ipod.html");
-                Document res = Jsoup.connect(EchoServlet.Url).data("firstname", "Jay").data("firstPart", thumb.getName(), new FileInputStream(thumb), "image/jpeg").data("secondPart", html.getName(), new FileInputStream(html)).data("surname", "Soup").post();
-                AmplConnectTest.ihVal("Parts", res);
-                AmplConnectTest.ihVal("Part secondPart ContentType", res);
-                AmplConnectTest.ihVal("Part secondPart Name", res);
-                AmplConnectTest.ihVal("Part secondPart Filename", res);
-                AmplConnectTest.ihVal("Part secondPart Size", res);
-                AmplConnectTest.ihVal("Part firstPart ContentType", res);
-                AmplConnectTest.ihVal("Part firstPart Name", res);
-                AmplConnectTest.ihVal("qWx(C=0`6Hv@{# uG FzFB|", res);
-                AmplConnectTest.ihVal("Part firstPart Size", res);
-                AmplConnectTest.ihVal("firstname", res);
-                AmplConnectTest.ihVal("surname", res);
-
-                org.junit.Assert.fail("postFiles_literalMutationString20763 should have thrown Selector$SelectorParseException");
-            }
-            org.junit.Assert.fail("postFiles_literalMutationString20763_failAssert0_literalMutationString32346 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/org/jsoup/integration (Is a directory)", expected.getMessage());
-        }
+    public void multiCookieSet_add38334() throws IOException {
+        Connection o_multiCookieSet_add38334__1 = Jsoup.connect("http://direct.infohound.net/tools/302-cookie.pl");
+        Assert.assertFalse(((Document) (((HttpConnection) (o_multiCookieSet_add38334__1)).get())).isBlock());
+        Assert.assertFalse(((Collection) (((Document) (((HttpConnection) (o_multiCookieSet_add38334__1)).get())).getAllElements())).isEmpty());
+        Assert.assertTrue(((Document) (((HttpConnection) (o_multiCookieSet_add38334__1)).get())).hasText());
+        Assert.assertFalse(((Document) (((HttpConnection) (o_multiCookieSet_add38334__1)).get())).hasParent());
+        Assert.assertEquals("<html>\n <head>\n  <title>CGI Environment Variables</title> \n  <style type=\"text/css\">\n      body, td, th {font: 10pt Verdana, Arial, sans-serif; text-align: left}\n      th {font-weight: bold}        \n    </style> \n </head> \n <body> \n  <table border=\"0\"> \n   <tbody>\n    <tr> \n     <th>CONTENT_LENGTH</th> \n     <td></td> \n    </tr> \n    <tr> \n     <th>CONTENT_TYPE</th> \n     <td></td> \n    </tr> \n    <tr> \n     <th>DAEMON_OPTS</th> \n     <td>-f</td> \n    </tr> \n    <tr> \n     <th>DOCUMENT_ROOT</th> \n     <td>/www/infohound</td> \n    </tr> \n    <tr> \n     <th>DOCUMENT_URI</th> \n     <td>/tools/q.pl</td> \n    </tr> \n    <tr> \n     <th>FCGI_ROLE</th> \n     <td>RESPONDER</td> \n    </tr> \n    <tr> \n     <th>GATEWAY_INTERFACE</th> \n     <td>CGI/1.1</td> \n    </tr> \n    <tr> \n     <th>HOME</th> \n     <td>/var/www</td> \n    </tr> \n    <tr> \n     <th>HTTP_ACCEPT</th> \n     <td>text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2</td> \n    </tr> \n    <tr> \n     <th>HTTP_ACCEPT_ENCODING</th> \n     <td>gzip</td> \n    </tr> \n    <tr> \n     <th>HTTP_CACHE_CONTROL</th> \n     <td>max-age=259200</td> \n    </tr> \n    <tr> \n     <th>HTTP_CONNECTION</th> \n     <td>keep-alive</td> \n    </tr> \n    <tr> \n     <th>HTTP_COOKIE</th> \n     <td>token=asdfg123; uid=jhy</td> \n    </tr> \n    <tr> \n     <th>HTTP_HOST</th> \n     <td>direct.infohound.net</td> \n    </tr> \n    <tr> \n     <th>HTTP_USER_AGENT</th> \n     <td>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36</td> \n    </tr> \n    <tr> \n     <th>HTTP_VIA</th> \n     <td>1.1 gwol-north.grid5000.fr (squid/3.5.23)</td> \n    </tr> \n    <tr> \n     <th>HTTP_X_FORWARDED_FOR</th> \n     <td>172.16.37.9</td> \n    </tr> \n    <tr> \n     <th>LANG</th> \n     <td>en_US.UTF-8</td> \n    </tr> \n    <tr> \n     <th>LOGNAME</th> \n     <td>www-data</td> \n    </tr> \n    <tr> \n     <th>PATH</th> \n     <td>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</td> \n    </tr> \n    <tr> \n     <th>QUERY_STRING</th> \n     <td></td> \n    </tr> \n    <tr> \n     <th>REDIRECT_STATUS</th> \n     <td>200</td> \n    </tr> \n    <tr> \n     <th>REMOTE_ADDR</th> \n     <td>193.51.183.177</td> \n    </tr> \n    <tr> \n     <th>REMOTE_PORT</th> \n     <td>34758</td> \n    </tr> \n    <tr> \n     <th>REQUEST_METHOD</th> \n     <td>GET</td> \n    </tr> \n    <tr> \n     <th>REQUEST_SCHEME</th> \n     <td>http</td> \n    </tr> \n    <tr> \n     <th>REQUEST_URI</th> \n     <td>/tools/q.pl</td> \n    </tr> \n    <tr> \n     <th>SCRIPT_FILENAME</th> \n     <td>/www/infohound/tools/q.pl</td> \n    </tr> \n    <tr> \n     <th>SCRIPT_NAME</th> \n     <td>/tools/q.pl</td> \n    </tr> \n    <tr> \n     <th>SERVER_ADDR</th> \n     <td>45.79.72.37</td> \n    </tr> \n    <tr> \n     <th>SERVER_NAME</th> \n     <td>infohound.net</td> \n    </tr> \n    <tr> \n     <th>SERVER_PORT</th> \n     <td>80</td> \n    </tr> \n    <tr> \n     <th>SERVER_PROTOCOL</th> \n     <td>HTTP/1.1</td> \n    </tr> \n    <tr> \n     <th>SERVER_SOFTWARE</th> \n     <td>nginx/1.10.3</td> \n    </tr> \n    <tr> \n     <th>SHELL</th> \n     <td>/usr/sbin/nologin</td> \n    </tr> \n    <tr> \n     <th>USER</th> \n     <td>www-data</td> \n    </tr> \n    <tr>\n     <td colspan=\"2\">&nbsp;</td>\n    </tr> \n   </tbody>\n  </table>\n  <br>\n  <br> \n  <p><small>\u00a9 2004 <a href=\"http://jon.hedley.net/\">Jonathan Hedley</a></small></p> \n  <script>\n  (function(i,s,o,g,r,a,m){i[\'GoogleAnalyticsObject\']=r;i[r]=i[r]||function(){\n  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),\n  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\n  })(window,document,\'script\',\'//www.google-analytics.com/analytics.js\',\'ga\');\n\n  ga(\'create\', \'UA-89734-4\', \'auto\');\n  ga(\'require\', \'displayfeatures\');\n  ga(\'send\', \'pageview\');\n\n</script>   \n </body>\n</html>", ((Document) (((HttpConnection) (o_multiCookieSet_add38334__1)).get())).toString());
+        Connection con = Jsoup.connect("http://direct.infohound.net/tools/302-cookie.pl");
+        Connection.Response res = con.execute();
+        Map<String, String> cookies = res.cookies();
+        String o_multiCookieSet_add38334__9 = cookies.get("token");
+        Assert.assertEquals("asdfg123", o_multiCookieSet_add38334__9);
+        String o_multiCookieSet_add38334__10 = cookies.get("uid");
+        Assert.assertEquals("jhy", o_multiCookieSet_add38334__10);
+        Document doc = Jsoup.connect(AmplConnectTest.echoUrl).cookies(cookies).get();
+        String o_multiCookieSet_add38334__16 = AmplConnectTest.ihVal("Cookie", doc);
+        Assert.assertEquals("token=asdfg123; uid=jhy", o_multiCookieSet_add38334__16);
+        Assert.assertFalse(((Document) (((HttpConnection) (o_multiCookieSet_add38334__1)).get())).isBlock());
+        Assert.assertFalse(((Collection) (((Document) (((HttpConnection) (o_multiCookieSet_add38334__1)).get())).getAllElements())).isEmpty());
+        Assert.assertTrue(((Document) (((HttpConnection) (o_multiCookieSet_add38334__1)).get())).hasText());
+        Assert.assertFalse(((Document) (((HttpConnection) (o_multiCookieSet_add38334__1)).get())).hasParent());
+        Assert.assertEquals("<html>\n <head>\n  <title>CGI Environment Variables</title> \n  <style type=\"text/css\">\n      body, td, th {font: 10pt Verdana, Arial, sans-serif; text-align: left}\n      th {font-weight: bold}        \n    </style> \n </head> \n <body> \n  <table border=\"0\"> \n   <tbody>\n    <tr> \n     <th>CONTENT_LENGTH</th> \n     <td></td> \n    </tr> \n    <tr> \n     <th>CONTENT_TYPE</th> \n     <td></td> \n    </tr> \n    <tr> \n     <th>DAEMON_OPTS</th> \n     <td>-f</td> \n    </tr> \n    <tr> \n     <th>DOCUMENT_ROOT</th> \n     <td>/www/infohound</td> \n    </tr> \n    <tr> \n     <th>DOCUMENT_URI</th> \n     <td>/tools/q.pl</td> \n    </tr> \n    <tr> \n     <th>FCGI_ROLE</th> \n     <td>RESPONDER</td> \n    </tr> \n    <tr> \n     <th>GATEWAY_INTERFACE</th> \n     <td>CGI/1.1</td> \n    </tr> \n    <tr> \n     <th>HOME</th> \n     <td>/var/www</td> \n    </tr> \n    <tr> \n     <th>HTTP_ACCEPT</th> \n     <td>text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2</td> \n    </tr> \n    <tr> \n     <th>HTTP_ACCEPT_ENCODING</th> \n     <td>gzip</td> \n    </tr> \n    <tr> \n     <th>HTTP_CACHE_CONTROL</th> \n     <td>max-age=259200</td> \n    </tr> \n    <tr> \n     <th>HTTP_CONNECTION</th> \n     <td>keep-alive</td> \n    </tr> \n    <tr> \n     <th>HTTP_COOKIE</th> \n     <td>token=asdfg123; uid=jhy</td> \n    </tr> \n    <tr> \n     <th>HTTP_HOST</th> \n     <td>direct.infohound.net</td> \n    </tr> \n    <tr> \n     <th>HTTP_USER_AGENT</th> \n     <td>Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36</td> \n    </tr> \n    <tr> \n     <th>HTTP_VIA</th> \n     <td>1.1 gwol-north.grid5000.fr (squid/3.5.23)</td> \n    </tr> \n    <tr> \n     <th>HTTP_X_FORWARDED_FOR</th> \n     <td>172.16.37.9</td> \n    </tr> \n    <tr> \n     <th>LANG</th> \n     <td>en_US.UTF-8</td> \n    </tr> \n    <tr> \n     <th>LOGNAME</th> \n     <td>www-data</td> \n    </tr> \n    <tr> \n     <th>PATH</th> \n     <td>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin</td> \n    </tr> \n    <tr> \n     <th>QUERY_STRING</th> \n     <td></td> \n    </tr> \n    <tr> \n     <th>REDIRECT_STATUS</th> \n     <td>200</td> \n    </tr> \n    <tr> \n     <th>REMOTE_ADDR</th> \n     <td>193.51.183.177</td> \n    </tr> \n    <tr> \n     <th>REMOTE_PORT</th> \n     <td>34758</td> \n    </tr> \n    <tr> \n     <th>REQUEST_METHOD</th> \n     <td>GET</td> \n    </tr> \n    <tr> \n     <th>REQUEST_SCHEME</th> \n     <td>http</td> \n    </tr> \n    <tr> \n     <th>REQUEST_URI</th> \n     <td>/tools/q.pl</td> \n    </tr> \n    <tr> \n     <th>SCRIPT_FILENAME</th> \n     <td>/www/infohound/tools/q.pl</td> \n    </tr> \n    <tr> \n     <th>SCRIPT_NAME</th> \n     <td>/tools/q.pl</td> \n    </tr> \n    <tr> \n     <th>SERVER_ADDR</th> \n     <td>45.79.72.37</td> \n    </tr> \n    <tr> \n     <th>SERVER_NAME</th> \n     <td>infohound.net</td> \n    </tr> \n    <tr> \n     <th>SERVER_PORT</th> \n     <td>80</td> \n    </tr> \n    <tr> \n     <th>SERVER_PROTOCOL</th> \n     <td>HTTP/1.1</td> \n    </tr> \n    <tr> \n     <th>SERVER_SOFTWARE</th> \n     <td>nginx/1.10.3</td> \n    </tr> \n    <tr> \n     <th>SHELL</th> \n     <td>/usr/sbin/nologin</td> \n    </tr> \n    <tr> \n     <th>USER</th> \n     <td>www-data</td> \n    </tr> \n    <tr>\n     <td colspan=\"2\">&nbsp;</td>\n    </tr> \n   </tbody>\n  </table>\n  <br>\n  <br> \n  <p><small>\u00a9 2004 <a href=\"http://jon.hedley.net/\">Jonathan Hedley</a></small></p> \n  <script>\n  (function(i,s,o,g,r,a,m){i[\'GoogleAnalyticsObject\']=r;i[r]=i[r]||function(){\n  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),\n  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\n  })(window,document,\'script\',\'//www.google-analytics.com/analytics.js\',\'ga\');\n\n  ga(\'create\', \'UA-89734-4\', \'auto\');\n  ga(\'require\', \'displayfeatures\');\n  ga(\'send\', \'pageview\');\n\n</script>   \n </body>\n</html>", ((Document) (((HttpConnection) (o_multiCookieSet_add38334__1)).get())).toString());
+        Assert.assertEquals("asdfg123", o_multiCookieSet_add38334__9);
+        Assert.assertEquals("jhy", o_multiCookieSet_add38334__10);
     }
 }
 

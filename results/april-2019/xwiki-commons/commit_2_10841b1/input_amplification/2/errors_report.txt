@@ -1,12 +1,51 @@
 DSpot encountered 15 error(s) during amplification.
 Something bad happened during input amplification.
 java.lang.OutOfMemoryError: Java heap space
-	at java.lang.StringBuilder.toString(StringBuilder.java:407)
-	at spoon.support.compiler.jdt.JDTCommentBuilder.cleanComment(JDTCommentBuilder.java:551)
+	at java.util.Arrays.copyOfRange(Arrays.java:3664)
+	at java.lang.StringBuffer.toString(StringBuffer.java:669)
+	at java.io.BufferedReader.readLine(BufferedReader.java:327)
+	at java.io.BufferedReader.readLine(BufferedReader.java:389)
+	at spoon.support.compiler.jdt.JDTCommentBuilder.cleanComment(JDTCommentBuilder.java:548)
 	at spoon.support.compiler.jdt.JDTCommentBuilder.cleanComment(JDTCommentBuilder.java:538)
 	at spoon.support.reflect.code.CtCommentImpl.setContent(CtCommentImpl.java:68)
-	at spoon.support.DefaultCoreFactory.createComment(DefaultCoreFactory.java:711)
-	at spoon.support.visitor.clone.CloneVisitor.visitCtComment(CloneVisitor.java:927)
+	at spoon.support.visitor.clone.CloneBuilder.visitCtComment(CloneBuilder.java:258)
+	at spoon.support.reflect.code.CtCommentImpl.accept(CtCommentImpl.java:86)
+	at spoon.reflect.visitor.CtInheritanceScanner.scan(CtInheritanceScanner.java:184)
+	at spoon.support.visitor.clone.CloneBuilder.copy(CloneBuilder.java:28)
+	at spoon.support.visitor.clone.CloneVisitor.visitCtComment(CloneVisitor.java:928)
+	at spoon.support.reflect.code.CtCommentImpl.accept(CtCommentImpl.java:86)
+	at spoon.reflect.visitor.CtScanner.scan(CtScanner.java:184)
+	at spoon.support.visitor.equals.CloneHelper.clone(CloneHelper.java:49)
+	at spoon.support.visitor.equals.CloneHelper.addClone(CloneHelper.java:109)
+	at spoon.support.visitor.equals.CloneHelper.clone(CloneHelper.java:73)
+	at spoon.support.visitor.clone.CloneVisitor.visitCtInvocation(CloneVisitor.java:432)
+	at spoon.support.reflect.code.CtInvocationImpl.accept(CtInvocationImpl.java:55)
+	at spoon.reflect.visitor.CtScanner.scan(CtScanner.java:184)
+	at spoon.support.visitor.equals.CloneHelper.clone(CloneHelper.java:49)
+	at spoon.support.visitor.equals.CloneHelper.addClone(CloneHelper.java:109)
+	at spoon.support.visitor.equals.CloneHelper.clone(CloneHelper.java:73)
+	at spoon.support.visitor.clone.CloneVisitor.visitCtBlock(CloneVisitor.java:163)
+	at spoon.support.reflect.code.CtBlockImpl.accept(CtBlockImpl.java:67)
+	at spoon.reflect.visitor.CtScanner.scan(CtScanner.java:184)
+	at spoon.support.visitor.equals.CloneHelper.clone(CloneHelper.java:49)
+	at spoon.support.visitor.clone.CloneVisitor.visitCtMethod(CloneVisitor.java:501)
+	at spoon.support.reflect.declaration.CtMethodImpl.accept(CtMethodImpl.java:67)
+	at spoon.reflect.visitor.CtScanner.scan(CtScanner.java:184)
+	at spoon.support.visitor.equals.CloneHelper.clone(CloneHelper.java:49)
+	at spoon.support.reflect.declaration.CtElementImpl.clone(CtElementImpl.java:570)
+
+Something bad happened during input amplification.
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+	at java.io.BufferedReader.<init>(BufferedReader.java:105)
+	at java.io.BufferedReader.<init>(BufferedReader.java:116)
+	at spoon.support.compiler.jdt.JDTCommentBuilder.cleanComment(JDTCommentBuilder.java:547)
+	at spoon.support.compiler.jdt.JDTCommentBuilder.cleanComment(JDTCommentBuilder.java:538)
+	at spoon.support.reflect.code.CtCommentImpl.setContent(CtCommentImpl.java:68)
+	at spoon.support.visitor.clone.CloneBuilder.visitCtComment(CloneBuilder.java:258)
+	at spoon.support.reflect.code.CtCommentImpl.accept(CtCommentImpl.java:86)
+	at spoon.reflect.visitor.CtInheritanceScanner.scan(CtInheritanceScanner.java:184)
+	at spoon.support.visitor.clone.CloneBuilder.copy(CloneBuilder.java:28)
+	at spoon.support.visitor.clone.CloneVisitor.visitCtComment(CloneVisitor.java:928)
 	at spoon.support.reflect.code.CtCommentImpl.accept(CtCommentImpl.java:86)
 	at spoon.reflect.visitor.CtScanner.scan(CtScanner.java:184)
 	at spoon.support.visitor.equals.CloneHelper.clone(CloneHelper.java:49)
@@ -29,54 +68,15 @@ java.lang.OutOfMemoryError: Java heap space
 	at spoon.support.reflect.declaration.CtElementImpl.clone(CtElementImpl.java:570)
 	at spoon.support.reflect.declaration.CtNamedElementImpl.clone(CtNamedElementImpl.java:61)
 	at spoon.support.reflect.declaration.CtExecutableImpl.clone(CtExecutableImpl.java:196)
-	at spoon.support.reflect.declaration.CtMethodImpl.clone(CtMethodImpl.java:214)
-	at eu.stamp_project.utils.CloneHelper.cloneMethod(CloneHelper.java:55)
-	at eu.stamp_project.utils.CloneHelper.cloneMethod(CloneHelper.java:69)
-	at eu.stamp_project.utils.CloneHelper.cloneTestMethod(CloneHelper.java:95)
 
 Something bad happened during input amplification.
 java.lang.OutOfMemoryError: GC overhead limit exceeded
-	at spoon.support.visitor.equals.CloneHelper.tailor(CloneHelper.java:126)
-	at spoon.support.visitor.clone.CloneVisitor.visitCtPackageReference(CloneVisitor.java:626)
-	at spoon.support.reflect.reference.CtPackageReferenceImpl.accept(CtPackageReferenceImpl.java:38)
-	at spoon.reflect.visitor.CtScanner.scan(CtScanner.java:184)
-	at spoon.support.visitor.equals.CloneHelper.clone(CloneHelper.java:49)
-	at spoon.support.visitor.clone.CloneVisitor.visitCtTypeReference(CloneVisitor.java:778)
-	at spoon.support.reflect.reference.CtTypeReferenceImpl.accept(CtTypeReferenceImpl.java:82)
-	at spoon.reflect.visitor.CtScanner.scan(CtScanner.java:184)
-	at spoon.support.visitor.equals.CloneHelper.clone(CloneHelper.java:49)
-	at spoon.support.visitor.equals.CloneHelper.addClone(CloneHelper.java:109)
-	at spoon.support.visitor.equals.CloneHelper.clone(CloneHelper.java:73)
-	at spoon.support.visitor.clone.CloneVisitor.visitCtInvocation(CloneVisitor.java:428)
-	at spoon.support.reflect.code.CtInvocationImpl.accept(CtInvocationImpl.java:55)
-	at spoon.reflect.visitor.CtScanner.scan(CtScanner.java:184)
-	at spoon.support.visitor.equals.CloneHelper.clone(CloneHelper.java:49)
-	at spoon.support.visitor.clone.CloneVisitor.visitCtInvocation(CloneVisitor.java:429)
-	at spoon.support.reflect.code.CtInvocationImpl.accept(CtInvocationImpl.java:55)
-	at spoon.reflect.visitor.CtScanner.scan(CtScanner.java:184)
-	at spoon.support.visitor.equals.CloneHelper.clone(CloneHelper.java:49)
-	at spoon.support.visitor.clone.CloneVisitor.visitCtInvocation(CloneVisitor.java:429)
-	at spoon.support.reflect.code.CtInvocationImpl.accept(CtInvocationImpl.java:55)
-	at spoon.reflect.visitor.CtScanner.scan(CtScanner.java:184)
-	at spoon.support.visitor.equals.CloneHelper.clone(CloneHelper.java:49)
-	at spoon.support.visitor.equals.CloneHelper.addClone(CloneHelper.java:109)
-	at spoon.support.visitor.equals.CloneHelper.clone(CloneHelper.java:73)
-	at spoon.support.visitor.clone.CloneVisitor.visitCtInvocation(CloneVisitor.java:431)
-	at spoon.support.reflect.code.CtInvocationImpl.accept(CtInvocationImpl.java:55)
-	at spoon.reflect.visitor.CtScanner.scan(CtScanner.java:184)
-	at spoon.support.visitor.equals.CloneHelper.clone(CloneHelper.java:49)
-	at spoon.support.visitor.equals.CloneHelper.addClone(CloneHelper.java:109)
-	at spoon.support.visitor.equals.CloneHelper.clone(CloneHelper.java:73)
-	at spoon.support.visitor.clone.CloneVisitor.visitCtBlock(CloneVisitor.java:163)
+
+Something bad happened during input amplification.
+java.lang.OutOfMemoryError: GC overhead limit exceeded
 
 Something bad happened during input amplification.
 java.lang.OutOfMemoryError: Java heap space
-
-Something bad happened during input amplification.
-java.lang.OutOfMemoryError: GC overhead limit exceeded
-
-Something bad happened during input amplification.
-java.lang.OutOfMemoryError: GC overhead limit exceeded
 
 Something bad happened during input amplification.
 java.lang.OutOfMemoryError: GC overhead limit exceeded
@@ -106,4 +106,4 @@ Something bad happened during input amplification.
 java.lang.OutOfMemoryError: GC overhead limit exceeded
 
 Something bad happened during input amplification.
-java.lang.OutOfMemoryError: Java heap space: failed reallocation of scalar replaced objects
+java.lang.OutOfMemoryError: GC overhead limit exceeded

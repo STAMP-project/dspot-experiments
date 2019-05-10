@@ -3,7 +3,6 @@ package org.jsoup.parser;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
@@ -70,33 +69,6 @@ public class AmplXmlTreeBuilderTest {
         Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add70__1)).getHost());
         Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add70__1)).getUserInfo());
         Assert.assertEquals(-1, ((int) (((URI) (o_testSupplyParserToDataStream_add70__1)).getPort())));
-    }
-
-    @Test(timeout = 10000)
-    public void testSupplyParserToDataStream_literalMutationString58_failAssert0() throws IOException, URISyntaxException {
-        try {
-            File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-            InputStream inStream = new FileInputStream(xmlFile);
-            Document doc = Jsoup.parse(inStream, null, "http://foo.com", Parser.xmlParser());
-            TextUtil.stripNewlines(doc.html());
-            org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString58 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_literalMutationString245_failAssert0() throws IOException, URISyntaxException {
-        try {
-            File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-            InputStream inStream = new FileInputStream(xmlFile);
-            Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
-            doc.charset().name();
-            TextUtil.stripNewlines(doc.html());
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString245 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
     }
 
     @Test(timeout = 10000)

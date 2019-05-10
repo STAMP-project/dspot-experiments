@@ -3,7 +3,6 @@ package org.jsoup.parser;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
@@ -34,766 +33,563 @@ public class AmplXmlTreeBuilderTest {
     }
 
     @Test(timeout = 10000)
-    public void testSupplyParserToDataStream_literalMutationString2384_add2787() throws IOException, URISyntaxException {
-        URI o_testSupplyParserToDataStream_literalMutationString2384_add2787__1 = XmlTreeBuilder.class.getResource("/htmltests/xml-test.xml").toURI();
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).getRawAuthority());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).getRawQuery());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).getRawFragment());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).getRawUserInfo());
-        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-test.xml", ((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).toString());
-        Assert.assertEquals(1549444439, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).hashCode())));
-        Assert.assertTrue(((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).isAbsolute());
-        Assert.assertFalse(((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).isOpaque());
-        Assert.assertEquals("file", ((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).getScheme());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).getAuthority());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).getFragment());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).getQuery());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).getHost());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).getUserInfo());
-        Assert.assertEquals(-1, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).getPort())));
+    public void testSupplyParserToDataStream_literalMutationString2447_add2870_add4376() throws IOException, URISyntaxException {
+        URI o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1 = XmlTreeBuilder.class.getResource("/htmltests/xml-test.xml").toURI();
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-test.xml", ((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).toString());
+        Assert.assertEquals(1549444439, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).getScheme());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).getFragment());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).getQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).getHost());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).getPort())));
         File xmlFile = new File(XmlTreeBuilder.class.getResource("/htmltests/xml-test.xml").toURI());
         InputStream inStream = new FileInputStream(xmlFile);
-        Document doc = Jsoup.parse(inStream, null, "http:/$/foo.com", Parser.xmlParser());
-        String o_testSupplyParserToDataStream_literalMutationString2384__10 = TextUtil.stripNewlines(doc.html());
-        Assert.assertEquals("<doc><val>One<val>Two</val>Three</val></doc>", o_testSupplyParserToDataStream_literalMutationString2384__10);
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).getRawAuthority());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).getRawQuery());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).getRawFragment());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).getRawUserInfo());
-        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-test.xml", ((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).toString());
-        Assert.assertEquals(1549444439, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).hashCode())));
-        Assert.assertTrue(((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).isAbsolute());
-        Assert.assertFalse(((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).isOpaque());
-        Assert.assertEquals("file", ((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).getScheme());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).getAuthority());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).getFragment());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).getQuery());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).getHost());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).getUserInfo());
-        Assert.assertEquals(-1, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2384_add2787__1)).getPort())));
+        Document doc = Jsoup.parse(inStream, null, "http://foo.Xcom", Parser.xmlParser());
+        String o_testSupplyParserToDataStream_literalMutationString2447_add2870__10 = TextUtil.stripNewlines(doc.html());
+        Assert.assertEquals("<doc><val>One<val>Two</val>Three</val></doc>", o_testSupplyParserToDataStream_literalMutationString2447_add2870__10);
+        String o_testSupplyParserToDataStream_literalMutationString2447__10 = TextUtil.stripNewlines(doc.html());
+        Assert.assertEquals("<doc><val>One<val>Two</val>Three</val></doc>", o_testSupplyParserToDataStream_literalMutationString2447__10);
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-test.xml", ((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).toString());
+        Assert.assertEquals(1549444439, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).getScheme());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).getFragment());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).getQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).getHost());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2447_add2870_add4376__1)).getPort())));
+        Assert.assertEquals("<doc><val>One<val>Two</val>Three</val></doc>", o_testSupplyParserToDataStream_literalMutationString2447_add2870__10);
     }
 
     @Test(timeout = 10000)
-    public void testSupplyParserToDataStreamnull2395_failAssert0_literalMutationString2628_failAssert0_literalMutationString3990_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                {
-                    File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                    InputStream inStream = new FileInputStream(xmlFile);
-                    Document doc = Jsoup.parse(inStream, null, null, Parser.xmlParser());
-                    TextUtil.stripNewlines(doc.html());
-                    org.junit.Assert.fail("testSupplyParserToDataStreamnull2395 should have thrown IllegalArgumentException");
-                }
-                org.junit.Assert.fail("testSupplyParserToDataStreamnull2395_failAssert0_literalMutationString2628 should have thrown NullPointerException");
-            }
-            org.junit.Assert.fail("testSupplyParserToDataStreamnull2395_failAssert0_literalMutationString2628_failAssert0_literalMutationString3990 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testSupplyParserToDataStream_add2390_add2724_add4380() throws IOException, URISyntaxException {
-        URI o_testSupplyParserToDataStream_add2390_add2724_add4380__1 = XmlTreeBuilder.class.getResource("/htmltests/xml-test.xml").toURI();
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).getRawAuthority());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).getRawUserInfo());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).getRawQuery());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).getRawFragment());
-        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-test.xml", ((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).toString());
-        Assert.assertEquals(1549444439, ((int) (((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).hashCode())));
-        Assert.assertTrue(((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).isAbsolute());
-        Assert.assertFalse(((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).isOpaque());
-        Assert.assertEquals("file", ((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).getScheme());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).getAuthority());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).getFragment());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).getQuery());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).getHost());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).getUserInfo());
-        Assert.assertEquals(-1, ((int) (((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).getPort())));
+    public void testSupplyParserToDataStream_add2451_add2823() throws IOException, URISyntaxException {
+        URI o_testSupplyParserToDataStream_add2451_add2823__1 = XmlTreeBuilder.class.getResource("/htmltests/xml-test.xml").toURI();
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-test.xml", ((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).toString());
+        Assert.assertEquals(1549444439, ((int) (((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).getScheme());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).getFragment());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).getQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).getHost());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).getPort())));
         File xmlFile = new File(XmlTreeBuilder.class.getResource("/htmltests/xml-test.xml").toURI());
         InputStream inStream = new FileInputStream(xmlFile);
-        Parser o_testSupplyParserToDataStream_add2390__7 = Parser.xmlParser();
-        Assert.assertTrue(((Collection) (((Parser) (o_testSupplyParserToDataStream_add2390__7)).getErrors())).isEmpty());
-        Assert.assertFalse(((Parser) (o_testSupplyParserToDataStream_add2390__7)).isTrackErrors());
+        Parser o_testSupplyParserToDataStream_add2451__7 = Parser.xmlParser();
+        Assert.assertFalse(((Parser) (o_testSupplyParserToDataStream_add2451__7)).isTrackErrors());
+        Assert.assertTrue(((Collection) (((Parser) (o_testSupplyParserToDataStream_add2451__7)).getErrors())).isEmpty());
         Document doc = Jsoup.parse(inStream, null, "http://foo.com", Parser.xmlParser());
-        String o_testSupplyParserToDataStream_add2390_add2724__13 = TextUtil.stripNewlines(doc.html());
-        Assert.assertEquals("<doc><val>One<val>Two</val>Three</val></doc>", o_testSupplyParserToDataStream_add2390_add2724__13);
-        String o_testSupplyParserToDataStream_add2390__11 = TextUtil.stripNewlines(doc.html());
-        Assert.assertEquals("<doc><val>One<val>Two</val>Three</val></doc>", o_testSupplyParserToDataStream_add2390__11);
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).getRawAuthority());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).getRawUserInfo());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).getRawQuery());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).getRawFragment());
-        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-test.xml", ((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).toString());
-        Assert.assertEquals(1549444439, ((int) (((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).hashCode())));
-        Assert.assertTrue(((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).isAbsolute());
-        Assert.assertFalse(((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).isOpaque());
-        Assert.assertEquals("file", ((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).getScheme());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).getAuthority());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).getFragment());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).getQuery());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).getHost());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).getUserInfo());
-        Assert.assertEquals(-1, ((int) (((URI) (o_testSupplyParserToDataStream_add2390_add2724_add4380__1)).getPort())));
-        Assert.assertTrue(((Collection) (((Parser) (o_testSupplyParserToDataStream_add2390__7)).getErrors())).isEmpty());
-        Assert.assertFalse(((Parser) (o_testSupplyParserToDataStream_add2390__7)).isTrackErrors());
-        Assert.assertEquals("<doc><val>One<val>Two</val>Three</val></doc>", o_testSupplyParserToDataStream_add2390_add2724__13);
+        String o_testSupplyParserToDataStream_add2451__11 = TextUtil.stripNewlines(doc.html());
+        Assert.assertEquals("<doc><val>One<val>Two</val>Three</val></doc>", o_testSupplyParserToDataStream_add2451__11);
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-test.xml", ((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).toString());
+        Assert.assertEquals(1549444439, ((int) (((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).getScheme());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).getFragment());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).getQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).getHost());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testSupplyParserToDataStream_add2451_add2823__1)).getPort())));
+        Assert.assertFalse(((Parser) (o_testSupplyParserToDataStream_add2451__7)).isTrackErrors());
+        Assert.assertTrue(((Collection) (((Parser) (o_testSupplyParserToDataStream_add2451__7)).getErrors())).isEmpty());
     }
 
     @Test(timeout = 10000)
-    public void testSupplyParserToDataStream_literalMutationString2385_add2805() throws IOException, URISyntaxException {
-        URI o_testSupplyParserToDataStream_literalMutationString2385_add2805__1 = XmlTreeBuilder.class.getResource("/htmltests/xml-test.xml").toURI();
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).getRawAuthority());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).getRawQuery());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).getRawFragment());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).getRawUserInfo());
-        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-test.xml", ((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).toString());
-        Assert.assertEquals(1549444439, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).hashCode())));
-        Assert.assertTrue(((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).isAbsolute());
-        Assert.assertFalse(((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).isOpaque());
-        Assert.assertEquals("file", ((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).getScheme());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).getAuthority());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).getFragment());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).getQuery());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).getHost());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).getUserInfo());
-        Assert.assertEquals(-1, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).getPort())));
-        File xmlFile = new File(XmlTreeBuilder.class.getResource("/htmltests/xml-test.xml").toURI());
-        InputStream inStream = new FileInputStream(xmlFile);
-        Document doc = Jsoup.parse(inStream, null, "http:(/foo.com", Parser.xmlParser());
-        String o_testSupplyParserToDataStream_literalMutationString2385__10 = TextUtil.stripNewlines(doc.html());
-        Assert.assertEquals("<doc><val>One<val>Two</val>Three</val></doc>", o_testSupplyParserToDataStream_literalMutationString2385__10);
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).getRawAuthority());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).getRawQuery());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).getRawFragment());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).getRawUserInfo());
-        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-test.xml", ((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).toString());
-        Assert.assertEquals(1549444439, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).hashCode())));
-        Assert.assertTrue(((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).isAbsolute());
-        Assert.assertFalse(((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).isOpaque());
-        Assert.assertEquals("file", ((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).getScheme());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).getAuthority());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).getFragment());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).getQuery());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).getHost());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).getUserInfo());
-        Assert.assertEquals(-1, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2385_add2805__1)).getPort())));
-    }
-
-    @Test(timeout = 10000)
-    public void testSupplyParserToDataStream_literalMutationString2376_failAssert0() throws IOException, URISyntaxException {
-        try {
-            File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-            InputStream inStream = new FileInputStream(xmlFile);
-            Document doc = Jsoup.parse(inStream, null, "http://foo.com", Parser.xmlParser());
-            TextUtil.stripNewlines(doc.html());
-            org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString2376 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testSupplyParserToDataStream_literalMutationString2376_failAssert0null2936_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                InputStream inStream = new FileInputStream(xmlFile);
-                Document doc = Jsoup.parse(null, null, "http://foo.com", Parser.xmlParser());
-                TextUtil.stripNewlines(doc.html());
-                org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString2376 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString2376_failAssert0null2936 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testSupplyParserToDataStream_literalMutationString2376_failAssert0_literalMutationString2664_failAssert0_literalMutationString4278_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                {
-                    File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                    InputStream inStream = new FileInputStream(xmlFile);
-                    Document doc = Jsoup.parse(inStream, null, "", Parser.xmlParser());
-                    TextUtil.stripNewlines(doc.html());
-                    org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString2376 should have thrown FileNotFoundException");
-                }
-                org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString2376_failAssert0_literalMutationString2664 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString2376_failAssert0_literalMutationString2664_failAssert0_literalMutationString4278 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testSupplyParserToDataStream_literalMutationString2375_failAssert0_literalMutationString2678_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                InputStream inStream = new FileInputStream(xmlFile);
-                Document doc = Jsoup.parse(inStream, null, "http://foo.com", Parser.xmlParser());
-                TextUtil.stripNewlines(doc.html());
-                org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString2375 should have thrown NullPointerException");
-            }
-            org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString2375_failAssert0_literalMutationString2678 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testSupplyParserToDataStreamnull2394_add2780_literalMutationString3486_failAssert0() throws IOException, URISyntaxException {
-        try {
-            File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-            InputStream inStream = new FileInputStream(xmlFile);
-            Document doc = Jsoup.parse(null, null, "http://foo.com", Parser.xmlParser());
-            String o_testSupplyParserToDataStreamnull2394_add2780__10 = doc.html();
-            String o_testSupplyParserToDataStreamnull2394__10 = TextUtil.stripNewlines(doc.html());
-            org.junit.Assert.fail("testSupplyParserToDataStreamnull2394_add2780_literalMutationString3486 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testSupplyParserToDataStream_literalMutationString2376_failAssert0_literalMutationString2664_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                InputStream inStream = new FileInputStream(xmlFile);
-                Document doc = Jsoup.parse(inStream, null, "http://fooQcom", Parser.xmlParser());
-                TextUtil.stripNewlines(doc.html());
-                org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString2376 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString2376_failAssert0_literalMutationString2664 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testSupplyParserToDataStream_add2387() throws IOException, URISyntaxException {
-        URI o_testSupplyParserToDataStream_add2387__1 = XmlTreeBuilder.class.getResource("/htmltests/xml-test.xml").toURI();
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2387__1)).getRawAuthority());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2387__1)).getRawUserInfo());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2387__1)).getRawQuery());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2387__1)).getRawFragment());
-        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-test.xml", ((URI) (o_testSupplyParserToDataStream_add2387__1)).toString());
-        Assert.assertEquals(1549444439, ((int) (((URI) (o_testSupplyParserToDataStream_add2387__1)).hashCode())));
-        Assert.assertTrue(((URI) (o_testSupplyParserToDataStream_add2387__1)).isAbsolute());
-        Assert.assertFalse(((URI) (o_testSupplyParserToDataStream_add2387__1)).isOpaque());
-        Assert.assertEquals("file", ((URI) (o_testSupplyParserToDataStream_add2387__1)).getScheme());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2387__1)).getAuthority());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2387__1)).getFragment());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2387__1)).getQuery());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2387__1)).getHost());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2387__1)).getUserInfo());
-        Assert.assertEquals(-1, ((int) (((URI) (o_testSupplyParserToDataStream_add2387__1)).getPort())));
+    public void testSupplyParserToDataStream_add2448() throws IOException, URISyntaxException {
+        URI o_testSupplyParserToDataStream_add2448__1 = XmlTreeBuilder.class.getResource("/htmltests/xml-test.xml").toURI();
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2448__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2448__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2448__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2448__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-test.xml", ((URI) (o_testSupplyParserToDataStream_add2448__1)).toString());
+        Assert.assertEquals(1549444439, ((int) (((URI) (o_testSupplyParserToDataStream_add2448__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testSupplyParserToDataStream_add2448__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testSupplyParserToDataStream_add2448__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testSupplyParserToDataStream_add2448__1)).getScheme());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2448__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2448__1)).getFragment());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2448__1)).getQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2448__1)).getHost());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2448__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testSupplyParserToDataStream_add2448__1)).getPort())));
         File xmlFile = new File(XmlTreeBuilder.class.getResource("/htmltests/xml-test.xml").toURI());
         InputStream inStream = new FileInputStream(xmlFile);
         Document doc = Jsoup.parse(inStream, null, "http://foo.com", Parser.xmlParser());
-        String o_testSupplyParserToDataStream_add2387__12 = TextUtil.stripNewlines(doc.html());
-        Assert.assertEquals("<doc><val>One<val>Two</val>Three</val></doc>", o_testSupplyParserToDataStream_add2387__12);
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2387__1)).getRawAuthority());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2387__1)).getRawUserInfo());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2387__1)).getRawQuery());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2387__1)).getRawFragment());
-        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-test.xml", ((URI) (o_testSupplyParserToDataStream_add2387__1)).toString());
-        Assert.assertEquals(1549444439, ((int) (((URI) (o_testSupplyParserToDataStream_add2387__1)).hashCode())));
-        Assert.assertTrue(((URI) (o_testSupplyParserToDataStream_add2387__1)).isAbsolute());
-        Assert.assertFalse(((URI) (o_testSupplyParserToDataStream_add2387__1)).isOpaque());
-        Assert.assertEquals("file", ((URI) (o_testSupplyParserToDataStream_add2387__1)).getScheme());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2387__1)).getAuthority());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2387__1)).getFragment());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2387__1)).getQuery());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2387__1)).getHost());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2387__1)).getUserInfo());
-        Assert.assertEquals(-1, ((int) (((URI) (o_testSupplyParserToDataStream_add2387__1)).getPort())));
+        String o_testSupplyParserToDataStream_add2448__12 = TextUtil.stripNewlines(doc.html());
+        Assert.assertEquals("<doc><val>One<val>Two</val>Three</val></doc>", o_testSupplyParserToDataStream_add2448__12);
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2448__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2448__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2448__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2448__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-test.xml", ((URI) (o_testSupplyParserToDataStream_add2448__1)).toString());
+        Assert.assertEquals(1549444439, ((int) (((URI) (o_testSupplyParserToDataStream_add2448__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testSupplyParserToDataStream_add2448__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testSupplyParserToDataStream_add2448__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testSupplyParserToDataStream_add2448__1)).getScheme());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2448__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2448__1)).getFragment());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2448__1)).getQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2448__1)).getHost());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add2448__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testSupplyParserToDataStream_add2448__1)).getPort())));
     }
 
     @Test(timeout = 10000)
-    public void testSupplyParserToDataStream_add2388_literalMutationString2456_failAssert0() throws IOException, URISyntaxException {
-        try {
-            XmlTreeBuilder.class.getResource("/htmltests/xml-test.xml");
-            File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-            InputStream inStream = new FileInputStream(xmlFile);
-            Document doc = Jsoup.parse(inStream, null, "http://foo.com", Parser.xmlParser());
-            String o_testSupplyParserToDataStream_add2388__11 = TextUtil.stripNewlines(doc.html());
-            org.junit.Assert.fail("testSupplyParserToDataStream_add2388_literalMutationString2456 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
+    public void testSupplyParserToDataStream_literalMutationString2446_add2848() throws IOException, URISyntaxException {
+        URI o_testSupplyParserToDataStream_literalMutationString2446_add2848__1 = XmlTreeBuilder.class.getResource("/htmltests/xml-test.xml").toURI();
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-test.xml", ((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).toString());
+        Assert.assertEquals(1549444439, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).getScheme());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).getFragment());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).getQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).getHost());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).getPort())));
+        File xmlFile = new File(XmlTreeBuilder.class.getResource("/htmltests/xml-test.xml").toURI());
+        InputStream inStream = new FileInputStream(xmlFile);
+        Document doc = Jsoup.parse(inStream, null, "a5e A^h;_Od,sz", Parser.xmlParser());
+        String o_testSupplyParserToDataStream_literalMutationString2446__10 = TextUtil.stripNewlines(doc.html());
+        Assert.assertEquals("<doc><val>One<val>Two</val>Three</val></doc>", o_testSupplyParserToDataStream_literalMutationString2446__10);
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-test.xml", ((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).toString());
+        Assert.assertEquals(1549444439, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).getScheme());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).getFragment());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).getQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).getHost());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2848__1)).getPort())));
     }
 
     @Test(timeout = 10000)
-    public void testSupplyParserToDataStream_literalMutationString2376_failAssert0_add2856_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                InputStream inStream = new FileInputStream(xmlFile);
-                Jsoup.parse(inStream, null, "http://foo.com", Parser.xmlParser());
-                Document doc = Jsoup.parse(inStream, null, "http://foo.com", Parser.xmlParser());
-                TextUtil.stripNewlines(doc.html());
-                org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString2376 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString2376_failAssert0_add2856 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
+    public void testSupplyParserToDataStream_literalMutationString2446_add2852_add4384() throws IOException, URISyntaxException {
+        URI o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1 = XmlTreeBuilder.class.getResource("/htmltests/xml-test.xml").toURI();
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-test.xml", ((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).toString());
+        Assert.assertEquals(1549444439, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).getScheme());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).getFragment());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).getQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).getHost());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).getPort())));
+        File xmlFile = new File(XmlTreeBuilder.class.getResource("/htmltests/xml-test.xml").toURI());
+        InputStream inStream = new FileInputStream(xmlFile);
+        Document doc = Jsoup.parse(inStream, null, "a5e A^h;_Od,sz", Parser.xmlParser());
+        String o_testSupplyParserToDataStream_literalMutationString2446_add2852__10 = TextUtil.stripNewlines(doc.html());
+        Assert.assertEquals("<doc><val>One<val>Two</val>Three</val></doc>", o_testSupplyParserToDataStream_literalMutationString2446_add2852__10);
+        String o_testSupplyParserToDataStream_literalMutationString2446__10 = TextUtil.stripNewlines(doc.html());
+        Assert.assertEquals("<doc><val>One<val>Two</val>Three</val></doc>", o_testSupplyParserToDataStream_literalMutationString2446__10);
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-test.xml", ((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).toString());
+        Assert.assertEquals(1549444439, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).getScheme());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).getFragment());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).getQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).getHost());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2446_add2852_add4384__1)).getPort())));
+        Assert.assertEquals("<doc><val>One<val>Two</val>Three</val></doc>", o_testSupplyParserToDataStream_literalMutationString2446_add2852__10);
     }
 
     @Test(timeout = 10000)
-    public void testSupplyParserToDataStream_literalMutationString2382_add2799() throws IOException, URISyntaxException {
-        URI o_testSupplyParserToDataStream_literalMutationString2382_add2799__1 = XmlTreeBuilder.class.getResource("/htmltests/xml-test.xml").toURI();
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).getRawAuthority());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).getRawQuery());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).getRawFragment());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).getRawUserInfo());
-        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-test.xml", ((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).toString());
-        Assert.assertEquals(1549444439, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).hashCode())));
-        Assert.assertTrue(((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).isAbsolute());
-        Assert.assertFalse(((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).isOpaque());
-        Assert.assertEquals("file", ((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).getScheme());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).getAuthority());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).getFragment());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).getQuery());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).getHost());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).getUserInfo());
-        Assert.assertEquals(-1, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).getPort())));
+    public void testSupplyParserToDataStream_literalMutationString2442_add2854() throws IOException, URISyntaxException {
+        URI o_testSupplyParserToDataStream_literalMutationString2442_add2854__1 = XmlTreeBuilder.class.getResource("/htmltests/xml-test.xml").toURI();
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-test.xml", ((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).toString());
+        Assert.assertEquals(1549444439, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).getScheme());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).getFragment());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).getQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).getHost());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).getPort())));
+        File xmlFile = new File(XmlTreeBuilder.class.getResource("/htmltests/xml-test.xml").toURI());
+        InputStream inStream = new FileInputStream(xmlFile);
+        Document doc = Jsoup.parse(inStream, null, "", Parser.xmlParser());
+        String o_testSupplyParserToDataStream_literalMutationString2442__10 = TextUtil.stripNewlines(doc.html());
+        Assert.assertEquals("<doc><val>One<val>Two</val>Three</val></doc>", o_testSupplyParserToDataStream_literalMutationString2442__10);
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-test.xml", ((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).toString());
+        Assert.assertEquals(1549444439, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).getScheme());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).getFragment());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).getQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).getHost());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2442_add2854__1)).getPort())));
+    }
+
+    @Test(timeout = 10000)
+    public void testSupplyParserToDataStream_literalMutationString2443_add2860() throws IOException, URISyntaxException {
+        URI o_testSupplyParserToDataStream_literalMutationString2443_add2860__1 = XmlTreeBuilder.class.getResource("/htmltests/xml-test.xml").toURI();
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-test.xml", ((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).toString());
+        Assert.assertEquals(1549444439, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).getScheme());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).getFragment());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).getQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).getHost());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).getPort())));
         File xmlFile = new File(XmlTreeBuilder.class.getResource("/htmltests/xml-test.xml").toURI());
         InputStream inStream = new FileInputStream(xmlFile);
         Document doc = Jsoup.parse(inStream, null, "<span>Hello <div>there</div> <span>now</span></span>", Parser.xmlParser());
-        String o_testSupplyParserToDataStream_literalMutationString2382__10 = TextUtil.stripNewlines(doc.html());
-        Assert.assertEquals("<doc><val>One<val>Two</val>Three</val></doc>", o_testSupplyParserToDataStream_literalMutationString2382__10);
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).getRawAuthority());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).getRawQuery());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).getRawFragment());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).getRawUserInfo());
-        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-test.xml", ((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).toString());
-        Assert.assertEquals(1549444439, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).hashCode())));
-        Assert.assertTrue(((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).isAbsolute());
-        Assert.assertFalse(((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).isOpaque());
-        Assert.assertEquals("file", ((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).getScheme());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).getAuthority());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).getFragment());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).getQuery());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).getHost());
-        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).getUserInfo());
-        Assert.assertEquals(-1, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2382_add2799__1)).getPort())));
+        String o_testSupplyParserToDataStream_literalMutationString2443__10 = TextUtil.stripNewlines(doc.html());
+        Assert.assertEquals("<doc><val>One<val>Two</val>Three</val></doc>", o_testSupplyParserToDataStream_literalMutationString2443__10);
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-test.xml", ((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).toString());
+        Assert.assertEquals(1549444439, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).getScheme());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).getFragment());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).getQuery());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).getHost());
+        Assert.assertNull(((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testSupplyParserToDataStream_literalMutationString2443_add2860__1)).getPort())));
     }
 
     @Test(timeout = 10000)
-    public void testSupplyParserToDataStream_literalMutationString2376_failAssert0_literalMutationString2664_failAssert0_add5167_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                {
-                    File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                    InputStream inStream = new FileInputStream(xmlFile);
-                    Document doc = Jsoup.parse(inStream, null, "http://fooQcom", Parser.xmlParser());
-                    TextUtil.stripNewlines(doc.html());
-                    TextUtil.stripNewlines(doc.html());
-                    org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString2376 should have thrown FileNotFoundException");
-                }
-                org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString2376_failAssert0_literalMutationString2664 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString2376_failAssert0_literalMutationString2664_failAssert0_add5167 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
+    public void testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007() throws IOException, URISyntaxException {
+        URI o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1 = XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI();
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).toString());
+        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).getScheme());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).getFragment());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).getQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).getHost());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).getPort())));
+        File xmlFile = new File(XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI());
+        InputStream inStream = new FileInputStream(xmlFile);
+        Document doc = Jsoup.parse(inStream, null, "EQjyOE2hichM7xOd8U&", Parser.xmlParser());
+        String o_testDetectCharsetEncodingDeclaration_literalMutationString10553__10 = doc.charset().name();
+        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_literalMutationString10553__10);
+        String o_testDetectCharsetEncodingDeclaration_literalMutationString10553__12 = TextUtil.stripNewlines(doc.html());
+        Assert.assertEquals("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?> <data>\u00e4\u00f6\u00e5\u00e9\u00fc</data>", o_testDetectCharsetEncodingDeclaration_literalMutationString10553__12);
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).toString());
+        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).getScheme());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).getFragment());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).getQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).getHost());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10553_add11007__1)).getPort())));
+        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_literalMutationString10553__10);
     }
 
     @Test(timeout = 10000)
-    public void testSupplyParserToDataStream_literalMutationString2376_failAssert0_add2858_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                InputStream inStream = new FileInputStream(xmlFile);
-                Document doc = Jsoup.parse(inStream, null, "http://foo.com", Parser.xmlParser());
-                TextUtil.stripNewlines(doc.html());
-                TextUtil.stripNewlines(doc.html());
-                org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString2376 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testSupplyParserToDataStream_literalMutationString2376_failAssert0_add2858 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_add10528_literalMutationString10604_failAssert0() throws IOException, URISyntaxException {
-        try {
-            File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-            InputStream inStream = new FileInputStream(xmlFile);
-            Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
-            String o_testDetectCharsetEncodingDeclaration_add10528__10 = doc.charset().name();
-            String o_testDetectCharsetEncodingDeclaration_add10528__12 = doc.html();
-            String o_testDetectCharsetEncodingDeclaration_add10528__13 = TextUtil.stripNewlines(doc.html());
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_add10528_literalMutationString10604 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_literalMutationString10512_failAssert0_literalMutationString10787_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                InputStream inStream = new FileInputStream(xmlFile);
-                Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
-                doc.charset().name();
-                TextUtil.stripNewlines(doc.html());
-                org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString10512 should have thrown NullPointerException");
-            }
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString10512_failAssert0_literalMutationString10787 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_add10528_literalMutationString10604_failAssert0null13704_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                InputStream inStream = new FileInputStream(xmlFile);
-                Document doc = Jsoup.parse(inStream, null, null, Parser.xmlParser());
-                String o_testDetectCharsetEncodingDeclaration_add10528__10 = doc.charset().name();
-                String o_testDetectCharsetEncodingDeclaration_add10528__12 = doc.html();
-                String o_testDetectCharsetEncodingDeclaration_add10528__13 = TextUtil.stripNewlines(doc.html());
-                org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_add10528_literalMutationString10604 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_add10528_literalMutationString10604_failAssert0null13704 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_add10528_literalMutationString10604_failAssert0_add13204_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                InputStream inStream = new FileInputStream(xmlFile);
-                Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
-                Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
-                String o_testDetectCharsetEncodingDeclaration_add10528__10 = doc.charset().name();
-                String o_testDetectCharsetEncodingDeclaration_add10528__12 = doc.html();
-                String o_testDetectCharsetEncodingDeclaration_add10528__13 = TextUtil.stripNewlines(doc.html());
-                org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_add10528_literalMutationString10604 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_add10528_literalMutationString10604_failAssert0_add13204 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_literalMutationString10518null11119_failAssert0_literalMutationString12089_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                InputStream inStream = new FileInputStream(xmlFile);
-                Document doc = Jsoup.parse(inStream, null, null, Parser.xmlParser());
-                String o_testDetectCharsetEncodingDeclaration_literalMutationString10518__10 = doc.charset().name();
-                String o_testDetectCharsetEncodingDeclaration_literalMutationString10518__12 = TextUtil.stripNewlines(doc.html());
-                org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString10518null11119 should have thrown IllegalArgumentException");
-            }
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString10518null11119_failAssert0_literalMutationString12089 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_literalMutationString10511_failAssert0() throws IOException, URISyntaxException {
-        try {
-            File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-            InputStream inStream = new FileInputStream(xmlFile);
-            Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
-            doc.charset().name();
-            TextUtil.stripNewlines(doc.html());
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString10511 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_add10528_literalMutationString10604_failAssert0null13703_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                InputStream inStream = new FileInputStream(xmlFile);
-                Document doc = Jsoup.parse(null, null, "http://example.com/", Parser.xmlParser());
-                String o_testDetectCharsetEncodingDeclaration_add10528__10 = doc.charset().name();
-                String o_testDetectCharsetEncodingDeclaration_add10528__12 = doc.html();
-                String o_testDetectCharsetEncodingDeclaration_add10528__13 = TextUtil.stripNewlines(doc.html());
-                org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_add10528_literalMutationString10604 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_add10528_literalMutationString10604_failAssert0null13703 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_literalMutationString10511_failAssert0_literalMutationString10818_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                InputStream inStream = new FileInputStream(xmlFile);
-                Document doc = Jsoup.parse(inStream, null, "htp://example.com/", Parser.xmlParser());
-                doc.charset().name();
-                TextUtil.stripNewlines(doc.html());
-                org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString10511 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString10511_failAssert0_literalMutationString10818 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_add10528_literalMutationString10604_failAssert0_literalMutationString12174_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                InputStream inStream = new FileInputStream(xmlFile);
-                Document doc = Jsoup.parse(inStream, null, "l!<8+&YnD?tr9%#y6* ", Parser.xmlParser());
-                String o_testDetectCharsetEncodingDeclaration_add10528__10 = doc.charset().name();
-                String o_testDetectCharsetEncodingDeclaration_add10528__12 = doc.html();
-                String o_testDetectCharsetEncodingDeclaration_add10528__13 = TextUtil.stripNewlines(doc.html());
-                org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_add10528_literalMutationString10604 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_add10528_literalMutationString10604_failAssert0_literalMutationString12174 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_add10528_literalMutationString10604_failAssert0_add13208_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                InputStream inStream = new FileInputStream(xmlFile);
-                Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
-                String o_testDetectCharsetEncodingDeclaration_add10528__10 = doc.charset().name();
-                doc.html();
-                String o_testDetectCharsetEncodingDeclaration_add10528__12 = doc.html();
-                String o_testDetectCharsetEncodingDeclaration_add10528__13 = TextUtil.stripNewlines(doc.html());
-                org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_add10528_literalMutationString10604 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_add10528_literalMutationString10604_failAssert0_add13208 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_add10521() throws IOException, URISyntaxException {
-        URI o_testDetectCharsetEncodingDeclaration_add10521__1 = XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI();
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).getRawAuthority());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).getRawUserInfo());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).getRawQuery());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).getRawFragment());
-        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).toString());
-        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).hashCode())));
-        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).isAbsolute());
-        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).isOpaque());
-        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).getScheme());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).getAuthority());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).getFragment());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).getQuery());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).getHost());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).getUserInfo());
-        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).getPort())));
+    public void testDetectCharsetEncodingDeclaration_add10555() throws IOException, URISyntaxException {
+        URI o_testDetectCharsetEncodingDeclaration_add10555__1 = XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI();
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).toString());
+        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).getScheme());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).getFragment());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).getQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).getHost());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).getPort())));
         File xmlFile = new File(XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI());
         InputStream inStream = new FileInputStream(xmlFile);
         Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
-        String o_testDetectCharsetEncodingDeclaration_add10521__12 = doc.charset().name();
-        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_add10521__12);
-        String o_testDetectCharsetEncodingDeclaration_add10521__14 = TextUtil.stripNewlines(doc.html());
-        Assert.assertEquals("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?> <data>\u00e4\u00f6\u00e5\u00e9\u00fc</data>", o_testDetectCharsetEncodingDeclaration_add10521__14);
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).getRawAuthority());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).getRawUserInfo());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).getRawQuery());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).getRawFragment());
-        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).toString());
-        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).hashCode())));
-        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).isAbsolute());
-        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).isOpaque());
-        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).getScheme());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).getAuthority());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).getFragment());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).getQuery());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).getHost());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).getUserInfo());
-        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add10521__1)).getPort())));
-        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_add10521__12);
+        String o_testDetectCharsetEncodingDeclaration_add10555__12 = doc.charset().name();
+        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_add10555__12);
+        String o_testDetectCharsetEncodingDeclaration_add10555__14 = TextUtil.stripNewlines(doc.html());
+        Assert.assertEquals("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?> <data>\u00e4\u00f6\u00e5\u00e9\u00fc</data>", o_testDetectCharsetEncodingDeclaration_add10555__14);
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).toString());
+        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).getScheme());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).getFragment());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).getQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).getHost());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add10555__1)).getPort())));
+        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_add10555__12);
     }
 
     @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_literalMutationString10511_failAssert0_add11057_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                InputStream inStream = new FileInputStream(xmlFile);
-                Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
-                doc.charset();
-                doc.charset().name();
-                TextUtil.stripNewlines(doc.html());
-                org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString10511 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString10511_failAssert0_add11057 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997() throws IOException, URISyntaxException {
-        URI o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1 = XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI();
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).getRawAuthority());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).getRawUserInfo());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).getRawQuery());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).getRawFragment());
-        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).toString());
-        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).hashCode())));
-        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).isAbsolute());
-        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).isOpaque());
-        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).getScheme());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).getAuthority());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).getFragment());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).getQuery());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).getHost());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).getUserInfo());
-        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).getPort())));
+    public void testDetectCharsetEncodingDeclaration_add10555_add10927_add12546() throws IOException, URISyntaxException {
+        URI o_testDetectCharsetEncodingDeclaration_add10555__1 = XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI();
+        URI o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5 = XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI();
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).getRawQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).toString());
+        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).hashCode())));
+        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).getScheme());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).getAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).getFragment());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).getQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).getHost());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).getPort())));
         File xmlFile = new File(XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI());
         InputStream inStream = new FileInputStream(xmlFile);
-        Document doc = Jsoup.parse(inStream, null, "<span>Hello <div>there</div> <span>now</span></span>", Parser.xmlParser());
-        String o_testDetectCharsetEncodingDeclaration_literalMutationString10516__10 = doc.charset().name();
-        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_literalMutationString10516__10);
-        String o_testDetectCharsetEncodingDeclaration_literalMutationString10516__12 = TextUtil.stripNewlines(doc.html());
-        Assert.assertEquals("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?> <data>\u00e4\u00f6\u00e5\u00e9\u00fc</data>", o_testDetectCharsetEncodingDeclaration_literalMutationString10516__12);
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).getRawAuthority());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).getRawUserInfo());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).getRawQuery());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).getRawFragment());
-        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).toString());
-        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).hashCode())));
-        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).isAbsolute());
-        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).isOpaque());
-        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).getScheme());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).getAuthority());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).getFragment());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).getQuery());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).getHost());
-        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).getUserInfo());
-        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10516_add10997__1)).getPort())));
-        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_literalMutationString10516__10);
+        Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
+        String o_testDetectCharsetEncodingDeclaration_add10555__12 = doc.charset().name();
+        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_add10555__12);
+        String o_testDetectCharsetEncodingDeclaration_add10555__14 = TextUtil.stripNewlines(doc.html());
+        Assert.assertEquals("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?> <data>\u00e4\u00f6\u00e5\u00e9\u00fc</data>", o_testDetectCharsetEncodingDeclaration_add10555__14);
+        o_testDetectCharsetEncodingDeclaration_add10555__1.getHost();
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).getRawQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).toString());
+        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).hashCode())));
+        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).getScheme());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).getAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).getFragment());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).getQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).getHost());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add10555_add10927_add12546__5)).getPort())));
+        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_add10555__12);
+        Assert.assertEquals("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?> <data>\u00e4\u00f6\u00e5\u00e9\u00fc</data>", o_testDetectCharsetEncodingDeclaration_add10555__14);
     }
 
     @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_literalMutationString10512_failAssert0_literalMutationString10787_failAssert0null13773_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                {
-                    File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                    InputStream inStream = new FileInputStream(xmlFile);
-                    Document doc = Jsoup.parse(null, null, "http://example.com/", Parser.xmlParser());
-                    doc.charset().name();
-                    TextUtil.stripNewlines(doc.html());
-                    org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString10512 should have thrown NullPointerException");
-                }
-                org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString10512_failAssert0_literalMutationString10787 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString10512_failAssert0_literalMutationString10787_failAssert0null13773 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
+    public void testDetectCharsetEncodingDeclaration_add10561_add10961_add12812() throws IOException, URISyntaxException {
+        URI o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1 = XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI();
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).toString());
+        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).getScheme());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).getFragment());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).getQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).getHost());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).getPort())));
+        File xmlFile = new File(XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI());
+        InputStream inStream = new FileInputStream(xmlFile);
+        Parser o_testDetectCharsetEncodingDeclaration_add10561_add10961__7 = Parser.xmlParser();
+        Assert.assertFalse(((Parser) (o_testDetectCharsetEncodingDeclaration_add10561_add10961__7)).isTrackErrors());
+        Assert.assertTrue(((Collection) (((Parser) (o_testDetectCharsetEncodingDeclaration_add10561_add10961__7)).getErrors())).isEmpty());
+        Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
+        String o_testDetectCharsetEncodingDeclaration_add10561__10 = doc.charset().name();
+        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_add10561__10);
+        String o_testDetectCharsetEncodingDeclaration_add10561__12 = TextUtil.stripNewlines(doc.html());
+        Assert.assertEquals("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?> <data>\u00e4\u00f6\u00e5\u00e9\u00fc</data>", o_testDetectCharsetEncodingDeclaration_add10561__12);
+        String o_testDetectCharsetEncodingDeclaration_add10561__14 = TextUtil.stripNewlines(doc.html());
+        Assert.assertEquals("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?> <data>\u00e4\u00f6\u00e5\u00e9\u00fc</data>", o_testDetectCharsetEncodingDeclaration_add10561__14);
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).toString());
+        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).getScheme());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).getFragment());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).getQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).getHost());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add10561_add10961_add12812__1)).getPort())));
+        Assert.assertFalse(((Parser) (o_testDetectCharsetEncodingDeclaration_add10561_add10961__7)).isTrackErrors());
+        Assert.assertTrue(((Collection) (((Parser) (o_testDetectCharsetEncodingDeclaration_add10561_add10961__7)).getErrors())).isEmpty());
+        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_add10561__10);
+        Assert.assertEquals("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?> <data>\u00e4\u00f6\u00e5\u00e9\u00fc</data>", o_testDetectCharsetEncodingDeclaration_add10561__12);
     }
 
     @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_add10528_literalMutationString10604_failAssert0_add13203_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                XmlTreeBuilder.class.getResource("");
-                File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                InputStream inStream = new FileInputStream(xmlFile);
-                Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
-                String o_testDetectCharsetEncodingDeclaration_add10528__10 = doc.charset().name();
-                String o_testDetectCharsetEncodingDeclaration_add10528__12 = doc.html();
-                String o_testDetectCharsetEncodingDeclaration_add10528__13 = TextUtil.stripNewlines(doc.html());
-                org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_add10528_literalMutationString10604 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_add10528_literalMutationString10604_failAssert0_add13203 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
+    public void testDetectCharsetEncodingDeclarationnull10564_add10983() throws IOException, URISyntaxException {
+        URI o_testDetectCharsetEncodingDeclarationnull10564_add10983__1 = XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI();
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).toString());
+        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).getScheme());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).getFragment());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).getQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).getHost());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).getPort())));
+        File xmlFile = new File(XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI());
+        InputStream inStream = new FileInputStream(xmlFile);
+        Document doc = Jsoup.parse(null, null, "http://example.com/", Parser.xmlParser());
+        String o_testDetectCharsetEncodingDeclarationnull10564__10 = doc.charset().name();
+        Assert.assertEquals("UTF-8", o_testDetectCharsetEncodingDeclarationnull10564__10);
+        String o_testDetectCharsetEncodingDeclarationnull10564__12 = TextUtil.stripNewlines(doc.html());
+        Assert.assertEquals("", o_testDetectCharsetEncodingDeclarationnull10564__12);
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).toString());
+        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).getScheme());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).getFragment());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).getQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).getHost());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclarationnull10564_add10983__1)).getPort())));
+        Assert.assertEquals("UTF-8", o_testDetectCharsetEncodingDeclarationnull10564__10);
     }
 
     @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_literalMutationString10512_failAssert0_literalMutationString10787_failAssert0_add13456_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                {
-                    File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                    InputStream inStream = new FileInputStream(xmlFile);
-                    Parser.xmlParser();
-                    Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
-                    doc.charset().name();
-                    TextUtil.stripNewlines(doc.html());
-                    org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString10512 should have thrown NullPointerException");
-                }
-                org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString10512_failAssert0_literalMutationString10787 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString10512_failAssert0_literalMutationString10787_failAssert0_add13456 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_literalMutationString10512_failAssert0_literalMutationString10787_failAssert0_literalMutationString12430_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                {
-                    File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                    InputStream inStream = new FileInputStream(xmlFile);
-                    Document doc = Jsoup.parse(inStream, null, "http:/example.com/", Parser.xmlParser());
-                    doc.charset().name();
-                    TextUtil.stripNewlines(doc.html());
-                    org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString10512 should have thrown NullPointerException");
-                }
-                org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString10512_failAssert0_literalMutationString10787 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_literalMutationString10512_failAssert0_literalMutationString10787_failAssert0_literalMutationString12430 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
-    }
-
-    @Test(timeout = 10000)
-    public void testDetectCharsetEncodingDeclaration_add10528_literalMutationString10604_failAssert0_literalMutationString12167_failAssert0() throws IOException, URISyntaxException {
-        try {
-            {
-                File xmlFile = new File(XmlTreeBuilder.class.getResource("").toURI());
-                InputStream inStream = new FileInputStream(xmlFile);
-                Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
-                String o_testDetectCharsetEncodingDeclaration_add10528__10 = doc.charset().name();
-                String o_testDetectCharsetEncodingDeclaration_add10528__12 = doc.html();
-                String o_testDetectCharsetEncodingDeclaration_add10528__13 = TextUtil.stripNewlines(doc.html());
-                org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_add10528_literalMutationString10604 should have thrown FileNotFoundException");
-            }
-            org.junit.Assert.fail("testDetectCharsetEncodingDeclaration_add10528_literalMutationString10604_failAssert0_literalMutationString12167 should have thrown FileNotFoundException");
-        } catch (FileNotFoundException expected) {
-            Assert.assertEquals("/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/classes/org/jsoup/parser (Is a directory)", expected.getMessage());
-        }
+    public void testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031() throws IOException, URISyntaxException {
+        URI o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1 = XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI();
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).toString());
+        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).getScheme());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).getFragment());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).getQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).getHost());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).getPort())));
+        File xmlFile = new File(XmlTreeBuilder.class.getResource("/htmltests/xml-charset.xml").toURI());
+        InputStream inStream = new FileInputStream(xmlFile);
+        Document doc = Jsoup.parse(inStream, null, "http://examCple.com/", Parser.xmlParser());
+        String o_testDetectCharsetEncodingDeclaration_literalMutationString10554__10 = doc.charset().name();
+        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_literalMutationString10554__10);
+        String o_testDetectCharsetEncodingDeclaration_literalMutationString10554__12 = TextUtil.stripNewlines(doc.html());
+        Assert.assertEquals("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?> <data>\u00e4\u00f6\u00e5\u00e9\u00fc</data>", o_testDetectCharsetEncodingDeclaration_literalMutationString10554__12);
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).getRawAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).getRawUserInfo());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).getRawQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).getRawFragment());
+        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).toString());
+        Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).hashCode())));
+        Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).isAbsolute());
+        Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).isOpaque());
+        Assert.assertEquals("file", ((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).getScheme());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).getAuthority());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).getFragment());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).getQuery());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).getHost());
+        Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).getUserInfo());
+        Assert.assertEquals(-1, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_literalMutationString10554_add11031__1)).getPort())));
+        Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_literalMutationString10554__10);
     }
 }
 
