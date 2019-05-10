@@ -1,6 +1,6 @@
 DSpot encountered 1 error(s) during amplification.
 Something bad happened during input amplification.
-java.lang.OutOfMemoryError: GC overhead limit exceeded
+java.lang.OutOfMemoryError: Java heap space
 	at java.io.BufferedReader.<init>(BufferedReader.java:105)
 	at java.io.BufferedReader.<init>(BufferedReader.java:116)
 	at spoon.support.compiler.jdt.JDTCommentBuilder.cleanComment(JDTCommentBuilder.java:547)
@@ -13,8 +13,8 @@ java.lang.OutOfMemoryError: GC overhead limit exceeded
 	at spoon.support.visitor.equals.CloneHelper.clone(CloneHelper.java:49)
 	at spoon.support.visitor.equals.CloneHelper.addClone(CloneHelper.java:109)
 	at spoon.support.visitor.equals.CloneHelper.clone(CloneHelper.java:73)
-	at spoon.support.visitor.clone.CloneVisitor.visitCtInvocation(CloneVisitor.java:432)
-	at spoon.support.reflect.code.CtInvocationImpl.accept(CtInvocationImpl.java:55)
+	at spoon.support.visitor.clone.CloneVisitor.visitCtLocalVariable(CloneVisitor.java:456)
+	at spoon.support.reflect.code.CtLocalVariableImpl.accept(CtLocalVariableImpl.java:59)
 	at spoon.reflect.visitor.CtScanner.scan(CtScanner.java:184)
 	at spoon.support.visitor.equals.CloneHelper.clone(CloneHelper.java:49)
 	at spoon.support.visitor.equals.CloneHelper.addClone(CloneHelper.java:109)
