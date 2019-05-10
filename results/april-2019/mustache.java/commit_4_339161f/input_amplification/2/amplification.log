@@ -135,7 +135,7 @@ OS name: "linux", version: "4.9.0-8-amd64", arch: "amd64", family: "unix"
   <workingDirectory default-value="false">${working-directory}</workingDirectory>
 </configuration>
 [DEBUG] =======================================================================
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=1, ConflictMarker.markTime=0, ConflictMarker.nodeCount=9, ConflictIdSorter.graphTime=0, ConflictIdSorter.topsortTime=1, ConflictIdSorter.conflictIdCount=7, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=3, ConflictResolver.conflictItemCount=8, DefaultDependencyCollector.collectTime=52, DefaultDependencyCollector.transformTime=7}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=1, ConflictMarker.markTime=0, ConflictMarker.nodeCount=9, ConflictIdSorter.graphTime=0, ConflictIdSorter.topsortTime=1, ConflictIdSorter.conflictIdCount=7, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=2, ConflictResolver.conflictItemCount=8, DefaultDependencyCollector.collectTime=52, DefaultDependencyCollector.transformTime=6}
 [DEBUG] com.github.spullara.mustache.java:compiler:jar:0.9.4-SNAPSHOT
 [DEBUG]    junit:junit:jar:4.11:test
 [DEBUG]       org.hamcrest:hamcrest-core:jar:1.3:test
@@ -480,7 +480,7 @@ OS name: "linux", version: "4.9.0-8-amd64", arch: "amd64", family: "unix"
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=5, ConflictMarker.markTime=1, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=3, ConflictIdSorter.topsortTime=0, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=11, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=868, DefaultDependencyCollector.transformTime=20}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=4, ConflictMarker.markTime=1, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=4, ConflictIdSorter.topsortTime=0, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=9, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=906, DefaultDependencyCollector.transformTime=19}
 [DEBUG] eu.stamp-project:dspot-maven:jar:2.0.1-SNAPSHOT:
 [DEBUG]    eu.stamp-project:dspot:jar:2.0.1-SNAPSHOT:compile
 [DEBUG]       fr.inria.gforge.spoon:spoon-core:jar:7.3.0:compile
@@ -765,9 +765,9 @@ OS name: "linux", version: "4.9.0-8-amd64", arch: "amd64", family: "unix"
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 3.401 s
-[INFO] Finished at: 2019-05-08T09:24:22+02:00
-[INFO] Final Memory: 29M/1963M
+[INFO] Total time: 2.899 s
+[INFO] Finished at: 2019-05-10T11:19:14+02:00
+[INFO] Final Memory: 28M/1963M
 [INFO] ------------------------------------------------------------------------
 [WARNING] Could not find any test class that match the given regular expression.
 Your input:
@@ -775,9 +775,9 @@ Your input:
 [INFO] Amplification of com.github.mustachejava.InterpreterTest (52 test(s))
 [INFO] Assertion amplification of com.github.mustachejava.InterpreterTest (52 test(s))
 [DEBUG] Starting 15 Services...
-[DEBUG] All Services successfully started, 15 Services in 5ms
+[DEBUG] All Services successfully started, 15 Services in 6ms
 [DEBUG] Creating Cache 'frameworkCache' in EhcacheManager.
-[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@40c8067
+[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@29bbc391
 [DEBUG] Could not create serializers for frameworkCache
 org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for type 'eu.stamp_project.test_framework.TestFrameworkSupport'
 	at org.ehcache.impl.internal.spi.serialization.DefaultSerializationProvider.getSerializerClassFor(DefaultSerializationProvider.java:136)
@@ -826,8 +826,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
 	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
 	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
-[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@2c8b8de0
-[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@4fb57fb3
+[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@5939e24
+[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@595f9916
 [DEBUG] Initialize successful.
 [INFO] Cache 'frameworkCache' created in EhcacheManager.
 [DEBUG] Initialize successful.
@@ -875,9 +875,9 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 2.787 s
-[INFO] Finished at: 2019-05-08T09:24:29+02:00
-[INFO] Final Memory: 23M/1963M
+[INFO] Total time: 2.547 s
+[INFO] Finished at: 2019-05-10T11:19:21+02:00
+[INFO] Final Memory: 26M/2062M
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/tmp_test_sources:/home/bedanglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/bedanglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.jar:/home/bedanglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/home/bedanglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar:/home/bedanglot/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.7.4/jackson-dataformat-yaml-2.7.4.jar:/home/bedanglot/.m2/repository/org/yaml/snakeyaml/1.15/snakeyaml-1.15.jar:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/classes/:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/tmp_test_sources/com/github/mustachejava/InterpreterTest.java
 [INFO] Run: java -classpath /tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/classes/:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/test-classes:/home/bedanglot/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/bedanglot/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.7.4/jackson-databind-2.7.4.jar:/home/bedanglot/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.7.0/jackson-annotations-2.7.0.jar:/home/bedanglot/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.7.4/jackson-core-2.7.4.jar:/home/bedanglot/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.7.4/jackson-dataformat-yaml-2.7.4.jar:/home/bedanglot/.m2/repository/org/yaml/snakeyaml/1.15/snakeyaml-1.15.jar:/tmp/dspot-experiments/dataset/april-2019/mustache.java_parent/compiler/target/dspot/dependencies/:/home/bedanglot/.m2/repository/eu/stamp-project/test-runner/2.0.7/test-runner-2.0.7-jar-with-dependencies.jar eu.stamp_project.testrunner.runner.JUnit4Runner --class com.github.mustachejava.InterpreterTest --tests testObjectArray:testReadmeSerial:testNestedLatches:testMultipleCallsWithDifferentMapScopes:testNumber0IsFalse:testReadme:testConcurrency:testSimpleWithMap:testSimpleI18N:testIsNotEmpty:testSingleCurly:testComplexParallel:testFunctions:testDeferred:testSerialCallable:testLeavingAloneMissingVariables:testIterator:testDynamicPartial:testImmutableList:testMultipleCallsWithDifferentScopes:testAccessTracker:testOverrideValueCode:testCR:testNestedLatchesIterable:testPartialRecursionWithInheritance:testSimple:testRecurision:testPartialWithTF:testPrivate:testOptional:testSimplePragma:testComment:testSuperField:testSecurity:testSimpleFiltered:testRelativePathsTemplateFunction:testNestedAccessWithSimpleObjectHandler:testProperties:testMap:testMultipleWrappers:testTemplateFunctionWithData:testReadmeParallel:testBaseArray:testTemplateFunctionWithImplicitParams:testTemplateFunction:testRecursionWithInheritance:testPropertyWithDot:testEmptyString:testNotIterableCallable:testImplicitIteratorWithScope:testComplex:testComplex 
@@ -3391,15 +3391,15 @@ java.lang.NoClassDefFoundError: eu/stamp_project/dspot/amplifier/TestDataMutator
 	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
 
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 72750
+[INFO] elapsedTime 72061
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 01:22 min
-[INFO] Finished at: 2019-05-08T09:25:38+02:00
-[INFO] Final Memory: 42M/2304M
+[INFO] Total time: 01:20 min
+[INFO] Finished at: 2019-05-10T11:20:29+02:00
+[INFO] Final Memory: 43M/2071M
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests (default-cli) on project compiler: Execution default-cli of goal eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests failed: A required class was missing while executing eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests: eu/stamp_project/utils/AmplificationHelper$1
+[ERROR] Failed to execute goal eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests (default-cli) on project compiler: Execution default-cli of goal eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests failed: A required class was missing while executing eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests: eu/stamp_project/utils/json/ClassTimeJSON
 [ERROR] -----------------------------------------------------
 [ERROR] realm =    plugin>eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT
 [ERROR] strategy = org.codehaus.plexus.classworlds.strategy.SelfFirstStrategy
@@ -3494,9 +3494,9 @@ java.lang.NoClassDefFoundError: eu/stamp_project/dspot/amplifier/TestDataMutator
 [ERROR] Number of foreign imports: 1
 [ERROR] import: Entry[import  from realm ClassRealm[maven.api, parent: null]]
 [ERROR] 
-[ERROR] -----------------------------------------------------: eu.stamp_project.utils.AmplificationHelper$1
+[ERROR] -----------------------------------------------------: eu.stamp_project.utils.json.ClassTimeJSON
 [ERROR] -> [Help 1]
-org.apache.maven.lifecycle.LifecycleExecutionException: Failed to execute goal eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests (default-cli) on project compiler: Execution default-cli of goal eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests failed: A required class was missing while executing eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests: eu/stamp_project/utils/AmplificationHelper$1
+org.apache.maven.lifecycle.LifecycleExecutionException: Failed to execute goal eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests (default-cli) on project compiler: Execution default-cli of goal eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests failed: A required class was missing while executing eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests: eu/stamp_project/utils/json/ClassTimeJSON
 -----------------------------------------------------
 realm =    plugin>eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT
 strategy = org.codehaus.plexus.classworlds.strategy.SelfFirstStrategy
@@ -3614,7 +3614,7 @@ import: Entry[import  from realm ClassRealm[maven.api, parent: null]]
 	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
 	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
 	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
-Caused by: org.apache.maven.plugin.PluginExecutionException: Execution default-cli of goal eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests failed: A required class was missing while executing eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests: eu/stamp_project/utils/AmplificationHelper$1
+Caused by: org.apache.maven.plugin.PluginExecutionException: Execution default-cli of goal eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests failed: A required class was missing while executing eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests: eu/stamp_project/utils/json/ClassTimeJSON
 -----------------------------------------------------
 realm =    plugin>eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT
 strategy = org.codehaus.plexus.classworlds.strategy.SelfFirstStrategy
@@ -3714,7 +3714,7 @@ import: Entry[import  from realm ClassRealm[maven.api, parent: null]]
 	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:168)
 	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:207)
 	... 20 more
-Caused by: org.apache.maven.plugin.PluginContainerException: A required class was missing while executing eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests: eu/stamp_project/utils/AmplificationHelper$1
+Caused by: org.apache.maven.plugin.PluginContainerException: A required class was missing while executing eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests: eu/stamp_project/utils/json/ClassTimeJSON
 -----------------------------------------------------
 realm =    plugin>eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT
 strategy = org.codehaus.plexus.classworlds.strategy.SelfFirstStrategy
@@ -3813,9 +3813,8 @@ import: Entry[import  from realm ClassRealm[maven.api, parent: null]]
 
 	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:166)
 	... 21 more
-Caused by: java.lang.NoClassDefFoundError: eu/stamp_project/utils/AmplificationHelper$1
-	at eu.stamp_project.utils.AmplificationHelper.createAmplifiedTest(AmplificationHelper.java:100)
-	at eu.stamp_project.dspot.DSpot._amplify(DSpot.java:279)
+Caused by: java.lang.NoClassDefFoundError: eu/stamp_project/utils/json/ClassTimeJSON
+	at eu.stamp_project.dspot.DSpot._amplify(DSpot.java:276)
 	at eu.stamp_project.dspot.DSpot.lambda$amplifyTestClassesTestMethods$5(DSpot.java:254)
 	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
 	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1382)
@@ -3829,12 +3828,12 @@ Caused by: java.lang.NoClassDefFoundError: eu/stamp_project/utils/AmplificationH
 	at eu.stamp_project.DSpotMojo.execute(DSpotMojo.java:305)
 	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:134)
 	... 21 more
-Caused by: java.lang.ClassNotFoundException: eu.stamp_project.utils.AmplificationHelper$1
+Caused by: java.lang.ClassNotFoundException: eu.stamp_project.utils.json.ClassTimeJSON
 	at org.codehaus.plexus.classworlds.strategy.SelfFirstStrategy.loadClass(SelfFirstStrategy.java:50)
 	at org.codehaus.plexus.classworlds.realm.ClassRealm.unsynchronizedLoadClass(ClassRealm.java:271)
 	at org.codehaus.plexus.classworlds.realm.ClassRealm.loadClass(ClassRealm.java:247)
 	at org.codehaus.plexus.classworlds.realm.ClassRealm.loadClass(ClassRealm.java:239)
-	... 35 more
+	... 34 more
 [ERROR] 
 [ERROR] 
 [ERROR] For more information about the errors and possible solutions, please read the following articles:
