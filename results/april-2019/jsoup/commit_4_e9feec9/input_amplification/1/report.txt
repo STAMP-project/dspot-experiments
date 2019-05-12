@@ -1,8 +1,10 @@
 1 amplified test fails on the new versions.
-testDetectCharsetEncodingDeclaration_add181(org.jsoup.parser.XmlTreeBuilderTest): expected:<...set/april-2019/jsoup[_parent]/target/test-classes...> but was:<...set/april-2019/jsoup[]/target/test-classes...>org.junit.ComparisonFailure: expected:<...set/april-2019/jsoup[_parent]/target/test-classes...> but was:<...set/april-2019/jsoup[]/target/test-classes...>
-	at org.junit.Assert.assertEquals(Assert.java:115)
-	at org.junit.Assert.assertEquals(Assert.java:144)
-	at org.jsoup.parser.XmlTreeBuilderTest.testDetectCharsetEncodingDeclaration_add181(XmlTreeBuilderTest.java:142)
+testDetectCharsetEncodingDeclaration_add181(org.jsoup.parser.XmlTreeBuilderTest): expected:<-1740517919> but was:<1865396018>java.lang.AssertionError: expected:<-1740517919> but was:<1865396018>
+	at org.junit.Assert.fail(Assert.java:88)
+	at org.junit.Assert.failNotEquals(Assert.java:834)
+	at org.junit.Assert.assertEquals(Assert.java:645)
+	at org.junit.Assert.assertEquals(Assert.java:631)
+	at org.jsoup.parser.XmlTreeBuilderTest.testDetectCharsetEncodingDeclaration_add181(XmlTreeBuilderTest.java:67)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
