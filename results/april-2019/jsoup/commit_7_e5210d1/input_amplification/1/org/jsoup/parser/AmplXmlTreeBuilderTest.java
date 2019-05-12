@@ -38,7 +38,6 @@ public class AmplXmlTreeBuilderTest {
         Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add1158__1)).getRawUserInfo());
         Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add1158__1)).getRawQuery());
         Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add1158__1)).getRawFragment());
-        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-test.xml", ((URI) (o_testSupplyParserToDataStream_add1158__1)).toString());
         Assert.assertEquals(1549444439, ((int) (((URI) (o_testSupplyParserToDataStream_add1158__1)).hashCode())));
         Assert.assertTrue(((URI) (o_testSupplyParserToDataStream_add1158__1)).isAbsolute());
         Assert.assertFalse(((URI) (o_testSupplyParserToDataStream_add1158__1)).isOpaque());
@@ -52,13 +51,11 @@ public class AmplXmlTreeBuilderTest {
         File xmlFile = new File(XmlTreeBuilder.class.getResource("/htmltests/xml-test.xml").toURI());
         InputStream inStream = new FileInputStream(xmlFile);
         Document doc = Jsoup.parse(inStream, null, "http://foo.com", Parser.xmlParser());
-        String o_testSupplyParserToDataStream_add1158__12 = TextUtil.stripNewlines(doc.html());
-        Assert.assertEquals("<doc><val>One<val>Two</val>Three</val></doc>", o_testSupplyParserToDataStream_add1158__12);
+        TextUtil.stripNewlines(doc.html());
         Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add1158__1)).getRawAuthority());
         Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add1158__1)).getRawUserInfo());
         Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add1158__1)).getRawQuery());
         Assert.assertNull(((URI) (o_testSupplyParserToDataStream_add1158__1)).getRawFragment());
-        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-test.xml", ((URI) (o_testSupplyParserToDataStream_add1158__1)).toString());
         Assert.assertEquals(1549444439, ((int) (((URI) (o_testSupplyParserToDataStream_add1158__1)).hashCode())));
         Assert.assertTrue(((URI) (o_testSupplyParserToDataStream_add1158__1)).isAbsolute());
         Assert.assertFalse(((URI) (o_testSupplyParserToDataStream_add1158__1)).isOpaque());
@@ -78,7 +75,6 @@ public class AmplXmlTreeBuilderTest {
         Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add480__1)).getRawUserInfo());
         Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add480__1)).getRawQuery());
         Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add480__1)).getRawFragment());
-        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_add480__1)).toString());
         Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add480__1)).hashCode())));
         Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_add480__1)).isAbsolute());
         Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_add480__1)).isOpaque());
@@ -94,13 +90,11 @@ public class AmplXmlTreeBuilderTest {
         Document doc = Jsoup.parse(inStream, null, "http://example.com/", Parser.xmlParser());
         String o_testDetectCharsetEncodingDeclaration_add480__12 = doc.charset().name();
         Assert.assertEquals("ISO-8859-1", o_testDetectCharsetEncodingDeclaration_add480__12);
-        String o_testDetectCharsetEncodingDeclaration_add480__14 = TextUtil.stripNewlines(doc.html());
-        Assert.assertEquals("<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?> <data>\u00e4\u00f6\u00e5\u00e9\u00fc</data>", o_testDetectCharsetEncodingDeclaration_add480__14);
+        TextUtil.stripNewlines(doc.html());
         Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add480__1)).getRawAuthority());
         Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add480__1)).getRawUserInfo());
         Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add480__1)).getRawQuery());
         Assert.assertNull(((URI) (o_testDetectCharsetEncodingDeclaration_add480__1)).getRawFragment());
-        Assert.assertEquals("file:/tmp/dspot-experiments/dataset/april-2019/jsoup_parent/target/test-classes/htmltests/xml-charset.xml", ((URI) (o_testDetectCharsetEncodingDeclaration_add480__1)).toString());
         Assert.assertEquals(-1740517919, ((int) (((URI) (o_testDetectCharsetEncodingDeclaration_add480__1)).hashCode())));
         Assert.assertTrue(((URI) (o_testDetectCharsetEncodingDeclaration_add480__1)).isAbsolute());
         Assert.assertFalse(((URI) (o_testDetectCharsetEncodingDeclaration_add480__1)).isOpaque());
