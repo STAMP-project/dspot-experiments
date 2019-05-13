@@ -3,6 +3,16 @@ import toolbox
 import numpy as np
 import matplotlib.pyplot as plt
 
+names_for_chart_per_project = {
+    'commons-io':'io',
+    'commons-lang':'lang',
+    'gson':'gson',
+    'jsoup':'jsoup',
+    'xwiki-commons':'xwiki',
+    'mustache.java':'mustache',
+}
+
+
 def run(project):
     root_project_folder_result = toolbox.prefix_result + project
     json_project = toolbox.get_json_file(toolbox.prefix_current_dataset + project)
@@ -34,7 +44,15 @@ def plot(bins):
     current_bin = [bin[0] for bin in bins]
     current_proportion = np.true_divide(current_bin, total) * 100
     ax = plt.subplot(111)
-    plots = [ax.bar(indices, current_proportion, width=0.8, label=labels[0], color=colors[0])]
+    plots = [
+        ax.barh(
+            indices,
+            current_proportion,
+            label=labels[0],
+            color=colors[0],
+            #width=0.8
+        )
+    ]
     previous_proportion = current_proportion
     print current_bin, current_proportion, previous_proportion
     for index in range(1, len(bins[0])):
@@ -42,16 +60,17 @@ def plot(bins):
         current_proportion = np.true_divide(current_bin, total) * 100
         print current_bin, current_proportion, previous_proportion
         plots.append(
-        ax.bar(indices,
+            ax.barh(
+                indices,
                 current_proportion,
-                width=0.8,
                 label=labels[index],
                 color=colors[index],
-                bottom=previous_proportion
-        ))
+                left=previous_proportion
+                #bottom=previous_proportion
+            )
+        )
         previous_proportion = previous_proportion + current_proportion
-    plt.xticks()
-    plt.xticks(indices, toolbox.projects)
+    plt.yticks(indices, [names_for_chart_per_project[x] for x in reversed(toolbox.projects)])
     plt.setp(plt.gca().get_xticklabels(), rotation=30, horizontalalignment='right')
     ax.legend(plots, labels, fancybox=True, shadow=True, loc='upper center', ncol=5,  bbox_to_anchor=(0.5, 1.1))
     plt.show()
@@ -80,7 +99,7 @@ def sort(coverages):
 
 if __name__ == '__main__':
     bins = []
-    for project in toolbox.projects:
+    for project in reversed(toolbox.projects):
         coverage_project = run(project)
         bins.append(sort(coverage_project))
     plot(bins)
