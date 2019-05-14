@@ -101,7 +101,7 @@ def compute_diff_coverage_for_given_commit(path_to_concerned_module,
 
     cmd = [
         toolbox.maven_home + "mvn", "clean",
-        "eu.stamp-project:dspot-diff-test-selection:2.0.1-SNAPSHOT:list",
+        "eu.stamp-project:dspot-diff-test-selection:2.1.1-SNAPSHOT:list",
         "-Dpath-dir-second-version=" + path_to_concerned_module_other,
         "-Dmodule=" + concerned_module,
         "-Doutput-path=" + output_path_dir +

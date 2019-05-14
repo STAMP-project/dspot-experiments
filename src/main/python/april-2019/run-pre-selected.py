@@ -39,7 +39,7 @@ def run(project, index_begin, index_end, amplifiers, iteration):
         # run now dspot with maven plugin
         cmd = [
             toolbox.maven_home + "mvn",
-            "eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests",
+            "eu.stamp-project:dspot-maven:2.1.1-SNAPSHOT:amplify-unit-tests",
             "-Dpath-to-test-list-csv=" + path_to_test_that_executes_the_changes,
             "-Dverbose=true",
             "-Dtest-criterion=ChangeDetectorSelector",
