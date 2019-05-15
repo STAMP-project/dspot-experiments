@@ -12,14 +12,17 @@ def build_table(projects):
         LOC = json_project['LOC']
         start_date = json_project['commits'][9]['date']
         end_date = json_project['date']
+        total = nb_discarded + 10
+        total_matching = nb_matching + 10
+        perc_matching = float(total_matching) / float(total) * 100.0
         print_line(
             project,
             LOC,
             start_date,
             end_date,
-            nb_discarded + 10,
+            total,
             nb_discarded,
-            nb_matching + 10,
+            str(total_matching) + ('(' + "{0:.2f}".format(perc_matching) + '\%)'),
             10,
             gray
         )
