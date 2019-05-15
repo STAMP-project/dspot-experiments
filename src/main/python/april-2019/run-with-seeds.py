@@ -52,7 +52,7 @@ def run(project, index_begin, index_end):
             "-Dbudgetizer=SimpleBudgetizer",
             '-Diteration=1'
         ]
-        seeds =  [3972265996L, 3347423150L, 4074230799L, 1245182509L, 3832972006L, 3563288028L, 358847448L, 73343450L, 2542737575L, 1317455098L]
+        seeds =  ['39722659', '33474231', '40742307', '12451825', '38329720', '35632880', '3588474', '733434', '25427375', '13174550']
         for seed in seeds:
             output_path_seed = output_path + '/' + seed + '/'  # TODO current_seed
             toolbox.create(output_path_seed)
