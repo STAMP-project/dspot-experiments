@@ -87,7 +87,7 @@ OS name: "linux", version: "4.9.0-8-amd64", arch: "amd64", family: "unix"
 [DEBUG] Looking up lifecyle mappings for packaging pom from ClassRealm[plexus.core, parent: null]
 [DEBUG] === REACTOR BUILD PLAN ================================================
 [DEBUG] Project: org.xwiki.commons:xwiki-commons-tool-xar-plugin:maven-plugin:10.6-SNAPSHOT
-[DEBUG] Tasks:   [eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests]
+[DEBUG] Tasks:   [eu.stamp-project:dspot-maven:2.1.1-SNAPSHOT:amplify-unit-tests]
 [DEBUG] Style:   Regular
 [DEBUG] =======================================================================
 [INFO]                                                                         
@@ -104,10 +104,11 @@ OS name: "linux", version: "4.9.0-8-amd64", arch: "amd64", family: "unix"
 [DEBUG] Repositories (dependencies): [central (https://repo.maven.apache.org/maven2, default, releases)]
 [DEBUG] Repositories (plugins)     : [central (https://repo.maven.apache.org/maven2, default, releases)]
 [DEBUG] -----------------------------------------------------------------------
-[DEBUG] Goal:          eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests (default-cli)
+[DEBUG] Goal:          eu.stamp-project:dspot-maven:2.1.1-SNAPSHOT:amplify-unit-tests (default-cli)
 [DEBUG] Style:         Regular
 [DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+  <allowPathInAssertions default-value="false">${allow-path-in-assertions}</allowPathInAssertions>
   <amplifiers default-value="None">${amplifiers}</amplifiers>
   <automaticBuilder default-value="MavenBuilder">${automatic-builder}</automaticBuilder>
   <budgetizer default-value="RandomBudgetizer">${budgetizer}</budgetizer>
@@ -139,7 +140,7 @@ OS name: "linux", version: "4.9.0-8-amd64", arch: "amd64", family: "unix"
   <workingDirectory default-value="false">${working-directory}</workingDirectory>
 </configuration>
 [DEBUG] =======================================================================
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=1, ConflictMarker.markTime=1, ConflictMarker.nodeCount=208, ConflictIdSorter.graphTime=1, ConflictIdSorter.topsortTime=0, ConflictIdSorter.conflictIdCount=48, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=7, ConflictResolver.conflictItemCount=117, DefaultDependencyCollector.collectTime=308, DefaultDependencyCollector.transformTime=12}
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=2, ConflictMarker.markTime=1, ConflictMarker.nodeCount=208, ConflictIdSorter.graphTime=0, ConflictIdSorter.topsortTime=1, ConflictIdSorter.conflictIdCount=48, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=7, ConflictResolver.conflictItemCount=117, DefaultDependencyCollector.collectTime=269, DefaultDependencyCollector.transformTime=13}
 [DEBUG] org.xwiki.commons:xwiki-commons-tool-xar-plugin:maven-plugin:10.6-SNAPSHOT
 [DEBUG]    org.dom4j:dom4j:jar:2.1.0:compile
 [DEBUG]    org.codehaus.plexus:plexus-archiver:jar:3.6.0:compile
@@ -190,11 +191,11 @@ OS name: "linux", version: "4.9.0-8-amd64", arch: "amd64", family: "unix"
 [DEBUG]    junit:junit:jar:4.12:compile
 [DEBUG]       org.hamcrest:hamcrest-core:jar:1.3:compile
 [INFO] 
-[INFO] --- dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests (default-cli) @ xwiki-commons-tool-xar-plugin ---
-[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
-[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
-[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
-[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.0.1-SNAPSHOT/maven-metadata.xml, locally installed metadata up-to-date.
+[INFO] --- dspot-maven:2.1.1-SNAPSHOT:amplify-unit-tests (default-cli) @ xwiki-commons-tool-xar-plugin ---
+[DEBUG] Failure to find eu.stamp-project:dspot:2.1.1-SNAPSHOT/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.1.1-SNAPSHOT/maven-metadata.xml, locally cached metadata up-to-date.
+[DEBUG] Failure to find eu.stamp-project:dspot:2.1.1-SNAPSHOT/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
+[DEBUG] Skipped remote request for eu.stamp-project:dspot:2.1.1-SNAPSHOT/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Could not find metadata org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in local (/home/bedanglot/.m2/repository)
 [DEBUG] Skipped remote request for org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml, locally cached metadata up-to-date.
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.resources/maven-metadata.xml in https://repo.gradle.org/gradle/libs-releases-local/ was cached in the local repository, resolution will not be reattempted until the update interval of gradle-repo has elapsed or updates are forced
@@ -525,9 +526,9 @@ OS name: "linux", version: "4.9.0-8-amd64", arch: "amd64", family: "unix"
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in https://oss.sonatype.org/content/repositories/snapshots was cached in the local repository, resolution will not be reattempted until the update interval of sonatype-nexus-snapshots has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot was cached in the local repository, resolution will not be reattempted until the update interval of maven.inria.fr-snapshot has elapsed or updates are forced
 [DEBUG] Failure to find org.eclipse.platform:org.eclipse.core.runtime/maven-metadata.xml in http://maven.inria.fr/artifactory/spoon-public-snapshot/ was cached in the local repository, resolution will not be reattempted until the update interval of gforge.inria.fr-release has elapsed or updates are forced
-[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=4, ConflictMarker.markTime=1, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=2, ConflictIdSorter.topsortTime=0, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=8, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=658, DefaultDependencyCollector.transformTime=15}
-[DEBUG] eu.stamp-project:dspot-maven:jar:2.0.1-SNAPSHOT:
-[DEBUG]    eu.stamp-project:dspot:jar:2.0.1-SNAPSHOT:compile
+[DEBUG] Dependency collection stats: {ConflictMarker.analyzeTime=4, ConflictMarker.markTime=1, ConflictMarker.nodeCount=2021, ConflictIdSorter.graphTime=2, ConflictIdSorter.topsortTime=0, ConflictIdSorter.conflictIdCount=117, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=8, ConflictResolver.conflictItemCount=393, DefaultDependencyCollector.collectTime=678, DefaultDependencyCollector.transformTime=15}
+[DEBUG] eu.stamp-project:dspot-maven:jar:2.1.1-SNAPSHOT:
+[DEBUG]    eu.stamp-project:dspot:jar:2.1.1-SNAPSHOT:compile
 [DEBUG]       fr.inria.gforge.spoon:spoon-core:jar:7.3.0:compile
 [DEBUG]          org.eclipse.jdt:org.eclipse.jdt.core:jar:3.15.0:compile
 [DEBUG]             org.eclipse.platform:org.eclipse.core.resources:jar:3.13.300:compile
@@ -638,12 +639,12 @@ OS name: "linux", version: "4.9.0-8-amd64", arch: "amd64", family: "unix"
 [DEBUG]       org.apache.maven:maven-plugin-registry:jar:2.2.1:compile
 [DEBUG]       org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1:compile
 [DEBUG]          classworlds:classworlds:jar:1.1-alpha-2:compile
-[DEBUG] Created new class realm plugin>eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT
-[DEBUG] Importing foreign packages into class realm plugin>eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT
+[DEBUG] Created new class realm plugin>eu.stamp-project:dspot-maven:2.1.1-SNAPSHOT
+[DEBUG] Importing foreign packages into class realm plugin>eu.stamp-project:dspot-maven:2.1.1-SNAPSHOT
 [DEBUG]   Imported:  < maven.api
-[DEBUG] Populating class realm plugin>eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT
-[DEBUG]   Included: eu.stamp-project:dspot-maven:jar:2.0.1-SNAPSHOT
-[DEBUG]   Included: eu.stamp-project:dspot:jar:2.0.1-SNAPSHOT
+[DEBUG] Populating class realm plugin>eu.stamp-project:dspot-maven:2.1.1-SNAPSHOT
+[DEBUG]   Included: eu.stamp-project:dspot-maven:jar:2.1.1-SNAPSHOT
+[DEBUG]   Included: eu.stamp-project:dspot:jar:2.1.1-SNAPSHOT
 [DEBUG]   Included: fr.inria.gforge.spoon:spoon-core:jar:7.3.0
 [DEBUG]   Included: org.eclipse.jdt:org.eclipse.jdt.core:jar:3.15.0
 [DEBUG]   Included: org.eclipse.platform:org.eclipse.core.resources:jar:3.13.300
@@ -730,8 +731,9 @@ OS name: "linux", version: "4.9.0-8-amd64", arch: "amd64", family: "unix"
 [DEBUG]   Included: org.apache.commons:commons-lang3:jar:3.5
 [DEBUG]   Included: org.eclipse.aether:aether-util:jar:1.0.2.v20150114
 [DEBUG]   Included: backport-util-concurrent:backport-util-concurrent:jar:3.1
-[DEBUG] Configuring mojo eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests from plugin realm ClassRealm[plugin>eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT, parent: sun.misc.Launcher$AppClassLoader@1b6d3586]
-[DEBUG] Configuring mojo 'eu.stamp-project:dspot-maven:2.0.1-SNAPSHOT:amplify-unit-tests' with basic configurator -->
+[DEBUG] Configuring mojo eu.stamp-project:dspot-maven:2.1.1-SNAPSHOT:amplify-unit-tests from plugin realm ClassRealm[plugin>eu.stamp-project:dspot-maven:2.1.1-SNAPSHOT, parent: sun.misc.Launcher$AppClassLoader@1b6d3586]
+[DEBUG] Configuring mojo 'eu.stamp-project:dspot-maven:2.1.1-SNAPSHOT:amplify-unit-tests' with basic configurator -->
+[DEBUG]   (f) allowPathInAssertions = false
 [DEBUG]   (f) amplifiers = [TestDataMutator, MethodAdd, MethodRemove, NullifierAmplifier]
 [DEBUG]   (f) automaticBuilder = MavenBuilder
 [DEBUG]   (f) budgetizer = SimpleBudgetizer
@@ -845,16 +847,16 @@ Goal prefix is specified as: 'xar'. Maven currently expects it to be 'xwiki-comm
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 3.928 s
-[INFO] Finished at: 2019-05-09T09:24:52+02:00
+[INFO] Total time: 3.904 s
+[INFO] Finished at: 2019-05-17T00:07:36+02:00
 [INFO] Final Memory: 41M/1963M
 [INFO] ------------------------------------------------------------------------
 [INFO] Amplification of org.xwiki.tool.xar.XWikiDocumentTest (1 test(s))
 [INFO] Assertion amplification of org.xwiki.tool.xar.XWikiDocumentTest (1 test(s))
 [DEBUG] Starting 15 Services...
-[DEBUG] All Services successfully started, 15 Services in 6ms
+[DEBUG] All Services successfully started, 15 Services in 5ms
 [DEBUG] Creating Cache 'frameworkCache' in EhcacheManager.
-[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@626d2016
+[DEBUG] Serializer for <java.lang.String> : org.ehcache.impl.serialization.StringSerializer@19489b27
 [DEBUG] Could not create serializers for frameworkCache
 org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for type 'eu.stamp_project.test_framework.TestFrameworkSupport'
 	at org.ehcache.impl.internal.spi.serialization.DefaultSerializationProvider.getSerializerClassFor(DefaultSerializationProvider.java:136)
@@ -869,8 +871,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 	at eu.stamp_project.test_framework.TestFramework.getTestFramework(TestFramework.java:128)
 	at eu.stamp_project.test_framework.TestFramework.isJUnit5(TestFramework.java:67)
 	at eu.stamp_project.dspot.Amplification.amplification(Amplification.java:84)
-	at eu.stamp_project.dspot.DSpot._amplify(DSpot.java:273)
-	at eu.stamp_project.dspot.DSpot.lambda$amplifyTestClassesTestMethods$5(DSpot.java:254)
+	at eu.stamp_project.dspot.DSpot._amplify(DSpot.java:274)
+	at eu.stamp_project.dspot.DSpot.lambda$amplifyTestClassesTestMethods$5(DSpot.java:255)
 	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
 	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1382)
 	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:482)
@@ -878,9 +880,9 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
 	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
 	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
-	at eu.stamp_project.dspot.DSpot.amplifyTestClassesTestMethods(DSpot.java:255)
+	at eu.stamp_project.dspot.DSpot.amplifyTestClassesTestMethods(DSpot.java:256)
 	at eu.stamp_project.Main.run(Main.java:65)
-	at eu.stamp_project.DSpotMojo.execute(DSpotMojo.java:305)
+	at eu.stamp_project.DSpotMojo.execute(DSpotMojo.java:311)
 	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:134)
 	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:207)
 	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
@@ -903,8 +905,8 @@ org.ehcache.spi.serialization.UnsupportedTypeException: No serializer found for 
 	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
 	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
 	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
-[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@2c26ba07
-[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@6f25bf88
+[DEBUG] Copier for <java.lang.String> : org.ehcache.impl.copy.IdentityCopier@2213639b
+[DEBUG] Copier for <eu.stamp_project.test_framework.TestFrameworkSupport> : org.ehcache.impl.copy.IdentityCopier@2c26ba07
 [DEBUG] Initialize successful.
 [INFO] Cache 'frameworkCache' created in EhcacheManager.
 [DEBUG] Initialize successful.
@@ -987,8 +989,8 @@ Goal prefix is specified as: 'xar'. Maven currently expects it to be 'xwiki-comm
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 3.475 s
-[INFO] Finished at: 2019-05-09T09:24:58+02:00
+[INFO] Total time: 3.630 s
+[INFO] Finished at: 2019-05-17T00:07:42+02:00
 [INFO] Final Memory: 36M/1963M
 [INFO] ------------------------------------------------------------------------
 [INFO] Compiling with -proceedOnError -encoding UTF-8 -cp /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/dspot/tmp_test_sources:/home/bedanglot/.m2/repository/org/dom4j/dom4j/2.1.0/dom4j-2.1.0.jar:/home/bedanglot/.m2/repository/org/codehaus/plexus/plexus-archiver/3.6.0/plexus-archiver-3.6.0.jar:/home/bedanglot/.m2/repository/org/codehaus/plexus/plexus-io/3.0.1/plexus-io-3.0.1.jar:/home/bedanglot/.m2/repository/org/apache/commons/commons-compress/1.17/commons-compress-1.17.jar:/home/bedanglot/.m2/repository/org/iq80/snappy/snappy/0.4/snappy-0.4.jar:/home/bedanglot/.m2/repository/org/tukaani/xz/1.8/xz-1.8.jar:/home/bedanglot/.m2/repository/jaxen/jaxen/1.1.6/jaxen-1.1.6.jar:/home/bedanglot/.m2/repository/com/ibm/icu/icu4j/50.1.1/icu4j-50.1.1.jar:/home/bedanglot/.m2/repository/commons-io/commons-io/2.6/commons-io-2.6.jar:/home/bedanglot/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:/home/bedanglot/.m2/repository/org/codehaus/plexus/plexus-utils/3.1.0/plexus-utils-3.1.0.jar:/home/bedanglot/.m2/repository/org/apache/maven/maven-artifact/3.3.9/maven-artifact-3.3.9.jar:/home/bedanglot/.m2/repository/org/apache/maven/maven-plugin-api/3.3.9/maven-plugin-api-3.3.9.jar:/home/bedanglot/.m2/repository/org/eclipse/sisu/org.eclipse.sisu.plexus/0.3.3/org.eclipse.sisu.plexus-0.3.3.jar:/home/bedanglot/.m2/repository/javax/enterprise/cdi-api/1.0/cdi-api-1.0.jar:/home/bedanglot/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/home/bedanglot/.m2/repository/org/eclipse/sisu/org.eclipse.sisu.inject/0.3.3/org.eclipse.sisu.inject-0.3.3.jar:/home/bedanglot/.m2/repository/org/apache/maven/maven-compat/3.3.9/maven-compat-3.3.9.jar:/home/bedanglot/.m2/repository/org/apache/maven/maven-model-builder/3.3.9/maven-model-builder-3.3.9.jar:/home/bedanglot/.m2/repository/org/apache/maven/maven-builder-support/3.3.9/maven-builder-support-3.3.9.jar:/home/bedanglot/.m2/repository/com/google/guava/guava/20.0/guava-20.0.jar:/home/bedanglot/.m2/repository/org/apache/maven/maven-settings/3.3.9/maven-settings-3.3.9.jar:/home/bedanglot/.m2/repository/org/apache/maven/maven-core/3.3.9/maven-core-3.3.9.jar:/home/bedanglot/.m2/repository/org/apache/maven/maven-settings-builder/3.3.9/maven-settings-builder-3.3.9.jar:/home/bedanglot/.m2/repository/org/apache/maven/maven-repository-metadata/3.3.9/maven-repository-metadata-3.3.9.jar:/home/bedanglot/.m2/repository/org/apache/maven/maven-aether-provider/3.3.9/maven-aether-provider-3.3.9.jar:/home/bedanglot/.m2/repository/org/eclipse/aether/aether-spi/1.0.2.v20150114/aether-spi-1.0.2.v20150114.jar:/home/bedanglot/.m2/repository/org/eclipse/aether/aether-impl/1.0.2.v20150114/aether-impl-1.0.2.v20150114.jar:/home/bedanglot/.m2/repository/org/eclipse/aether/aether-api/1.0.2.v20150114/aether-api-1.0.2.v20150114.jar:/home/bedanglot/.m2/repository/org/eclipse/aether/aether-util/1.0.2.v20150114/aether-util-1.0.2.v20150114.jar:/home/bedanglot/.m2/repository/com/google/inject/guice/4.0/guice-4.0-no_aop.jar:/home/bedanglot/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/home/bedanglot/.m2/repository/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar:/home/bedanglot/.m2/repository/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar:/home/bedanglot/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.25/plexus-interpolation-1.25.jar:/home/bedanglot/.m2/repository/org/codehaus/plexus/plexus-component-annotations/1.7.1/plexus-component-annotations-1.7.1.jar:/home/bedanglot/.m2/repository/org/apache/maven/wagon/wagon-provider-api/2.10/wagon-provider-api-2.10.jar:/home/bedanglot/.m2/repository/org/apache/maven/maven-model/3.3.9/maven-model-3.3.9.jar:/home/bedanglot/.m2/repository/org/apache/maven/plugin-tools/maven-plugin-annotations/3.5/maven-plugin-annotations-3.5.jar:/home/bedanglot/.m2/repository/org/codehaus/plexus/plexus-container-default/1.7.1/plexus-container-default-1.7.1.jar:/home/bedanglot/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.5.2/plexus-classworlds-2.5.2.jar:/home/bedanglot/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar:/home/bedanglot/.m2/repository/com/google/collections/google-collections/1.0/google-collections-1.0.jar:/home/bedanglot/.m2/repository/org/twdata/maven/mojo-executor/2.2.0/mojo-executor-2.2.0.jar:/home/bedanglot/.m2/repository/xerces/xercesImpl/2.11.0/xercesImpl-2.11.0.jar:/home/bedanglot/.m2/repository/xml-apis/xml-apis/1.4.01/xml-apis-1.4.01.jar:/home/bedanglot/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/bedanglot/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/classes/:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/test-classes/:/tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/dspot/dependencies/: -d /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/test-classes -1.8 -preserveAllLocals -noExit -enableJavadoc -proc:none /tmp/dspot-experiments/dataset/april-2019/xwiki-commons_parent/xwiki-commons-tools/xwiki-commons-tool-xar/xwiki-commons-tool-xar-plugin/target/dspot/tmp_test_sources/org/xwiki/tool/xar/XWikiDocumentTest.java
@@ -1059,7 +1061,7 @@ Goal prefix is specified as: 'xar'. Maven currently expects it to be 'xwiki-comm
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.xwiki.tool.xar.XWikiDocumentTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.118 sec - in org.xwiki.tool.xar.XWikiDocumentTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.122 sec - in org.xwiki.tool.xar.XWikiDocumentTest
 [INFO] 
 [INFO] Results :
 [INFO] 
@@ -1068,8 +1070,8 @@ Goal prefix is specified as: 'xar'. Maven currently expects it to be 'xwiki-comm
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] [INFO] BUILD SUCCESS
 [INFO] [INFO] ------------------------------------------------------------------------
-[INFO] [INFO] Total time: 4.526 s
-[INFO] [INFO] Finished at: 2019-05-09T09:25:04+02:00
+[INFO] [INFO] Total time: 4.595 s
+[INFO] [INFO] Finished at: 2019-05-17T00:07:49+02:00
 [INFO] [INFO] Final Memory: 25M/1963M
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] Run tests. (1)
@@ -1138,7 +1140,7 @@ Goal prefix is specified as: 'xar'. Maven currently expects it to be 'xwiki-comm
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.xwiki.tool.xar.XWikiDocumentTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.xwiki.tool.xar.XWikiDocumentTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.xwiki.tool.xar.XWikiDocumentTest
 [INFO] 
 [INFO] Results :
 [INFO] 
@@ -1147,9 +1149,9 @@ Goal prefix is specified as: 'xar'. Maven currently expects it to be 'xwiki-comm
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] [INFO] BUILD SUCCESS
 [INFO] [INFO] ------------------------------------------------------------------------
-[INFO] [INFO] Total time: 4.483 s
-[INFO] [INFO] Finished at: 2019-05-09T09:25:10+02:00
-[INFO] [INFO] Final Memory: 25M/1963M
+[INFO] [INFO] Total time: 4.386 s
+[INFO] [INFO] Finished at: 2019-05-17T00:07:54+02:00
+[INFO] [INFO] Final Memory: 26M/1963M
 [INFO] [INFO] ------------------------------------------------------------------------
 [INFO] 1 test pass, generating assertion...
 [INFO] Add observations points in passing tests.
@@ -1163,17 +1165,17 @@ Goal prefix is specified as: 'xar'. Maven currently expects it to be 'xwiki-comm
 [INFO] iteration 0 / 2
 [INFO] 1 tests selected to be amplified over 1 available tests
 [INFO] Amplification of inputs...
-[INFO] Time to amplify: 167ms
+[INFO] Time to amplify: 162ms
   1% | ]/[INFO] 0 new tests generated
 [INFO] iteration 1 / 2
 [WARNING] No test could be selected to be amplified.
 [INFO] 0 amplified test methods has been selected to be kept. (global: 0)
-[INFO] elapsedTime 17721
+[INFO] elapsedTime 17923
 [DEBUG] OPTIMIZATION: GC invoked
 [WARNING] DSpot could not obtain any amplified test method.
 [WARNING] You can customize the following options: --amplifiers, --test-criterion, --iteration, --budgetizer etc, and retry with a new configuration.
 [INFO] Amplification succeed.
-[INFO] Elapsed time 17945 ms
+[INFO] Elapsed time 18218 ms
 [INFO] 
 0 amplified test fails on the new versions.
 [INFO] Writing report in /tmp/dspot-experiments/results/april-2019/xwiki-commons/commit_3_848c984/input_amplification/2/report.txt
@@ -1182,7 +1184,7 @@ Goal prefix is specified as: 'xar'. Maven currently expects it to be 'xwiki-comm
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 26.183 s
-[INFO] Finished at: 2019-05-09T09:25:11+02:00
+[INFO] Total time: 26.404 s
+[INFO] Finished at: 2019-05-17T00:07:55+02:00
 [INFO] Final Memory: 36M/2073M
 [INFO] ------------------------------------------------------------------------
