@@ -38,7 +38,7 @@ import junit.framework.TestCase;
 public class AmplInterpreterTest extends TestCase {
     protected File root;
 
-    public void testSimple_literalMutationString4068_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+    public void testSimple_literalMutationString4069_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
         try {
             MustacheFactory c = createMustacheFactory();
             Mustache m = c.compile("simple.h ml");
@@ -56,13 +56,13 @@ public class AmplInterpreterTest extends TestCase {
             });
             TestUtil.getContents(root, "simple.txt");
             sw.toString();
-            junit.framework.TestCase.fail("testSimple_literalMutationString4068 should have thrown MustacheNotFoundException");
+            junit.framework.TestCase.fail("testSimple_literalMutationString4069 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
             TestCase.assertEquals("Template simple.h ml not found", expected.getMessage());
         }
     }
 
-    public void testSimple_literalMutationString4065_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+    public void testSimple_literalMutationString4066_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
         try {
             MustacheFactory c = createMustacheFactory();
             Mustache m = c.compile("@eFo&]bD>!z");
@@ -80,7 +80,7 @@ public class AmplInterpreterTest extends TestCase {
             });
             TestUtil.getContents(root, "simple.txt");
             sw.toString();
-            junit.framework.TestCase.fail("testSimple_literalMutationString4065 should have thrown MustacheNotFoundException");
+            junit.framework.TestCase.fail("testSimple_literalMutationString4066 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
             TestCase.assertEquals("Template @eFo&]bD>!z not found", expected.getMessage());
         }
@@ -199,7 +199,7 @@ public class AmplInterpreterTest extends TestCase {
         }
     }
 
-    public void testSimpleFiltered_literalMutationString5122_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+    public void testSimpleFiltered_literalMutationString5123_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
         try {
             MustacheFactory c = new DefaultMustacheFactory(root) {
                 @Override
@@ -225,7 +225,7 @@ public class AmplInterpreterTest extends TestCase {
             });
             TestUtil.getContents(root, "simplefiltered.txt");
             sw.toString();
-            junit.framework.TestCase.fail("testSimpleFiltered_literalMutationString5122 should have thrown MustacheNotFoundException");
+            junit.framework.TestCase.fail("testSimpleFiltered_literalMutationString5123 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
             TestCase.assertEquals("Template zOkK&a$)LIMmqw=Ma ! not found", expected.getMessage());
         }
@@ -235,7 +235,7 @@ public class AmplInterpreterTest extends TestCase {
         return new DefaultMustacheFactory(root);
     }
 
-    public void testRecurision_literalMutationString4216_failAssert0() throws IOException {
+    public void testRecurision_literalMutationString4217_failAssert0() throws IOException {
         try {
             StringWriter sw = execute("0)nD+/OS38cC[G", new Object() {
                 Object value = new Object() {
@@ -244,12 +244,12 @@ public class AmplInterpreterTest extends TestCase {
             });
             TestUtil.getContents(root, "recursion.txt");
             sw.toString();
-            junit.framework.TestCase.fail("testRecurision_literalMutationString4216 should have thrown MustacheNotFoundException");
+            junit.framework.TestCase.fail("testRecurision_literalMutationString4217 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
         }
     }
 
-    public void testRecurision_literalMutationString4213_failAssert0() throws IOException {
+    public void testRecurision_literalMutationString4214_failAssert0() throws IOException {
         try {
             StringWriter sw = execute("recur>ion.html", new Object() {
                 Object value = new Object() {
@@ -258,13 +258,13 @@ public class AmplInterpreterTest extends TestCase {
             });
             TestUtil.getContents(root, "recursion.txt");
             sw.toString();
-            junit.framework.TestCase.fail("testRecurision_literalMutationString4213 should have thrown MustacheNotFoundException");
+            junit.framework.TestCase.fail("testRecurision_literalMutationString4214 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
             TestCase.assertEquals("Template recur>ion.html not found", expected.getMessage());
         }
     }
 
-    public void testRecursionWithInheritance_literalMutationString7041_failAssert0() throws IOException {
+    public void testRecursionWithInheritance_literalMutationString7042_failAssert0() throws IOException {
         try {
             StringWriter sw = execute("n]5N[9_#G7nLKEf<rz={[YT&^U6Y]Kg", new Object() {
                 Object value = new Object() {
@@ -273,13 +273,13 @@ public class AmplInterpreterTest extends TestCase {
             });
             TestUtil.getContents(root, "recursion.txt");
             sw.toString();
-            junit.framework.TestCase.fail("testRecursionWithInheritance_literalMutationString7041 should have thrown MustacheNotFoundException");
+            junit.framework.TestCase.fail("testRecursionWithInheritance_literalMutationString7042 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
             TestCase.assertEquals("Template n]5N[9_#G7nLKEf<rz={[YT&^U6Y]Kg not found", expected.getMessage());
         }
     }
 
-    public void testRecursionWithInheritance_literalMutationString7042_failAssert0() throws IOException {
+    public void testRecursionWithInheritance_literalMutationString7043_failAssert0() throws IOException {
         try {
             StringWriter sw = execute("#ecursion_with_inheritance.html", new Object() {
                 Object value = new Object() {
@@ -288,13 +288,13 @@ public class AmplInterpreterTest extends TestCase {
             });
             TestUtil.getContents(root, "recursion.txt");
             sw.toString();
-            junit.framework.TestCase.fail("testRecursionWithInheritance_literalMutationString7042 should have thrown MustacheNotFoundException");
+            junit.framework.TestCase.fail("testRecursionWithInheritance_literalMutationString7043 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
             TestCase.assertEquals("Template #ecursion_with_inheritance.html not found", expected.getMessage());
         }
     }
 
-    public void testPartialRecursionWithInheritance_literalMutationString4002_failAssert0() throws IOException {
+    public void testPartialRecursionWithInheritance_literalMutationString4003_failAssert0() throws IOException {
         try {
             StringWriter sw = execute("*R0oQx`#S=-MZ,LBX]bck^]{Xa1dE/?)a`", new Object() {
                 Object test = new Object() {
@@ -303,12 +303,12 @@ public class AmplInterpreterTest extends TestCase {
             });
             TestUtil.getContents(root, "recursive_partial_inheritance.txt");
             sw.toString();
-            junit.framework.TestCase.fail("testPartialRecursionWithInheritance_literalMutationString4002 should have thrown MustacheNotFoundException");
+            junit.framework.TestCase.fail("testPartialRecursionWithInheritance_literalMutationString4003 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
         }
     }
 
-    public void testSimplePragma_literalMutationString4594_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+    public void testSimplePragma_literalMutationString4595_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
         try {
             MustacheFactory c = createMustacheFactory();
             Mustache m = c.compile("H&p;1@F$K#!Y^e-eG");
@@ -326,7 +326,7 @@ public class AmplInterpreterTest extends TestCase {
             });
             TestUtil.getContents(root, "simple.txt");
             sw.toString();
-            junit.framework.TestCase.fail("testSimplePragma_literalMutationString4594 should have thrown MustacheNotFoundException");
+            junit.framework.TestCase.fail("testSimplePragma_literalMutationString4595 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
             TestCase.assertEquals("Template H&p;1@F$K#!Y^e-eG not found", expected.getMessage());
         }
@@ -351,7 +351,7 @@ public class AmplInterpreterTest extends TestCase {
         return writer.toString();
     }
 
-    public void testMultipleWrappers_literalMutationString6040_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+    public void testMultipleWrappers_literalMutationString6041_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
         try {
             MustacheFactory c = createMustacheFactory();
             Mustache m = c.compile("m>HJn<R|%/e");
@@ -375,7 +375,7 @@ public class AmplInterpreterTest extends TestCase {
             });
             TestUtil.getContents(root, "simplerewrap.txt");
             sw.toString();
-            junit.framework.TestCase.fail("testMultipleWrappers_literalMutationString6040 should have thrown MustacheNotFoundException");
+            junit.framework.TestCase.fail("testMultipleWrappers_literalMutationString6041 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
         }
     }
@@ -456,7 +456,7 @@ public class AmplInterpreterTest extends TestCase {
         return sw;
     }
 
-    public void testImmutableList_literalMutationString3120_failAssert0() throws IOException {
+    public void testImmutableList_literalMutationString3121_failAssert0() throws IOException {
         try {
             Object object = new Object() {
                 List<String> people = Collections.singletonList("Test");
@@ -464,13 +464,13 @@ public class AmplInterpreterTest extends TestCase {
             StringWriter sw = execute("{vs!b(f2kvd|", Collections.singletonList(object));
             TestUtil.getContents(root, "isempty.txt");
             sw.toString();
-            junit.framework.TestCase.fail("testImmutableList_literalMutationString3120 should have thrown MustacheNotFoundException");
+            junit.framework.TestCase.fail("testImmutableList_literalMutationString3121 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
             TestCase.assertEquals("Template {vs!b(f2kvd| not found", expected.getMessage());
         }
     }
 
-    public void testSecurity_literalMutationString4921_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
+    public void testSecurity_literalMutationString4922_failAssert0() throws MustacheException, IOException, InterruptedException, ExecutionException {
         try {
             MustacheFactory c = createMustacheFactory();
             Mustache m = c.compile("secur[ty.html");
@@ -490,7 +490,7 @@ public class AmplInterpreterTest extends TestCase {
             });
             TestUtil.getContents(root, "security.txt");
             sw.toString();
-            junit.framework.TestCase.fail("testSecurity_literalMutationString4921 should have thrown MustacheNotFoundException");
+            junit.framework.TestCase.fail("testSecurity_literalMutationString4922 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
             TestCase.assertEquals("Template secur[ty.html not found", expected.getMessage());
         }
@@ -532,7 +532,7 @@ public class AmplInterpreterTest extends TestCase {
         }
     }
 
-    public void testPartialWithTF_literalMutationString4283_failAssert0() throws MustacheException, IOException {
+    public void testPartialWithTF_literalMutationString4284_failAssert0() throws MustacheException, IOException {
         try {
             MustacheFactory c = createMustacheFactory();
             Mustache m = c.compile("W`h79`wVYde!kAeH-.^dDUAFL e^._");
@@ -543,13 +543,13 @@ public class AmplInterpreterTest extends TestCase {
                 }
             });
             sw.toString();
-            junit.framework.TestCase.fail("testPartialWithTF_literalMutationString4283 should have thrown MustacheNotFoundException");
+            junit.framework.TestCase.fail("testPartialWithTF_literalMutationString4284 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
             TestCase.assertEquals("Template W`h79`wVYde!kAeH-.^dDUAFL e^._ not found", expected.getMessage());
         }
     }
 
-    public void testComplex_literalMutationString7563_failAssert0() throws MustacheException, IOException {
+    public void testComplex_literalMutationString7564_failAssert0() throws MustacheException, IOException {
         try {
             StringWriter json = new StringWriter();
             MappingJsonFactory jf = new MappingJsonFactory();
@@ -578,48 +578,13 @@ public class AmplInterpreterTest extends TestCase {
             sw.toString();
             TestUtil.getContents(root, "complex.txt");
             sw.toString();
-            junit.framework.TestCase.fail("testComplex_literalMutationString7563 should have thrown MustacheNotFoundException");
+            junit.framework.TestCase.fail("testComplex_literalMutationString7564 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
             TestCase.assertEquals("Template c$=$JI<B[&L] not found", expected.getMessage());
         }
     }
 
-    public void testComplex_literalMutationString7763_failAssert0() throws MustacheException, IOException {
-        try {
-            StringWriter json = new StringWriter();
-            MappingJsonFactory jf = new MappingJsonFactory();
-            final JsonGenerator jg = jf.createJsonGenerator(json);
-            jg.writeStartObject();
-            final JsonCapturer captured = new JsonCapturer(jg);
-            MustacheFactory c = new DefaultMustacheFactory(root) {
-                @Override
-                public MustacheVisitor createMustacheVisitor() {
-                    return new CapturingMustacheVisitor(this, captured);
-                }
-            };
-            Mustache m = c.compile("complex.html");
-            StringWriter sw = new StringWriter();
-            m.execute(sw, new ComplexObject());
-            jg.writeEndObject();
-            jg.flush();
-            TestUtil.getContents(root, "complex.txt");
-            sw.toString();
-            JsonNode jsonNode = jf.createJsonParser(json.toString()).readValueAsTree();
-            Object o = JsonInterpreterTest.toObject(jsonNode);
-            sw = new StringWriter();
-            m = createMustacheFactory().compile("}7hT0[e!2k?W");
-            m.execute(sw, o);
-            TestUtil.getContents(root, "complex.txt");
-            sw.toString();
-            TestUtil.getContents(root, "complex.txt");
-            sw.toString();
-            junit.framework.TestCase.fail("testComplex_literalMutationString7763 should have thrown MustacheNotFoundException");
-        } catch (MustacheNotFoundException expected) {
-            TestCase.assertEquals("Template }7hT0[e!2k?W not found", expected.getMessage());
-        }
-    }
-
-    public void testComplex_literalMutationString7754_failAssert0() throws MustacheException, IOException {
+    public void testComplex_literalMutationString7755_failAssert0() throws MustacheException, IOException {
         try {
             StringWriter json = new StringWriter();
             MappingJsonFactory jf = new MappingJsonFactory();
@@ -648,9 +613,44 @@ public class AmplInterpreterTest extends TestCase {
             sw.toString();
             TestUtil.getContents(root, "complex.txt");
             sw.toString();
-            junit.framework.TestCase.fail("testComplex_literalMutationString7754 should have thrown MustacheNotFoundException");
+            junit.framework.TestCase.fail("testComplex_literalMutationString7755 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
             TestCase.assertEquals("Template {P[ `8U^L|U2 not found", expected.getMessage());
+        }
+    }
+
+    public void testComplex_literalMutationString7764_failAssert0() throws MustacheException, IOException {
+        try {
+            StringWriter json = new StringWriter();
+            MappingJsonFactory jf = new MappingJsonFactory();
+            final JsonGenerator jg = jf.createJsonGenerator(json);
+            jg.writeStartObject();
+            final JsonCapturer captured = new JsonCapturer(jg);
+            MustacheFactory c = new DefaultMustacheFactory(root) {
+                @Override
+                public MustacheVisitor createMustacheVisitor() {
+                    return new CapturingMustacheVisitor(this, captured);
+                }
+            };
+            Mustache m = c.compile("complex.html");
+            StringWriter sw = new StringWriter();
+            m.execute(sw, new ComplexObject());
+            jg.writeEndObject();
+            jg.flush();
+            TestUtil.getContents(root, "complex.txt");
+            sw.toString();
+            JsonNode jsonNode = jf.createJsonParser(json.toString()).readValueAsTree();
+            Object o = JsonInterpreterTest.toObject(jsonNode);
+            sw = new StringWriter();
+            m = createMustacheFactory().compile("}7hT0[e!2k?W");
+            m.execute(sw, o);
+            TestUtil.getContents(root, "complex.txt");
+            sw.toString();
+            TestUtil.getContents(root, "complex.txt");
+            sw.toString();
+            junit.framework.TestCase.fail("testComplex_literalMutationString7764 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            TestCase.assertEquals("Template }7hT0[e!2k?W not found", expected.getMessage());
         }
     }
 
@@ -668,7 +668,7 @@ public class AmplInterpreterTest extends TestCase {
         }
     }
 
-    public void testDynamicPartial_literalMutationString2665_failAssert0() throws MustacheException, IOException {
+    public void testDynamicPartial_literalMutationString2666_failAssert0() throws MustacheException, IOException {
         try {
             MustacheFactory c = new DefaultMustacheFactory(root) {
                 @Override
@@ -719,70 +719,13 @@ public class AmplInterpreterTest extends TestCase {
             });
             TestUtil.getContents(root, "simple.txt");
             sw.toString();
-            junit.framework.TestCase.fail("testDynamicPartial_literalMutationString2665 should have thrown MustacheNotFoundException");
+            junit.framework.TestCase.fail("testDynamicPartial_literalMutationString2666 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
             TestCase.assertEquals("Template + [foo].html not found", expected.getMessage());
         }
     }
 
-    public void testDynamicPartial_literalMutationString2683_failAssert0() throws MustacheException, IOException {
-        try {
-            MustacheFactory c = new DefaultMustacheFactory(root) {
-                @Override
-                public MustacheVisitor createMustacheVisitor() {
-                    return new DefaultMustacheVisitor(this) {
-                        @Override
-                        public void partial(TemplateContext tc, String variable) {
-                            if (variable.startsWith("+")) {
-                                TemplateContext partialTC = new TemplateContext("{{", "}}", tc.file(), tc.line(), tc.startOfLine());
-                                list.add(new PartialCode(partialTC, df, variable.substring(1).trim()) {
-                                    @Override
-                                    public synchronized void init() {
-                                        filterText();
-                                        partial = df.compile(new StringReader(name), "__dynpartial__", "page1.txt", "]");
-                                        if ((partial) == null) {
-                                            throw new MustacheException(("Failed to parse partial name template: " + (name)));
-                                        }
-                                    }
-
-                                    ConcurrentMap<String, Mustache> dynamicaPartialCache = new ConcurrentHashMap<>();
-
-                                    @Override
-                                    public Writer execute(Writer writer, List<Object> scopes) {
-                                        StringWriter sw = new StringWriter();
-                                        partial.execute(sw, scopes);
-                                        Mustache mustache = dynamicaPartialCache.computeIfAbsent(sw.toString(), df::compilePartial);
-                                        Writer execute = mustache.execute(writer, scopes);
-                                        return appendText(execute);
-                                    }
-                                });
-                            } else {
-                                super.partial(tc, variable);
-                            }
-                        }
-                    };
-                }
-            };
-            Mustache m = c.compile(new StringReader("{{>+ [foo].html}}"), "test.html");
-            StringWriter sw = new StringWriter();
-            m.execute(sw, new HashMap<String, Object>() {
-                {
-                    put("name", "Chris");
-                    put("value", 10000);
-                    put("taxed_value", 6000);
-                    put("in_ca", true);
-                    put("foo", "simple");
-                }
-            });
-            TestUtil.getContents(root, "simple.txt");
-            sw.toString();
-            junit.framework.TestCase.fail("testDynamicPartial_literalMutationString2683 should have thrown MustacheNotFoundException");
-        } catch (MustacheNotFoundException expected) {
-            TestCase.assertEquals("Template [foo].html not found", expected.getMessage());
-        }
-    }
-
-    public void testDynamicPartial_literalMutationString2684_failAssert0() throws MustacheException, IOException {
+    public void testDynamicPartial_literalMutationString2685_failAssert0() throws MustacheException, IOException {
         try {
             MustacheFactory c = new DefaultMustacheFactory(root) {
                 @Override
@@ -833,13 +776,70 @@ public class AmplInterpreterTest extends TestCase {
             });
             TestUtil.getContents(root, "simple.txt");
             sw.toString();
+            junit.framework.TestCase.fail("testDynamicPartial_literalMutationString2685 should have thrown MustacheNotFoundException");
+        } catch (MustacheNotFoundException expected) {
+            TestCase.assertEquals("Template [foo].html not found", expected.getMessage());
+        }
+    }
+
+    public void testDynamicPartial_literalMutationString2684_failAssert0() throws MustacheException, IOException {
+        try {
+            MustacheFactory c = new DefaultMustacheFactory(root) {
+                @Override
+                public MustacheVisitor createMustacheVisitor() {
+                    return new DefaultMustacheVisitor(this) {
+                        @Override
+                        public void partial(TemplateContext tc, String variable) {
+                            if (variable.startsWith("+")) {
+                                TemplateContext partialTC = new TemplateContext("{{", "}}", tc.file(), tc.line(), tc.startOfLine());
+                                list.add(new PartialCode(partialTC, df, variable.substring(1).trim()) {
+                                    @Override
+                                    public synchronized void init() {
+                                        filterText();
+                                        partial = df.compile(new StringReader(name), "__dynpartial__", "page1.txt", "]");
+                                        if ((partial) == null) {
+                                            throw new MustacheException(("Failed to parse partial name template: " + (name)));
+                                        }
+                                    }
+
+                                    ConcurrentMap<String, Mustache> dynamicaPartialCache = new ConcurrentHashMap<>();
+
+                                    @Override
+                                    public Writer execute(Writer writer, List<Object> scopes) {
+                                        StringWriter sw = new StringWriter();
+                                        partial.execute(sw, scopes);
+                                        Mustache mustache = dynamicaPartialCache.computeIfAbsent(sw.toString(), df::compilePartial);
+                                        Writer execute = mustache.execute(writer, scopes);
+                                        return appendText(execute);
+                                    }
+                                });
+                            } else {
+                                super.partial(tc, variable);
+                            }
+                        }
+                    };
+                }
+            };
+            Mustache m = c.compile(new StringReader("{{>+ [foo].html}}"), "test.html");
+            StringWriter sw = new StringWriter();
+            m.execute(sw, new HashMap<String, Object>() {
+                {
+                    put("name", "Chris");
+                    put("value", 10000);
+                    put("taxed_value", 6000);
+                    put("in_ca", true);
+                    put("foo", "simple");
+                }
+            });
+            TestUtil.getContents(root, "simple.txt");
+            sw.toString();
             junit.framework.TestCase.fail("testDynamicPartial_literalMutationString2684 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
             TestCase.assertEquals("Template [foo].html not found", expected.getMessage());
         }
     }
 
-    public void testDynamicPartial_literalMutationNumber2674_failAssert0() throws MustacheException, IOException {
+    public void testDynamicPartial_literalMutationNumber2675_failAssert0() throws MustacheException, IOException {
         try {
             MustacheFactory c = new DefaultMustacheFactory(root) {
                 @Override
@@ -890,7 +890,7 @@ public class AmplInterpreterTest extends TestCase {
             });
             TestUtil.getContents(root, "simple.txt");
             sw.toString();
-            junit.framework.TestCase.fail("testDynamicPartial_literalMutationNumber2674 should have thrown MustacheNotFoundException");
+            junit.framework.TestCase.fail("testDynamicPartial_literalMutationNumber2675 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
             TestCase.assertEquals("Template + simple.html not found", expected.getMessage());
         }
@@ -922,14 +922,14 @@ public class AmplInterpreterTest extends TestCase {
             long diff = (System.currentTimeMillis()) - start;
             TestUtil.getContents(root, "items.txt");
             sw.toString();
-            String String_15 = "Should be a little bit more than 4 seconds: " + diff;
-            boolean boolean_16 = (diff > 3999) && (diff < 6000);
+            String String_21 = "Should be a little bit more than 4 seconds: " + diff;
+            boolean boolean_22 = (diff > 3999) && (diff < 6000);
             junit.framework.TestCase.fail("testReadmeSerial_literalMutationString145 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
         }
     }
 
-    public void testReadmeParallel_literalMutationString6424_failAssert0() throws MustacheException, IOException {
+    public void testReadmeParallel_literalMutationString6425_failAssert0() throws MustacheException, IOException {
         try {
             MustacheFactory c = initParallel();
             Mustache m = c.compile("5_N]Rma)Zp`");
@@ -939,9 +939,9 @@ public class AmplInterpreterTest extends TestCase {
             long diff = (System.currentTimeMillis()) - start;
             TestUtil.getContents(root, "items.txt");
             sw.toString();
-            String String_149 = "Should be a little bit more than 1 second: " + diff;
-            boolean boolean_150 = (diff > 999) && (diff < 2000);
-            junit.framework.TestCase.fail("testReadmeParallel_literalMutationString6424 should have thrown MustacheNotFoundException");
+            String String_157 = "Should be a little bit more than 1 second: " + diff;
+            boolean boolean_158 = (diff > 999) && (diff < 2000);
+            junit.framework.TestCase.fail("testReadmeParallel_literalMutationString6425 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
             TestCase.assertEquals("Template 5_N]Rma)Zp` not found", expected.getMessage());
         }
@@ -982,7 +982,7 @@ public class AmplInterpreterTest extends TestCase {
         }
     }
 
-    public void testDeferred_literalMutationString2239_failAssert0() throws IOException {
+    public void testDeferred_literalMutationString2240_failAssert0() throws IOException {
         try {
             DefaultMustacheFactory mf = new DeferringMustacheFactory(root);
             mf.setExecutorService(Executors.newCachedThreadPool());
@@ -998,13 +998,13 @@ public class AmplInterpreterTest extends TestCase {
             m.execute(sw, context).close();
             TestUtil.getContents(root, "deferred.txt");
             sw.toString();
-            junit.framework.TestCase.fail("testDeferred_literalMutationString2239 should have thrown MustacheNotFoundException");
+            junit.framework.TestCase.fail("testDeferred_literalMutationString2240 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
             TestCase.assertEquals("Template 2[JO=6vk:PDcJ not found", expected.getMessage());
         }
     }
 
-    public void testRelativePathsTemplateFunction_literalMutationString5388_failAssert0() throws IOException {
+    public void testRelativePathsTemplateFunction_literalMutationString5389_failAssert0() throws IOException {
         try {
             MustacheFactory mf = createMustacheFactory();
             Mustache compile = mf.compile("wP/8[Cozg$:>o/lW&-[21$]n_{`");
@@ -1019,12 +1019,12 @@ public class AmplInterpreterTest extends TestCase {
             }).close();
             TestUtil.getContents(root, "relative/paths.txt");
             sw.toString();
-            junit.framework.TestCase.fail("testRelativePathsTemplateFunction_literalMutationString5388 should have thrown MustacheNotFoundException");
+            junit.framework.TestCase.fail("testRelativePathsTemplateFunction_literalMutationString5389 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
         }
     }
 
-    public void testRelativePathsTemplateFunction_literalMutationString5385_failAssert0() throws IOException {
+    public void testRelativePathsTemplateFunction_literalMutationString5386_failAssert0() throws IOException {
         try {
             MustacheFactory mf = createMustacheFactory();
             Mustache compile = mf.compile("relative/functionpat[s.html");
@@ -1039,7 +1039,7 @@ public class AmplInterpreterTest extends TestCase {
             }).close();
             TestUtil.getContents(root, "relative/paths.txt");
             sw.toString();
-            junit.framework.TestCase.fail("testRelativePathsTemplateFunction_literalMutationString5385 should have thrown MustacheNotFoundException");
+            junit.framework.TestCase.fail("testRelativePathsTemplateFunction_literalMutationString5386 should have thrown MustacheNotFoundException");
         } catch (MustacheNotFoundException expected) {
         }
     }
