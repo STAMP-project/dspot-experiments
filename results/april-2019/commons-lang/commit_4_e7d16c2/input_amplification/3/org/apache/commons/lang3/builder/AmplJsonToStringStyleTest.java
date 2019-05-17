@@ -42,126 +42,20 @@ public class AmplJsonToStringStyleTest {
     }
 
     @Test(timeout = 10000)
-    public void testNestingPerson_literalMutationString24737_remove28298_literalMutationString30572() throws Exception {
-        final ToStringStyleTest.Person p = new ToStringStyleTest.Person() {
-            @Override
-            public String toString() {
-                return new ToStringBuilder(this).append("nae", this.name).append("age", this.age).append("smoker", this.smoker).toString();
-            }
-        };
-        p.name = "FWB/Z!76";
-        Assert.assertEquals("FWB/Z!76", p.name);
-        p.age = 25;
-        p.smoker = true;
-        final AmplJsonToStringStyleTest.NestingPerson nestP = new AmplJsonToStringStyleTest.NestingPerson();
-        nestP.pid = "#1@Jane";
-        Assert.assertEquals("#1@Jane", nestP.pid);
-        nestP.person = p;
-        String o_testNestingPerson_literalMutationString24737__20 = new ToStringBuilder(nestP).append("pid", nestP.pid).append("person", nestP.person).toString();
-        Assert.assertEquals("{\"pid\":\"#1@Jane\",\"person\":{\"nae\":\"FWB/Z!76\",\"age\":25,\"smoker\":true}}", o_testNestingPerson_literalMutationString24737__20);
-        Assert.assertEquals("FWB/Z!76", p.name);
-        Assert.assertEquals("#1@Jane", nestP.pid);
-    }
-
-    @Test(timeout = 10000)
-    public void testArray_literalMutationString41799() throws Exception {
+    public void testArray_literalMutationString41261() throws Exception {
         final ToStringStyleTest.Person p = new ToStringStyleTest.Person();
-        p.name = "Jane Doe";
-        Assert.assertEquals("Jane Doe", p.name);
+        p.name = "vmz|//{`";
+        Assert.assertEquals("vmz|//{`", p.name);
         p.age = 25;
         p.smoker = true;
-        String o_testArray_literalMutationString41799__6 = new ToStringBuilder(p).append("name", p.name).append("age", p.age).append("smoker", p.smoker).append("groups", new Object() {
+        String o_testArray_literalMutationString41261__6 = new ToStringBuilder(p).append("name", p.name).append("age", p.age).append("smoker", p.smoker).append("groups", new Object() {
             @Override
             public String toString() {
-                return "3qv!4>w)|%r6/76<oD)^hwEt|E`v";
+                return "['admin', 'manager', 'user']";
             }
         }).toString();
-        Assert.assertEquals("{\"name\":\"Jane Doe\",\"age\":25,\"smoker\":true,\"groups\":\"3qv!4>w)|%r6/76<oD)^hwEt|E`v\"}", o_testArray_literalMutationString41799__6);
-        Assert.assertEquals("Jane Doe", p.name);
-    }
-
-    @Test(timeout = 10000)
-    public void testArray_literalMutationString41799_literalMutationString42398() throws Exception {
-        final ToStringStyleTest.Person p = new ToStringStyleTest.Person();
-        p.name = "Jane Doe";
-        Assert.assertEquals("Jane Doe", p.name);
-        p.age = 25;
-        p.smoker = true;
-        String o_testArray_literalMutationString41799__6 = new ToStringBuilder(p).append("name", p.name).append("age", p.age).append("smoker", p.smoker).append("$ucRyk", new Object() {
-            @Override
-            public String toString() {
-                return "3qv!4>w)|%r6/76<oD)^hwEt|E`v";
-            }
-        }).toString();
-        Assert.assertEquals("{\"name\":\"Jane Doe\",\"age\":25,\"smoker\":true,\"$ucRyk\":\"3qv!4>w)|%r6/76<oD)^hwEt|E`v\"}", o_testArray_literalMutationString41799__6);
-        Assert.assertEquals("Jane Doe", p.name);
-    }
-
-    @Test(timeout = 10000)
-    public void testArray_literalMutationString41799_add44349() throws Exception {
-        final ToStringStyleTest.Person p = new ToStringStyleTest.Person();
-        p.name = "Jane Doe";
-        Assert.assertEquals("Jane Doe", p.name);
-        p.age = 25;
-        p.smoker = true;
-        String o_testArray_literalMutationString41799_add44349__6 = new ToStringBuilder(p).append("name", p.name).append("age", p.age).append("smoker", p.smoker).append("groups", new Object() {
-            @Override
-            public String toString() {
-                return "3qv!4>w)|%r6/76<oD)^hwEt|E`v";
-            }
-        }).toString();
-        Assert.assertEquals("{\"name\":\"Jane Doe\",\"age\":25,\"smoker\":true,\"groups\":\"3qv!4>w)|%r6/76<oD)^hwEt|E`v\"}", o_testArray_literalMutationString41799_add44349__6);
-        String o_testArray_literalMutationString41799__6 = new ToStringBuilder(p).append("name", p.name).append("age", p.age).append("smoker", p.smoker).append("groups", new Object() {
-            @Override
-            public String toString() {
-                return "3qv!4>w)|%r6/76<oD)^hwEt|E`v";
-            }
-        }).toString();
-        Assert.assertEquals("{\"name\":\"Jane Doe\",\"age\":25,\"smoker\":true,\"groups\":\"3qv!4>w)|%r6/76<oD)^hwEt|E`v\"}", o_testArray_literalMutationString41799__6);
-        Assert.assertEquals("Jane Doe", p.name);
-        Assert.assertEquals("{\"name\":\"Jane Doe\",\"age\":25,\"smoker\":true,\"groups\":\"3qv!4>w)|%r6/76<oD)^hwEt|E`v\"}", o_testArray_literalMutationString41799_add44349__6);
-    }
-
-    @Test(timeout = 10000)
-    public void testArray_literalMutationString41799_remove44593() throws Exception {
-        final ToStringStyleTest.Person p = new ToStringStyleTest.Person();
-        p.name = "Jane Doe";
-        Assert.assertEquals("Jane Doe", p.name);
-        p.age = 25;
-        p.smoker = true;
-        String o_testArray_literalMutationString41799__6 = new ToStringBuilder(p).append("name", p.name).append("age", p.age).append("smoker", p.smoker).append("groups", new Object() {
-            @Override
-            public String toString() {
-                return "3qv!4>w)|%r6/76<oD)^hwEt|E`v";
-            }
-        }).toString();
-        Assert.assertEquals("{\"name\":\"Jane Doe\",\"age\":25,\"smoker\":true,\"groups\":\"3qv!4>w)|%r6/76<oD)^hwEt|E`v\"}", o_testArray_literalMutationString41799__6);
-        Assert.assertEquals("Jane Doe", p.name);
-    }
-
-    @Test(timeout = 10000)
-    public void testArray_literalMutationString41798_add44339_literalMutationString45452() throws Exception {
-        final ToStringStyleTest.Person p = new ToStringStyleTest.Person();
-        p.name = "Jane Doe";
-        Assert.assertEquals("Jane Doe", p.name);
-        p.age = 25;
-        p.smoker = true;
-        String o_testArray_literalMutationString41798_add44339__6 = new ToStringBuilder(p).append("name", p.name).append("age", p.age).append("smoker", p.smoker).append("groups", new Object() {
-            @Override
-            public String toString() {
-                return "[\'admin\', \'manager\'r \'user\']";
-            }
-        }).toString();
-        Assert.assertEquals("{\"name\":\"Jane Doe\",\"age\":25,\"smoker\":true,\"groups\":[\'admin\', \'manager\'r \'user\']}", o_testArray_literalMutationString41798_add44339__6);
-        String o_testArray_literalMutationString41798__6 = new ToStringBuilder(p).append("name", p.name).append("age", p.age).append("smoker", p.smoker).append("groups", new Object() {
-            @Override
-            public String toString() {
-                return "S&J/,y9#GX&rd0JHG42o{z_s)5$b";
-            }
-        }).toString();
-        Assert.assertEquals("{\"name\":\"Jane Doe\",\"age\":25,\"smoker\":true,\"groups\":\"S&J/,y9#GX&rd0JHG42o{z_s)5$b\"}", o_testArray_literalMutationString41798__6);
-        Assert.assertEquals("Jane Doe", p.name);
-        Assert.assertEquals("{\"name\":\"Jane Doe\",\"age\":25,\"smoker\":true,\"groups\":[\'admin\', \'manager\'r \'user\']}", o_testArray_literalMutationString41798_add44339__6);
+        Assert.assertEquals("{\"name\":\"vmz|//{`\",\"age\":25,\"smoker\":true,\"groups\":[\'admin\', \'manager\', \'user\']}", o_testArray_literalMutationString41261__6);
+        Assert.assertEquals("vmz|//{`", p.name);
     }
 
     static class NestingPerson {
