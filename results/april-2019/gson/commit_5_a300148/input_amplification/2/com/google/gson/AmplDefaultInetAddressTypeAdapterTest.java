@@ -15,59 +15,61 @@ public class AmplDefaultInetAddressTypeAdapterTest extends TestCase {
         gson = new Gson();
     }
 
-    public void testInetAddressSerializationAndDeserialization_add8_literalMutationString64_failAssert0() throws Exception {
+    public void testInetAddressSerializationAndDeserialization_literalMutationString5_failAssert0_literalMutationString76_failAssert0() throws Exception {
         try {
-            InetAddress address = InetAddress.getByName("  ");
-            String o_testInetAddressSerializationAndDeserialization_add8__3 = gson.toJson(address);
-            String jsonAddress = gson.toJson(address);
-            InetAddress value = this.gson.fromJson(jsonAddress, InetAddress.class);
-            junit.framework.TestCase.fail("testInetAddressSerializationAndDeserialization_add8_literalMutationString64 should have thrown UnknownHostException");
+            {
+                InetAddress address = InetAddress.getByName("  ");
+                String jsonAddress = gson.toJson(address);
+                InetAddress value = gson.fromJson(jsonAddress, InetAddress.class);
+                junit.framework.TestCase.fail("testInetAddressSerializationAndDeserialization_literalMutationString5 should have thrown UnknownHostException");
+            }
+            junit.framework.TestCase.fail("testInetAddressSerializationAndDeserialization_literalMutationString5_failAssert0_literalMutationString76 should have thrown UnknownHostException");
         } catch (UnknownHostException expected) {
             TestCase.assertEquals("  ", expected.getMessage());
         }
     }
 
-    public void testInetAddressSerializationAndDeserialization_literalMutationString4_failAssert0_add480_failAssert0() throws Exception {
+    public void testInetAddressSerializationAndDeserialization_literalMutationString3_failAssert0_add431_failAssert0() throws Exception {
         try {
             {
-                InetAddress address = InetAddress.getByName("8.8.n.8");
+                InetAddress address = InetAddress.getByName("T&$K;Uc");
                 String jsonAddress = gson.toJson(address);
                 gson.fromJson(jsonAddress, InetAddress.class);
                 InetAddress value = gson.fromJson(jsonAddress, InetAddress.class);
-                junit.framework.TestCase.fail("testInetAddressSerializationAndDeserialization_literalMutationString4 should have thrown UnknownHostException");
-            }
-            junit.framework.TestCase.fail("testInetAddressSerializationAndDeserialization_literalMutationString4_failAssert0_add480 should have thrown UnknownHostException");
-        } catch (UnknownHostException expected) {
-            TestCase.assertEquals("8.8.n.8", expected.getMessage());
-        }
-    }
-
-    public void testInetAddressSerializationAndDeserialization_literalMutationString3_failAssert0_add485_failAssert0() throws Exception {
-        try {
-            {
-                InetAddress address = InetAddress.getByName("8*.8.8.8");
-                String jsonAddress = gson.toJson(address);
-                InetAddress value = gson.fromJson(jsonAddress, InetAddress.class);
                 junit.framework.TestCase.fail("testInetAddressSerializationAndDeserialization_literalMutationString3 should have thrown UnknownHostException");
             }
-            junit.framework.TestCase.fail("testInetAddressSerializationAndDeserialization_literalMutationString3_failAssert0_add485 should have thrown UnknownHostException");
+            junit.framework.TestCase.fail("testInetAddressSerializationAndDeserialization_literalMutationString3_failAssert0_add431 should have thrown UnknownHostException");
         } catch (UnknownHostException expected) {
-            TestCase.assertEquals("8*.8.8.8", expected.getMessage());
+            TestCase.assertEquals("T&$K;Uc", expected.getMessage());
         }
     }
 
-    public void testInetAddressSerializationAndDeserialization_literalMutationString5_failAssert0_add487_failAssert0() throws Exception {
+    public void testInetAddressSerializationAndDeserialization_literalMutationString4_failAssert0_add424_failAssert0() throws Exception {
         try {
             {
-                InetAddress address = InetAddress.getByName("v$>}tzb");
+                InetAddress address = InetAddress.getByName("8.8.Z8.8");
+                String jsonAddress = gson.toJson(address);
+                InetAddress value = gson.fromJson(jsonAddress, InetAddress.class);
+                junit.framework.TestCase.fail("testInetAddressSerializationAndDeserialization_literalMutationString4 should have thrown UnknownHostException");
+            }
+            junit.framework.TestCase.fail("testInetAddressSerializationAndDeserialization_literalMutationString4_failAssert0_add424 should have thrown UnknownHostException");
+        } catch (UnknownHostException expected) {
+            TestCase.assertEquals("8.8.Z8.8", expected.getMessage());
+        }
+    }
+
+    public void testInetAddressSerializationAndDeserialization_literalMutationString5_failAssert0_add418_failAssert0() throws Exception {
+        try {
+            {
+                InetAddress address = InetAddress.getByName("8..8.8");
                 gson.toJson(address);
                 String jsonAddress = gson.toJson(address);
                 InetAddress value = gson.fromJson(jsonAddress, InetAddress.class);
                 junit.framework.TestCase.fail("testInetAddressSerializationAndDeserialization_literalMutationString5 should have thrown UnknownHostException");
             }
-            junit.framework.TestCase.fail("testInetAddressSerializationAndDeserialization_literalMutationString5_failAssert0_add487 should have thrown UnknownHostException");
+            junit.framework.TestCase.fail("testInetAddressSerializationAndDeserialization_literalMutationString5_failAssert0_add418 should have thrown UnknownHostException");
         } catch (UnknownHostException expected) {
-            TestCase.assertEquals("v$>}tzb", expected.getMessage());
+            TestCase.assertEquals("8..8.8", expected.getMessage());
         }
     }
 }
