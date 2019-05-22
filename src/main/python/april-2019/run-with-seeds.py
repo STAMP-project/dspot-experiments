@@ -3,6 +3,7 @@ import toolbox
 import sys
 import preparation
 import commit_setter
+import random_generator
 
 
 def run(project, index_begin, index_end):
@@ -52,8 +53,7 @@ def run(project, index_begin, index_end):
             "-Dbudgetizer=SimpleBudgetizer",
             '-Diteration=1'
         ]
-        seeds =  ['39722659', '33474231', '40742307', '12451825', '38329720', '35632880', '3588474', '733434', '25427375', '13174550']
-        for seed in seeds:
+        for seed in random_generator.seeds:
             output_path_seed = output_path + '/' + seed + '/'  # TODO current_seed
             toolbox.create(output_path_seed)
             toolbox.set_output_log_path(output_path_seed + "/amplification.log")
