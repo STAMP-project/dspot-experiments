@@ -7,12 +7,15 @@ import diff_size
 def build_table(projects):
     print_header()
     gray = False
+    total_nb_test_mode = [[], [], []]
+    total_time = [[], [], []]
+    total_nb_success = [0, 0, 0]
     for project in projects:
         project_json = toolbox.get_json_file(toolbox.get_absolute_path(toolbox.prefix_current_dataset + project))
         nb_commit = project_json["numberCommits"]  # DATA 1
         commits = project_json["commits"]
         nb_test_to_be_amplified = 0  # DATA 2
-        nb_success = [0, 0, 0, 0]  # DATA 3
+        nb_success = [0, 0, 0]  # DATA 3
         nb_test_amplified = [[], [], [], []]  # DATA 4
         time = [[], [], [], []]
         coverage = []
@@ -37,9 +40,11 @@ def build_table(projects):
                 if os.path.isdir(path_to_mode_result):
                     if is_success(path_to_mode_result):
                         success_mode[modes.index(mode)] = success_mode[modes.index(mode)] + 1
+                        total_nb_success[modes.index(mode)] = total_nb_success[modes.index(mode)] + 1
+
                     nb_test_amplified_mode[modes.index(mode)] = nb_test_amplified_mode[
-                                                                    modes.index(mode)] + get_nb_test_amplified(
-                        path_to_mode_result)
+                                                                modes.index(mode)] + get_nb_test_amplified(path_to_mode_result)
+                    total_nb_test_mode[modes.index(mode)].append(nb_test_amplified_mode[modes.index(mode)])
                     if not commit_json['concernedModule'] == "":
                         time_mode[modes.index(mode)] = time_mode[modes.index(mode)] + get_time(path_to_mode_result,
                                                                                                commit_json[
@@ -62,6 +67,9 @@ def build_table(projects):
             time[0].append(time_mode[0])
             time[1].append(time_mode[1])
             time[2].append(time_mode[2])
+            total_time[0].append(time_mode[0])
+            total_time[1].append(time_mode[1])
+            total_time[2].append(time_mode[2])
             nb_success[0] = nb_success[0] + success_mode[0]
             nb_success[1] = nb_success[1] + success_mode[1]
             nb_success[2] = nb_success[2] + success_mode[2]
@@ -69,12 +77,6 @@ def build_table(projects):
             nb_test_amplified[0].append(nb_test_amplified_mode[0])
             nb_test_amplified[1].append(nb_test_amplified_mode[1])
             nb_test_amplified[2].append(nb_test_amplified_mode[2])
-
-        # percentage_success_aampl = compute_percentage(nb_commit, nb_success[0])
-        # percentage_success_iampl = compute_percentage(nb_commit, nb_success[1])
-
-        # time[0] = convert_time(time[0])
-        # time[1] = convert_time(time[1])
 
         print '\\hline'
 
@@ -89,6 +91,19 @@ def build_table(projects):
             'avg(' + str(convert_time(avg_value(time[2]))) + ')'
         )
         print '\\hline'
+
+    print '\\hline'
+
+    print_line(
+        'total',
+        str(total_nb_success[0]) + '(' + avg(total_nb_test_mode[0]) + ')',
+        'avg(' + str(convert_time(avg_value(total_time[0]))) + ')',
+        str(total_nb_success[1]) + '(' + avg(total_nb_test_mode[1]) + ')',
+        'avg(' + str(convert_time(avg_value(total_time[1]))) + ')',
+        str(total_nb_success[2]) + '(' + avg(total_nb_test_mode[2]) + ')',
+        'avg(' + str(convert_time(avg_value(total_time[2]))) + ')'
+    )
+    print '\\hline'
 
 
 def avg(table):
