@@ -97,4 +97,4 @@ if __name__ == '__main__':
     subset_begin = toolbox.get_value_of_option(sys.argv, '--sbegin', '0')
     subset_end = toolbox.get_value_of_option(sys.argv, '--send', '-1')
 
-    run(project=sys.argv[1], index_begin=int(index_begin), index_end=int(index_end), subset_begin=subset_begin, subset_end=subset_end, amplifiers=amplifiers, iteration=iteration)
+    run(project=sys.argv[1], index_begin=int(index_begin), index_end=int(index_end), subset_begin=int(subset_begin), subset_end=int(subset_end), amplifiers=amplifiers, iteration=iteration)
