@@ -55,7 +55,7 @@ def run(project, index_begin, index_end, subset_begin, subset_end,):
             '-Diteration=1'
         ]
         for seed in random_generator.seeds:
-            output_path_seed = output_path + '/' + seed + '/'
+            output_path_seed = output_path + '/' + seed + '_' + str(subset_begin) + '_' + str(subset_end) +'/'
             toolbox.create(output_path_seed)
             toolbox.set_output_log_path(output_path_seed + "/amplification.log")
             cmd_final = cmd[:]
