@@ -40,7 +40,7 @@ def run(project, index_begin, index_end, subset_begin, subset_end, amplifiers, i
         cmd = [
             toolbox.maven_home + "mvn",
             "eu.stamp-project:dspot-maven:2.1.1-SNAPSHOT:amplify-unit-tests",
-            "-Dpath-to-test-list-csv=" + copy_and_subset(path_to_test_that_executes_the_changes, 0, 5),
+            "-Dpath-to-test-list-csv=" + copy_and_subset(path_to_test_that_executes_the_changes, subset_begin, subset_end),
             "-Dverbose=true",
             "-Dtest-criterion=ChangeDetectorSelector",
             "-Doutput-path=" + output_path,
