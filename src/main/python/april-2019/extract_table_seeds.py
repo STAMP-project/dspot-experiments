@@ -46,16 +46,18 @@ def build_table(projects):
                                                                                                project + toolbox.suffix_parent)
             path_to_ref_result = path_to_commit_folder + '/input_amplification/1/'
             success_ref = 0
+            number_test_ref = 0
             if os.path.isdir(path_to_ref_result):
                 if is_success(path_to_ref_result):
                     success_ref = 1
+                    number_test_ref = get_nb_test_amplified(path_to_ref_result)
 
             print_line(
                 str(commit_json["sha"])[0:7],
                 success_ref,
+                number_test_ref,
                 success_seed,
                 nb_test_amplified_seed,
-                time_seed
             )
 
             time[0].append(time_seed[0])
@@ -83,27 +85,22 @@ def avg_value(table):
 
 def print_line(id,
                success_ref,
+               number_test_ref,
                success_seed,
-               array_number_test_per_seed,
-               array_time_per_seed):
-    to_print = ['', id, '\\cmark' if success_ref == 1 else '-']
+               array_number_test_per_seed):
+    to_print = ['', id, '\\cmark('+ str(number_test_ref) +')' if success_ref == 1 else '-']
     for i in range(0, len(array_number_test_per_seed)):
-        '''        
-        to_print.append('{} & {}'.format(
-            '\\cmark(' + str(array_number_test_per_seed[i]) + ')' if success_seed[i] == 1 else '-',
-            array_number_test_per_seed[i],
-            array_time_per_seed[i])
-        )
-        '''
         mark = '-'
         if success_seed[i] == 1:
             if success_ref == 1:
                 mark = '\\cmark'
             else:
                 mark = '\\lcmark'
-        if not success_seed[i] == 1 and success_ref == 1:
-            mark = '\\xmark'
-        to_print.append('{}'.format(mark))
+            to_print.append('{}({})'.format(mark, array_number_test_per_seed[i]))
+        else:
+            if not success_seed[i] == 1 and success_ref == 1:
+                mark = '\\xmark'
+            to_print.append('{}'.format(mark))
     print ' & '.join(to_print) + '\\\\'
 
 def convert_date(date):
@@ -121,7 +118,7 @@ def convert_diff_size(size_diff):
 
 
 def print_header():
-    to_print = ['', 'id', 'reference']
+    to_print = ['', 'id', 'default']
     for i in range(0, len(random_generator.seeds)):
         to_print.append(str(i))
     print '&'.join(to_print) + '\\\\\n\\hline'

@@ -52,6 +52,24 @@ def build_table(projects):
 
                     nb_test_amplified_mode[modes.index(mode)] = nb_test_amplified_mode[modes.index(mode)] + get_nb_test_amplified(path_to_mode_result)
                     time_mode[modes.index(mode)] = time_mode[modes.index(mode)] + time_to_be_added
+                else:
+                    # the result has been splitted into different folder
+                    base_path_to_mode_result = path_to_commit_folder + '/' + mode.split('/')[0] + '_'
+                    time_for_success = 0
+                    for x in range(0, 30, 2):
+                        path_to_mode_result = base_path_to_mode_result + str(x) + '_' + str(x+2) + '/2/' # todo change this 2 into a 3
+                        if os.path.isdir(path_to_mode_result):
+                            if not commit_json['concernedModule'] == "":
+                                time_to_be_added = get_time(path_to_mode_result, commit_json['concernedModule'].split('/')[-2])
+                            else:
+                                time_to_be_added = get_time(path_to_mode_result,project + toolbox.suffix_parent)
+                            if is_success(path_to_mode_result):
+                                success_mode[modes.index(mode)] = success_mode[modes.index(mode)] + 1
+                                time_for_success = time_for_success + time_to_be_added
+                            nb_test_amplified_mode[modes.index(mode)] = nb_test_amplified_mode[modes.index(mode)] + get_nb_test_amplified(path_to_mode_result)
+                            time_mode[modes.index(mode)] = time_mode[modes.index(mode)] + time_to_be_added
+                    time_mode_for_success[modes.index(mode)].append(int(time_for_success))
+
 
             print_line(
                 str(commit_json["sha"])[0:7],
