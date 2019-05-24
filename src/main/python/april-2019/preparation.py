@@ -112,7 +112,7 @@ def add_needed_options(cmd, project, commit_index):
         cmd.append("-Duse-maven-to-exe-test=true")
     if project == 'commons-lang' and \
             (commit_index == 3 or commit_index == 4)\
-            or (project == 'mustache.java' and (commit_index == 6 or commit_index == 5 or commit_index == 9)):
+            or (project == 'mustache.java' and (commit_index == 6 or commit_index == 4 or commit_index == 5 or commit_index == 9)):
         cmd.append("-Dallow-path-in-assertions=true")
     return cmd
 
