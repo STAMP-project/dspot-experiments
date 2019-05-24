@@ -44,6 +44,25 @@ def build_table(projects):
                     else:
                         time_seed[random_generator.seeds.index(seed)] = time_seed[random_generator.seeds.index(seed)] + get_time(path_to_seed_result,
                                                                                                project + toolbox.suffix_parent)
+                else:
+                    correct_range, correct_step = get_range_and_step(path_to_commit_folder, seed)
+                    # the result has been splitted into different folder
+                    for x in correct_range:
+                        path_to_seed_result = path_to_commit_folder + '/seeds/' + seed + '_' + str(x) + '_' + str(x+correct_step) + '/'
+                        if os.path.isdir(path_to_seed_result):
+                            if is_success(path_to_seed_result):
+                                success_seed[random_generator.seeds.index(seed)] = success_seed[random_generator.seeds.index(seed)] + 1
+
+                            nb_test_amplified_seed[random_generator.seeds.index(seed)] = nb_test_amplified_seed[
+                                                                                             random_generator.seeds.index(seed)] + get_nb_test_amplified(path_to_seed_result)
+                            if not commit_json['concernedModule'] == "":
+                                time_seed[random_generator.seeds.index(seed)] = time_seed[random_generator.seeds.index(seed)] + get_time(path_to_seed_result,
+                                                                                                                                         commit_json['concernedModule'].split('/')[-2])
+                            else:
+                                time_seed[random_generator.seeds.index(seed)] = time_seed[random_generator.seeds.index(seed)] + get_time(path_to_seed_result,
+                                                                                                                                         project + toolbox.suffix_parent)
+
+
             path_to_ref_result = path_to_commit_folder + '/input_amplification/1/'
             success_ref = 0
             number_test_ref = 0
@@ -72,6 +91,14 @@ def build_table(projects):
             nb_test_amplified[2].append(nb_test_amplified_seed[2])
 
         print '\\hline'
+
+def get_range_and_step(path_to_commit_folder, seed):
+    if os.path.isdir(path_to_commit_folder + '/seeds/' + seed + '_0_2/'):
+        return range(0,30,2), 2
+    elif os.path.isdir(path_to_commit_folder + '/seeds/' + seed + '_0_1/'):
+        return range(0,30,1), 1
+    else:
+        return range(0,30,5), 5
 
 def avg(table):
     return "{0:.2f}".format(avg_value(table))

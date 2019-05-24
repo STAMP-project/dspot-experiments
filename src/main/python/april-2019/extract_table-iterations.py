@@ -53,8 +53,10 @@ def build_table(projects):
                 else:
                     # the result has been splitted into different folder
                     base_path_to_mode_result = path_to_commit_folder + '/' + mode.split('/')[0] + '_'
-                    for x in range(0, 30, 2):
-                        path_to_mode_result = base_path_to_mode_result + str(x) + '_' + str(x+2) + '/' + mode.split('/')[1] + '/'
+                    correct_range = range(0, 30, 5) if mode.split('/')[1] == '1' else range(0, 30, 2)
+                    correct_step = 5 if mode.split('/')[1] == '1' else 2
+                    for x in correct_range:
+                        path_to_mode_result = base_path_to_mode_result + str(x) + '_' + str(x+correct_step) + '/' + mode.split('/')[1] + '/'
                         if os.path.isdir(path_to_mode_result):
                             if not commit_json['concernedModule'] == "":
                                 time_to_be_added = get_time(path_to_mode_result, commit_json['concernedModule'].split('/')[-2])
@@ -67,11 +69,11 @@ def build_table(projects):
 
             print_line(
                 str(commit_json["sha"])[0:7],
-                '\\cmark(' + str(nb_test_amplified_mode[0]) + ')' if success_mode[0] == 1 else "0",
+                '\\cmark(' + str(nb_test_amplified_mode[0]) + ')' if success_mode[0] > 0 else "0",
                 convert_time(time_mode[0]),
-                '\\cmark(' + str(nb_test_amplified_mode[1]) + ')' if success_mode[1] == 1 else "0",
+                '\\cmark(' + str(nb_test_amplified_mode[1]) + ')' if success_mode[1] > 0 else "0",
                 convert_time(time_mode[1]),
-                '\\cmark(' + str(nb_test_amplified_mode[2]) + ')' if success_mode[2] == 1 else "0",
+                '\\cmark(' + str(nb_test_amplified_mode[2]) + ')' if success_mode[2] > 0 else "0",
                 convert_time(time_mode[2])
             )
 
@@ -204,7 +206,6 @@ def is_success(path_to_mode_result):
     for root, dirs, files in os.walk(path_to_mode_result):
         for file in files:
             if file.endswith('.java'):
-                # print path_to_mode_result
                 return True
     return False
 

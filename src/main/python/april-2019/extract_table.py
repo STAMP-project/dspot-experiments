@@ -56,8 +56,9 @@ def build_table(projects):
                     # the result has been splitted into different folder
                     base_path_to_mode_result = path_to_commit_folder + '/' + mode.split('/')[0] + '_'
                     time_for_success = 0
-                    for x in range(0, 30, 2):
-                        path_to_mode_result = base_path_to_mode_result + str(x) + '_' + str(x+2) + '/2/' # todo change this 2 into a 3
+                    correct_range = range(0, 30, 5) if mode.split('/')[1] == '1' else range(0, 30, 2)
+                    for x in correct_range:
+                        path_to_mode_result = base_path_to_mode_result + str(x) + '_' + str(x+2) + '/' + mode.split('/')[1] + '/'
                         if os.path.isdir(path_to_mode_result):
                             if not commit_json['concernedModule'] == "":
                                 time_to_be_added = get_time(path_to_mode_result, commit_json['concernedModule'].split('/')[-2])
@@ -70,7 +71,6 @@ def build_table(projects):
                             time_mode[modes.index(mode)] = time_mode[modes.index(mode)] + time_to_be_added
                     time_mode_for_success[modes.index(mode)].append(int(time_for_success))
 
-
             print_line(
                 str(commit_json["sha"])[0:7],
                 convert_date(date),
@@ -79,9 +79,9 @@ def build_table(projects):
                 convert_diff_size(size_diff),
                 str(round(coverage_commit, 2)),
                 get_nb_test_to_be_amplified(path_to_commit_folder),
-                '\\cmark(' + str(nb_test_amplified_mode[0]) + ')' if success_mode[0] == 1 else "0",
+                '\\cmark(' + str(nb_test_amplified_mode[0]) + ')' if success_mode[0] > 0 else "0",
                 convert_time(time_mode[0]),
-                '\\cmark(' + str(nb_test_amplified_mode[1]) + ')' if success_mode[1] == 1 else "0",
+                '\\cmark(' + str(nb_test_amplified_mode[1]) + ')' if success_mode[1] > 0 else "0",
                 convert_time(time_mode[1])
             )
 
