@@ -118,6 +118,8 @@ def build_table(projects):
     )
     print '\\hline'
 
+    return sum([sum(total_time[0]),sum(total_time[1]), sum(total_time[2])])
+
 
 def avg(table):
     return "{0:.2f}".format(avg_value(table))
@@ -195,7 +197,10 @@ def convert_time(time):
         time_in_minute = float(time_in_second) / 60.0
         if time_in_minute > 120:
             time_in_hours = float(time_in_minute) / 60.0
-            return "{0:.1f}".format(time_in_hours) + 'h'
+            if time_in_hours > 48:
+                time_in_days
+            else :
+                return "{0:.1f}".format(time_in_hours) + 'h'
         else:
             return "{0:.1f}".format(time_in_minute) + 'm'
     else:

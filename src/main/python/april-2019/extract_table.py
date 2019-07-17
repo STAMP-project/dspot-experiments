@@ -22,6 +22,7 @@ def build_table(projects):
         time = [[], [], [], []]
         nb_test_total_project = []
         print '\multirow{11}{*}{\\rotvertical{' + project + '}}'
+        commits = commits[0:10]
         for commit_json in commits[0:10]:
             path_to_commit_folder = toolbox.get_absolute_path(
                 toolbox.prefix_result + project + '/' + toolbox.get_output_folder_for_commit(commit_json, commits)
@@ -144,7 +145,7 @@ def build_table(projects):
     for c in coverage:
         if float(c) > 75.0:
             cpt = cpt + 1
-    print avg(coverage)
+    print 'avg coverage ' + str(avg(coverage))
     print 'commit with more than 75% of coverage : ' + str(cpt)
     print 'avg success time aampl: ' + str(convert_time(avg_value(time_mode_for_success[0])))
     print 'avg success time sbampl: ' + str(convert_time(avg_value(time_mode_for_success[1])))

@@ -7,6 +7,7 @@ import random_generator
 def build_table(projects):
     print_header()
     gray = False
+    total_time = 0
     for project in projects:
         project_json = toolbox.get_json_file(toolbox.get_absolute_path(toolbox.prefix_current_dataset + project))
         commits = project_json["commits"]
@@ -58,9 +59,13 @@ def build_table(projects):
                             if not commit_json['concernedModule'] == "":
                                 time_seed[random_generator.seeds.index(seed)] = time_seed[random_generator.seeds.index(seed)] + get_time(path_to_seed_result,
                                                                                                                                          commit_json['concernedModule'].split('/')[-2])
+
+                                total_time = total_time + get_time(path_to_seed_result, commit_json['concernedModule'].split('/')[-2])
                             else:
                                 time_seed[random_generator.seeds.index(seed)] = time_seed[random_generator.seeds.index(seed)] + get_time(path_to_seed_result,
                                                                                                                                          project + toolbox.suffix_parent)
+                                total_time = total_time + get_time(path_to_seed_result,
+                                                                   project + toolbox.suffix_parent)
 
 
             path_to_ref_result = path_to_commit_folder + '/input_amplification/1/'
@@ -70,6 +75,17 @@ def build_table(projects):
                 if is_success(path_to_ref_result):
                     success_ref = 1
                     number_test_ref = get_nb_test_amplified(path_to_ref_result)
+            else:
+                mode = 'input_amplification/1'
+                base_path_to_mode_result = path_to_commit_folder + '/' + mode.split('/')[0] + '_'
+                correct_range = range(0, 30, 5) if mode.split('/')[1] == '1' else range(0, 30, 2)
+                correct_step = 5 if mode.split('/')[1] == '1' else 2
+                for x in correct_range:
+                    path_to_mode_result = base_path_to_mode_result + str(x) + '_' + str(x+correct_step) + '/' + mode.split('/')[1] + '/'
+                    if os.path.isdir(path_to_mode_result):
+                        if is_success(path_to_mode_result):
+                            success_ref = 1
+                            number_test_ref = get_nb_test_amplified(path_to_mode_result)
 
             print_line(
                 str(commit_json["sha"])[0:7],
@@ -79,9 +95,6 @@ def build_table(projects):
                 nb_test_amplified_seed,
             )
 
-            time[0].append(time_seed[0])
-            time[1].append(time_seed[1])
-            time[2].append(time_seed[2])
             nb_success[0] = nb_success[0] + success_seed[0]
             nb_success[1] = nb_success[1] + success_seed[1]
             nb_success[2] = nb_success[2] + success_seed[2]
@@ -91,6 +104,8 @@ def build_table(projects):
             nb_test_amplified[2].append(nb_test_amplified_seed[2])
 
         print '\\hline'
+
+    return total_time
 
 def get_range_and_step(path_to_commit_folder, seed):
     if os.path.isdir(path_to_commit_folder + '/seeds/' + seed + '_0_2/'):
@@ -103,7 +118,6 @@ def get_range_and_step(path_to_commit_folder, seed):
 def avg(table):
     return "{0:.2f}".format(avg_value(table))
 
-
 def avg_value(table):
     if len(table) == 0:
         return 0.0
@@ -115,19 +129,19 @@ def print_line(id,
                number_test_ref,
                success_seed,
                array_number_test_per_seed):
-    to_print = ['', id, '\\cmark('+ str(number_test_ref) +')' if success_ref == 1 else '-']
+    to_print = ['', id]
     for i in range(0, len(array_number_test_per_seed)):
         mark = '-'
-        if success_seed[i] == 1:
-            if success_ref == 1:
+        if success_seed[i] > 0:
+            if success_ref > 0:
                 mark = '\\cmark'
             else:
                 mark = '\\lcmark'
-            to_print.append('{}({})'.format(mark, array_number_test_per_seed[i]))
+            to_print.append('{}'.format(array_number_test_per_seed[i]))
         else:
-            if not success_seed[i] == 1 and success_ref == 1:
+            if not success_seed[i] > 0 and success_ref > 0:
                 mark = '\\xmark'
-            to_print.append('{}'.format(mark))
+            to_print.append('{}'.format('-'))
     print ' & '.join(to_print) + '\\\\'
 
 def convert_date(date):
@@ -145,7 +159,7 @@ def convert_diff_size(size_diff):
 
 
 def print_header():
-    to_print = ['', 'id', 'default']
+    to_print = ['', 'id']
     for i in range(0, len(random_generator.seeds)):
         to_print.append(str(i))
     print '&'.join(to_print) + '\\\\\n\\hline'

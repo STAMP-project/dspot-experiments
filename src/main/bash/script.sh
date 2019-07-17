@@ -1,1 +1,3 @@
-java -cp /home/bdanglot/workspace/dspot/dspot-prettifier/target/dspot-prettifier-2.0.1-SNAPSHOT-jar-with-dependencies.jar eu.stamp_project.prettifier.Main --path-to-properties src/main/resources/javapoet.properties --test-criterion PitMutantScoreSelector --path-to-code2vec /home/bdanglot/workspace/code2vec --path-to-code2vec-model dspot-prettifier-model/models/dspot-prettifier-exp-march-2019/saved_model_iter6 --path-to-amplified-test-class results/august-2018/javapoet/top_2_amplification/com/squareup/javapoet/AmplNameAllocatorTest.java 2>&1 | tee -a results/march-2019/javapoet_AmplNameAllocatorTest.java.log
+export JAVA_OPTS="-XX:-OmitStackTraceInFastThrow -XX:-UseGCOverheadLimit"
+export MAVEN_OPTS="-Xms2G -Xmx16G"
+git clone https://github.com/jhy/jsoup dataset/april-2019/jsoup_parent 1>file.log 2>&1
