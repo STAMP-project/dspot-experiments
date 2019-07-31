@@ -2,8 +2,6 @@
 
 Comparison of amplified test methods (on the left) that detect behavioral change and developer test method (on the right).
 
-<script src="https://gist.github.com/danglotb/09a7e91582b01ca2bdbb7f83f8366bf0.js"></script>
-
 ```java
 @Test(timeout = 10000)
 public void readMulti_literalMutationNumber3() {
