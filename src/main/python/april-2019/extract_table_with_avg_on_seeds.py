@@ -2,6 +2,7 @@ import sys
 import toolbox
 import os
 import diff_size
+import random_generator
 
 
 def build_table(projects):
@@ -33,7 +34,7 @@ def build_table(projects):
                 continue
             coverage.append(round(coverage_commit, 2))
             nb_test_to_be_amplified = nb_test_to_be_amplified + get_nb_test_to_be_amplified(path_to_commit_folder)
-            modes = ["assert_amplification", "input_amplification/3"]
+            modes = ["assert_amplification"] #, "input_amplification/seeds/"]
             nb_test_amplified_mode = [0, 0]
             time_mode = [0, 0]
             success_mode = [0, 0]
@@ -73,7 +74,8 @@ def build_table(projects):
                             nb_test_amplified_mode[modes.index(mode)] = nb_test_amplified_mode[modes.index(mode)] + get_nb_test_amplified(path_to_mode_result)
                             time_mode[modes.index(mode)] = time_mode[modes.index(mode)] + time_to_be_added
                     time_mode_for_success[modes.index(mode)].append(int(time_for_success))
-
+            nb_test_amplified_mode[1], time_mode[1] = \
+                compute_avg_for_seeds(project, path_to_commit_folder + '/', commit_json)
             print_line(
                 str(commit_json["sha"])[0:7],
                 convert_date(date),
@@ -84,7 +86,7 @@ def build_table(projects):
                 get_nb_test_to_be_amplified(path_to_commit_folder),
                 '\\cmark(' + str(nb_test_amplified_mode[0]) + ')' if success_mode[0] > 0 else "0",
                 convert_time(time_mode[0]),
-                '\\cmark(' + str(nb_test_amplified_mode[1]) + ')' if success_mode[1] > 0 else "0",
+                '\\cmark(' + "{0:.2f}".format(nb_test_amplified_mode[1]) + ')' if nb_test_amplified_mode[1] > 0 else "0",
                 convert_time(time_mode[1])
             )
 
@@ -119,9 +121,9 @@ def build_table(projects):
             '\\xspace{}',
             '\\xspace{}',
             nb_test_to_be_amplified,
-            sum(nb_test_amplified[0]),
+            int(sum(nb_test_amplified[0])),
             str(convert_time(sum(time[0]))),
-            sum(nb_test_amplified[1]),
+            int(sum(nb_test_amplified[1])),
             str(convert_time(sum(time[1])))
         )
         print '\\hline'
@@ -136,9 +138,9 @@ def build_table(projects):
         '\\xspace{}',
         total_nb_test_to_be_amplified,
         str(nb_success[0]) +  '(' + str(total_nb_test_mode[0]) + ')',
-        str(convert_time(sum(total_time[0]))),
+        'avg(' + str(convert_time(avg_value(total_time[0]))) + ')',
         str(nb_success[1]) +  '(' + str(total_nb_test_mode[1]) + ')',
-        str(convert_time(sum(total_time[1])))
+        'avg(' + str(convert_time(avg_value(total_time[1]))) + ')'
     )
     print '\\hline'
 
@@ -153,6 +155,68 @@ def build_table(projects):
     print 'avg success time sbampl: ' + str(convert_time(avg_value(time_mode_for_success[1])))
     total_success = nb_success[1]
     print 'success ' + str(total_success) + ' / 60 ' + "{0:.2f}".format(compute_percentage(60, total_success))
+
+def get_range_and_step(path_to_commit_folder, seed):
+    if os.path.isdir(path_to_commit_folder + '/seeds/' + seed + '_0_2/'):
+        return range(0,30,2), 2
+    elif os.path.isdir(path_to_commit_folder + '/seeds/' + seed + '_0_1/'):
+        return range(0,30,1), 1
+    else:
+        return range(0,30,5), 5
+
+def compute_avg_for_seeds(project, path_to_commit_folder, commit_json):
+    nb_test_amplified_seed =  [0 for x in range(0, len(random_generator.seeds) + 1)]
+    time_seed =  [0 for x in range(0, len(random_generator.seeds) + 1)]
+
+    # initial run
+    path_to_seed_result = path_to_commit_folder + "input_amplification/3"
+    if os.path.isdir(path_to_seed_result):
+        nb_test_amplified_seed[-1] = \
+            nb_test_amplified_seed[-1] + get_nb_test_amplified(path_to_seed_result)
+        if not commit_json['concernedModule'] == "":
+            time_seed[-1] = time_seed[-1] + get_time(path_to_seed_result, commit_json['concernedModule'].split('/')[-2])
+        else:
+            time_seed[-1] = time_seed[-1] + get_time(path_to_seed_result, project + toolbox.suffix_parent)
+    else:
+        correct_range, correct_step = get_range_and_step(path_to_commit_folder, "input_amplification/3")
+        # the result has been splitted into different folder
+        for x in correct_range:
+            path_to_seed_result = path_to_commit_folder + '/seeds/' + "input_amplification/3" + '_' + str(x) + '_' + str(x+correct_step) + '/'
+            if os.path.isdir(path_to_seed_result):
+                nb_test_amplified_seed[-1] = nb_test_amplified_seed[-1] + get_nb_test_amplified(path_to_seed_result)
+                if not commit_json['concernedModule'] == "":
+                    time_seed[-1] = time_seed[-1] + get_time(path_to_seed_result, commit_json['concernedModule'].split('/')[-2])
+                else:
+                    time_seed[-1] = time_seed[-1] + get_time(path_to_seed_result, project + toolbox.suffix_parent)
+    # seeds
+    for seed in random_generator.seeds:
+        path_to_seed_result = path_to_commit_folder + "seeds/" + seed + '/'
+        if os.path.isdir(path_to_seed_result):
+            nb_test_amplified_seed[random_generator.seeds.index(seed)] = \
+                nb_test_amplified_seed[random_generator.seeds.index(seed)] + get_nb_test_amplified(path_to_seed_result)
+            if not commit_json['concernedModule'] == "":
+                time_seed[random_generator.seeds.index(seed)] = time_seed[random_generator.seeds.index(seed)] + get_time(path_to_seed_result,
+                                                                                                                         commit_json['concernedModule'].split('/')[-2])
+            else:
+                time_seed[random_generator.seeds.index(seed)] = time_seed[random_generator.seeds.index(seed)] + get_time(path_to_seed_result,
+                                                                                                                         project + toolbox.suffix_parent)
+        else:
+            correct_range, correct_step = get_range_and_step(path_to_commit_folder, seed)
+            # the result has been splitted into different folder
+            for x in correct_range:
+                path_to_seed_result = path_to_commit_folder + '/seeds/' + seed + '_' + str(x) + '_' + str(x+correct_step) + '/'
+                if os.path.isdir(path_to_seed_result):
+
+                    nb_test_amplified_seed[random_generator.seeds.index(seed)] = nb_test_amplified_seed[
+                                                                                     random_generator.seeds.index(seed)] + get_nb_test_amplified(path_to_seed_result)
+                    if not commit_json['concernedModule'] == "":
+                        time_seed[random_generator.seeds.index(seed)] = time_seed[random_generator.seeds.index(seed)] + get_time(path_to_seed_result,
+                                                                                                                                 commit_json['concernedModule'].split('/')[-2])
+
+                    else:
+                        time_seed[random_generator.seeds.index(seed)] = time_seed[random_generator.seeds.index(seed)] + get_time(path_to_seed_result,
+                                                                                                                                 project + toolbox.suffix_parent)
+    return avg_value(nb_test_amplified_seed), avg_value(time_seed)
 
 def avg(table):
     return "{0:.2f}".format(avg_value(table))

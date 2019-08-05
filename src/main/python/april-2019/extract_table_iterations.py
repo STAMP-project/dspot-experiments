@@ -36,6 +36,7 @@ def build_table(projects):
             time_mode = [0, 0, 0]
             success_mode = [0, 0, 0]
             for mode in modes:
+                is_already_saved = False
                 path_to_mode_result = path_to_commit_folder + '/' + mode + '/'
                 if os.path.isdir(path_to_mode_result):
                     if is_success(path_to_mode_result):
@@ -62,7 +63,8 @@ def build_table(projects):
                                 time_to_be_added = get_time(path_to_mode_result, commit_json['concernedModule'].split('/')[-2])
                             else:
                                 time_to_be_added = get_time(path_to_mode_result,project + toolbox.suffix_parent)
-                            if is_success(path_to_mode_result):
+                            if is_success(path_to_mode_result) and not is_already_saved:
+                                is_already_saved = True
                                 success_mode[modes.index(mode)] = success_mode[modes.index(mode)] + 1
                             nb_test_amplified_mode[modes.index(mode)] = nb_test_amplified_mode[modes.index(mode)] + get_nb_test_amplified(path_to_mode_result)
                             time_mode[modes.index(mode)] = time_mode[modes.index(mode)] + time_to_be_added

@@ -29,8 +29,9 @@ def build_table(projects):
             coverage.append(round(coverage_commit, 2))
             nb_test_to_be_amplified = nb_test_to_be_amplified + get_nb_test_to_be_amplified(path_to_commit_folder)
             nb_test_amplified_seed =  [0 for x in range(0, len(random_generator.seeds))]
-            time_seed =  [0 for x in range(0, len(random_generator.seeds))]
-            success_seed = [0 for x in range(0, len(random_generator.seeds))]
+            time_seed =  [0 for x in range(0, len(random_generator.seeds)+ 1 )]
+            success_seed = [0 for x in range(0, len(random_generator.seeds)+ 1)]
+
             for seed in random_generator.seeds:
                 path_to_seed_result = path_to_commit_folder + '/seeds/' + seed + '/'
                 if os.path.isdir(path_to_seed_result):
@@ -129,7 +130,7 @@ def print_line(id,
                number_test_ref,
                success_seed,
                array_number_test_per_seed):
-    to_print = ['', id]
+    to_print = ['', id, str(number_test_ref) if success_ref > 0 else '-']
     for i in range(0, len(array_number_test_per_seed)):
         mark = '-'
         if success_seed[i] > 0:
@@ -159,7 +160,7 @@ def convert_diff_size(size_diff):
 
 
 def print_header():
-    to_print = ['', 'id']
+    to_print = ['', 'id', 'ref']
     for i in range(0, len(random_generator.seeds)):
         to_print.append(str(i))
     print '&'.join(to_print) + '\\\\\n\\hline'
