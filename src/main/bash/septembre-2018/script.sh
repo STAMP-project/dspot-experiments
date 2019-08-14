@@ -1,2 +1,0 @@
-export JAVA_OPTS="-XX:-OmitStackTraceInFastThrow -XX:-UseGCOverheadLimit"
-mvn clean eu.stamp-project:diff-test-selection:0.5-SNAPSHOT:list -DpathToDiff=patch.diff -DpathToOtherVersion=/home/bdanglot/workspace/icst-2019/september-2018/dataset/pdfbox_parent/pdfbox -Dmodule=pdfbox/ -DoutputPath=/home/bdanglot/workspace/icst-2019/september-2018/result/pdfbox/commit_8_c125360/commit_coverage_testsThatExecuteTheChanges.csv -X -Dxwiki.clover.skip=false 1>file.log 2>&1

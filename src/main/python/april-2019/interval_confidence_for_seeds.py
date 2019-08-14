@@ -18,7 +18,6 @@ def build_table():
             path_to_commit_folder = toolbox.get_absolute_path(
                 toolbox.prefix_result + project + '/' + toolbox.get_output_folder_for_commit(commit_json, commits)
             ) + '/'
-
             path_to_ref_result = path_to_commit_folder + '/input_amplification/1/'
             success_ref = 0
             number_test_ref = 0
