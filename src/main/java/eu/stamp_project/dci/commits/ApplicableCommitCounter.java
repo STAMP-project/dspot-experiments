@@ -133,6 +133,7 @@ public class ApplicableCommitCounter extends AbstractRepositoryAndGit {
                 try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
                     String list = reader.lines().collect(Collectors.joining("\n"));
                     if (!list.isEmpty()) {
+                        LOGGER.warn("{} has test to be amplified.", blackListElement.sha);
                         this.shaOfApplicableCommits.add(blackListElement.sha);
                     }
                 } catch (Exception e) {
@@ -168,8 +169,9 @@ public class ApplicableCommitCounter extends AbstractRepositoryAndGit {
             final File file = new File(
                     FOLDER_JSON_PATH + project + APPLICABLE_COMMITS_PATH + JSON_SUFFIX
             );
+            LOGGER.info("{}", applicableCommitCounter.shaOfApplicableCommits);
             try (FileWriter writer = new FileWriter(file, false)) {
-                writer.write(gson.toJson(project));
+                writer.write(gson.toJson(applicableCommitCounter.shaOfApplicableCommits));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
