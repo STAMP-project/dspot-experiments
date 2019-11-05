@@ -1,9 +1,11 @@
 package eu.stamp_project.dci.selection;
 
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.io.IOException;
 
 /**
  * created by Benjamin DANGLOT
@@ -45,9 +47,20 @@ public class TestSelectionAccordingDiff {
                 "-Dxwiki.clirr.skip=true", // anyway, we can use this specific goal on all project, the value is not used...
                 "--quiet");
         */
+
         // 4 compute the list of the test that execute the change
         final String absolutePathToParent = new File(pathToRepository + "_parent/" + concernedModule).getAbsolutePath();
         final String absolutePathToCurrentCommit = new File(pathToRepository + "/" + concernedModule).getAbsolutePath();
+        final File fileCommit = new File(absolutePathToParent + "/src/main/java/com.google.gson/module-info.java");
+        final File fileParent = new File(absolutePathToCurrentCommit + "/src/main/java/com.google.gson/module-info.java");
+        if (fileCommit.exists()){
+            try {
+                FileUtils.forceDelete(fileCommit);
+                FileUtils.forceDelete(fileParent);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         long time = System.currentTimeMillis();
         MavenExecutor.runGoals(absolutePathToParent+ "/pom.xml",
                 "clean",
