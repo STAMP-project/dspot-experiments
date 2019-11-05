@@ -48,12 +48,22 @@ public class ApplicableCommitCounter extends AbstractRepositoryAndGit {
         public ShaOfApplicableCommitsElementJSON(String sha) {
             this.sha = sha;
         }
+
+        @Override
+        public String toString() {
+            return this.sha;
+        }
     }
 
     public class ShaOfApplicableCommitsJSON {
         public List<ShaOfApplicableCommitsElementJSON> commits = new ArrayList<>();
         public void add(String sha) {
             this.commits.add(new ShaOfApplicableCommitsElementJSON(sha));
+        }
+
+        @Override
+        public String toString() {
+            return this.commits.stream().map(Object::toString).collect(Collectors.joining("\n"));
         }
     }
 
