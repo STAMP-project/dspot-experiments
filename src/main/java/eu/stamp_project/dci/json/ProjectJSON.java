@@ -75,4 +75,12 @@ public class ProjectJSON {
         return this.commits.stream()
                 .anyMatch(commitJSON -> commitJSON.sha.equals(sha));
     }
+
+    public CommitJSON find(String sha) {
+        return this.commits.stream()
+                .filter(commitJSON -> commitJSON.sha.equals(sha))
+                .findFirst()
+                .get();
+    }
+
 }

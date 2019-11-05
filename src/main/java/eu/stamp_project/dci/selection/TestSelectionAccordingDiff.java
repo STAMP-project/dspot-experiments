@@ -51,11 +51,11 @@ public class TestSelectionAccordingDiff {
         long time = System.currentTimeMillis();
         MavenExecutor.runGoals(absolutePathToParent+ "/pom.xml",
                 "clean",
-                "eu.stamp-project:diff-test-selection:0.5-SNAPSHOT:list",
-                "-DpathToDiff=" + new File(pathToRepository + "/" + DIFF_NAME).getAbsolutePath(),
-                "-DpathToOtherVersion=" + absolutePathToCurrentCommit,
-                "-Dmodule=" + concernedModule,
-                "-DoutputPath=" + new File(pathToRepository + "/" + TMP_TEST_SELECTION_FILENAME).getAbsolutePath());
+                "eu.stamp-project:dspot-diff-test-selection:2.2.2-SNAPSHOT:list",
+                "-Dpath-to-diff=" + new File(pathToRepository + "/" + DIFF_NAME).getAbsolutePath(),
+                "-Dpath-dir-second-version=" + absolutePathToCurrentCommit,
+                concernedModule.isEmpty() ? "" : "-Dmodule=" + concernedModule,
+                "-Doutput-path=" + new File(pathToRepository + "/" + TMP_TEST_SELECTION_FILENAME).getAbsolutePath());
         return System.currentTimeMillis() - time;
     }
 }
